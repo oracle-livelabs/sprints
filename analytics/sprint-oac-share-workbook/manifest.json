@@ -5,12 +5,12 @@
       {
          "title": "How do I share a workbook in Oracle Analytics Cloud (OAC)?",
          "description": "Learn how to share worksbooks in Oracle Analytics Cloud (OAC)!",
-         "filename": "oac-share-workbook.md"
+         "filename": "./oac-share-workbook.md"
       },
       {
          "title": "How do I share my dataset in OAC?",
          "description": "Learn how to share your datasets in OAC!",
-         "filename": "sprint-oac-share-datasets.md"
+         "filename": "../sprint-oac-share-datasets/sprint-oac-share-datasets.md"
       }
    ],
    "task_type": "Sections"
