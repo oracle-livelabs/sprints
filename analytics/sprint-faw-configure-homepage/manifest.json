@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I configure my homepage in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to configure your homepage in Fusion Analytics Warehouse(FAW)!",
+         "filename": "faw-configure-homepage.md"
+      }
+   ],
+   "task_type": "Sections"
+}
