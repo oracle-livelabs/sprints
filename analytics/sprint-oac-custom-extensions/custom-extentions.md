@@ -5,6 +5,8 @@ When working with visualizations in Oracle Analytics Cloud, there are over 45 pr
 
 ## Import custom extensions
 The following steps will guide you on how to import custom extensions.
+    
+>**Note:** You must have the **BI Service Administrator** role to be able to execute the following steps. This role allows you to work in the OAC console.
 
 1. From the OAC homepage **Navigation menu**, click on **Console** and select **Extensions**.
 
