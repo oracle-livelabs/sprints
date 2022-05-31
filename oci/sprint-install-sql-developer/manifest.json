@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I install Oracle SQL Developer?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-install-sql-developer/sprint-install-sql-developer.md"
+      }
+   ],
+   "task_type": "Sections"
+}

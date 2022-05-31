@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I connect to Query Service from SQL Developer?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-connect-qs-sqldeveloper/sprint-connect-qs-sqldeveloper.md"
+      }
+   ],
+   "task_type": "Sections"
+}
