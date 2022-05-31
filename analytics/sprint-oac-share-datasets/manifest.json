@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I share my dataset in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn two ways to share your datasets in OAC!",
+         "filename": "sprint-oac-share-datasets.md"
+      }
+   ],
+   "task_type": "Sections"
+}

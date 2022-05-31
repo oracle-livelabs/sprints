@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I change the default date format of a column in a dataset in Oracle Analyics Cloud (OAC)?",
+         "description": "Learn how to change the default date display of your datasets in Oracle Analytics Cloud (OAC)!",
+         "filename": "change-date-format.md"
+      }
+   ],
+   "task_type": "Sections"
+}
