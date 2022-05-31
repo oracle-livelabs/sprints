@@ -170,7 +170,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
   ![The external table that was created in SQL Developer is displayed.](./images/external-table-in-queryservice.png " ")
 
-
+This concludes the Query Service Sprints.
 
 ## Learn More
 

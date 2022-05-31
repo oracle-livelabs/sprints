@@ -51,3 +51,7 @@ You can connect to any target Oracle database schema using standard Oracle datab
 ## Learn More
 
 * [SQL Developer Documentation](https://docs.oracle.com/cd/E12151_01/index.htm)
+* [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
+* [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
+* [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
+* [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
