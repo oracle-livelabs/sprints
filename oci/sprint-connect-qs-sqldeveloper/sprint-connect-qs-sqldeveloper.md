@@ -10,7 +10,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 * A Query Service project.
 
-## Connect to Query Service from SQL Developer
+## Work with Query Service from SQL Developer
 
 ### **Step 1: Create a Database Password**
 
@@ -46,9 +46,11 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The completed download database wallet dialog box is displayed.](./images/wallet-download-location.png " ")
 
-### **Step 3: Use SQL Developer to Query Tables in Query Service**
+### **Step 3: Connect to Query Service from SQL Developer**
 
-7. Start SQL Developer. If you don't have SQL Developer installed on your machine, refer to the **How do I install Oracle SQL Developer?** sprint from the **Contents** menu on the left.
+7. Start SQL Developer. The **Welcome Page** is displayed.
+
+    >**Note:** If you don't have SQL Developer installed on your machine, refer to the **How do I install Oracle SQL Developer?** sprint from the **Contents** menu on the left.
 
   ![The SQL Developer welcome page is displayed.](./images/sqldeveloper-welcome.png " ")
 
@@ -65,9 +67,9 @@ In this sprint you will perform the steps required to connect to Query Service a
     * **Password:** Enter the password the you created in **Step 1** in this sprint.
     * **Save Password:** Select this checkbox.
     * **Connection Type:** Select **Cloud Wallet** from this drop-down list.
-    * **Configuration File:** Click **Browse** and navigate to the folder where you saved your **Wallet.zip** file in **Step 2** in this sprint, **Downloads** in our example.
+    * **Configuration File:** Click **Browse** and navigate to the folder where you downloaded your **Wallet.zip** file in **Step 2** in this sprint, the **Downloads** folder in our example.
 
-10. If you are connected to VPN, disconnect from it. Click **Test** to test your connection. If the test is successful, the **Status: Success** is displayed in the dialog box.
+10. If you are connected to VPN, disconnect from it. Click **Test** to test your connection. If the test is successful, the **Status: Success** message is displayed in the dialog box.
 
   ![The completed New/Select Database Connection dialog box.](./images/test-success.png " ")
 
@@ -75,11 +77,13 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The new schema connection is displayed.](./images/connected-schema.png " ")
 
+### **Step 4: Use SQL Developer to Query Tables in Query Service**
+
 12. Right-mouse click the **qs-project-schema** schema, and then select **Schema Browser** from the context menu.
 
     ![Select the Schema browser from the context menu.](./images/schema-browswer.png " ")
 
-13. A **qs-project-schema** tab is displayed. From the list of available schemas drop-down list, select the **MOVIESTREAM_DEMO** schema that is available with Query Service. The **Tables** option is selected by default in the second drop-down list. The list of tables in this schema are displayed.
+13. A **qs-project-schema** tab is displayed. From the list of available schemas drop-down list, select the **MOVIESTREAM_DEMO** schema that is available with Query Service. The **Tables** option is selected by default in the second drop-down list. The tables in this schema are displayed.
 
     ![Select the Schema and table to view the tables in the selected schema.](./images/moviestream-demo-schema.png " ")
 
@@ -95,15 +99,15 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The query result is displayed.](./images/query-output.png " ")
 
-### **Step 4: Create External Tables in Query Service from SQL Developer**
+### **Step 5: Use SQL Developer to Create External Tables in Query Service**
 
->**Note:** Although you can create a regular database table in the **PROJECT** schema, you cannot populate it with data since the **PROJECT** user has no tablespace quota.  
+>**Note:** Although you can create a regular database table in the **PROJECT** schema in Query Service, you cannot populate it with data since the **PROJECT** user has no tablespace quota.  
 
 16. In the **qs-project-schema**, select the **PROJECT** schema that is available with Query Service from the schemas drop-down list. The **Tables** option is selected by default in the second drop-down list. Currently, there are no tables in this schema.
 
     ![Select the project Schema.](./images/project-schema.png " ")
 
-17. Create a new external table named **custsales_jdbc** in the **PROJECT** schema. You will also populate this table with data from a public Object Storage bucket named **`moviestream_gold`** in the **c4u04** public tenancy (namespace) using the URL in the script. Copy and paste the following script into your SQL Worksheet, and then click the **Run Script (F5)** icon in the Worksheet toolbar.
+17. Create a new _external table_ named **custsales_jdbc** in the **PROJECT** schema. You will also populate this table with data from a public Object Storage bucket named **`moviestream_gold`** in the **c4u04** public tenancy (namespace) using the URL in the script. Copy and paste the following script into your SQL Worksheet, and then click the **Run Script (F5)** icon in the Worksheet toolbar.
 
     ```
     <copy>declare
@@ -161,6 +165,8 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![A new SQL worksheet tab.](./images/query-result.png " ")
 
+### **Step 6: View the New External Table in Query Service**
+
 21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
 
 22. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**. The **Query Editor** page is displayed.
@@ -171,7 +177,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
   ![The external table that was created in SQL Developer is displayed.](./images/external-table-in-queryservice.png " ")
 
-> **Note:** It could take up to an hour after you create the external table in SQL Develwoper before you can see it in Query Service.
+> **Note:** It could take up to an hour after you create the external table in SQL Developer before it is displayed in Query Service.
 
 This concludes the Query Service Sprints.
 
