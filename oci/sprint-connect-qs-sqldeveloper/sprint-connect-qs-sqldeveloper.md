@@ -20,13 +20,13 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The project name link is highlighted.](./images/project-name-link.png " ")  
 
-3. On the project's detail page, click the **More Actions** drop-down list and select **Create Database Password**.
+3. On the project's detail page, click the **More Actions** drop-down list, and then select **Create Database Password**.
 
     ![The worksheet detail page is displayed.](./images/create-database-password.png " ")  
 
-4. In the **Create Database Password** dialog box, enter and confirm the password for the user **PROJECT** user (schema) that is automatically created for you when you create a Query Service project. Make sure you remember the password. Next, click **Save Changes**.
+4. In the **Create Database Password** dialog box, enter and confirm the password of your choice for the **PROJECT** user (schema) that is automatically created for you when you create a Query Service project. **Important:** Make a note of this password as you will need it to perform later tasks. Next, click **Save Changes**.
 
-    >**Note:** You can connect to the **PROJECT** schema using any Oracle Database client tool such as Oracle SQL Developer, Oracle SQLcl, or SQL*Plus. You can then create Query service Project tables manually in this schema and run queries against those tables. It is also the Database User that the service uses to run queries submitted through the OCI Interface (UI/SDK/CLI).
+    >**Note:** You can connect to the **PROJECT** schema using any Oracle Database client tool such as Oracle SQL Developer (you will do this in a later step), Oracle SQLcl, or SQL*Plus. You can then create Query service Project tables manually in this schema and run queries against those tables. It is also the Database User that the service uses to run queries submitted through the OCI Interface (UI/SDK/CLI).
 
   ![The completed create database password dialog box is displayed.](./images/click-save-changes.png " ")  
 
@@ -67,11 +67,11 @@ In this sprint you will perform the steps required to connect to Query Service a
     * **Connection Type:** Select **Cloud Wallet** from this drop-down list.
     * **Configuration File:** Click **Browse** and navigate to the folder where you saved your **Wallet.zip** file in **Step 2** in this sprint, **Downloads** in our example.
 
-10. Click **Test** to test your connection. If the test is successful, the **Status: Success** is displayed in the dialog box.
+10. If you are connected to VPN, disconnect from it. Click **Test** to test your connection. If the test is successful, the **Status: Success** is displayed in the dialog box.
 
   ![The completed New/Select Database Connection dialog box.](./images/test-success.png " ")
 
-11.    Click **Connect**. The **qs-project-schema** schema is displayed in the **Oracle Connections** tree.
+11. Click **Connect**. The **qs-project-schema** schema is displayed in the **Oracle Connections** tree.
 
     ![The new schema connection is displayed.](./images/connected-schema.png " ")
 
@@ -87,7 +87,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![Drag and drop the selected table onto the SQL worksheet.](./images/drag-drop-table.png " ")
 
-    A dialog box is displayed, click **Apply**. The query is displayed.
+    A dialog box is displayed, click **Apply**. The query is displayed in the SQL Worksheet.
 
     ![The query is displayed in the SQL Worksheet.](./images/run-statement.png " ")
 
@@ -103,7 +103,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![Select the project Schema.](./images/project-schema.png " ")
 
-17. Copy and paste the following script into your SQL Worksheet to create a new external table named **custsales_jdbc** in the **PROJECT** schema. Click the **Run Script (F5)** icon in the Worksheet toolbar.
+17. Create a new external table named **custsales_jdbc** in the **PROJECT** schema. You will also populate this table with data from a public Object Storage bucket named **`moviestream_gold`** in the **c4u04** public tenancy (namespace) using the URL in the script. Copy and paste the following script into your SQL Worksheet, and then click the **Run Script (F5)** icon in the Worksheet toolbar.
 
     ```
     <copy>declare
@@ -132,7 +132,7 @@ In this sprint you will perform the steps required to connect to Query Service a
       </copy>
       ```
 
-      The **PL/SQL procedure successfully completed** message is displayed in the **Script Output** tab.
+      A **PL/SQL procedure successfully completed** message is displayed in the **Script Output** tab.
 
       ![Create external table script in the SQL worksheet.](./images/create-external-table.png " ")
 
@@ -153,7 +153,8 @@ In this sprint you will perform the steps required to connect to Query Service a
 20. Copy and paste the following script into your SQL Worksheet to query the newly created external table, and then click the **Run Statement** icon in the Worksheet toolbar.      
 
     ```
-    <copy>select * from custsales_jdbc;</copy>
+    <copy>select *
+    from custsales_jdbc;</copy>
     ```
 
     The query result is displayed in the **Query Result** tab.
@@ -169,6 +170,8 @@ In this sprint you will perform the steps required to connect to Query Service a
   The **custsales_jdbc** external table that you created in SQL Developer is displayed.
 
   ![The external table that was created in SQL Developer is displayed.](./images/external-table-in-queryservice.png " ")
+
+> **Note:** It could take up to an hour after you create the external table in SQL Develwoper before you can see it in Query Service.
 
 This concludes the Query Service Sprints.
 

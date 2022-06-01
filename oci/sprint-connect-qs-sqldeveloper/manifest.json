@@ -7,6 +7,12 @@
          "type": "tenancy",
          "description": " ",
          "filename": "./../sprint-connect-qs-sqldeveloper/sprint-connect-qs-sqldeveloper.md"
+      },
+      {
+         "title": "How do I install Oracle SQL Developer?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-install-sql-developer/sprint-install-sql-developer.md"
       }
    ],
    "task_type": "Sections"

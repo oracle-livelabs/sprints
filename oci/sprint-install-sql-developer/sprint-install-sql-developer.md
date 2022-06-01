@@ -22,21 +22,21 @@ You can connect to any target Oracle database schema using standard Oracle datab
 
     ![The downloaded .zip file is displayed in the Downloads directory.](./images/downloaded-zip.png " ")
 
-3. Extract the `.zip` file to a directory of your choice. In our example, we will extract the file to the **Program Files** folder. Unzipping the SQL Developer kit creates a folder named **sqldeveloper** under our selected **Program Files** folder such as `C:\Program Files\sqldeveloper`. Many files and folders will be added under the **sqldeveloper** folder. In MS-Windows, navigate to the location where you downloaded the `.zip` file, and then click the `.zip` file name. The **Extract** tab is displayed. Click the **Extract all** icon on the toolbar.   
+3. Extract the downloaded `.zip` file to a directory of your choice. In our example, we will extract the file to the **Program Files** folder. Unzipping the SQL Developer kit creates a folder named **sqldeveloper** under our selected **Program Files** folder such as `C:\Program Files\sqldeveloper`. Many files and folders will be added under the **sqldeveloper** folder. In MS-Windows, navigate to the location where you downloaded the `.zip` file, and then click the `.zip` file name. The **Extract** tab is displayed. Click the **Extract all** icon on the toolbar.   
 
   ![The downloaded .zip file is selected and extract all is clicked.](./images/extract-all.png " ")  
 
-4. In the **Extract Compressed (Zipped) Folders** dialog box, browse to the folder where you'd like to extract the `.zip` file. Click **Browse** and then navigate to and click the desired folder such as **Program Files**. Next, click **Select Folder**. The **Extract Compressed (Zipped) Folders** dialog box is re-displayed. The **Files to be extracted to this folder** field displays your selected folder. Click **Extract**.
+4. In the **Extract Compressed (Zipped) Folders** dialog box, browse to the folder where you'd like to extract the `.zip` file. Click **Browse** and then navigate to and click the desired folder such as **Program Files** in our example. Next, click **Select Folder**. The **Extract Compressed (Zipped) Folders** dialog box is re-displayed. The **Files to be extracted to this folder** field displays your selected folder. Click **Extract**.
 
     ![Select the folder where to extract the file.](./images/extract.png " ")  
 
     > **Note:** If a **Destination Folder Access Denied** message box is displayed in MS-Windows, click **Continue**.
 
-    The extracted file contents are displayed in the folder that you chose. In the top **sqldeveloper** folder, you can double-click the **`sqldeveloper.exe`** file to start SQL Developer.
+    The extracted file contents are displayed in the folder that you chose. In the top **sqldeveloper** folder, you can double-click the **`sqldeveloper.exe`** file to start SQL Developer. Don't double-click the file as you'll create a shortcut on your Desktop in the next step.
 
     ![The file is extracted to the selected folder.](./images/file-extracted.png " ")  
 
-5.  Create a shortcut for the **`sqldeveloper.exe`** file on your Desktop. In MS-Windows, navigate to the top **sqldeveloper** folder, right-click the **`sqldeveloper.exe`** file, and then select **Send to > Desktop (create shortcut)** from the context menus.
+5.  Create a shortcut for the **`sqldeveloper.exe`** file on your Desktop to make it easier to start SQL Developer. In MS-Windows, navigate to the top **sqldeveloper** folder, right-click the **`sqldeveloper.exe`** file, and then select **Send to > Desktop (create shortcut)** from the context menus.
 
   ![Create a shortcut on the Desktop in Windows.](./images/create-shortcut.png " ")  
 
