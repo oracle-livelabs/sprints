@@ -179,10 +179,13 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     > **Note:** It could take up to an hour after you create the external table in SQL Developer before it is displayed in Query Service.
 
-24. Query the **custsales\_jdbc** external table. Delete any queries that you might have in your Scratchpad worksheet. Click the **Actions** icon next the **custsales\_jdbc** table, and then select **Query** from the Context menu. The auto generated SQL query is displayed in the Editor area. Click **Run Query** to run the query. An **Running Query** information box is displayed briefly. In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.  
+24. Query the **custsales\_jdbc** external table. Delete any queries that you might have in your Scratchpad worksheet. Click the **Actions** icon next the **custsales\_jdbc** table, and then select **Query** from the Context menu. The auto generated SQL query is displayed in the Editor area. Click **Run Query** to run the query. A **Running Query** information box is displayed briefly.   
+
+  ![Select Query from the Actions context menu associated with CUSTSALES.](./images/query-external-table-qs.png " ")
+
+  In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.
 
   ![Select Query from the Actions context menu associated with CUSTSALES.](./images/external-table-output.png " ")
-
 
 This concludes the Query Service Sprints.
 
