@@ -165,7 +165,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![A new SQL worksheet tab.](./images/query-result.png " ")
 
-### **Step 6: View the New External Table in Query Service**
+### **Step 6: View and Query the New External Table in Query Service**
 
 21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
 
@@ -177,7 +177,12 @@ In this sprint you will perform the steps required to connect to Query Service a
 
   ![The external table that was created in SQL Developer is displayed.](./images/external-table-in-queryservice.png " ")
 
-> **Note:** It could take up to an hour after you create the external table in SQL Developer before it is displayed in Query Service.
+    > **Note:** It could take up to an hour after you create the external table in SQL Developer before it is displayed in Query Service.
+
+24. Query the **custsales\_jdbc** external table. Delete any queries that you might have in your Scratchpad worksheet. Click the **Actions** icon next the **custsales\_jdbc** table, and then select **Query** from the Context menu. The auto generated SQL query is displayed in the Editor area. Click **Run Query** to run the query. An **Running Query** information box is displayed briefly. In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.  
+
+  ![Select Query from the Actions context menu associated with CUSTSALES.](./images/external-table-output.png " ")
+
 
 This concludes the Query Service Sprints.
 
