@@ -9,5 +9,6 @@
          "filename": "./../sprint-create-qs-policies/sprint-create-qs-policies.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

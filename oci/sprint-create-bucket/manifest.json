@@ -28,5 +28,6 @@
          "filename": "../sprint-change-bucket-visibility/sprint-change-bucket-visibility.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

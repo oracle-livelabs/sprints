@@ -6,22 +6,19 @@
          "title": "How can I download the ADB Wallet using OCI CLI?",
          "description": "",
          "filename": "sprint-download-adb-wallet.md"
-      },
-      {
-         "title": "Where do I find the ADB OCID?",
-         "description": "",
-         "filename": "../sprint-find-adb-ocid/sprint-find-adb-ocid.md"
-      },
-      {
-         "title": "How do I install OCI CLI?",
-         "description": "",
-         "filename": "../../oci/sprint-install-ocicl/sprint-install-ocicl.md"
-      },
-      {
-         "title": "How can I add autocomplete for OCI CLI?",
-         "description": "",
-         "filename": "../../oci/sprint-autocomplete-for-ocicl/sprint-autocomplete-for-ocicl.md"
       }
    ],
-   "task_type": "Sections"
+   "show_related": [
+
+      { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [
+         "data-management", 
+         "autonomous-database-for-analytics-and-data-warehousing",
+         "autonomous-json-database", 
+         "autonomous-database-for-transaction-processing-and-mixed-workloads",
+         "devops"
+         ], "state": "collapsed" }
+      ],
+   "task_type": "Sections", 
+   "hide_button": "true",
+   "hide_button": "true"
 }

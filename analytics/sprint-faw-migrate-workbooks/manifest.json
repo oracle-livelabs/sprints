@@ -13,5 +13,6 @@
          "filename": "../sprint-faw-migrate-kpis/faw-migrate-kpis.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+ "hide_button": "true"
 }

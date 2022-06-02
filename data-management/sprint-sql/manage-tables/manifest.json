@@ -38,5 +38,6 @@
          "filename": "../undrop-table/undrop-table.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }
