@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I migrate KPIs from test to production in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to migrate KPIs from test to production in Fusion Analytics!",
+         "filename": "./faw-migrate-kpis.md"
+      },
+      {
+         "title": "How do I migrate workbooks from a test to production environment in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-migrate-workbooks/sprint-faw-migrate-workbooks.md"
+      }
+   ],
+   "task_type": "Sections"
+}
