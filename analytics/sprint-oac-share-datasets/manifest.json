@@ -8,5 +8,6 @@
          "filename": "sprint-oac-share-datasets.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+ "hide_button": "true"
 }

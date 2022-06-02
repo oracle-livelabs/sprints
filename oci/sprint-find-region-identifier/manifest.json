@@ -9,5 +9,6 @@
          "filename": "./../sprint-find-region-identifier/sprint-find-region-identifier.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

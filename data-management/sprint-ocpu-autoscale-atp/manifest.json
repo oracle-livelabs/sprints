@@ -8,5 +8,6 @@
          "filename": "sprint-ocpu-autoscale-atp.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

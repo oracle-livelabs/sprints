@@ -9,5 +9,6 @@
          "filename": "./../sprint-find-compartment-ocid/sprint-find-compartment-ocid.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

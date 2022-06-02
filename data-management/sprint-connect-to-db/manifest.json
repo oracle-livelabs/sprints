@@ -18,5 +18,6 @@
          "filename": "../sprint-connecting-from-the-internet/connect-internet.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

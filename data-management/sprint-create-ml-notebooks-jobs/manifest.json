@@ -13,5 +13,6 @@
          "filename": "../sprint-grant-ml-user-priv-dbtools/sprint-grant-ml-user-priv-dbtools.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }
