@@ -6,12 +6,12 @@
          "title": "How can I add autocomplete for OCI CLI?",
          "description": "",
          "filename": "sprint-autocomplete-for-ocicl.md"
-      },
-      {
-         "title": "How do I install Oracle Cloud Command Line Interface (OCI CLI)",
-         "description": "",
-         "filename": "../sprint-install-ocicl/sprint-install-ocicl.md"
       }
-   ],
+   ],"show_related": [
+
+      { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [
+         "devops"
+         ], "state": "collapsed" }
+      ],
    "task_type": "Sections"
 }
