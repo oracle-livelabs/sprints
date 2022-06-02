@@ -18,5 +18,7 @@
          "devops"
          ], "state": "collapsed" }
       ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true",
+   "hide_button": "true"
 }

@@ -15,5 +15,6 @@
          "autonomous-database-for-transaction-processing-and-mixed-workloads"
          ], "state": "collapsed" }
       ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }
