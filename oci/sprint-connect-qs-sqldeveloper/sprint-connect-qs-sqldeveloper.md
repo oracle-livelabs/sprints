@@ -38,7 +38,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The new Query Service project detail is displayed.](./images/download-database-wallet.png " ")
 
-6. In the **Download Database Wallet** dialog box, enter and confirm the password for the user **PROJECT** user (schema) that your created in **Step 1** in this sprint, and then click **Download**.
+6. In the **Download Database Wallet** dialog box, enter and confirm the password of your choice that protects the Client Credentials **Wallet.zip** file that you will download, and then click **Download**.
 
     ![The completed download database wallet dialog box is displayed.](./images/download-wallet.png " ")
 
