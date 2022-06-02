@@ -23,5 +23,6 @@
          "filename": "../sprint-adb-tableaccess/sprint-adb-tableaccess.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

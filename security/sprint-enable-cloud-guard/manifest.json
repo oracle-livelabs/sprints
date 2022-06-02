@@ -16,5 +16,6 @@
             "filename": "../sprint-create-user-group-cloud-guard/sprint-create-user-group-cloud-guard.md"
         }
     ],
-    "task_type": "Sections"
+    "task_type": "Sections",
+   "hide_button": "true"
 }

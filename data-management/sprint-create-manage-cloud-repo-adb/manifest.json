@@ -28,5 +28,6 @@
          "filename": "../sprint-sql-ops-cloud-repo-adb/sprint-sql-ops-cloud-repo-adb.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

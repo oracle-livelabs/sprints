@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I import custom Oracle Analytics visualization extensions in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to import custom visualization plugins on Oracle Analytics Cloud!",
+         "filename": "custom-extentions.md"
+      }
+   ],
+   "task_type": "Sections", 
+ "hide_button": "true"
+}

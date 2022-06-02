@@ -9,5 +9,6 @@
          "filename": "./../sprint-grant-access-data-catalog/sprint-grant-access-data-catalog.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

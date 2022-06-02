@@ -18,5 +18,6 @@
          "filename": "../sprint-drop-user/sprint-drop-user.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }
