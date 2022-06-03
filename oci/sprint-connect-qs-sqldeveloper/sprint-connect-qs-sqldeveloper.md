@@ -6,13 +6,17 @@ In this sprint you will perform the steps required to connect to Query Service a
 ### Prerequisites
 * An Oracle Cloud Account.
 * An optional compartment for your Query Service project and resources.
-* An OCI Data Catalog instance that contains at least one Oracle Object Storage data asset that has been harvested to generate the logical data entities that will be used by Query Service. For detailed instructions on creating a Data Catalog data asset and harvesting it, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877&clear=180&session=103071880685237) LiveLabs workshop. Alternatively, you can create a new Data Catalog instance when you create your Query Service project.
+* An OCI Data Catalog instance that contains at least one Oracle Object Storage data asset that has been harvested to generate the logical data entities that will be used by Query Service.
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 * A Query Service project.
 
 ## Work with Query Service from SQL Developer
 
-### **Step 1: Create a Database Password**
+In this sprint, you will use SQL Developer to connect to a Query Service project, create an external table in that project, and query the newly created external table. Finally, you will view and query the newly created table in Query Service.
+
+### **Connect to a Query Service Project from SQL Developer**
+
+To connect to a Query Service project from SQL Developer, you need to create a database password, download a database wallet, and then create a database connection in SQL Developer.
 
 1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
 
@@ -32,8 +36,6 @@ In this sprint you will perform the steps required to connect to Query Service a
 
   The project's detail page is re-displayed.
 
-### **Step 2: Download Database Wallet**
-
 5. On the project's details page, click **Download Database Wallet**.
 
     ![The new Query Service project detail is displayed.](./images/download-database-wallet.png " ")
@@ -46,15 +48,13 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The completed download database wallet dialog box is displayed.](./images/wallet-download-location.png " ")
 
-### **Step 3: Connect to Query Service from SQL Developer**
-
 7. Start SQL Developer. The **Welcome Page** is displayed.
 
     >**Note:** If you don't have SQL Developer installed on your machine, refer to the **How do I install Oracle SQL Developer?** sprint from the **Contents** menu on the left.
 
   ![The SQL Developer welcome page is displayed.](./images/sqldeveloper-welcome.png " ")
 
-8. In the **Connections** pane, click the **New Connection** icon on the toolbar, and then click **New Database Connection**.
+8. Create a new database connection. In the **Connections** pane, click the **New Connection** icon on the toolbar, and then click **New Database Connection**.
 
   ![Click the new connection icon on the toolbar.](./images/new-connection.png " ")
 
@@ -77,7 +77,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The new schema connection is displayed.](./images/connected-schema.png " ")
 
-### **Step 4: Use SQL Developer to Query Tables in Query Service**
+### **Query a Query Service Table from SQL Developer**
 
 12. Right-mouse click the **qs-project-schema** schema, and then select **Schema Browser** from the context menu.
 
@@ -99,7 +99,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![The query result is displayed.](./images/query-output.png " ")
 
-### **Step 5: Use SQL Developer to Create External Tables in Query Service**
+### **Create an External Table in Query Service from SQL Developer**
 
 >**Note:** Although you can create a regular database table in the **PROJECT** schema in Query Service, you cannot populate it with data since the **PROJECT** user has no tablespace quota.  
 
@@ -165,7 +165,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
     ![A new SQL worksheet tab.](./images/query-result.png " ")
 
-### **Step 6: View and Query the New External Table in Query Service**
+### **View and Query the New External Table in Query Service**
 
 21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
 
