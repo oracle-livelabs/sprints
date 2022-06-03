@@ -10,7 +10,7 @@
    ],"show_related": [
 
       { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [
-         "devops"
+         "cloud-infrastructure"
          ], "state": "collapsed" }
       ],
    "task_type": "Sections",

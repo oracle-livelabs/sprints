@@ -10,15 +10,12 @@
    ],
    "show_related": [
 
-      { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [
-         "data-management", 
-         "autonomous-database-for-analytics-and-data-warehousing",
-         "autonomous-json-database", 
-         "autonomous-database-for-transaction-processing-and-mixed-workloads",
-         "devops"
+      { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [ 
+         "adb-shared",
+         "adw","ajd","atp",
+         "cloud-infrstructure"
          ], "state": "collapsed" }
       ],
    "task_type": "Sections", 
-   "hide_button": "true",
    "hide_button": "true"
 }
