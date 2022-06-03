@@ -33,6 +33,18 @@
         "filename": "./../sprint-create-obj-table-qs/sprint-create-obj-table-qs.md"
       },
       {
+         "title": "How do I connect to Query Service from SQL Developer?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-connect-qs-sqldeveloper/sprint-connect-qs-sqldeveloper.md"
+      },
+      {
+         "title": "How do I install Oracle SQL Developer?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-install-sql-developer/sprint-install-sql-developer.md"
+      },
+      {
          "title": "How can I create a bucket in Oracle Cloud?",
          "type": "tenancy",
          "description": " ",
