@@ -8,14 +8,14 @@ Cloud Guard deals with security information globally and should only be availabl
 2. Open the navigation menu and click <b> Identity & Security</b>. Under <b> Identity</b>, click <b> Groups</b>. 
 
 
-![The navigation window showing the Identity & Security menu along with the Identity and Grouops button](images/cloud-guard-user.png "Identity and security menu")
+![The navigation window showing the Identity & Security menu along with the Identity and Grouops button](images/usercloudguard.png "Identity and security menu")
 
 3. Click <b> Create Group</b>.
 4. Fill in the required fields and then click <b> Create</b>. 
 > **Note:** Provide a name that clearly identifies the group, such as  `"CloudGuardUsers"`. This name is unchangeable and must be unique across all groups in the tenancy. Avoid entering any confidential information from your organization
 
 
-![The create group button and the corresponding pop up window showing where to input the group name and description](images/name-cloud-guard.png "Create group button")
+![The create group button and the corresponding pop up window showing where to input the group name and description](images/cloudguardnamepic.png "Create group button")
 
 ## Learn More
 
