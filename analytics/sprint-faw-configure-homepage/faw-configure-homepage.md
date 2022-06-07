@@ -1,10 +1,10 @@
 # How do I configure my homepage in Fusion Analytics Warehose (FAW)?
 Duration: 2 minutes
 
-When logging into your FAW instance for the first time, you will need to configure your homepage. You can personalize your homepage with your favorite cards and your favorite reports and this allows you to access your most used objects easily within the homepage. There are two sections of the homepage:
+When logging into your FAW instance, you land on your homepage. You can personalize your homepage with your favorite cards (KPIs) and your favorite reports. This allows you to access your most frequently used objects easily from your homepage. There are two sections of the homepage:
 * Left side: Keep all key KPIs that you monitor on the left side of the homepage
 * Right side: Keep links to access your favorite or frequently used reports on the right side of the homepage
-    
+
     ![Homepage](images/homepage.png)
 
 The following steps will show you how to configure your homepage in FAW:
@@ -26,12 +26,10 @@ The following steps will show you how to configure your homepage in FAW:
 
     ![Favorite analysis](images/favorite-analysis.png)
 
-5. Navigate back to your homepage and your favorite cards and links will be displayed. To add more links to your favorite analysis', click the **+** button, find the analysis to add, and click **OK** to add this to the list of favorite links. 
+5. Navigate back to your homepage and your favorite cards and links will be displayed. To add more links to your favorite analysis', click the **+** button, find the analysis to add, and click **OK** to add this to the list of favorite links.
 
     ![Favorite links](images/favorite-links.png)
 
     >**Tip:** If you want to remove a favorite card or link, hover over the object and click the **Remove from Favorites**, represented by the start icon.
 
 Congratulations, you have now learned how to configure your homepage in Fusion Analytics Warehouse!
-
-

@@ -20,9 +20,7 @@ The best practice when setting your incremental data load is to set it to a time
 
   ![Pipeline Parameters](images/pipeline-parameters.png)
 
-4. In the Pipeline Parameters, you have two sets of options: Global Parameters and Additional Settings. Global Parameters allows you to change things like the language, currency, exchange rate and the initial extract date. In this Sprint, we focus on the Incremental Execution Time in the Additional Settings section which is the setting we want to change. Go ahead and input the new **Incremental Execution time** considering you want it to be during non-business hours and click **Save**.
-
-    >**Note:** The Time Zone is based on the user that is logged in and we will be changing the Incremental Execution Time based on this timezone.
+4. In the Pipeline Parameters, you have three sets of options: Data Pipeline, Global Parameters and Data Refresh Schedule. In this Sprint, we focus on the **Data Refresh Schedule** which allows us to pick the interval for our data refresh from Daily all the way up to Yearly. We also have the option to select the Time and Timezone for the refresh. Go ahead and input when you want the Data Refresh to occur, considering you want it to be during non-business hours as a best practice and click **Save**.
 
   ![Change incremental update time](images/change-time.png)
 
