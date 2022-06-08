@@ -1,12 +1,12 @@
-# How do I Repair SQL?
+# How do I Download SQL?
 Duration: 2 minutes
 
-## Repair SQL
+## Download Repair SQL
 
 1. From the left navigation pane, click **Finished Jobs** to view the page containing the details of all the finished jobs.
 2. From the table under **Finished Jobs**, click the **Job Name**:
 
-  ![Job Name has been highlighted.](./images/finishedjobs-jobname.png " ")
+  ![Job Name has been highlighted](./images/finishedjobs-jobname.png " ")
 
 3. Click the **Group Name**:
 
@@ -16,13 +16,21 @@ Duration: 2 minutes
 
   ![Out-of-Sync link has been highlighted.](./images/out-of-sync-link-highlighted.png " ")
 
-5. Click **Run Repair**.
+5. Click **Download Repair SQL**.
 
-  ![Run Repair](./images/click-run-repair.png " ")
+  ![Click Download Repair SQL.](./images/click-download-repair-sql.png " ")
 
-  The out-of-sync records for the selected job are repaired.
+  The SQL file gets downloaded.
 
-  ![Out of sync repaired.](./images/out-of-sync-repaired.png " ")
+  ![Out of sync repaired](./images/out-of-sync-repaired.png " ")
+
+6. Open a terminal to view the SQL file. Navigate to the file location:
+
+    ![Open terminal.](./images/terminal-sql-view.png " ")
+
+7. Extract the zip file to view the SQL file.
+
+    ![View the SQL file.](./images/extract-sql-zip.png " ")
 
 ## Video Preview
 Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:FpuEAnA9Q)
@@ -30,7 +38,7 @@ Watch our short video that explains the Download Repair SQL functionality in Ora
 
 ## Learn More
 
-* [Repairing Out-of-Sync Jobs](https://docs.oracle.com/en/middleware/goldengate/veridata/12.2.1.4/gvdug/working-jobs.html#GUID-B46185DF-4B7E-4647-8BE2-F7176E1FFDFF)
+* [Downloading SQL Statements for Out-of-Sync Records](https://docs.oracle.com/en/middleware/goldengate/veridata/12.2.1.4/gvdug/working-jobs.html#GUID-0AA3E8E2-BAD3-41D2-83CD-E8986C69A3ABl)
 * [Oracle GoldenGate Veridata documentation](https://docs.oracle.com/en/middleware/goldengate/veridata/12.2.1.4/index.html)
 * [Veridata Basic Workshop-Oracle LiveLabs: Get Started with Oracle GoldenGate Veridata workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=833)
 * [Oracle LiveLabs: Master Oracle GoldenGate Veridata Advanced Features workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=913)
