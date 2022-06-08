@@ -3,7 +3,7 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I download repair SQL?",
+         "title": "How do I repair SQL?",
          "description": "",
          "filename": "./../sprint-ogg-vdt-repair-sql/sprint-ogg-vdt-repair-sql.md"
       }

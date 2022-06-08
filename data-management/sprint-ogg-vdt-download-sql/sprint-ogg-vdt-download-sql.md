@@ -1,9 +1,17 @@
-# How do I Download SQL?
+# How do I download SQL?
 Duration: 2 minutes
+
+## Prerequisites
+This sprint assumes you have:
+  * Installed and configured Oracle GoldenGate Veridata.
+  * Created a group.
+  * Configured compare pairs.
+  * Created a job.
+  * Run the job.
 
 ## Download Repair SQL
 
-1. From the left navigation pane, click **Finished Jobs** to view the page containing the details of all the finished jobs.
+1. In the Oracle GoldenGate Veridata UI, from the left navigation pane, click **Finished Jobs** to view the page containing the details of all the finished jobs.
 2. From the table under **Finished Jobs**, click the **Job Name**:
 
   ![Job Name has been highlighted](./images/finishedjobs-jobname.png " ")
@@ -33,7 +41,7 @@ Duration: 2 minutes
     ![View the SQL file.](./images/extract-sql-zip.png " ")
 
 ## Video Preview
-Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:FpuEAnA9Q)
+Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:Q_FpuEAnA9Q)
 
 
 ## Learn More

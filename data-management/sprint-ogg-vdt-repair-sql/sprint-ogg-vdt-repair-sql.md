@@ -1,5 +1,13 @@
-# How do I Repair SQL?
+# How do I repair SQL?
 Duration: 2 minutes
+
+## Prerequisites
+This sprint assumes you have:
+  * Installed and configured Oracle GoldenGate Veridata.
+  * Created a group.
+  * Configured compare pairs.
+  * Created a job.
+  * Run the job.
 
 ## Repair SQL
 
@@ -25,7 +33,7 @@ Duration: 2 minutes
   ![Out of sync repaired.](./images/out-of-sync-repaired.png " ")
 
 ## Video Preview
-Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:FpuEAnA9Q)
+Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:Q_FpuEAnA9Q)
 
 
 ## Learn More
