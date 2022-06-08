@@ -6,7 +6,7 @@ Security Zones let you be confident that your resources in the Oracle Cloud Infr
 ## Creating a Security Zone
 1. Open the navigation menu and click <b>Identity & Security</b>. Under <b>Security Zones</b>, click <b>Overview</b>
 
-![Navigation menu showing the Identity & Security menu along with the Security Zone and Overview button](images/create-security-zone.png "Security Zone Button")
+![Navigation menu showing the Identity & Security menu along with the Security Zone and Overview button](images/securityzone.png "Security Zone Button")
 
 2. Click <b>Create Security Zone</b>.
 
