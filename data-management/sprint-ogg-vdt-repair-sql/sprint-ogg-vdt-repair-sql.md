@@ -38,8 +38,6 @@ See **Learn More**.
 ### Video Preview
 Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:Q_FpuEAnA9Q)
 
-### Related Sprints
-  **How do I download SQL in GoldenGate Veridata?**
 
 ## Learn More
 
