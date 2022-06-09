@@ -3,9 +3,15 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I repair SQL?",
+         "title": "How do I repair SQL in GoldenGate Veridata?",
          "description": "",
          "filename": "./../sprint-ogg-vdt-repair-sql/sprint-ogg-vdt-repair-sql.md"
+      },
+
+      {
+         "title": "How do I download SQL in GoldenGate Veridata?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-download-sql/sprint-ogg-vdt-download-sql.md"
       }
    ],
    "task_type": "Sections",
