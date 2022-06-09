@@ -8,7 +8,8 @@ This sprint assumes you have:
   * Configured compare pairs.
   * Created a job.
   * Run the job.
-  See **Learn More**.
+
+See **Learn More**.
 
 ## Download Repair SQL
 
