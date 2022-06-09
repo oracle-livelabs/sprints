@@ -1,11 +1,11 @@
-# How do I change the schedule for incremental data load in Fusion Analytics Warehouse (FAW)?
+# How do I change the Data Refresh Schedule in Fusion Analytics Warehouse (FAW)?
 Duration: 3 minutes
 
-Incremental data load in Fusion Analytics Warehouse allows you to automatically refresh your data source so that your FAW environment has the most current data. You have the option to set a recurring schedule to run this data load which occurs once every 24 hours.
+Data Refresh Schedule in Fusion Analytics Warehouse allows you to automatically refresh your data source so that your FAW environment has the most current data. You have the option to set a recurring schedule to run this data load which occurs once every 24 hours.
 
-The best practice when setting your incremental data load is to set it to a time during non-business hours when your transaction volumes are very low. This will ensure that your business operations run without interruption during high traffic hours.
+The best practice when setting your Data Refresh Schedule is to set it to a time during non-business hours when your transaction volumes are very low. This will ensure that your business operations run without interruption during high traffic hours.
 
-## Change incremental data load
+## Change Data Refresh Schedule
 > **Note:** You must have Service Admin role to be able to complete the following steps.
 
 1. In your FAW instance, navigate to the **Console** tab using the navigator menu.
@@ -24,7 +24,7 @@ The best practice when setting your incremental data load is to set it to a time
 
   ![Change incremental update time](images/change-time.png)
 
-5. A confirmation window will appear, asking if you want to accept the data impact and save your change. Any changes to the global parameters will take affect only when you reset your warehouse. For the Incremental Execution Time, changes will take effect when the next refresh is run. Click **Accept Data Impact and Save**.
+5. A confirmation window will appear, asking if you want to accept the data impact and save your change. Any changes to the global parameters will take effect only when you reset your warehouse. For the Data Refresh Schedule, changes will take effect when the next refresh is run. Click **Accept Data Impact and Save**.
 
   ![Change warning](images/notification.png)
 
@@ -32,8 +32,8 @@ The best practice when setting your incremental data load is to set it to a time
 
   ![Audit log option](images/audit-log.png)
 
-7. Here, you will be able to see a history of all the changes that have been made. The first entry will reflect the change you have just made to your incremental data load.
+7. Here, you will be able to see a history of all the changes that have been made. The first entry will reflect the change you have just made to your Data Refresh Schedule.
 
   ![Audit log results](images/audit-log-result.png)
 
-Congratulations! You have successfully learned how to change the schedule for incremental data load in Fusion Analytics Warehouse (FAW) and some best practices around that.
+Congratulations! You have successfully learned how to change the Data Refresh Schedule in Fusion Analytics Warehouse (FAW) and some best practices around it.

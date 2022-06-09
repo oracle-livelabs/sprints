@@ -12,11 +12,11 @@ When you are done creating your DV workbooks in your test environment with your 
 
   ![Navigate to Projects](images/projects.png)
 
-2. Navigate to the specific analysis or workbook that you want to migrate to your production environment and click the **Options** menu. Select **Export** and your export options will appear.
+2. Navigate to the specific workbook that you want to migrate to your production environment and click the **Options** menu. Select **Export** and your export options will appear.
 
   ![Export workbook](images/export.png)
 
-3. Select the options you would like to enable. If you wish to encrypt your data, provide a password and click **Save**. This will download a .dva file of your workbook/analysis which we will import into our production environment.
+3. Select the options you would like to enable. If you wish to encrypt your data, provide a password and click **Save**. This will download a .dva file of your workbook which we will import into our production environment.
     >**Note:** In most cases, you will leave the options to default because your production environment will have a production dataset that will be used.
 
   ![Export workbook options](images/export-options.png)
@@ -29,7 +29,7 @@ When you are done creating your DV workbooks in your test environment with your 
 | Include Permissions|This option brings permissions and duty roles used in the test environment over to the production environment|
 | Protect Password |This option encrypts your .dva file and protects it with a password|
 
-4. In your **production environment**, navigate to the **Projects** tab like we did in step 1 and select the folder where you want to import the workbook/analysis. Click on the **Actions Menu** on the top right and select **Import Workbook/Flow** and you will be prompted to select the file you want you to import.
+4. In your **production environment**, navigate to the **Projects** tab like we did in step 1 and select the folder where you want to import the workbook. Click on the **Actions Menu** on the top right and select **Import Workbook/Flow** and you will be prompted to select the file you want to import.
 
   ![Import workbook](images/import.png)
 
@@ -44,3 +44,6 @@ When you are done creating your DV workbooks in your test environment with your 
   ![Result](images/result.png)
 
 Congratulations! You have successfully learned how to migrate your DV workbooks from your test to production environment.
+
+## Learn More
+* [Bundle Your Application Artifacts](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/bundle-your-application-artifacts.html#GUID-596E4D3E-9E23-4A7C-ACF2-A57D8B4FB41C)

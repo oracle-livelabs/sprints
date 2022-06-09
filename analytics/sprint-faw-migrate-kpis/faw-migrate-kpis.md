@@ -35,4 +35,7 @@ You must have the **Author** application role and the owner of the KPIs you want
 Congratulations! You have just learned how to migrate your KPIs from a test to production environment in Fusion Analytics Warehouse.
 
 ## Learn More
+
 * [Upload a KPI](https://docs.oracle.com/en/cloud/saas/analytics/21r3/fawug/upload-kpi.html)
+
+* [Bundle Your Application Artifacts](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/bundle-your-application-artifacts.html#GUID-596E4D3E-9E23-4A7C-ACF2-A57D8B4FB41C)

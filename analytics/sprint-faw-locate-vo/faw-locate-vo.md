@@ -16,7 +16,7 @@ In Fusion Analytics Warehouse, Data Augmentation helps you to add data to your r
 
     ![View object](images/view-object.png)
 
-4. Enter the View Object in the **Source Table** of your Data Augmentation. If you cannot find the View Object in Data Augmentation, open an SR and your View Object will be whitelisted.
+4. Enter the View Object in the **Source Table** of your Data Augmentation. If you cannot find the View Object in Data Augmentation with the option **System Provided** for **Source Table Type**, open an SR and request to whitelist that View Object. The other option is to enter **Customer Provided** for **Source Table Type**.
 
     ![Source table](images/source-table.png)
 
