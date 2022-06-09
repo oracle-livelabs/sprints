@@ -1,13 +1,14 @@
-# How do I download SQL?
+# How do I download SQL in GoldenGate Veridata?
 Duration: 2 minutes
 
-## Prerequisites
+### Prerequisites
 This sprint assumes you have:
   * Installed and configured Oracle GoldenGate Veridata.
   * Created a group.
   * Configured compare pairs.
   * Created a job.
   * Run the job.
+  See **Learn More**.
 
 ## Download Repair SQL
 
@@ -40,7 +41,7 @@ This sprint assumes you have:
 
     ![View the SQL file.](./images/extract-sql-zip.png " ")
 
-## Video Preview
+### Video Preview
 Watch our short video that explains the Download Repair SQL functionality in Oracle GoldenGate Veridata: [](youtube:Q_FpuEAnA9Q)
 
 
