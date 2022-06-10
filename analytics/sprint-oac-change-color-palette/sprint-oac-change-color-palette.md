@@ -1,7 +1,5 @@
 # How can I change the color palette for my visualizations in Oracle Analytics Cloud (OAC)?
 
-Last updated June 6, 2022
-
 Duration: 3 minutes
 
 Changing the color palette and keeping colors consistent is important. Too many bright or dark colors demand attention and quickly become visually exhausting.

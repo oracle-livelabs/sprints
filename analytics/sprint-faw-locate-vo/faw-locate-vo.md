@@ -1,7 +1,5 @@
 # How do I locate which View Object I should use in my Data Augmentation for Fusion Analytics Warehouse (FAW)?
 
-Last updated June 10, 2022
-
 Duration: 3 minutes
 
 In Fusion Analytics Warehouse, Data Augmentation helps you to add data to your reports from various data stores (Business Intelligence view objects) of the Oracle Applications Cloud data sources. You can augment your reports with datasets created by extending an existing entity or group of facts, by adding a new dimension in the target instance, and by adding a new fact in the target instance. In this Sprint, we will learn how to locate which View Object we should use in our Data Augmentation in FAW.

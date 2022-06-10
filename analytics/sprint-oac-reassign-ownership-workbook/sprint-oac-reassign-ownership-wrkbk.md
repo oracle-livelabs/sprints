@@ -1,7 +1,5 @@
 # How do I reassign ownership of a workbook?
 
-Last updated June 6, 2022
-
 Duration: 1 minute
 
 As a BI Service Administrator in OAC, one of the privileges you have is the ability to reassign content to other users. For example, when someone in your team leaves the organization, you can reassign the ownership of the content owned by said user to another user or yourself within your team. 

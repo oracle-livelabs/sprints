@@ -1,7 +1,5 @@
 # How do I migrate DV workbooks from my test environment to my production environment in Fusion Analytics Warehouse (FAW)?
 
-Last updated June 6, 2022
-
 Duration: 5 minutes
 
 When creating a new workbook, you may want to create them in your test environment using your sample data to explore different ways to present and visualize your analysis.  

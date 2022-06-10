@@ -1,7 +1,5 @@
 # How do I enable the Database Analytics option within the Data Flow in Oracle Analytics Cloud (OAC)?
 
-Last updated June 6, 2022
-
 Duration: 2 minutes
 
 When working with the Data Flow in Oracle Analytics Cloud, you have the option to leverage the power of Oracle Database Analytics functions. The two database functions you have access to are Database Analytics and Graph Analytics.
