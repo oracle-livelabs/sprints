@@ -20,7 +20,7 @@ Successfully completed the following:
 
 To connect to a Query Service project from Analytics Cloud, you need to create a database password and download a database wallet, which you should have already done in the **How do I connect to Query Service from Oracle SQL Developer?** sprint.   
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
 
 2. On the **Query Service Projects** page, click the desired project name link to display the project's detail page.
 
