@@ -18,7 +18,7 @@ In this sprint, you will use SQL Developer to connect to a Query Service project
 
 To connect to a Query Service project from SQL Developer, you need to create a database password, download a database wallet, and then create a database connection in SQL Developer.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
 
 2. On the **Query Service Projects** page, click the desired project name link to display the project's detail page.
 
