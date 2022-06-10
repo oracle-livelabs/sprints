@@ -1,5 +1,7 @@
 # How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud (OAC)?
 
+Last updated June 6, 2022
+
 Duration: 4 minutes
 
 With Oracle Analytics Cloud, you can add multiple files to one dataset, where each file becomes a table and you can define joins between tables within a dataset. 

@@ -1,5 +1,7 @@
 # How do I connect with private data sources using OAC-Professional edition in Oracle Analytics Cloud (OAC)?
 
+Last updated June 6, 2022
+
 Duration: 2 minutes
 
 With Oracle Analytics Cloud, you can connect to a variety of data sources, including private data sources. 

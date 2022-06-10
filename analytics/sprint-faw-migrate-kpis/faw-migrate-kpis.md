@@ -1,5 +1,7 @@
 # How do I migrate KPIs from test to production in Fusion Analytics Warehouse (FAW)?
 
+Last updated June 6, 2022
+
 Duration: 2 minutes
 
 Usually when working with decks or KPIs, you want to work on them in your test FAW environment so that you can explore your data without breaking anything. Once your decks and KPIs are finalized, you will then want to move them to your production environment and this Sprint will show you exactly how to move your KPIs from your test to production environment in Fusion Analytics Warehouse.

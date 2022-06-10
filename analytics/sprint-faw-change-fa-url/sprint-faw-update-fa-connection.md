@@ -1,5 +1,7 @@
 # How can I change my Fusion Application connection in Fusion Analytics Warehouse (FAW)?
 
+Last updated June 7, 2022
+
 Duration: 5 minutes
 
 ## Update Fusion Connection

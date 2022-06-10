@@ -1,5 +1,7 @@
 # How do I share a workbook in Oracle Analytics Cloud (OAC)?
 
+Last updated June 6, 2022
+
 Duration: 2 minutes
 
 Oracle Analytics gives you the ability to share your workbook with others to facilitate collaboration. When you share workbooks, you have the option to provide Edit and View privileges to users.

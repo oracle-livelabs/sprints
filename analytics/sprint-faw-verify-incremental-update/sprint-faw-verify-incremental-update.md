@@ -1,5 +1,7 @@
 # How can I verify that the incremental update has been completed in Fusion Analytics Warehouse (FAW)?
 
+Last updated June 6, 2022
+
 Duration: 4 minutes
 
 If you have set up an Incremental Execution Time for incremental updates in the Pipeline Parameters of your FAW instance, you may have noticed that incremental updates are not recorded in the Request History.

@@ -1,5 +1,7 @@
 # How do I change the default date format of a column in a dataset in Oracle Analytics Cloud (OAC)?
 
+Last updated June 6, 2022
+
 Duration: 1 minute
 
 When you are working with date columns in Oracle Analytics Cloud, there are many alterations you can make to it. You have the ability to extract parts of your date such as days, months, quarters and years as well as change the format of your date. In this Sprint, we will learn how to change the display format of our date columns in Oracle Analytics Cloud.

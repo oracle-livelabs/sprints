@@ -1,5 +1,7 @@
 # How can I add notes to support presenting and storytelling in Oracle Analytics Cloud (OAC)?
 
+Last updated June 6, 2022
+
 Duration: 3 minutes
 
 Adding notes to visualizations is a great way to support presenting and storytelling. You can add notes to call out important information in a workbook's visualizations.

@@ -1,13 +1,20 @@
 # How do I locate which View Object I should use in my Data Augmentation for Fusion Analytics Warehouse (FAW)?
+
+Last updated June 10, 2022
+
 Duration: 3 minutes
 
 In Fusion Analytics Warehouse, Data Augmentation helps you to add data to your reports from various data stores (Business Intelligence view objects) of the Oracle Applications Cloud data sources. You can augment your reports with datasets created by extending an existing entity or group of facts, by adding a new dimension in the target instance, and by adding a new fact in the target instance. In this Sprint, we will learn how to locate which View Object we should use in our Data Augmentation in FAW.
 
 ## Locate view objects
 
-1. Navigate to the Cloud customer connect webpage by clicking this [link](https://community.oracle.com/customerconnect/discussion/47652/r13-x-fscm-bi-cloud-adapter-bi-view-object-to-database-lineage-mapping-spreadsheet/p1). You must be signed into your Oracle account.
+1. Locate OTBI subject area to database lineage mapping spreadsheets. You can find references to them in the Fusion Applications Suite page by clicking this [link](https://docs.oracle.com/en/cloud/saas/index.html). Select the application you want the mapping spreadsheet for and click **Analyze and Report** under **Top Tasks**. Then click **Review data lineage**. You must be signed in to your Oracle account.
+    >**Note:** Once you sign in, click back to the tab where you clicked **Analyze and Report** and click the link again. It should now direct you to the page with the spreadsheets.
 
-2. Scroll down to the **Note** section and you will find four excel sheets that are available for download. Locate and download the approriate excel file related to your fusion application.
+  ![data lineage](images/data-lineage.png)
+
+
+2. Scroll down towards the end of the post and you will find excel sheets that are available for download. Locate and download the appropriate excel file related to your fusion application.
 
     ![Customer connect](images/customer-connect.png)
 

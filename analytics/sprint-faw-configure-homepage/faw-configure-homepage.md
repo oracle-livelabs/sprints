@@ -1,4 +1,7 @@
 # How do I configure my homepage in Fusion Analytics Warehose (FAW)?
+
+Last updated June 6, 2022
+
 Duration: 2 minutes
 
 When logging into your FAW instance, you land on your homepage. You can personalize your homepage with your favorite cards (KPIs) and your favorite reports. This allows you to access your most frequently used objects easily from your homepage. There are two sections of the homepage:
