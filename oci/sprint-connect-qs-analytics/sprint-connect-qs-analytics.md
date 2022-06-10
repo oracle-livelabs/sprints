@@ -36,7 +36,7 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
 5. In the **Create Analytics Instance** panel, specify the following:
 
-    * **Name:** Enter **moviestreamqs**.
+    * **Name:** Enter **moviestream**.
     * **Description:** Enter an optional description.
     * **Create in Compartment:** Select your compartment from the drop-down list.
     * **Feature Set:** Accept the default **Enterprise Analytics**.
@@ -51,11 +51,11 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
     >**Note:** Provisioning an Oracle Analytics Cloud instance can take anywhere from 10 to 20 minutes.
 
-7. To access the OAC Home page, you can either click the **Analytics Home Page** button, or scroll-down to the **Access Information** section, and then click the URL.  
+7. Access the OAC Home page. You can either click the **Analytics Home Page** button, or scroll-down to the **Access Information** section, and then click the URL.  
 
     The **Oracle Analytics Home Page** is displayed.
 
-    ![The OAC Home page is displayed.](./images/oracle-analytics-home-page.png " ")
+    ![The OAC Home page is displayed.](./images/oac-home-page.png " ")
 
 ### **Create a Connection to a Query Service Data Source**
 
@@ -124,23 +124,23 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![New dataset name is displayed in the banner.](./images/new-dataset-name-displayed.png " ")  
 
-6. To view your available datasets, on **Home** page, click the **Navigation** menu, and then click **Data**. On the **Data** page, click the **Datasets** tab to view your datasets list.
+    >**Note:** To view your available datasets, on **Home** page, click the **Navigation** menu, and then click **Data**. On the **Data** page, click the **Datasets** tab to view your datasets list.
 
-### **Create a Workbook and visualize the data**
+### **Create a Workbook and Visualize the Data**
 
 1. Click **Create Workbook** in the banner.
 
     ![Click create workbook.](./images/click-create-workbook.png " ")
 
-2. Display the **ACTUAL_PRICE** by **OS**. Drag and drop both tables onto the **Drop Visualizations or Data Here** canvas.
+2. Display the data for the **ACTUAL_PRICE** by **OS** columns. Drag and drop both columns onto the **Drop Visualizations or Data Here** canvas.
 
     ![Drag and drop tables onto canvas.](./images/drag-drop-tables.png " ")
 
-    The auto Visualizations bar graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You just ran analytics on top of Object Storage data!
+    The Auto Visualizations bar graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You just ran analytics on top of Object Storage data!
 
     >**Note:** Bar graphs are one of the most commonly used visualization types. You can use them to compare data across categories, identify outliers, and uncover historical high and low data points. For other graph types, see [About Visualization Types](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/visualization-types.html).
 
-    ![Tables Visualizations is displayed.](./images/tables-visualization-displayed.png " ")
+    ![Tables Visualizations is displayed.](./images/visualization-displayed.png " ")
 
 3. Save the workbook. Click the drop-down list next to the **Save** icon in the **New Workbook** banner to view the available options. Click **Save**.
 
@@ -150,7 +150,9 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Save workbook dialog completed.](./images/save-workbook-dialog.png " ")
 
-5. Click **Save**. The workbook name is displayed in the banner.
+5. Click **Save**. The workbook name is displayed in the banner. Click the back arrow icon on the banner to return to the OAC Home page.
+
+    ![Return to the OAC Home page.](./images/return-oac-home.png " ")
 
 6. On the Analytics Home page, you should see your new connection, dataset, and workbook.
 
