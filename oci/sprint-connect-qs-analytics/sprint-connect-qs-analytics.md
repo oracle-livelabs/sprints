@@ -11,12 +11,10 @@ Oracle Analytics Cloud (OAC) is a scalable and secure public cloud service that 
 * Create a workbook and visualize the data
 
 ### Prerequisites
-* An Oracle Cloud Account.
-* An optional compartment for your Query Service project and resources.
-* An OCI Data Catalog instance that contains at least one Oracle Object Storage data asset that has been harvested to generate the logical data entities that will be used by Query Service.
-* The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
-* A Query Service project.
-* Successfully completed the **Create Database Password** and **Download Database Wallet** steps in the **How do I connect to Query Service from Oracle SQL Developer?** sprint for your Query Service project.
+Successfully completed the following:
+* **How do I create the required Query Service projects policies?** sprint
+* **How do I create a Query Service project?** sprint
+* The **Create Database Password** and **Download Database Wallet** _steps_ in the **How do I connect to Query Service from Oracle SQL Developer?** sprint
 
 ### **Create an Oracle Analytics Cloud Instance**
 
