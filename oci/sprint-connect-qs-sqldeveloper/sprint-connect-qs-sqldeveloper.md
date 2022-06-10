@@ -12,7 +12,7 @@ In this sprint you will perform the steps required to connect to Query Service a
 
 ## Work with Query Service from SQL Developer
 
-In this sprint, you will use SQL Developer to connect to a Query Service project, create an external table in that project, and query the newly created external table. Finally, you will view and query the newly created table in Query Service.
+In this sprint, you will use SQL Developer to connect to a Query Service project, create an external table in that project, and query the newly created external table. Finally, you will view and query the newly created external table in Query Service.
 
 ### **Connect to a Query Service Project from SQL Developer**
 
