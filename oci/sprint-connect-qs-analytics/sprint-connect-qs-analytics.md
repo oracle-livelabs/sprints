@@ -126,7 +126,7 @@ Datasets are self-service data models that you build specifically for your data 
 
 6. To view your available datasets, on **Home** page, click the **Navigation** menu, and then click **Data**. On the **Data** page, click the **Datasets** tab to view your datasets list.
 
-### **Create a Workbook**
+### **Create a Workbook and visualize the data**
 
 1. Click **Create Workbook** in the banner.
 
