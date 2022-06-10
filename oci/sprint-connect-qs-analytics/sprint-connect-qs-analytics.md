@@ -8,7 +8,7 @@ Oracle Analytics Cloud (OAC) is a scalable and secure public cloud service that 
 * Create an Oracle Analytics Cloud instance
 * Create a connection to a Query Service data source
 * Create a dataset from the Query Service connection
-* Create a workbook and add the dataset to it
+* Create a workbook and visualize the data
 
 ### Prerequisites
 * An Oracle Cloud Account.
