@@ -32,7 +32,7 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
 4. On the **Analytics Instances** page, click **Create Instance**.
 
-    ![The completed create database password dialog box is displayed.](./images/analytics-Instances-page.png " ")  
+    ![The OAC Home page is displayed.](./images/analytics-instances-page.png " ")  
 
 5. In the **Create Analytics Instance** panel, specify the following:
 
