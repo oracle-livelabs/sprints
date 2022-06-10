@@ -1,20 +1,20 @@
-# How can I verify that the incremental update has been completed in Fusion Analytics Warehouse (FAW)?
+# How can I verify that the data refresh schedule has been completed in Fusion Analytics Warehouse (FAW)?
 
 Duration: 4 minutes
 
-If you have set up an Incremental Execution Time for incremental updates in the Pipeline Parameters of your FAW instance, you may have noticed that incremental updates are not recorded in the Request History.
+If you have set up a Data Refresh Schedule for incremental updates in the Pipeline Parameters of your FAW instance, you may have noticed that incremental updates are not recorded in the Request History.
 
 ### What are Pipeline Parameters?
-When you extract your data in FAW, you have the option to set certain specifications about the data that you are extracting within your data pipeline and this is referred to as Pipeline Parameters. Options include Analytics Language, Currency, Exchange Rate Type, and Incremental Execution Time among others.
+When you extract your data in FAW, you have the option to set certain specifications about the data that you are extracting within your data pipeline and this is referred to as Pipeline Parameters. Options include Analytics Language, Currency, Exchange Rate Type, and Data Refresh Schedule among others.
 
-System Administrators will have set an Incremental Execution Time which automatically loads  data at a time specified to ensure that their data is up-to-date.
+System Administrators will have set a Data Refresh Schedule which automatically loads  data at a time specified to ensure that their data is up-to-date.
 
-### Why do I need to verify that incremental updates have run successfully?
+### Why do I need to verify that the data refresh has run successfully?
 * Verify that your critical records have been imported as scheduled
 * Sanity check to make sure your system is running as you've specified
 * Ensure that your data is current
 
-## Verify incremental updates
+## Verify data refresh 
 The following steps will guide you to verify that the incremental updates have started and been completed in your FAW environment.
 
   > **Note:** You must have 'Data Warehouse Refresh and Usage Tracking Analysis Duty' application role to successfully complete these steps.
@@ -38,11 +38,11 @@ The following steps will guide you to verify that the incremental updates have s
 5. Under the **Refresh Summary Details** dataset, select and drag **Process Type** and **Process Description** in the **Rows** section and your table will be created.
 
 * *Adhoc Warehouse Refresh* refers to manual refresh that was executed.
-* *Scheduled Warehouse Refresh* refers to the Incremental Execution Time refresh that was set in the Pipeline Parameters. This is your incremental update.
+* *Scheduled Warehouse Refresh* refers to the Data Refresh Schedule that was set in the Pipeline Parameters.
 
   ![Create table](images/create-table.png)
 
-Congratulations! You have just learned how to verify that your incremental updates have been completed in Fusion Analytics Warehouse and when and why you would need to do this.
+Congratulations! You have just learned how to verify that your data refresh has been completed in Fusion Analytics Warehouse and when and why you would need to do this.
 
 
 ## Learn More
