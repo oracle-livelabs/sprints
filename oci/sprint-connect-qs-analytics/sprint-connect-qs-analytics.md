@@ -12,9 +12,9 @@ Oracle Analytics Cloud (OAC) is a scalable and secure public cloud service that 
 
 ### Prerequisites
 Successfully completed the following:
-* **How do I create the required Query Service projects policies?** sprint
-* **How do I create a Query Service project?** sprint
-* The **Create Database Password** and **Download Database Wallet** _steps_ in the **How do I connect to Query Service from Oracle SQL Developer?** sprint
+* _How do I create the required Query Service projects policies?_ sprint
+* _How do I create a Query Service project?_ sprint
+* The _Create Database Password_ and _Download Database Wallet_ steps in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
 
 ### **Create an Oracle Analytics Cloud Instance**
 
@@ -45,7 +45,7 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
         ![The populated Create Analytics Instance panel is displayed.](./images/create-instance.png " ")
 
-6. Click **Create**. The **Instance Details** page is displayed. The status of the instance creation is initially **CREATING**. When the instance is created successfully, the status changes to **Active**.
+6. Click **Create**. The **Instance Details** page is displayed. The status of the instance creation is initially **CREATING**. When the instance is created successfully, the status changes to **ACTIVE**.
 
     ![The instance details page is displayed.](./images/access-oac.png " ")
 
@@ -98,7 +98,7 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Click connection name.](./images/click-connection-name.png " ")
 
-    The **New Dataset** page is displayed. Drill-down on the **Schemas** node in the Navigation tree on the left to display the tables in the **project** schema.
+    The **New Dataset** page is displayed. Drill-down on the **Schemas** node in the Navigation tree on the left to display the schemas in the **project** user.
 
     ![Drill-down on the schema node.](./images/project-schema.png " ")
 
