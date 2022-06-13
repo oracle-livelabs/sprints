@@ -13,5 +13,6 @@
          "filename": "../create-triggers/create-triggers.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

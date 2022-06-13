@@ -23,5 +23,6 @@
          "filename": "../sprint-show-tables-specific-owner/sprint-show-tables-specific-owner.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

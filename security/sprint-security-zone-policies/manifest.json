@@ -13,5 +13,6 @@
          "filename": "../sprint-create-security-zone/sprint-create-security-zone.md"
       } 
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

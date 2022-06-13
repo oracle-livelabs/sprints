@@ -23,5 +23,6 @@
          "filename": "../sprint-cancel-vault-deletion/sprint-cancel-vault-deletion.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

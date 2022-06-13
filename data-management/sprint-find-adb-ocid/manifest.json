@@ -6,12 +6,14 @@
          "title": "Where do I find the ADB OCID?",
          "description": "",
          "filename": "sprint-find-adb-ocid.md"
-      },
-      {
-         "title": "How can I download the ADB Wallet using the command line?",
-         "description": "",
-         "filename": "../sprint-download-adb-wallet/sprint-download-adb-wallet.md"
       }
-   ],
-   "task_type": "Sections"
+   ],   "show_related": [
+      { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [
+         "adb-shared",
+         "adw","ajd","atp",
+         "cloud-infrastructure"
+         ], "state": "collapsed" }
+      ],
+   "task_type": "Sections", 
+   "hide_button": "true"
 }

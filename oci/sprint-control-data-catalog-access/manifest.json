@@ -9,5 +9,6 @@
          "filename": "./../sprint-control-data-catalog-access/sprint-control-data-catalog-access.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

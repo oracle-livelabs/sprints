@@ -6,7 +6,18 @@
          "title": "How do I share my dataset in Oracle Analytics Cloud (OAC)?",
          "description": "Learn two ways to share your datasets in OAC!",
          "filename": "sprint-oac-share-datasets.md"
+      },
+      {
+         "title": "How do I share a workbook in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to share worksbooks in Oracle Analytics Cloud (OAC)!",
+         "filename": "../sprint-oac-share-workbook/oac-share-workbook.md"
+      },
+      {
+         "title": "How do I reload my dataset files in Oracle Analytics Cloud (OAC)?",
+         "description": "",
+         "filename": "../sprint-oac-reload-dataset-file/reload-dataset-file.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+ "hide_button": "true"
 }

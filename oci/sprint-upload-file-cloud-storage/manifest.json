@@ -13,5 +13,6 @@
          "filename": "../sprint-share-file-cloud-storage/sprint-share-file-cloud-storage.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections",
+   "hide_button": "true"
 }

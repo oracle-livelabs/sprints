@@ -3,15 +3,16 @@
    "help": "livelabs-help-**enterarea**_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I change the schedule for incremental data load in Fusion Analytics Warehouse (FAW)?",
-         "description": "Learn how to change your incremental data load time in Fusion Analytics Warehouse (FAW).",
+         "title": "How do I change the Data Refresh Schedule in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to change your data refresh schedule in Fusion Analytics Warehouse (FAW).",
          "filename": "sprint-faw-change-incremental-data-load.md"
       },
       {
-         "title": "How can I verify that the incremental update has been completed in Fusion Analytics Warehouse (FAW)?",
-         "description": "Learn how to verify that your incremental updates have been completed in Fusion Analytics Warehouse (FAW).",
+         "title": "How can I verify that the data refresh has been completed in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to verify that your data refresh has been completed in Fusion Analytics Warehouse (FAW).",
          "filename": "../sprint-faw-verify-incremental-update/sprint-faw-verify-incremental-update.md"
       }
    ],
-   "task_type": "Sections"
+   "task_type": "Sections", 
+ "hide_button": "true"
 }

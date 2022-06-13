@@ -7,11 +7,12 @@
             "description": "",
             "filename": "sprint-create-user-group-cloud-guard.md"
         },
-        { "title": "How do I create conditional operators in Cloud Guard?",
+        { "title": "How do I enable policies to run Cloud Guard?",
             "description": "",
-            "filename": "../sprint-conditional-operators-cloud-guard/sprint-conditional-operators-cloud-guard.md"
+            "filename": "../sprint-cloud-guard-policies/sprint-cloud-guard-policies.md"
         }   
         
     ],
-    "task_type": "Sections"
+    "task_type": "Sections",
+   "hide_button": "true"
 }
