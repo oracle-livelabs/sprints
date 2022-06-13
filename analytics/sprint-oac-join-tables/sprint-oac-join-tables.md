@@ -1,4 +1,5 @@
 # How do I join two tables in a dataset in Oracle Analytics Cloud (OAC)?
+
 Duration: 1 minute
 
 Oracle Analytics Cloud allows you to join multiple tables into a dataset with its strong data prep capabilities. When you drag and drop a table into a dataset, Oracle Analytics automatically creates a join between tables if there are matching column names. If matching column names are not present, you have the ability to easily create joins, whether its an inner, left, right, or full outer join. This Sprint will guide you on how to create joins between tables in a dataset! 
