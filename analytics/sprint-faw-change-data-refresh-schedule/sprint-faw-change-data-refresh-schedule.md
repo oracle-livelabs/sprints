@@ -2,6 +2,8 @@
 
 Duration: 3 minutes
 
+[](youtube:ECtHE-zp804)
+
 Data Refresh Schedule in Fusion Analytics Warehouse allows you to automatically refresh your data source so that your FAW environment has the most current data. You have the option to set a recurring schedule to run this data load which occurs once every 24 hours.
 
 The best practice when setting your Data Refresh Schedule is to set it to a time during non-business hours when your transaction volumes are very low. This will ensure that your business operations run without interruption during high traffic hours.
