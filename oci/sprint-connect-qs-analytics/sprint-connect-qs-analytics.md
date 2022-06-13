@@ -118,8 +118,6 @@ Datasets are self-service data models that you build specifically for your data 
 
 5. In the **Save Dataset As** dialog box, enter **qs-custsales-dataset** as the name, enter an optional description, and then click **OK**.      
 
-    ![Save dataset as dialog box.](./images/save-dataset-dialog.png " ")
-
     The dataset name is displayed in the banner.
 
     ![New dataset name is displayed in the banner.](./images/new-dataset-name-displayed.png " ")  
@@ -147,8 +145,6 @@ Datasets are self-service data models that you build specifically for your data 
     ![Save workbook options.](./images/save-workbook-options.png " ")
 
 4. In the **Save Workbook** dialog box, enter a name and an optional description. By default, your workbook will be saved in the **My Folders** folder. To save the workbook in a new folder, click **New Folder** and follow the prompts.
-
-    ![Save workbook dialog completed.](./images/save-workbook-dialog.png " ")
 
 5. Click **Save**. The workbook name is displayed in the banner. Click the back arrow icon on the banner to return to the OAC Home page.
 
