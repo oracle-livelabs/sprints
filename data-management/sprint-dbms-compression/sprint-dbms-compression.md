@@ -44,7 +44,7 @@ The DBMS_COMPRESSION package gathers compression-related information within a da
       comptype_str varchar2(100);
       cmptype_str VARCHAR2(1000);
       BEGIN
-      DBMS_COMPRESSION.GET_COMPRESSION_RATIO ('SYSTEM', 'SH', 'SALES', '',
+      DBMS_COMPRESSION.GET_COMPRESSION_RATIO ('USERS', 'SH', 'SALES', '',
       DBMS_COMPRESSION.COMP_ADVANCED, blkcnt_cmp, blkcnt_uncmp, row_cmp,
       row_uncmp, cmp_ratio, cmptype_str);
       DBMS_OUTPUT.PUT_LINE('Block count compressed = '|| blkcnt_cmp);
