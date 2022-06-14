@@ -14,6 +14,14 @@
 
     <link rel="stylesheet" href="https://objectstorage.us-phoenix-1.oraclecloud.com/p/SJgQwcGUvQ4LqtQ9xGsxRcgoSN19Wip9vSdk-D_lBzi7bhDP6eG1zMBl0I21Qvaz/n/c4u02/b/common/o/redwood-hol/css/style.min.css" />
     <link rel="shortcut icon" href="https://objectstorage.us-phoenix-1.oraclecloud.com/p/SJgQwcGUvQ4LqtQ9xGsxRcgoSN19Wip9vSdk-D_lBzi7bhDP6eG1zMBl0I21Qvaz/n/c4u02/b/common/o/redwood-hol/img/favicon.ico" />
+
+    <script type="text/javascript">
+        if ( (oracle.truste.api.getGdprConsentDecision().consentDecision) &&
+         (oracle.truste.api.getGdprConsentDecision().consentDecision.indexOf(0) != -1 ||
+          oracle.truste.api.getGdprConsentDecision().consentDecision.indexOf(2) != -1) ) {
+        document.write('<script src="//c.oracleinfinity.io/acs/account/wh3g12c3gg/js/oraclelabs/odc.js"><\/script>');
+    }
+    </script>
 </head>
 
 <body>
