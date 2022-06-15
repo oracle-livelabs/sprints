@@ -6,7 +6,7 @@ Duration: 5 minutes
 ### Prerequisites
 * An Oracle Cloud Account.
 * An optional compartment for your Query Service project and resources.
-* An OCI Data Catalog instance that contains at least one Oracle Object Storage data asset that has been harvested to generate the logical data entities that will be used by Query Service. For detailed instructions on creating a Data Catalog data asset and harvesting it, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877&clear=180&session=103071880685237) Livelabs workshop. Alternatively, you can create a new Data Catalog instance when you create your Query Service project.
+* An OCI Data Catalog instance that contains at least one Oracle Object Storage data asset that has been harvested to generate the logical data entities that will be used by Query Service. For detailed instructions on creating a Data Catalog data asset and harvesting it, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877) LiveLabs workshop. Alternatively, you can create a new Data Catalog instance when you create your Query Service project.
 
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
@@ -14,7 +14,7 @@ Duration: 5 minutes
 
 A Query Service project is a collection of tables, worksheets, and queries related to a common theme or task. Every project will provide access to schemas and external table definitions that are derived (synchronized) from logical entities in the Data Catalog instance that you choose when you create the project. A schema in a Query Service project is a collection of related tables. When you query a table in a schema you need to reference the schema and table in the schema using the syntax **`schema_name.table_name`**.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
 
 2. On the **Query Service Projects** page, click **Create Project**.
 
