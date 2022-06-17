@@ -15,7 +15,7 @@ The **PROJECT$** schema contains the tables that you create and manage using the
 
 ### **Method 1: Create a Table Using an Object Storage File's URL**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
 
 2. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**.
 
@@ -85,7 +85,7 @@ The **PROJECT$** schema contains the tables that you create and manage using the
 
 You will first create an Object Storage bucket (unless you already have one) in your own tenancy, change its visibility from Private to Public, and then upload a local Parquet file to that bucket. Next, you will create a table by selecting the Parquet file from your Public Object Storage bucket.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
 
 2. Copy your web browser URL where you are running Query Service and paste it into a new browser tab.
 

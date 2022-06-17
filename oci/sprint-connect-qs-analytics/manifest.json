@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I connect to Query Service from Analytics Cloud?",
+         "description": " ",
+         "filename": "./../sprint-connect-qs-analytics/sprint-connect-qs-analytics.md"
+      }
+   ],
+   "task_type": "Sections"
+}
