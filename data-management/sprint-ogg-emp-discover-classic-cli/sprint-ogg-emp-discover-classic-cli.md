@@ -9,15 +9,24 @@ See **Learn More**.
 
 ## Discover GoldenGate (classic) instance
 
-In the EM CLI client, run the following command:
+In the EM CLI client, run the command as shown in the following example:
 ```
 <copy>
 emcli discover_gg
-[-configFile="configFile"]
+[-configFile="/path/input.conf"]
 [-debug]
 [-check]
 </copy>
 ```   
+
+The `configFile` (here `input.conf`file) contains the following parameters:
+
+* host - Hostname of Oracle GoldenGate Monitor Agent. For example, `localhost`
+* port - Port of Oracle GoldenGate Monitor Agent. For example, `5559`.
+* user - Username to connect to Oracle GoldenGate Monitor Agent. For example, *empuser*.
+* password - Password to connect to Oracle GoldenGate Monitor Agent.
+* agentURL - Enterprise Manager Agent URL. For example, https://localhost:3872/emd/main/.
+* targetNamePrefix - Enter the target name prefix. For example, `test_env_orcl_src`. The target name prefix is appended with colon (":") and this gets prefixed to all target names. For example, `test_env_orcl_src:targetName`. This is an optional field.
 
 
 ### Video Preview
