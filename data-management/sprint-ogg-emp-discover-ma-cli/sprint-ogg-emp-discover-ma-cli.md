@@ -1,4 +1,4 @@
-# How do I discover GoldenGate MA instances using the EM CLI verb?
+# How do I discover GoldenGate MA instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?
 Duration: 1 minute
 
 ### Prerequisites
