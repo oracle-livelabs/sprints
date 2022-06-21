@@ -1,0 +1,19 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I discover GoldenGate (classic) instances using the EM CLI verb?",
+         "description": "How do I discover GoldenGate (classic) instances using the EM CLI verb?",
+         "filename": "./../sprint-ogg-emp-discover-classic-cli/sprint-ogg-emp-discover-classic-cli.md"
+      },
+
+      {
+         "title": "How do I discover GoldenGate Microservices instances using the EM CLI verb?",
+         "description": " ",
+         "filename": "./../sprint-ogg-emp-discover-ma-cli/sprint-ogg-emp-discover-ma-cli.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
