@@ -1,5 +1,5 @@
 # How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?
-Duration: 1 minute
+Duration: 2 minutes
 
 ### Prerequisites
 This sprint assumes you have:
@@ -11,7 +11,13 @@ See **Learn More**.
 ## Download Diagnostic Logs
 
 1. In the Oracle GoldenGate Enterprise Manager Plug-in UI, click **Setup**, select **Add Target** and then click **Configure Auto Discovery** to display the **Setup Discovery** page.
-2. On the **Targets on Host** tab, select the target
+2. On the **Targets on Host** tab, select the Target Name under **Host** and click **Diagnostic Details**:
+  ![Select Target Name and click Diagnostic Details.](./images/select-target.png " ")  
+
+3. In the **Diagnostic Details** page, click either **Oracle GoldenGate Microservices** and then click **Log from Agent** to retrieve the diagnostic log from the Agent for the most recently discovered target.
+
+    ![Click Log from Agent.](./images/ma-log-from-agent.png " ")
+4. After the diagnostic logs have been successfully retrieved, click **Close** in the **Confirmation** screen.
 
 
 ## Learn More

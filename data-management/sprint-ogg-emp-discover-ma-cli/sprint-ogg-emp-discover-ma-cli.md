@@ -1,5 +1,5 @@
 # How do I discover GoldenGate MA instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?
-Duration: 1 minute
+Duration: 3 minutes
 
 ### Prerequisites
 This sprint assumes you have:
