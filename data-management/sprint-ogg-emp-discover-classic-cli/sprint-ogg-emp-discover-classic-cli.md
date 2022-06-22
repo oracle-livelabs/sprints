@@ -25,14 +25,14 @@ emcli discover_gg
 </copy>
 ```   
 
-The `configFile` (here `input.conf`file) contains the following parameters:
+The `configFile` (here `input.conf`file) contains the following mandatory parameters:
 
 * host - Hostname of Oracle GoldenGate Monitor Agent. For example, `localhost`
 * port - Port of Oracle GoldenGate Monitor Agent.
 * user - Username to connect to Oracle GoldenGate Monitor Agent. For example, *empuser*.
 * password - Password to connect to Oracle GoldenGate Monitor Agent.
 * agentURL - Enterprise Manager Agent URL. For example, `https://localhost:<em-agent-port>/emd/main/`.
-* targetNamePrefix - Enter the target name prefix. For example, `test_env_orcl_src`. The target name prefix is appended with colon (":") and this gets prefixed to all target names. For example, `test_env_orcl_src:targetName`. This is an optional field.
+* targetNamePrefix - Enter the target name prefix. For example, `test_env_orcl_src`. The target name prefix is appended with colon (":") and this gets prefixed to all target names. For example, `test_env_orcl_src:targetName`. This is an optional parameter.
 
 
 ### Video Preview
