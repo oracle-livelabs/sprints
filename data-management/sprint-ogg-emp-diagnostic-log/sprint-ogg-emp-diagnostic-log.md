@@ -10,7 +10,8 @@ See **Learn More**.
 
 ## Download Diagnostic Logs
 
-1. In the Oracle GoldenGate Enterprise Manager Plug-in UI, 
+1. In the Oracle GoldenGate Enterprise Manager Plug-in UI, click **Setup**, select **Add Target** and then click **Configure Auto Discovery** to display the **Setup Discovery** page.
+2. On the **Targets on Host** tab, select the target
 
 
 ## Learn More
