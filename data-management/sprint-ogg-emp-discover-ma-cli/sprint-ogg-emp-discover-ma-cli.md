@@ -14,6 +14,12 @@ In the EM CLI client, run the `discover_ggma` verb as shown in the following exa
 <copy>
 emcli discover_ggma
 [-configFile="/path/gg_discovery_input_file.properties"]
+[-host="host"]
+[-user="user"]
+[-password="password"]
+[-port="port"]
+[-agentURL="agentURL"]
+[-targetNamePrefix="targetNamePrefix"]
 [-debug]
 [-check]
 </copy>

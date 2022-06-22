@@ -14,6 +14,12 @@ In the EM CLI client, run the command as shown in the following example:
 <copy>
 emcli discover_gg
 [-configFile="/path/input.conf"]
+[-host="host"]
+[-user="user"]
+[-password="password"]
+[-port="port"]
+[-agentURL="agentURL"]
+[-targetNamePrefix="targetNamePrefix"]
 [-debug]
 [-check]
 </copy>
