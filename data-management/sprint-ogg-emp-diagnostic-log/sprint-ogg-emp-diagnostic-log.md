@@ -14,7 +14,7 @@ See **Learn More**.
 2. On the **Targets on Host** tab, select the Target Name under **Host** and click **Diagnostic Details**:
   ![Select Target Name and click Diagnostic Details.](./images/select-target.png " ")  
 
-3. In the **Diagnostic Details** page, click either **Oracle GoldenGate Microservices** and then click **Log from Agent** to retrieve the diagnostic log from the Agent for the most recently discovered target.
+3. In the **Diagnostic Details** page, click **Oracle GoldenGate Microservices** and then click **Log from Agent** to retrieve the diagnostic log from the Agent for the most recently discovered target.
 
     ![Click Log from Agent.](./images/ma-log-from-agent.png " ")
 4. After the diagnostic logs have been successfully retrieved, click **Close** in the **Confirmation** screen.
