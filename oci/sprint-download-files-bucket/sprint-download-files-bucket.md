@@ -4,7 +4,7 @@ Duration: 3 minutes
 
 ## Download files in an object storage
 
-Enure you are in the correct region to your file(s) in object storage. Follow the steps below to download a file in a public bucket:
+Ensure you are in the correct region to your file(s) in object storage. Follow the steps below to download a file in a public bucket:
 
 1. Open the navigation menu on the left in the Oracle Cloud console, click **Storage**, and then click **Buckets** under Object Storage & Archive Storage.
 

@@ -13,7 +13,7 @@ Before you can create and use a Query Service project, your tenancy must have a 
 
 ### **Requirement 1: Create a Dynamic Group**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. For the **Query Service Limited Availability (LA) release**, navigate to your assigned **Query Service Console** provided to you by your Oracle Product Manager.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. 
 
 2. Open the **Navigation** menu and click **Identity & Security**. Under **Identity**, click **Dynamic Groups**.
 
