@@ -59,7 +59,7 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
 ### **Create a Connection to a Query Service Data Source**
 
-You can create a connection to enable you to analyze and visualize data in that data source. A dataset uses one or more connections to data sources such as Query Service to access and supply data for analysis and visualization. Create a connection to the `project` schema in Query Service.
+You can create a connection to enable you to analyze and visualize data in that data source. A dataset uses one or more connections to data sources such as Query Service to access and supply data for analysis and visualization. Create a connection to the `project` user in Query Service.
 
 1. From the Oracle Analytics banner, click **Create**, and then click **Connection**.  
 
