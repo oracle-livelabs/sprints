@@ -26,7 +26,7 @@ emcli set_preferred_credential
         -set_name=HostCreds
         -target_name=target.us.oracle.com:<port>svrmgr
         -target_type=oracle_goldengate_srvmgr
-        -credential_name=ma
+        -credential_name=<ma>
         -credential_owner=credUser
 </copy>
 ```   

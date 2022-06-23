@@ -14,7 +14,7 @@ To create Named Credentials (host credentials), run the `create_named_credential
 ```  
 <copy>
 emcli create_named_credential
-        -cred_name=classic
+        -cred_name=<classic>
         -auth_target_type=host
         -cred_type=HostCreds
         -attributes="HostUserName:<user>;HostPassword:<password>"
