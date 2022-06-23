@@ -39,7 +39,7 @@ emcli set_preferred_credential
 * credential_owner - Owner of the credential. This defaults to the currently logged in user.
 
 ### Video Preview
-Watch this video on how to set credentials the Oracle GoldenGate Enterprise Manager Plug-in UI: [Setting Credentials for Oracle GoldenGate instances in the Enterprise Manager Plug-in](youtube:KAfmbzGDe9E)
+Watch this video on how to set credentials the Oracle GoldenGate Enterprise Manager Plug-in UI: [Setting Credentials for Oracle GoldenGate instances in the Enterprise Manager Plug-in](youtube:zFaX348_LiA)
 
 ## Learn More
 

@@ -38,7 +38,7 @@ Explanation of the parameters:
 * attributes - Specify credential host user name and host password. For OGG Admin Credentials, specify Monitor Agent user name and password.
 
 ### Video Preview
-Watch this video on how to set credentials the Oracle GoldenGate Enterprise Manager Plug-in UI: [Setting Credentials for Oracle GoldenGate instances in the Enterprise Manager Plug-in](youtube:KAfmbzGDe9E)
+Watch this video on how to set credentials the Oracle GoldenGate Enterprise Manager Plug-in UI: [Setting Credentials for Oracle GoldenGate instances in the Enterprise Manager Plug-in](youtube:zFaX348_LiA)
 
 ## Learn More
 
