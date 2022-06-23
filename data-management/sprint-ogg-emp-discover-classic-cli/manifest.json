@@ -13,6 +13,16 @@
          "description": " ",
          "filename": "./../sprint-ogg-emp-discover-ma-cli/sprint-ogg-emp-discover-ma-cli.md"
       },
+      {
+         "title": "How do I create credentials for Oracle GoldenGate Classic instance in Enterprise Manager Plug-in??",
+         "description": "How do I create credentials for Oracle GoldenGate Classic instance in Enterprise Manager Plug-in? ",
+         "filename": "./../sprint-ogg-emp-credential-classic-cli/sprint-ogg-emp-credential-classic-cli.md"
+      },
+      {
+         "title": "How do I create credentials for Oracle GoldenGate Microservices (MA) instance in Enterprise Manager Plug-in??",
+         "description": "How do I create credentials for Oracle GoldenGate Microservices (MA) instance in Enterprise Manager Plug-in? ",
+         "filename": "./../sprint-ogg-emp-credential-ma-cli/sprint-ogg-emp-credential-ma-cli.md"
+      },
 
       {
          "title": "How do I start and stop processes using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
