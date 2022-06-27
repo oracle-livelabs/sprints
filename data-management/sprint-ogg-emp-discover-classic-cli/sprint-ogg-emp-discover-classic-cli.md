@@ -17,7 +17,7 @@ emcli discover_gg
 [-host="abc.cloud.com"]
 [-user="empuser"]
 [-password="password"]
-[-port="port"]
+[-port="5559"]
 [-agentURL="https://abc.cloud.com:1838/emd/main/"]
 [-targetNamePrefix="test_env_orcl_src"]
 [-debug]
@@ -27,7 +27,7 @@ emcli discover_gg
 
 The `configFile` (here `input.conf`file) contains the following mandatory parameters:
 
-* host - Hostname of Oracle GoldenGate Monitor Agent. For example, `localhost`
+* host - Hostname of Oracle GoldenGate Monitor Agent. For example, `abc.cloud.com`
 * port - Port of Oracle GoldenGate Monitor Agent.
 * user - Username to connect to Oracle GoldenGate Monitor Agent. For example, *empuser*.
 * password - Password to connect to Oracle GoldenGate Monitor Agent.

@@ -17,7 +17,7 @@ emcli discover_ggma
 [-host="abc.cloud.com"]
 [-user="empuser"]
 [-password="password"]
-[-port="port"]
+[-port="9001"]
 [-agentURL=" https://abc.cloud.com:1838/emd/main/"]
 [-targetNamePrefix="test_env_orcl_src"]
 [-debug]
@@ -25,7 +25,7 @@ emcli discover_ggma
 </copy>
 ```   
 The `.properties` file contains the following mandatory parameters:
-* host - Hostname of Oracle GoldenGate Monitor Agent. For example, `localhost`
+* host - Hostname of Oracle GoldenGate Monitor Agent. For example, `abc.cloud.com`
 * port - Port of Oracle GoldenGate Monitor Agent.
 * user - Username to connect to Oracle GoldenGate Monitor Agent. For example, *empuser*.
 * password - Password to connect to Oracle GoldenGate Monitor Agent.

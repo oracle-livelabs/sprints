@@ -24,9 +24,9 @@ To create Preferred credentials, run the `set_preferred_credential` verb as show
 <copy>
 emcli set_preferred_credential
         -set_name=HostCreds
-        -target_name=target.us.oracle.com:<port>svrmgr
+        -target_name=target.us.oracle.com:9001svrmgr
         -target_type=oracle_goldengate_srvmgr
-        -credential_name=<ma>
+        -credential_name=ma
         -credential_owner=credUser
 </copy>
 ```   
