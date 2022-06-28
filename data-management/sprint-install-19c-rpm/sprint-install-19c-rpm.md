@@ -7,15 +7,15 @@ Duration: 15 minutes
  
 ## Download Oracle Database 19c
 
-1. Sign in to the Oracle Database 19c download page, Download the .rpm file required for performing an RPM-based installation to a directory of your choice. For example, download the oracle-database-ee-19c-1.0-1.x86_64.rpm file to the /tmp directory.
+1. Sign in to the Oracle Database 19c download page. Download the .rpm file required for performing an RPM-based installation to a directory of your choice. For example, download the oracle-database-ee-19c-1.0-1.x86_64.rpm file to the /tmp directory.
 
       ![Download Page](images/db-rpm-download.png "Download Page")
 
-2. Review and accept license agreement      
+2. Review and accept the license agreement.      
 
       ![Accept License](images/db-accept-license.png "Accept License")
 
-3. Copy the Download link from the web browser      
+3. Copy the download link from the web browser      
 
       ![Copy Download Link](images/copy-link.png "Copy Download Link")
 
@@ -62,7 +62,7 @@ Duration: 15 minutes
       </copy>
       ```
 
-      Where, oracle-database-ee-19c-1.0-1.x86_64.rpm is the fully qualified name of the Oracle Database RPM.
+      oracle-database-ee-19c-1.0-1.x86_64.rpm is the fully qualified name of the Oracle Database RPM.
 
 4. Verify installation success message
 
@@ -82,18 +82,7 @@ Duration: 15 minutes
       > **Note:** You can modify the configuration parameters by editing the /etc/sysconfig/oracledb_ORCLCDB-19c.conf file.
 
       ![DB Configured](images/db-configured.png "DB Configured")
-
-   
-## Setup password for oracle user 
-
-1. login as root, Set the password for the "oracle" user. (if it has not already been set)
-
-      ```
-      <copy> 
-      passwd oracle
-      </copy>
-      ```
-
+  
 ## Set Oracle environment
 
 1. Set Oracle environment
