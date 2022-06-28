@@ -4,7 +4,7 @@
    "tutorials": [
       {
          "title": "How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud (OAC)?",
-         "description": "How can I analyze Current Year vs Previous Year data with the same Dataset data?",
+         "description": "Learn how to analyze Current Year vs Previous Year data with the same Dataset in OAC!",
          "filename": "sprint-oac-current-vs-previous-year.md"
       },
       {

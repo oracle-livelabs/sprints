@@ -4,7 +4,7 @@
    "tutorials": [
       {
          "title": "How do I reload my dataset files in Oracle Analytics Cloud (OAC)?",
-         "description": "",
+         "description": "Learn how to reload your data files in OAC!",
          "filename": "./reload-dataset-file.md"
       },
       {
