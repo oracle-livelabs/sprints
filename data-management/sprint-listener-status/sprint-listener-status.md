@@ -18,6 +18,13 @@ Duration: 2 minutes
   </copy>
   ```
 
+3. Start Listener if it has not already been started at $ORACLE_HOME/bin
+  ```
+  <copy>
+  ./lsnrctl start
+  </copy>
+  ```
+
 ## Learn More
 
 * [How to Start, Stop, and Check the Status of the Oracle Database Listeners](https://docs.oracle.com/cd/E97665_01/html/rpm_81_installation_12c/GUID-21D99D16-AAB3-4AF0-A942-26C78D73AB89.htm)
