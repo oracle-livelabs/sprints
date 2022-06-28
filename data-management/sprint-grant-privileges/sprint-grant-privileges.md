@@ -1,7 +1,7 @@
 # How can I grant common privileges to individual database users?
 Duration: 2 minute
 
-## Granting privilges
+## Granting privileges
 
 You can grant common privileges to a database user using the following commands:
 
