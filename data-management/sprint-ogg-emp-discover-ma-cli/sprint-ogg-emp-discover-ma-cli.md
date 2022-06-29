@@ -6,19 +6,21 @@ Duration: 3 minutes
 
 1. Ensure that you have downloaded and deployed the EM CLI client. See **Learn More**.
 2. Ensure that you have a configuration file with the required values. The following is the content of a sample `microservices.txt` configuration file:
-  host: abc.cloud.com
-  user: empuser
-  password:empuser
-  port:5559
-  agentURL: https://abc.cloud.com:1838/emd/main/
-  targetNamePrefix=test_env_orcl_src
+```
+host: abc.cloud.com
+user: empuser
+password:empuser
+port:5559
+agentURL: https://abc.cloud.com:1838/emd/main/
+targetNamePrefix=test_env_orcl_src
+```  
 3. In the EM CLI client, run the command as shown in the following example:
 ```
 <copy>
 emcli discover_ggma -configFile="/path/microservices.txt"
 </copy>
 ```   
-When prompted, enter the values from the configuration file (here microservices.txt)
+When prompted, enter the values from the configuration file (here `microservices.txt` file):
 ```
 host=abc.cloud.com
 user=empuser
@@ -27,6 +29,20 @@ port=9001
 agentURL=https://abc.cloud.com:1838/emd/main/
 TargetNamePrefix=test_env_orcl_src
 ```
+The Discovery process begins and gets completed as follows:
+```
+Discovering GoldenGate Instances targets in host:abc.cloud.com:9001
+Begin GoldenGate target discovery...
+Number of targets discovered : 6
+Discovered Agent Monitored GoldenGate Targets.
+Verifying targets discovered...
+Number of new targets found: 6
+Saving newly discovered targets...
+Successfully saved targets.
+GoldenGate discovery completed successfully.
+```
+
+**Content of the configuration file**
 The `configuration file` (here `microservices.txt`file) contains the following mandatory parameters:
 
 * host - Hostname of Oracle GoldenGate Monitor Agent. For example, `abc.cloud.com`

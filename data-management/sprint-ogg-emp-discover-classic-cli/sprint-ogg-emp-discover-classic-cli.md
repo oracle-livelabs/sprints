@@ -32,7 +32,21 @@ port=5559
 agentURL=https://abc.cloud.com:1838/emd/main/
 TargetNamePrefix=test_env_orcl_src
 ```
-The `configuration file` (here `classic.txt`file) contains the following mandatory parameters:
+
+The Discovery process begins and gets completed as follows:
+```
+Discovering GoldenGate Instances targets in host:abc.cloud.com:9001
+Begin GoldenGate target discovery...
+Number of targets discovered : 6
+Discovered Agent Monitored GoldenGate Targets.
+Verifying targets discovered...
+Number of new targets found: 6
+Saving newly discovered targets...
+Successfully saved targets.
+GoldenGate discovery completed successfully.
+```
+**Content of the configuration file**
+The configuration file (here `classic.txt`file) contains the following mandatory parameters:
 
 * host - Hostname of Oracle GoldenGate Monitor Agent. For example, `abc.cloud.com`
 * port - Port of Oracle GoldenGate Monitor Agent.
