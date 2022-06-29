@@ -1,0 +1,33 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I run CRUD operations in SQL?",
+         "description": "",
+         "filename": "sprint-crud-operation.md"
+      },
+      {
+         "title": "How can I insert data into a table in the Oracle database?",
+         "description": "",
+         "filename": "../sprint-sql/insert-data/insert-data.md"
+      },
+      {
+         "title": "How can I query a table in the Oracle database?",
+         "description": "",
+         "filename": "../sprint-sql/query-tables/query-tables.md"
+      },
+      {
+         "title": "How can I index columns in the Oracle database?",
+         "description": "",
+         "filename": "../sprint-sql/index-columns/index-columns.md"
+      },
+      {
+         "title": "How can I create triggers for a table in the Oracle database?",
+         "description": "",
+         "filename": "../sprint-sql/create-triggers/create-triggers.md"
+      }
+
+   ],
+   "task_type": "Sections"
+}
