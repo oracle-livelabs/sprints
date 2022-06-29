@@ -1,7 +1,7 @@
-# How do I get Oracle Database SERVICE_NAME? 
+# How do I get service name in Autonomous Database? 
 Duration: 10 minutes
 
-SERVICE_NAMES specifies one or more names by which clients can connect to the instance. The instance registers its service names with the listener. When a client requests a service, the listener determines which instances offer the requested service and routes the client to the appropriate instance.  
+SERVICE_NAMES specifies one or more names by which clients can connect to the instance. The instance registers its service names with the listener. When a client requests a service, the listener determines which instances offer the requested service and routes the client to the appropriate instance. V$SERVICES displays information about the services in the database.
 
 ## Get Service Name
 
@@ -9,9 +9,11 @@ SERVICE_NAMES specifies one or more names by which clients can connect to the in
 
 ```
 <copy>
-select name, value from v$parameter where name='service_names';
+select * from v$services; 
 </copy>
 ```
+
+![services](images/services.png "services")
  
 ## Learn More
-* [Get Service Name](https://docs.oracle.com/cd/B19306_01/server.102/b14237/initparams188.htm )
+* [V$SERVICES](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-SERVICES.html)

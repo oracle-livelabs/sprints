@@ -1,0 +1,39 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+     {
+        "title": "How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I download Diagnostic Logs in racle GoldenGate Enterprise Manager Plug-in?",
+        "filename": "./../sprint-ogg-emp-diagnostic-log/sprint-ogg-emp-diagnostic-log.md"
+     },
+
+     {
+        "title": "How do I discover GoldenGate (classic) instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I discover GoldenGate (classic) instances using the EM CLI verb?",
+        "filename": "./../sprint-ogg-emp-discover-classic-cli/sprint-ogg-emp-discover-classic-cli.md"
+     },
+     {
+        "title": "How do I discover GoldenGate Microservices instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I discover GoldenGate Microservices instances using the EM CLI verb? ",
+        "filename": "./../sprint-ogg-emp-discover-ma-cli/sprint-ogg-emp-discover-ma-cli.md"
+     },
+     {
+        "title": "How do I create credentials for Oracle GoldenGate Classic instance in Enterprise Manager Plug-in?",
+        "description": "How do I create credentials for Oracle GoldenGate Classic instance in Enterprise Manager Plug-in? ",
+        "filename": "./../sprint-ogg-emp-credential-classic-cli/sprint-ogg-emp-credential-classic-cli.md"
+     },
+     {
+        "title": "How do I create credentials for Oracle GoldenGate Microservices (MA) instance in Enterprise Manager Plug-in?",
+        "description": "How do I create credentials for Oracle GoldenGate Microservices (MA) instance in Enterprise Manager Plug-in? ",
+        "filename": "./../sprint-ogg-emp-credential-ma-cli/sprint-ogg-emp-credential-ma-cli.md"
+     },
+     {
+        "title": "How do I start and stop processes using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I start and stop processes using the EM CLI verb? ",
+        "filename": "./../sprint-ogg-emp-start-stop-cli/sprint-ogg-emp-start-stop-cli.md"
+     }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

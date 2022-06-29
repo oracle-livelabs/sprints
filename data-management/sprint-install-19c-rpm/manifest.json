@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I install Oracle Database 19c in silent mode?",
+         "description": "",
+         "filename": "sprint-install-19c-rpm.md"
+      },
+      {
+         "title": "How do I check the listener status?",
+         "description": "Check Status of Oracle Database Listener",
+         "filename": "../sprint-listener-status/sprint-listener-status.md"
+      },
+      {
+         "title": "How do I restart the listener?",
+         "description": "Restart Oracle Database Listener",
+         "filename": "../sprint-restart-listener/sprint-restart-listener.md"
+      },
+      {
+         "title": "How do I run CRUD operations in SQL?",
+         "description": "How do I run CRUD operations in SQL",
+         "filename": "../sprint-crud-operation/sprint-crud-operation.md"
+      }
+   ],
+   "task_type": "Sections"
+}
