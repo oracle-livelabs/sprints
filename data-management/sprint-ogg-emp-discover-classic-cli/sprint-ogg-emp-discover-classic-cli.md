@@ -1,12 +1,6 @@
 # How do I discover GoldenGate (classic) instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?
 Duration: 3 minutes
 
-### Prerequisites
-This sprint assumes you have:
-  * Downloaded and Deployed the EM CLI Client
-
-See **Learn More**.
-
 ## Discover GoldenGate (classic) instance
 
 1. Ensure that you have downloaded and deployed the EM CLI client. See **Learn More**.
