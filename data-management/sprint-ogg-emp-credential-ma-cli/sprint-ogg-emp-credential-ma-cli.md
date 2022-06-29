@@ -1,4 +1,4 @@
-# How do I create credentials for Oracle GoldenGate Microservices (MA) instance in Enterprise Manager Plug-in?
+# How do I create credentials for Oracle GoldenGate Microservices instance using EMCLI in  GoldenGate Enterprise Manager Plug-in
 Duration: 3 minutes
 
 ### Prerequisites
