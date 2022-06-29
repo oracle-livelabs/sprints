@@ -21,17 +21,6 @@ Duration: 3 minutes
     emcli discover_gg -configFile="/path/classic.txt"
     </copy>
     ```   
-4. When prompted, enter the values from the configuration file (here `classic.txt` file):
-
-    ```
-    host=abc.cloud.com
-    user=empuser
-    password=empuser
-    port=5559
-    agentURL=https://abc.cloud.com:1838/emd/main/
-    TargetNamePrefix=test_env_orcl_src
-    ```
-
 The Discovery process begins and gets completed as follows:
 
 ```
