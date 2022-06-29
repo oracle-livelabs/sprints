@@ -1,10 +1,10 @@
 # How do I configure the Pipeline Parameters in Fusion Analytics Warehouse (FAW)?
 Duration: 2 minutes
 
-Before running your data pipelines for the functional areas in Fusion Analytics Warehouse, you must set up the pipeline parameters for your data model file. This Sprint will guide you on how to configure your pipeline parameters for your data model. 
+Before running your data pipelines for the functional areas in Fusion Analytics Warehouse, you must set up the pipeline parameters for your data model file. This Sprint will guide you on how to configure your pipeline parameters for your data model.
 
 ## Configure Pipeline Parameters
->**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps. 
+>**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps.
 
 1. In your Fusion Analytics Warehouse instance, click the **Navigation menu** and click **Console**.
 
@@ -19,12 +19,12 @@ Before running your data pipelines for the functional areas in Fusion Analytics 
     ![Pipeline parameters](images/pipeline-params.png)
 
 4. Here, you will be able to configure the Data Pipeline, Global Parameters, and the Data Refresh Schedule. For the Global Parameters, configure the following:
-    
-    
+
+
     * Analytics Language: Specify the language you want the data to be extracted in.
         >**Note:** You must reset the warehouse to ensure that the changes are effective.
 
-    * Analytics Currency: Specify the currency of the transaction data. A common currency helps to create meaningful enterprise-wide analysis and you may want to choose the currency based on where your headquarters is based. 
+    * Analytics Currency: Specify the currency of the transaction data. A common currency helps to create meaningful enterprise-wide analysis and you may want to choose the currency based on where your headquarters is based.
 
     * Exchange Rate Type: Specify the exchange rate that you want to use when converting transactions amounts to the Analytics Currency.
 
@@ -43,6 +43,7 @@ Before running your data pipelines for the functional areas in Fusion Analytics 
 
     ![Save](images/save.png)
 
+Congratulations, you just learned how to configure the pipeline parameters for your data model file before running the data pipeline for the functional areas in Fusion Analytics Warehouse.
 
 ## Learn More
 * [About Pipeline Parameters](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/pipeline-parameters.html)
