@@ -11,29 +11,35 @@ See **Learn More**.
 
 1. Ensure that you have downloaded and deployed the EM CLI client. See **Learn More**.
 2. Ensure that you have a configuration file with the required values. The following is the content of a sample `classic.txt` configuration file:
-  host: abc.cloud.com
-  user: empuser
-  password:empuser
-  port:5559
-  agentURL: https://abc.cloud.com:1838/emd/main/
-  targetNamePrefix
+
+    ```
+    host: abc.cloud.com
+    user: empuser
+    password:empuser
+    port:5559
+    agentURL: https://abc.cloud.com:1838/emd/main/
+    targetNamePrefix: test_env_orcl_src
+    ```
 3. In the EM CLI client, run the command as shown in the following example:
-```
-<copy>
-emcli discover_gg -configFile="/path/classic.txt"
-</copy>
-```   
-When prompted, enter the values from the configuration file (here classic.txt)
-```
-host=abc.cloud.com
-user=empuser
-password=empuser
-port=5559
-agentURL=https://abc.cloud.com:1838/emd/main/
-TargetNamePrefix=test_env_orcl_src
-```
+
+    ```
+    <copy>
+    emcli discover_gg -configFile="/path/classic.txt"
+    </copy>
+    ```   
+4. When prompted, enter the values from the configuration file (here `classic.txt` file):
+
+    ```
+    host=abc.cloud.com
+    user=empuser
+    password=empuser
+    port=5559
+    agentURL=https://abc.cloud.com:1838/emd/main/
+    TargetNamePrefix=test_env_orcl_src
+    ```
 
 The Discovery process begins and gets completed as follows:
+
 ```
 Discovering GoldenGate Instances targets in host:abc.cloud.com:9001
 Begin GoldenGate target discovery...
@@ -46,7 +52,8 @@ Successfully saved targets.
 GoldenGate discovery completed successfully.
 ```
 **Content of the configuration file**
-The configuration file (here `classic.txt`file) contains the following mandatory parameters:
+
+The configuration file (here `classic.txt` file) contains the following mandatory parameters:
 
 * host - Hostname of Oracle GoldenGate Monitor Agent. For example, `abc.cloud.com`
 * port - Port of Oracle GoldenGate Monitor Agent.
@@ -57,6 +64,7 @@ The configuration file (here `classic.txt`file) contains the following mandatory
 
 
 **Video Preview**
+
 Watch this video on how to Discover Oracle GoldenGate Classic and Microservices instances in the UI: [Discover Oracle GoldenGate Classic and Microservices instances](youtube:KAfmbzGDe9E)
 
 
