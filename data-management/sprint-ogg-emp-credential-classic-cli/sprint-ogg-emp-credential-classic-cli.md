@@ -1,43 +1,41 @@
 # How do I create credentials for Oracle GoldenGate Classic instance using EMCLI in  GoldenGate Enterprise Manager Plug-in
 Duration: 3 minutes
 
-### Prerequisites
-This sprint assumes you have:
-  * Downloaded and Deployed the EM CLI Client
-  * Discovered Oracle GoldenGate Classic instance
-
-See **Learn More**.
 
 ## Create credentials for GoldenGate Classic instance in the EM CLI client:
 
-To create Named Credentials (host credentials), run the `create_named_credential` verb as shown in the following example:
-```  
-<copy>
-emcli create_named_credential
-        -cred_name=classic
-        -auth_target_type=host
-        -cred_type=HostCreds
-        -attributes="HostUserName:<user>;HostPassword:<password>"
-</copy>
-```   
-To create Named Credentials (OGG Admin credentials), run the `create_named_credential` verb as shown in the following example:
-```  
-<copy>
-emcli create_named_credential
-        -cred_name=classic2
-        -auth_target_type=oracle_goldengate
-        -cred_type=OGGCred
-        -attributes="AgentUserName:<user>;AgentPassword:<password>"
-</copy>
-```   
+1. Login to the EM CLI client.
+2. Discover Oracle GoldenGate clasic instance.
+3. To create Named Credentials (host credentials), run the `create_named_credential` verb as shown in the following example:
 
-Explanation of the parameters:
+    ```
+    <copy>
+    ./emcli create_named_credential -cred_name=classic -auth_target_type=host -cred_type=HostCreds -attributes="HostUsername:hostusername"
+
+    </copy>
+    ```  
+4. Enter `HostPassword`.
+5. Confirm the `HostPassword`.
+
+6. To create Named Credentials (OGG Admin credentials), run the `create_named_credential` verb as shown in the following example:
+
+    ```  
+    <copy>
+    ./emcli create_named_credential -cred_name=classic2 -auth_target_type=oracle_goldengate -cred_type=OGGCred -attributes="AgentUsername:agentusername"
+    </copy>
+    ```   
+7. Enter `AgentPassword`.
+8. Confirm `AgentPassword`.
+
+**Explanation of the parameters**:
+
 * cred_name - Credential name. For example, `classic` or `classic2`
 * auth\_target\_type - Authenticating target type. For example, `host` or `oracle_goldengate`
 * cred_type - Credential type. For example `HostCreds`or `OGGCred`
 * attributes - Specify credential host user name and host password. For OGG Admin Credentials, specify Monitor Agent user name and password.
 
-### Video Preview
+**Video Preview**
+
 Watch this video on how to set credentials the Oracle GoldenGate Enterprise Manager Plug-in UI: [Setting Credentials for Oracle GoldenGate instances in the Enterprise Manager Plug-in](youtube:zFaX348_LiA)
 
 ## Learn More
