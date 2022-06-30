@@ -1,30 +1,25 @@
 # How do I start and stop processes using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?
 Duration: 1 minute
 
-### Prerequisites
-This sprint assumes you have:
-  * Downloaded and Deployed the EM CLI Client
-  * Discovered Oracle GoldenGate target
-  * Set the Preferred credentials for the target
-
-See **Learn More**.
-
 ## Start an instance
+1. Login to the EM CLI client.
+2. Discover Oracle GoldenGate classic instance.
+3. Set the Preferred credentials for the target.
+4. In the EM CLI client, run the `gg_execute`command as shown in the following example:
 
-In the EM CLI client, run the `gg_execute`command as shown in the following example:
-```
-<copy>
-emcli gg_execute -command="start" -target_type="oracle_goldengate_extract" -target_name="extract:hostname:port:EOBEY" -options=""
-</copy>
-```   
+    ```
+    <copy>
+    emcli gg_execute -command="start" -target_type="oracle_goldengate_extract" -target_name="extract:hostname:port:EOBEY" -options=""
+    </copy>
+    ```   
 ## Stop an instance
 
 In the EM CLI client, run the `gg_execute`command as shown in the following example:
-```
-<copy>
-emcli gg_execute -command="stop" -target_type="oracle_goldengate_extract" -target_name="extract:hostname:port:EOBEY" -options=""
-</copy>
-```   
+  ```
+  <copy>
+  emcli gg_execute -command="stop" -target_type="oracle_goldengate_extract" -target_name="extract:hostname:port:EOBEY" -options=""
+  </copy>
+  ```   
 
 
 ## Learn More
