@@ -5,7 +5,7 @@ Duration: 3 minutes
 ## Create credentials for GoldenGate Classic instance in the EM CLI client:
 
 1. Login to the EM CLI client.
-2. Discover Oracle GoldenGate clasic instance.
+2. Discover Oracle GoldenGate classic instance.
 3. To create Named Credentials (host credentials), run the `create_named_credential` verb as shown in the following example:
 
     ```
