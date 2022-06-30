@@ -7,12 +7,15 @@ Duration: 3 minutes
 
     ```  
     <copy>
-    ./emcli create_named_credential -cred_name=ma -auth_target_type=host -cred_type=HostCreds -attributes="HostUsername:hostusername"
+    ./emcli create_named_credential -cred_name=ma -auth_target_type=host -cred_type=HostCreds -attributes="HostUserName:hostusername"
 
     </copy>
     ```
 4. Enter `HostUserPassword`.
 5. Confirm `HostUserPassword`.
+
+    The credential gets created.
+
 6. To create Preferred credentials, run the `set_preferred_credential` verb as shown in the following example:
 
     ```  
@@ -20,10 +23,13 @@ Duration: 3 minutes
     emcli set_preferred_credential -set_name=HostCreds -target_name=target.us.oracle.com:9001svrmgr -target_type=oracle_goldengate_srvmgr -credential_name=ma -credential_owner=credUser
     </copy>
     ```   
+    The preferred credential gets created.
 
 **Explanation of Parameters**:
 
 * cred_name - Credential name. For example, `ma`.
+* auth\_target\_type - Authenticating target type. For example, `host` or `oracle_goldengate`
+* cred_type - Credential type. For example `HostCreds`or `OGGCred`
 * set_name - Sets the preferred credential for this credential set.
 * target_name - Sets the preferred credential for this target.
 * target_type - Target type for the target/credential set.

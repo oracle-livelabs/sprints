@@ -10,22 +10,34 @@ Duration: 3 minutes
 
     ```
     <copy>
-    ./emcli create_named_credential -cred_name=classic -auth_target_type=host -cred_type=HostCreds -attributes="HostUsername:hostusername"
+    ./emcli create_named_credential -cred_name=classic -auth_target_type=host -cred_type=HostCreds -attributes="HostUserName:hostusername"
 
     </copy>
     ```  
 4. Enter `HostPassword`.
 5. Confirm the `HostPassword`.
 
+    The credential gets created.
 6. To create Named Credentials (OGG Admin credentials), run the `create_named_credential` verb as shown in the following example:
 
     ```  
     <copy>
-    ./emcli create_named_credential -cred_name=classic2 -auth_target_type=oracle_goldengate -cred_type=OGGCred -attributes="AgentUsername:agentusername"
+    ./emcli create_named_credential -cred_name=classic2 -auth_target_type=oracle_goldengate -cred_type=OGGCred -attributes="AgentUserName:agentusername"
     </copy>
     ```   
 7. Enter `AgentPassword`.
 8. Confirm `AgentPassword`.
+
+    The credential gets created.
+9. To create Preferred credentials, run the `set_preferred_credential` verb as shown in the following example:
+
+    ```
+    <copy>
+    /emcli set_preferred_credential -set_name=classic2 -target_type=oracle_goldengate -target_name=test_env_orcl_src -cred_type=OGGCred -attributes="HostUserName:hostusername"
+
+    </copy>
+    ```
+    The preferred credential gets created.
 
 **Explanation of the parameters**:
 
@@ -33,6 +45,11 @@ Duration: 3 minutes
 * auth\_target\_type - Authenticating target type. For example, `host` or `oracle_goldengate`
 * cred_type - Credential type. For example `HostCreds`or `OGGCred`
 * attributes - Specify credential host user name and host password. For OGG Admin Credentials, specify Monitor Agent user name and password.
+* set_name - Sets the preferred credential for this credential set.
+* target_name - Sets the preferred credential for this target.
+* target_type - Target type for the target/credential set.
+* credential_name - Name of the credential. This is a mandatory parameter while setting preferred credentials.
+* credential_owner - Owner of the credential. This defaults to the currently logged in user.
 
 **Video Preview**
 
