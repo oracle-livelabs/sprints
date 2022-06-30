@@ -88,7 +88,7 @@ You can create a connection to enable you to analyze and visualize data in that 
 
 ### **Create a Dataset from the Query Service Connection**
 
-Datasets are self-service data models that you build specifically for your data visualization and analysis requirements. You use visualizations and analyses to find the answers that you need from key business data displayed in graphical formats. A dataset contains data source connection information, tables, the columns you specify, and the data enrichments and transformations that you apply. Create a dataset using your new Query Service connection.
+Datasets are self-service data models that you build specifically for your data visualization and analysis requirements. You use visualizations and analysis to find the answers that you need from key business data displayed in graphical formats. A dataset contains data source connection information, tables, the columns you specify, and the data enrichments and transformations that you apply. Create a dataset using your new Query Service connection.
 
 1.  From the Oracle Analytics banner, click **Create**, and then click **Dataset**.  
 
