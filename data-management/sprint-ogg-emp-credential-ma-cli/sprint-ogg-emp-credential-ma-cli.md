@@ -21,8 +21,9 @@ Duration: 3 minutes
     </copy>
     ```   
 
-**Options**:
+**Explanation of Parameters**:
 
+* cred_name - Credential name. For example, `ma`.
 * set_name - Sets the preferred credential for this credential set.
 * target_name - Sets the preferred credential for this target.
 * target_type - Target type for the target/credential set.
