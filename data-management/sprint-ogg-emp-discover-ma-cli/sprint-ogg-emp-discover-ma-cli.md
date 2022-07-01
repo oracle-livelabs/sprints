@@ -46,13 +46,7 @@ The `configuration file` (here `microservices.txt`file) contains the following m
 * agentURL - Enterprise Manager Agent URL. For example, `https://abc.cloud.com:1838/emd/main`.
 * targetNamePrefix - Enter the target name prefix. For example, `test_env_orcl_src`. The target name prefix is appended with colon (":") and this gets prefixed to all target names. For example, `test_env_orcl_src:targetName`. This is an optional parameter.
 
-The configuration file (here `microservices.txt` file) contains the following mandatory parameters:
-* host - Hostname of Oracle GoldenGate Monitor Agent. For example, `abc.cloud.com`
-* port - Port of Oracle GoldenGate Monitor Agent.
-* user - Username to connect to Oracle GoldenGate Monitor Agent. For example, *empuser*.
-* password - Password to connect to Oracle GoldenGate Monitor Agent.
-* agentURL - Enterprise Manager Agent URL. For example, `https://abc.cloud.com:1838/emd/main/`.
-* targetNamePrefix - Enter the target name prefix. For example, `test_env_orcl_src`. The target name prefix is appended with colon (":") and this gets prefixed to all target names. For example, `test_env_orcl_src:targetName`. This is an optional parameter.
+
 
 **Video Preview**
 
