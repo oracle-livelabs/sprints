@@ -22,11 +22,15 @@ Duration: 2 minutes
 
   ![The partial Regions and Availability Domains documentation is displayed. The US East (Ashburn) region name and its associated region id, us-ashburn-1, are highlighted.](./images/regions-doc.png " ")
 
+<!-- Add when the LL team add the region id to the Reservation Information panel. -->
+
+<!--
 5. If you are running your workshop using a LiveLabs reservation, on the **Launch _workshop name_ Workshop** page, in the **Workshop Details** section, the **Region** row lists your region name and identifier. Copy the region identifier next to your assigned region name, **us-phoenix-1** in the following example.
 
     ![On the Launch workshop name page, the Workshop Details section, region name, and region identifier are highlighted.](./images/ll-region-id.png " ")
 
 You can now paste your copied region identifier anywhere you need it.
+-->
 
 ## Learn More
 
