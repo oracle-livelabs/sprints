@@ -9,7 +9,7 @@ Duration: 1 minute
 
     ```
     <copy>
-    emcli gg_execute -command="start" -target_type="oracle_goldengate_extract" -target_name="extract:hostname:port:EOBEY" -options=""
+    emcli gg_execute -command=start -target_type=oracle_goldengate_extract -target_name=extract:hostname:port:EOBEY -options=""
     </copy>
     ```   
 ## Stop an instance
@@ -17,7 +17,7 @@ Duration: 1 minute
 In the EM CLI client, run the `gg_execute`command as shown in the following example:
   ```
   <copy>
-  emcli gg_execute -command="stop" -target_type="oracle_goldengate_extract" -target_name="extract:hostname:port:EOBEY" -options=""
+  emcli gg_execute -command=stop -target_type=oracle_goldengate_extract -target_name=extract:hostname:port:EOBEY -options=""
   </copy>
   ```   
 
