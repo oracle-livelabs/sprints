@@ -1,6 +1,8 @@
 # How do I create credentials for Oracle GoldenGate Microservices instance using EMCLI in  GoldenGate Enterprise Manager Plug-in
 Duration: 3 minutes
 
+## Create credentials for GoldenGate Classic instance using the EM CLI client
+
 1. Login to the EM CLI client.
 2. Discover Oracle GoldenGate Microservices instance.
 3. To create Named Credentials (host credentials), run the `create_named_credential` verb as shown in the following example:

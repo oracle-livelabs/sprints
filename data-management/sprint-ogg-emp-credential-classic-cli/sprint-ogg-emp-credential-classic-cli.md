@@ -2,7 +2,7 @@
 Duration: 3 minutes
 
 
-## Create credentials for GoldenGate Classic instance in the EM CLI client:
+## Create credentials for GoldenGate Classic instance using the EM CLI client
 
 1. Login to the EM CLI client.
 2. Discover Oracle GoldenGate classic instance.
