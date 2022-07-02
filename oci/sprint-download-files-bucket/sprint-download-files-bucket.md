@@ -12,7 +12,7 @@ Ensure you are in the correct region to your file(s) in object storage. Follow t
 
 3. In the Compartment, look for the bucket that has your file and then look at the status under visibility - Public or Private.
 
-4. If your bucket is private, you need to [create Pre-Authenticated Request](https://oracle.github.io/learning-library/sprints/oci/sprint-create-par-link/) to download the files in the bucket.
+4. If your bucket is private, you need to [create Pre-Authenticated Request](https://oracle-livelabs.github.io/sprints//oci/sprint-create-par-link/) to download the files in the bucket.
 
 5. If your bucket is public, click on the bucket name that has your file.
 
