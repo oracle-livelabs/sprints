@@ -22,7 +22,7 @@ Duration: 3 minutes
 
     ```  
     <copy>
-    emcli set_preferred_credential -set_name=HostCreds -target_name=target.us.oracle.com:9001svrmgr -target_type=oracle_goldengate_srvmgr -credential_name=ma -credential_owner=credUser
+    ./emcli set_preferred_credential -set_name=HostCreds -target_name=target.us.oracle.com:9001 -target_type=oracle_goldengate_srvmgr -credential_name=ma -credential_owner=credUser
     </copy>
     ```   
     The preferred credential gets created.
@@ -31,7 +31,7 @@ Duration: 3 minutes
 
 * cred_name - Credential name. For example, `ma`.
 * auth\_target\_type - Authenticating target type. For example, `host` or `oracle_goldengate`
-* cred_type - Credential type. For example `HostCreds`or `OGGCred`
+* cred_type - Credential type. For example `HostCreds` or `OGGCred`
 * set_name - Sets the preferred credential for this credential set.
 * target_name - Sets the preferred credential for this target.
 * target_type - Target type for the target/credential set.

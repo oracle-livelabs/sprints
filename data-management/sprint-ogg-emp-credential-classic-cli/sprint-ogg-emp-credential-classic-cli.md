@@ -33,7 +33,7 @@ Duration: 3 minutes
 
     ```
     <copy>
-    /emcli set_preferred_credential -set_name=classic2 -target_type=oracle_goldengate -target_name=test_env_orcl_src -cred_type=OGGCred -attributes="HostUserName:hostusername"
+    /emcli set_preferred_credential -set_name=classic2 -target_type=oracle_goldengate -target_name=extract:target.us.oracle.com:2101 -cred_type=OGGCred -attributes="HostUserName:hostusername"
 
     </copy>
     ```
@@ -43,7 +43,7 @@ Duration: 3 minutes
 
 * cred_name - Credential name. For example, `classic` or `classic2`
 * auth\_target\_type - Authenticating target type. For example, `host` or `oracle_goldengate`
-* cred_type - Credential type. For example `HostCreds`or `OGGCred`
+* cred_type - Credential type. For example `HostCreds` or `OGGCred`
 * attributes - Specify credential host user name and host password. For OGG Admin Credentials, specify Monitor Agent user name and password.
 * set_name - Sets the preferred credential for this credential set.
 * target_name - Sets the preferred credential for this target.
