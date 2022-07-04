@@ -33,7 +33,7 @@ Duration: 3 minutes
 
     ```
     <copy>
-    /emcli set_preferred_credential -set_name=classic2 -target_type=oracle_goldengate -target_name=extract:target.us.oracle.com:2101 -cred_type=OGGCred -attributes="HostUserName:hostusername"
+    /emcli set_preferred_credential -set_name=classic2 -target_type=oracle_goldengate -target_name=extract:target.us.oracle.com:2101 -cred_type=OGGCred -attributes="HostUserName:oggagentuser"
 
     </copy>
     ```
