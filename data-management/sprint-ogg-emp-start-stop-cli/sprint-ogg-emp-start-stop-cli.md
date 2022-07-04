@@ -9,7 +9,7 @@ Duration: 1 minute
 
     ```
     <copy>
-    ./emcli gg_execute -command="start" -target_type="oracle_goldengate_extract"-target_name="extract:hostname:9001:EXTMA"
+    ./emcli gg_execute -command=start -target_type=oracle_goldengate_extract-target_name=extract:hostname:9001:EXTMA
     </copy>
     ```   
   In this example, hostname is the Service Manager host name and 9001 is the port.
@@ -19,7 +19,7 @@ In the EM CLI client, run the `gg_execute`command as shown in the following exam
 
 ```
 <copy>
-./emcli gg_execute -command="stop" -target_type="oracle_goldengate_extract"-target_name="extract:hostname:9001:EXTMA"
+./emcli gg_execute -command=stop -target_type=oracle_goldengate_extract-target_name=extract:hostname:9001:EXTMA
 </copy>
 ```   
 
