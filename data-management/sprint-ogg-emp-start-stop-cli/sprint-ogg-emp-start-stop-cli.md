@@ -2,24 +2,26 @@
 Duration: 1 minute
 
 ## Start an instance
+
 1. Login to the EM CLI client.
 2. Discover an Oracle GoldenGate instance.
 3. Set the Preferred credentials for the target.
-4. In the EM CLI client, run the `gg_execute`command as shown in the following example:
+4. In the EM CLI client, run the `gg_execute` command as shown in the following example:
 
     ```
     <copy>
-    ./emcli gg_execute -command=start -target_type=oracle_goldengate_extract-target_name=extract:hostname:9001:EXTMA
+    ./emcli gg_execute -command=start -target_type=oracle_goldengate_extract -target_name=extract:hostname:9001:EXTMA
     </copy>
     ```   
   In this example, hostname is the Service Manager host name and 9001 is the port.
+
 ## Stop an instance
 
-In the EM CLI client, run the `gg_execute`command as shown in the following example:
+In the EM CLI client, run the `gg_execute` command as shown in the following example:
 
 ```
 <copy>
-./emcli gg_execute -command=stop -target_type=oracle_goldengate_extract-target_name=extract:hostname:9001:EXTMA
+./emcli gg_execute -command=stop -target_type=oracle_goldengate_extract -target_name=extract:hostname:9001:EXTMA
 </copy>
 ```   
 
