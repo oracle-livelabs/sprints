@@ -1,44 +1,45 @@
-# How do I create credentials for Oracle GoldenGate Microservices (MA) instance in Enterprise Manager Plug-in?
+# How do I create credentials for Oracle GoldenGate Microservices instance using EMCLI in  GoldenGate Enterprise Manager Plug-in?
 Duration: 3 minutes
 
-### Prerequisites
-This sprint assumes you have:
-  * Downloaded and Deployed the EM CLI Client
-  * Discovered Oracle GoldenGate Microservices instance
+## Create credentials for GoldenGate Classic instance using the EM CLI client
 
+1. Login to the EM CLI client.
+2. Discover Oracle GoldenGate Microservices instance.
+3. To create Named Credentials (host credentials), run the `create_named_credential` verb as shown in the following example:
 
-See **Learn More**.
+    ```  
+    <copy>
+    ./emcli create_named_credential -cred_name=ma -auth_target_type=host -cred_type=HostCreds -attributes="HostUserName:hostusername"
 
-To create Named Credentials (host credentials), run the `create_named_credential` verb as shown in the following example:
-```  
-<copy>
-emcli create_named_credential
-        -cred_name=ma
-        -auth_target_type=host
-        -cred_type=HostCreds
-        -attributes="HostUserName:<user>;HostPassword:<password>"
-</copy>
-```   
-To create Preferred credentials, run the `set_preferred_credential` verb as shown in the following example:
-```  
-<copy>
-emcli set_preferred_credential
-        -set_name=HostCreds
-        -target_name=target.us.oracle.com:9001svrmgr
-        -target_type=oracle_goldengate_srvmgr
-        -credential_name=ma
-        -credential_owner=credUser
-</copy>
-```   
+    </copy>
+    ```
+4. Enter `HostUserPassword`.
+5. Confirm `HostUserPassword`.
 
-**Options**:
+    The credential gets created.
+
+6. To create Preferred credentials, run the `set_preferred_credential` verb as shown in the following example:
+
+    ```  
+    <copy>
+    ./emcli set_preferred_credential -set_name=HostCreds -target_name=target.us.oracle.com:9001 -target_type=oracle_goldengate_srvmgr -credential_name=ma -credential_owner=credUser
+    </copy>
+    ```   
+    The preferred credential gets created.
+
+**Explanation of Parameters**:
+
+* cred_name - Credential name. For example, `ma`.
+* auth\_target\_type - Authenticating target type. For example, `host` or `oracle_goldengate`
+* cred_type - Credential type. For example `HostCreds` or `OGGCred`
 * set_name - Sets the preferred credential for this credential set.
 * target_name - Sets the preferred credential for this target.
 * target_type - Target type for the target/credential set.
 * credential_name - Name of the credential.
 * credential_owner - Owner of the credential. This defaults to the currently logged in user.
 
-### Video Preview
+**Video Preview**
+
 Watch this video on how to set credentials the Oracle GoldenGate Enterprise Manager Plug-in UI: [Setting Credentials for Oracle GoldenGate instances in the Enterprise Manager Plug-in](youtube:zFaX348_LiA)
 
 ## Learn More
