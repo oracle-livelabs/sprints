@@ -1,13 +1,6 @@
 # How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?
 Duration: 2 minutes
 
-### Prerequisites
-This sprint assumes you have:
-  * Downloaded and Deployed the EM CLI Client
-  * Discovered Oracle GoldenGate classic or MA instances
-
-See **Learn More**.
-
 ## Download Diagnostic Logs
 
 1. In the Oracle GoldenGate Enterprise Manager Plug-in UI, click **Setup**, select **Add Target** and then click **Configure Auto Discovery** to display the **Setup Discovery** page.
