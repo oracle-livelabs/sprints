@@ -1,4 +1,4 @@
-# How do I create credentials for Oracle GoldenGate Classic instance using EMCLI in  GoldenGate Enterprise Manager Plug-in
+# How do I create credentials for Oracle GoldenGate Classic instance using EMCLI in  GoldenGate Enterprise Manager Plug-in?
 Duration: 3 minutes
 
 ## Create credentials for GoldenGate Classic instance using the EM CLI client
