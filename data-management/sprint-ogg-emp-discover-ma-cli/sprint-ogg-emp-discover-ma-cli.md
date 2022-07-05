@@ -1,7 +1,6 @@
 # How do I discover GoldenGate MA instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?
 Duration: 3 minutes
 
-
 ## Discover GoldenGate Microservices (MA) instance
 
 1. Ensure that you have downloaded and deployed the EM CLI client. See **Learn More**.
