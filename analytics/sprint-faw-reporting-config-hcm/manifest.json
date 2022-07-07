@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I set up the reporting configurations for HCM in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to set up reporting configurations for HCM data.",
+         "filename": "./reporting-config-hcm.md"
+      },
+      {
+         "title": "How do I set up the reporting configurations for ERP in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-reporting-config-erp/reporting-config-erp.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
