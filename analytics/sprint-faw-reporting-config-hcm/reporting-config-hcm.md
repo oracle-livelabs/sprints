@@ -1,7 +1,7 @@
 # How do I set up the reporting configurations for HCM in Fusion Analytics Warehouse (FAW)?
 Duration: 2 minutes
 
-Before you run your data pipeline for the functional areas in Fusion Analytics Warehouse, you must set up the report parameters for your data model file. For HCM, you need to set up the reporting configurations so that you can specify how your data is presented in KPI decks, visualizations, dashboards, and reports. 
+Before you run your data pipeline for the functional areas in Fusion Analytics Warehouse, it is reccomended that you set up the report parameters for your data model file. The configuration can be done after the data pipeline is run but takes effect only after the incremental update. For HCM, you need to set up the reporting configurations so that you can specify how your data is presented in KPI decks, visualizations, dashboards, and reports. 
 
 ## Reporting configurations for Human Capital Management
 
