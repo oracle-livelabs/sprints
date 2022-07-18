@@ -1,10 +1,9 @@
 # How do I update the notification email for Fusion Analytics Warehouse (FAW)?
-Duration: 1 minute to 10 minute
+Duration: 1 minute
 
-When you update your notification email for Fusion Analytics Warehouse, we recommend that you provide a mailing list instead of a single individual's email address. The reason for this is risk mitigation. If the one person who was listed to receive email notifications about system maintenance is on leave during the time emails are sent out, then you risk not being able to attend to critical system maintenance tasks. 
+When you update your notification email for Fusion Analytics Warehouse, we recommend that you provide a mailing list instead of a single individual's email address. The reason for this is risk mitigation. If the one person who was listed to receive email notifications about system maintenance is on leave during the time emails are sent out, then you risk not being able to attend to critical system maintenance tasks.
 
 ## Update notification email
-* Description of solution/answer
 
 1. Sign in to your [Oracle Cloud Infrastructure Console](https://cloud.oracle.com/).
 
@@ -20,7 +19,7 @@ When you update your notification email for Fusion Analytics Warehouse, we recom
 
     ![Select FAW instance](images/select-instance.png)
 
-4. On the instance details page, click **Update Email**. 
+4. On the instance details page, click **Update Email**.
 
     ![Update email](images/update-email.png)
 
@@ -30,7 +29,7 @@ When you update your notification email for Fusion Analytics Warehouse, we recom
 
     ![Enter new email](images/new-email.png)
 
-Congratulations, you have just learned how to update the notification email for FAW as well as a best practice to make sure email notifications are not missed by the team. 
+Congratulations, you have just learned how to update the notification email for FAW as well as a best practice to make sure email notifications are not missed by the team.
 
 ## Learn More
 
