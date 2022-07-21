@@ -4,7 +4,7 @@
    "tutorials": [
       {
          "title": "How do I view request history and audit logs in Fusion Analytics Warehouse (FAW)?",
-         "description": "Learn how to view the request history and audit logs in FAW",
+         "description": "Learn how to view the request history and audit logs in FAW.",
          "filename": "view-request-history-audit-log.md"
       },
       {
