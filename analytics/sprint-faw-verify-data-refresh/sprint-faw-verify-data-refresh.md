@@ -1,4 +1,4 @@
-# How can I verify that the data refresh schedule has been completed in Fusion Analytics Warehouse (FAW)?
+# How do I verify that the data refresh schedule has been completed in Fusion Analytics Warehouse (FAW)?
 
 Duration: 4 minutes
 
@@ -14,7 +14,7 @@ System Administrators will have set a Data Refresh Schedule which automatically 
 * Sanity check to make sure your system is running as you've specified
 * Ensure that your data is current
 
-## Verify data refresh 
+## Verify data refresh
 The following steps will guide you to verify that the incremental updates have started and been completed in your FAW environment.
 
   > **Note:** You must have 'Data Warehouse Refresh and Usage Tracking Analysis Duty' application role to successfully complete these steps.
