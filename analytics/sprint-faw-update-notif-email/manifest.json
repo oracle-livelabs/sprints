@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I update the notification email for Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn best practices for updating the notification email in FAW.",
+         "filename": "update-notification-email.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

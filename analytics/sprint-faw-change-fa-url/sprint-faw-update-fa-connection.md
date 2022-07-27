@@ -16,7 +16,7 @@ Duration: 5 minutes
 
     ![FAW updating](images/updating.png)
 
-4. Once the FAW status turns green, you Fusion Application URL will
+4. Once the FAW status turns green, your Fusion Application URL will be updated. At this point, you need to reset the data warehouse to ensure that your data reflects the new Fusion Application.
 
     ![FAW updated](images/updated.png)
 
