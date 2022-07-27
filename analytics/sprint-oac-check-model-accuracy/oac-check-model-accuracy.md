@@ -10,15 +10,15 @@ It is key to ensure the quality of a machine learning model before putting it in
 
 1. From the OAC homepage, click on **Machine Learning** and find the trained model whose accuracy you would like to check.
 
-    ![OAC homepage](images/OAC_Homepage_1.png)
+    ![OAC homepage](images/oac-homepage.png)
 
 2. Hover over the model and click on the three dots that appear in the bottom right corner.
 
-    ![OAC machine learning tab](images/OAC_MachineLearning_2.png)
+    ![OAC machine learning tab](images/oac-machinelearning.png)
 
 3. Click the **Inspect** option.
 
-    ![OAC machine learning tab - inspect](images/OAC_MachineLearning_Inspect_3.png)
+    ![OAC machine learning tab - inspect](images/oac-machinelearning-inspect.png)
 
 4. Select the **quality** tab to view basic accuracy metrics for your model. The metrics that appear depend on the type of model.
 
@@ -28,21 +28,21 @@ It is key to ensure the quality of a machine learning model before putting it in
 
       <**Note:** For clustering models NO information appears on this screen. Continue to the next step to learn how to access accuracy data for clustering models.
 
-  ![Inspect tab quality page](images/OAC_Inspect_Quality_4.png)
+  ![Inspect tab quality page](images/oac-inspect-quality.png)
 
 5. To gain insights beyond what is displayed here, click on **Related**. Under this tab we find objects related to our model such as the training data, and scripts for model training and scoring. We also find datasets that are generated when the model is trained that help us assess the model accuracy. Some of this data may have been displayed on the **Quality** page, while some may remain unused.
 
-    ![Inspect tab related page](images/OAC_Inspect_Quality_5.png)
+    ![Inspect tab related page](images/oac-inspect-related.png)
 
 6. Click on any dataset that you would like to use to assess model quality in order to open a workbook using that dataset.
 
   NOTE: Creating a workbook with the datasets generated from clustering models is the only way to assess their accuracy.
 
-    ![Inspect tab related page with model highlight](images/OAC_Inspect_Quality_Model_6.png)
+    ![Inspect tab related page with model highlight](images/oac-inspect-related-dataset.png)
 
 7. We can now visualize the data in any way we choose to assess model accuracy. For example, we display a bar graph comparing the precision, recall, and F1 score for the different possible classification outputs.
 
-    ![canvas with confusion matrix dataset](images/OAC_Quality_Visual_7.png)
+    ![canvas with confusion matrix dataset](images/oac-accuracy-workbook.png)
 
 Congratulations! You have just learned how to check the accuracy of a machine learning model in Oracle Analytics Cloud!
 
