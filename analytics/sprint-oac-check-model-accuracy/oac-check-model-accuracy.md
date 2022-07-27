@@ -28,7 +28,7 @@ It is key to ensure the quality of a machine learning model before putting it in
 
       <**Note:** For clustering models NO information appears on this screen. Continue to the next step to learn how to access accuracy data for clustering models.
 
-  ![Inspect tab quality page](images/oac-inspect-quality.png)
+    ![Inspect tab quality page](images/oac-inspect-quality.png)
 
 5. To gain insights beyond what is displayed here, click on **Related**. Under this tab we find objects related to our model such as the training data, and scripts for model training and scoring. We also find datasets that are generated when the model is trained that help us assess the model accuracy. Some of this data may have been displayed on the **Quality** page, while some may remain unused.
 
@@ -42,7 +42,7 @@ It is key to ensure the quality of a machine learning model before putting it in
 
 7. We can now visualize the data in any way we choose to assess model accuracy. For example, we display a bar graph comparing the precision, recall, and F1 score for the different possible classification outputs.
 
-    ![canvas with confusion matrix dataset](images/oac-accuracy-workbook.png)
+    ![Canvas with confusion matrix dataset](images/oac-accuracy-workbook.png)
 
 Congratulations! You have just learned how to check the accuracy of a machine learning model in Oracle Analytics Cloud!
 
