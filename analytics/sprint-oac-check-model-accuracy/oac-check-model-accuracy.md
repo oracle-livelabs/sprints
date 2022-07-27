@@ -51,4 +51,4 @@ Congratulations! You have just learned how to check the accuracy of a machine le
 
 - Miles Novotny, Solution Engineer, North America Specialist Hub, July 27th, 2022
 
-- Last Updated By - Miles Novotny, July 26th, 2022
+- Last Updated By - Miles Novotny, July 27th, 2022
