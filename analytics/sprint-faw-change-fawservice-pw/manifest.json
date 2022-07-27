@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I change the FAWService User's password in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to change the FAWService user's password in FAW.",
+         "filename": "change-fawservice-pw.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
