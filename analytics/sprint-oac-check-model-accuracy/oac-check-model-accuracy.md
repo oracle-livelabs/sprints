@@ -36,7 +36,7 @@ It is key to ensure the quality of a machine learning model before putting it in
 
 6. Click on any dataset that you would like to use to assess model quality in order to open a workbook using that dataset.
 
-  NOTE: Creating a workbook with the datasets generated from clustering models is the only way to assess their accuracy.
+  <**NOTE:** Creating a workbook with the datasets generated from clustering models is the only way to assess their accuracy.
 
     ![Inspect tab related page with model highlight](images/oac-inspect-related-dataset.png)
 
