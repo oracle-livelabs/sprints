@@ -6,6 +6,11 @@
          "title": "How do I change the FAWService User's password in Fusion Analytics Warehouse (FAW)?",
          "description": "Learn how to change the FAWService user's password in FAW.",
          "filename": "change-fawservice-pw.md"
+      },
+      {
+         "title": "How do I change my Fusion Application connection in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-change-fa-url/sprint-faw-update-fa-connection.md"
       }
    ],
    "task_type": "Sections",

@@ -48,7 +48,6 @@ Congratulations, you have successfully learned how to change a Fusion Applicatio
 
 ## Learn More
 * [Reset Passwords](https://docs.oracle.com/en/cloud/saas/applications-common/22c/facsa/Chunk1801397472.html#s20058155)
-* [URL text 2](http://docs.oracle.com)
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
