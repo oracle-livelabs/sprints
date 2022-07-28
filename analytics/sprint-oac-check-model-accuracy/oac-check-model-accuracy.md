@@ -47,8 +47,6 @@ Congratulations! You have just learned how to check the accuracy of a machine le
 * [Inspect and modify a prediction model](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-inspect-modify-prediction-model/index.html)
 * [What are a predictive model's related datasets?](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-4C55DF0E-7FBB-40B7-8650-71CCCA574F57)
 
-### Acknowledgements
-
-- Miles Novotny, Solution Engineer, North America Specialist Hub, July 27th, 2022
-
-- Last Updated By - Miles Novotny, July 27th, 2022
+## Acknowledgements
+* **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
+* **Last Updated By/Date** - Miles Novotny, July 2022
