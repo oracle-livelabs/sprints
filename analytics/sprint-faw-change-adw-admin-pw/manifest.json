@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I change the ADW Admin password in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to update the ADW Admin password in FAW.",
+         "filename": "change-adw-admin-pw.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
