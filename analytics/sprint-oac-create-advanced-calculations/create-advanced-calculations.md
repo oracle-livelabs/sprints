@@ -1,4 +1,4 @@
-# How do I create advanced calculations in OAC?
+# How do I create advanced calculations in Oracle Analytics Cloud (OAC)?
 Duration: 3 minutes
 
 Creating advanced calculations can be an effective tool to quickly populate visualizations. 
@@ -7,9 +7,9 @@ When creating visualizations, automated calculations can be quickly saved for la
 
 As of May 2022, the most current update, OAC allows for powerful slice and dice analysis with any measure using these calculated objects.
 
-## Two methods:
+## Advanced Calculations
 
-## Customize advanced calculations
+### Manually Customized
 Advanced calculations can be quickly defined, using a customizable script.
 
 1. First, open your OAC Workbook. 
@@ -34,7 +34,7 @@ Advanced calculations can be quickly defined, using a customizable script.
 
    ![The resultant calculation variable that was generated in the window](images/updated-calculation.png)
 
-## Automate advanced calculations
+### Automatically Generated
 
 Another way to populate the calculation page is by predefining clusters or outliers in your data and right-click-save in *My calculations* folder. 
 
