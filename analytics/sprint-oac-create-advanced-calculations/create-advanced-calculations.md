@@ -5,12 +5,12 @@ Creating advanced calculations can be an effective tool to quickly populate visu
 
 ## Advanced Calculations
 
-### Manually Customized
+### Manually Customize
 Advanced calculations can be quickly defined, using a customizable script.
 
-1. First, open your OAC Workbook. 
+1. Open your OAC Workbook. 
 
-2. Notice the *My Calculations* folder on the left hand side of the display and right click the folder to select "add calculation".
+2. Notice the **My Calculations** folder on the left hand side of the display and right click the folder to select **add calculation**.
 
     ![An open OAC notebook](images/add-calculation.png)
 
@@ -22,7 +22,7 @@ Advanced calculations can be quickly defined, using a customizable script.
 
     ![Type out a calculation and validate](images/name-calculation-validate.png)
 
-5. After a successful validattion, the screen will provide a green code response next to the button. You can now click save to generate your new calculation.
+5. After a successful validation, the screen will provide a green code response next to the button. You can now click **save** to generate your new calculation.
    
    ![The validated calculation page](images/validated-calculation.png)
 
@@ -30,11 +30,11 @@ Advanced calculations can be quickly defined, using a customizable script.
 
    ![The resultant calculation variable that was generated in the window](images/updated-calculation.png)
 
-### Automatically Generated
+### Auto Generate Calculations
 
 Another way to populate the calculation page is by predefining clusters or outliers in your data and right-click-save in *My calculations* folder. 
 
-**Note:** This procedure is only available of OAC version May 2022 or newer. OAS updates happen annually, while OAC updates are more frequent. Therefore, in order to implement this automation, you need to ensure that the OAS version postdates May 2022.
+>**Note:** This procedure is only available of OAC version May 2022 or newer. OAS updates happen annually, while OAC updates are more frequent. Therefore, in order to implement this automation, you need to ensure that the OAS version postdates May 2022.
 
 1. With the OAC notebook still open, populate a visualization.
 
@@ -50,9 +50,9 @@ Another way to populate the calculation page is by predefining clusters or outli
   
 4. Notice that the calculation was added to the may calculations folder on the left hand side. Right-click and select edit calculation.
    
-    ![view automaticly populated calculations](images/edit-calculation.png)
+    ![view automatically populated calculations](images/edit-calculation.png)
 
-5. This will open the advanced calculation window, which shows the alogorithm used to create the clustering or outlier differentiation. Save and exit. You can now create new visualizations and populate images using this predefined calculation.
+5. This will open the advanced calculation window, which shows the algorithm used to create the clustering or outlier differentiation. Save and exit. You can now create new visualizations and populate images using this predefined calculation.
 
     ![Select statistics for clusters or outliers](images/edit-calculation-page-automatically-populated.png)
 
