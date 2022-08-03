@@ -7,11 +7,11 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
 ## Create a custom map layer using an image
 
-1. From the Oracle Analytics homepage, click on the hamburger icon to expand the navigation menu and click on console.
+1. From the Oracle Analytics homepage, click on the hamburger icon to expand the navigation menu and click on **console**.
 
     ![Navigating to the console](images/navigate-to-console.png)
 
-2. In the console, open **Maps** under *Visualizations and Sharing*.
+2. In the console, open **Maps** under **Visualizations and Sharing**.
 
     ![Open the maps page](images/open-maps.png)
 
@@ -19,7 +19,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Expand image backgrounds](images/expand-image-backgrounds.png)
 
-4. Select **Add Image** at the bottom and import the your image. Give your image background a descriptive name and press save, in this workshop we will use the name 'Supermarket floor plan.'
+4. Select **Add Image** at the bottom and import the your image. Give your image background a descriptive name and press **save**, in this workshop we will use the name 'Supermarket floor plan.'
 
     ![Add your image](images/add-image.png)
     ![Create your image background](images/import-image.png)
@@ -29,20 +29,20 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
     ![Create a map layer](images/create-map-layer.png)
 
 6. Select **Draw** at the top of the page and set the type to *polygon* in the dropdown menu to the right.
-   >**Note:** Lines and points can also be used to create custom map layers. This can be specified in the **Type** dropdown menu on the left.
+    >**Note:** Lines and points can also be used to create custom map layers. This can be specified in the **Type** dropdown menu on the left.
 
     ![Draw your features](images/draw-tab.png)
 
-7. Using the polygon tool, outline the your desired area, as shown in the image below. Click on the corners of the desired area to add a vertex to your polygon.
+7. Using the polygon tool, outline your desired area, as shown in the image below. Click on the corners of the desired area to add a vertex to your polygon.
 
     ![Draw a polygon](images/draw-a-polygon.png)
 
-8.  The outline of the desired area will appear on the left-hand side under **Features**, it will be titled with the format 'Image-\<number\>' Select the feature and rename it at the top of the page and press enter, in this lab we are naming the newly created feature 'Cafe.'
+8.  The outline of the desired area will appear on the left-hand side under **Features**. It will be titled with the format 'Image-\<number\>'. Select the feature and rename it at the top of the page and press enter. In this lab we are naming the newly created feature 'Cafe.'
     >**Note:** Names for each shape you create must correspond to a key column value in your dataset.
 
     ![Naming features](images/name-feature.png)
 
-9.  Click **Edit** at the top of the page and then click on the your features in the left hand table or image background to adjust your shape by selecting and dragging any of the circled vertices. Unwanted changes can be removed using the undo, redo, and delete buttons in the top right corner. 
+9.  Click **Edit** at the top of the page and then click on one of your features in the left hand **features** table or image background to adjust the shape by selecting and dragging any of the circled vertices. Unwanted changes can be removed using the undo, redo, and delete buttons in the top right corner. 
 
     ![Editing shapes](images/edit-shape.png)
 
@@ -64,4 +64,6 @@ Congratulations! You have made a custom map layer using an image background!
 * [Analytics Cloud Documentation](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-custom-map-layers.html)
 * [Oracle Learning](https://www.youtube.com/watch?v=-tDUDMek7qA&ab_channel=OracleLearning)
 
-
+## Acknowledgements
+* **Author** - Malia German, Solution Engineer, North America Specialist
+* **Last Updated By/Date** - Nagwang Gyamtso, August 2022
