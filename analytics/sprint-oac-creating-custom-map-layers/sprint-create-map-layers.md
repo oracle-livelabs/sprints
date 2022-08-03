@@ -2,7 +2,7 @@
 Duration: 10 minutes
 
 Custom map layers are a unique way to leverage the geo spatial capabilities of Oracle Analytics.
-Map backgrounds enhance visualizations within your workbooks. Based on the column values of your data, a specific set of dimensions and metrics is displayed on the map visualiation. By using your own image background you can create engaging visuals that showcase your data in the context of your business, like visualizing the profit by product section on a top-down map of your store's floorplan.
+Map backgrounds enhance visualizations within your workbooks. Based on the column values of your data, a specific set of dimensions and metrics is displayed on the map visualization. By using your own image background you can create engaging visuals that showcase your data in the context of your business, like visualizing the profit by product section on a top-down map of your store's floorplan.
 
 
 ## Create a custom map layer using an image
@@ -28,7 +28,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Create a map layer](images/create-map-layer.png)
 
-6. Select **Draw** at the top of the page and set the type to *polygon* in the dropdown menu to the right.
+6. Select **Draw** at the top of the page and set the type to **polygon** in the dropdown menu to the right.
     >**Note:** Lines and points can also be used to create custom map layers. This can be specified in the **Type** dropdown menu on the left.
 
     ![Draw your features](images/draw-tab.png)
@@ -37,7 +37,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Draw a polygon](images/draw-a-polygon.png)
 
-8.  The outline of the desired area will appear on the left-hand side under **Features**. It will be titled with the format 'Image-\<number\>'. Select the feature and rename it at the top of the page and press enter. In this lab we are naming the newly created feature 'Cafe.'
+8.  The outline of the desired area will appear on the left-hand side under **Features**. It will be titled with the format 'Image-<number\>'. Select the feature and rename it at the top of the page and press enter. In this lab we are naming the newly created feature 'Cafe.'
     >**Note:** Names for each shape you create must correspond to a key column value in your dataset.
 
     ![Naming features](images/name-feature.png)
@@ -46,8 +46,8 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Editing shapes](images/edit-shape.png)
 
-10. Now navigate back to the **Draw** tab and in the top drop down menu, select *rectangles.*
-    >**Note:** Circular areas in your custom map layer can be created by selecting *circles* from the drop down menu and following the same directions in step 11.
+10. Now navigate back to the **Draw** tab and in the top drop down menu, select **Rectangles.**
+    >**Note:** Circular areas in your custom map layer can be created by selecting **Circles** from the drop down menu and following the same directions in step 11.
 
 11. Drag a rectangle over the rectangular sections in your image until they cover your desired area. Name and adjust them accordingly using the instructions shown in step 9 and 10.
 
