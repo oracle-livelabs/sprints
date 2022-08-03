@@ -7,7 +7,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
 ## Create a custom map layer using an image
 
-1. From the Oracle Analytics homepage, click on the hamburger icon to expand the navigation menu and click on **console**.
+1. From the Oracle Analytics homepage, click on the hamburger icon to expand the navigation menu and click on **Console**.
 
     ![Navigating to the console](images/navigate-to-console.png)
 
@@ -28,7 +28,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Create a map layer](images/create-map-layer.png)
 
-6. Select **Draw** at the top of the page and set the type to **polygon** in the dropdown menu to the right.
+6. Select **Draw** at the top of the page and set the type to **Polygon** in the dropdown menu to the right.
     >**Note:** Lines and points can also be used to create custom map layers. This can be specified in the **Type** dropdown menu on the left.
 
     ![Draw your features](images/draw-tab.png)
