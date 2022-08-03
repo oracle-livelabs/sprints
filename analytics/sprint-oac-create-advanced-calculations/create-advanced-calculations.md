@@ -18,7 +18,7 @@ Advanced calculations can be quickly defined, using a customizable script.
 
     ![The calculations page](images/new-calculation.png)
 
-4. On this page, you will be able to give your calculation a title and type out variables, which will auto-populate according to your variables in the dataset. Function operators are available to the right side of the window. After your function is complete, be sure to *validate* that your function works by clicking the button.
+4. On this page, you will be able to give your calculation a title and type out variables, which will auto-populate according to your variables in the dataset. Function operators are available to the right side of the window. After your function is complete, be sure to **validate** that your function works by clicking the button.
 
     ![Type out a calculation and validate](images/name-calculation-validate.png)
 
@@ -40,15 +40,15 @@ Another way to populate the calculation page is by predefining clusters or outli
 
     ![Create Best Visualization to populate image](images/create-best-visualization.png)
 
-2. Right-click the image and select add statistics, selecting clusters or outliers. 
+2. Right-click the image and select add statistics, selecting **clusters or outliers**. 
 
     ![Select statistics for clusters or outliers](images/add-statistics-clusters.png)
 
-3. Right-click the populated statistics and select *add to my calculations*
+3. Right-click the populated statistics and select **add to my calculations**
 
     ![Select statistics for clusters or outliers](images/add-to-my-calculations.png)
   
-4. Notice that the calculation was added to the may calculations folder on the left hand side. Right-click and select edit calculation.
+4. Notice that the calculation was added to the may calculations folder on the left hand side. More information and edits can be made to this algorithm by right-clicking and selecting **edit calculation**.
    
     ![view automatically populated calculations](images/edit-calculation.png)
 
