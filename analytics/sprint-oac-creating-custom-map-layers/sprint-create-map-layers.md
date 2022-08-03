@@ -49,7 +49,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 10. Now navigate back to the **Draw** tab and in the top drop down menu, select **Rectangles.**
     >**Note:** Circular areas in your custom map layer can be created by selecting **Circles** from the drop down menu and following the same directions in step 11.
 
-11. Drag a rectangle over the rectangular sections in your image until they cover your desired area. Name and adjust them accordingly using the instructions shown in step 8 and 9.
+11. Drag a rectangle over the rectangular sections in your image until they cover your desired area. Name and adjust them accordingly using the instructions shown in steps 8 and 9.
 
     ![Using the rectangle tool](images/add-more-features.png)
 
