@@ -7,6 +7,8 @@ When creating visualizations, automated calculations can be quickly saved for la
 
 As of May 2022, the most current update, OAC allows for powerful slice and dice analysis with any measure using these calculated objects.
 
+## Two methods:
+
 ## Customize advanced calculations
 Advanced calculations can be quickly defined, using a customizable script.
 
@@ -64,8 +66,8 @@ Another way to populate the calculation page is by predefining clusters or outli
 * [OAC updates](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html#ACSWN-GUID-CFF90F44-BCEB-49EE-B40B-8D040F02D476)
 * [Two ways to create custom calculations in Oracle Analytics](https://blogs.oracle.com/analytics/post/two-ways-to-create-custom-calculations-in-oracle-analytics)
 
-### Acknowledgements
+## Acknowledgements
 
 * **Author** - Nicholas Cusato, Solution Engineer, Santa Monica Specialists Hub
 
-- **Last Updated By/Date** - Nicholas Cusato, July 2022
+* **Last Updated By/Date** - Nicholas Cusato, July 2022
