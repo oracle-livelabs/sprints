@@ -19,7 +19,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Expand image backgrounds](images/expand-image-backgrounds.png)
 
-4. Select **Add Image** at the bottom and import the your image. Give your image background a descriptive name and press **save**, in this workshop we will use the name 'Supermarket floor plan.'
+4. Select **Add Image** at the bottom and import the your image. Give your image background a descriptive name and press **Save**, in this workshop we will use the name 'Supermarket floor plan.'
 
     ![Add your image](images/add-image.png)
     ![Create your image background](images/import-image.png)
