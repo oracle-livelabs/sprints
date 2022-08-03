@@ -42,7 +42,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Naming features](images/name-feature.png)
 
-9.  Click **Edit** at the top of the page and then click on one of your features in the left hand **features** table or image background to adjust the shape by selecting and dragging any of the circled vertices. Unwanted changes can be removed using the undo, redo, and delete buttons in the top right corner. 
+9.  Click **Edit** at the top of the page. Then select one of your features in the left hand **Features** table or image background. To adjust the shape of your feature select and drag any of the circled vertices. Unwanted changes can be removed using the undo, redo, and delete buttons in the top right corner. 
 
     ![Editing shapes](images/edit-shape.png)
 
@@ -65,5 +65,5 @@ Congratulations! You have made a custom map layer using an image background!
 * [Oracle Learning](https://www.youtube.com/watch?v=-tDUDMek7qA&ab_channel=OracleLearning)
 
 ## Acknowledgements
-* **Author** - Malia German, Solution Engineer, North America Specialist
-* **Last Updated By/Date** - Nagwang Gyamtso, August 2022
+* **Author** - Malia German, Solution Engineer, North America Specialist Hub
+* **Last Updated By/Date** - Malia German, August 2022
