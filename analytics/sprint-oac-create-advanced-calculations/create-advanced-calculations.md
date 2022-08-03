@@ -10,7 +10,7 @@ Advanced calculations can be quickly defined, using a customizable script.
 
 1. Open your OAC Workbook. 
 
-2. Notice the **My Calculations** folder on the left hand side of the display and right click the folder to select **add calculation**.
+2. Notice the **My Calculations** folder on the left hand side of the display and right click the folder to select **Add Calculation**.
 
     ![An open OAC notebook](images/add-calculation.png)
 
@@ -18,11 +18,11 @@ Advanced calculations can be quickly defined, using a customizable script.
 
     ![The calculations page](images/new-calculation.png)
 
-4. On this page, you will be able to give your calculation a title and type out variables, which will auto-populate according to your variables in the dataset. Function operators are available to the right side of the window. After your function is complete, be sure to **validate** that your function works by clicking the button.
+4. On this page, you will be able to give your calculation a title and type out variables, which will auto-populate according to your variables in the dataset. Function operators are available to the right side of the window. After your function is complete, be sure to **Validate** that your function works by clicking the button.
 
     ![Type out a calculation and validate](images/name-calculation-validate.png)
 
-5. After a successful validation, the screen will provide a green code response next to the button. You can now click **save** to generate your new calculation.
+5. After a successful validation, the screen will provide a green code response next to the button. You can now click **Save** to generate your new calculation.
    
    ![The validated calculation page](images/validated-calculation.png)
 
@@ -32,7 +32,7 @@ Advanced calculations can be quickly defined, using a customizable script.
 
 ### Auto Generate Calculations
 
-Another way to populate the calculation page is by predefining clusters or outliers in your data and right-click-save in *My calculations* folder. 
+Another way to populate the calculation page is by predefining clusters or outliers in your data and right-click-save in **My Calculations** folder. 
 
 >**Note:** This procedure is only available of OAC version May 2022 or newer. OAS updates happen annually, while OAC updates are more frequent. Therefore, in order to implement this automation, you need to ensure that the OAS version postdates May 2022.
 
@@ -40,15 +40,15 @@ Another way to populate the calculation page is by predefining clusters or outli
 
     ![Create Best Visualization to populate image](images/create-best-visualization.png)
 
-2. Right-click the image and select add statistics, selecting **clusters or outliers**. 
+2. Right-click the image and select add statistics, selecting **Clusters or Outliers**. 
 
     ![Select statistics for clusters or outliers](images/add-statistics-clusters.png)
 
-3. Right-click the populated statistics and select **add to my calculations**
+3. Right-click the populated statistics and select **Add to My Calculations**
 
     ![Select statistics for clusters or outliers](images/add-to-my-calculations.png)
   
-4. Notice that the calculation was added to the may calculations folder on the left hand side. More information and edits can be made to this algorithm by right-clicking and selecting **edit calculation**.
+4. Notice that the calculation was added to the may calculations folder on the left hand side. More information and edits can be made to this algorithm by right-clicking and selecting **Edit Calculation**.
    
     ![view automatically populated calculations](images/edit-calculation.png)
 
