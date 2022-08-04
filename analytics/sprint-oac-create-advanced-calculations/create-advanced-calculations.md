@@ -1,7 +1,7 @@
 # How do I create advanced calculations in Oracle Analytics Cloud (OAC)?
 Duration: 3 minutes
 
-Creating advanced calculations can be an effective tool to quickly populate visualizations. When creating visualizations, automated calculations can be quickly saved for later repurposing.  As of May 2022, the most current update, OAC allows for powerful slice and dice analysis with any measure using these calculated objects.
+Creating advanced calculations can be an effective tool to quickly populate visualizations. When creating visualizations, automated calculations can be quickly saved for later repurposing.  As of May 2022, OAC allows for powerful slice and dice analysis with any measure using these calculated objects.
 
 ## Advanced Calculations
 
