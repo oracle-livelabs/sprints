@@ -5,6 +5,8 @@ Creating advanced calculations can be an effective tool to quickly populate visu
 
 ## Advanced Calculations
 
+>**Note:** You must have the **DV Content Author** application role to execute the following steps.
+
 ### Manually Customize
 Advanced calculations can be quickly defined, using a customizable script.
 
