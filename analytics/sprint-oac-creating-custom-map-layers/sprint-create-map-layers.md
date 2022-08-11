@@ -6,6 +6,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
 
 ## Create a custom map layer using an image
+>**Note:** You must have the **DV Content Author** role to be able to successfully execute the following steps. 
 
 1. From the Oracle Analytics homepage, click on the hamburger icon to expand the navigation menu and click on **Console**.
 
