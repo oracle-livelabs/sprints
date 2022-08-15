@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "Sprint - How do I create advanced calculations",
+         "title": "How do I create advanced calculations in Oracle Analytics Cloud (OAC)",
          "description": "",
          "filename": "create-advanced-calculations.md"
       }
