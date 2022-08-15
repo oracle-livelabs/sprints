@@ -1,5 +1,5 @@
-# How do I make a custom map layer using an image in OAS?
-Duration: 10 minutes
+# How do I make a custom map layer using an image in Oracle Analytics Server (OAS)?
+Duration: 5 minutes
 
 Custom map layers are a unique way to leverage the geo spatial capabilities of Oracle Analytics.
 Map backgrounds enhance visualizations within your workbooks. Based on the column values of your data, a specific set of dimensions and metrics is displayed on the map visualization. By using your own image background you can create engaging visuals that showcase your data in the context of your business, like visualizing the profit by product section on a top-down map of your store's floorplan.
@@ -62,7 +62,7 @@ Congratulations! You have made a custom map layer using an image background!
 
 ## Learn More
 
-* [Analytics Cloud Documentation](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-custom-map-layers.html)
+* [Analytics Server Documentation](https://docs.oracle.com/en/middleware/bi/analytics-server/user-oas/use-image-map-background-and-draw-map-layer-shapes-image.html#GUID-A0A10A7B-A23C-410B-AE5B-C495556872BD)
 * [Oracle Learning](https://www.youtube.com/watch?v=-tDUDMek7qA&ab_channel=OracleLearning)
 
 ## Acknowledgements
