@@ -9,7 +9,7 @@ In this workshop sprint, you will create a table in Query Service using a Parque
 * A Query Service project.
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
-## **Create a Table Using a Data File in a Public Object Storage Bucket**  
+## **Create a Table Using a Parquet Data File in a Public Object Storage Bucket**  
 
 The **PROJECT$** schema contains the tables that you create and manage using the Query Service interfaces such as the UI Console, SDKs, or the REST API. You can create your own tables in this schema. In this exercise, you will create a table over a Parquet file that is stored in a public Object Storage bucket that you will access using a URL.
 
@@ -133,6 +133,72 @@ You will first create an Object Storage bucket (unless you already have one) in 
 
   ![Table is created.](./images/table-2-created.png " ")   
 
+## **Create a Table Using a .csv Data File in a Private Object Storage Bucket**  
+
+You will first create a private Object Storage bucket (unless you already have one) in your own tenancy and then upload a local .csv file to that bucket. Next, you will create a table by selecting the .csv file from your private Object Storage bucket.
+
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+
+2. Copy your web browser URL where you are running Query Service and paste it into a new browser tab.
+
+3. In the new browser tab, open the **Navigation** menu in the Oracle Cloud console and click **Storage**. Under **Object Storage & Archive Storage**, click **Buckets**.
+
+4. On the **Buckets** page, select the compartment where you want to create the bucket from the **Compartment** drop-down list in the **List Scope** section. Make sure you are in the region where you want to create your bucket.
+
+5. Click **Create Bucket**.
+
+6. In the **Create Bucket** panel, specify the following:
+    - **Bucket Name:** Enter a meaningful name for the bucket.
+    - **Default Storage Tier:** Accept the default **Standard** storage tier.
+    - **Encryption:** Accept the default **Encrypt using Oracle managed keys**.
+
+7. Click **Create** to create the bucket.
+
+8. Download the .csv file that you will use to create a new table in Query Service to Your local machine. Click the following link to download the [weather_weather-newark-airport.csv](files/weather_weather-newark-airport.csv?download=1) file.
+
+9. Upload the **`weather_weather-newark-airport.csv`** file to your private Object Storage bucket that you created. Scroll down the page to the **Objects** section, and then click **Upload**.
+
+10. In the **Upload Objects** panel, click **select files** to choose the file that you want to upload from your computer. In this example, we selected a file name **`weather_weather-newark-airport.csv`** file that we will upload to our private bucket.
+
+  ![The Upload Objects panel is displayed.](./images/select-file.png " ")
+
+11. Close the new web browser tab.
+
+12. In the original web browser tab, navigate to the **Query Service Projects** page. In the row for your Query Service project, click **Query Editor**.
+
+  ![The Query Editor button on the Query Service projects page is highlighted.](./images/query-editor-button.png " ")  
+
+13. On the **Scratchpad**, click the **Select a Schema** drop-down list and select the **`PROJECT$`** schema.
+
+  ![Select the PROJECT$ Schema from the drop-down list.](./images/select-project$-schema-2.png " ")  
+
+14. Click **Create Table**. The **Create Table** page is displayed. Specify the following:
+
+    + **Table Name:** Enter **training\_object\_storage\_table_3**.
+
+          >**Note:** Special characters such as **`&`**, **`-`** (hyphen), and **`/`** are not allowed in table names.
+
+      + **Target Object File Glob:** Click **Select Object** to select **`custsales-2019-01.parquet`** file from your Object Storage bucket. The **Select Object** panel is displayed. Click the filename link in the **Name** column.
+
+      ![The Select Object panel is displayed.](./images/select-object-panel.png " ")    
+
+      The **Object Details** panel is displayed. Click **Pick Object**.
+
+      ![The Object Details panel is displayed.](./images/object-details-panel.png " ")      
+
+      The Column Selection section is displayed. Click the unchecked checkbox to the left of the **Source Column** label to select all the columns.
+
+      ![The Create a Table page is re-displayed.](./images/create-table-page-2.png " ")    
+
+15. Click **Create Table**. The table status shows as **Creating** (orange color) in the **Tables** section.
+
+  ![Table status is creating.](./images/table-creating-status-2.png " ")
+
+  If the table creation is successful, it is displayed in the **Tables** section.
+
+  ![Table is created.](./images/table-2-created.png " ")   
+
+
 **This concludes the Get Started with Query Service workshop sprints.**
 
 ## Learn More
@@ -147,3 +213,10 @@ You will first create an Object Storage bucket (unless you already have one) in 
 * [RUN_SYNC Procedure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/ref-running-synchronizations.html#GUID-C94171B4-6C57-4707-B2D4-51BE0100F967)
 * [Using Oracle Autonomous Database on Shared Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/index.html)
 * [Connect with Built-in Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/sql-developer-web.html#GUID-102845D9-6855-4944-8937-5C688939610F)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022
