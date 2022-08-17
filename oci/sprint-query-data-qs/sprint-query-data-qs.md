@@ -22,7 +22,7 @@ Query Service contains the following schemas:
 
 ### **The DCAT$ Schemas**
 
-As part of the synchronization process, Query Service creates schemas that correspond to your harvested data assets and creates external tables in those schemas that correspond to the logical entities. It creates one schema for each Oracle Object Storage bucket. By default, the name of a generated schema in Query Service starts with the keyword **`DCAT$`** concatenated with the **data asset name**, an **_** (underscore) , followed by the **Object Storage bucket's name**.
+As part of the synchronization process, Query Service creates schemas that correspond to your harvested data assets and creates external tables in those schemas that correspond to the logical entities. It creates one schema for each Oracle Object Storage bucket. By default, the name of a generated schema in Query Service starts with the keyword **`DCAT$`** concatenated with the **data asset name**, an **_** (underscore), followed by the **Object Storage bucket's name**.
 
 ![A box displays the default schema name format as DCAT$<data-asset-name>_<bucket-name>.](./images/schema-format.png " ")
 
@@ -107,24 +107,25 @@ Let's query the **CUSTOMER\_CONTACT** external table from the **MOVIESTREAM_DEMO
 
   ![Click table link to display its definition.](./images/click-table.png " ")
 
-6. To query a table, click the **Actions** icon next to a table such as **CUSTSALES**, and then select **Query** from the Context menu. The SQL query is displayed in the Editor area. Click **Run Query** to run the query. An information box is displayed briefly. In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.  
+6. To query a table, click the **Actions** icon next to a table such as **CUSTSALES**, and then select **Query** from the Context menu.
+
+7. The SQL query is displayed in the Editor area. Click **Run Query** to run the query. An information box is displayed briefly. In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.  
 
   ![Select Query from the Actions context menu associated with CUSTSALES.](./images/query-custsales.png " ")
 
-7. To view the status of the current and past query executions, click the **Query Executions** tab.
+8. To view the status of the current and past query executions, click the **Query Executions** tab.
 
   ![The Query Executions tab is displayed.](./images/query-executions.png " ")  
 
-8. To view the details of a past query execution from the **Query Executions** tab, click the query's link in the **Name** column.
-   The query detail page is displayed. You can use this page to edit the name of the saved query, click the **View Result** link in the **Query Information** tab to view the results of the query. You can also click the **Open Query in Worksheet** to open the query in **Query Editor**. Finally, you can click the **Log Messages** and **Error Messages** links in the **Resources** section on the left to display the log messages and error messages, if any.  
+9. To view the details of a past query execution from the **Query Executions** tab, click the   query's link in the **Name** column, **query-CUSTSALES** in this example. The query detail page is displayed. You can use this page to edit the name of the saved query, click the **View Result** link in the **Query Information** tab to view the results of the query. You can also click the **Open Query in Worksheet** to open the query in **Query Editor**. Finally, you can click the **Log Messages** and **Error Messages** links in the **Resources** section on the left to display the log messages and error messages respectively, if any.  
 
   ![The query detail page is displayed.](./images/query-detail-page.png " ")  
 
-9. Click the **Query Executions** link in the breadcrumbs to return to the Scratchpad worksheet. Scratchpad is a temporary worksheet; therefore, SQL queries written in Scratchpad will be lost. You can save your Scratchpad query to a worksheet that you can retrieve at a later time. You can also share the saved worksheet with others. Click **Save**, and then select **Save Worksheet as** from the drop-down list.
+10. Click the **Open Query in Worksheet** to open the query in **Query Editor** and display the Scratchpad worksheet. Scratchpad is a temporary worksheet; therefore, SQL queries written in Scratchpad will be lost. You can save your Scratchpad query to a worksheet that you can retrieve at a later time. You can also share the saved worksheet with others. Click **Save**, and then select **Save Worksheet as** from the drop-down list.
 
   ![The query detail page is displayed.](./images/save-worksheet.png " ")
 
-10. In the **Save Worksheet as** dialog box, enter a meaningful name for the worksheet and then click **Save as**. The saved worksheet is displayed.
+11. In the **Save Worksheet as** dialog box, enter a meaningful name for the worksheet and then click **Save as**. The saved worksheet is displayed.
 
     ![The saved worksheet is displayed.](./images/my-custsales-query.png " ")
 
@@ -141,3 +142,10 @@ Let's query the **CUSTOMER\_CONTACT** external table from the **MOVIESTREAM_DEMO
 * [RUN_SYNC Procedure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/ref-running-synchronizations.html#GUID-C94171B4-6C57-4707-B2D4-51BE0100F967)
 * [Using Oracle Autonomous Database on Shared Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/index.html)
 * [Connect with Built-in Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/sql-developer-web.html#GUID-102845D9-6855-4944-8937-5C688939610F)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022

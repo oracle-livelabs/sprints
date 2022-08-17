@@ -71,3 +71,10 @@ You will get familiar with the components of the project detail page in Query Se
 * [RUN_SYNC Procedure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/ref-running-synchronizations.html#GUID-C94171B4-6C57-4707-B2D4-51BE0100F967)
 * [Using Oracle Autonomous Database on Shared Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/index.html)
 * [Connect with Built-in Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/sql-developer-web.html#GUID-102845D9-6855-4944-8937-5C688939610F)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022
