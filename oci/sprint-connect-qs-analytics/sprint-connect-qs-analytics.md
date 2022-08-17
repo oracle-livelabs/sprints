@@ -14,7 +14,7 @@ Oracle Analytics Cloud (OAC) is a scalable and secure public cloud service that 
 Successfully completed the following:
 * _How do I create the required Query Service projects policies?_ sprint
 * _How do I create a Query Service project?_ sprint
-* The _Create Database Password_ and _Download Database Wallet_ steps in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
+* The _Create Database Password_ step in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
 
 ### **Create an Oracle Analytics Cloud Instance**
 
@@ -26,30 +26,42 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
     ![The project name link is highlighted.](./images/project-name-link.png " ")  
 
-3. On the project's detail page, click the **More Actions** drop-down list, and then select **Open Analytics Cloud**.
+3. On the project's detail page, click **Download Wallet**.
+
+    ![The worksheet detail page is displayed.](./images/click-download-wallet.png " ")  
+
+4. In the **Download Database Wallet** dialog box, enter and confirm the password of your choice that protects the Client Credentials **Wallet.zip** file that you will download, and then click **Download**.
+
+    ![The completed download database wallet dialog box is displayed.](./images/download-wallet-db.png " ")
+
+    The project's detail page is re-displayed. The **wallet.zip** file is downloaded to your web browser's default download directory. In this example, we are using **Chrome** on a MS-Windows computer. The downloaded **wallet.zip** file is in the **Downloads** folder.
+
+    ![The completed download database wallet dialog box is displayed.](./images/wallet-download-location.png " ")
+
+5. On the project's detail page, click the **More Actions** drop-down list, and then select **Open Analytics Cloud**.
 
     ![The worksheet detail page is displayed.](./images/open-analytics-cloud.png " ")  
 
-4. On the **Analytics Instances** page, click **Create Instance**.
+6. On the **Analytics Instances** page, click **Create Instance**.
 
     ![The OAC Home page is displayed.](./images/analytics-instances-page.png " ")  
 
-5. In the **Create Analytics Instance** panel, specify the following:
+7. In the **Create Analytics Instance** panel, specify the following:
 
     * **Name:** Enter **moviestream**.
     * **Description:** Enter an optional description.
     * **Create in Compartment:** Select your compartment from the drop-down list.
-    * **Feature Set:** Accept the default **Enterprise Analytics**.
-    * **Capacity:** Accept the default **OCPU**.
-    * **License Type:** Accept the default **License Included**.
+    * **Capacity:** Accept the default **OCPU**. Accept the default **Enterprise Analytics**.
+    * **OCPU Count** Accept the default **1 (Non-production)**.
+    * **License and Edition:** Accept the default **License Included** for **License** and **Enterprise Edition** for **Edition**.
 
-        ![The populated Create Analytics Instance panel is displayed.](./images/create-instance.png " ")
+        ![The populated Create Analytics Instance panel is displayed.](./images/create-oac-instance.png " ")
 
-6. Click **Create**. The **Instance Details** page is displayed. The status of the instance creation is initially **CREATING**. When the instance is created successfully, the status changes to **ACTIVE**.
+8. Click **Create**. The **Instance Details** page is displayed. The status of the instance creation is initially **CREATING**. When the instance is created successfully, the status changes to **ACTIVE**.
 
     ![The instance details page is displayed.](./images/access-oac.png " ")
 
-    >**Note:** Provisioning an Oracle Analytics Cloud instance can take anywhere from 10 to 20 minutes.
+    >**Note:** Provisioning an Oracle Analytics Cloud instance can take anywhere from 15 to 30 minutes.
 
 7. Access the OAC Home page. You can either click the **Analytics Home Page** button, or scroll-down to the **Access Information** section, and then click the URL.  
 
@@ -134,7 +146,7 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Drag and drop tables onto canvas.](./images/drag-drop-tables.png " ")
 
-    The Auto Visualizations bar graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You just ran analytics on top of Object Storage data!
+    The Auto Visualizations bar (or scatter) graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You can use the **Auto Visualization** drop-down list to choose a different graph type. You just ran analytics on top of Object Storage data!
 
     >**Note:** Bar graphs are one of the most commonly used visualization types. You can use them to compare data across categories, identify outliers, and uncover historical high and low data points. For other graph types, see [About Visualization Types](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/visualization-types.html).
 
