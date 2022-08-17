@@ -267,9 +267,6 @@ You will first create a private Object Storage bucket (unless you already have o
 
   ![Table is created.](./images/csv-table-created.png " ")   
 
-
-**This concludes the Get Started with Query Service workshop sprints.**
-
 ## Learn More
 
 * [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm).

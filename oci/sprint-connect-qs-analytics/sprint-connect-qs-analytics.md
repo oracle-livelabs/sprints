@@ -154,6 +154,8 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Analytics Home page is displayed.](./images/analytics-home-page.png " ")
 
+**This concludes the Get Started with Query Service workshop (LA) sprints.**    
+
 ## Learn More
 
 * [Oracle Analytics Cloud Get Started](https://docs.oracle.com/en/cloud/paas/analytics-cloud/index.html)
