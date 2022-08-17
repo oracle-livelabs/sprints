@@ -1,4 +1,4 @@
- # How do I create an Oracle Object Storage Table in Query Service?
+# How do I create an Oracle Object Storage Table in Query Service?
 Duration: 10 minutes
 
 In this sprint, you will create a table using a **Parquet** file that is stored in a public Object Storage bucket. You also create a table using a **.csv** file that is stored in a private Object Storage bucket. Finally, you will create two tables in Query Service using the Parquet and .csv files from the public and private buckets.
