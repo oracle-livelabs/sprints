@@ -6,7 +6,8 @@ Oracle Analytics Cloud gives you the ability to not only easily create machine l
 It is key to ensure the quality of a machine learning model before putting it into use. The following steps will show you how to quickly and effectively assess your model accuracy in Oracle Analytics Cloud.
 
 ## Check a machine learning model's accuracy.
->**Note:** You must first have trained a machine learning model in Oracle Analytics Cloud in order to complete the following steps. For a guide on model creation, look [here.](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
+You must first have trained a machine learning model in Oracle Analytics Cloud in order to complete the following steps. For a guide on model creation, look [here.](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
+>**Note:** You must have the **DV Content Author** role in order to complete the following steps.
 
 1. From the OAC homepage, click on **Machine Learning** and find the trained model whose accuracy you would like to check.
 
