@@ -39,6 +39,6 @@ allow group training-dcat-users-group to inspect users in compartment training-d
 * [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 
 ## Acknowledgements
-* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
 * **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
 * **Last Updated By/Date:** Lauran Serhal, August 2022

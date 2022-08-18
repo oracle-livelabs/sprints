@@ -53,7 +53,7 @@ You can connect to any target Oracle database schema using standard Oracle datab
 * [SQL Developer Documentation](https://docs.oracle.com/cd/E12151_01/index.htm)
 
 ## Acknowledgements
-* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
