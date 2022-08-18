@@ -215,7 +215,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 * [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
 
 ## Acknowledgements
-* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director

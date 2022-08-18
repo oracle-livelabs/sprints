@@ -146,7 +146,7 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Drag and drop tables onto canvas.](./images/drag-drop-tables.png " ")
 
-    The Auto Visualizations bar (or scatter) graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You can use the **Auto Visualization** drop-down list to choose a different graph type. You just ran analytics on top of Object Storage data!
+    The Auto Visualizations bar graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You can use the **Auto Visualization** drop-down list to choose a different graph type. You just ran analytics on top of Object Storage data!
 
     >**Note:** Bar graphs are one of the most commonly used visualization types. You can use them to compare data across categories, identify outliers, and uncover historical high and low data points. For other graph types, see [About Visualization Types](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/visualization-types.html).
 
@@ -179,7 +179,7 @@ Datasets are self-service data models that you build specifically for your data 
 * [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
 
 ## Acknowledgements
-* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director

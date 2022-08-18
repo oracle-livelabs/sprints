@@ -5,7 +5,6 @@ You will use Query Editor in Query Service to query data using standard Oracle S
 
 ### Prerequisites
 * An Oracle Cloud Account.
-* A Data Catalog instance.
 * A Query Service project.
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
@@ -144,7 +143,7 @@ Let's query the **CUSTOMER\_CONTACT** external table from the **MOVIESTREAM_DEMO
 * [Connect with Built-in Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/sql-developer-web.html#GUID-102845D9-6855-4944-8937-5C688939610F)
 
 ## Acknowledgements
-* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
