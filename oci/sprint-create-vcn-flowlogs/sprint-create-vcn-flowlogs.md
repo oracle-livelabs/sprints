@@ -1,11 +1,11 @@
-# How do I create VCN flow logs for resources in VCN?
+# How do I create a VCN flow logs for resources in VCN?
 Duration: 5 minutes
 
-You can use flow logs for troubleshooting and monitoring. You can enable, view, and manage your flow log configuration through the Logging service. 
+You can use flows logs for troubleshooting and monitoring. Through the Logging service, you can enable, view, and manage your flow log configuration.
 
 ## Enable flow logs
 
-VCN flow logs show details about the traffic that passes through your VCN, and VCN flow logs help you audit traffic and troubleshoot your security lists.
+In the navigation menu in the Console, go to Logging and click Log Management.
 
 1. Open the navigation menu and click <b>Observability & Management</b>. Under <b>Logging</b>, click <b>Log Groups</b>
 
@@ -20,5 +20,3 @@ VCN flow logs show details about the traffic that passes through your VCN, and V
 ## Learn More
 
 * [VCN Flow Logs](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/vcn_flow_logs.htm)
-
-

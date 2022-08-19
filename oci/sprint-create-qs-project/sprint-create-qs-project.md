@@ -6,8 +6,6 @@ Duration: 5 minutes
 ### Prerequisites
 * An Oracle Cloud Account.
 * An optional compartment for your Query Service project and resources.
-* An OCI Data Catalog instance that contains at least one Oracle Object Storage data asset that has been harvested to generate the logical data entities that will be used by Query Service. For detailed instructions on creating a Data Catalog data asset and harvesting it, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877) LiveLabs workshop. Alternatively, you can create a new Data Catalog instance when you create your Query Service project.
-
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
 ## Create a Query Service Project
@@ -19,25 +17,34 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 2. On the **Query Service Projects** page, click **Create Project**.
 
 3. In the **Create Query Service project** panel, specify the following:
-    * **Name:** Accept the default name.
+    * **Name:** Accept the default name or enter a meaningful and unique name such as **training-qs-project**.
     * **Create in compartment:** Select the compartment where you'd like to create this project. Click the **Create In Compartment** drop-down list and start typing the compartment's name in the **Search compartments** text field. Once you see your compartment, click it. In this example, we selected the **`training-query-service`** compartment.
 
       ![train is entered in the Search box and the training-query-service compartment is displayed and selected.](./images/create-in-compartment.png " ")
 
     * **Project Description:** Enter an optional description.
-    * **Connect Data Catalog:** Select the compartment that contains the Data Catalog instance to which you want to connect from the drop-down list. Click the **Change Compartment** link to search for the Data Catalog instance if it's in a different compartment. In this example, we selected the **`query-service-sandbox`** compartment which contains a data catalog named **DataLake**. This instance contains a data asset that was harvested from three Oracle Object Storage buckets. Logical data entities were harvested from each of the three buckets.
+    * **Connect Data Catalog:** You have two choices in this section:
 
-        + **moviestream\_sandbox**
-        + **moviestream\_landing**
-        + **moviestream_gold**
+        + By default, the **Associate Data Catalog Instance** checkbox is selected. You can select the Data Catalog instance in your compartment that you want to associate with your new Query Service project.
 
-        When you create a Query Service project, you must choose a Data Catalog instance. When the project is created, Query Service is automatically synchronized with the Data Catalog instance that you specified. It synchronizes (links) the metadata in your Data Catalog instance and creates schemas that correspond to buckets in your harvested data assets. Query Service also creates the external tables in those schemas that correspond to the logical data entities that were harvested in the Data Catalog instance.  
+          ![The Associate Data Catalog Instance checkbox is selected. The DataLake Data Catalog instance in the selected compartment is selected.](./images/associate-dcat-default.png " ")
 
-    >**Note:** If you don't have a Data Catalog instance, click **Create Data Catalog** in the **Create Query Service project** panel to create a new one. Next, complete the fields in the **Create Data Catalog** panel. For detailed information on how to create and harvest a data asset from Oracle Object Storage buckets, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877&clear=180&session=103071880685237) Livelabs workshop.
+          In this example, we selected the **`query-service-sandbox`** compartment that contains the **DataLake** Data Catalog instance to which we want to connect from the drop-down list. Click the **Change Compartment** link to search for the Data Catalog instance if it's in a different compartment. This instance contains a data asset that was harvested from three Oracle Object Storage buckets. Logical data entities were harvested from each of the three buckets.
 
-      ![The Create Data Catalog in the Create Query Service project panel is selected which displays the Create Data Catalog panel.](./images/create-dcat-qs.png " ")
+             + **moviestream\_sandbox**
+             + **moviestream\_landing**
+             + **moviestream_gold**
 
-    * **Create Policy:** The **Query Service LA** release doesn't support creating the required policies using this section. You must create the policies manually; however, you can click **Create Policy** to view the required policies that you need to create. This is covered in the **How do I create the required policies for Query Service projects?** workshop sprint which you can select from the **Contents** menu on the left.  
+          When you select a Data Catalog instance, Query Service is automatically synchronized with the Data Catalog instance. It synchronizes (links) the metadata in your Data Catalog instance and creates schemas that correspond to buckets in your harvested data assets. Query Service also creates the external tables in those schemas that correspond to the logical data entities that were harvested in the Data Catalog instance.
+
+        + If you don't want to associate an existing Data Catalog instance with this new project, uncheck the **Associate Data Catalog Instance** checkbox.
+
+          ![The Associate Data Catalog Instance checkbox is unchecked.](./images/uncheck-associate-dcat-box.png " ")
+
+
+    >**Note:** If you don't have a Data Catalog instance and for detailed information on how to create and harvest a data asset from Oracle Object Storage buckets, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877) Livelabs workshop.
+
+    * **Create Policy:** The **Query Service LA** release doesn't support creating the required policies using this section. You must create the policies manually; however, you can click **Create Policy** to view the required policies that you need to create. This is covered in the **How do I create the required policies for Query Service projects?** sprint which you can select from the **Contents** menu on the left.  
 
       ![The completed Create Query Service project panel is displayed.](./images/create-qs-project.png " ")
 
@@ -45,7 +52,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
       ![The default Configure Project-level Settings section is displayed.](./images/project-level-settings.png " ")
 
-4. Click **Create Project**. The initial state of the project is **CREATING**. When the project is created successfully, its state changes to **ACTIVE** and it is displayed in the **Query Service Projects** page.   
+4. Click **Create Project**. The initial state of the project is **Creating**. When the project is created successfully, its state changes to **ACTIVE** and it is displayed in the **Query Service Projects** page.   
 
     ![The newly created Query Service project is displayed with an Active state.](./images/new-qs-project.png " ")
 
@@ -59,7 +66,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
     You can use this page to do the following:
 
-    * On the top of the page, you can access the **Query Editor**, edit the project, download database wallet, and use the **More Actions** drop-down list to add tags, create database password, delete the project, and open the Analytics Cloud.
+    * On the top of the page, you can access the **Query Editor**, edit the project, move resource, download database wallet, and use the **More Actions** drop-down list to add tags, create or update database password, open the Analytics Cloud, and delete the project.
     * In the middle of the page, you can click the appropriate tabs to display the project's information, project settings, and tags.
     * The **Resources** section provides information about tables in selected schemas, past query executions in the Query Editor, and work requests such as the CREATE PROJECT when you create a project.
     * The **worksheets** section displays any worksheets that you have saved previously.
@@ -86,3 +93,10 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 * [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
 * [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022
