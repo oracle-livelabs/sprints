@@ -3,7 +3,7 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I create a VCN Flow Logs?",
+         "title": "How do I create VCN flow logs for resources in VCN?",
          "description": "",
          "filename": "sprint-create-vcn-flowlogs.md"
       }
