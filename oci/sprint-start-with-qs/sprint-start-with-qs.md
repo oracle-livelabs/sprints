@@ -1,0 +1,56 @@
+# How do I get started with Query Service?
+
+## About this Workshop
+
+**Query Service** is a native OCI query service that is scalable, performant, server-less, and database-less. You can use it to access Oracle Object Storage data using Oracle SQL without requiring you to create or maintain a database. You are only charged for the queries that you submit.
+
+Duration: 5 minutes
+
+### What is Data Catalog?
+
+## Create a Query Service Project
+
+A Query Service project is a collection of tables, worksheets, and queries related to a common theme or task. Every project will provide access to schemas and external table definitions that are derived (synchronized) from logical entities in the Data Catalog instance that you choose when you create the project. A schema in a Query Service project is a collection of related tables. When you query a table in a schema you need to reference the schema and table in the schema using the syntax **`schema_name.table_name`**.
+
+
+>**Note:** If you don't have a Data Catalog instance and for detailed information on how to create and harvest a data asset from Oracle Object Storage buckets, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877) Livelabs workshop.
+
+### Objectives
+
+In this workshop, you will:
+* Create the required Query Service projects policies
+* Create a Query Service project.
+* Query data using SQL in the Query Editor.
+* Explore the project Detail page in Query Service.
+* Create Oracle Object Storage tables using Parquet and .csv files in Public and Private Object Storage buckets.
+* Connect to Query Service from Oracle SQL Developer and optionally install SQL Developer.
+* Connect to Query Service from Oracle Analytics Cloud.
+
+### Prerequisites
+
+* An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported. You may use your own cloud account or you can get a Free Trial account as described in the **Get Started** lab in the **Contents** menu.
+
+  *Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
+
+* At least one Query Service user in your tenancy. This user must be created in Oracle Cloud Infrastructure Identity and Access Management (IAM).
+
+You may now proceed to the next lab.
+
+
+## Learn More
+
+* [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm).
+* [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
+* [Oracle Cloud Infrastructure Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
+* [Data Catalog Overview](https://docs.oracle.com/en-us/iaas/data-catalog/using/overview.htm)
+* [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
+* [Managing Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm#Managing_Dynamic_Groups)
+* [Writing Policies for Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm#Writing)
+* [Using Oracle Autonomous Database on Shared Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/index.html)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022

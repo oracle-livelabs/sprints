@@ -172,11 +172,8 @@ Datasets are self-service data models that you build specifically for your data 
 
 * [Oracle Analytics Cloud Get Started](https://docs.oracle.com/en/cloud/paas/analytics-cloud/index.html)
 * [Visualizing Data and Building Reports in Oracle Analytics Cloud](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/introduction-visualization-and-reporting.html)
-* [SQL Developer Documentation](https://docs.oracle.com/cd/E12151_01/index.htm)
 * [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
-* [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
-* [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
 
 ## Acknowledgements
 * **Author:** Lauran Serhal, Consulting User Assistance Developer
