@@ -2,18 +2,18 @@
 
 ## About this Workshop
 
-**Query Service** is a native OCI query service that is scalable, performant, server-less, and database-less. You can use it to access Oracle Object Storage data using Oracle SQL without requiring you to create or maintain a database. You are only charged for the queries that you submit.
+The sprints in the Query Service series walk you through how to access and use Query Service from the Oracle Cloud Infrastructure Console, Oracle SQL Developer, and Oracle Analytics Cloud. You will learn about the required policies that you need before you can create and use Query Server projects. You will also learn how to query data using standard Oracle SQL statements. You learn how to create and query Object Storage tables in Query Service using Parquet and .csv files in public and private Object Storage buckets.
 
 Duration: 5 minutes
 
-### What is Data Catalog?
+### What is Query Service?
 
-## Create a Query Service Project
+Query Service is a native OCI query service that is scalable, performant, server-less, and database-less. You can use it to access Oracle Object Storage data using Oracle SQL without requiring you to create or maintain a database. You are only charged for the queries that you submit.
 
-A Query Service project is a collection of tables, worksheets, and queries related to a common theme or task. Every project will provide access to schemas and external table definitions that are derived (synchronized) from logical entities in the Data Catalog instance that you choose when you create the project. A schema in a Query Service project is a collection of related tables. When you query a table in a schema you need to reference the schema and table in the schema using the syntax **`schema_name.table_name`**.
+A Query Service project is a collection of tables, worksheets, and queries related to a common theme or task. Every project can provide access to schemas and external table definitions that are derived (synchronized) from logical entities in the Data Catalog instance that can associate with your new the project. Alternatively, you can create a Query Service project without associating it  with any existing Data Catalog instance. You can create and query external Object Storage tables using files in public and private Object Storage buckets. A schema in a Query Service project is a collection of related tables. When you query a table in a schema you need to reference the schema and table in the schema using the syntax **`schema_name.table_name`**.
 
 
->**Note:** If you don't have a Data Catalog instance and for detailed information on how to create and harvest a data asset from Oracle Object Storage buckets, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877) Livelabs workshop.
+>**Note:** If you don't have a Data Catalog instance and for detailed information on how to create and harvest a data asset from Oracle Object Storage buckets, see **Lab 2: Harvest Technical Metadata from Oracle Object Storage** in the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877) LiveLabs workshop.
 
 ### Objectives
 
