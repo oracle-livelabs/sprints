@@ -1,4 +1,7 @@
-# How do I get started with Query Service?
+# How do I get started with Query Service (LA)?
+
+>**_Important:_**    
+_The Query Service sprints in this series are based on the Query Service Limited Availability (LA) version._  
 
 ## About this Workshop
 
