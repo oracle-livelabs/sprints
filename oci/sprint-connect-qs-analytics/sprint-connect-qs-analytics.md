@@ -14,7 +14,7 @@ Oracle Analytics Cloud (OAC) is a scalable and secure public cloud service that 
 Successfully completed the following:
 * _How do I create the required Query Service projects policies?_ sprint
 * _How do I create a Query Service project?_ sprint
-* The _Create Database Password_ and _Download Database Wallet_ steps in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
+* The _Create Database Password_ step in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
 
 ### **Create an Oracle Analytics Cloud Instance**
 
@@ -26,30 +26,42 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
     ![The project name link is highlighted.](./images/project-name-link.png " ")  
 
-3. On the project's detail page, click the **More Actions** drop-down list, and then select **Open Analytics Cloud**.
+3. On the project's detail page, click **Download Wallet**.
+
+    ![The worksheet detail page is displayed.](./images/click-download-wallet.png " ")  
+
+4. In the **Download Database Wallet** dialog box, enter and confirm the password of your choice that protects the Client Credentials **Wallet.zip** file that you will download, and then click **Download**.
+
+    ![The completed download database wallet dialog box is displayed.](./images/download-wallet-db.png " ")
+
+    The project's detail page is re-displayed. The **wallet.zip** file is downloaded to your web browser's default download directory. In this example, we are using **Chrome** on a MS-Windows computer. The downloaded **wallet.zip** file is in the **Downloads** folder.
+
+    ![The completed download database wallet dialog box is displayed.](./images/wallet-download-location.png " ")
+
+5. On the project's detail page, click the **More Actions** drop-down list, and then select **Open Analytics Cloud**.
 
     ![The worksheet detail page is displayed.](./images/open-analytics-cloud.png " ")  
 
-4. On the **Analytics Instances** page, click **Create Instance**.
+6. On the **Analytics Instances** page, click **Create Instance**.
 
     ![The OAC Home page is displayed.](./images/analytics-instances-page.png " ")  
 
-5. In the **Create Analytics Instance** panel, specify the following:
+7. In the **Create Analytics Instance** panel, specify the following:
 
     * **Name:** Enter **moviestream**.
     * **Description:** Enter an optional description.
     * **Create in Compartment:** Select your compartment from the drop-down list.
-    * **Feature Set:** Accept the default **Enterprise Analytics**.
-    * **Capacity:** Accept the default **OCPU**.
-    * **License Type:** Accept the default **License Included**.
+    * **Capacity:** Accept the default **OCPU**. Accept the default **Enterprise Analytics**.
+    * **OCPU Count** Accept the default **1 (Non-production)**.
+    * **License and Edition:** Accept the default **License Included** for **License** and **Enterprise Edition** for **Edition**.
 
-        ![The populated Create Analytics Instance panel is displayed.](./images/create-instance.png " ")
+        ![The populated Create Analytics Instance panel is displayed.](./images/create-oac-instance.png " ")
 
-6. Click **Create**. The **Instance Details** page is displayed. The status of the instance creation is initially **CREATING**. When the instance is created successfully, the status changes to **ACTIVE**.
+8. Click **Create**. The **Instance Details** page is displayed. The status of the instance creation is initially **CREATING**. When the instance is created successfully, the status changes to **ACTIVE**.
 
     ![The instance details page is displayed.](./images/access-oac.png " ")
 
-    >**Note:** Provisioning an Oracle Analytics Cloud instance can take anywhere from 10 to 20 minutes.
+    >**Note:** Provisioning an Oracle Analytics Cloud instance can take anywhere from 15 to 30 minutes.
 
 7. Access the OAC Home page. You can either click the **Analytics Home Page** button, or scroll-down to the **Access Information** section, and then click the URL.  
 
@@ -59,7 +71,7 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
 ### **Create a Connection to a Query Service Data Source**
 
-You can create a connection to enable you to analyze and visualize data in that data source. A dataset uses one or more connections to data sources such as Query Service to access and supply data for analysis and visualization. Create a connection to the `project` schema in Query Service.
+You can create a connection to enable you to analyze and visualize data in that data source. A dataset uses one or more connections to data sources such as Query Service to access and supply data for analysis and visualization. Create a connection to the `project` user in Query Service.
 
 1. From the Oracle Analytics banner, click **Create**, and then click **Connection**.  
 
@@ -88,7 +100,7 @@ You can create a connection to enable you to analyze and visualize data in that 
 
 ### **Create a Dataset from the Query Service Connection**
 
-Datasets are self-service data models that you build specifically for your data visualization and analysis requirements. You use visualizations and analyses to find the answers that you need from key business data displayed in graphical formats. A dataset contains data source connection information, tables, the columns you specify, and the data enrichments and transformations that you apply. Create a dataset using your new Query Service connection.
+Datasets are self-service data models that you build specifically for your data visualization and analysis requirements. You use visualizations and analysis to find the answers that you need from key business data displayed in graphical formats. A dataset contains data source connection information, tables, the columns you specify, and the data enrichments and transformations that you apply. Create a dataset using your new Query Service connection.
 
 1.  From the Oracle Analytics banner, click **Create**, and then click **Dataset**.  
 
@@ -134,7 +146,7 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Drag and drop tables onto canvas.](./images/drag-drop-tables.png " ")
 
-    The Auto Visualizations bar graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You just ran analytics on top of Object Storage data!
+    The Auto Visualizations bar graph for the selected actual price by OS is displayed. You can hover over any bar to display the details. You can use the **Auto Visualization** drop-down list to choose a different graph type. You just ran analytics on top of Object Storage data!
 
     >**Note:** Bar graphs are one of the most commonly used visualization types. You can use them to compare data across categories, identify outliers, and uncover historical high and low data points. For other graph types, see [About Visualization Types](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/visualization-types.html).
 
@@ -154,12 +166,18 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Analytics Home page is displayed.](./images/analytics-home-page.png " ")
 
+**This concludes the Get Started with Query Service workshop (LA) sprints.**    
+
 ## Learn More
 
 * [Oracle Analytics Cloud Get Started](https://docs.oracle.com/en/cloud/paas/analytics-cloud/index.html)
 * [Visualizing Data and Building Reports in Oracle Analytics Cloud](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/introduction-visualization-and-reporting.html)
-* [SQL Developer Documentation](https://docs.oracle.com/cd/E12151_01/index.htm)
 * [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
-* [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
-* [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022
