@@ -46,3 +46,8 @@ Create a policy to allow any resource in _your dynamic group_ to access and mana
 * [Managing Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)
 * [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 * [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
+* **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
+* **Last Updated By/Date:** Lauran Serhal, August 2022
