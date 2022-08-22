@@ -19,9 +19,9 @@ When working with FAW, there may be scenarios where your Data Pipeline has been 
 
 4. Within Data Configuration, click on **Pipeline Parameters**.
 
-  >**Note:** If the data pipeline has been disabled, you will see a notification banner as shown in the screenshot.
+    >**Note:** If the data pipeline has been disabled, you will see a notification banner as shown in the screenshot.
 
-  ![Pipeline parameters](images/pipeline-params.png)
+    ![Pipeline parameters](images/pipeline-params.png)
 
 5. The Notification banner is displayed at the top and the Pipeline is in **disabled** state.
 
