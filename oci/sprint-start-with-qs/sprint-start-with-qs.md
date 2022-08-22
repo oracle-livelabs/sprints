@@ -16,10 +16,10 @@ Query Service is a native OCI query service that is scalable, performant, server
 ### Objectives
 
 In this workshop, you will:
-* Create the required Query Service projects policies
+* Create the required Query Service projects policies.
 * Create a Query Service project.
-* Query data using SQL in the Query Editor.
-* Explore the project Detail page in Query Service.
+* Query data using standard Oracle SQL in the Query Editor.
+* Explore the project Detail page.
 * Create Oracle Object Storage tables using Parquet and .csv files in Public and Private Object Storage buckets.
 * Connect to Query Service from Oracle SQL Developer and optionally install SQL Developer.
 * Connect to Query Service from Oracle Analytics Cloud.
