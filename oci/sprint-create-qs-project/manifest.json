@@ -3,44 +3,9 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
      {
-        "title": "How do I create the required Query Service policies?",
-        "description": " ",
-        "filename": "./../sprint-create-qs-policies/sprint-create-qs-policies.md"
-     },
-      {
         "title": "How do I create a Query Service project?",
         "description": " ",
         "filename": "./../sprint-create-qs-project/sprint-create-qs-project.md"
-      },
-      {
-         "title": "How do I query data in Query Service?",
-         "description": " ",
-         "filename": "./../sprint-query-data-qs/sprint-query-data-qs.md"
-      },
-      {
-         "title": "How do I use the project detail page in Query Service?",
-         "description": " ",
-         "filename": "./../sprint-explore-qs-project-detail/sprint-explore-qs-project-detail.md"
-      },
-      {
-        "title": "How do I create an Object Storage table in Query Service?",
-        "description": " ",
-        "filename": "./../sprint-create-obj-table-qs/sprint-create-obj-table-qs.md"
-      },
-      {
-         "title": "How do I connect to Query Service from SQL Developer?",
-         "description": " ",
-         "filename": "./../sprint-connect-qs-sqldeveloper/sprint-connect-qs-sqldeveloper.md"
-      },
-      {
-         "title": "How do I install Oracle SQL Developer?",
-         "description": " ",
-         "filename": "./../sprint-install-sql-developer/sprint-install-sql-developer.md"
-      },
-      {
-         "title": "How do I connect to Query Service from Analytics Cloud?",
-         "description": " ",
-         "filename": "./../sprint-connect-qs-analytics/sprint-connect-qs-analytics.md"
       }
    ],
    "task_type": "Sections",
