@@ -2,10 +2,10 @@
 
 Duration: 1 minute
 
-The global parameters in Reporting Configurations allows you to specify the Enterprise Calendar, which is the reporting calendar used in Oracle Fusion Analytics Warehouse. This Sprint will guide you through specifying the Enterprise Calendar used in reporting. 
+The global parameters in Reporting Configurations allows you to specify the Enterprise Calendar, which is the reporting calendar used in Oracle Fusion Analytics Warehouse. This Sprint will guide you through specifying the Enterprise Calendar used in reporting.
 
 ## Global Report Parameters
->**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps. 
+>**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps.
 
 1. In your Fusion Analytics Warehouse homepage, click the **Navigation menu** and click **Console**.
 
@@ -32,3 +32,7 @@ Congratulations, you have just learned how to configure the Enterprise Calendar 
 * [Set Up the Global Report Parameters](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/set-global-report-parameters.html)
 
 * [About Global Parameters](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/global-parameters.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022

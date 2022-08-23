@@ -35,3 +35,7 @@ Congratulations, you have learned how to upload custom visualization extentions 
 
 * [Extending Oracle Analytics Cloud’s Data
 Visualization Using Custom Plug-ins](https://analyticsanddatasummit.org/wp-content/uploads/2019/06/TechCasts-How-to-Use-OAC-Data-Viz-Plug.pdf)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

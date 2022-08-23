@@ -1,17 +1,17 @@
 # How do I sort a visualization by a column not used in the visualization in Oracle Analytics Cloud (OAC)?
 
-Duration: 1 minute 
+Duration: 1 minute
 
 Sorting is a great way to narrow your focus and reorganize your data to easily get insights out of your data. Sorting by one column is the most common way but Oracle Analytics allows you to create multiple sorts as well as sorting by columns not used in the visualization. This Sprint will guide you on how to create sorts with columns not used in your current visualization.
 
 ## Custom sort
-You must have the **BI Content Author** application role to successfully execute the following steps. 
+>**Note:** You must have the **BI Content Author** application role to successfully execute the following steps.
 
 1. Open a workbook and create a visualization if you have an empty canvas. If you have visualizations, right-click a visualization and select **Sort By**. Then click **Custom**. This will open up your custom sort options.
 
     ![Sort by custom](images/sort-by.png)
 
-2. This is where the magic happens. In the first box, the drop down menu will list the columns currently present in your visualization. Make sure to choose the attribute column. Choosing measure columns will not allow us to sort by a column not present in the visualization since you  can already sort by the measure column in the current visualization. 
+2. This is where the magic happens. In the first box, the drop down menu will list the columns currently present in your visualization. Make sure to choose the attribute column. Choosing measure columns will not allow us to sort by a column not present in the visualization since you  can already sort by the measure column in the current visualization.
 
     ![column one](images/column-one.png)
 
@@ -19,7 +19,7 @@ You must have the **BI Content Author** application role to successfully execute
 
     ![column two](images/column-two.png)
 
-4. In the third box, select the measure that you want to sort by. This can be from any measure that exists in the dataset and is not used in the visualization. 
+4. In the third box, select the measure that you want to sort by. This can be from any measure that exists in the dataset and is not used in the visualization.
 
     >**Note:** You can create muliple sorts by using the additional boxes below the first **Sort By** to get **Then By**.
 
@@ -37,3 +37,6 @@ Congratulations! You just learned how to sort a visualization by a column not us
 
 * [Sort, Drill, and Select Data in Visualizations](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/sort-drill-and-select-data-visualizations.html)
 
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

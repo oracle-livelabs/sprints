@@ -48,3 +48,7 @@ Congratulations, you just learned how to configure the pipeline parameters for y
 ## Learn More
 * [About Pipeline Parameters](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/pipeline-parameters.html)
 * [Set Up the Pipeline Parameters](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/set-pipeline-parameters.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022
