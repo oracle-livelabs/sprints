@@ -93,9 +93,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
 * [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm).
 * [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
-* [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
-* [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
 
 ## Acknowledgements
 * **Author:** Lauran Serhal, Consulting User Assistance Developer
