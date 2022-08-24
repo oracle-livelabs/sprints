@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I create a custom map layer using an image in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to create custom map layers using your own images in OAC!",
+         "title": "Como criar uma camada customizada de mapa utilizando OAC?",
+         "description": "Aprenda a criar camadas de mapa personalizadas usando suas próprias imagens no OAC!",
          "filename": "sprint-oac-create-custom-map-layers-pt.md"
       }
    ],
