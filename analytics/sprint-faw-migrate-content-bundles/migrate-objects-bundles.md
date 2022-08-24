@@ -2,9 +2,9 @@
 
 Duration: 1 minute
 
-The bundles feature allows you to package your content in FAW and migrate it to other FAW environments. For example, you can migrate custom Decks, KPIs, Projects, etc. from your development environment to your test or production environments in a simple way.
+The bundles feature allows you to package your content in FAW and migrate it to other FAW environments. For example, you can migrate snapshots of OAC folders, projects, dataset definitions, KPIs, decks, and duty roles from your development environment to your test or production environments in a simple and packaged way.
 
-## Migrate content using Bundles
+## Migrate content using bundles
 >**Note:** You must have the **Service Administrator** role to successfully complete this Sprint.
 
 1. In your Fusion Analytics Warehouse instance, click the **Navigation menu** and select **Console**.
@@ -16,7 +16,7 @@ The bundles feature allows you to package your content in FAW and migrate it to 
   ![Bundles](images/bundles.png)
 
 3. If you already have content bundles ready to migrate, click the **Actions** menu for that bundle and select **Export**. This will download an .aab file to your local desktop.
-    >**Note:** If you do not have content bundles, refer to the related Sprint "How do I create content Bundles in Fusion Analytics Warehouse (FAW)?".
+    >**Note:** If you do not have content bundles, refer to the related Sprint "How do I create content bundles in Fusion Analytics Warehouse (FAW)?".
 
   ![Export](images/export.png)
 
@@ -24,10 +24,17 @@ The bundles feature allows you to package your content in FAW and migrate it to 
 
   ![Import](images/import.png)
 
-5. Your FAW content should now be imported into your other environment.
+5. Once your bundle is imported into the new environment, click the **Actions menu** and select **Deploy**.
 
-  ![Import successful](images/import-success.png)
+  ![Actions deploy](images/action-deploy.png)
 
+6. Verify the content bundle to deploy and click **Deploy**. This will schedule your bundle deployment.
+
+  ![Deploy](images/deploy.png)
+
+7. Depending on the size of your bundle, your deployment should be completed in a few minutes.
+
+  ![Deployed](images/deployed.png)
 
 ## Learn More
 
