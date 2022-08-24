@@ -11,7 +11,8 @@ In this sprint, you will learn how to create a Query Service project.
 
 Watch the following short video on how to create Query Service projects.
 
-[](youtube:fCGsYA3FUH8)
+
+[](youtube:YctLiBVm2x0)
 
 ## Create a Query Service Project
 
