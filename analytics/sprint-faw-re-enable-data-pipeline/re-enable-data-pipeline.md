@@ -1,4 +1,4 @@
-# How do I re-enable the Data Pipeline in Fusion Analytics Warehouse (FAW)?
+# How do I re-enable the data pipeline in Fusion Analytics Warehouse (FAW)?
 
 Duration: 4 minutes
 

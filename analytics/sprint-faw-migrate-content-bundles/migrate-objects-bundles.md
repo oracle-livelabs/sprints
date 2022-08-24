@@ -32,7 +32,7 @@ The bundles feature allows you to package your content in FAW and migrate it to 
 
   ![Deploy](images/deploy.png)
 
-7. Depending on the size of your bundle, your deployment should be completed in a few minutes.
+7. Your content bundle deployment should be completed in a few minutes.
 
   ![Deployed](images/deployed.png)
 
