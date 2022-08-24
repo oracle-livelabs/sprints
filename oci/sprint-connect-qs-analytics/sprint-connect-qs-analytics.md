@@ -16,7 +16,7 @@ Successfully completed the following:
 * _How do I create a Query Service project?_ sprint
 * The _Create Database Password_ step in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
 
-Watch the short video below on how to create an Oracle Analytics Cloud instance from Query Service.
+Watch the following short video on how to create an Oracle Analytics Cloud instance from Query Service.
 
 [](youtube:ufAaRWClJbU)
 
