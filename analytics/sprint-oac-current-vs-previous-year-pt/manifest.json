@@ -3,14 +3,14 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to analyze Current Year vs Previous Year data with the same Dataset in OAC!",
+         "title": "Como criar uma análise Ano Vigente vs Ano Passado com o mesmo conjunto de dados no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a realizar uma análise Ano Vigente vs Ano Passado com o mesmo conjunto de dados no OAC!",
          "filename": "sprint-oac-current-vs-previous-year-pt.md"
       },
       {
-         "title": "How do I join two tables in a dataset in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to join multiple tables in a dataset in OAC!",
-         "filename": "sprint-oac-join-tables.md"
+         "title": "Como realizar um join entre duas tabelas em um conjunto de dados no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a realizar um join entre múltiplas tabelas em um conjunto de dados no OAC!",
+         "filename": "sprint-oac-join-tables-pt.md"
       }
    ],
    "task_type": "Sections",

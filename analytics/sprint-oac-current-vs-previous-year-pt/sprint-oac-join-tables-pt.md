@@ -1,17 +1,17 @@
-# How do I join two tables in a dataset in Oracle Analytics Cloud (OAC)?
+# Como realizar um join entre duas tabelas em um conjunto de dados no Oracle Analytics Cloud (OAC)?
 
-Duration: 3 minutes
+Duração: 3 minutos
 
-Oracle Analytics Cloud allows you to join multiple tables into a dataset with its strong data prep capabilities. When you drag and drop a table into a dataset, Oracle Analytics automatically creates a join between tables if there are matching column names. If matching column names are not present, you have the ability to easily create joins whether its an inner, left, right, or full outer join. This Sprint will guide you on how to create joins between tables in a dataset!
+O Oracle Analytics Cloud permite a realização de Joins entre várias tabelas em um conjunto de dados através de suas robustas capacidades de preparação de dados. Quando você arrasta uma tabela e a solta em um conjunto de dados, o OAC automaticamente cria Joins entre as tabelas se houver nomes de colunas iguais. Se os nomes não forem iguais, pode-se criar facilmente um Inner, Left, Right ou Full Outer Join. Esse sprint te guiará em como realizar essas junções!
 
-## Create joins
->**Note:** You must have the **DV Content Author** to be able to successfully execute the following steps.
+## Criar Joins
+>**Nota:** É mandatório possuir a Atribuição do Aplicativo (Application Role) **DV Content Author** para executar esse sprint com sucesso.
 
-1. From your OAC **Home** page, create a dataset by clicking **Create** and selecting **Dataset**.
+1. A partir da **Página Inicial** do seu OAC, crie um conjunto de dados clicando em **Criar** e selecionando **Conjunto de Dados**.
 
     ![Create dataset](images/create-dataset.png)
 
-2. Select the data file you want to create a dataset with whether it's in your local machine, from a subject area or connection. If it's from your local machine, select the file and click **Open**.
+2. Selecione o arquivo de dados a partir do qual você deseja criar um conjunto de dados. Ele pode vir da sua máquina local, de uma área de assunto ou de uma conexão. Se é da sua máquina local, selecione o arquivo e clique em **Abrir**
 
     ![Select dataset](images/select-dataset.png)
 
