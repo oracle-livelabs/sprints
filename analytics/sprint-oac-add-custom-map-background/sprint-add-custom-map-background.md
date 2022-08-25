@@ -17,7 +17,7 @@ If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 
     ![OAC Homepage](images/oac-homepage.png)
 
-2. From the Console page select **maps**.
+2. From the Console page select **Maps**.
 
     ![OAC Console Page](images/oac-console-page.png)
 
