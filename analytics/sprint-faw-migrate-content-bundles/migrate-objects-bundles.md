@@ -7,7 +7,7 @@ The bundles feature allows you to package your content in FAW and migrate it to 
 ## Migrate content using bundles
 >**Note:** You must have the **Service Administrator** role to successfully complete this Sprint.
 
-1. In your Fusion Analytics Warehouse instance, click the **Navigation menu** and select **Console**.
+1. In your Fusion Analytics Warehouse instance, click the **Navigation** menu and select **Console**.
 
   ![Console](images/console.png)
 
@@ -24,7 +24,7 @@ The bundles feature allows you to package your content in FAW and migrate it to 
 
   ![Import](images/import.png)
 
-5. Once your bundle is imported into the new environment, click the **Actions menu** and select **Deploy**.
+5. Once your bundle is imported into the new environment, click the **Actions** menu and select **Deploy**.
 
   ![Actions deploy](images/action-deploy.png)
 
