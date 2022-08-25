@@ -6,12 +6,10 @@ and customize them to fit the specific theme of your workbooks in OAC. You can s
 Tiled Web Map protocols.
 
 ## Adding a custom map background through the OAC Console.
-In order to complete this sprint you need to have ready the appropriate credentials
-from your mapping service. If you are using Google Maps or Baidu, this is an API key.
+In order to complete this sprint you need to have the appropriate credentials
+ready from your mapping service. If you are using Google Maps or Baidu, this is an API key.
 If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 
-In order to verify that your custom map background works, you must have a dataset that includes
-a map-related column with which to create a map visualization.
 >**Note:** You must have the **BI Service Admin** role in order to complete the following steps.
 
 
@@ -36,12 +34,12 @@ a map-related column with which to create a map visualization.
     ![OAC create custom map background](images/oac-add-map-background.png)
 
 6. Your map background is now ready to be used in a workbook. You can verify this by returning to the OAC homepage
-and creating a new workbook. You must use a dataset that has a map-related column, such as "State" or "Country" so that
+and creating a new workbook. You must use a dataset that has a location-based column, such as "State" or "Country" so that
 you can create a map visualization.
 
     ![OAC create workbook](images/oac-create-workbook.png)
 
-7. Within the workbook right click on your map-related column and select
+7. Within the workbook right click on your location-based column and select
 **Pick Visualization...**, Then select the map visualization.
 Note that by default your map has a white background, but you can change
 this by adding your custom map background.
