@@ -31,7 +31,7 @@ When working with FAW, there may be scenarios where your Data Pipeline has been 
 
   ![Data pipeline status toggle](images/enable-pipeline.png)
 
-7. A confirmation window will appear, asking if you want to accept the data impact and save your change. Click **Accept Data Impact and Save**.
+7. A confirmation window may appear, asking if you want to accept the data impact and save your change. If you are prompted, click **Accept Data Impact and Save**.
 
   ![Save changes](images/save-changes.png)
 
@@ -39,13 +39,6 @@ When working with FAW, there may be scenarios where your Data Pipeline has been 
 
   ![Enabled pipeline](images/no-banner.png)
 
-
-## Learn More
-
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
 
 ## Acknowledgements
 * **Author** - Krithika Raghavan, Director, Oracle Analytics
