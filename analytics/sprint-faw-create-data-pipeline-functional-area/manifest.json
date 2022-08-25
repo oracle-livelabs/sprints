@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I activate new functional areas in Fusion Analytics Warehouse (FAW)?",
+         "title": "How do I create and activate new functional areas in Fusion Analytics Warehouse (FAW)?",
          "description": "Learn how to create a data pipeline for functional areas in FAW.",
          "filename": "create-data-pipeline-functional-area.md"
       },
