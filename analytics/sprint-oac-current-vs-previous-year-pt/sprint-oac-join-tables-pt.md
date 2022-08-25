@@ -2,7 +2,7 @@
 
 Duração: 3 minutos
 
-O Oracle Analytics Cloud permite a realização de Joins entre várias tabelas em um conjunto de dados através de suas robustas capacidades de preparação de dados. Quando você arrasta uma tabela e a solta em um conjunto de dados, o OAC automaticamente cria Joins entre as tabelas se houver nomes de colunas iguais. Se os nomes não forem iguais, pode-se criar facilmente um Inner, Left, Right ou Full Outer Join. Esse sprint te guiará em como realizar essas junções!
+O Oracle Analytics Cloud permite a realização de Joins entre várias tabelas em um conjunto de dados através de suas robustas capacidades de preparação de dados. Quando você arrasta uma tabela e a solta em um conjunto de dados, o OAC automaticamente cria Joins entre as tabelas se houver nomes de colunas iguais. Mesmo se os nomes não forem iguais, pode-se criar facilmente um Inner, Left, Right ou Full Outer Join. Esse sprint te guiará em como construir esses relacionamentos!
 
 ## Criar Joins
 >**Nota:** É mandatório possuir a Atribuição do Aplicativo (Application Role) **DV Content Author** para executar esse sprint com sucesso.
@@ -15,42 +15,47 @@ O Oracle Analytics Cloud permite a realização de Joins entre várias tabelas e
 
     ![Select dataset](images/select-dataset.png)
 
-3. This will load the dataset and allow you to change the Name and Description of your file and change the file if you need to. Click **OK**.
+3. Isso carregará o conjunto de dados e permitirá que você mude o Nome e a Descrição do seu arquivo se necessário. Clique em **OK**.
 
     ![OK](images/ok.png)
 
-4. Add another file by clicking on the **+** and selecting **Add File**. Once your file has loaded, you will again have the option to change the name and description of your file. Once changes are made, select **OK** to add the file to your dataset.
+4. Adicione outro arquivo clicando no **+** e selecionando **Add File**. Uma vez que seu arquivo foi carregado, você terá novamente a opção de mudar seu nome e descrição. Após as mudanças, selecione **OK** para adicionar o arquivo ao seu conjunto de dados.
 
     ![Add file](images/add-file.png)
 
-5. Once your dataset is added, you will notice that the two tables are automatically joined. This happens when Oracle Analytics identifies exact column names in both datasets.
+5. Com seu conjunto de dados adicionado, você perceberá que as duas tabelas são unidas automaticamente através de um Join. Isso acontece quando o Oracle Analytics identifica que os nomes de duas colunas são exatamente iguais.
 
-    >**Note:** Auto join works on more than 2 tables as well.
+    >**Nota:** O Auto Join também funciona em mais de duas tabelas.
+    
+    <!-- -->
+
+    >**Nota 2:** Se o Auto Join não acontecer, valide se as suas colunas usadas como chave não estão sendo tratadas como **Métricas**. Para que o Join aconteça, elas precisam ser tratadas como **Atributos** pelo OAC.
 
     ![Auto join](images/auto-join.png)
 
-6. If auto join is enabled and Oracle Analytics cannot find matching column names but you know there are columns that you can create joins on, **right-click** on one of the tables and select **Join To** and select the table you want to create a join to.
+6. Se o Auto Join está habilitado e o Oracle Analytics não encontrou nomes correspondentes entre as colunas, você pode **clicar com o botão direito** em uma das tabelas e selecionar **Juntar a**, e logo após indicar a tabela com a qual você deseja fazer o Join.
 
-    >**Note:** You can also drag and drop the table you want to join onto the table you want to join to to initiate a join.
+    >**Nota:** Você também pode arrastar uma tabela para cima da outra para criar um Join entre elas.
 
     ![Manual join](images/manual-join.png)
 
-7. Select the column names you want to create a join on from the two tables. Notice here that auto join did not work because **State** and **States** do not match. You can strengthen your join if you have multiple column names you can join on by clicking **Add Join Condition** and selecting the extra columns.
+7. Selecione os nomes das colunas que você quer utilizar para fazer o Join das duas tabelas. Você pode fortalecer seu join se você tiver múltiplas colunas relacionadas clicando em **Add Join Condition** e selecionando essas colunas extra.
 
     ![Manual join](images/state-states.png)
 
-8. Once you have created your joins, click **Save** and click **OK** after giving your dataset a name.
+8. Uma vez criados os seus Joins, clique em **Salvar** e depois em **OK**. Não se esqueça de dar um nome ao seu conjunto de dados.
 
     ![Save dataset](images/save-dataset.png)
 
-Congratulations! You have learned how to create joins between two tables in a dataset in Oracle Analytics Cloud!
+Parabéns! Você aprendeu como criar Joins entre duas tabelas em um conjunto de dados no Oracle Analytics Cloud!
 
-## Learn More
+## Saiba Mais
 
 * [Add Joins Between Dataset Tables](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-joins-dataset-tables.html)
 
 * [Understand Dataset Table Joins](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/understand-dataset-table-joins.html)
 
-## Acknowledgements
-* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+## Reconhecimentos
+* **Autor** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Tradução** - Breno Comin, Cloud Solution Engineer, Brazil Data & AI Team
 * **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
