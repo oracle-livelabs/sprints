@@ -1,74 +1,73 @@
-# How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud (OAC)?
+# Como criar uma análise Ano Vigente vs Ano Passado com o mesmo dataset no Oracle Analytics Cloud (OAC)?
 
-Duration: 4 minutes
+Duração: 4 minutos
 
-With Oracle Analytics Cloud, you can add multiple files to one dataset, where each file becomes a table and you can define joins between tables within a dataset.
+Com o Oracle Analytics Cloud, você pode adicionar múltiplos arquivos em um único conjunto de dados, para que cada um desses arquivos se torne uma tabela e você consiga definir Joins (junções) entre eles.
 
-### Situation
-You have just uploaded your dataset, "SampleOrders-DS" and you are trying to create a visualization analyzing the 'Current Year Sales vs Previous Year Sales'. The challenge is that you only one column representing Sales and one column representing years. To create an analysis between years, you need a column for last year's sales.
+### Situação
+Você acabou de carregar seu conjunto de dados "SampleOrders-DS" e está tentando criar uma análise visual com o tema "Vendas no Ano Vigente vs Vendas no Ano Passado". O maior desafio é que existe apenas uma coluna representando Vendas e outra representando Ano. Para criar uma análise comparando anos, será necessária outra coluna para as vendas do Ano Passado.
 
-   ![No Last Year Sales](images/no-last-year-sales.png)
+   ![Nao ha vendas do ano passado](images/no-last-year-sales.png)
 
-## Create Current Year vs Previous Year analysis
-We are going to upload and join the same dataset to each other and in our data preparation step, we will add functions to create the columns we need.
+## Criar Análise Ano Vigente vs Ano Passado
+Nós iremos fazer upload e join do mesmo conjunto de dados, e no processo de preparação de dados adicionaremos funções para criar as colunas que precisamos.
 
->**Note:** You must have the **DV Content Author** application role to successfully execute this Sprint.
+>**Nota:** É mandatório possuir a Atribuição do Aplicativo (Application Role) **DV Content Author** para executar esse sprint com sucesso.
 
-1. Create a dataset and upload the same data file twice.
+1. Crie o conjunto de dados e faça o upload do mesmo arquivo de dados duas vezes.
 
-2. For the second data file, change the name by adding 'Last Year' to the end of the dataset name.
+2. Para o segundo arquivo de dados, mude o nome adicionando 'Ultimo Ano' no fim do nome do conjunto de dados.
 
    ![Ok](images/dataset-same-file-ok.png)  
 
-3. You are going to create a **YEAR** column in each dataset, and use it to join the datasets. Start with the first dataset by clicking **Add Preparation Step** represented by the '+' icon in the data pane. For the **Name** field, type 'YEAR'. In the function box, type **YEAR(Order Date)**. Click **Validate** and click **Add Step**.
-      >**Note:** In your own example, replace 'Order Date' in the function with the date you want to compare.
+3. Crie a coluna **ANO** em cada dataset, e a utilize para realizar um join entre eles. Comece com o primeiro dataset clicando em **Adicionar etapa de preparação**, representado pelo ícone "+" no painel de dados. Para o **Nome** do campo, escreva "ANO". Na área da função, escreva **Year(Data)**. Clique em  **Validar** e depois em **Adicionar Etapa**.
+      >**Nota:** No seu caso, substitua 'Data' pela coluna com a data que você deseja comparar.
 
-      ![YEAR](images/column-year.png)
+      ![ANO](images/column-year.png)
 
-4. Click the second dataset and click **Add Preparation Step**. For **Name**, type 'Previous YEAR' and add the function **YEAR(Order Date)+1**, click **Validate** and click **Add Step**.
+4. Clique no segundo conjunto de dados e clique em **Adicionar etapa de preparação**. Para o **Nome**, coloque 'ANO Passado' e adicione a função **Year(Data)+1**, clique em **Validar** e em  **Adicionar Etapa**.
 
    ![Last YEAR](images/column-last-year.png)
 
-5. Locate the **Sales** column, double-click and rename it as '**Sales Previous YEAR**'.
+5. Localize a coluna **Vendas**, dê um duplo-clique e a renomeie como '**Vendas Ano Passado**'.
 
-   ![Sales Previous YEAR](images/column-sales-previous-year.png)  
+   ![Vendas Ano Passado](images/column-sales-previous-year.png)  
 
-6. Go to the **Join Diagram** and click the join in the middle. Choose Left Join for the join type and select the two columns you created to join on. For example, join 'YEAR' with 'Previous Year'.
-
-    > **Note:** You choose Left Outer to get all the data for the current Year column
+6. Vá até o **Diagrama de Junção** e clique na junção no centro. Escolha a opção Esquerda (Left Join) e selecione as duas colunas criadas para serem utilizadas no Join. Por exemplo, "Ano" e "Ano Passado" 
+    > **Note:** Você seleciona um Left Outer Join para preservar todos os dados do Ano Vigente.
 
    ![Left Join](images/left-join.png)  
 
 
-7. Right-click on the first dataset and select **Preserve Grain**.
+7. Clique com o botão direito no primeiro conjunto de dados e selecione **Preservar Granularidade**.
 
-      >**Note:** Click [here](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/what-is-preserve-grain.html) to learn more about how preserve grain works.
+      >**Nota:** Clique [aqui](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/what-is-preserve-grain.html) para aprender como o "Preservar Granularidade" funciona. 
 
-      ![Preserve Grain](images/preserve-grain.png)
+      ![Preservar Granularidade](images/preserve-grain.png)
 
-8. **Save** the dataset and give it a name. Then click **OK**.
+8.  **Salve** o ocnjunto de dados e dê um nome a ele. Depois clique em **OK**.
 
-    ![Save Dataset](images/dataset-save.png)  
+    ![Salvar Dataset](images/dataset-save.png)  
 
-9. We will now create a table in a workbook using this dataset to compare sales between years. Click **Create Workbook**.
+9.  Crie uma tabela na Pasta de Trabalho utilizando esse conjutno de dados para comparar as vendas entre anos. Clique em **Criar Pasta de Trabalho**.
 
     ![Create Workbook](images/create-workbook.png)  
 
-10. Select **Sales**, **YEAR** and **Sales Previous YEAR**. Right click **Pick Visualization** and select **Table**.
+10. Selecione **Vendas**, **Ano** e **Vendas Ano Passado**. Clique com o botão direito em  **Selecionar Visualização...** e escolha **Tabela**.
 
     ![Pick Visualization](images/pick-visualization.png)  
 
-11. Now you have Sales and Previous Year Sales in one table. You can
+11. Agora você posseui Vendas e Vendas Ano Passado em uma única tabela. Você pode compará-las visualmente ou criar um cálculo para trazer a diferença entre esses valores.
 
     ![Sales](images/last-year-sales.png)  
 
-Congratulations! You have just learned how to analyze current year vs previous year data using the same dataset.
+Parabéns! Você acabou de aprender como analisar Ano Vigente vs Ano Passado dentro de um mesmo conjunto de dados.
 
-
-## Learn More
+## Saiba Mais
 * [Add Multiple Files to a Dataset](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-dataset-files.html#GUID-3314A9C3-9780-40C6-A71E-AA0B29689165)
 * [Joining Multiple Files In a Single Oracle Analytics Dataset](https://www.youtube.com/watch?v=mJmuDIdqCqU)
 
-## Acknowledgements
-* **Author** - Lucian Dinescu, Product Strategy, Analytics
-* **Last Updated By/Date** - Lucian Dinescu,  June 2022
+## Reconhecimentos
+* **Autor** - Lucian Dinescu, Product Strategy, Analytics
+* **Tradução** - Breno Comin, Cloud Solution Engineer, Brazil Data & AI Team
+* **Last Updated By/Date** - Breno Comin,  Agosto 2022
