@@ -1,50 +1,53 @@
-# How do I add notes to support presenting and storytelling in Oracle Analytics Cloud (OAC)?
+# Como adicionar notas para apoiar a apresentação e a narrativa no Oracle Analytics Cloud (OAC)?
 
-Duration: 3 minutes
+Duração: 3 minutos
 
-Adding notes to visualizations is a great way to support presenting and storytelling. You can add notes to call out important information in a workbook's visualizations.
+Adicionar notas ou observações às visualizações é uma ótima maneira de apoiar a apresentação e a narrativa. Você pode adicionar notas para destacar informações importantes nas visualizações de uma pasta de trabalho (Workbook).
 
-For example, let's say you have just explored a sales analysis and you notice that while sales are doing well, profit is negative and so you want to add your insight to this analysis.
+Por exemplo, digamos que você acabou de explorar uma análise de vendas e percebe que, embora as vendas estejam indo bem, o lucro é negativo e, portanto, você deseja adicionar seu insight a essa análise.
 
    ![No Insights](images/sales-profit-by-product-container.png)
 
-Notes are a great way to emphasize or explain important information related to your visualizations. In this Sprint example, we are going to add a note with data point connectors. You can connect a note to up to ten data points on a visualization or canvas.
+As notas são uma ótima maneira de enfatizar ou explicar informações importantes relacionadas às suas visualizações. Neste exemplo, adicionaremos uma nota com conectores de ponto de dados. Você pode conectar uma nota a até dez pontos de dados em uma visualização ou canva.
 
-## Add notes to your visualizations
->**Note:** You must have the **DV Content Author** application role to execute the following steps.
+## Adicione notas ou observações às suas visualizações
 
-1. On your visualization canvas, click the **Notes** icon represented by the text bubble and select **Add Note**.  
+>**Nota:** Você deve ter a permissão de **DV Content Author** para executar os passos a seguir.
+
+1. Na aba Visualizar, clique no ícone de **Notas** como indicado na imagem e selecione **Adicionar Observação**.
 
    ![Add Note](images/add-note.png)
 
-2. Type in your insight in the text box.
+2. Digite o seu insight dento da caixa de texto.
 
-   ![Type In Your Insight](images/type-insigth.png)  
+   ![Type In Your Insight](images/type-insigth.png)
 
-3. Emphasize your content by using formatting such as changing the font size, bold, color, or alignment.
+3. Enfatize seu conteúdo usando formatações, como alterar o tamanho da fonte, negrito, cor do texto ou alinhamento.
 
-   ![Format Text](images/format-text.png)   
+   ![Format Text](images/format-text.png)
 
-4. Color is one of the most powerful tools that you have to emphasize text. For this visualization, you want to focus the attention to the negative profit of 'Jumbo Box'. To do this, select the words you want to color, and click on the **Text Color** icon and choose red.
+4. A cor é uma das ferramentas mais poderosas que você tem para enfatizar o texto. Para esta visualização, você deseja focar a atenção no lucro negativo de 'Jumbo Box'. Para fazer isso, selecione as palavras que deseja colorir, clique no ícone **Cor do Texto** e escolha vermelho.
 
-   ![Format Text Color](images/format-text-color.png)  
-     > **Note:** You can also utilize the underline option as a tool to emphasize text to accomadate for those with color blindness.
+   ![Format Text Color](images/format-text-color.png)
+     > **Nota:** Você também pode utilizar a opção de sublinhado como uma ferramenta para enfatizar o texto para acomodar pessoas com daltonismo.
 
-5.  To attach the note to a data point, hover over the note and drag a circle to the data point that you want to connect the note to. You can connect a circle to multiple data points.
+5.  Para anexar a nota a um ponto de dados, passe o mouse sobre a nota e arraste um círculo para o ponto de dado ao qual deseja conectar a nota. Você pode conectar um círculo a vários pontos de dados.
 
-   ![Attach Data Points](images/attach-data-points.png)   
+   ![Attach Data Points](images/attach-data-points.png)
 
-6. You can also change the positioning of your note by clicking and dragging the note around your canvas. This will not move the data points.
+6. Você também pode alterar o posicionamento de sua nota clicando e arrastando a nota pela tela. Isso não moverá os pontos de dados.
 
-   ![Drag the Note](images/drag-note.png)  
-   > **Tip:** When deciding where to position your important annotations, place them according to the direction a language is read in. For example, this Sprint is written in Enlish which is read from left to right so we want to position our annotation, which is an important insight we want people to read, towards the top left where their eyes will be able to catch it early on. For languages read from right to left like Arabic and [other languages](https://www.worldatlas.com/articles/which-languages-are-written-from-right-to-left.html), we would leave the note on the top right so that it is noticed.
-
-Congratulations! You have just learned how to add notes to visualizations and tied it to specific data points. You have also learned that color and where you position your insight (notes) is relevant to properly presenting and storytelling.
+   ![Drag the Note](images/drag-note.png)
+   > **Dica:** Ao decidir onde posicionar suas observações importantes, coloque-as de acordo com a direção em que um idioma é lido. Por exemplo, este Sprint é escrito em português, que é lido da esquerda para a direita, portanto, queremos posicionar nossa anotação, que é um insight importante queremos que as pessoas leiam, no canto superior esquerdo, onde seus olhos poderão captá-lo desde o início. Para idiomas onde a leitura é feita da direita para a esquerda, como árabe e [outros idiomas](https://www.worldatlas.com/articles/which-languages-are-written-from-right-to-left.html), deixaríamos a nota ou observação no canto superior direito para que ela fosse notada mais facilmente.
 
 
-## Learn More
+Parabéns! Você acabou de aprender como adicionar notas ou observações a visualizações e vinculá-las a pontos de dados específicos. Você também aprendeu que a cor e onde você posiciona seu insight (nota) é relevante para apresentar e contar a história adequadamente.
+
+
+## Saiba Mais
 * [Add Notes to Visualizations](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-notes-visualizations.html#GUID-4C3A1144-7C3C-4F61-8111-00FADD62978D)
 
-## Acknowledgements
-* **Author** - Lucian Dinescu, Product Strategy, Analytics
-* **Last Updated By/Date** - Lucian Dinescu,  June 2022
+## Reconhecimentos
+* **Autor** - Lucian Dinescu, Product Strategy, Analytics
+* **Tradução** - Thais Henrique, Cloud Engineer, Brazil Data & AI Team
+* **Última Atualização** - Thais Henrique,  Agosto 2022
