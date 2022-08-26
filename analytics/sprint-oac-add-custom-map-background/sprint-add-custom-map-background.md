@@ -13,11 +13,11 @@ If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 >**Note:** You must have the **BI Service Admin** role in order to complete the following steps.
 
 
-1. From your OAC homepage click on the hamburger icon in the top left then click on **Console**.
+1. From your OAC homepage, click on the hamburger icon in the top left and select **Console**.
 
     ![OAC Homepage](images/oac-homepage.png)
 
-2. From the Console page select **Maps**.
+2. From the Console page, select **Maps**.
 
     ![OAC Console Page](images/oac-console-page.png)
 
@@ -25,11 +25,11 @@ If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 
     ![OAC Console Maps page](images/oac-console-maps-page.png)
 
-4. Click **Add Background** and select the supported mapping service that you would like to use. For this tutorial we choose Google Maps.
+4. Click **Add Background** and select the supported mapping service that you would like to use. For this tutorial, we choose Google Maps.
 
     ![OAC Console Maps adding background](images/oac-console-maps-add-background.png)
 
-5. Google Maps requires an API key as credentials to create the map background. We paste our API key into the **Key** field and give the map a description. If you are using a different mapping service you may need to provide a URL instead. We are also given the option to specify account type and default map type. Click **Save** and you should see your background added to the list of available map backgrounds.
+5. Google Maps requires an API key as credentials to create the map background. We paste our API key into the **Key** field and give the map a description. If you are using a different mapping service, you may need to provide a URL instead. We are also given the option to specify account type and default map type. Click **Save** and you should see your background added to the list of available map backgrounds.
 
     ![OAC create custom map background](images/oac-add-map-background.png)
 
@@ -39,16 +39,16 @@ you can create a map visualization.
 
     ![OAC create workbook](images/oac-create-workbook.png)
 
-7. Within the workbook right click on your location-based column and select
-**Pick Visualization...**, Then select the map visualization.
-Note that by default your map has a white background, but you can change
+7. Within the workbook, right click on your location-based column and select
+**Pick Visualization**, Then select the map visualization.
+**Note:** By default your map has a white background, but you can change
 this by adding your custom map background.
 
     ![OAC pick visualization](images/oac-pick-visualization.png)
 
     ![OAC choose map visualization](images/oac-map-visualization.png)
 
-8. Look to the bottom left of the screen at the properties section for our visualization. click on the Map icon, then
+8. Look to the bottom left of the screen at the properties section for our visualization. Click on the **Map** icon, then
 find the **Background Map** option and change it from **default** to your newly created custom map background. Your background is
 listed by the name of the mapping service that you created it with, so we choose Google Maps for this example.
 
