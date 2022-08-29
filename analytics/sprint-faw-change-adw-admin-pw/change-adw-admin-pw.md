@@ -36,8 +36,6 @@ Congratulations, you have learned how to change the ADW Admin password for FAW a
 
 * [Update the Administrator Password for Oracle Autonomous Data Warehouse](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/update-administrator-password-oracle-autonomous-data-warehouse.html)
 
-### Acknowledgements
-
-- Created By/Date - Nagwang Gyamtso, Product Manger, Product Strategy, July 2022
-
-- Last Updated By - Nagwang Gyamtso, July 2022
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022

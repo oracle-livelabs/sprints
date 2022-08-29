@@ -11,6 +11,7 @@ If you are unsure about when you would need to reset the data warehouse, here ar
 
 
 ## Reset the Data Warehouse
+>**Note:** You must have the **Service Administrator** application role to successfully complete the following steps.
 
 1. In your Fusion Analytics Warehouse homepage, click the **Navigation menu** and click **Console**.
 

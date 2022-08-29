@@ -16,6 +16,10 @@ Successfully completed the following:
 * _How do I create a Query Service project?_ sprint
 * The _Create Database Password_ step in the _How do I connect to Query Service from Oracle SQL Developer?_ sprint
 
+Watch the following short video on how to create an Oracle Analytics Cloud instance from Query Service.
+
+[](youtube:ufAaRWClJbU)
+
 ### **Create an Oracle Analytics Cloud Instance**
 
 To connect to a Query Service project from Analytics Cloud, you need to create a database password and download a database wallet, which you should have already done in the **How do I connect to Query Service from Oracle SQL Developer?** sprint.   
@@ -172,7 +176,6 @@ Datasets are self-service data models that you build specifically for your data 
 
 * [Oracle Analytics Cloud Get Started](https://docs.oracle.com/en/cloud/paas/analytics-cloud/index.html)
 * [Visualizing Data and Building Reports in Oracle Analytics Cloud](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/introduction-visualization-and-reporting.html)
-* [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
 
 ## Acknowledgements

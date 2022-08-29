@@ -9,6 +9,11 @@ In this sprint, you will learn how to create a Query Service project.
 * An optional compartment for your Query Service project and resources.
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
+Watch the following short video on how to create Query Service projects.
+
+
+[](youtube:YctLiBVm2x0)
+
 ## Create a Query Service Project
 
 A Query Service project is a collection of tables, worksheets, and queries related to a common theme or task. Every project can provide access to schemas and external table definitions that are derived (synchronized) from logical entities in the Data Catalog instance that can associate with your new the project. Alternatively, you can create a Query Service project without associating it  with any existing Data Catalog instance. You can create and query external Object Storage tables using files in public and private Object Storage buckets. A schema in a Query Service project is a collection of related tables. When you query a table in a schema you need to reference the schema and table in the schema using the syntax **`schema_name.table_name`**.
@@ -93,9 +98,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
 * [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm).
 * [Data Catalog Documentation](https://docs.oracle.com/en-us/iaas/data-catalog/home.htm)
-* [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
-* [Access the Data Lake using Autonomous Database and Data Catalog Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877)
 
 ## Acknowledgements
 * **Author:** Lauran Serhal, Consulting User Assistance Developer
