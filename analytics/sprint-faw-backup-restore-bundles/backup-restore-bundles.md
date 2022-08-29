@@ -38,12 +38,13 @@ The bundles feature in FAW allows you to package your application artifacts and 
   ![Import](images/import.png)
 
 8. Once the import has completed, click the **Actions** menu and select **Deploy**.
-  >**Note:** Before deploying the environment bundle, you must first deploy the data configuration bundle or manually activate your data pipeline. For more information on this, please refer to the document listed in the Learn More section below.
+    >**Note:** Before deploying the environment bundle, you must first deploy the data configuration bundle or manually activate your data pipeline. For more information on this, please refer to the document listed in the Learn More section below.
 
   ![Deploy](images/export.png)
 
 9. In the dialogue box, you have three option for deploying your environment bundle. Select the option appropriate for your situation and click **Deploy**.
-  >**Note:** **Run data pipelines immediately** will disturb/overwrite the existing setup for your environment.
+
+    >**Note:** **Run data pipelines immediately** will disturb/overwrite the existing setup for your environment.
 
   ![Deploy options](images/deploy-options.png)
 
