@@ -8,8 +8,8 @@
          "filename": "sprint-create-map-layers.md"
       },
       {
-         "title": "How do I apply custom map layers to my workbook in Oracle Analytics Server (OAS)?",
-         "description": "Learn how to apply custom map layers to your workbooks in OAS!",
+         "title": "How do I apply custom map layers to my datasets in Oracle Analytics Server (OAS)?",
+         "description": "Learn how to apply custom map layers to your datasets in OAS!",
          "filename": "sprint-apply-map-layers.md"
       }
    ],
