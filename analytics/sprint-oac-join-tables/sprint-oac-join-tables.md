@@ -1,11 +1,11 @@
 # How do I join two tables in a dataset in Oracle Analytics Cloud (OAC)?
 
-Duration: 1 minute
+Duration: 3 minutes
 
-Oracle Analytics Cloud allows you to join multiple tables into a dataset with its strong data prep capabilities. When you drag and drop a table into a dataset, Oracle Analytics automatically creates a join between tables if there are matching column names. If matching column names are not present, you have the ability to easily create joins, whether its an inner, left, right, or full outer join. This Sprint will guide you on how to create joins between tables in a dataset!
+Oracle Analytics Cloud allows you to join multiple tables into a dataset with its strong data prep capabilities. When you drag and drop a table into a dataset, Oracle Analytics automatically creates a join between tables if there are matching column names. If matching column names are not present, you have the ability to easily create joins whether its an inner, left, right, or full outer join. This Sprint will guide you on how to create joins between tables in a dataset!
 
 ## Create joins
-You must have the **DV Content Author** to be able to successfully execute the following steps.
+>**Note:** You must have the **DV Content Author** to be able to successfully execute the following steps.
 
 1. From your OAC **Home** page, create a dataset by clicking **Create** and selecting **Dataset**.
 
@@ -50,3 +50,7 @@ Congratulations! You have learned how to create joins between two tables in a da
 * [Add Joins Between Dataset Tables](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-joins-dataset-tables.html)
 
 * [Understand Dataset Table Joins](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/understand-dataset-table-joins.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
