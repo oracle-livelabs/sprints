@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I re-enable the data pipeline in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to re-enable your Data Pipeline in FAW.",
+         "filename": "re-enable-data-pipeline.md"
+      },
+      {
+         "title": "How do I create a data dipeline for a functional area in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-create-data-pipeline-functional-area/create-data-pipeline-functional-area.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
