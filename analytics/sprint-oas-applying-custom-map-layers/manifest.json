@@ -10,7 +10,7 @@
       {
          "title": "How do I make a custom map layer using an image in Oracle Analytics Server (OAS)?",
          "description": "Learn how to create custom map layers using your own images in OAS!",
-         "filename": "sprint-create-map-layers.md"
+         "filename": "../sprint-oas-creating-custom-map-layers/.sprint-create-map-layers.md"
       }
    ],
    "task_type": "Sections",
