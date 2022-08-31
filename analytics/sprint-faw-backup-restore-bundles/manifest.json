@@ -8,14 +8,9 @@
          "filename": "backup-restore-bundles.md"
       },
       {
-         "title": "Other related Sprints 1 - How to loreum ipsum larum?",
+         "title": "How do I migrate content using the bundles feature in Fusion Analytics Warehouse (FAW)?",
          "description": "",
-         "filename": "sprint-title.md"
-      },
-      {
-         "title": "Other related Sprints n - How to Mauris sit amet dolor?",
-         "description": "",
-         "filename": "sprint-title.md"
+         "filename": "../sprint-faw-migrate-content-bundles/migrate-objects-bundles.md"
       }
    ],
    "task_type": "Sections",
