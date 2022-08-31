@@ -2,9 +2,11 @@
 
 Duration: 1 minute
 
-## Use OCI CLI tool
+## Use OCI Command Line Interface (OCI CLI)
 
-After installing and configuring oci cli by following the doc, you can use the  ```oci dbautonomous-database generate-wallet``` command to download the wallet. All you need is the OCID of your autonomous database. Furthermore, you can provide a location and filename. Finally, you have to provide a password that is going to be used with the wallet. 
+You can use the  `oci dbautonomous-database generate-wallet` command in OCI (OCI CLI) to download the wallet. 
+All you need is the OCID of your autonomous database. 
+Furthermore, you can provide a location and filename. Finally, you have to provide a password that is going to be used with the wallet. 
 
 ```
 <copy>
