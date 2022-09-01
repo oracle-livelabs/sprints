@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I reset the data warehouse in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how and when you should reset the data warehouse in FAW.",
+         "filename": "reset-data-warehouse.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}

@@ -1,4 +1,4 @@
-# How do I share my dataset in OAC?
+# How do I share my dataset in Oracle Analytics Cloud (OAC)?
 
 Duration: 2 minutes
 
@@ -8,13 +8,13 @@ When working with datasets in OAC, you have the ability to collaborate with your
 
 ### Within OAC
 
->**Note:** You must have the DV Author role to complete the following steps.
+>**Note:** You must have the **DV Author** application role to complete the following steps.
 
 1. Within your OAC instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window.
 
     ![Datasets tab](images/data-pane.png)
 
-2. Identify the dataset you want to share and either **right-click** or click the **Actions menu** represented by the three dots when you over over the dataset. Select **Inspect** to view the details of the dataset. 
+2. Identify the dataset you want to share and either **right-click** or click the **Actions menu** represented by the three dots when you over over the dataset. Select **Inspect** to view the details of the dataset.
 
     ![Inspect dataset](images/inspect.png)
 
@@ -29,10 +29,18 @@ When working with datasets in OAC, you have the ability to collaborate with your
 
 ### Externally (only works with flat files)
 
-1. Within your OAC instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window. Right-click the dataset and select **Download File**. After the file is downloaded, you can email the dataset to your team. 
-    
+1. Within your OAC instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window. Right-click the dataset and select **Download File**. After the file is downloaded, you can email the dataset to your team.
+
     >**Note:** You must have **Full Control** access to the dataset and it must be a flatfile (CSV, XLSX or XLS, and TXT)
-    
+
     ![Externally](images/externally.png)
 
 Congratulations, you have learned how to share your dataset with other users within OAC and with external users!
+
+## Learn More
+
+* [Add or Update a Dataset's Permissions](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-or-update-datasets-permissions.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

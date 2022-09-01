@@ -2,11 +2,12 @@
 
 Duration: 3 minutes
 
-Machine learning is a powerful tool that helps us make data-driven decisions with many use cases. For example, retailers use machine learning to predict when an item will go out of stock so that they can restock that item in a timely manner. In the financial sector, machine learning is used heavily for fraud detection using pattern recognition and anomoly detection. These are just a few use cases out of many and Oracle Analytics provides you with the tools to achieve this. 
+Machine learning is a powerful tool that helps us make data-driven decisions with many use cases. For example, retailers use machine learning to predict when an item will go out of stock so that they can restock that item in a timely manner. In the financial sector, machine learning is used heavily for fraud detection using pattern recognition and anomaly detection. These are just a few use cases out of many and Oracle Analytics provides you with the tools to achieve this.
 
 In this Sprint, we will use Oracle's embedded machine learning algorithms in Oracle Analytics Cloud to train our HR dataset to predict attrition within a company.
 
 ## Train a machine learning model using Data Flow
+>**Note:** You must have the **DV Content Author** application role to execute the following steps.
 
 1. On the homepage of your OAC instance, click **Create** and select **Data Flow**.
 
@@ -38,7 +39,7 @@ In this Sprint, we will use Oracle's embedded machine learning algorithms in Ora
 
      ![Target](images/target.png)
 
-7. Click **Save Model** and give the model a name in **Model name**. Then click the **Save** icon. 
+7. Click **Save Model** and give the model a name in **Model name**. Then click the **Save** icon.
 
      ![Save modek](images/save-model.png)
 
@@ -64,3 +65,7 @@ Congratulations, you have just learned how to train a machine learning model in 
 ## Learn More
 * [Create and Train a Predictive Model](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-533DCE34-CBFC-490F-BCAA-A0F99BAB6B10)
 * [Supervised vs. Unsupervised Machine Learning](https://blogs.oracle.com/ai-and-datascience/post/supervised-vs-unsupervised-machine-learning)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

@@ -34,3 +34,7 @@ The following steps will show you how to configure your homepage in FAW:
     >**Tip:** If you want to remove a favorite card or link, hover over the object and click the **Remove from Favorites**, represented by the start icon.
 
 Congratulations, you have now learned how to configure your homepage in Fusion Analytics Warehouse!
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

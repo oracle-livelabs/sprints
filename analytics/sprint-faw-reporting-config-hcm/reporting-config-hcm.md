@@ -1,11 +1,11 @@
 # How do I set up the reporting configurations for HCM in Fusion Analytics Warehouse (FAW)?
 Duration: 2 minutes
 
-Before you run your data pipeline for the functional areas in Fusion Analytics Warehouse, you must set up the report parameters for your data model file. For HCM, you need to set up the reporting configurations so that you can specify how your data is presented in KPI decks, visualizations, dashboards, and reports. 
+Before you run your data pipeline for the functional areas in Fusion Analytics Warehouse, it is reccomended that you set up the report parameters for your data model file. The configuration can be done after the data pipeline is run but takes effect only after the incremental update. For HCM, you need to set up the reporting configurations so that you can specify how your data is presented in KPI decks, visualizations, dashboards, and reports.
 
 ## Reporting configurations for Human Capital Management
 
->**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps. 
+>**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps.
 
 1. In your Fusion Analytics Warehouse homepage, click the **Navigation menu** and click **Console**.
 
@@ -23,7 +23,7 @@ Before you run your data pipeline for the functional areas in Fusion Analytics W
 
     ![hcm](images/hcm.png)
 
-5. For **Worker Age Band**, specify the age range of the workers. KPIs and analyses related to the headcount of the workers use these age bands. For example, you can select less than 30, 30 to 50, and greater than 50 years for the age bands. 
+5. For **Worker Age Band**, specify the age range of the workers. KPIs and analyses related to the headcount of the workers use these age bands. For example, you can select less than 30, 30 to 50, and greater than 50 years for the age bands.
 
     ![Worker age](images/worker-age.png)
 
@@ -35,7 +35,7 @@ Before you run your data pipeline for the functional areas in Fusion Analytics W
 
     ![Performance](images/performance.png)
 
-8. For **Potential Band**, select the grouping of potential ratings for employees. For example, you can configure the rating ranges to High, Medium, and Low. 
+8. For **Potential Band**, select the grouping of potential ratings for employees. For example, you can configure the rating ranges to High, Medium, and Low.
 
     ![Potential](images/potential.png)
 
@@ -51,7 +51,7 @@ Before you run your data pipeline for the functional areas in Fusion Analytics W
 
     ![Impact of Loss](images/impact-loss.png)
 
-12. In the **Succession Management** section, specify the grouping of readiness levels of employees for career changes. You can select these values from the list of values. 
+12. In the **Succession Management** section, specify the grouping of readiness levels of employees for career changes. You can select these values from the list of values.
 
     >**Note:** You must carefully select unique single values under each of these.
 
@@ -65,9 +65,12 @@ Before you run your data pipeline for the functional areas in Fusion Analytics W
 
     ![Save](images/save.png)
 
-Congratulations, you have just learned when, why and how to set up the reporting configurations for HCM in Fusion Analytics Warehouse. 
+Congratulations, you have just learned when, why and how to set up the reporting configurations for HCM in Fusion Analytics Warehouse.
 
 ## Learn More
 
-* [About the Reporting Configuration for Human Capital Management](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/reporting-configurations.html#GUID-B57289FB-BD7E-4D3F-809F-CC38E6F564DC) 
+* [About the Reporting Configuration for Human Capital Management](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/reporting-configurations.html#GUID-B57289FB-BD7E-4D3F-809F-CC38E6F564DC)
 
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022
