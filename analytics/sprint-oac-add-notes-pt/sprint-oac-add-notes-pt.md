@@ -2,7 +2,7 @@
 
 Duração: 3 minutos
 
-Adicionar notas ou observações às visualizações é uma ótima maneira de apoiar a apresentação e a narrativa. Você pode adicionar notas para destacar informações importantes nas visualizações de uma pasta de trabalho (Workbook).
+Adicionar notas ou observações às visualizações é uma ótima maneira de complementar a apresentação e a narrativa. Você pode adicionar notas para destacar informações importantes nas visualizações de uma pasta de trabalho (Workbook).
 
 Por exemplo, digamos que você acabou de explorar uma análise de vendas e percebe que, embora as vendas estejam indo bem, o lucro é negativo e, portanto, você deseja adicionar seu insight a essa análise.
 

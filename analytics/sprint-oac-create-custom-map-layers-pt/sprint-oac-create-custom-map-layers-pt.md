@@ -68,4 +68,4 @@ Parabéns! Você criou uma camada de mapa personalizada usando um plano de fundo
 ## Reconhecimentos
 * **Autor** - Malia German, Solution Engineer, North America Specialist Hub
 * **Tradução** - Isabella Alvarez, Cloud Analytics Team Leader, Brazil Data & AI Team
-* **Última Atualização** - Malia German, Agosto 2022
+* **Última Atualização** - Isabella Alvarez, Agosto 2022
