@@ -10,12 +10,12 @@
       {
          "title": "How do I change the Data Refresh Schedule in Fusion Analytics Warehouse (FAW)?",
          "description": "",
-         "filename": "sprint-faw-change-data-refresh-schedule.md"
+         "filename": "../sprint-faw-change-data-refresh-schedule/sprint-faw-change-data-refresh-schedule.md"
       },
       {
          "title": "How do I configure the Global Report Parameters in Fusion Analytics Warehouse (FAW)?",
          "description": "",
-         "filename": "config-global-report-params.md"
+         "filename": "../sprint-faw-config-global-report-params/config-global-report-params.md"
       }
    ],
    "task_type": "Sections",

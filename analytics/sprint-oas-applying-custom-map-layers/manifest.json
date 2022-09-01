@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I apply custom map layers to my datasets in Oracle Analytics Server (OAS)?",
+         "description": "Learn how to apply custom map layers to your datasets in OAS!",
+         "filename": "sprint-apply-map-layers.md"
+      },
+      {
+         "title": "How do I make a custom map layer using an image in Oracle Analytics Server (OAS)?",
+         "description": "Learn how to create custom map layers using your own images in OAS!",
+         "filename": "../sprint-oas-creating-custom-map-layers/.sprint-create-map-layers.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
