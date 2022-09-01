@@ -4,7 +4,7 @@
    "tutorials": [
       {
          "title": "How do I backup and restore my environment using bundles in Fusion Analytics Warehouse (FAW)?",
-         "description": "Learn how to backup and restore your FAW envionrment using bundles.",
+         "description": "Learn how to backup and restore your FAW environment using bundles.",
          "filename": "backup-restore-bundles.md"
       },
       {
