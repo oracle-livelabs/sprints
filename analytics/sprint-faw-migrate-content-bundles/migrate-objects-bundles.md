@@ -16,7 +16,6 @@ The bundles feature allows you to package your content in FAW and migrate it to 
   ![Bundles](images/bundles.png)
 
 3. If you already have content bundles ready to migrate, click the **Actions** menu for that bundle and select **Export**. This will download an .aab file to your local desktop.
-    >**Note:** If you do not have content bundles, refer to the related Sprint "How do I create content bundles in Fusion Analytics Warehouse (FAW)?".
 
   ![Export](images/export.png)
 
