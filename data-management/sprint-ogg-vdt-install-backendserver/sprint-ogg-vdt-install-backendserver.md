@@ -1,4 +1,4 @@
-# How do I repair SQL in GoldenGate Veridata?
+# How do I install and configure backend servers and infrastructure for Oracle GoldenGate Veridata installation?
 Duration: 2 minutes
 
 ### Prerequisites
