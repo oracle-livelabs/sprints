@@ -1,4 +1,4 @@
-# How do I schedule application updates in Fusion Analytics Warehouse (FAW)?
+# How do I re-schedule application updates in Fusion Analytics Warehouse (FAW)?
 Duration: 1 minute
 
 There may be scenarios when you want to schedule an available update earlier than the predefined date. You can change the schedule of any application update from the Release Updates tile in the administration console.
