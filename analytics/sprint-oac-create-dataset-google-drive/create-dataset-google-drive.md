@@ -52,7 +52,6 @@ Congratulations! You have successfully learned how to create a dataset using Goo
 
 * [What's new in the Oracle Analytics Cloud May 2022 update (Video)](https://www.youtube.com/watch?v=K3YaJlmfSpM)
 * [OAC - Create Datasets from Files](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-dataset-files.html#GUID-04CF3C71-DE49-4D6C-971E-6EAFDBB92D82)
-* [Dropbox API permissions](https://developers.dropbox.com/oauth-guide)
 
 ## Acknowledgements
 
