@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a multi-table dataset from local and remote data sources in Oracle Analytics Cloud (OAC)?",
+         "description": "",
+         "filename": "create-multi-table-dataset-local-and-remote.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
