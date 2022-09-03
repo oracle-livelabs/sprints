@@ -1,5 +1,5 @@
-# How do I join local and Dropbox/Google Drive tables in Oracle Analytics Cloud (OAC)?
-Duration: 15 minutes
+# How do I create a dataset using Google Drive in Oracle Analytics Cloud (OAC)?
+Duration: 7 minutes
 
 You can add files from Google Drive by adding a connection in OAC.
 

@@ -3,9 +3,9 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I join table from local source in Oracle Analytics Cloud (OAC)",
+         "title": "How do I create a dataset using a local file in Oracle Analytics Cloud (OAC)?",
          "description": "",
-         "filename": "join-local-table.md"
+         "filename": "create-dataset-local-file.md"
       }
    ],
    "task_type": "Sections",
