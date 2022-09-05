@@ -28,7 +28,12 @@
           "title": "How do I configure a Repository Creation Utility (RCU)?",
           "description": "",
           "filename": "./../sprint-ogg-vdt-install-configure-rcu/sprint-ogg-vdt-install-configure-rcu.md"
-      }
+      },
+      {
+         "title": "How do I Create the Oracle GoldenGate Veridata Server Domain?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-create-domain/sprint-ogg-vdt-create-domain.md"
+     }
    ],
    "task_type": "Sections",
    "hide_button": "true"
