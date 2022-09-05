@@ -21,7 +21,13 @@
       {
       "title": "How do I apply a patch on an Oracle GoldenGate Veridata release?",
       "description": "",
-      "filename": "./../sprint-ogg-vdt-install-apply-patch/sprint-ogg-vdt-install-apply-patch.md"}
+      "filename": "./../sprint-ogg-vdt-install-apply-patch/sprint-ogg-vdt-install-apply-patch.md"
+    },
+    {
+       "title": "How do I configure a Repository Creation Utility (RCU)?",
+       "description": "",
+       "filename": "./../sprint-ogg-vdt-install-configure-rcu/sprint-ogg-vdt-install-configure-rcu.md"
+     }
    ],
    "task_type": "Sections",
    "hide_button": "true"
