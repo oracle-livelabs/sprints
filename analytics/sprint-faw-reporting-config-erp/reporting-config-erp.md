@@ -6,7 +6,7 @@ When you want to specify how Enterprise Resource Planning data is presented on K
 
 ## Reporting configurations for Enterprise Resource Planning
 
->**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps. 
+>**Note:** You must have the **Functional Administrator** or **System Administrator** application role to successfully execute the following steps.
 
 1. In your Fusion Analytics Warehouse homepage, click the **Navigation menu** and click **Console**.
 
@@ -20,7 +20,7 @@ When you want to specify how Enterprise Resource Planning data is presented on K
 
     ![Reporting Configuration](images/reporting-config.png)
 
-4. Under **Basic** configurations, click **Enterprise Resource Planning**. This is where you will specify values for your ERP reporting. Click the drop-down for **Calendar** and specify the reporting calendar you want to use in Oracle Analytics Cloud. 
+4. Under **Basic** configurations, click **Enterprise Resource Planning**. This is where you will specify values for your ERP reporting. Click the drop-down for **Calendar** and specify the reporting calendar you want to use in Oracle Analytics Cloud.
 
     ![Calendar](images/calendar.png)
 
@@ -51,3 +51,7 @@ Congratulations, you have just learned how to set up the reporting configuration
 * [About the Reporting Configuration for Enterprise Resource Planning](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/reporting-configurations.html#GUID-C8BB5207-1B0A-4568-A4FD-9450BD28225D)
 
 * [Set Up the Reporting Configurations for Enterprise Resource Planning](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/set-reporting-configurations-enterprise-resource-planning.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022

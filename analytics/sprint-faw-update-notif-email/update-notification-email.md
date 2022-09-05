@@ -4,6 +4,7 @@ Duration: 1 minute
 When you update your notification email for Fusion Analytics Warehouse, we recommend that you provide a mailing list instead of a single individual's email address. The reason for this is risk mitigation. If the one person who was listed to receive email notifications about system maintenance is on leave during the time emails are sent out, then you risk not being able to attend to critical system maintenance tasks.
 
 ## Update notification email
+>**Note:** You must have the ServiceAdmin application role to complete the following steps.
 
 1. Sign in to your [Oracle Cloud Infrastructure Console](https://cloud.oracle.com/).
 
@@ -36,7 +37,5 @@ Congratulations, you have just learned how to update the notification email for 
 * [Update the Notification Email](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/update-notification-email.html)
 
 ## Acknowledgements
-
-- Created By/Date - Nagwang Gyamtso, Product Manger, Product Strategy, July 2022
-
-- Last Updated By - Nagwang Gyamtso, July 2022
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022
