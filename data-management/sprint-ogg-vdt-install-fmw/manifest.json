@@ -12,7 +12,12 @@
          "title": "How do I install the Fusion Middleware infrastructure?",
          "description": "",
          "filename": "./../sprint-ogg-vdt-install-fmw/sprint-ogg-vdt-install-fmw.md"
-      }
+      },
+      {
+         "title": "How do I install Oracle GoldenGate veridata?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-install-veridata/sprint-ogg-vdt-install-veridata.md"
+      },
    ],
    "task_type": "Sections",
    "hide_button": "true"

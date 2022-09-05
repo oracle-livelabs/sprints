@@ -2,6 +2,12 @@
 
 Duration: 2 minutes
 
+### Prerequisites
+  * Linux
+  * Oracle Database 19c (19.3.0.0) (for the repository)
+  * Java 1.8 or higher
+  * [Oracle GoldenGate Veridata Software](https://www.oracle.com/middleware/technologies/goldengate-downloads.html)
+
 ## Install the Fusion Middleware Infrastructure
 
 1. Open a terminal session. Run the following command: `java -jar fmw_12.2.1.4.0_infrastructure_generic.jar`
