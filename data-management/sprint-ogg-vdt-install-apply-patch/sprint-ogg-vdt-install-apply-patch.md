@@ -1,35 +1,29 @@
-# How do I install the Fusion Middleware infrastructure?
+# How do I apply a patch on an Oracle GoldenGate Veridata release?
 
 Duration: 2 minutes
 
-### Prerequisites
-  * Linux
-  * Oracle Database 19c (19.3.0.0) (for the repository)
-  * Java 1.8 or higher
-  * [Oracle GoldenGate Veridata Software](https://www.oracle.com/middleware/technologies/goldengate-downloads.html)
+## Apply a patch on an Oracle GoldenGate Veridata release
 
-## Install the Fusion Middleware Infrastructure
+This is an optional step. You can skip this step if you do not want to apply a patch.
 
-1. Open a terminal session. Run the following command: `java -jar fmw_12.2.1.4.0_infrastructure_generic.jar`
-    ![](./imagesfmw-welcomescreen.png " ")
-2. Click **Next** to continue to the **Auto Updates** section. Leave the default option **Skip Auto Updates** selected and click **Next**.
-    ![](./images/fmw-autoupdates.png " ")
-3. Enter a location for Oracle Home to store the binary files.
-    ![](./images/fmw-installationlocation.png " ")
-4. Click **Next** to continue.
-5. Select either installation type (Fusion Middleware infrastructure With Examples or Fusion Middleware Infrastructure). Towards the end of this step, the Oracle WebLogic Server gets installed.
-    ![](./images/fmw-installationtype.png " ")
-6. Wait for the progress bar to reach 100%. The Java version required is 1.8 or higher. Click **Next** to continue to the **Prerequisites Checks** screen.
-    ![](./images/fmw-prerequisiteschecks.png " ")
-7. Click **Next** to continue to the **Installation Summary** screen.
-    ![](./images/fmw-installationsummary.png " ")
-8. On the **Installation Summary** screen, click **Next** to display the **Installation Progress** panel.
-    ![](./images/fmw-installationprogress.png " ")
-9. Click **Install** to continue and wait for the progress bar to reach 100%. You can optionally view the logs.
-10. Click **Next** to display the **Installation Complete** section.
-    ![](./images/fmw-installationcomplete.png " ")
-11. Click **Finish**.
+You need to apply a patch on the current release of Oracle GoldenGate Veridata only if you want to avail any or all of the following benefits:
+  * new functionalities embedded in the latest patch
+  * corrected problems or bug fixes (known issues or limitations that existed in the previous release or patch have been corrected)
+  * enhancements over existing functionalities
 
+**Assumptions**:
+* The `ORACLE_HOME` environment variable is set to the directory where you have installed Oracle GoldenGate Veridata.
+* The OPatch location `$ORACLE_HOME/OPatch` is added to the environment variable.
+
+**Prerequisites**:
+*  Ensure that all the servers and agents have been stopped.
+
+To apply a patch on an Oracle GoldenGate Veridata release:
+
+1. Go to [Oracle Support](https://mosemp.us.oracle.com/epmos/faces/index.jspx?_afrLoop=174795690219928&_afrWindowMode=0&_adf.ctrl-state=1bogh2ruei_94) and download the required Patch and extract the zip file to a location. This location will be referred to as `PATCH_TOP` in the subsequent steps.
+2. Set your current directory to the directory where the patch is located. In the command prompt, run the following command: `cd PATCH_TOP/32436110`. In this example, 32436110 is the patch number.
+3. Run `opatch apply` to replace the binaries of the main release with the patch binaries. After the patch is successfully applied, the **OPatch succeeded** message is displayed.
+4. Run `opatch lsinventory` to verify the version/patch ID of the applied patch.
 
 ## Learn More
 
