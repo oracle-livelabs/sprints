@@ -109,7 +109,7 @@ allow dynamic-group training-qs-dynamic-group to manage object-family in tenancy
 ```
 
 >**Note:** In order to create an Object Storage table in Query Service based on a
-file stored in a private Object Storage bucket, you will need read access to that bucket. 
+file that is stored in a private Object Storage bucket, you will need read access to that bucket. 
 
 ## Learn More
 

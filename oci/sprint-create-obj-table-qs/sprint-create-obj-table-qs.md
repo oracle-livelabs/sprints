@@ -191,7 +191,8 @@ You will first create an Object Storage bucket (unless you already have one) in 
 You will first create a private Object Storage bucket (unless you already have one) in your own tenancy and then upload a local .csv file to that bucket. Next, you will create a table in the **PROJECT$** schema using the **.csv** file in your private Object Storage bucket.
 
 >**Note:** In order to create an Object Storage table in Query Service based on a
-file stored in a private Object Storage bucket, you will need read access to that bucket.
+file that is stored in a private Object Storage bucket, you will need read access to that bucket.
+For information on how to create the required policy, see the **How do I create the required Query Service projects policies?** sprint in the **Contents** menu on the left. 
 
 ### **Create a Private Object Storage Bucket and Upload a .csv File to the Bucket**
 
