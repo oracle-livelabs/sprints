@@ -108,6 +108,9 @@ The following is an example of a policy granting read and write access to a spec
 allow dynamic-group training-qs-dynamic-group to manage object-family in tenancy where target.bucket.name='training-bucket'
 ```
 
+>**Note:** In order to create an Object Storage table in Query Service based on a
+file stored in a private Object Storage bucket, you will need read access to that bucket. 
+
 ## Learn More
 
 * [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm)
