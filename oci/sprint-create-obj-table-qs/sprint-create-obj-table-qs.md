@@ -190,10 +190,10 @@ You will first create an Object Storage bucket (unless you already have one) in 
 
 You will first create a private Object Storage bucket (unless you already have one) in your own tenancy and then upload a local .csv file to that bucket. Next, you will create a table in the **PROJECT$** schema using the **.csv** file in your private Object Storage bucket.
 
-### **Create a Private Object Storage Bucket and Upload a .csv File to the Bucket**
-
 >**Note:** In order to create an Object Storage table in Query Service based on a
 file stored in a private Object Storage bucket, you will need read access to that bucket.
+
+### **Create a Private Object Storage Bucket and Upload a .csv File to the Bucket**
 
 1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
 
