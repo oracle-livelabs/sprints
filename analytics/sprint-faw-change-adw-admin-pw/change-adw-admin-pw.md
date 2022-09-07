@@ -26,11 +26,11 @@ As a best practice, if your organization requires someone other than the person 
 
     ![Update Admin Password](images/update-admin-pw.png)
 
-5. In the **Update Autonomous Datawarehouse Credentials** dialog, enter and confirm the new password. Click **Save Changes**.
+5. In the **Update Autonomous Data Warehouse Credentials** dialog, enter and confirm the new password. Click **Save Changes**.
 
     ![Enter new password](images/new-pw.png)
 
-Congratulations, you have learned how to change the ADW Admin password for FAW and a best practice when inputting an email address.
+Congratulations, you have learned how to change the ADW Admin password for FAW.
 
 ## Learn More
 
