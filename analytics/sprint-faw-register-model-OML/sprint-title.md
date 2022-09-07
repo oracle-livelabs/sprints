@@ -1,4 +1,4 @@
-# How do I apply a ML model from OML to OAC/OAS?
+# How do I register a ML model from OML to OAC/OAS?
 Duration: 3 minutes
 
 From Oracle Machine Learning, a user can seamlessly apply models that they have built and use them in Oracle's analytics software, specifically Oracle Analytics Cloud and Oracle Analytics Server. Once the connection has been made from OML and OAC/OAS, users can integrate these models into visualizations, data flows, and multitude of other features. 
