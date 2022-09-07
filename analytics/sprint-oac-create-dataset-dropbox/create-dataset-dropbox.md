@@ -37,6 +37,10 @@ Another way to populate the calculation page is by predefining clusters or outli
     The result will populate the API credentials. You will also need to paste the **Redirect URL** from OAC's create connection window.
 
     ![Dropbox app creation](images/dropbox-direct-url.png)
+
+    Lastly, navigate to the **Permissions** tab to **enable all** permissions for read/write privileges of files.
+
+    ![Dropbox Permissions](images/permissions.png)
   
 4. Select **Authorize** and then **OK.** The menu will then populate with your storage data. You can select the dataset from the menu options.
     

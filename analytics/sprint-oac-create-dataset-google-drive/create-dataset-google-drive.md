@@ -25,7 +25,7 @@ Another way to populate the calculation page is by predefining clusters or outli
 
 3. After you provide connection information, browse for and select the file that you want to upload.
 
-    ![Select statistics for clusters or outliers](images/dropbox-connection.png)
+    ![Select statistics for clusters or outliers](images/drive-connection.png)
 
     The Client ID and Key will be found after enabling the API. You access the app console by clicking this link: 
     - [Google Drive API](https://console.cloud.google.com/apis/library/drive.googleapis.com?project=buoyant-planet-241022)
@@ -42,7 +42,7 @@ Another way to populate the calculation page is by predefining clusters or outli
 
     ![Google Drive publish app](images/publish-app.png)
   
-4. Select **Authorize** and then **OK.** The menu will then populate with your storage data. You can select the dataset from the menu options.
+4. Select **Authorize** and then **OK.** You will be directed to a Google SSO screen, where you need to enable permissions to access the files. **Select all.** The menu will then populate with your storage data. You can select the dataset from the menu options.
 
     ![OAC datasets from drive](images/drive-updated.png)
 
