@@ -1,64 +1,55 @@
 # How do I apply a ML model from OML to OAC/OAS?
-Duration: 7 minutes
+Duration: 4 minutes
 
 From Oracle Machine Learning, a user can seamlessly apply models that they have built and use them in Oracle's analytics software, specifically Oracle Analytics Cloud and Oracle Analytics Server. Once the connection has been made from OML and OAC/OAS, users can integrate these models into visualizations, data flows, and multitude of other features. 
 
+**Note:** You must have the DV Content Author role in order to complete the following steps. 
 
+## Create Data Flow and Apply Machine Learning Model from OML 
 
-## Provision ADB 
-**Note:** If you have already provisioned an ADB for OML, please skip steps 1-4. 
-1. From the Oracle Cloud Infrastructure homepage, click on the **hamburger icon** to expand the navigation menu.
+1. First, open your OAS or OAC instance. In the OAS or OAC homepage, click the **Create** button in the top right corner and select **Data Flow**. 
 
-    ![Navigating to ADB](images/oci-homepage.png)
+    ![Click the Data Flow Button](images/pick-dataflow.png)
 
-2. After clicking the hamburger, go to Oracle Database and click **Autonomous Database**.
+2.  Once clicked, you will be prompted to add a dataset to your data flow. Click the dataset that corresponds to the OML connection that has been previously made. If you do not click the right dataset, the models will not be made available to use.  
+   
+    ![Add Dataset](images/add-dataset.png)
 
-    ![Go to Oracle database](images/oci-hamburger.png)
+3.  Once the dataset has been uploaded, click the **+** icon right next to your dataset and choose the **Apply Model** button in the following menu.
 
-3. In the Autonomous Database homepage, navigate to the blue **Create Autonomous Database** button. 
+    ![Apply Model](images/apply-model.png)
 
-    ![Click on Create Autonomous Database](images/adb-homepage.png)
-
-4. Give the ADB a display and database name. The rest of the settings will be left in the default setting. After that, click **Create Autonomous Database**.  
-    
-    ![Fill in credentials](images/create-adb.png)
-
-5. Once the ADB provisions and turns green, click on the **DB connection button**.
-
-    ![Click on the DB Connection](images/adb-provisioned.png)
-
-6. Once the right panel appears, click **download wallet** to download all the client credentials and create a unique password for the wallet. After that is completed, look down at connection strings and copy the connection string that is associated with the **medium** TNS Name. Make sure to paste and store that information in a place that is readily accessible. 
-
-    ![Download Wallet and Gain Credentials](images/database-connection.png)
-
-## Connect to OML Instance from OAS/OAC 
-
-7. After completing step 6, open your OAS or OAC instance. In the top right corner of the homepage, click the button with three dots and select **Register ML Model**
-
-    ![Register ML Model](images/oas-homepage.png)
-
-8.  In this step, a connection will be made from OML to the OAS/OAC interface. Click on **Create Connection** in the top right corner. 
-    
-    ![Establish connection to OML](images/find-connection.png)
-
-9.  Using the information from the connection string you copied, fill in the boxes with the corresponding information. For client wallet, make sure to use the wallet that you downloaded in step 6. For username and password, fill in the credentials used to sign into your OML instance. Then, click save. 
-
-    ![Fill in the Credentials](images/credential-fill.png)
-
-10. Once the connection has been made, you can choose the model that you would like to register from your OML instance. 
+4. Upon selection, you will be prompted to pick the model from OML that you would like to work with. Select the **model** and click **OK**
 
     ![Pick the Model](images/select-model.png)
 
-11. After clicking on the model, click the **Register** model button on the bottom right. 
+5. Once you have selected your model, it is required to select a target column. Click on **Select a column** and choose the **CUST_ID** column from the dropdown menu. 
 
-    ![Register the model](images/register-model.png)
+    ![Pick Target Column](images/target-column.png)
 
-Congratulations! You have applied a ML model from OML to OAC/OAS!
+6. Now, it is time to save our data. Click on the **+** icon next to the **Apply Model** segment of the data flow and click on **Save Data** from the menu. 
+
+    ![Save Data](images/save-data.png)
+
+7. Before we can save the data flow, we have to change the table name that has been provided. Fill in the box with a name of your choice that satisifies the name requirements. 
+
+    ![Save Dataset](images/save-dataset.png)
+
+8. After the table name has been changed, we can save the data flow. Select the save button in the top right corner of the screen and click **Save As**.
+
+    ![Save Data Flow](images/save-as-dataflow.png)
+
+9.  Here, select a name for the data flow and click the **OK** button. 
+
+    ![Save Data Flow](images/save-dataflow.png)
+
+
+Congratulations! You have applied a ML model from OML to OAC/OAS through a data flow!
 
 ## Learn More
 
-* [Oracle Learning](https://www.youtube.com/watch?v=-tDUDMek7qA&ab_channel=OracleLearning)
+* [Oracle Learning](https://www.youtube.com/watch?v=quIUPzcCaOw)
 
 ## Acknowledgements
 * **Author** - Bronze Martin, Solution Engineer, North America Specialist Hub
-* **Last Updated By/Date** - Bronze Martin, August 2022
+* **Last Updated By/Date** - Bronze Martin, September 2022
