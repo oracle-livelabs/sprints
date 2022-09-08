@@ -1,7 +1,7 @@
-# How do I refresh a data pipeline in Fusion Analytics Warehouse (FAW)?
+# How do I perform an on-demand data refresh for a functional area in Fusion Analytics Warehouse (FAW)?
 Duration: 2 minutes
 
-There are two ways you can refresh your data pipeline for a functional area: by scheduling a data refresh using the pipeline parameters or creating a manual refresh for a particular functional area. Refreshing a data pipeline ensures that your data is up-to-date and new data is loaded for your functional area. This Sprint will guide you on how to manually refresh a data pipeline for a functional area.
+There are two ways you can refresh your data pipeline for a functional area: by scheduling a data refresh using the pipeline parameters or creating a manual refresh for a particular functional area. Refreshing a data pipeline ensures that your data is up-to-date and new data is loaded for your functional area. This Sprint will guide you on how to manually refresh an activated data pipeline to bring in new data for the selected functional area.
 
 ## Refresh a data pipeline
 >**Note:** You must have the **Service Administrator** application role to successfully complete this Sprint.

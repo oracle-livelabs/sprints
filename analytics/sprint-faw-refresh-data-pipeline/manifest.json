@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I refresh a data pipeline in Fusion Analytics Warehouse (FAW)?",
+         "title": "How do I perform an on-demand data refresh for a functional area in Fusion Analytics Warehouse (FAW)?",
          "description": "Learn how to refresh your data pipelines in FAW to bring in new data for a functional area.",
          "filename": "refresh-data-pipeline.md"
       },
