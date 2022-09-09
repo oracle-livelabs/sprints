@@ -1,6 +1,8 @@
-# How do I How do I deploy the Oracle GoldenGate Veridata Agents?
+# How do I deploy the Oracle GoldenGate Veridata Agents?
+
 
 Duration: 2 minutes
+
 For each database instance, you need its corresponding Oracle GoldenGate Veridata Agent installed.
 This Agent can be installed and deployed either on the same database host or on a remote host system. The Agent installation requires only the `fmw_12.2.1.4.0_ogg.jar` file. The Agent must be deployed on to a non Oracle Home location.
 
