@@ -1,4 +1,5 @@
 # How do I install and configure backend servers and infrastructure for Oracle GoldenGate Veridata installation?
+
 Duration: 2 minutes
 
 ### Prerequisites
