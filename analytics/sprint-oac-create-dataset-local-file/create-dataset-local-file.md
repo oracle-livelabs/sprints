@@ -1,18 +1,9 @@
 # How do I create a dataset using a local file in Oracle Analytics Cloud (OAC)?
-Duration: 3 minutes
-
-A dataset is able to created from a local file in Oracle Analytics Cloud 
-
-## Add files to datasets with multiple tables
-Before you create the dataset, confirm that the connection you need exists. Confirm that the file that you want to upload meets these requirements:
-    - The file is either an Excel spreadsheet in .XLSX or .XLS format, a CSV file, or a TXT file.
-    - The spreadsheet contains no pivoted data.
-    - The spreadsheet is structured properly for import and use as a dataset. 
-
+Duration: 1 minutes
 
 >**Note:** You must have the **DV Content Author** application role to execute the following steps.
 
-### Create a Dataset from a File Uploaded from Your Computer
+## Create a Dataset from a File Uploaded from Your Computer
 You can upload Excel spreadsheets (XLSX or XLS), CSV files, and TXT files from your computer to create a dataset.
 
 1. On the Home page, click Create and then click Dataset.
@@ -23,15 +14,10 @@ You can upload Excel spreadsheets (XLSX or XLS), CSV files, and TXT files from y
 
     ![Popup window for drag and drop dataset](images/drop-data.png)
 
-3. In the Create Dataset page's **Name** field, provide a name for the dataset table created from the file. 
-
-4. (Optional) If you’re uploading a CSV or TXT file, then in the Separated By, Thousand Separator, and Decimal Separator fields, confirm or change the default delimiters. To specify a custom delimiter, choose Custom in the Separated By field and enter the character you want to use as the delimiter. In the CSV or TXT file, a custom delimiter must be one character. The following example uses a pipe (|) as a delimiter: Year|Product|Revenue|Quantity|Target Revenue| Target Quantity.
+3. In the Create Dataset page's **Name** field, provide a name for the dataset table created from the file. Specify the **Separator type** and select **OK** to create the dataset.
 
     ![Specify separator for csv](images/separator.png)
 
-5. Click OK to upload the file and create the dataset.
-   
-   ![OK button for saving](images/save-data.png)
 
 Congratulations! You have successfully learned how to create a dataset using a local file in Oracle Analytics Cloud and some best practices around it.
 

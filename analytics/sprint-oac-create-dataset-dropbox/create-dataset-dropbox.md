@@ -1,19 +1,11 @@
 # How do I create a dataset using Dropbox in Oracle Analytics Cloud (OAC)?
 Duration: 5 minutes
 
-You can create a dataset from Dropbox by adding a connection in OAC.
-
-## Add files to datasets with multiple tables
-Before you create the dataset, confirm that the connection you need exists. Confirm that the file that you want to upload meets these requirements:
-    - The file is either an Excel spreadsheet in .XLSX or .XLS format, a CSV file, or a TXT file.
-    - The spreadsheet contains no pivoted data.
-    - The spreadsheet is structured properly for import and use as a dataset. 
+You can create a dataset from Dropbox by creating a connection in OAC.
 
 >**Note:** You must have the **DV Content Author** application role to execute the following steps.
 
-### Create a Dataset from a File Uploaded from Dropbox
-
-Another way to populate the calculation page is by predefining clusters or outliers in your data and right-click-save in **My Calculations** folder. 
+## Create a Dataset from a File Uploaded from Dropbox
 
 1. On the Home page, click **Create** and then click **Dataset.**
 
@@ -23,18 +15,23 @@ Another way to populate the calculation page is by predefining clusters or outli
 
     ![Select statistics for clusters or outliers](images/create-connection.png)
 
-3. After you provide connection information, browse for and select the file that you want to upload.
+3. Browse for and select the **Dropbox** Connection.
+
+    ![Select Dropbox option](images/select-dropbox.png)
+
+    This will popup a credentials page for you to fill out using the following step.
 
     ![Select statistics for clusters or outliers](images/dropbox-connection.png)
 
-    The Client ID and Key will be found after creating an app for dropbox. You access the app console by clicking this link: 
+4. The Client ID and Key will be available after creating an app for dropbox. You can access the app console (to create an app) by clicking this link: 
     - [Dropbox apps](https://www.dropbox.com/developers/apps)
 
-    For Dropbox you will need to create an app to access credentials.
+    Fill out the information to access the API Credentials.
 
     ![Dropbox App](images/dropbox-oauth.png)
 
-    The result will populate the API credentials. You will also need to paste the **Redirect URL** from OAC's create connection window.
+    The result will populate the API credentials. 
+    IMPORTANT: You will also need to paste the **Redirect URL** from OAC's create connection window.
 
     ![Dropbox app creation](images/dropbox-direct-url.png)
 
@@ -42,13 +39,20 @@ Another way to populate the calculation page is by predefining clusters or outli
 
     ![Dropbox Permissions](images/permissions.png)
   
-4. Select **Authorize** and then **OK.** The menu will then populate with your storage data. You can select the dataset from the menu options.
+5. Select **Authorize** and then **OK.** The menu will then populate with your storage data. You can select the dataset from the menu options.
     
     ![OAC datasets from drive](images/dropbox-key.png)
     
-    ![OAC datasets from drive](images/drive-updated.png)
 
-5. You can now select files from the menu to create a dataset.
+
+6. You can now select files from the menu to create a dataset.
+
+    Confirm that the file that you want to upload meets these requirements:
+        - The file is either an Excel spreadsheet in .XLSX or .XLS format, a CSV file, or a TXT file.
+        - The spreadsheet contains no pivoted data.
+        - The spreadsheet is structured properly for import and use as a dataset. 
+
+    ![OAC datasets from drive](images/drive-updated.png)
 
 Congratulations! You have successfully learned how to create a dataset using Dropbox in Oracle Analytics Cloud and some best practices around it.
 
@@ -62,4 +66,4 @@ Congratulations! You have successfully learned how to create a dataset using Dro
 
 * **Author** - Nicholas Cusato, Solution Engineer, Santa Monica Specialists Hub
 
-* **Last Updated By/Date** - Nicholas Cusato, August 2022
+* **Last Updated By/Date** - Nicholas Cusato, September 2022

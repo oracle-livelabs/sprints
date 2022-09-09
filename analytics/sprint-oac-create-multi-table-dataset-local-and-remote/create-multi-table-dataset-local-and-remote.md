@@ -18,43 +18,41 @@ This procedure is only available of OAC version May 2022 or newer. OAS updates h
 
     ![Hamburger menu for data](images/data-menu.png)
 
-2. Click the **Datasets** tab.
-
-    ![Top menu option for datasets](images/datasets.png)
-
-3. Locate the dataset that you want to open, click **Actions (ellipsis)**, and then click **Open**.
+2. Ensure you are on the datasets tab and Locate the dataset that you want to open, click **Actions (ellipsis)**, and then click **Open**.
 
     ![Create Best Visualization to populate image](images/open-actions.png)
 
-4. Select **Join Diagram** at the bottom of the page.
+3. Select **Join Diagram** at the bottom of the page.
 
     ![Join diagram button on page](images/join-diagram.png)
 
-5. Select the **Plus sign** on the left side menu to add a file. Select **add Connection** to upload via Dropbox or Google Drive. Select **Add file...** if the file is local.
+4. Select the **Plus sign** on the left side menu to add a file. Select **add Connection** to upload via Dropbox or Google Drive. (Alternatively, you can select **Add file...** if the file is local).
 
     ![Add preparation step on menu](images/add-preparation-step.png)
 
-    - If the file you want to add is located on Dropbox or Google Drive, then in the Dataset editor's Connections pane, right-click  the file and select **Add to Dataset.**
+    Select the connection (Dropbox or Google Drive) that best fits your need.
+
+    ![Connection Options](images/select-data.png)
+
+    Follow the instructions for the desired type of connection using the "How to create a Connection.." LiveLab Sprint.
+
+5. After you have created your connection, then in the Dataset editor's Connections pane, right-click the file and select **Add to Dataset.**
 
     ![Create Best Visualization to populate image](images/add-to-dataset.png)
 
-   - If you’re uploading a CSV or TXT file, then in the **Separated By,** **Thousand Separator,** and **Decimal Separator** fields, confirm or change the default delimiters. To specify a custom delimiter, choose Custom in the **Separated By** field and enter the character you want to use as the delimiter. In the CSV or TXT file, a custom delimiter must be one character. The following example uses a pipe (|) as a delimiter: Year|Product|Revenue|Quantity|Target Revenue| Target Quantity.
-
-    ![Details page for uploading local file](images/save-data.png)
-
-6.  Right click the new dataset on the Join Diagram, select **Join To** and then select the other dataset to join the two together.
+1.  Right click the new dataset on the Join Diagram, select **Join To** and then select the other dataset to join the two together.
 
     ![Join datasets menu options](images/join-dataset.png)
 
-7. Select the matching columns to join the two datasets together. You can select the join type from Inner, Left, Right, or Outer. To add another condition, select **Add Join Condition.**
+2. Select the matching columns to join the two datasets together. You can select the join type from Inner, Left, Right, or Outer. To add another condition, select **Add Join Condition.**
 
     ![Column selection menu for the two datasets](images/join-columns.png)
 
-8. You can now create a workbook from this new joined tables by saving and selecting **Create Workbook** in the top right corner. 
+3. You can now create a workbook from this new joined tables by saving and selecting **Create Workbook** in the top right corner. 
 
     ![Create workbook button](images/create-workbook.png)
 
-9. The merged datasets will appear on the left hand side of the new workbook.
+4. The merged datasets will appear on the left hand side of the new workbook.
 
     ![merged dataset menu in workbook](images/merged.png)
 
