@@ -1,7 +1,7 @@
 # How do I reset a data pipeline for a functional area in Fusion Analytics Warehouse (FAW)?
 Duration: 1 minutes
 
-You might want to reset your data pipeline if you change your Fusion Application source and want to perform a full load of the data from the new source.
+You might want to reset your data pipeline if you change your Fusion Application source and want to perform a full load of the data from the new source. Another reason may be if you want to fix data inconsistencies due to deletes which incremental update would not fix. Resetting the data pipeline would be an appropriate solution for these scenarios.
 
 ## Reset a data pipeline
 >**Note:** You must have the **Service Administrator** application role to successfully complete this Sprint.
