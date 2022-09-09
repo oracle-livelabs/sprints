@@ -8,6 +8,7 @@ The Configuration Wizard can either create a new domain or extend an existing do
 1. Open a terminal session. Invoke the Configuration wizard by entering `/home/opc/VDT/oracle_common/common/bin/config.sh`.
 
     **Note**: The Create a new domain option is selected by default.
+    
     ![Create Domain](./images/creatingdomain-createdomain.png " ")
 2. Click **Browse** to select the **Domain Location**.
 3. Click **Next** to display the **Templates** screen.
