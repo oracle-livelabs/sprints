@@ -9,10 +9,5 @@
       }
    ],
    "task_type": "Sections",
-   "hide_button": "true",
-   "show_related": [
-      { "title": "Related Sprints", "filename": 
-      "sprint-oac-create-multi-table-dataset-local-and-remote/manifest.json", "tags": ["adb", "db"], "state": 
-      "collapsed" }
-      ]
+   "hide_button": "true"
 }
