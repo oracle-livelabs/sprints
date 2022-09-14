@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como criar uma análise Ano Vigente vs Ano Passado com o mesmo conjunto de dados no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a realizar uma análise Ano Vigente vs Ano Passado com o mesmo conjunto de dados no OAC!",
+         "filename": "sprint-oac-current-vs-previous-year-pt.md"
+      },
+      {
+         "title": "Como realizar um join entre duas tabelas em um conjunto de dados no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a realizar um join entre múltiplas tabelas em um conjunto de dados no OAC!",
+         "filename": "sprint-oac-join-tables-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
