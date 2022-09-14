@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I reset a data pipeline for a functional area in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to reset your data pipelines in FAW when updating your Fusion data source.",
+         "filename": "reset-data-pipeline.md"
+      },
+      {
+         "title": "How do I perform an on-demand data refresh for a functional area in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-refresh-data-pipeline/refresh-data-pipeline.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
