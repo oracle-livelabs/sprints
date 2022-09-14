@@ -2,8 +2,9 @@
 
 Duration: 2 minutes
 
+## Install Oracle GoldenGate veridata
 
-  To install and configure Oracle GoldenGate Veridata:
+To install and configure Oracle GoldenGate Veridata:
 
   1. Open the terminal session and run the installer with the following command: `java -jar fmw_12.2.1.4.0_ogg.jar` to display the splash screen.
       ![Veridata Installation Splash screen](./images/veridatainstall-welcome-splash.png " ")

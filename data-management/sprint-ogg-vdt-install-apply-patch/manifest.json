@@ -2,6 +2,12 @@
    "workshoptitle": "LiveLabs Sprints",
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
+     {
+      "title": "How do I apply a patch on an Oracle GoldenGate Veridata release?",
+      "description": "",
+      "filename": "./../sprint-ogg-vdt-install-apply-patch/sprint-ogg-vdt-install-apply-patch.md"
+      },
+
       {
          "title": "How do I install and configure backend servers and infrastructure for Oracle GoldenGate Veridata installation?",
          "description": "",
@@ -15,15 +21,11 @@
       },
 
       {
-         "title": "How do I install Oracle GoldenGate veridata?",
+         "title": "How do I install Oracle GoldenGate Veridata?",
          "description": "",
          "filename": "./../sprint-ogg-vdt-install-veridata/sprint-ogg-vdt-install-veridata.md"
        },
-        {
-         "title": "How do I apply a patch on an Oracle GoldenGate Veridata release?",
-         "description": "",
-         "filename": "./../sprint-ogg-vdt-install-apply-patch/sprint-ogg-vdt-install-apply-patch.md"
-       },
+
        {
           "title": "How do I configure a Repository Creation Utility (RCU)?",
           "description": "",
