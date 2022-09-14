@@ -3,7 +3,7 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
      {
-        "title": "How do I install Oracle GoldenGate veridata?",
+        "title": "How do I install Oracle GoldenGate Veridata?",
         "description": "",
         "filename": "./../sprint-ogg-vdt-install-veridata/sprint-ogg-vdt-install-veridata.md"
      },
