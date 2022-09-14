@@ -2,6 +2,12 @@
    "workshoptitle": "LiveLabs Sprints",
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
+     {
+        "title": "How do I create the Oracle GoldenGate Veridata Server Domain?",
+        "description": "",
+        "filename": "./../sprint-ogg-vdt-create-domain/sprint-ogg-vdt-create-domain.md"
+      },
+
       {
          "title": "How do I install and configure backend servers and infrastructure for Oracle GoldenGate Veridata installation?",
          "description": "",
@@ -29,11 +35,6 @@
           "description": "",
           "filename": "./../sprint-ogg-vdt-install-configure-rcu/sprint-ogg-vdt-install-configure-rcu.md"
       },
-      {
-         "title": "How do I create the Oracle GoldenGate Veridata Server Domain?",
-         "description": "",
-         "filename": "./../sprint-ogg-vdt-create-domain/sprint-ogg-vdt-create-domain.md"
-     },
 
      {
         "title": "How do I deploy the Oracle GoldenGate Veridata Agents?",
