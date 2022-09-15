@@ -120,7 +120,7 @@ function initSdk(name) {
  */
 function generateToken() {
     return new Promise(function(resolve) {
-        mockApiCall('https://mockurl').then(function(token) {
+        mockApiCall('https://madhusudhanrao-ppm.github.io').then(function(token) {
             resolve(token);
         });
     });
