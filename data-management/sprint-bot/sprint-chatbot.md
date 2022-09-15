@@ -5,7 +5,7 @@ Duration: 2 minutes
 
 This is my workshop content.
 
-### Heading 2
+### Heading 2 - v2
 
 1. Create a procedure that checks for unsent mails in the mailing\_list table with a mail sent status as null. Once a mail is sent, the status will be updated as mail\_sent
 
