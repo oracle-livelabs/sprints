@@ -57,6 +57,10 @@ function initSdk(name) {
         clientAuthEnabled: isClientAuthEnabled,     // Enables client auth enabled mode of connection if set true, no need to pass if set false
         channelId: 'bedcda1a-5961-4e47-9d9f-6317ab122095',                   // Channel ID, available in channel settings in ODA UI, optional if client auth enabled
         // userId: '<userID>',                      // User ID, optional field to personalize user experience
+        logoIcon: 'images/bot-button.png', 
+        botIcon: 'images/bot-green.png',        
+        personIcon: 'images/user-icon.png',
+        position: { top: '50px', right: '100px' } ,
         enableAutocomplete: true,                   // Enables autocomplete suggestions on user input
         enableBotAudioResponse: true,               // Enables audio utterance of skill responses
         enableClearMessage: true,                   // Enables display of button to clear conversation
