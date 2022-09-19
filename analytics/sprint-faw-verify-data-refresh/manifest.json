@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I verify that the data refresh schedule has been completed in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to verify that your data refresh has  been completed in Fusion Analytics Warehouse (FAW)",
+         "filename": "sprint-faw-verify-data-refresh.md"
+      },
+      {
+        "title": "How do I change the Data Refresh Schedule in Fusion Analytics Warehouse (FAW)?",
+        "description": "Learn how to change the data refresh schedule in Fusion Analytics Warehouse (FAW).",
+        "filename": "../sprint-faw-change-data-refresh-schedule/sprint-faw-change-data-refresh-schedule.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}
