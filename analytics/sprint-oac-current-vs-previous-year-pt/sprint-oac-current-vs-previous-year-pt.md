@@ -34,7 +34,7 @@ Nós iremos fazer upload e join do mesmo conjunto de dados, e no processo de pre
    ![Vendas Ano Passado](images/column-sales-previous-year.png)  
 
 6. Vá até o **Diagrama de Junção** e clique na junção no centro. Escolha a opção Esquerda (Left Join) e selecione as duas colunas criadas para serem utilizadas no Join. Por exemplo, "Ano" e "Ano Passado". Feito isso, **Salve** o dataset.
-    > **Nota:** Você seleciona um Left Outer Join para preservar todos os dados do Ano Vigente.
+    > **Note:** Você seleciona um Left Outer Join para preservar todos os dados do Ano Vigente.
 
    ![Left Join](images/left-join.png)  
 
@@ -70,4 +70,4 @@ Parabéns! Você acabou de aprender como analisar Ano Vigente vs Ano Passado den
 ## Reconhecimentos
 * **Autor** - Lucian Dinescu, Product Strategy, Analytics
 * **Tradução** - Breno Comin, Cloud Solution Engineer, Brazil Data & AI Team
-* **Última Atualização** - Breno Comin,  Setembro 2022
+* **Last Updated By/Date** - Breno Comin,  Agosto 2022
