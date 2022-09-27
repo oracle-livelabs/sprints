@@ -5,6 +5,7 @@ Duration: 2 minutes
 When you run a job in Fusion Analytics Warehouse, it's a best practice to verify that the job has run successfully. This is true whether you run a task in FAW or any other platform. While the status of the tasks for the functional areas in your applications or the data augmentations are listed, you're not able to view the history of the changes you have made. The changes you made to your **Reporting Configurations** are also not listed inside the reporting configurations section. This is where the role of the **Request History** and **Audit Log** come into play and this Sprint will guide you on how to view the Request History and the Audit Logs in FAW.
 
 ## View Request History and Audit Logs
+>**Note:** You must have the **Service Admin** application role to complete the following steps.
 
 1. In your Fusion Analytics Warehouse homepage, click the **Navigation menu** and click **Console**.
 
@@ -38,5 +39,5 @@ For more information about Request History and Audit Logs, expand the **Learn Mo
 * [View Audit Log](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/view-audit-log.html)
 
 ## Acknowledgements
-* **Author** - <Nagwang Gyamtso, Product Manager, Product Strategy>
-* **Last Updated By/Date** - <Nagwang Gyamtso,  July 2022>
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022
