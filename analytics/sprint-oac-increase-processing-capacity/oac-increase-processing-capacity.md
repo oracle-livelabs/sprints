@@ -37,11 +37,10 @@ You can use the Oracle Cloud Infrastrcture Console to view and edit Oracle Analy
 
   ![Console OAC Update](images/console_oac_update.jpeg)
 
-7. From here, you can change the number of OCPUs being used to scale up your Oracle Analytics Cloud instance.
+7. From here, you can view and change the number of OCPUs being used to scale up your Oracle Analytics Cloud instance.
 
 Congratulations! You have just learned how to increase the processing capacity of your Oracle Analytics Cloud instance!
 
 
 ## Learn More
-* 
-* 
+* [OAC Administer Documentation](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acoci/administer-services.html#GUID-51F53680-13E0-45B7-AD95-B2091F8AB442)
