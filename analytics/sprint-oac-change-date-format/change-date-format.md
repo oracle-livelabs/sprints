@@ -6,11 +6,13 @@ When you are working with date columns in Oracle Analytics Cloud, there are many
 
 ## Change date format
 
+>**Note:** You must have the **DV Content Author** application role to execute the following steps.
+
 1. In your workbook, open the dataset editor by clicking on **Data** and then clicking the **Pencil** icon of the dataset you want to edit.
 
     ![Dataset editor](images/edit-dataset.png)
 
-2. In the dataset editor, find and select the date column that you want to edit the display format of. This will toggle the **Data Pane** for this specific column we have selected. Click the **Date/Time Format** as shown by the clock icon. 
+2. In the dataset editor, find and select the date column that you want to edit the display format of. This will toggle the **Data Pane** for this specific column we have selected. Click the **Date/Time Format** as shown by the clock icon.
 
     ![Date editor](images/date-editor.png)
 
@@ -26,3 +28,7 @@ Congratulations, you have learned how to change the default date display format 
 
 ## Learn more
 * [Adjust the Display Format of a Date or Number Column](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/adjust-display-format-date-or-number-column.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

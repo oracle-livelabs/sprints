@@ -1,0 +1,28 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create and activate new functional areas in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to create a data pipeline for functional areas in FAW.",
+         "filename": "create-data-pipeline-functional-area.md"
+      },
+      {
+         "title": "How do I configure the Pipeline Parameters in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-config-pipeline-params/config-pipeline-parameters.md"
+      },
+      {
+         "title": "How do I set up the reporting configurations for ERP in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-reporting-config-erp/reporting-config-erp.md"
+      },
+      {
+         "title": " How do I set up the reporting configurations for HCM in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-reporting-config-hcm/reporting-config-hcm.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
