@@ -1,46 +1,37 @@
-## How do I increase the processing capacity of my Oracle Analytics Instance? #
+## How do I increase the processing capacity of my Oracle Analytics Instance?
 
-## Duration: 10 minutes
+**Duration: 10 minutes**
 
-When working with Oracle Analytics Cloud, you have the option to leverage the platform's scalability. For this, you will need access to the Oracle Cloud Infrastructure Console. 
+When working with Oracle Analytics Cloud, you can leverage the platform's scalability. For this, you will need access to the Oracle Cloud Infrastructure Console. 
 
-The OCI Console is where you can accomplish most administrative tasks for OAC. You can access services and update instance details using the Console, API, or command line. You can edit details such as the description, license type, or tags.
-
-  >**Note: Required IAM Policy**
-    
-  **Verb:** inspect (to view), manage (to update)    
-  **Resource Types:** analytics-instance, analytics instances
-  
-  **Permission:** ANALYTICS_INSTANCE_INSPECT (to view), ANALYTICS_INSTANCE_UPDATE (to update)
-  
-  See 
-  ![About Permissions to Manage Oracle Analytics Cloud Instances](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acoci/manage-service-access-and-security.html#GUID-251FA58C-AC2E-44A1-86FC-2F0565DD1D50)
+The OCI Console is where you can accomplish most administrative tasks for OAC. You can access services and update instance details using the Console, API, or command line. In this document, we'll be using the OCI Console.
 
 
-## View or Update OAC Processing Capacity using the Console
 
-You can use the Oracle Cloud Infrastrcture Console to view and edit Oracle Analytics Cloud Instances.
+**View or Update OAC Processing Capacity using the Console**
+
+You can use the Oracle Cloud Infrastrcture Console to view and make changes to Oracle Analytics Cloud Instances.
 
 1. Sign into your Oracle Cloud account.
 
-2. In the Oracle Cloud Infrastructure Console, click ![Hamburger Icon](images/hamburger_menu.png) in the top left corner.     
+  ![OCI Console](images/oci-login.png)
 
-3. Click **Analytics & AI**. Under **Analytics**, click **Analytics Cloud**.
+2. In the Oracle Cloud Infrastructure Console, click the ![Hamburger Icon](images/hamburger_menu.png) icon in the top left corner.
 
-  ![Console OAC Navigation](images/console_oac_nav.jpeg)
+3. In the menu, click **Analytics & AI**. Under **Analytics**, click **Analytics Cloud**.
+
+  ![Analytics Menu](images/analytics-menu.png)
 
 4. Select the compartment that contains the Oracle Analytics Cloud instances you're looking for.
 
-5. If required, filter the list by **State** or **Edition**.
+  ![Console Instances List](images/instance-list.png)
 
-6. To change the description or the license type, click ![Task Menu](images/tasks_menu.png) for the instance, and select **Edit**.
+5. To change the description or the license type, click the ![Task Menu](images/tasks_menu.png) icon for a specific instance, and select **Edit**.
 
-  ![Console OAC Update](images/console_oac_update.jpeg)
-
-7. From here, you can view and change the number of OCPUs being used to scale up your Oracle Analytics Cloud instance.
+6. From here, you can view and change the number of OCPUs being used to scale up your Oracle Analytics Cloud instance.
 
 Congratulations! You have just learned how to increase the processing capacity of your Oracle Analytics Cloud instance!
 
 
-## Learn More
+**Learn More**
 * [OAC Administer Documentation](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acoci/administer-services.html#GUID-51F53680-13E0-45B7-AD95-B2091F8AB442)
