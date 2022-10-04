@@ -1,6 +1,6 @@
 ## How do I increase the processing capacity of my Oracle Analytics Instance?
 
-**Duration: 10 minutes**
+**Duration: 5 minutes**
 
 When working with Oracle Analytics Cloud, you can leverage the platform's scalability. For this, you will need access to the Oracle Cloud Infrastructure Console. 
 
@@ -35,3 +35,7 @@ Congratulations! You have just learned how to increase the processing capacity o
 
 **Learn More**
 * [OAC Administer Documentation](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acoci/administer-services.html#GUID-51F53680-13E0-45B7-AD95-B2091F8AB442)
+
+## Acknowledgements
+* **Author:** Runit Malik, Solution Engineer
+* **Last Updated By/Date:** Runit Malik, October 2022
