@@ -1,6 +1,6 @@
-# How do I create a language narrative of my visualizations in Oracle Analytics Cloud (OAC)?
+# Como criar uma language narrative das minhas visualizaçõpes em Oracle Analytics Cloud (OAC)?
 
-Duration: 1 minute
+Duração: 1 minute
 
 Oracle Analytics Cloud has powerful augmented analytics capabilities. For example, with Natural Language Generation, the underlying machine learning algorithm can give you a natural language explanation of your visualizations with just a click of a button.
 
