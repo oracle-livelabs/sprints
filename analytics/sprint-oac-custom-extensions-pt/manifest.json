@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como importar extensões customizadas, visualizações e plug-ins no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a importar plug-ins customizados no Oracle Analytics Cloud!",
+         "filename": "custom-extentions.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}
