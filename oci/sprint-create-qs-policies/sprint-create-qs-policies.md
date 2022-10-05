@@ -13,7 +13,7 @@ Before you can create and use a Query Service project, your tenancy must have a 
 
 ### **Requirement 1: Create a Dynamic Group**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. 
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed.
 
 2. Open the **Navigation** menu and click **Identity & Security**. Under **Identity**, click **Dynamic Groups**.
 
@@ -108,9 +108,20 @@ The following is an example of a policy granting read and write access to a spec
 allow dynamic-group training-qs-dynamic-group to manage object-family in tenancy where target.bucket.name='training-bucket'
 ```
 
+>**Note:** In order to create an Object Storage table in Query Service based on a
+file that is stored in a private Object Storage bucket, you will need read access to that bucket. 
+
 ## Learn More
 
-* [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm).
+* [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm)
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
 * [Managing Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)
+* [Writing Policies for Dynamic Groups](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm#Writing)
 * [Data Catalog Policies](https://docs.oracle.com/en-us/iaas/data-catalog/using/policies.htm)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
+* **Contributors:**
+    + Alexey Filanovskiy, Senior Principal Product Manager
+    + Ravi Ramkissoon, Software Development Director
+* **Last Updated By/Date:** Lauran Serhal, August 2022

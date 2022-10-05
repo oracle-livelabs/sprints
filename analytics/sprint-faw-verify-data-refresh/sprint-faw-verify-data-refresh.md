@@ -48,3 +48,7 @@ Congratulations! You have just learned how to verify that your data refresh has 
 ## Learn More
 * [Administering Oracle Fusion Analytics Warehouse](https://docs.oracle.com/en/cloud/saas/analytics/21r3/fawag/administering-oracle-fusion-analytics-warehouse.pdf)
 * [Set Up the Pipeline Parameters](https://docs.oracle.com/en/cloud/saas/analytics/22r1/fawag/set-pipeline-parameters.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  May 2022

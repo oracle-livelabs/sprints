@@ -26,18 +26,16 @@ As a best practice, if your organization requires someone other than the person 
 
     ![Update Admin Password](images/update-admin-pw.png)
 
-5. In the **Update Autonomous Datawarehouse Credentials** dialog, enter and confirm the new password. Click **Save Changes**.
+5. In the **Update Autonomous Data Warehouse Credentials** dialog, enter and confirm the new password. Click **Save Changes**.
 
     ![Enter new password](images/new-pw.png)
 
-Congratulations, you have learned how to change the ADW Admin password for FAW and a best practice when inputting an email address.
+Congratulations, you have learned how to change the ADW Admin password for FAW.
 
 ## Learn More
 
 * [Update the Administrator Password for Oracle Autonomous Data Warehouse](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/update-administrator-password-oracle-autonomous-data-warehouse.html)
 
-### Acknowledgements
-
-- Created By/Date - Nagwang Gyamtso, Product Manger, Product Strategy, July 2022
-
-- Last Updated By - Nagwang Gyamtso, July 2022
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  July 2022

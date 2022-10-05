@@ -6,7 +6,7 @@
         "title": "How do I create an Object Storage table in Query Service?",
         "type": "tenancy",
         "description": "",
-        "filename": "./../sprint-create-obj-table-qs.md"
+        "filename": "./../sprint-create-obj-table-qs/sprint-create-obj-table-qs.md"
      }
    ],
    "task_type": "Sections",

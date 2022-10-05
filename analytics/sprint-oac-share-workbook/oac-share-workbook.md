@@ -9,9 +9,9 @@ Oracle Analytics gives you the ability to share your workbook with others to fac
 Sharing workbooks is a great way to collaborate without having to export your whole workbook, move it around, and risk having misaligned versions from sending it back and forth between multiple users.
 
 ## Share a workbook
-You must have **BI Content Author** application role to be able to execute the following steps:
+>**Note:** You must have **BI Content Author** application role to be able to execute the following steps:
 
-1. On your **Homepage**, click on the **Navigation menu** and click on **Catalog**. Then click on **Shared Folders**. This is where you will place your workbooks to be shared with other users within your organization. 
+1. On your **Homepage**, click on the **Navigation menu** and click on **Catalog**. Then click on **Shared Folders**. This is where you will place your workbooks to be shared with other users within your organization.
 
     ![Shared folders](images/shared-folders.png)
 
@@ -33,7 +33,7 @@ You must have **BI Content Author** application role to be able to execute the f
 
 6. Click **Share** and in the search bar, search for the user or role you want to share this folder with.
 
-    >**Note:** As a best practice, you should share workbooks with application Roles instead of individual Users in case that user leaves your organization. 
+    >**Note:** As a best practice, you should share workbooks with application Roles instead of individual Users in case that user leaves your organization.
 
     ![Access](images/access.png)
 
@@ -47,3 +47,7 @@ Congratulations! You have just learned how to share workbooks with users in Orac
 ## Learn More
 
 * [Share a Workbook](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/share-workbook.html)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
