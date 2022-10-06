@@ -1,46 +1,47 @@
 # Como criar uma language narrative das minhas visualizaçõpes em Oracle Analytics Cloud (OAC)?
 
-Duração: 1 minute
+Duração: 1 minuto
 
-Oracle Analytics Cloud has powerful augmented analytics capabilities. For example, with Natural Language Generation, the underlying machine learning algorithm can give you a natural language explanation of your visualizations with just a click of a button.
+O Oracle Analytics Cloud possui recursos avançados de análise de dados. Por exemplo, com  Natural Language Generation, o algoritmo de aprendizado de máquina pode fornecer uma explicação em linguagem natural de suas visualizações com o clique de um botão.
 
-### Situation
-Let's say that you have just created a canvas with many interesting visualizations but you are having a hard time making sense of the data. You're in a time cruch and are unable to process what the data means or you want a written explanation but do not want to write it out yourself.
+### Situação
+Digamos que você acabou de criar um dashboard com várias visualizações interessantes mas você está passando por dificuldades em demonstrar o significado daqueles dados. Você está em um momento crucial e não consegue processar o que os dados significam ou quer uma explicação por escrito, mas não quer escrevê-la você mesmo.
 
-![Situation](images/situation.png)
+![Situação](images/situation.png)
 
-This Sprint will expose you to Oracle Analytics Cloud's Natural Language Generation capability and guide you through creating your own Language Narrative visualization.
+Essa Sprint irá te mostrar a capacidade de geração de linguagem natural do Oracle Analytics Cloud (OAC) e te guiar para criar sua própria narrativa.
 
-## Create natural language narratives
+## Criando narrativas em linguagem natural
 
->**Note:** You must have the **DV Content Author** application role to successfully execute the following steps.
+>**Nota:** Você deve ter o cargo **DV Content Author** para executar os próximos passos.
 
-1. Open a workbook in your OAC instance and identify a visualization that you want to generate a natural language summary of. **Right click** the visualization and select **Edit** and then select **Duplicate Visualization**. We want to do this so that we can refer to the visualization that the narrative explains.
+1. Abra um workbook na sua instância OAC e identifique a visualização que você quer gerar um resumo em linguagem natural. **Clique com botão direito do mouse** em visualização e selecione **Edit** então selecione **Duplicate Visualization**. Nós queremos fazer isso para referenciar a visualização que a narrativa explica
 
-    ![Duplicate visualization](images/duplicate-visualization.png)
+    ![Duplicando a Visualização](images/duplicate-visualization.png)
 
-2. Select the duplicated visualization and click the visualizations dropdown in the **Grammar Pane**. Find and select the **Language Narrative** visualization represented by the text box. This will create a language narrative of the visualization we just duplicated.
+2. Selecione a visualização duplicada e clique em **Grammar Pane**. Encontre e selecione a visualização **Language Narrative** representado pela caixa de texto. Isso irá criar a narrativa que acabamos de duplicar.
 
-    >**Note:** The Language Narrative visualization only works with visualizations that have **two attributes and one measure** or **one attribute and two measures**. Click [here](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-language-narrative-visualization.html#GUID-237A860A-22E9-4F5A-B6A5-22DE3EA7CCAA) to learn more about the Language Narrative visualization.
+    >**Nota:** A visualização de narrativa de linguagem natural só funciona em visualizações que tem **dois atributos e uma medida** ou **um atributo e duas medidas**. [Clique aqui](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-language-narrative-visualization.html#GUID-237A860A-22E9-4F5A-B6A5-22DE3EA7CCAA) para aprender mais sobre visualização de narrativas de linguagem natural.
 
-    ![Select language narrative](images/change-viz.png)
+    ![Selecione 'language narrative'](images/change-viz.png)
 
-3. As you can see, this is a pretty powerful tool. The **Data Panel** on the bottom left of your page will allow you to make changes to the attributes of the narrative. For example, you can choose English or French as the **Language** used in the narrative, you can change the **Level of Detail** from 1-7 depending on how detailed you want the narrative to be, and you have the option to change the narrative **Analysis** to explain a trend analysis or a breakdown of the visual.
+3. Como você pode ver, é uma ferramenta muito poderosa. No botão **Data Panel** no canto esquerdo da página fazer mudanças nos atributos das narrativas. Por exemplo, é possível selecionar Inglês ou Francês como **Linguagem** utilizada na narrativa, e é possível alterar o **Detalhamento** de 1 a 7 dependendo de quão detalhado você deseja que seja a narrativa. Ainda, é possível mudar a **Análise** da narrativa.
 
-    ![Attributes](images/attributes.png)
+    ![Atributos](images/attributes.png)
 
-4. One last interesting attribute that you can change is the **Meaning of Up**. As a default, the meaning of up is set to Good. In this example, # of Accidents going up is not a good thing so we can change this by selecting **Bad** for the Meaning of Up option.
+4. Outro atributo interessante de alterar é o **Meaning of Up**. Por padrão, o meaning of up aponta para bom. Neste exemplo, número de acidentes indo para cima não é uma coisa agradável então é interessante mudar o parâmetro para ruim.
 
     ![Meaning of up](images/change-meaning.png)
 
 
-Congratulations! You have just learned how to create a language narrative of your visualizations using Natural Language Generation in Oracle Analytics Cloud!
+Parabéns! Você acabou de aprender a criar uma narrativa em linguagem natural das suas visualizaçõpes utilizando Natural Language Generation no Oracle Analytics Cloud!
 
-## Learn More
+## Saiba mais
 * [Add a Language Narrative Visualization](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-language-narrative-visualization.html#GUID-F25DA183-DFFB-4788-8581-B6D935A26EE9)
 
 * [Add Augmented Analytics to Your Business Data Practices](https://blogs.oracle.com/analytics/post/add-augmented-analytics-to-your-business-data-practices)
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
-* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
+* **Tradução** - Isabel Giannecchini, Cloud Engineer, Brazil Data & AI Team
+* **Última Atualização** - Isabel Giannecchini,  Outubro 2022
