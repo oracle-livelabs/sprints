@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como criar uma camada customizada de mapa utilizando OAC?",
+         "description": "Aprenda a criar camadas de mapa personalizadas usando suas próprias imagens no OAC!",
+         "filename": "sprint-oac-create-custom-map-layers-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

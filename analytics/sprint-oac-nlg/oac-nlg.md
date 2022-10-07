@@ -2,6 +2,8 @@
 
 Duration: 1 minute
 
+[](youtube:EQ6XLM7WBP4)
+
 Oracle Analytics Cloud has powerful augmented analytics capabilities. For example, with Natural Language Generation, the underlying machine learning algorithm can give you a natural language explanation of your visualizations with just a click of a button.
 
 ### Situation
@@ -13,7 +15,7 @@ This Sprint will expose you to Oracle Analytics Cloud's Natural Language Generat
 
 ## Create natural language narratives
 
-You must have the **DV Content Author** application role to successfully execute the following steps.
+>**Note:** You must have the **DV Content Author** application role to successfully execute the following steps.
 
 1. Open a workbook in your OAC instance and identify a visualization that you want to generate a natural language summary of. **Right click** the visualization and select **Edit** and then select **Duplicate Visualization**. We want to do this so that we can refer to the visualization that the narrative explains.
 
@@ -40,3 +42,7 @@ Congratulations! You have just learned how to create a language narrative of you
 * [Add a Language Narrative Visualization](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-language-narrative-visualization.html#GUID-F25DA183-DFFB-4788-8581-B6D935A26EE9)
 
 * [Add Augmented Analytics to Your Business Data Practices](https://blogs.oracle.com/analytics/post/add-augmented-analytics-to-your-business-data-practices)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022

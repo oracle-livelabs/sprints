@@ -20,8 +20,12 @@ You can now paste your copied compartment OCID anywhere you need it.
 
 ![In the Compartment details page, the Copy link in the OCID row is highlighted.](./images/copy-compartment-ocid-2.png " ")
 
-
 ## Learn More
 
 * [Signing In to the Console](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Tasks/signingin.htm).
 * [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
+
+## Acknowledgements
+* **Author:** Lauran Serhal, Consulting User Assistance Developer
+* **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
+* **Last Updated By/Date:** Lauran Serhal, August 2022

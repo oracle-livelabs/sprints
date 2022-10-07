@@ -2,11 +2,14 @@
 
 Duration: 1 minute
 
+[](youtube:kQfkOPXE1Vg)
+
 When working with date columns in your dataset within Oracle Analytics Cloud, you have the ability to create a relative time filter for your visualizations. The relative time filter allows you to create a date filter relative to today's date whether that's looking at data from the past or looking at a projection into the future. The three settings you can modify are the Type, Increment, and Time Level. To learn more about how to create a relative date filter and the options associated with it, read the following instructions below.
 
 ## Relative time filter
+>**Note:** You must have the **DV Content Author** application role to execute the following steps.
 
-1. In your workbook, find the **Date** column in the **Data Panel** and drag it onto the filter bar on top of the canvas. 
+1. In your workbook, find the **Date** column in the **Data Panel** and drag it onto the filter bar on top of the canvas.
 
     ![Drop date](images/drop-date.png)
 
@@ -18,7 +21,7 @@ When working with date columns in your dataset within Oracle Analytics Cloud, yo
 
     ![Reltaive time](images/relative-time.png)
 
-4. Here, you have three settings that you can modify: Type, Increment, and Time Level. The following example creates a relative time filter for the last 3 months. 
+4. Here, you have three settings that you can modify: Type, Increment, and Time Level. The following example creates a relative time filter for the last 3 months.
 
     ![Options](images/options.png)
 
@@ -36,3 +39,7 @@ Congratulations, you have learned how to create a relative time filter in Oracle
 ## Learn more
 
 * [Relative Time Filters](https://www.wegobeyond.co.uk/oracle-analytics-cloud-105-2-new-feature-focus-relative-time-filters/)
+
+## Acknowledgements
+* **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
+* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
