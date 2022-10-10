@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I reassign ownership of a workbook in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to reassign ownership of a workbook in OAC!",
+         "title": "Como trocar o proprietário de um workbook em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a transferir a propriedade de um workbook em OAC!",
          "filename": "sprint-oac-reassign-ownership-wrkbk.md"
       }
    ],
