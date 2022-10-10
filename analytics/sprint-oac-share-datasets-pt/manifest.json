@@ -13,8 +13,8 @@
          "filename": "../sprint-oac-share-workbook-pt/oac-share-workbook.md"
       },
       {
-         "title": "How do I reload my dataset files in Oracle Analytics Cloud (OAC)?",
-         "description": "",
+         "title": "Como atualizar datasets files em Oracle Analytics Cloud (OAC)?",
+         "description": "Atualize seus datasets em OAC e tenha sempre as visualizações mais recentes!",
          "filename": "../sprint-oac-reload-dataset-file-pt/reload-dataset-file.md"
       }
    ],
