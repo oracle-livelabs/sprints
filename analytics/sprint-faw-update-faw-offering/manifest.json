@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I update the offering in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to update your FAW offering after expanding your FAW subcription.",
+         "filename": "update-faw-offering.md"
+      },
+      {
+         "title": "How do I schedule application updates in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-reschedule-app-update/reschedule-app-update.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

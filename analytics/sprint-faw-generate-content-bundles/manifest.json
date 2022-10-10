@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I generate content bundles in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to generate custom OAC content bundles to export.",
+         "filename": "generate-content-bundles.md"
+      },
+      {
+         "title": "How do I migrate content using the bundles feature in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-migrate-content-bundles/migrate-objects-bundles.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

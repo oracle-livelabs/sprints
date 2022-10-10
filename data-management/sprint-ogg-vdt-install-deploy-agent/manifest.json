@@ -1,0 +1,47 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+
+     {
+        "title": "How do I deploy the Oracle GoldenGate Veridata Agents?",
+        "description": "",
+        "filename": "./../sprint-ogg-vdt-install-deploy-agent/sprint-ogg-vdt-install-deploy-agent.md"
+      },
+      {
+         "title": "How do I install and configure backend servers and infrastructure for Oracle GoldenGate Veridata installation?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-install-backendserver/sprint-ogg-vdt-install-backendserver.md"
+      },
+
+      {
+         "title": "How do I install the Fusion Middleware infrastructure?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-install-fmw/sprint-ogg-vdt-install-fmw.md"
+      },
+
+      {
+         "title": "How do I install Oracle GoldenGate Veridata?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-install-veridata/sprint-ogg-vdt-install-veridata.md"
+       },
+        {
+         "title": "How do I apply a patch on an Oracle GoldenGate Veridata release?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-install-apply-patch/sprint-ogg-vdt-install-apply-patch.md"
+       },
+       {
+          "title": "How do I configure a Repository Creation Utility (RCU)?",
+          "description": "",
+          "filename": "./../sprint-ogg-vdt-install-configure-rcu/sprint-ogg-vdt-install-configure-rcu.md"
+      },
+      {
+         "title": "How do I create the Oracle GoldenGate Veridata Server Domain?",
+         "description": "",
+         "filename": "./../sprint-ogg-vdt-create-domain/sprint-ogg-vdt-create-domain.md"
+     }
+
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
