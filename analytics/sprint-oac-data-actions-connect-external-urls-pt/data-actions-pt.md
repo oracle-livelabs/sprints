@@ -2,7 +2,7 @@
 
 Duração: 3 minutos
 
-Ao clicar em uma coluna de dados específica, você tem a opção de direcionar o usuário para um site externo para fornecer mais informações sobre essa coluna específica. Por exemplo, você pode vincular o website de um fornecedor quando clica em uma coluna como "fornecedor". Este Sprint irá guiá-lo sobre como criar ações de dados para se conectar a URLs externas a partir de sua tela DV.
+Ao clicar em uma coluna de dados específica, você tem a opção de direcionar o usuário para um site externo para fornecer mais informações sobre essa coluna específica. Por exemplo, você pode vincular o website de um fornecedor quando clica em uma coluna como "fornecedor". Esta Sprint irá guiá-lo sobre como criar ações de dados para se conectar a URLs externas a partir de sua tela DV.
 
 ## Criando a data action
 >**Nota:** Você deve ter a função **DV Content Author** para executar as seguintes etapas.
@@ -50,4 +50,4 @@ Parabéns, você aprendeu com sucesso como criar Data Actions para se conectar a
 ## Reconhecimentos
 * **Autor** - Thea Lazarova, Solution Engineer, North America Specialist Hub
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Outubro 2022
+* **Última Atualização** - Isabel Giannecchini,  Outubro 2022
