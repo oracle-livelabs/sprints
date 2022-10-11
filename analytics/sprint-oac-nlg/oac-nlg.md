@@ -2,8 +2,6 @@
 
 Duration: 1 minute
 
-[](youtube:EQ6XLM7WBP4)
-
 Oracle Analytics Cloud has powerful augmented analytics capabilities. For example, with Natural Language Generation, the underlying machine learning algorithm can give you a natural language explanation of your visualizations with just a click of a button.
 
 ### Situation
