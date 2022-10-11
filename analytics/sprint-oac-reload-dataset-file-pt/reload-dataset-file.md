@@ -53,5 +53,5 @@ Parabéns! Você acabou de atualizar seus dados no Oracle Analytics Cloud!
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
-* **Tradução** - Isabel Giannecchini, Cloud Engineer, Brazil Data & AI Team
+* **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
 * **Última Atualização** - Isabel Giannecchini,  Outubro 2022

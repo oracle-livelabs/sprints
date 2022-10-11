@@ -43,5 +43,5 @@ Parabéns! Você acabou de aprender a criar uma narrativa em linguagem natural d
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
-* **Tradução** - Isabel Giannecchini, Cloud Engineer, Brazil Data & AI Team
+* **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
 * **Última Atualização** - Isabel Giannecchini,  Outubro 2022
