@@ -2,11 +2,11 @@
 
 Duração: 3 minutos
 
-É importante mudar a paleta de cores e manter as cores consistentes. Demasiadas cores brilhantes ou escuras exigem atenção e rapidamente se tornam visualmente extenuantes.
+É importante mudar a paleta de cores e manter as cores consistentes. Cores brilhantes ou escuras exigem atenção e rapidamente se tornam visualmente extenuantes.
 
    ![No Insights](images/color-redwood-vs-neon.png)
 
-Sua paleta de cores é compartilhada em todas as visualizações na tela, portanto, se você mudar as cores para um data point em uma visualização, então ela aparece também nas outras visualizações. Este Sprint mostrará como mudar a paleta de cores e gerenciar a atribuição de cores.
+Sua paleta de cores é compartilhada em todas as visualizações na tela, portanto, se você mudar as cores para um dado em uma visualização, então ela aparece também nas outras visualizações. Esta Sprint mostrará como mudar a paleta de cores e gerenciar a atribuição de cores.
 
 ## Mudar a paleta de cores
 
@@ -21,7 +21,7 @@ O tema padrão para OAC é Redwood, o que facilita muito a leitura de dados, gra
 
    ![Workbook Properties Color](images/workbook-properties-color.png)
 
-3. Experimente diferentes combinações de cores até criar uma paleta que se adapte ao tema da sua pasta de trabalho. Qualquer alteração feita sempre pode ser redefinida usando o botão **Reset Colors** para reverter para as cores originais. Cada paleta de cores contém 12 cores que você pode aplicar a uma visualização. Você também pode **Duplicate Palette** e editar as cores por conta própria.
+3. Experimente diferentes combinações de cores até criar uma paleta que se adapte ao tema da sua pasta de trabalho. Qualquer alteração feita sempre pode ser redefinida usando o botão **Reset Colors** para reverter às cores originais. Cada paleta de cores contém 12 cores que você pode aplicar a uma visualização. Você também pode **Duplicate Palette** e editar as cores por conta própria.
 
     ![Reset Colors](images/reset-colors.png)   
 
@@ -56,14 +56,14 @@ Parabéns! Você acabou de aprender a alterar a paleta de cores e atribuir cores
 
 
 ## Saiba Mais
-* [Change the Color Palette](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/apply-color-visualizations.html#GUID-408A711F-6C66-4126-BBFF-46926128A91D)
-* [Redwood – the exciting new face of Oracle Analytics](https://blogs.oracle.com/analytics/post/redwood-is-coming-to-oracle-analytics)
-* [Alternative Color Strategies for the New Redwood Theme in OAC](https://vlamis.com/alternative-color-strategies-for-the-new-redwood-theme-in-oac/)
+* [Mude a paleta de cores](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/apply-color-visualizations.html#GUID-408A711F-6C66-4126-BBFF-46926128A91D)
+* [Redwood – a nova cara do Oracle Analytics](https://blogs.oracle.com/analytics/post/redwood-is-coming-to-oracle-analytics)
+* [Estratégia de cores alternativas para o novo tema Redwood em OAC](https://vlamis.com/alternative-color-strategies-for-the-new-redwood-theme-in-oac/)
 * [ColorBrewer website](http://colorbrewer2.org/)
-*[Colors for data scientists](https://medialab.github.io/iwanthue/)
-* [W3 Schools Color Picker](https://www.w3schools.com/colors/colors_picker.asp)
+* [Cores para data scientists](https://medialab.github.io/iwanthue/)
+* [W3 Schools - Ferramenta Color Picker](https://www.w3schools.com/colors/colors_picker.asp)
 
 ## Reconhecimentos
 * **Autor** - Lucian Dinescu, Product Strategy, Analytics
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Setembro 2022
+* **Última Atualização** - Isabel Giannecchini,  Outubro 2022
