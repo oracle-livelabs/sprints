@@ -2,6 +2,8 @@
 
 Duration: 2 minutes
 
+[](youtube:CQtRVX2E2E4)
+
 With Oracle Analytics Cloud, you can connect to a variety of data sources, including private data sources.
 
 ### Scenario
