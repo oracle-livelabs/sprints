@@ -1,11 +1,12 @@
 # Como posso criar cálculos avançados no Oracle Analytics Cloud (OAC)?
+
 Duração: 3 minutos
 
 A criação de cálculos avançados pode ser uma ferramenta eficaz para preencher rapidamente as visualizações. Ao criar visualizações, os cálculos automatizados podem ser rapidamente salvos para posterior reimplantação.  A partir de maio de 2022, o OAC permite uma análise poderosa de slice and dice com qualquer medida utilizando estes objetos calculados.
 
 ## Cálculos Avançados
 
->**Nota:** Você deve ter a função **DV Content Author** para executar as seguintes etapas.
+>**Nota:** Você deve ter o cargo **DV Content Author** para executar as seguintes etapas.
 
 ### Personalize Manualmente
 Os cálculos avançados podem ser definidos rapidamente, usando um script personalizável.
@@ -60,12 +61,12 @@ Outra maneira de povoar a página de cálculo é predefinindo clusters ou outlie
 
 ## Saiba Mais
 
-* [Easily Create Custom Advanced Analytics Calculations in Oracle Analytics (Video)](https://www.youtube.com/watch?v=aRfYn2hB-Jg)
-* [OAC updates](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html#ACSWN-GUID-CFF90F44-BCEB-49EE-B40B-8D040F02D476)
-* [Two ways to create custom calculations in Oracle Analytics](https://blogs.oracle.com/analytics/post/two-ways-to-create-custom-calculations-in-oracle-analytics)
+* [Crie Cálculos Avançados facilmente com em Oracle Analytics (Video)](https://www.youtube.com/watch?v=aRfYn2hB-Jg)
+* [Atualizações OAC](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acswn/index.html#ACSWN-GUID-CFF90F44-BCEB-49EE-B40B-8D040F02D476)
+* [Duas formas de criar cálculos customizados em Oracle Analytics](https://blogs.oracle.com/analytics/post/two-ways-to-create-custom-calculations-in-oracle-analytics)
 
 ## Reconhecimentos
 
 * **Autor** - Nicholas Cusato, Solution Engineer, Santa Monica Specialists Hub
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Outubro 2022
+* **Última Atualização** - Isabel Giannecchini,  Outubro 2022

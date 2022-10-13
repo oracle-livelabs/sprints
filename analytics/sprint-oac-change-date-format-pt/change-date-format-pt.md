@@ -2,11 +2,11 @@
 
 Duração: 1 minuto
 
-Quando você trabalha com colunas de datas no Oracle Analytics Cloud, há muitas alterações que você pode fazer. Você tem a capacidade de extrair partes de sua data, como dias, meses, trimestres e anos, assim como alterar o formato de sua data. Neste Sprint, aprenderemos como alterar o formato de exibição de nossas colunas de data no Oracle Analytics Cloud.
+Quando você trabalha com colunas de datas no Oracle Analytics Cloud, há muitas alterações que você pode fazer. Você pode extrair sua data com diferentes precisões, como dias, meses, trimestres e anos, assim como alterar o formato de sua data. Neste Sprint, aprenderemos como alterar o formato de exibição de nossas colunas de data no Oracle Analytics Cloud.
 
 ## Alterar o formato de data
 
->**Nota:** Você deve ter a função **DV Content Author** para executar as seguintes etapas.
+>**Nota:** Você deve ter o cargo **DV Content Author** para executar as seguintes etapas.
 
 1. Em sua pasta de trabalho, abra o editor do conjunto de dados clicando em **Dados*** e depois clicando no ícone **Lápis*** do conjunto de dados que você deseja editar.
 
@@ -27,9 +27,9 @@ Quando você trabalha com colunas de datas no Oracle Analytics Cloud, há muitas
 Parabéns, você aprendeu como alterar o formato padrão de exibição da data de uma data no Oracle Analytics Cloud (OAC)!
 
 ## Saiba mais
-* [Adjust the Display Format of a Date or Number Column](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/adjust-display-format-date-or-number-column.html)
+* [Ajuste a formatação de Datas ou Números](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/adjust-display-format-date-or-number-column.html)
 
 ## Reconhecimentos
 * **Autor** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Outubro 2022
+* **Última Atualização** - Isabel Giannecchini,  Outubro 2022
