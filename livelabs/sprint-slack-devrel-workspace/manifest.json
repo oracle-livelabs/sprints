@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I sign in to OracleDevRel slack workspace?",
+         "description": "",
+         "filename": "devrel.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
