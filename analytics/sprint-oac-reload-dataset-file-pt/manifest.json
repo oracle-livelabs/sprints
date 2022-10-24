@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como atualizar datasets em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a atualizar datasets em OAC!",
+         "filename": "reload-dataset-file.md"
+      },
+      {
+         "title": "Como compartilhar meus datasets em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda duas formas de compartilhar datasets in OAC!",
+         "filename": "../sprint-oac-share-datasets-pt/sprint-oac-share-datasets.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

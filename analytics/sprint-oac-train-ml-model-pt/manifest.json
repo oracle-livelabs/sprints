@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como treinar um modelo de machine learning no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a treinar um modelo de machine learning no OAC usando o Data Flow",
+         "filename": "train-ml-model.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
