@@ -2,8 +2,6 @@
 
 Duration: 4 minutes
 
-[](youtube:Pp1pXFlbMG0)
-
 When working with FAW, there may be scenarios where your Data Pipeline has been disabled. One instance may be when the FAWService password is incorrect. After the underlying issue is fixed, one can re-enable the pipeline from within the Data Configuration settings in FAW.
 
 ## Re-Enable Data Pipeline
