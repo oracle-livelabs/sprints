@@ -8,7 +8,7 @@ The OCI Console is where you can accomplish most administrative tasks for OAC. Y
 
 
 ### View or Update OAC Processing Capacity using the Console
->**Note:** You must have access to the OCI Console to successfully complete this Sprint.
+>**Note:** You must either have the **Cloud Account Administrator** role with full administrative privileges in OCI or you must be part of a group with **Manage Analytics-Instances** permission for the compartment where your OAC instance is.
 
 1. Sign in to your Oracle Cloud account.
 
