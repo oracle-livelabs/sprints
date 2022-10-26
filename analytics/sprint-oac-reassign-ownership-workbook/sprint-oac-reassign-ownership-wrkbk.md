@@ -2,6 +2,8 @@
 
 Duration: 1 minute
 
+[](youtube:JhUGmiDG28Q)
+
 As a BI Service Administrator in OAC, one of the privileges you have is the ability to reassign content to other users. For example, when someone in your team leaves the organization, you can reassign the ownership of the content owned by said user to another user or yourself within your team.
 
 ## Reassign ownership of a workbook
