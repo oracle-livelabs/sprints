@@ -1,8 +1,8 @@
-# Como ativar a opção Análise de Banco de Dados dentro do fluxo de dados na Oracle Analytics Cloud (OAC)?
+# How do I enable the Database Analytics option within the Data Flow in Oracle Analytics Cloud (OAC)?
 
-Duração: 2 minutos
+Duration: 2 minutes
 
-Ao trabalhar com o fluxo de dados no Oracle Analytics Cloud, você tem a opção de aproveitar o poder das funções do Oracle Database Analytics. As duas funções de banco de dados a que você tem acesso são Análise de Banco de Dados e Análise Gráfica.
+When working with the Data Flow in Oracle Analytics Cloud, you have the option to leverage the power of Oracle Database Analytics functions. The two database functions you have access to are Database Analytics and Graph Analytics.
 
 * **Database Analytics**: enable you to perform advanced analysis and data mining analysis  
 * **Graph Analytics**: enable you to perform geo-spatial analysis
