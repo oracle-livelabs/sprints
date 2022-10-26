@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "sprints-clone",
+		"cSpell.words": [
+			"Alexey",
+			"Blaha",
+			"dcat",
+			"Filanovskiy",
+			"IDCS",
+			"Lauran",
+			"Livelabs",
+			"moviestream",
+			"ocid",
+			"Petr",
+			"queryserviceproject",
+			"Ramkissoon",
+			"Ravi",
+			"Serhal"
+		]
+	}
+}
