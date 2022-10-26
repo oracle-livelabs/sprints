@@ -1,8 +1,6 @@
 # How do I change the ADW Admin password in Fusion Analytics Warehouse (FAW)?
 Duration: 1 minute
 
-[](youtube:p5YNt9f1n8I)
-
 By default, the person who creates the Fusion Analytics Warehouse (FAW) instance is granted the Administrator role and is responsible for providing the ADW password. When users have left your organization or switched roles, you may want to update your ADW credentials.
 
 As a best practice, if your organization requires someone other than the person who created the FAW instance to handle ADW passwords -- e.g. a DBA, then that person should be granted the ability to change or update the ADW password.
