@@ -2,9 +2,9 @@
 
 Duration: 2 minutes
 
-[](youtube:CQtRVX2E2E4)
-
 With Oracle Analytics Cloud, you can connect to a variety of data sources, including private data sources.
+
+[](youtube:CQtRVX2E2E4)
 
 ### Scenario
 You want to connect to your local database, but **Database Connection** doesn't have the **Use Remote Data Connectivity** option check box. In this Sprint, we will learn how to enable Remote Data Connectivity to allow us to connect to local databases.
