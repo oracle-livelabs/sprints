@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a KPI in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to get started in FAW by creating KPIs.",
+         "filename": "create-kpi.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
