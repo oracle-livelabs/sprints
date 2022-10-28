@@ -127,7 +127,13 @@ If you want more control over the how the dynamic group and the access policy wi
 
     ![The fourth page of the wizard.](./images/wizard-page-4.png " ")
 
-    A message is displayed in the **Create Dynamic Group and Access Policies** section indicating that the dynamic group and the policy are successfully created. You can click the links associated with the dynamic group or the policy to display their details. The **Create Query Service project** panel is re-displayed. Usually, the next step would be to create the project; however, in this sprint, you already did that in the earlier section.
+    A message is displayed in the **Create Dynamic Group and Access Policies** section indicating that the dynamic group and the policy are successfully created. You can click the links associated with the dynamic group or the policy to display their details. The **Create Query Service project** panel is re-displayed.
+
+    Based on our selections in the wizard in the above example, the following policy statements were added to the new access policy:
+
+    ![The policy statements.](./images/policy-statements.png " ")
+
+    Usually, the next step would be to create the project; however, in this sprint, you already did that in the earlier section.
 
 ## Work with Query Service Projects
 
