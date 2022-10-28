@@ -38,7 +38,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
 6. In the **Connect Data Catalog** section, you have two options:
 
-    * **Option 1:** The **Associate Data Catalog Instance** checkbox is selected by default. This enables you to select a Data Catalog instance in your compartment that you want to associate with your new Query Service project.
+    * **Option 1:** The **Associate Data Catalog Instance** checkbox is de-selected by default. You can select this checkbox to select a Data Catalog instance in your compartment that you want to associate with your new Query Service project.
 
           ![The Associate Data Catalog Instance checkbox is selected. The DataLake Data Catalog instance in the selected compartment is selected.](./images/associate-dcat-default.png " ")
 
@@ -46,7 +46,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
           If a Data Catalog instance is selected, Query Service is automatically synchronized with the Data Catalog instance. It synchronizes (links) the metadata in your Data Catalog instance and creates schemas that correspond to buckets in your harvested data assets. Query Service also creates the external tables in those schemas that correspond to the logical data entities that were harvested in the Data Catalog instance.
 
-    * **Option 2:** If you don't want to associate an existing Data Catalog instance with this new project, keep the **Associate Data Catalog Instance** checkbox unchecked. For this project, uncheck this checkbox.
+    * **Option 2:** If you don't want to associate an existing Data Catalog instance with this new project, keep the **Associate Data Catalog Instance** checkbox unchecked. For this project, we will keep it unchecked.
 
         ![The Associate Data Catalog Instance checkbox is unchecked.](./images/uncheck-associate-dcat-box.png " ")
 
@@ -72,7 +72,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
     ![The newly created Query Service project is displayed with an Active state.](./images/new-qs-project.png " ")
 
-## Create a Dynamic Group and an Access Policy
+## Create a Customized Dynamic Group and an Access Policy
 
 As mentioned earlier, when you use the **Create a Dynamic Group and an Access Policy** section, you have two options.
 
@@ -100,34 +100,34 @@ If you decide not to proceed with creating your project and click **Cancel** ins
 
 If you want more control over the how the dynamic group and the access policy will be created, click the **Customize group and access policy** link to display the **Customize Project Group and Access Policy** wizard. The four wizard's steps are described next.
 
-* **Set up a dynamic group**: Use this wizard step to customize the dynamic group policy's name, description, the matching rule, and then click **Next**.
+* **Step 1: Set up a dynamic group**: Use this step to customize the dynamic group policy's name, description, the matching rule, and then click **Next**.
 
     ![The first page of the wizard.](./images/wizard-page-1.png " ")
 
-* **Set up policies for storing results:** _This is an optional step if you don't want to save the results of your queries_. Select the compartments and buckets where you want to store your queries' results, and then click **Next**.
-
+* **Step 2: Set up policies for data being queried**: _This is an optional step if you are only accessing data in public buckets_. Select the compartments and buckets that contain the data that you want to query, and then click **Next**.
     * In the **Compartments** tab, select the parent compartment from the drop-down list to display its sub-compartments that contain the buckets where you would like to store your query results. To select a compartment, click **Select** next the compartment's name. The selected compartment is displayed in the **Selected compartments** section.
 
-        ![The compartment tab in the second page of the wizard.](./images/page-2-compartment-tab.png " ")
+        ![The compartment tab in the third page of the wizard.](./images/page-2-new-compartment-tab.png " ")
 
     * Click the **Buckets** tab to select the bucket(s) in the compartments that you selected in the **Compartments** tab. These are the buckets where you'd like to save the results of your queries. To select a bucket, click **Select** next the bucket's name. The selected bucket is displayed in the **Selected buckets** section.
 
-        ![The bucket tabs of the second page of the wizard.](./images/wizard-page-2-buckets-tab.png " ")
+        ![The buckets tab in the second page of the wizard.](./images/wizard-page-2-new-buckets-tab.png " ")
 
-* **Set up policies for data being queried:** _This is an optional step if you are only accessing data in public buckets_. Select the compartments and buckets that contain the data that you want to query, and then click **Next**.
+* **Step 3: Set up policies for storing results**: _This is an optional step if you don't want to save the results of your queries_. Select the compartments and buckets where you want to store your queries' results, and then click **Next**.
+
     * In the **Compartments** tab, select the parent compartment from the drop-down list to display its sub-compartments that contain the buckets where you would like to store your query results. To select a compartment, click **Select** next the compartment's name. The selected compartment is displayed in the **Selected compartments** section.
 
-        ![The compartment tab in the third page of the wizard.](./images/page-3-compartment-tab.png " ")
+        ![The compartment tab in the second page of the wizard.](./images/page-3-compartment-tab.png " ")
 
     * Click the **Buckets** tab to select the bucket(s) in the compartments that you selected in the **Compartments** tab. These are the buckets where you'd like to save the results of your queries. To select a bucket, click **Select** next the bucket's name. The selected bucket is displayed in the **Selected buckets** section.
 
-        ![The buckets tab in the second page of the wizard.](./images/wizard-page-3-buckets-tab.png " ")
+        ![The bucket tabs of the second page of the wizard.](./images/wizard-page-3-buckets-tab.png " ")
 
-* **Review auto-generated Policy:** Review the details of the auto-generated policy statements. Click **Previous** to return to the previous pages in the wizard to make any changes. When done, click **Create Policy**.
+* **Step 4: Review auto-generated Policy**: Review the details of the auto-generated policy statements. Click **Previous** to return to the previous pages in the wizard to make any changes. When done, click **Create Policy**.
 
     ![The fourth page of the wizard.](./images/wizard-page-4.png " ")
 
-    A message is displayed in the **Create Dynamic Group and Access Policies** section indicating that the dynamic group and the policy are successfully created. You can click the links associated with the dynamic group or the policy to display their details.
+    A message is displayed in the **Create Dynamic Group and Access Policies** section indicating that the dynamic group and the policy are successfully created. You can click the links associated with the dynamic group or the policy to display their details. The **Create Query Service project** panel is re-displayed. Usually, the next step would be to create the project; however, in this sprint, you already did that in the earlier section.
 
 ## Work with Query Service Projects
 
