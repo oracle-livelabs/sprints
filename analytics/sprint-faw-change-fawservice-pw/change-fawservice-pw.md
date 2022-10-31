@@ -6,6 +6,8 @@ When you get your Oracle Applications Cloud instance provisioned, you'll see a p
 
 You'll want to update the default password into something that is unique, ensuring it meets all of your company's password policy. This password is required if you decide to update the data source connection details or if you want to create a new FAW instance.
 
+[](youtube:r4EKpkEmVC8)
+
 ## Update the FAWService user's password
 
 You **must** have access to the **security console** in Fusion Applications to successfully complete this Sprint.
