@@ -29,7 +29,7 @@ If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 
     ![OAC Console Maps adding background](images/oac-console-maps-add-background.png)
 
-5. Google Maps requires an API key as credentials to create the map background. We paste our API key into the **Key** field and give the map a description. If you are using a different mapping service, you may need to provide a URL instead. We are also given the option to specify account type and default map type. Click **Save** and you should see your background added to the list of available map backgrounds.
+5. Google Maps requires an API key as credentials to create the map background. We paste our API key into the **Key** field and give the map a description. If you are using a different mapping service, you may need to provide a URL/API instead. We are also given the option to specify account type and default map type. Click **Save** and you should see your background added to the list of available map backgrounds.
 
     ![OAC create custom map background](images/oac-add-map-background.png)
 
@@ -65,6 +65,10 @@ Congratulations, you have just learned how to add a custom map background in Ora
 
 * [Create a Map View of Your Data](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-create-map-view-of-data/#before_you_begin)
 * [Enhance Visualizations with Map Backgrounds](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/enhance-visualizations-map-backgrounds.html)
+
+## Acknowledgements
+* **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
+* **Last Updated By/Date** - Miles Novotny, August 2022 Backgrounds](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/enhance-visualizations-map-backgrounds.html)
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
