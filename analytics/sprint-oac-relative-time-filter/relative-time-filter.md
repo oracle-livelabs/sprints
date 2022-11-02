@@ -1,4 +1,4 @@
-# How do I create a relative time filter in Oracle Analytics Cloud (OAC)?
+# How do I create a relative time filter in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 1 minute
 
@@ -34,7 +34,7 @@ When working with date columns in your dataset within Oracle Analytics Cloud, yo
 
     **Time Level** lets you choose the granularity of the time from years up to seconds.
 
-Congratulations, you have learned how to create a relative time filter in Oracle Analytics Cloud (OAC)!
+Congratulations, you have learned how to create a relative time filter in Oracle Analytics Cloud and Server (OAC & OAS)!
 
 ## Learn more
 
