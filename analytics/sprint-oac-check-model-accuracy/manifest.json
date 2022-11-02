@@ -3,13 +3,13 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I check a machine learning model's accuracy in Oracle Analytics Cloud (OAC)?",
+         "title": "How do I check a machine learning model's accuracy in Oracle Analytics Cloud and Server (OAC & OAS)?",
          "description": "Learn how to check the accuracy of a machine learning model in OAC by looking at or creating your own metrics.",
          "filename": "./oac-check-model-accuracy.md"
       },
       {
-         "title": "How do I train a machine learning model in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to train a machine learning model in OAC using the Data Flow.",
+         "title": "How do I train a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to train a machine learning model using the Data Flow.",
          "filename": "../sprint-oac-train-ml-model/train-ml-model.md"
       }
    ],

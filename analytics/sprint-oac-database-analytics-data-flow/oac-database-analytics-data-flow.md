@@ -1,4 +1,4 @@
-# How do I enable the Database Analytics option within the Data Flow in Oracle Analytics Cloud (OAC)?
+# How do I enable the Database Analytics option within the Data Flow in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 2 minutes
 
@@ -18,7 +18,7 @@ If you are working with a dataset in Data Flow and you are not seeing the Databa
   >**Note:** The Database Analytics option is only available in Data Flow if your data source is an Oracle Autonomous Database or an Oracle Database.
   You must have the **DV Content Author** application role to execute the following steps.
 
-1. On you OAC homepage, click **Create** and select **Data Flow**.
+1. On you Oracle Analytics homepage, click **Create** and select **Data Flow**.
 
    ![Create Data Flow](images/create-data-flow.png)
 
@@ -37,7 +37,7 @@ If you are working with a dataset in Data Flow and you are not seeing the Databa
 
   ![Create Data Flow Step](images/dataflow-steps.png)  
 
-Congratulations! You have just learned how to enable **Database Analytics** functions and **Graph Analytics** with your **OAC Data Flow**.
+Congratulations! You have just learned how to enable **Database Analytics** functions and **Graph Analytics** in your **Oracle Analytics Data Flow**.
 
 
 ## Learn More

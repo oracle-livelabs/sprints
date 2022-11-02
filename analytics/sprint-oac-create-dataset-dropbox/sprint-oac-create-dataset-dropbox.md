@@ -1,4 +1,4 @@
-# How do I create a dataset using Dropbox in Oracle Analytics Cloud (OAC)?
+# How do I create a dataset using Dropbox in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 3 minutes
 
 You can create a dataset from Dropbox by creating a connection in Oracle Analytics Cloud.
@@ -30,7 +30,7 @@ You can create a dataset from Dropbox by creating a connection in Oracle Analyti
 
     ![Dropbox App](images/dropbox-oauth.png)
 
-7. The result will populate the **App key** and the **App secret**. Copy and paste the App key into the **Client ID** field and the App secret into the **Client Secret** in the OAC **Create Connection** dialogue box.
+7. The result will populate the **App key** and the **App secret**. Copy and paste the App key into the **Client ID** field and the App secret into the **Client Secret** in the OAC/OAS **Create Connection** dialogue box.
 
     >**Note:** You will need to paste the **Redirect URL** from OAC's create connection window.
 
@@ -51,7 +51,7 @@ You can create a dataset from Dropbox by creating a connection in Oracle Analyti
 
     ![OAC datasets from drive](images/drive-updated.png)
 
-Congratulations! You have successfully learned how to create a dataset using Dropbox in Oracle Analytics Cloud.
+Congratulations! You have successfully learned how to create a dataset using Dropbox in Oracle Analytics Cloud and Server (OAC & OAS).
 
 ## Learn More
 

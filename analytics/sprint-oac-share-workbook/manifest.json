@@ -3,16 +3,16 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I share a workbook in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to share worksbooks in Oracle Analytics Cloud (OAC)!",
+         "title": "How do I share a workbook in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to share worksbooks!",
          "filename": "./oac-share-workbook.md"
       },
       {
-         "title": "How do I share my dataset in OAC?",
-         "description": "Learn how to share your datasets in OAC!",
+         "title": "How do I share my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to share your datasets!",
          "filename": "../sprint-oac-share-datasets/sprint-oac-share-datasets.md"
       }
    ],
-   "task_type": "Sections", 
+   "task_type": "Sections",
  "hide_button": "true"
 }
