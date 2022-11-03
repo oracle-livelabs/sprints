@@ -1,13 +1,13 @@
 # How do I use the Explain functionality in Oracle Analytics Cloud (OAC)?
 Duration: 3 minutes
 
-The One-Click Explain functionality of OAC is a powerful tool that uses machine learning
+The Explain functionality of OAC is a powerful tool that uses machine learning
 to uncover insights about variables of interest in your data. These findings can be added to
 your workbook with the click of a button, greatly accelerating the rate at which you can
-learn about your data and visualize your findings. One-Click Explain is a tool that users
+learn about your data and visualize your findings. Explain is a tool that users
 of all skill levels can leverage.
 
-## Using One-Click Explain on your data.
+## Using Explain on your data.
 >**Note:** You must have the **DV Content Author** role in order to complete the following steps.
 
 
@@ -19,26 +19,26 @@ from the homepage and skip to step 3.
 
 2. Choose the dataset that you would like to analyze with the explain feature, then click **Add to Workbook**
 
-    ![OAC Homepage](images/2-choose-dataset.png)
+    ![OAC choose dataset](images/2-choose-dataset.png)
 
-3. Your data is now open in a workbook and ready to have the explain feature used on it. Simply choose a variable which
+3. Your data is now open in a workbook and ready to have the Explain feature used on it. Simply choose a variable which
 you would like to have explained, right click on it and choose **Explain**
 
-    ![OAC Homepage](images/3-select-variable.png)
+    ![OAC workbook choose variable](images/3-select-variable.png)
 
 4. The Explain feature presents you with information about your variable divided up into four sections.
 These sections are **Basic Facts**, **Key Drivers**, **Segments**, and **Anomalies**. Click on each section to view its insights. You may note that all four of these sections do not appear for the variable that you chose to explain. This may be because the **Segments** section only appears for variables that are attributes, and the **Anomalies** section only appears for  variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
 
-    ![OAC Homepage](images/4-explain-variable.png)
+    ![OAC explain](images/4-explain-variable.png)
 
-5. If you find any of these visualizations insightful, you can add them to your canvas by clicking the
+5. If you find any of the visualizations created by Explain insightful, you can add them to your canvas by clicking the
 check mark in their top right corner, then choosing **Add Selected**
 
-    ![OAC Homepage](images/5-add-explain-visuals.png)
+    ![OAC explain choose visuals](images/5-add-explain-visuals.png)
 
 6. The visualizations that you chose can now be interacted with on your canvas.
 
-    ![OAC Homepage](images/6-view-explain-visuals.png)
+    ![OAC explain visuals](images/6-view-explain-visuals.png)
 
 Congratulations, you have just learned how to use the Explain feature in Oracle Analytics Cloud!
 
