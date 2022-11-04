@@ -1,6 +1,6 @@
 # How do I create a Query Service project?
 
-Duration: 10 minutes
+Duration: 15 minutes
 
 In this sprint, you will learn how to create a Query Service project.
 
@@ -171,4 +171,4 @@ If you want more control over the how the dynamic group and the access policy wi
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, October 2022
+* **Last Updated By/Date:** Lauran Serhal, November 2022

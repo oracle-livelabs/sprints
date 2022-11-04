@@ -131,4 +131,4 @@ file that is stored in a private Object Storage bucket, you will need read acces
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, August 2022
+* **Last Updated By/Date:** Lauran Serhal, November 2022
