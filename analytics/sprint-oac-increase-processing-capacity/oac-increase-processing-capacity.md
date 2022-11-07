@@ -6,6 +6,7 @@ When working with Oracle Analytics Cloud, you can leverage the platform's scalab
 
 The OCI Console is where you can accomplish most administrative tasks for OAC. You can access services and update instance details using the Console, API, or command line. In this document, we'll be using the OCI Console.
 
+[](youtube:z7FWKmGE6Z4)
 
 ### View or Update OAC Processing Capacity using the Console
 >**Note:** You must either have the **Cloud Account Administrator** role with full administrative privileges in OCI or you must be part of a group with **Manage Analytics-Instances** permission for the compartment where your OAC instance is.

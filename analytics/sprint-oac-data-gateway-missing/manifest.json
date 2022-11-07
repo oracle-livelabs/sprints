@@ -3,11 +3,11 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I connect with private data sources using OAC-Professional edition in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to connect to private data sources using OAC-Professional edition!",
+         "title": "How do I connect with private data sources using OAC/OAS-Professional edition in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to connect to private data sources!",
          "filename": "sprint-oac-data-gateway-missing.md"
       }
    ],
-   "task_type": "Sections", 
+   "task_type": "Sections",
  "hide_button": "true"
 }

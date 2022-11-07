@@ -3,11 +3,11 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I create a relative time filter in Oracle Analytics Cloud (OAC)?",
+         "title": "How do I create a relative time filter in Oracle Analytics Cloud and Server (OAC & OAS)?",
          "description": "Learn how to create a relative time filter in OAC!",
          "filename": "relative-time-filter.md"
       }
    ],
-   "task_type": "Sections", 
+   "task_type": "Sections",
  "hide_button": "true"
 }

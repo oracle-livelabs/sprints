@@ -1,4 +1,4 @@
-# How do I apply custom map layers to my datasets in Oracle Analytics Server (OAS)?
+# How do I apply custom map layers to my datasets in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 3 minutes
 
 Custom map layers are a unique way to leverage the geo spatial capabilities of Oracle Analytics and add another level of customization when using your own image. Oracle Analytics automatically suggests map visualizations based on the key column in your datasets, but you can also choose a map layer to be applied each time. This is especially helpful if you have multiple map layers that may apply to your given data set or multiple workbooks that use the same dataset.

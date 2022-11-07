@@ -1,4 +1,4 @@
-# How do I create data actions to connect to external URLs from Visualization Canvases?
+# How do I create data actions to connect to external URLs from Visualization Canvases in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 3 minutes
 
@@ -7,7 +7,7 @@ When you click on a specific data column, you have the option to direct the user
 ## Creating the data action
 >**Note:** You must have the **DV Content Author** application role to successfully complete this action.
 
-1. In your OAC homepage, select the workbook you want to create a data action for and click the **Actions menu** when hovering your mouse over the workbook. Click **Open**.
+1. In your Oracle Analytics homepage, select the workbook you want to create a data action for and click the **Actions menu** when hovering your mouse over the workbook. Click **Open**.
 
     ![workbook](images/workbook-home-page.png)
 
