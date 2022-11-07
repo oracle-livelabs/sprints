@@ -109,7 +109,7 @@ If you want more control over the how the dynamic group and the access policy wi
 
         ![The compartment tab in the third page of the wizard.](./images/page-2-new-compartment-tab.png " ")
 
-    * Click the **Buckets** tab to select the bucket(s) in the compartments that you selected in the **Compartments** tab. These are the buckets where you'd like to save the results of your queries. To select a bucket, click **Select** next the bucket's name. The selected bucket is displayed in the **Selected buckets** section.
+    * Click the **Buckets** tab to select the bucket(s) in the compartments that you selected in the **Compartments** tab. These are the buckets where you'd like to save the results of your queries. To select a bucket, click **Select** next the bucket's name. The selected bucket is displayed in the **Selected buckets** section. Click **Next**.
 
         ![The buckets tab in the second page of the wizard.](./images/wizard-page-2-new-buckets-tab.png " ")
 
@@ -123,7 +123,7 @@ If you want more control over the how the dynamic group and the access policy wi
 
         ![The bucket tabs of the second page of the wizard.](./images/wizard-page-3-buckets-tab.png " ")
 
-* **Step 4: Review auto-generated Policy**: Review the details of the auto-generated policy statements. Click **Previous** to return to the previous pages in the wizard to make any changes. When done, click **Create Policy**.
+* **Step 4: Review auto-generated Policy**: Review the details of the auto-generated policy statements along with any changes that you might have made. Click **Previous** to return to the previous pages in the wizard to make any changes. When done, click **Save Changes**. To exit the wizard without saving your changes, click **Cancel**.
 
     ![The fourth page of the wizard.](./images/wizard-page-4.png " ")
 
