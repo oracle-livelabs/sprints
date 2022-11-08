@@ -45,7 +45,7 @@ Congratulations, you have just learned how to use the Explain feature in Oracle 
 
 ## Learn More
 
-* [A Detailed Explanation of the Basic Facts, Key Drivers, Segments, and Anomalies sections.](https://docs.oracle.com/en/middleware/bi/analytics-desktop/bidvd/analyze-data-explain.html#GUID-1AE7FFB7-9DA5-40EF-A30A-5DC9DEED3D2D)
+* [A detailed explanation of the Basic Facts, Key Drivers, Segments, and Anomalies sections.](https://docs.oracle.com/en/middleware/bi/analytics-desktop/bidvd/analyze-data-explain.html#GUID-1AE7FFB7-9DA5-40EF-A30A-5DC9DEED3D2D)
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
