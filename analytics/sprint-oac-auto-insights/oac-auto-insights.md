@@ -1,4 +1,4 @@
-# How do I enable Auto Insights with my dataset in Oracle Analytics Cloud (OAC)?
+# How do I enable Auto Insights with my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 3 minutes
 
@@ -10,7 +10,7 @@ The following steps will show you how to enable Auto Insights if it is missing f
 ## Enable Auto Insights
   > **Note:** You must have the **BI Service Administrator** application role to complete the following steps.
 
-1. On the OAC homepage, click the **Navigation menu** and select **Console**.
+1. On your OAC/OAS homepage, click the **Navigation menu** and select **Console**.
 
    ![Console](images/console.png)
 
@@ -19,7 +19,7 @@ The following steps will show you how to enable Auto Insights if it is missing f
    ![System Settings](images/system-settings.png)  
 
 3. Within the System Settings, click on **Performance and Compatibility** and search for **Enable Auto Insights on Datasets**. Toggle the button to enable Auto Insights.
-      > **Note:** in future OAC releases you might find this option enabled by default
+      > **Note:** In future OAC/OAS releases you might find this option enabled by default
 
       ![Enable Auto Insights](images/enable-auto-insights.png)  
 

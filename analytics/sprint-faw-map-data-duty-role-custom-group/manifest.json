@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I map data and duty roles to custom groups in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to map data and duty roles to a custom group in FAW.",
+         "filename": "sprint-faw-map-data-duty-role-custom-group.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}

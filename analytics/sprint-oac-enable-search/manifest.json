@@ -3,15 +3,15 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I enable searching for my dataset in Oracle Analytics Cloud (OAC)?",
+         "title": "How do I enable searching for my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?",
          "description": "Learn how to enable searching for your datasets in OAC!",
          "filename": "./sprint-oac-enable-search.md"
       },
       {
-         "title": "How do I search for the description of a workbook in Oracle Analytics Cloud (OAC)?",
+         "title": "How do I search for the description of a workbook in Oracle Analytics Cloud and Server (OAC & OAS)?",
          "description": "",
          "filename": "../sprint-oac-search-description/oac-search-description.md"
-      } 
+      }
    ],
    "task_type": "Sections",
    "hide_button": "true"

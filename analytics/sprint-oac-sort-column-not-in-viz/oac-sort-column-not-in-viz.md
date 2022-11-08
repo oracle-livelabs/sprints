@@ -1,4 +1,4 @@
-# How do I sort a visualization by a column not used in the visualization in Oracle Analytics Cloud (OAC)?
+# How do I sort a visualization by a column not used in the visualization in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 1 minute
 
@@ -29,12 +29,10 @@ Sorting is a great way to narrow your focus and reorganize your data to easily g
 
     ![Verify sort](images/verify-sort.png)
 
-Congratulations! You just learned how to sort a visualization by a column not used in the visualization in Oracle Analytics Cloud!
+Congratulations! You just learned how to sort a visualization by a column not used in the visualization in Oracle Analytics Cloud and Server (OAC & OAS)!
 
 ## Learn More
-
 * [Sorting Data Visualization Based on Columns not Included in the Visualization](https://www.youtube.com/watch?v=i5m1tLIUxIc)
-
 * [Sort, Drill, and Select Data in Visualizations](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/sort-drill-and-select-data-visualizations.html)
 
 ## Acknowledgements
