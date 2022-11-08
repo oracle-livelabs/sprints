@@ -4,7 +4,7 @@
    "tutorials": [
       {
          "title": "How do I create data actions to connect to external URLs from Visualization Canvases?",
-         "description": "Create data actions to connect to external URLs",
+         "description": "Learn how to create data actions to connect to external URLs.",
          "filename": "data-actions.md"
       }
    ],
