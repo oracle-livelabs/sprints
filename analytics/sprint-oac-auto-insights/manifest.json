@@ -3,11 +3,11 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I enable Auto Insights with my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?",
-         "description": "Learn how to enable Auto Insights for your dataset!",
+         "title": "How do I enable Auto Insights with my dataset in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to enable Auto Insights for your dataset in OAC!",
          "filename": "oac-auto-insights.md"
       }
    ],
-   "task_type": "Sections",
+   "task_type": "Sections", 
  "hide_button": "true"
 }

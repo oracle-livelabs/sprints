@@ -1,4 +1,4 @@
-# How do I add notes to support presenting and storytelling in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I add notes to support presenting and storytelling in Oracle Analytics Cloud (OAC)?
 
 Duration: 3 minutes
 

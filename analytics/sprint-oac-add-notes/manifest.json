@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I add notes to support presenting and storytelling in Oracle Analytics Cloud and Server (OAC & OAS)?",
-         "description": "Learn how to add notes to support presenting and storytelling.",
+         "title": "How do I add notes to support presenting and storytelling in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to add notes to support presenting and storytelling in OAC!",
          "filename": "sprint-oac-add-notes.md"
       }
    ],

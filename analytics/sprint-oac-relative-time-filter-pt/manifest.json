@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como criar filtros de tempo relativos em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a criar filtros de tempo relativos em OAC!",
+         "filename": "relative-time-filter.md"
+      }
+   ],
+   "task_type": "Sections", 
+ "hide_button": "true"
+}
