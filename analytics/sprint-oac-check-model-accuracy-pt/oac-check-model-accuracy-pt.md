@@ -7,8 +7,13 @@ Oracle Analytics Cloud lhe dá a capacidade de não apenas criar facilmente mode
 Os passos seguintes lhe mostrarão como avaliar rápida e efetivamente a precisão de seu modelo no Oracle Analytics Cloud.
 
 ## Verifique a precisão de um modelo de machine learning
+<<<<<<< HEAD
 Primeiro você deve ter treinado um modelo de aprendizagem de máquina no Oracle Analytics Cloud para completar os seguintes passos. Para acessar um guia sobre criação de modelos, veja [here.](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
 >**Nota:** Você deve ter a função **DV Content Author** para executar as seguintes etapas.
+=======
+Primeiro você deve ter treinado um modelo de aprendizagem de máquina no Oracle Analytics Cloud para completar os seguintes passos. Para acessar um guia sobre criação de modelos, [clique aqui.](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
+>**Nota:** Você deve ter o cargo **DV Content Author** para executar as seguintes etapas.
+>>>>>>> 90f6bbc29a31d1b40770f30c0bb6187583958c94
 
 1. A partir da página inicial do OAC, clique em **Machine Learning** e encontre o modelo treinado cuja precisão você gostaria de verificar.
 
@@ -22,7 +27,11 @@ Primeiro você deve ter treinado um modelo de aprendizagem de máquina no Oracle
 
     ![OAC machine learning tab - inspect](images/oac-machinelearning-inspect.png)
 
+<<<<<<< HEAD
 4. Selecione a aba **qualidade** para visualizar as métricas básicas de precisão para seu modelo. As métricas que aparecem dependem do tipo de modelo. Para modelos Binários e Multi Classification, uma matriz de confusão, bem como uma série de métricas de precisão são mostradas. Para modelos de previsão numérica, um gráfico de valores residuais e uma série de métricas de precisão são mostrados.
+=======
+4. Selecione a aba **qualidade** para visualizar as métricas básicas de precisão para seu modelo. As métricas que aparecem dependem do tipo de modelo. Para modelos Binários e  Classificação Múltipla, uma matriz de confusão, bem como uma série de métricas de precisão são mostradas. Para modelos de previsão numérica, um gráfico de valores residuais e uma série de métricas de precisão são mostrados.
+>>>>>>> 90f6bbc29a31d1b40770f30c0bb6187583958c94
 
       >**Nota:** Para modelos de agrupamento, nenhuma informação aparece nesta tela. Continue no próximo passo para aprender como acessar dados de precisão para modelos de clustering.
 
@@ -46,10 +55,19 @@ Parabéns! Você acabou de aprender como verificar a precisão de um modelo de m
 
 ## Saiba mais
 
+<<<<<<< HEAD
 * [Inspect and modify a prediction model](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-inspect-modify-prediction-model/index.html)
 * [What are a predictive model's related datasets?](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-4C55DF0E-7FBB-40B7-8650-71CCCA574F57)
+=======
+* [Inspecione e mude um modelo preditivo](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-inspect-modify-prediction-model/index.html)
+* [O que é um dataset relacionado com um modelo preditivo?](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-4C55DF0E-7FBB-40B7-8650-71CCCA574F57)
+>>>>>>> 90f6bbc29a31d1b40770f30c0bb6187583958c94
 
 ## Reconhecimentos
 * **Autor** - Miles Novotny, Solution Engineer, North America Specialist Hub
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
+<<<<<<< HEAD
 * **Última Atualização** - Isabelle Dias,  Outubro 2022
+=======
+* **Última Atualização** - Isabel Giannecchini,  Outubro 2022
+>>>>>>> 90f6bbc29a31d1b40770f30c0bb6187583958c94
