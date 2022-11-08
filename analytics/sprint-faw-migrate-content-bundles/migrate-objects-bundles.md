@@ -4,6 +4,8 @@ Duration: 1 minute
 
 The bundles feature allows you to package your content in FAW and migrate it to other FAW environments. For example, you can migrate snapshots of OAC folders, projects, dataset definitions, KPIs, decks, and duty roles from your development environment to your test or production environments in a simple and packaged way.
 
+[](youtube:MaPoaBaAYDU)
+
 ## Migrate content using bundles
 >**Note:** You must have the **Service Administrator** role to successfully complete this Sprint.
 

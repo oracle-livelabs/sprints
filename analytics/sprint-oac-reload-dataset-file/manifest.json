@@ -3,13 +3,13 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I reload my dataset files in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to reload your data files in OAC!",
+         "title": "How do I reload my dataset files in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to reload your data files!",
          "filename": "./reload-dataset-file.md"
       },
       {
-         "title": "How do I share my dataset in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn two ways to share your datasets in OAC!",
+         "title": "How do I share my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn two ways to share your datasets!",
          "filename": "../sprint-oac-share-datasets/sprint-oac-share-datasets.md"
       }
    ],

@@ -5,6 +5,7 @@ By default, the person who creates the Fusion Analytics Warehouse (FAW) instance
 
 As a best practice, if your organization requires someone other than the person who created the FAW instance to handle ADW passwords -- e.g. a DBA, then that person should be granted the ability to change or update the ADW password.
 
+[](youtube:p5YNt9f1n8I)
 
 ## Change the ADW Admin password for Fusion Analytics Warehouse
 

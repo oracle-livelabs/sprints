@@ -1,12 +1,11 @@
-# How do I make a custom map layer using an image in Oracle Analytics Server (OAS)?
+# How do I make a custom map layer using an image in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 5 minutes
 
-Custom map layers are a unique way to leverage the geo spatial capabilities of Oracle Analytics.
-Map backgrounds enhance visualizations within your workbooks. Based on the column values of your data, a specific set of dimensions and metrics is displayed on the map visualization. By using your own image background you can create engaging visuals that showcase your data in the context of your business, like visualizing the profit by product section on a top-down map of your store's floorplan.
+Custom map layers are a unique way to leverage the geo spatial capabilities of Oracle Analytics. Map backgrounds enhance visualizations within your workbooks. Based on the column values of your data, a specific set of dimensions and metrics is displayed on the map visualization. By using your own image background you can create engaging visuals that showcase your data in the context of your business, like visualizing the profit by product section on a top-down map of your store's floor plan.
 
 
 ## Create a custom map layer using an image
->**Note:** You must have the **DV Content Author** role to be able to successfully execute the following steps. 
+>**Note:** You must have the **DV Content Author** role to be able to successfully execute the following steps.
 
 1. From the Oracle Analytics homepage, click on the hamburger icon to expand the navigation menu and click on **Console**.
 
@@ -43,7 +42,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Naming features](images/name-feature.png)
 
-9.  Click **Edit** at the top of the page. Then select one of your features in the left hand **Features** table or image background. To adjust the shape of your feature select and drag any of the circled vertices. Unwanted changes can be removed using the undo, redo, and delete buttons in the top right corner. 
+9.  Click **Edit** at the top of the page. Then select one of your features in the left hand **Features** table or image background. To adjust the shape of your feature select and drag any of the circled vertices. Unwanted changes can be removed using the undo, redo, and delete buttons in the top right corner.
 
     ![Editing shapes](images/edit-shape.png)
 

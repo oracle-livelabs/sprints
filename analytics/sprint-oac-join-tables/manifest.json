@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I join two tables in a dataset in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to join multiple tables in a dataset in OAC!",
+         "title": "How do I join two tables in a dataset in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to join multiple tables in a dataset!",
          "filename": "sprint-oac-join-tables.md"
       }
    ],
