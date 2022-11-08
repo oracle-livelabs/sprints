@@ -7,7 +7,7 @@ your workbook with the click of a button, greatly accelerating the rate at which
 learn about your data and visualize your findings. Explain is a tool that users
 of all skill levels can leverage.
 
-## Using Explain on your data.
+## Using Explain on your Data.
 >**Note:** You must have the **DV Content Author** role in order to complete the following steps.
 
 
@@ -17,7 +17,7 @@ from the homepage and skip to step 3.
 
     ![OAC Homepage](images/1-OAC-homepage.png)
 
-2. Choose the dataset that you would like to analyze with the explain feature, then click **Add to Workbook**
+2. Choose the dataset that you would like to analyze with the Explain feature, then click **Add to Workbook**
 
     ![OAC choose dataset](images/2-choose-dataset.png)
 
