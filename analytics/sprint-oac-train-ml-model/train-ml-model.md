@@ -1,4 +1,4 @@
-# How do I train a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS)??
+# How do I train a machine learning model in Oracle Analytics Cloud (OAC)?
 
 Duration: 3 minutes
 
@@ -9,7 +9,7 @@ In this Sprint, we will use Oracle's embedded machine learning algorithms in Ora
 ## Train a machine learning model using Data Flow
 >**Note:** You must have the **DV Content Author** application role to execute the following steps.
 
-1. On the Oracle Analytics homepage, click **Create** and select **Data Flow**.
+1. On the homepage of your OAC instance, click **Create** and select **Data Flow**.
 
     ![Create Data Flow](images/create-df.png)
 
@@ -23,7 +23,7 @@ In this Sprint, we will use Oracle's embedded machine learning algorithms in Ora
 
 4. Now, let's select the model that we want to predict by clicking the **Add a step (+)** icon and choosing the model appropriate for your case. In this example, since our target is Attrition, which is a binary classifier, we select the **Train Binary Classifier** option.
 
-    >**Note:** To learn more about the machine learning models pre-built into Oracle Analytics, click [here.](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-97826D44-5785-48F2-BB1E-4709327ADB8B)
+    >**Note:** To learn more about the machine learning models pre-built into OAC, click [here.](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-97826D44-5785-48F2-BB1E-4709327ADB8B)
 
     ![Choose training model](images/choose-model.png)
 
@@ -48,7 +48,7 @@ In this Sprint, we will use Oracle's embedded machine learning algorithms in Ora
 
      ![Save DF](images/save-df.png)
 
-9. Click **Run Data Flow**. Once your Data Flow runs successfully, navigate back to your homepage.
+9. Click **Run Data Flow**. Once your Data Flow runs successfully, navigate back to your OAC homepage.
 
      ![Run df](images/run-df.png)
 
@@ -60,7 +60,7 @@ In this Sprint, we will use Oracle's embedded machine learning algorithms in Ora
 
      ![Model quality](images/model-quality.png)
 
-Congratulations, you have just learned how to train a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS) using the Data Flow!
+Congratulations, you have just learned how to train a machine learning model in Oracle Analytics Cloud using the Data Flow!
 
 ## Learn More
 * [Create and Train a Predictive Model](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-and-use-oracle-analytics-predictive-models.html#GUID-533DCE34-CBFC-490F-BCAA-A0F99BAB6B10)

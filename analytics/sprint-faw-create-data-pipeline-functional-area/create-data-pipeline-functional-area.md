@@ -4,8 +4,6 @@ Duration: 3 minutes
 
 Creating a data pipeline for a functional area copies data from the functional area into the data warehouse. You can choose to activate the data pipeline immediately or schedule an execution date. Before you begin, make sure you have set up the pipeline parameters and report configurations. To learn how to do this, refer to the related Sprints menu bar.
 
-[](youtube:39Hq54lw6fE)
-
 ## Create and activate new functional areas
 >**Note:** You must have the **Functional Administrator** or **Service Administrator** role to successfully complete this Sprint.
 

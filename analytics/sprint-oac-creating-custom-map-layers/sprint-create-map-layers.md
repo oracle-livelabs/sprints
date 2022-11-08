@@ -1,4 +1,4 @@
-# How do I create a custom map layer using an image in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I create a custom map layer using an image in OAS?
 Duration: 5 minutes
 
 Custom map layers are a unique way to leverage the geo spatial capabilities of Oracle Analytics.

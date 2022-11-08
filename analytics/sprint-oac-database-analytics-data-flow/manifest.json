@@ -3,11 +3,11 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I enable the Database Analytics option within the Data Flow in Oracle Analytics Cloud and Server (OAC & OAS)?",
-         "description": "Learn how to enable the Database Analytics option within your Data Flow!",
+         "title": "How do I enable the Database Analytics option within the Data Flow in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to enable the Database Analytics option within your Data Flow in OAC!",
          "filename": "oac-database-analytics-data-flow.md"
       }
    ],
-   "task_type": "Sections",
+   "task_type": "Sections", 
  "hide_button": "true"
 }

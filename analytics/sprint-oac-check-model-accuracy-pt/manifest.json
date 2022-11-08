@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como posso verificar a precisão de um modelo de machine learning no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda como verificar a precisão de um modelo machine learning em OAC, observando ou criando suas próprias métricas.",
+         "filename": "./oac-check-model-accuracy-pt.md"
+      },
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

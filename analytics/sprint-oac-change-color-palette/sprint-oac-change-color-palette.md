@@ -1,4 +1,4 @@
-# How do I change the color palette for my visualizations in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I change the color palette for my visualizations in Oracle Analytics Cloud (OAC)?
 
 Duration: 3 minutes
 
@@ -10,7 +10,7 @@ Your color palette is shared across all visualizations on the canvas, so if you 
 
 ## Change the color palette
 
-The default theme for OAC/OAS is Redwood, which makes data driven insights that much easier to read, thanks to better handling of white space, a softer color palette, and new fonts.
+The default theme for OAC is Redwood, which makes data driven insights that much easier to read, thanks to better handling of white space, a softer color palette, and new fonts.
    > **Note:** You must have the **DV Content Author** application role to execute the following steps.
 
 1. In your workbook, click the **Menu** icon and select **Workbook Properties**

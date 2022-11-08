@@ -1,4 +1,4 @@
-# How do I change the default date format of a column in a dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I change the default date format of a column in a dataset in Oracle Analytics Cloud (OAC)?
 
 Duration: 1 minute
 
@@ -24,7 +24,7 @@ When you are working with date columns in Oracle Analytics Cloud, there are many
 
     ![Apply script](images/apply-script.png)
 
-Congratulations, you have learned how to change the default date display format of a date in Oracle Analytics Cloud and Server (OAC & OAS)!
+Congratulations, you have learned how to change the default date display format of a date in Oracle Analytics Cloud (OAC)!
 
 ## Learn more
 * [Adjust the Display Format of a Date or Number Column](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/adjust-display-format-date-or-number-column.html)

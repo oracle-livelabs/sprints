@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como posso criar cálculos avançados no Oracle Analytics Cloud (OAC)?",
+         "description": "",
+         "filename": "create-advanced-calculations-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

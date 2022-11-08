@@ -1,13 +1,13 @@
-# How do I create data actions to connect to external URLs from Visualization Canvases in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I create data actions to connect to external URLs from Visualization Canvases?
 
 Duration: 3 minutes
 
-When you click on a specific data column, you have the option to direct the user to an external website to provide more information about that specific column. For example, you can link a vendor’s website to the vendor name column and when you right click on a visualization containing that column, you have the option to direct to the website.
+When you click on a specific data column, you have the option to direct the user to an external website to provide more information about that specific column. For example, you can link a vendor's website when you click on a column such as 'vendor'. This Sprint will guide you on how to create data actions to connect to external URLs from within your DV canvas.
 
 ## Creating the data action
 >**Note:** You must have the **DV Content Author** application role to successfully complete this action.
 
-1. In your Oracle Analytics homepage, select the workbook you want to create a data action for and click the **Actions menu** when hovering your mouse over the workbook. Click **Open**.
+1. In your OAC homepage, select the workbook you want to create a data action for and click the **Actions menu** when hovering your mouse over the workbook. Click **Open**.
 
     ![workbook](images/workbook-home-page.png)
 
@@ -27,24 +27,26 @@ When you click on a specific data column, you have the option to direct the user
 
     ![Anchor to](images/anchor-to.png)
 
-6. Enter the URL address that you want the data action to direct to.
+6. Enter a URL address and optionally include notation and parameters.
+
+   For example, where <em>http://www.example.com?q=${keyValuesForColumn:"COLUMN"}</em> is displayed like <em>www.oracle.com?q=${keyValuesForColumn:"Sales"."Products"."Brand"}</em> The column names that you select here are replaced with values when you invoke the data action.
 
     ![url](images/url.png)
 
-7. Click **Support Multiple Selection** to set the value. When it's set to **On**, the data action can be invoked when one or multiple data points are selected. When it's set to **Off**, the data action can only be invoked when a single data point is selected. Click **OK** to save.
+7. Click **Support Multiple Selection** to set the value. The options are **On** or **Off**
 
-8. To invoke the data action, right-click a visualization that contains the columns that you anchored the external URL to and select the name of the data action.
+8. Click **OK** to save
 
-    ![ok save](images/activate-data-action.png)
+    ![ok save](images/ok-save.png)
 
-Congratulations, you have successfully learned how to create Data Actions to connect to external URLs from Visualization Canvases.
+Congratulations, you have successfully learned how to create Data Actions to connect to external URLs from Visualization Canvases
 
 
 ## Learn More
 [Create Data Actions to Connect to External URLs from Visualization Canvases](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-data-actions-connect-external-urls-visualization-canvases.html)
 
+[Work with Multiple Visualizations on a Canvas](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/work-multiple-visualizations-canvas.html)
 
 ## Acknowledgements
 * **Author** - Thea Lazarova, Solution Engineer, North America Specialist Hub
-* **Contributors** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Last Updated By/Date** - Thea Lazarova,  August 2022

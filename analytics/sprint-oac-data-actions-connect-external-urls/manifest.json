@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I create data actions to connect to external URLs from Visualization Canvases in Oracle Analytics Cloud and Server (OAC & OAS)?",
-         "description": "Learn how to create data actions to connect to external URLs.",
+         "title": "How do I create data actions to connect to external URLs from Visualization Canvases?",
+         "description": "Create data actions to connect to external URLs",
          "filename": "data-actions.md"
       }
    ],
