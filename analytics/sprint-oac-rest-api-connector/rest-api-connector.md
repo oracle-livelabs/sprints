@@ -2,11 +2,11 @@
 
 Duration: 3 minutes
 
-Oracle Analytics allows you to create a connection to your data source using a REST API connector. This Sprint will guide you on how to set that up.
+As of the September 2022 update, Oracle Analytics allows you to create a connection to your data source using a REST API connector. This Sprint will guide you on how to set that up.
 
 ## Setup the REST API Connector
 
->**Note:** You must have the **DV Content Author** application role to execute the following steps.
+>**Note:** You must have the **BI Service Administrator** application role to complete this Sprint.
 
 1. In your Oracle Analytics instance, click the **Navigation menu** and select **Console**.
 
