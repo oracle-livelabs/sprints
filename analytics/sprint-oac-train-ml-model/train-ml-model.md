@@ -1,4 +1,4 @@
-# How do I train a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS)??
+# How do I train a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 3 minutes
 
