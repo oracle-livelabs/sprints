@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I train a machine learning model in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to train a machine learning model in OAC using the Data Flow.",
+         "title": "How do I train a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to train a machine learning model using the Data Flow.",
          "filename": "train-ml-model.md"
       }
    ],

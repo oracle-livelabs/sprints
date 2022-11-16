@@ -1,12 +1,12 @@
 # How do I create a multi-table dataset from local and remote data sources in Oracle Analytics Cloud (OAC)?
 Duration: 5 minutes
 
-Joining tables in Oracle Analytics Cloud (OAC) has received some new updates as of May 2022. You can add files to datasets with multiple tables. When you create a dataset, you can add tables from relational sources, local subject areas, and files. Each new entity created in datasets can be based on any of these data sources. This enables you to add multiple files to one dataset where each file becomes a table and to define joins between tables within a dataset. In addition, you can add files from Dropbox or Google Drive to a dataset with multiple tables. 
+Joining tables in Oracle Analytics Cloud (OAC) has received some new updates as of May 2022. You can add files to datasets with multiple tables. When you create a dataset, you can add tables from relational sources, local subject areas, and files. Each new entity created in datasets can be based on any of these data sources. This enables you to add multiple files to one dataset where each file becomes a table and to define joins between tables within a dataset. In addition, you can add files from Dropbox or Google Drive to a dataset with multiple tables.
 
 Before you create the dataset, confirm that the connection you need exists. Confirm that the file that you want to upload meets these requirements:
     - The file is either an Excel spreadsheet in .XLSX or .XLS format, a CSV file, or a TXT file.
     - The spreadsheet contains no pivoted data.
-    - The spreadsheet is structured properly for import and use as a dataset. 
+    - The spreadsheet is structured properly for import and use as a dataset.
 
 This procedure is only available of OAC version May 2022 or newer. OAS updates happen annually, while OAC updates are more frequent. Therefore, in order to implement this automation, you need to ensure that the OAS version postdates May 2022.
 
@@ -48,7 +48,7 @@ This procedure is only available of OAC version May 2022 or newer. OAS updates h
 
     ![Column selection menu for the two datasets](images/join-columns.png)
 
-3. You can now create a workbook from this new joined tables by saving and selecting **Create Workbook** in the top right corner. 
+3. You can now create a workbook from this new joined tables by saving and selecting **Create Workbook** in the top right corner.
 
     ![Create workbook button](images/create-workbook.png)
 
@@ -56,7 +56,7 @@ This procedure is only available of OAC version May 2022 or newer. OAS updates h
 
     ![merged dataset menu in workbook](images/merged.png)
 
-Congratulations! You have successfully learned how to join local and Dropbox/Google Drive tables in Oracle Analytics Cloud and some best practices around it.
+Congratulations! You have successfully learned how to join local and Dropbox/Google Drive tables in Oracle Analytics Cloud and Server (OAC & OAS).
 
 ## Learn More
 

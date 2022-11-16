@@ -1,16 +1,16 @@
-# How do I share my dataset in Oracle Analytics Cloud (OAC)?
+# How do I share my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 2 minutes
 
-When working with datasets in OAC, you have the ability to collaborate with your team by sharing datasets and granting access control to those datasets. This Sprint will show you two ways to share datasets: sharing with other users in OAC and sharing with external members.
+When working with datasets in Oracle Analytics, you have the ability to collaborate with your team by sharing datasets and granting access control to those datasets. This Sprint will show you two ways to share datasets: sharing with other users in Oracle Analytics and sharing with external members.
 
 ## Sharing datasets
 
-### Within OAC
+### Within Oracle Analytics
 
 >**Note:** You must have the **DV Author** application role to complete the following steps.
 
-1. Within your OAC instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window.
+1. Within your Oracle Analytics instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window.
 
     ![Datasets tab](images/data-pane.png)
 
@@ -18,7 +18,7 @@ When working with datasets in OAC, you have the ability to collaborate with your
 
     ![Inspect dataset](images/inspect.png)
 
-3. You will see the details of the dataset such as general information, data elements, seach, and access. Click on **Access** to view users and roles associated with this dataset. This is where you will have the ability to share your dataset with other users as well as grant access controls. In the **Add** section, search for and select the user(s) you want to share this dataset with.
+3. You will see the details of the dataset such as general information, data elements, search, and access. Click on **Access** to view users and roles associated with this dataset. This is where you will have the ability to share your dataset with other users as well as grant access controls. In the **Add** section, search for and select the user(s) you want to share this dataset with.
 
     ![Access dataset](images/access.png)
 
@@ -29,16 +29,15 @@ When working with datasets in OAC, you have the ability to collaborate with your
 
 ### Externally (only works with flat files)
 
-1. Within your OAC instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window. Right-click the dataset and select **Download File**. After the file is downloaded, you can email the dataset to your team.
+1. Within your Oracle Analytics instance, navigate to the **Datasets** tab within the **Data** pane in the navigation menu. Your list of available datasets will be displayed in this window. Right-click the dataset and select **Download File**. After the file is downloaded, you can email the dataset to your team.
 
     >**Note:** You must have **Full Control** access to the dataset and it must be a flatfile (CSV, XLSX or XLS, and TXT)
 
     ![Externally](images/externally.png)
 
-Congratulations, you have learned how to share your dataset with other users within OAC and with external users!
+Congratulations, you have learned how to share your dataset with other users within Oracle Analytics and with external users!
 
 ## Learn More
-
 * [Add or Update a Dataset's Permissions](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-or-update-datasets-permissions.html)
 
 ## Acknowledgements
