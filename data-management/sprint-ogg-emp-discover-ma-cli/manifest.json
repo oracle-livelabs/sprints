@@ -33,7 +33,12 @@
         "title": "How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?",
         "description": "How do I download Diagnostic Logs in racle GoldenGate Enterprise Manager Plug-in?",
         "filename": "./../sprint-ogg-emp-diagnostic-log/sprint-ogg-emp-diagnostic-log.md"
-     }
+     },
+     {
+         "title": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI?",
+         "description": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI? ",
+         "filename": "./../ sprint-ogg-emp-remove-add-target/ sprint-ogg-emp-remove-add-target.md"
+      }
 
    ],
    "task_type": "Sections",
