@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I setup the REST API connector in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to setup your REST API connector in Oracle Analytics.",
+         "filename": "rest-api-connector.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

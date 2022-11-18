@@ -1,4 +1,4 @@
-# How do I reload my dataset files in Oracle Analytics Cloud (OAC)?
+# How do I reload my dataset files in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 1 minute
 
@@ -14,7 +14,7 @@ This Sprint will show you two methods of reloading a data file in Oracle Analyti
 
 ### Reload datasets within a workbook
 
-1. Within your OAC workbook, click on **Data** and click the **Actions Menu** represented by the three dots for the dataset you want to reload. Click **Reload Data**.
+1. Within your Oracle analytics workbook, click on **Data** and click the **Actions Menu** represented by the three dots for the dataset you want to reload. Click **Reload Data**.
 
     ![Reload data](images/data-reload.png)
 
@@ -31,7 +31,7 @@ This Sprint will show you two methods of reloading a data file in Oracle Analyti
 
 ### Reload datasets outside of a workbook
 
-1. From your OAC homepage, navigate to your **Datasets** by clicking on the **Navigation menu** and selecting **Data**. This will display all your datasets.
+1. From your Oracle Analytics homepage, navigate to your **Datasets** by clicking on the **Navigation menu** and selecting **Data**. This will display all your datasets.
 
     ![Datasets navigation](images/console-data.png)
 
@@ -45,7 +45,7 @@ This Sprint will show you two methods of reloading a data file in Oracle Analyti
 
     ![Reloaded](images/reloaded.png)
 
-Congratulations! You have just learned how to reload a dataset file in Oracle Analytics Cloud!
+Congratulations! You have just learned how to reload a dataset file in Oracle Analytics Cloud and Server (OAC & OAS)!
 
 ## Learn More
 

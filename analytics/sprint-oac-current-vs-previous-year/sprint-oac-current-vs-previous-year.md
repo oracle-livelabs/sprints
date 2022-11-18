@@ -1,4 +1,4 @@
-# How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud (OAC)?
+# How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 4 minutes
 

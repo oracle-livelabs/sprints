@@ -1,4 +1,4 @@
-# How do I check a machine learning model's accuracy in Oracle Analytics Cloud (OAC)?
+# How do I check a machine learning model's accuracy in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 2 minutes
 
 Oracle Analytics Cloud gives you the ability to not only easily create machine learning models, but also assess their accuracy. You can view a pre-created display of accuracy metrics, or access datasets and create your own visualizations to understand model quality.
@@ -9,7 +9,7 @@ It is key to ensure the quality of a machine learning model before putting it in
 You must first have trained a machine learning model in Oracle Analytics Cloud in order to complete the following steps. For a guide on model creation, look [here.](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
 >**Note:** You must have the **DV Content Author** role in order to complete the following steps.
 
-1. From the OAC homepage, click on **Machine Learning** and find the trained model whose accuracy you would like to check.
+1. From the OAC/OAS homepage, click on **Machine Learning** and find the trained model whose accuracy you would like to check.
 
     ![OAC homepage](images/oac-homepage.png)
 
@@ -33,7 +33,7 @@ You must first have trained a machine learning model in Oracle Analytics Cloud i
 
 6. Click on any dataset that you would like to use to assess model quality in order to open a workbook using that dataset.
 
-      >**NOTE:** Creating a workbook with the datasets generated from clustering models is the only way to assess their accuracy.
+      >**Note:** Creating a workbook with the datasets generated from clustering models is the only way to assess their accuracy.
 
       ![Inspect tab related page with model highlight](images/oac-inspect-related-dataset.png)
 
@@ -41,7 +41,7 @@ You must first have trained a machine learning model in Oracle Analytics Cloud i
 
     ![Canvas with confusion matrix dataset](images/oac-accuracy-workbook.png)
 
-Congratulations! You have just learned how to check the accuracy of a machine learning model in Oracle Analytics Cloud!
+Congratulations! You have just learned how to check the accuracy of a machine learning model in Oracle Analytics Cloud and Server (OAC & OAS)!
 
 ## Learn More
 
