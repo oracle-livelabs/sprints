@@ -4,6 +4,7 @@ Duration: 3 minutes
 ## Add Oracle GoldenGate Targets (Discover Oracle GoldenGate Targets)
 
 1. Ensure that the plug-in has already been imported to the Enterprise Manager Cloud Control and deployed to the management agent.
+
 2.Follow the steps in this video on how to discover (add) Oracle GoldenGate Classic and Microservices instances in the UI: [Discover Oracle GoldenGate Classic and Microservices instances](youtube:KAfmbzGDe9E).
 
 See **Learn More**.
@@ -14,12 +15,13 @@ You have successfully added a target.
 ## Remove Oracle GoldenGate targets
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
+
 2. Click **Targets** and select **All Targets**.
 3. Lookup for the target.
 
-  ![Search for the target](./images/search-target.png " ")
+  ![Search for the target.](./images/search-target.png " ")
 
-4. Right click the target, click **Target Setup**
+4. Right click the target, click **Target Setup**.
 
     ![Click Target Setup](./images/target-righclick-targetsetup-remove-target.png " ")
 
@@ -31,9 +33,9 @@ You have successfully added a target.
 
 1. Click **Targets**, select **All Targets**, select and click the target on the **OGG Home** tab.
 
-    ![Select Target](./images/select-target-remove.png " ")
+    ![Select Target.](./images/select-target-remove.png " ")
 
-2. On the target details page (here Oracle GoldenGate Extract page), expand **Oracle GoldenGate Extract**, click **Target Setup**, and then click **Remve Target**.
+2. On the target details page (here Oracle GoldenGate Extract page), expand **Oracle GoldenGate Extract**, click **Target Setup**, and then click **Remove Target**.
 
     ![Remove Target](./images/alternate-targetsetup-remove-target.png " ")
 
