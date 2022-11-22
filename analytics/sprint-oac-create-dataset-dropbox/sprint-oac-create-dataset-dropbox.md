@@ -32,7 +32,7 @@ You can create a dataset from Dropbox by creating a connection in Oracle Analyti
 
 7. The result will populate the **App key** and the **App secret**. Copy and paste the App key into the **Client ID** field and the App secret into the **Client Secret** in the OAC/OAS **Create Connection** dialogue box.
 
-    >**Note:** You will need to paste the **Redirect URL** from OAC's create connection window.
+    >**Note:** You will need to paste the **Redirect URL** from Oracle Analytics' create connection window.
 
   ![Dropbox app creation](images/dropbox-direct-url.png)
 
