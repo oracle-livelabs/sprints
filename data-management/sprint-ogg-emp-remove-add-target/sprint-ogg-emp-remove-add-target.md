@@ -5,7 +5,7 @@ Duration: 3 minutes
 
 1. Ensure that the plug-in has already been imported to the Enterprise Manager Cloud Control and deployed to the management agent.
 
-2.Follow the steps in this video on how to discover (add) Oracle GoldenGate Classic and Microservices instances in the UI: [Discover Oracle GoldenGate Classic and Microservices instances](youtube:KAfmbzGDe9E).
+2. Follow the steps in this video on how to discover (add) Oracle GoldenGate Classic and Microservices instances in the UI: [Discover Oracle GoldenGate Classic and Microservices instances](youtube:KAfmbzGDe9E).
 
 See **Learn More**.
 
