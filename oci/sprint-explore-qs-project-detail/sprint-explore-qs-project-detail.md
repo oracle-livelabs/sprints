@@ -8,10 +8,6 @@ You will get familiar with the components of the project detail page in Query Se
 * A Query Service project.
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
-Watch our short video on how to create Query Service projects.
-
-[](youtube:nY7mG2u6-Ew)
-
 ## Exploring the Project Detail Page in Query Service
 
 1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
