@@ -5,13 +5,21 @@ Duration: 3 minutes
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
 
-2. Click **Setup**, select **Security**, and then click **Administrator**.
+2. Click **Setup**, select **Security**, and then click **Administrators**.
+
+    ![Go to the Administrators page.](./images/setup-security-administrators.png " ")
 
 3. In the **Administrators** page, click **Create** to add a new instance level user.
 
-4. In the **Create Administrators: Properties** page, enter the Instance-level login Name, for example *oggadmin* and Password, and then click **Next** to display the **Create Administrator: Roles** page
+    ![Click the Create button.](./images/administrators-create.png " ")
 
-5.Select **EM_USER** and **PUBLIC** under **Selected Roles** and click **Next**.
+4. In the **Create Administrators: Properties** page, enter the Instance-level login Name, for example *oggadmin* and Password, and then click **Next** to display the **Create Administrator: Roles** page.
+
+  ![Add Administrator credentials.](./images/enter-admin-name-next.png " ")
+
+5. Select **EM_USER** and **PUBLIC** under **Selected Roles** and click **Next**.
+
+    ![Select EM_USER and PUBLIC.](./images/em-user-public.png.png " ")
 
 6. Select the following credentials that apply to all targets:
 
