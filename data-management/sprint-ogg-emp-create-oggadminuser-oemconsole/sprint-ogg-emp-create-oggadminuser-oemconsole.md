@@ -26,7 +26,23 @@ Duration: 3 minutes
 
 9. Click **Create** and provide the following credentials for Host configuration:
 
-10.
+10. Under **Access control**, click **Add Grant** to add grants to the instance level user. Execute Test and save Named credentials. After a successful test connection, a **Credential Operation Successful** message is displayed.
+
+11. Login to the Enterprise Manager Cloud Control, using the new **oggAdmin** instance user credentials.
+
+12. Click **Targets**, select **GoldenGate** to display the **OGG Home** page, and ensure that all the targets are listed.
+
+13. Click **Setup**, select **Security**, and then click **Preferred Credentials** to display the **Preferred Credentials** page to set the Host Credentials.
+
+14. Select **Oracle GoldenGate Service Manager** and click **Manage Preferred Credentials**.
+
+15.	In the **Oracle GoldenGate Service Manager Preferred Credentials** page, under **Target Preferred Credentials**, select **Target Name**, click **Set** to display the **Select Named Credentials** dialog box.
+
+16. Enter UserName and Password, click **Test and Save**.
+
+17. Go to **OGG Home** page and select the target, for example **EXTMA** and check whether the you can restart the process from Instance level user.
+
+
 
 
 ## Learn More
