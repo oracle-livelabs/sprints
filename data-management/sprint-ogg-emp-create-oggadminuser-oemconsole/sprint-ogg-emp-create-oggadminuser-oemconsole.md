@@ -1,7 +1,7 @@
-# How do I create OGG "admin" User In OEM Console To Manage OGG Specific Targets?
-Duration: 3 minutes
+# How do I create OGG admministrator User In OEM Console To Manage OGG Specific Targets?
+Duration: 5 minutes
 
-## Create OGG admin User
+## Create Oracle GoldenGate Administrator User (ogg 'admin' user)
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
 
@@ -9,11 +9,11 @@ Duration: 3 minutes
 
     ![Go to the Administrators page.](./images/setup-security-administrators.png " ")
 
-3. In the **Administrators** page, click **Create** to add a new instance level user.
+3. In the **Administrators** page, click **Create** to add a new Administrator user.
 
     ![Click the Create button.](./images/administrators-create.png " ")
 
-4. In the **Create Administrators: Properties** page, enter the Instance-level login Name, for example *oggadmin* and Password, and then click **Next** to display the **Create Administrator: Roles** page.
+4. In the **Create Administrators: Properties** page, enter the Administrator login Name, for example *oggadmin* and Password, and then click **Next** to display the **Create Administrator: Roles** page.
 
   ![Add Administrator credentials.](./images/enter-admin-name-next.png " ")
 
@@ -66,7 +66,7 @@ Duration: 3 minutes
 
 14. In the **Named Credentials** page, click **Create**.
 
-      ![Named credentials](./images/named-credential-create.png " ")
+    ![Named credentials](./images/named-credential-create.png " ")
 
 15. In the **Create Credential** page, enter the following details:
 
@@ -80,7 +80,7 @@ Duration: 3 minutes
 
 16. Specify the Host credentials:
 
-      ![Specify the Host credentials.](./images/specify-host-credentials.png " ")
+    ![Specify the Host credentials.](./images/specify-host-credentials.png " ")
 
 17. Under **Access control**, click **Add Grant** and in the **Search** dialog box, select the Administrator user and click **Select** you just created to add grants to the Administrator user:
 
@@ -88,42 +88,58 @@ Duration: 3 minutes
 
 18. Under **Access Control**, select **Grantee** and click **Change Privileges** to add privliges to the selected Administrator user.
 
-         ![Select administrator user and click Change Privileges.](./images/select-grantee-change-privileges.png " ")
+    ![Select administrator user and click Change Privileges.](./images/select-grantee-change-privileges.png " ")
 
 19. In the **Choose privileges for OGGADMIN** page, select **Edit Credential**, **Full Credential**, and **View Credential**, and click **Select**.
 
-    !Choose privileges for the Admin user.](./images/choose-privileges-admin-user.png " ")
+    
+    ![Choose privileges for the Admin user.](./images/choose-privileges-admin-user.png " ")
 
     Credentials have been added to the selected Administrator user:
 
-        !Credentials have been added to the selected Administrator user.](./images/adding-full-credential-grantee.png " ")
+    ![Credentials have been added to the selected Administrator user.](./images/adding-full-credential-grantee.png " ")
         
 20. Click **Test and Save**.
 
-        ![Click **Test and Save**.](./images/granted-credentials-test-save.png " ")
+    ![Click **Test and Save**.](./images/granted-credentials-test-save.png " ")
 
-        Credentials have been successfully created and the Administrator user can now monitor the targets.  A **Credential Operation Successful** message is displayed
+    Credentials have been successfully created and the Administrator user can now monitor the targets.  A **Credential Operation Successful** message is displayed.
 
-21. 
+    ![Named credentials created.](./images/named-credentials-created.png " ")
 
-18. Execute Test and save Named credentials. After a successful test connection, a **Credential Operation Successful** message is displayed.
+21. Logout from the current session.
 
-13. Login to the Enterprise Manager Cloud Control, using the new **oggadmin** instance user credentials.
+22. Login to the Enterprise Manager Cloud Control, using the new **oggadmin** administrator user credentials.
 
-12. Click **Targets**, select **GoldenGate** to display the **OGG Home** page, and ensure that all the targets are listed.
+    ![Login using oggadmin user credentials.](./images/login-page-admin-user.png " ")
+    
 
-13. Click **Setup**, select **Security**, and then click **Preferred Credentials** to display the **Preferred Credentials** page to set the Host Credentials.
+23. Click **Targets**, select **GoldenGate** to display the **OGG Home** page, and ensure that all the targets are listed.
 
-14. Select **Oracle GoldenGate Service Manager** and click **Manage Preferred Credentials**.
+24. Click **Setup**, select **Security**, and then click **Preferred Credentials** to display the **Preferred Credentials** page to set the Host Credentials.
 
-15.	In the **Oracle GoldenGate Service Manager Preferred Credentials** page, under **Target Preferred Credentials**, select **Target Name**, click **Set** to display the **Select Named Credentials** dialog box.
+25. Select **Oracle GoldenGate Service Manager** and click **Manage Preferred Credentials**.
 
-16. Enter UserName and Password, click **Test and Save**.
-
-17. Go to **OGG Home** page and select the target, for example **EXTMA** and check whether the you can restart the process from Instance level user.
-
+    ![Select Oracle GoldenGate Service Manager and click Manage Preferred Credentials.](./images/service-manager-managed-preferred-credentials.png " ")
 
 
+26.	In the **Oracle GoldenGate Service Manager Preferred Credentials** page, under **Target Preferred Credentials**, select **Target Name**, click **Set** to display the **Select Named Credentials** dialog box.
+
+   ![Click Set.](./images/target-preferred-credentials-set.png " ")
+    
+27. In the **Select Named Credential** dialog box, ensure that the credential name that you created earlier has been populated, verify the UserName and Password, click **Test and Save**.
+
+    ![Verify the credential name.](./images/verify-credential-name-test-save.png " ")
+    
+    The Named credential association is completed:
+
+    ![Named credential association is complete.](./images/named-credential-association-completed.png " ")
+
+28. Go to **OGG Home** page and select the target, for example **EXTMA** and check whether the you can restart the process from Administrator user.
+
+   
+   ![Start and stop buttons are enabled for the Extract.](./images/service-manager-extract-start-stop-enabled.png " ")
+    
 
 ## Learn More
 
