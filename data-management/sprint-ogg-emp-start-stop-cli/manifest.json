@@ -42,7 +42,14 @@
          "title": "How do I create an OGG admin User In OEM Console To Manage OGG Specific Targets?",
          "description": "How do I create an OGG admin User In OEM Console To Manage OGG Specific Targets? ",
          "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
-       }
+       },
+
+       {
+         "title": "How do I enable Log Events and alerts?",
+           "description": "How do I enable log events and alerts? ",
+           "filename": "./../sprint-ogg-emp-enable-log-events-alerts/sprint-ogg-emp-enable-log-events-alerts.md"
+       
+      }
    ],
    "task_type": "Sections",
    "hide_button": "true"

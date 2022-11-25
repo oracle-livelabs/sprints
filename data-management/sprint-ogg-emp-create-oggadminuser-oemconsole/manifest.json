@@ -46,7 +46,13 @@
         "title": "How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?",
         "description": "How do I download Diagnostic Logs in racle GoldenGate Enterprise Manager Plug-in?",
         "filename": "./../sprint-ogg-emp-diagnostic-log/sprint-ogg-emp-diagnostic-log.md"
-     }
+     },
+     {
+      "title": "How do I enable Log Events and alerts?",
+        "description": "How do I enable log events and alerts? ",
+        "filename": "./../sprint-ogg-emp-enable-log-events-alerts/sprint-ogg-emp-enable-log-events-alerts.md"
+    
+   }
 
    ],
    "task_type": "Sections",
