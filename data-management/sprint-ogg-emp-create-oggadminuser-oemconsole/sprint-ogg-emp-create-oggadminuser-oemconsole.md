@@ -1,7 +1,11 @@
-# How do I create OGG admministrator User In OEM Console To Manage OGG Specific Targets?
+# How do I create Oracle GoldenGate admministrator user in Enterprise Manager (OEM) Console to manage Oracle GoldenGate specific targets?
 Duration: 5 minutes
 
 ## Create Oracle GoldenGate Administrator User (ogg 'admin' user)
+
+An instance-level user (or GoldenGate Adminstrator User) will have certain privileges assigned based on business requirements. 
+
+To create this Oracle GoldenGate Administrator User and grant privileges:
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
 
