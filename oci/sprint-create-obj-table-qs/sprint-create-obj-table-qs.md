@@ -284,7 +284,7 @@ For information on how to create the required policy, see the **How do I create 
 
 You will first create a new folder in your Object Storage bucket, and then upload two **.csv** files into that folder. You will then create a table by selecting folder from your Public Object Storage bucket. This creates the table using both **.csv** files in that folder.
 
->**Note:** The files' types in the folder must match.
+>**Note:** The files' types and format in the folder must match.
 
 1. Download the first **.csv** file that you will use to create the new table in Query Service to Your local machine. Click the following link to download the [custsales-2019-01.csv](files/custsales-2019-01.parquet?download=1) file.
 
