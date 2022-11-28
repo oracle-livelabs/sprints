@@ -1,4 +1,4 @@
-# How do I create an Oracle GoldenGate administrator user in Enterprise Manager (OEM) console to manage Oracle GoldenGate specific targets?
+# How do I create an Oracle GoldenGate administrator user in the Enterprise Manager (OEM) console to manage Oracle GoldenGate-specific targets?
 Duration: 7 minutes
 
 ## Create Oracle GoldenGate Administrator User (ogg 'admin' user)
