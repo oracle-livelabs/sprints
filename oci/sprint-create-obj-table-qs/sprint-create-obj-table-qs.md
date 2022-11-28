@@ -1,7 +1,7 @@
-# How do I create an Oracle Object Storage Table in Query Service?
+# How do I create an Oracle Object Storage external table in Query Service?
 Duration: 15 minutes
 
-In this sprint, you will create a table using a **Parquet** file that is stored in a public Object Storage bucket. You also create a table using a **.csv** file that is stored in a private Object Storage bucket. You will also create a table using a public Object Storage folder that contains two **.csv** files. Finally, you will create two tables in Query Service using the **.Parquet** and **.csv** files from public and private Object Storage buckets.
+In this sprint, you will create several external tables using different data sources. First, you will create a table using a **Parquet** file that is stored in a public Object Storage bucket. Next, you will create a table using a **.csv** file that is stored in a private Object Storage bucket. You will also create a table using a public Object Storage folder that contains two **.csv** files. Finally, you will create a table using a public data set in GitHub.
 
 ### Prerequisites
 
@@ -9,7 +9,7 @@ In this sprint, you will create a table using a **Parquet** file that is stored 
 * A Query Service project.
 * The required policies to allow access to the Data Catalog instance, Oracle Object Storage, and Query Service projects.
 
-## **Create a Table Using a Parquet Data File in a Public Object Storage Bucket**
+## **Create an External Table Using a Parquet Data File in a Public Object Storage Bucket**
 
 The **PROJECT$** schema contains the tables that you create and manage using the Query Service interfaces such as the UI Console, SDKs, or the REST API. You can create your own tables in this schema. In this exercise, you will create a table over a Parquet file that is stored in a public Object Storage bucket that you will access using a URL.
 
@@ -43,7 +43,7 @@ The **PROJECT$** schema contains the tables that you create and manage using the
 
       ![The Create a Table page is displayed.](./images/create-table-obj-parquet.png " ")
 
-5. Click **Create Table**. A **1 operation in progress** link (orange color) is displayed in the **Tables** section. If you hover over the link, a **Creating custsales\_public\_os\_parquet** tooltip is displayed.
+5. Click **Create Table**. A **1 operation in progress** orange link is displayed in the **Tables** section. If you hover over the link, a **Creating custsales\_public\_os\_parquet** tooltip is displayed.
 
   ![Table status is creating.](./images/table-parquet-creating-status.png " ")
 
@@ -87,11 +87,11 @@ The **PROJECT$** schema contains the tables that you create and manage using the
 
   ![Down query results as a .csv file.](./images/download-results.png " ")
 
-11. Save the query to a worksheet. Click the **Save Worksheet as** icon in the toolbar.
+13. Save the query to a worksheet. Click the **Save Worksheet as** icon in the toolbar.
 
   ![Save worksheet as.](./images/save-parquet-obj-query.png " ")
 
-12. Enter a meaningful name for the worksheet in the **Save Worksheet as** dialog box, and then click **Save As**.
+14. Enter a meaningful name for the worksheet in the **Save Worksheet as** dialog box, and then click **Save As**.
 
     ![Save worksheet as dialog box. The Save as button highlighted.](./images/save-parquet-query-db.png " ")
 
@@ -160,7 +160,7 @@ You will first create an Object Storage bucket (unless you already have one) in 
 
 18. Close the new web browser tab.
 
-### **Create a Table Using the Parquet File in Your Public Bucket**
+### **Create an External Table Using the Parquet File in Your Public Bucket**
 
 19. In the original web browser tab, navigate to the **Query Service Projects** page. In the row for your Query Service project, click **Query Editor**.
 
@@ -188,21 +188,19 @@ You will first create an Object Storage bucket (unless you already have one) in 
 
       ![The Create a Table page is re-displayed.](./images/create-table-page-2.png " ")
 
-22. Click **Create Table**. The table status shows as **Creating** (orange color) in the **Tables** section.
+22. Click **Create Table**. A **1 operation in progress** orange link is displayed in the **Tables** section.
 
-  ![Table status is creating.](./images/table-creating-status-2.png " ")
+    If the table creation is successful, it is displayed in the **Tables** section.
 
-  If the table creation is successful, it is displayed in the **Tables** section.
+    ![Table is created.](./images/table-2-created.png " ")
 
-  ![Table is created.](./images/table-2-created.png " ")   
-
-## **Create a Table Using a .csv Data File in a Private Object Storage Bucket**  
+## **Create an External Table Using a .csv Data File in a Private Object Storage Bucket**
 
 You will first create a private Object Storage bucket (unless you already have one) in your own tenancy and then upload a local .csv file to that bucket. Next, you will create a table in the **PROJECT$** schema using the **.csv** file in your private Object Storage bucket.
 
 >**Note:** In order to create an Object Storage table in Query Service based on a
 file that is stored in a private Object Storage bucket, you will need read access to that bucket.
-For information on how to create the required policy, see the **How do I create the required Query Service projects policies?** sprint in the **Contents** menu on the left. 
+For information on how to create the required policy, see the **How do I create the required Query Service projects policies?** sprint in the **Contents** menu on the left.
 
 ### **Create a Private Object Storage Bucket and Upload a .csv File to the Bucket**
 
@@ -272,15 +270,11 @@ For information on how to create the required policy, see the **How do I create 
 
       ![Sample of the .csv file.](./images/sample-csv-file.png " ")
 
-18. Click **Create Table**. The table status shows as **Creating** (orange color) in the **Tables** section.
-
-  ![Table status is creating.](./images/creating-csv-table.png " ")
-
-  If the table creation is successful, it is displayed in the **Tables** section.
+18. Click **Create Table**. A **1 operation in progress** orange link is displayed in the **Tables** section. If you hover over the link, a **Creating table-name** tooltip is displayed.If the table creation is successful, it is displayed in the **Tables** section.
 
   ![Table is created.](./images/csv-table-created.png " ")
 
-## **Create a Table Using Files in an Object Storage Folder**
+## **Create an External Table Using Files in an Object Storage Folder**
 
 You will first create a new folder in your Object Storage bucket, and then upload two **.csv** files into that folder. You will then create a table by selecting folder from your Public Object Storage bucket. This creates the table using both **.csv** files in that folder.
 
@@ -338,7 +332,7 @@ You will first create a new folder in your Object Storage bucket, and then uploa
 
       ![The Create a Table page is displayed.](./images/create-table-folder.png " ")
 
-16. Click **Create Table**. A **1 operation in progress** link (orange color) is displayed in the **Tables** section. If you hover over the link, a **Creating table-name table** tooltip is displayed. 
+16. Click **Create Table**. A **1 operation in progress** orange link is displayed in the **Tables** section. If you hover over the link, a **Creating table-name table** tooltip is displayed.
 
   ![Table is creating.](./images/table-creating-folder.png " ")
 
@@ -347,6 +341,56 @@ You will first create a new folder in your Object Storage bucket, and then uploa
   ![Table is created.](./images/table-folder-created.png " ")
 
 17. Query the newly created table. In the **Tables** section, click the **Actions** icon that is associated with the table, and then click **Query** from the context menu. The auto-generated Select query is displayed in the editor. Click the **Run Query** icon in the toolbar. The query output is displayed in the Last **Query Results** tab.
+
+## **Create an External Table Using a Public Data Set**
+
+You will create an external table using a public endpoint data set from GitHub.
+
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password, if not already signed in. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+
+2. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**.
+
+3. Make sure that the **Scratchpad** worksheet is selected from the **Worksheet** drop-down list. Click the **Select a Schema** drop-down list and select the **`PROJECT$`** schema, if not already selected.
+
+4. Click **Create Table**. In the **Create Table** page, accept the default name name.
+
+5. In the **Source Data URI from: Oracle Object-Storage** field, click the **Change Data Location** link and then select **Public Endpoint**. In this example, you will use a Covid 19 public data set on GitHub.
+
+    ![Select the endpoint location.](./images/select-endpoint.png " ")
+
+6. Copy the following URL and then paste it in a **_new tab_** in your browser's address bar.
+
+    ```
+    <copy>github.com/nytimes/covid-19-data</copy>
+    ```
+
+7. Navigate to the **`live/us-states.csv`** folder, and then click **Raw**.
+
+    ![Navigate to the data folder.](./images/navigate-live-usstates.png " ")
+
+    The raw data set is displayed. Copy the URL.
+
+    ![The data set content is displayed.](./images/dataset-content.png " ")
+
+8. Return to your Query Service original tab where the **Create Table** page is displayed. Paste the URL for the raw data set that you copied in the **Source Data URI from: Oracle Object-Storage** field. Select the **Get from file header** check box in the **Source column name** field.
+
+    ![Click the Get from file header check box.](./images/select-get-from-file-header.png " ")
+
+9. Click **Create Table**. A **1 operation in progress** orange link is displayed in the **Tables** section. If you hover over the link, a **Creating table-name table** tooltip is displayed. If the table creation is successful, it is displayed in the **Tables** section.
+
+10. Query the newly created table. In the **Tables** section, click the **Actions** icon that is associated with the newly created table, and then click **Query** from the context menu.
+
+    ![Table is created.](./images/query-endpoint-table.png " ")
+
+    The auto-generated Select query is displayed in the editor.
+
+    ![Query the endpoint table.](./images/auto-endpoint-query.png " ")
+    
+11. Click the **Run Query** icon in the toolbar. The query output is displayed in the Last **Query Results** tab.
+
+    ![Endpoint query results.](./images/endpoint-query-results.png " ")
+
+    >**Note:** Every publicly available http service can be used in Query Service.
 
 ## Learn More
 

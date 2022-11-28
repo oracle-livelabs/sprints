@@ -63,7 +63,6 @@ As part of the synchronization process, Query Service also creates schemas that 
 >**Note:** In Data Catalog, you can provide a custom property override for the schema name that will generated. In addition, you can customize the business names for each of the three Oracle Object Storage buckets that you use in this workshop. For example, instead of using the Data Asset name in the generated schema name, you can provide a shorter name such as **obj** (for Object Storage). Similarly, instead of using the buckets name as part of the generated schema name, you provide a shorter business name for the bucket. For example, instead of having long schema names in queries such as **DCAT$DATALAKE_MOVIESTREAM\_SANDBOX**, you can have a shorter name for the generated schema such as **DCAT$OBJ_SANDBOX**. For detailed information, see the [Access the Data Lake using Autonomous Database and Data Catalog](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=877&clear=180&session=103071880685237) Livelabs workshop.
 -->
 
-
 ### **Use Query Editor to Query Data in Oracle Object Storage Buckets**
 
 1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
@@ -115,9 +114,17 @@ Let's query the **CUSTOMER\_CONTACT** external table from the **MOVIESTREAM_DEMO
 
   ![Process to query an external table is displayed.](./images/query-table.png " ")
 
+    >**Note:** If you can't see the **Actions** icon in the **Tables** section, drag the vertical divider bar to the right.
+
+    ![Drag the vertical divider line.](./images/resize-vertical-divider.png " ")
+
 4. Click **Run Query** to run the query. An information box is displayed briefly. In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.
 
   ![Select Query from the Actions context menu associated with CUSTSALES.](./images/query-custsales.png " ")
+
+    >**Note:** You can resize the worksheet area by dragging the horizontal divider bar.
+
+    ![Drag the horizontal divider line.](./images/resize-horizontal-divider.png " ")
 
 5. To view the status of the current and past query executions, click the **Query Executions** tab.
 
