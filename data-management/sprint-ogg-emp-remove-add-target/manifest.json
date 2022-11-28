@@ -42,7 +42,7 @@
      },
      
      {
-      "title": "How do I create an Oracle GoldenGate admin user in Enterprise Manager console to manage Oracle GoldenGate specific targets?",
+      "title": "How do I create an Oracle GoldenGate admin user in the Enterprise Manager console to manage Oracle GoldenGate-specific targets?",
          "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
          "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
     }
