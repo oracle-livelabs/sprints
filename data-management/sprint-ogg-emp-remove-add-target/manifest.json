@@ -39,7 +39,14 @@
         "title": "How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?",
         "description": "How do I download Diagnostic Logs in racle GoldenGate Enterprise Manager Plug-in?",
         "filename": "./../sprint-ogg-emp-diagnostic-log/sprint-ogg-emp-diagnostic-log.md"
-     }
+     },
+     
+     {
+      "title": "How do I create an Oracle GoldenGate admin user in the Enterprise Manager console to manage Oracle GoldenGate-specific targets?",
+         "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
+         "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
+    }
+      
 
    ],
    "task_type": "Sections",
