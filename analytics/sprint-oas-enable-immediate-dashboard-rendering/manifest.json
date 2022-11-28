@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I enable immediate dashboard rendering in Oracle Analytics Cloud (OAC)?",
+         "description": "Learn how to enable dashboard rendering in Oracle Analytics Cloud.",
+         "filename": "enable-dashboard-rendering.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
