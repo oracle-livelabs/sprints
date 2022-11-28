@@ -1,4 +1,4 @@
-# How do I set timeout settings for load balancing in OCI and communicating with Oracle Analytics Server (OAS)?
+# How do I set timeout settings for load balancing in OCI and communicate with Oracle Analytics Server (OAS)?
 
 Duration: 1 minute
 
@@ -24,7 +24,7 @@ You can increase the default timeout setting to 7200 seconds if either the Oracl
 
 4. Select and edit the appropriate **Listener**.
 
-5. In the **Idle Timeout In Seconds** field, enter the value *7200* and save your changes. The timeout setting should now be set to 7200, allowing your Oracle Analytics Server instance more time for the HTTPS response. 
+5. In the **Idle Timeout In Seconds** field, enter the value *7200* and save your changes. The timeout setting should now be set to 7200, allowing your Oracle Analytics Server instance more time for the HTTPS response.
 
   ![Confirm restart](images/listener.png)
 
