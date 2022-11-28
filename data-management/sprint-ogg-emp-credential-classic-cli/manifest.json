@@ -40,17 +40,14 @@
          "description": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI? ",
          "filename": "./../sprint-ogg-emp-remove-add-target/sprint-ogg-emp-remove-add-target.md"
       },
+      
       {
-           "title": "How do I create an OGG admin User In OEM Console To Manage OGG Specific Targets?",
-           "description": "How do I create an OGG admin User In OEM Console To Manage OGG Specific Targets? ",
-           "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
-       },
-       {
-         "title": "How do I enable Log Events and alerts?",
-           "description": "How do I enable log events and alerts? ",
-           "filename": "./../sprint-ogg-emp-enable-log-events-alerts/sprint-ogg-emp-enable-log-events-alerts.md"
-       
+         "title": "How do I create a GoldenGate admin User in Enterprise Manager console to manage Oracle GoldenGate specific targets?",
+          "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
+          "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
       }
+
+       
 
    ],
    "task_type": "Sections",
