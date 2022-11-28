@@ -38,8 +38,14 @@
           "title": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI?",
           "description": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI? ",
           "filename": "./../sprint-ogg-emp-remove-add-target/sprint-ogg-emp-remove-add-target.md"
+       },
+
+       {
+         "title": "How do I create an Oracle GoldenGate admin user in the Enterprise Manager console to manage Oracle GoldenGate-specific targets?",
+            "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
+            "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
        }
-   ],
+      ],
    "task_type": "Sections",
    "hide_button": "true"
 }
