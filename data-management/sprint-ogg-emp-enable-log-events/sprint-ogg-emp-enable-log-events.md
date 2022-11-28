@@ -51,7 +51,18 @@ Duration: 5 minutes
 11. Click the **Deployment** target on the **OGG Home** page and click the **Events** tab on the **Deployment Details** page. Log Event messages are displayed. You can also sort them by **Message**, **Timestamp**, **Code**, **Severity**, and **Process** fields.
     
     ![Log Event Messages.](./images/log-event-messages-displayed.png " ")
+
+    By default, the latest Log Event Message is displayed. You can also search for messages. The search option is also enabled.
+
+    ![Log Event search](./images/log-event-search.png " ")   
+
+12.  Click **Export** to export the Log Event messages to a text format:
+
+     ![Export Log Events search](./images/export-log-events.png " ")   
     
+    You can download and view the exported text file that contains the Log Event messages:
+
+    ![Exported Log Event messages in .txt format.](./images/exported-log-events-text-file.png " ")
 
 ## Learn More
 
