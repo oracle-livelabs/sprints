@@ -1,12 +1,12 @@
 # How do I enable Log Events in the Oracle GoldenGate Enterprise Manager Plug-in?
 
-Duration: 5 minutes
+Duration: 3 minutes
 
 ## Enable Log Events
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
 
-2. Click **Targets**, select **All Targets** to display the **OGG Home** page with all the discovered targets.
+2. Click **Targets** and select **All Targets** to display the **OGG Home** page with all the discovered targets.
 
 3. Select and click a Deployment target to display the **Deployment Details** page.
 
