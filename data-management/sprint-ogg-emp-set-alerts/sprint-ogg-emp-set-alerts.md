@@ -1,6 +1,6 @@
-# How do I set alerts in Oracle GoldenGate Enterprise Manager Plug-in?
+# How do I set alerts in the Oracle GoldenGate Enterprise Manager Plug-in?
 
-Duration: 5 minutes
+Duration: 3 minutes
 
 ## Set Alerts
 
