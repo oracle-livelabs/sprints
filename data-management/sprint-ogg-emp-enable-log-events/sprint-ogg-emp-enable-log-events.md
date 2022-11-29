@@ -1,8 +1,8 @@
-# How do I enable Log Events and alerts in Oracle GoldenGate Enterprise Manager Plug-in?
+# How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?
 
 Duration: 5 minutes
 
-## Enable Log Events and alerts
+## Enable Log Events
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
 
