@@ -10,7 +10,7 @@ To set alerts:
 
 1. Ensure that you have discovered Oracle GoldenGate targets and set credentials for them in the Oracle GoldenGate Enterprise Manager Plug-in. See **Learn More**.
 
-2. After you have enabled event messages as explained in **How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?**, click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page.
+2. After you have enabled event messages as explained in [How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3517), click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page.
 
     ![Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings**](./images/alerts-oggdeployment-monitoring-metric-collections.png " ")
 
