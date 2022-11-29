@@ -10,7 +10,7 @@ To set alerts:
 
 1. Ensure that you have discovered Oracle GoldenGate targets and set credentials for them in the Oracle GoldenGate Enterprise Manager Plug-in. See **Learn More**.
 
-2. After you have enabled event messages as explained in [How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3517), click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page.
+2. After you have enabled event messages as explained in **How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?**, click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page.
 
     ![Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings**](./images/alerts-oggdeployment-monitoring-metric-collections.png " ")
 
@@ -22,7 +22,7 @@ To set alerts:
 
     * **Warning Threshold**: INFO
     * **Critical Threshold**: ERROR
-    
+
      ![Set **Warning Threshold** and **Critical Threshold**](./images/log-events-severity-warning-critical.png " ")
 
     You can also use wildcard options to enter values for **Severity**, **Message**, **Code**, **Process**, or **Timestamp**. In this example, the OR (|) wildcard is used for entering a value for **Severity**:
@@ -33,37 +33,37 @@ To set alerts:
     ![Set **Warning Threshold** and **Critical Threshold** Wildcard options](./images/log-events-severity-warning-critical-or-wildcard.png " ")
 
     In the following example, the Astrix (*) wildcard is used for entering a value for **Code**:
-    
+
     ![Set a wildcard to lookup for code.](./images/log-event-code-wildcard.png " ")
-    
-    
+
+
 5. Click **OK** on the Confirmation page.
 
     ![Update succeeded!](./images/confirmation-update-success-ok.png " ")
-    
-6. Click **Targets** and select **GoldenGate** to display the **OGG Home** page. Select an Extract target, start and stop it, and then refresh the page. Notice that the number of incidents have been updated for the Deployment target. 
+
+6. Click **Targets** and select **GoldenGate** to display the **OGG Home** page. Select an Extract target, start and stop it, and then refresh the page. Notice that the number of incidents have been updated for the Deployment target.
 
     ![Critical Incidents](./images/critical-incidents-updated.png " ")
 
    In the following screenshot, notice the updated number of incident (for wildcard options):
 
     ![Critical Incidents updated for Wildcard entries](./images/critical-incidents-updated-for-wildcard.png " ")
-    
-        
+
+
 7. Click the number at the **Critical Incident**.
 
     The alert messages are displayed in the Incident Manager for the **Severity** you have set.
-    
+
     ![Alert Messages](./images/critical-incidents-result-error-severity.png " ")
-    
+
     You can also view the messages from the **All Metrics** page. Select **Oracle GoldenGate Deployment** drop-down, click **Monitoring**, and then select **All Metrics**.
 
     ![To view alert messages from All Metrics page](./images/view-alerts-from-all-metrics-oggdep-mon-all-metrics.png " ")
-    
+
     Notice the number of alerts on the **All Metrics** page:
     ![Notice the number of alerts on the All Metrics page.](./images/alerts-from-all-metrics-page.png " ")
-    
-    
+
+
 
 ## Learn More
 
