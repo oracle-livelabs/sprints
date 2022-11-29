@@ -1,4 +1,4 @@
-# How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?
+# How do I enable Log Events in the Oracle GoldenGate Enterprise Manager Plug-in?
 
 Duration: 5 minutes
 
