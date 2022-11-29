@@ -8,12 +8,12 @@
       "description": "How do I enable log events Oracle GoldenGate Enterprise Manager Plug-in? ",
       "filename": "./../sprint-ogg-emp-enable-log-events/sprint-ogg-emp-enable-log-events.md"
        
-     },
-     
+    },
+        
      {
       "title": "How do I create an Oracle GoldenGate admin user in the Enterprise Manager console to manage Oracle GoldenGate-specific targets?",
-         "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
-         "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
+      "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
+      "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
     },
 
     {

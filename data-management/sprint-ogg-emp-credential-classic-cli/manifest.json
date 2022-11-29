@@ -52,7 +52,14 @@
       "description": "How do I enable log events in Oracle GoldenGate Enterprise Manager Plug-in? ",
       "filename": "./../sprint-ogg-emp-enable-log-events/sprint-ogg-emp-enable-log-events.md"
        
-     }
+     },
+     
+     {
+      "title": "How do I set alerts in the Oracle GoldenGate Enterprise Manager Plug-in?",
+      "description": "How do I set alerts in the Oracle GoldenGate Enterprise Manager Plug-in? ",
+      "filename": "./../sprint-ogg-emp-set-alerts/sprint-ogg-emp-set-alerts.md"
+       
+  }
 
        
 
