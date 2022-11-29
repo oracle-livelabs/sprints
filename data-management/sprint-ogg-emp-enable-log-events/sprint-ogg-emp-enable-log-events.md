@@ -12,11 +12,11 @@ Duration: 5 minutes
 
      ![Click a Deployment target.](./images/click-deployment-target.png " ")
 
- 4.  Click the **Event** tab. A message is displayed in the **Events** tab that no event has been enabled yet.
+ 4.  Click the **Event** tab. A message is displayed in the **Events** tab that no log event metric collection has been enabled yet.
 
     ![Check whether the Log Event is enabled!](./images/events-tab-metric-not-enabled-message.png " ")
         
-5. Enable the metric. Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page:
+5. Enable the Log Event metric. Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page:
 
     ![Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings**](./images/oggdeployment-monitoring-metrics-collections.png " ")
     
@@ -68,5 +68,7 @@ Duration: 5 minutes
 
 * [Discovering an Oracle GoldenGate Enterprise Manager Plug-in Microservices Instance](https://docs.oracle.com/en/middleware/goldengate/emplugin/13.5.2/empug/discovering-oracle-goldengate-targets-ma-instance.html#GUID-A52B6240-189C-4DAB-A017-6358BBB9813B)
 * [Discovering an Oracle GoldenGate Enterprise Manager Plug-in Classic Instance](https://docs.oracle.com/en/middleware/goldengate/emplugin/13.5.2/empug/discovering-oracle-goldengate-targets-classic-instance.html#GUID-DD1E8937-3ADE-40FA-9DE2-B01E5CC20D31)
+* [Enabling/Disabling Metrics](https://docs.oracle.com/en/middleware/goldengate/emplugin/13.5.2/empug/metric-data.html#GUID-0DA847D6-33E7-4747-A17C-82BF0D1B4D1F)
+* [Setting Alerts for Events](https://docs.oracle.com/en/middleware/goldengate/emplugin/13.5.2/empug/incidents-and-alerts.html#GUID-88A8C47C-A127-4579-9849-33C5DF751DFC)
 * [New Route to Discovery in Oracle GoldenGate Enterprise Manager Plug-in](https://blogs.oracle.com/dataintegration/post/new-route-to-discovery-in-oracle-goldengate-enterprise-manager-plug-in-134200)
 * [Oracle GoldenGate Enterprise Manager Plug-in Documentation](https://docs.oracle.com/en/middleware/goldengate/emplugin/index.html)
