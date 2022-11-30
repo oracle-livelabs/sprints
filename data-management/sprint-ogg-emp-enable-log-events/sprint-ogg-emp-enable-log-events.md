@@ -22,7 +22,7 @@ To enable log events:
 
     ![Check whether the Log Event is enabled!](./images/events-tab-metric-not-enabled-message.png " ")
         
-5. Enable the Log Event metric. Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page:
+5. Enable the Log Event metric. Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page.
 
     ![Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings**](./images/oggdeployment-monitoring-metrics-collections.png " ")
     
