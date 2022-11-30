@@ -6,6 +6,8 @@ Duration: 3 minutes
 
 The user can get automatically notified whenever there is an activity at the target level. To enable this automatic notification, you can set alerts in the Oracle Enterprise Manager GoldenGate Plug-in UI.
 
+Alerts can be set for Oracle GoldenGate Microservices, classic, GoldenGate OCI, and GoldenGate Cloud instances.
+
 To set alerts:
 
 1. Ensure that you have discovered Oracle GoldenGate targets and set credentials for them in the Oracle GoldenGate Enterprise Manager Plug-in. See **Learn More**.

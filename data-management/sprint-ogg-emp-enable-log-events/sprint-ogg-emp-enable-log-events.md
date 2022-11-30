@@ -6,6 +6,8 @@ Duration: 3 minutes
 
 There are several Errors, Warnings, and Information messages that Oracle GoldenGate can log. A few messages are highly important and cannot be ignored. If you want to monitor the messages, then you need to enable Log Events in the Oracle Enterprise Manager Plug-in UI. You need to set an alert for those Log Events and you will be notified when such messages are triggered.
 
+Log Events are supported for Oracle GoldenGate Microservices, classic, GoldenGate OCI, and GoldenGate Cloud instances.
+
 To enable log events:
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
