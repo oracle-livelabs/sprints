@@ -3,7 +3,7 @@ Duration: 4 minutes
 
 There may be scenarios where you want to back up or migrate semantic model extensions between Fusion Analytic Warehouse instances.  A semantic model bundle allows you to bundle extensions where they have been tagged as part of the main branch or are defined in branches that are yet to be merged into the main branch.  These can be exported and then deployed across different FAW instances.
 
-## Backup and restore environment using bundles
+## Create and deploy semantic bundles
 
 >**Note:** You must have the **Service Administrator** role to successfully complete this Sprint.
 
