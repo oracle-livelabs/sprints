@@ -23,9 +23,9 @@ There are several Errors, Warnings, and Information messages that Oracle GoldenG
 
     ![Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings**](./images/oggdeployment-monitoring-metrics-collections.png " ")
     
-6. Click **Other Collected Items**. Notice that the Log Event is **Disabled**, and click **Disabled**.
+6. Click **Other Collected Items**. Notice that the Log Event is in a disabled state, and click **Disabled**.
 
-    ![By default, Log Event is Disabled.](./images/log-event-disabled-by-default.png " ")
+    ![By default, Log Events are Disabled.](./images/log-event-disabled-by-default.png " ")
     
 7. In the **Edit Collection Settings: Log Events** page, click **Enable**:
 
@@ -41,7 +41,7 @@ There are several Errors, Warnings, and Information messages that Oracle GoldenG
 
     ![Click OK to complete.](./images/click-ok-to-complete.png " ")
 
-    The Log Event metric has been enabled:
+    The Log Event metric has been enabled.
 
     ![Log Event metric is now enabled - Confirmation shown.](./images/log-event-enabled-ok.png " ")
     
@@ -55,7 +55,7 @@ There are several Errors, Warnings, and Information messages that Oracle GoldenG
     
     ![Log Event Messages.](./images/log-event-messages-displayed.png " ")
 
-    By default, the latest Log Event Message is displayed. You can also search for messages. The search option is also enabled.
+    By default, the latest Log Event Message is displayed. The search option is also enabled.
 
     ![Log Event search](./images/log-event-search.png " ")   
 
@@ -63,7 +63,7 @@ There are several Errors, Warnings, and Information messages that Oracle GoldenG
 
      ![Export Log Events search](./images/export-log-events.png " ")   
     
-    You can download and view the exported text file that contains the Log Event messages:
+    You can download and view the exported text file that contains the Log Event messages.
 
     ![Exported Log Event messages in .txt format.](./images/exported-log-events-text-file.png " ")
 
