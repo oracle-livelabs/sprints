@@ -30,7 +30,7 @@ To create this Oracle GoldenGate Administrator User and grant privileges:
 
     ![Click Add under Target Privileges.](./images/target-privileges-click-add.png " ")
 
-7. In the **Search and Add: Targets** page, select the targets options and click **Select**. Here, a deployment, administrative service, service manager, receiver service, distribution service, performance service, and extract targets are selected:
+7. In the **Search and Add: Targets** page, select the target options and click **Select**. Here, a deployment, administrative service, service manager, receiver service, distribution service, performance service, and extract targets are selected:
 
     ![Select targets.](./images/search-select-targets.png " ")
 
