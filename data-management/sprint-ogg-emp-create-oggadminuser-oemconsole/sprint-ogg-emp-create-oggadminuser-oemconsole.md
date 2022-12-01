@@ -3,7 +3,7 @@ Duration: 7 minutes
 
 ## Create Oracle GoldenGate Administrator User (ogg 'admin' user)
 
-An instance-level user (or GoldenGate Adminstrator User) will have certain (or all the granted) privileges as per the business requirements. 
+An instance-level user (or GoldenGate Administrator User) will have certain (or all the granted) privileges as per the business requirements. 
 
 To create this Oracle GoldenGate Administrator User and grant privileges:
 
