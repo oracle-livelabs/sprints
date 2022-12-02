@@ -4,7 +4,7 @@ Duration: 3 minutes
 
 Map backgrounds are a great tool to improve the quality of your map visualizations and customize them to fit the specific theme of your workbooks in OAC and OAS. You can style your custom background using Google Maps or Baidu, as well as any maps created with Web Service Map or Tiled Web Map protocols.
 
-[](youtube:g5EiaGnUXDg)
+[](youtube:g5EiaGnUXDg:large)
 
 ## Adding a custom map background
 In order to complete this sprint you need to have the appropriate credentials
