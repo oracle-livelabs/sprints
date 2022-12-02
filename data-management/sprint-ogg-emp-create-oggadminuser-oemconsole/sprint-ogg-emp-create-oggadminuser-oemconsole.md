@@ -88,7 +88,7 @@ These Privileges give the administrator the right to perform particular manageme
 
     ![Specify the Host credentials.](./images/specify-host-credentials.png " ")
 
-18. Under **Access control**, click **Add Grant** and in the **Search** dialog box, select the Administrator user and click **Select** you just created to add grants to the Administrator user:
+18. Under **Access control**, click **Add Grant** and in the **Search** dialog box, select the Administrator user and click **Select** to add grants to the Administrator user:
 
     ![Select administrator user to add grants.](./images/access-control-add-grant-admin-user-select.png " ")
 
