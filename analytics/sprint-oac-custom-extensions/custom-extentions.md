@@ -1,4 +1,4 @@
-# How do I import custom extensions/visualizations/plugins-ins in Oracle Analytics Cloud (OAC)?
+# How do I import custom extensions/visualizations/plugins-ins in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 2 minutes
 
@@ -7,9 +7,9 @@ When working with visualizations in Oracle Analytics Cloud, there are over 45 pr
 ## Import custom extensions
 The following steps will guide you on how to import custom extensions.
 
->**Note:** You must have the **BI Service Administrator** role to be able to execute the following steps. This role allows you to work in the OAC console.
+>**Note:** You must have the **BI Service Administrator** role to be able to execute the following steps. This role allows you to work in the OAC/OAS console.
 
-1. From the OAC homepage **Navigation menu**, click on **Console** and select **Extensions**.
+1. From the Oracle Analytics homepage **Navigation menu**, click on **Console** and select **Extensions**.
 
     ![Console extensions](images/console-extension.png)
 
@@ -18,7 +18,7 @@ The following steps will guide you on how to import custom extensions.
 
     ![Download](images/download-extension.png)
 
-3. On the **Extensions** page in your OAC instance, click **Upload** and open the extension file. Once uploaded, the extension should be listed in the extensions page.
+3. On the **Extensions** page, click **Upload** and open the extension file. Once uploaded, the extension should be listed in the extensions page.
 
     ![Upload extension](images/upload-extension.png)
 
@@ -27,14 +27,13 @@ The following steps will guide you on how to import custom extensions.
 
     ![Visualizations list](images/visualization-list.png)
 
-Congratulations, you have learned how to upload custom visualization extentions in Oracle Analytics Cloud!
+Congratulations, you have learned how to upload custom visualization extensions in Oracle Analytics Cloud and Server (OAC & OAS)!
 
 ## Learn More
 
 * [Manage Custom Plug-ins](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/manage-custom-plug-ins.html)
 
-* [Extending Oracle Analytics Cloud’s Data
-Visualization Using Custom Plug-ins](https://analyticsanddatasummit.org/wp-content/uploads/2019/06/TechCasts-How-to-Use-OAC-Data-Viz-Plug.pdf)
+* [Extending Oracle Analytics Cloud’s Data Visualization Using Custom Plug-ins](https://analyticsanddatasummit.org/wp-content/uploads/2019/06/TechCasts-How-to-Use-OAC-Data-Viz-Plug.pdf)
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy

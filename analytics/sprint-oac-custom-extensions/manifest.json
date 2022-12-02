@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I import custom extensions/visualizations/plugins-ins in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to import custom visualization plugins on Oracle Analytics Cloud!",
+         "title": "How do I import custom extensions/visualizations/plugins-ins in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to import custom visualization plugins!",
          "filename": "custom-extentions.md"
       }
    ],

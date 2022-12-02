@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I create a dataset using a local file in Oracle Analytics Cloud (OAC)?",
+         "title": "How do I create a dataset using a local file in Oracle Analytics Cloud and Server (OAC & OAS)?",
          "description": "",
          "filename": "sprint-oac-create-dataset-local-file.md"
       }
