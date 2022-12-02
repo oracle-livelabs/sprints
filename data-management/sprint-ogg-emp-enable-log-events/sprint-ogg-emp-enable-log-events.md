@@ -2,7 +2,13 @@
 
 Duration: 3 minutes
 
-## Enable Log Events
+## Enable Log Events 
+
+There are several Errors, Warnings, and Information messages that Oracle GoldenGate can log. A few messages are highly important and cannot be ignored. If you want to monitor the messages, then you need to enable Log Events in the Oracle Enterprise Manager Plug-in UI. You need to set an alert for those Log Events and you will be notified when such messages are triggered.
+
+Log Events are supported for Oracle GoldenGate Microservices, classic, GoldenGate OCI, and GoldenGate Cloud instances.
+
+To enable log events:
 
 1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
 
@@ -16,13 +22,13 @@ Duration: 3 minutes
 
     ![Check whether the Log Event is enabled!](./images/events-tab-metric-not-enabled-message.png " ")
         
-5. Enable the Log Event metric. Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page:
+5. Enable the Log Event metric. Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings** to display the **Metric and Collections Settings** page.
 
     ![Click the **Oracle GoldenGate Deployment** drop-down list, select **Monitoring** and click **Metric and Collection Settings**](./images/oggdeployment-monitoring-metrics-collections.png " ")
     
-6. Click **Other Collected Items**. Notice that the Log Event is **Disabled**, and click **Disabled**.
+6. Click **Other Collected Items**. Notice that the Log Event is in a disabled state, and click **Disabled**.
 
-    ![By default, Log Event is Disabled.](./images/log-event-disabled-by-default.png " ")
+    ![By default, Log Events are Disabled.](./images/log-event-disabled-by-default.png " ")
     
 7. In the **Edit Collection Settings: Log Events** page, click **Enable**:
 
@@ -38,7 +44,7 @@ Duration: 3 minutes
 
     ![Click OK to complete.](./images/click-ok-to-complete.png " ")
 
-    The Log Event metric has been enabled:
+    The Log Event metric has been enabled.
 
     ![Log Event metric is now enabled - Confirmation shown.](./images/log-event-enabled-ok.png " ")
     
@@ -52,7 +58,7 @@ Duration: 3 minutes
     
     ![Log Event Messages.](./images/log-event-messages-displayed.png " ")
 
-    By default, the latest Log Event Message is displayed. You can also search for messages. The search option is also enabled.
+    By default, the latest Log Event Message is displayed. The search option is also enabled.
 
     ![Log Event search](./images/log-event-search.png " ")   
 
@@ -60,7 +66,7 @@ Duration: 3 minutes
 
      ![Export Log Events search](./images/export-log-events.png " ")   
     
-    You can download and view the exported text file that contains the Log Event messages:
+    You can download and view the exported text file that contains the Log Event messages.
 
     ![Exported Log Event messages in .txt format.](./images/exported-log-events-text-file.png " ")
 
