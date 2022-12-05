@@ -342,7 +342,7 @@ You will first create a new folder in your Object Storage bucket, and then uploa
 
 17. Query the newly created table. In the **Tables** section, click the **Actions** icon that is associated with the table, and then click **Query** from the context menu. The auto-generated Select query is displayed in the editor. Click the **Run Query** icon in the toolbar. The query output is displayed in the Last **Query Results** tab.
 
-## **Create an External Table Using a Public Data Set**
+## **Create an External Table Using a Public Endpoint Data Set**
 
 You will create an external table using a public endpoint data set from GitHub.
 
