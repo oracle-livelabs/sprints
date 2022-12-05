@@ -75,6 +75,10 @@ As part of the synchronization process, Query Service also creates schemas that 
 
   ![The scratchpad page is displayed.](./images/scratchpad-callouts.png " ")
 
+    >**Note:** If you can't see the **Actions** icon in the **Tables** section, move your mouse cursor between the **Tables** and **Worksheet** panes. This displays the vertical divider bar. Drag the bar to the right to resize the panes.
+
+    ![Drag the vertical divider line.](./images/resize-vertical-divider.png " ")
+
 ### **Components of the Query Editor**
 
 1. **Breadcrumbs:** Click **Projects** in the breadcrumbs to return to the **Query Service Projects** page. Click **Worksheets** to view the project details page which shows your saved worksheets.
@@ -113,10 +117,6 @@ Let's query the **CUSTOMER\_CONTACT** external table from the **MOVIESTREAM_DEMO
 3. To query a table, click the **Select a Schema** drop-down list to select a schema such as the **MOVIESTREAM_DEMO** sample schema. Click the **Actions** icon next to a table such as **CUSTSALES**, and then select **Query** from the Context menu. The automatically generated SQL query for the selected table is displayed in the Editor area.
 
   ![Process to query an external table is displayed.](./images/query-table.png " ")
-
-    >**Note:** If you can't see the **Actions** icon in the **Tables** section, drag the vertical divider bar to the right.
-
-    ![Drag the vertical divider line.](./images/resize-vertical-divider.png " ")
 
 4. Click **Run Query** to run the query. An information box is displayed briefly. In the **Last Query Result** tab, the status of running the query is displayed, initially **In Progress**. When the query is completed successfully, the results are displayed in the **Last Query Result** tab and the status changes to **Succeeded**.
 

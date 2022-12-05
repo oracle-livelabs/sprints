@@ -21,7 +21,7 @@ In this workshop, you will:
 * Create a Query Service project.
 * Query data using standard Oracle SQL in the Query Editor.
 * Explore the project Detail page.
-* Create Oracle Object Storage tables using different data sources.
+* Create Oracle Object Storage external tables using different data sources.
 * Connect to Query Service from Oracle SQL Developer and optionally install SQL Developer.
 * Connect to Query Service from Oracle Analytics Cloud.
 
@@ -44,4 +44,4 @@ You may now proceed to the next lab.
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, November 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022
