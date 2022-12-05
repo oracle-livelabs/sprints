@@ -1,0 +1,69 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+
+   {
+      
+        "title": "How do I create an Oracle GoldenGate admin user in the Enterprise Manager console to manage Oracle GoldenGate-specific targets?",
+        "description": "How do I create an OGG admin User In OEM Console to manage OGG Specific Targets? ",
+         "filename": "./../sprint-ogg-emp-create-oggadminuser-oemconsole/sprint-ogg-emp-create-oggadminuser-oemconsole.md"
+   },
+
+    {
+        "title": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI?",
+        "description": "How do I add and remove Oracle GoldenGate targets in Oracle GoldenGate Enterprise Manager Plug-in UI? ",
+        "filename": "./../sprint-ogg-emp-remove-add-target/sprint-ogg-emp-remove-add-target.md"
+     },
+
+     {
+        "title": "How do I discover GoldenGate Microservices instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I discover GoldenGate Microservices instances using the EM CLI verb? ",
+        "filename": "./../sprint-ogg-emp-discover-ma-cli/sprint-ogg-emp-discover-ma-cli.md"
+     },
+
+     {
+        "title": "How do I discover GoldenGate (classic) instances using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I discover GoldenGate (classic) instances using the EM CLI verb?",
+        "filename": "./../sprint-ogg-emp-discover-classic-cli/sprint-ogg-emp-discover-classic-cli.md"
+     },
+
+     {
+        "title": "How do I create credentials for Oracle GoldenGate MA instance using EM CLI in  GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I create credentials for Oracle GoldenGate MA instance using EMCLI in  GoldenGate Enterprise Manager Plug-in? ",
+        "filename": "./../sprint-ogg-emp-credential-ma-cli/sprint-ogg-emp-credential-ma-cli.md"
+     },
+     {
+        "title": "How do I create credentials for Oracle GoldenGate Classic instance using EM CLI in  GoldenGate Enterprise Manager Plug-in",
+        "description": "How do I create credentials for Oracle GoldenGate Classic instance using EMCLI in  GoldenGate Enterprise Manager Plug-in? ",
+        "filename": "./../sprint-ogg-emp-credential-classic-cli/sprint-ogg-emp-credential-classic-cli.md"
+     },
+     {
+        "title": "How do I start and stop processes using the EM CLI verb in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I start and stop processes using the EM CLI verb? ",
+        "filename": "./../sprint-ogg-emp-start-stop-cli/sprint-ogg-emp-start-stop-cli.md"
+     },
+     {
+        "title": "How do I download Diagnostic Logs in Oracle GoldenGate Enterprise Manager Plug-in?",
+        "description": "How do I download Diagnostic Logs in racle GoldenGate Enterprise Manager Plug-in?",
+        "filename": "./../sprint-ogg-emp-diagnostic-log/sprint-ogg-emp-diagnostic-log.md"
+     },
+     {
+      "title": "How do I enable Log Events in Oracle GoldenGate Enterprise Manager Plug-in?",
+      "description": "How do I enable log events in Oracle GoldenGate Enterprise Manager Plug-in? ",
+      "filename": "./../sprint-ogg-emp-enable-log-events/sprint-ogg-emp-enable-log-events.md"
+       
+     },
+     
+     {
+      "title": "How do I set alerts in the Oracle GoldenGate Enterprise Manager Plug-in?",
+      "description": "How do I set alerts in the Oracle GoldenGate Enterprise Manager Plug-in? ",
+      "filename": "./../sprint-ogg-emp-set-alerts/sprint-ogg-emp-set-alerts.md"
+       
+  }
+     
+
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

@@ -1,0 +1,23 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create and deploy security bundles in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to create and deploy security bundles in FAW.",
+         "filename": "generate-security-bundles.md"
+      },
+      {
+         "title": "How do I create and deploy semantic model bundles in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to create and deploy semantic model bundles in FAW.",
+         "filename": "../sprint-faw-generate-semantic-bundles/generate-semantic-bundles.md"
+      },
+      {
+         "title": "How do I generate content bundles in Fusion Analytics Warehouse (FAW)?",
+         "description": "",
+         "filename": "../sprint-faw-generate-content-bundles/generate-content-bundles.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

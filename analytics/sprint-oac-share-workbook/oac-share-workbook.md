@@ -8,6 +8,8 @@ Oracle Analytics gives you the ability to share your workbook with others to fac
 
 Sharing workbooks is a great way to collaborate without having to export your whole workbook, move it around, and risk having misaligned versions from sending it back and forth between multiple users.
 
+[](youtube:RxDbqN4NTjU)
+
 ## Share a workbook
 >**Note:** You must have **BI Content Author** application role to be able to execute the following steps:
 
