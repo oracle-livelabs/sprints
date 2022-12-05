@@ -1,19 +1,19 @@
-# How do I add a custom map background in Oracle Analytics Cloud (OAC)?
+# How do I add a custom map background in Oracle Analytics Cloud and Server (OAC & OAS)?
+
 Duration: 3 minutes
 
-Map backgrounds are a great tool to improve the quality of your map visualizations
-and customize them to fit the specific theme of your workbooks in OAC. You can style your custom background using Google Maps or Baidu, as well as any maps created with Web Service Map or
-Tiled Web Map protocols.
+Map backgrounds are a great tool to improve the quality of your map visualizations and customize them to fit the specific theme of your workbooks in OAC and OAS. You can style your custom background using Google Maps or Baidu, as well as any maps created with Web Service Map or Tiled Web Map protocols.
 
-## Adding a custom map background through the OAC Console.
+[](youtube:g5EiaGnUXDg)
+
+## Adding a custom map background
 In order to complete this sprint you need to have the appropriate credentials
 ready from your mapping service. If you are using Google Maps or Baidu, this is an API key.
 If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 
 >**Note:** You must have the **BI Service Admin** role in order to complete the following steps.
 
-
-1. From your OAC homepage, click on the hamburger icon in the top left and select **Console**.
+1. From your OAC/OAS homepage, click on the hamburger icon in the top left and select **Console**.
 
     ![OAC Homepage](images/oac-homepage.png)
 
@@ -33,7 +33,7 @@ If you are using a Web Service Map or Tiled Web Map protocol, this is a URL.
 
     ![OAC create custom map background](images/oac-add-map-background.png)
 
-6. Your map background is now ready to be used in a workbook. You can verify this by returning to the OAC homepage
+6. Your map background is now ready to be used in a workbook. You can verify this by returning to the homepage
 and creating a new workbook. You must use a dataset that has a location-based column, such as "State" or "Country" so that
 you can create a map visualization.
 
@@ -58,7 +58,7 @@ listed by the name of the mapping service that you created it with, so we choose
 
     ![OAC show custom map background](images/oac-custom-map-background.png)
 
-Congratulations, you have just learned how to add a custom map background in Oracle Analytics Cloud!
+Congratulations, you have just learned how to add a custom map background in Oracle Analytics Cloud and Server!
 
 
 ## Learn More

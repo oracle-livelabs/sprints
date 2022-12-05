@@ -1,4 +1,4 @@
-# How do I search for the description of a workbook in Oracle Analytics Cloud (OAC)?
+# How do I search for the description of a workbook in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 1 minute
 
@@ -14,11 +14,11 @@ This Sprint will guide you on how to use advanced search capabilities to narrow 
 ## Search for workbook description
 >**Note:** You must have the **BI Content Author** application role to execute the following steps.
 
-1. Make sure that datasets used in your workbook have been enabled to index for searching. If you have not done this, refer to the Sprint **How do I enable searching for my dataset in Oracle Analytics Cloud (OAC)?** and enable indexing for the datasets used in the workbook you want to search for.
+1. Make sure that datasets used in your workbook have been enabled to index for searching. If you have not done this, refer to the Sprint **How do I enable searching for my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?** and enable indexing for the datasets used in the workbook you want to search for.
 
     ![Index dataset](images/index-dataset.png)
 
-2. After your datasets have been enabled for indexing, navigate back to your OAC homepage and in the search bar, type *description:* followed by the term to search for. For example, *description: population* will result in all the workbooks with the word population contained in the workbook description.
+2. After your datasets have been enabled for indexing, navigate back to your Oracle Analytics homepage and in the search bar, type *description:* followed by the term to search for. For example, *description: population* will result in all the workbooks with the word population contained in the workbook description.
 
     ![Description with one term](images/desc-term.png)
 
@@ -29,10 +29,9 @@ This Sprint will guide you on how to use advanced search capabilities to narrow 
     ![Description with two terms](images/desc-multiple.png)
 
 
-Congratuations! You have just learned how to use advanced search capablities to narrow your search by searching for the description of a workbook. To learn about other advanced search capabilities, expand the section below.
+Congratulations! You have just learned how to use advanced search capabilities to narrow your search by searching for the description of a workbook. To learn about other advanced search capabilities, expand the section below.
 
 ## Learn More
-
 * [Find Data, Workbooks, and Visualizations](https://docs.oracle.com/en/middleware/bi/analytics-desktop/bidvd/find-data-workbooks-and-visualizations.html#GUID-DA77E10C-0796-4578-9761-D2AFC75F7B8D)
 
 ## Acknowledgements

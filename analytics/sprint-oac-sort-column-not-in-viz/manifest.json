@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I sort a visualization by a column not used in the visualization in Oracle Analytics Cloud (OAC)?",
-         "description": "Learn how to sort a visualization with a column not used in the visualization in OAC!",
+         "title": "How do I sort a visualization by a column not used in the visualization in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to sort a visualization with a column not used in the visualization!",
          "filename": "oac-sort-column-not-in-viz.md"
       }
    ],

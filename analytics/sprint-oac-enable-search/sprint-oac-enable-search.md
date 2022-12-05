@@ -1,18 +1,18 @@
-# How do I enable searching for my dataset in Oracle Analytics Cloud (OAC)?
+# How do I enable searching for my dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 3 minutes
 
-A dataset is a basic storage unit in Oracle Analytics Cloud (OAC) which stores data from various data sources such as files, tables, subject areas or connections. A dataset can also be a self-service data model that contains multiple tables with relationships defined between the tables.
+A dataset is a basic storage unit in Oracle Analytics which stores data from various data sources such as files, tables, subject areas or connections. A dataset can also be a self-service data model that contains multiple tables with relationships defined between the tables.
 
 [](youtube:YCdobBTjjQ4)
 
 ### Situation
-You have just uploaded your dataset "SampleOrders-DS" and searching is not working in the hompage's search results.
+You have just uploaded your dataset "SampleOrders-DS" and searching is not working in the homepage's search results.
 
    ![No Data](images/no-data-to-display.png)
 
 ## Enable searching for a dataset
-If you have just uploaded a file-based dataset, you have to **index** it before you can use it to build visualizations from the OAC homepage. If you shared your dataset with other users, you must index and certify your dataset before the users you shared the dataset with are able to use it to build visualizations from their homepage.
+If you have just uploaded a file-based dataset, you have to **index** it before you can use it to build visualizations from the OAC/OAS homepage. If you shared your dataset with other users, you must index and certify your dataset before the users you shared the dataset with are able to use it to build visualizations from their homepage.
 > **Note:** You must have the **BI Service Administrator** application role to successfully execute this Sprint.
 
 1. On the **Home** page, click the **Navigation menu**, and then click **Data** to get to your datasets.  
@@ -30,7 +30,7 @@ If you have just uploaded a file-based dataset, you have to **index** it before 
    ![Index Search Options](images/dataset-search-index.png)  
 
 
-4. Navigate back to your OAC homepage and ask your question in **Search** area.
+4. Navigate back to your Oracle Analytics homepage and ask your question in **Search** area.
 
    ![Ask Question](images/ask-question.png)
 
@@ -39,7 +39,7 @@ If you have just uploaded a file-based dataset, you have to **index** it before 
    ![Home Page](images/data-to-display.png)  
 
 
-Congratulations! You have just learned how to make a dataset available for search in Oracle Analytics Cloud!
+Congratulations! You have just learned how to make a dataset available for search in Oracle Analytics Cloud and Server (OAC & OAS)!
 
 
 ## Learn More
