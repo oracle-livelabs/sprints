@@ -15,7 +15,7 @@ of all skill levels can leverage.
 you have already created a workbook that you would like to use, you can optionally open it
 from the homepage and skip to step 3.
 
-    ![OAC Homepage](images/1-OAC-homepage.png)
+    ![OAC Homepage](images/1-oac-home.png)
 
 2. Choose the dataset that you would like to analyze with the Explain feature, then click **Add to Workbook**
 
@@ -49,4 +49,4 @@ Congratulations, you have just learned how to use the Explain feature in Oracle 
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
-* **Last Updated By/Date** - Miles Novotny, November 2022
+* **Last Updated By/Date** - Miles Novotny, December 2022
