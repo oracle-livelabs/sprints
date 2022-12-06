@@ -65,7 +65,7 @@ As part of the synchronization process, Query Service also creates schemas that 
 
 ### **Use Query Editor to Query Data in Oracle Object Storage Buckets**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**. This is the quickest way to access the Query Editor and start querying tables in the available schemas. Alternatively, you can click the project's name link to display the project's detail page and then click **Query Editor**.
 
@@ -159,4 +159,4 @@ Let's query the **CUSTOMER\_CONTACT** external table from the **MOVIESTREAM_DEMO
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, November 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022

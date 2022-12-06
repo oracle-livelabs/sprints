@@ -24,15 +24,15 @@ Watch the following short video on how to create an Oracle Analytics Cloud insta
 
 To connect to a Query Service project from Analytics Cloud, you need to create a database password and download a database wallet, which you should have already done in the **How do I connect to Query Service from Oracle SQL Developer?** sprint.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. The **Query Service Overview** page is displayed. Click **Go to Projects**.
 
 2. On the **Query Service Projects** page, click the desired project name link to display the project's detail page.
 
-    ![The project name link is highlighted.](./images/project-name-link.png " ")  
+    ![The project name link is highlighted.](./images/project-name-link.png " ")
 
 3. On the project's detail page, click **Download Wallet**.
 
-    ![The worksheet detail page is displayed.](./images/click-download-wallet.png " ")  
+    ![The worksheet detail page is displayed.](./images/click-download-wallet.png " ")
 
 4. In the **Download Database Wallet** dialog box, enter and confirm the password of your choice that protects the Client Credentials **Wallet.zip** file that you will download, and then click **Download**.
 
@@ -44,11 +44,11 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
 5. On the project's detail page, click the **More Actions** drop-down list, and then select **Open Analytics Cloud**.
 
-    ![The worksheet detail page is displayed.](./images/open-analytics-cloud.png " ")  
+    ![The worksheet detail page is displayed.](./images/open-analytics-cloud.png " ")
 
 6. On the **Analytics Instances** page, click **Create Instance**.
 
-    ![The OAC Home page is displayed.](./images/analytics-instances-page.png " ")  
+    ![The OAC Home page is displayed.](./images/analytics-instances-page.png " ")
 
 7. In the **Create Analytics Instance** panel, specify the following:
 
@@ -67,9 +67,9 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
     >**Note:** Provisioning an Oracle Analytics Cloud instance can take anywhere from 15 to 30 minutes.
 
-7. Access the OAC Home page. You can either click the **Analytics Home Page** button, or scroll-down to the **Access Information** section, and then click the URL.  
+7. Access the OAC Home page. You can either click the **Analytics Home Page** button at the top of the page, or scroll-down to the **Access Information** section, and then click the URL.
 
-    The **Oracle Analytics Home Page** is displayed.
+    The **Oracle Analytics** Home page is displayed.
 
     ![The OAC Home page is displayed.](./images/oac-home-page.png " ")
 
@@ -77,7 +77,7 @@ To connect to a Query Service project from Analytics Cloud, you need to create a
 
 You can create a connection to enable you to analyze and visualize data in that data source. A dataset uses one or more connections to data sources such as Query Service to access and supply data for analysis and visualization. Create a connection to the `project` user in Query Service.
 
-1. From the Oracle Analytics banner, click **Create**, and then click **Connection**.  
+1. From the Oracle Analytics banner, click **Create**, and then click **Connection**.
 
     ![The oracle analytics create options are displayed.](./images/click-connection.png " ")
 
@@ -96,7 +96,7 @@ You can create a connection to enable you to analyze and visualize data in that 
 
       ![The populated dialog box is displayed.](./images/poplulated-create-db.png " ")
 
-4. Click **Save**. A **Connection created successfully** message is displayed.
+4. Click **Save**. A **Connection created successfully** message is displayed and the **Oracle Analytics Home Page** is re-displayed.
 
 5. To view your available connections, on **Home** page, click the **Navigation** menu, and then click **Data**. On the **Data** page, click the **Connections** tab to view your connections list.
 
@@ -106,7 +106,7 @@ You can create a connection to enable you to analyze and visualize data in that 
 
 Datasets are self-service data models that you build specifically for your data visualization and analysis requirements. You use visualizations and analysis to find the answers that you need from key business data displayed in graphical formats. A dataset contains data source connection information, tables, the columns you specify, and the data enrichments and transformations that you apply. Create a dataset using your new Query Service connection.
 
-1.  From the Oracle Analytics banner, click **Create**, and then click **Dataset**.  
+1. From the Oracle Analytics banner, click **Create**, and then click **Dataset**.
 
     ![The create list options is displayed.](./images/click-dataset.png " ")
 
@@ -128,15 +128,15 @@ Datasets are self-service data models that you build specifically for your data 
 
     >**Note:** For detailed information on Oracle Analytics Cloud, see [Oracle Analytics Cloud Get Started](https://docs.oracle.com/en/cloud/paas/analytics-cloud/index.html).
 
-4. Save your dataset. Click the **Save Dataset** icon in the **New Dataset** banner.  
+4. Save your dataset. Click the **Save Dataset** icon in the **New Dataset** banner.
 
     ![Click save dataset in the banner.](./images/save-dataset.png " ")
 
-5. In the **Save Dataset As** dialog box, enter **qs-custsales-dataset** as the name, enter an optional description, and then click **OK**.      
+5. In the **Save Dataset As** dialog box, enter **qs-custsales-dataset** as the name, enter an optional description, and then click **OK**.
 
     The dataset name is displayed in the banner.
 
-    ![New dataset name is displayed in the banner.](./images/new-dataset-name-displayed.png " ")  
+    ![New dataset name is displayed in the banner.](./images/new-dataset-name-displayed.png " ")
 
     >**Note:** To view your available datasets, on **Home** page, click the **Navigation** menu, and then click **Data**. On the **Data** page, click the **Datasets** tab to view your datasets list.
 
@@ -146,7 +146,13 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Click create workbook.](./images/click-create-workbook.png " ")
 
-2. Display the data for the **ACTUAL_PRICE** by **OS** columns. Drag and drop both columns onto the **Drop Visualizations or Data Here** canvas.
+2. In the **Add Data** dialog box, click your dataset, and then click **Add to Workbook**.
+
+    ![Add data to workbook.](./images/add-to-workbook.png " ")
+
+    The **New Workbook** with the selected dataset is displayed.
+
+3. Display the data for the **ACTUAL_PRICE** by **OS** columns. Click the **Ctrl** key and then select both columns. Drag and drop both columns onto the **Drop Visualizations or Data Here** canvas.
 
     ![Drag and drop tables onto canvas.](./images/drag-drop-tables.png " ")
 
@@ -156,21 +162,21 @@ Datasets are self-service data models that you build specifically for your data 
 
     ![Tables Visualizations is displayed.](./images/visualization-displayed.png " ")
 
-3. Save the workbook. Click the drop-down list next to the **Save** icon in the **New Workbook** banner to view the available options. Click **Save**.
+4. Save the workbook. Click the drop-down list next to the **Save** icon in the **New Workbook** banner to view the available options. Click **Save**.
 
     ![Save workbook options.](./images/save-workbook-options.png " ")
 
-4. In the **Save Workbook** dialog box, enter a name and an optional description. By default, your workbook will be saved in the **My Folders** folder. To save the workbook in a new folder, click **New Folder** and follow the prompts.
+5. In the **Save Workbook** dialog box, enter a name and an optional description. By default, your workbook will be saved in the **My Folders** folder. To save the workbook in a new folder, click **New Folder** and follow the prompts.
 
-5. Click **Save**. The workbook name is displayed in the banner. Click the back arrow icon on the banner to return to the OAC Home page.
+6. Click **Save**. The workbook name is displayed in the banner. Click the back arrow icon on the banner to return to the OAC Home page.
 
     ![Return to the OAC Home page.](./images/return-oac-home.png " ")
 
-6. On the Analytics Home page, you should see your new connection, dataset, and workbook.
+7. On the **Oracle Analytics** Home page, you should see your new connection, dataset, and workbook.
 
     ![Analytics Home page is displayed.](./images/analytics-home-page.png " ")
 
-**This concludes the Get Started with Query Service workshop (LA) sprints.**    
+**This concludes the Get Started with Query Service workshop (LA) sprints.**
 
 ## Learn More
 
@@ -183,4 +189,4 @@ Datasets are self-service data models that you build specifically for your data 
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, August 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022

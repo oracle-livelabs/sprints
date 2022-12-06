@@ -1,7 +1,7 @@
 # How do I connect to Query Service from Oracle SQL Developer?
 Duration: 10 minutes
 
-In this sprint you will perform the steps required to connect to Query Service as the user **`PROJECT`** from SQL Developer.   
+In this sprint you will perform the steps required to connect to Query Service as the user **`PROJECT`** from SQL Developer.
 
 ### Prerequisites
 * An Oracle Cloud Account.
@@ -21,11 +21,11 @@ To connect to a Query Service project from SQL Developer, you need the following
 + Copy your project's JDBC Connection string from Query Service.
 + Create a new database connection in SQL Developer.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. On the **Query Service Projects** page, click the desired project name link to display the project's detail page.
 
-    ![The project name link is highlighted.](./images/project-name-link.png " ")  
+    ![The project name link is highlighted.](./images/project-name-link.png " ")
 
 3. On the project's detail page, click the **More Actions** drop-down list, and then select **Create or Update Database Password**.
 
@@ -186,7 +186,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 
 ### **View and Query the New External Table in Query Service**
 
-21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. The **Query Service Overview** page is displayed. Click **Go to projects**.
+21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. The **Query Service Overview** page is displayed. Click **Go to Projects**.
 
 22. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**. The **Query Editor** page is displayed.
 

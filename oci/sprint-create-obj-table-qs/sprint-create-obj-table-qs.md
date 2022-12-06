@@ -17,7 +17,7 @@ The **PROJECT$** schema contains the tables that you create and manage using the
 
 ### **Create the Table**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**.
 
@@ -105,7 +105,7 @@ You will first create an Object Storage bucket (unless you already have one) in 
 
 ### **Create an Object Storage Bucket and Change its Visibility to Public**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. Copy your web browser URL where you are running Query Service and paste it into a new browser tab.
 
@@ -204,7 +204,7 @@ For information on how to create the required policy, see the **How do I create 
 
 ### **Create a Private Object Storage Bucket and Upload a .csv File to the Bucket**
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. Copy your web browser URL where you are running Query Service and paste it into a new browser tab.
 
@@ -284,7 +284,7 @@ You will first create a new folder in your Object Storage bucket, and then uploa
 
 2. Download the second **.csv** file that you will use to create the new table in Query Service to Your local machine. Click the following link to download the [custsales-2019-02.csv](files/custsales-2019-02.csv?download=1) file.
 
-3. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password, if not already signed in. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+3. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password, if not already signed in. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 4. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**.
 
@@ -346,7 +346,7 @@ You will first create a new folder in your Object Storage bucket, and then uploa
 
 You will create an external table using a public endpoint data set from GitHub.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password, if not already signed in. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password, if not already signed in. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**.
 
@@ -385,7 +385,7 @@ You will create an external table using a public endpoint data set from GitHub.
     The auto-generated Select query is displayed in the editor.
 
     ![Query the endpoint table.](./images/auto-endpoint-query.png " ")
-    
+
 11. Click the **Run Query** icon in the toolbar. The query output is displayed in the Last **Query Results** tab.
 
     ![Endpoint query results.](./images/endpoint-query-results.png " ")
@@ -403,4 +403,4 @@ You will create an external table using a public endpoint data set from GitHub.
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, November 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022

@@ -10,7 +10,7 @@ You will get familiar with the components of the project detail page in Query Se
 
 ## Exploring the Project Detail Page in Query Service
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. The **Console** Home page is displayed. Open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. On the **Query Service Projects** page, click the desired project name link to display the project's detail page.
 
