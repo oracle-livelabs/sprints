@@ -68,4 +68,8 @@ Congratulations, you have just learned how to add a custom map background in Ora
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
+* **Last Updated By/Date** - Miles Novotny, August 2022 Backgrounds](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/enhance-visualizations-map-backgrounds.html)
+
+## Acknowledgements
+* **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
 * **Last Updated By/Date** - Miles Novotny, August 2022
