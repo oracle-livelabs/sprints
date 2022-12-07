@@ -7,7 +7,7 @@ An instance-level user (or GoldenGate Administrator User) will have certain (or 
 
 To create this Oracle GoldenGate Administrator User and grant privileges:
 
-1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in.
+1. Ensure that you have discovered Oracle GoldenGate targets in the Oracle GoldenGate Enterprise Manager Plug-in. See **Learn More**.
 
 2. Click **Setup**, select **Security**, and then click **Administrators**.
 
@@ -154,5 +154,6 @@ Watch this video on how to create an Oracle GoldenGate administrator user in Gol
 
 * [Discovering an Oracle GoldenGate Enterprise Manager Plug-in Microservices Instance](https://docs.oracle.com/en/middleware/goldengate/emplugin/13.5.2/empug/discovering-oracle-goldengate-targets-ma-instance.html#GUID-A52B6240-189C-4DAB-A017-6358BBB9813B)
 * [Discovering an Oracle GoldenGate Enterprise Manager Plug-in Classic Instance](https://docs.oracle.com/en/middleware/goldengate/emplugin/13.5.2/empug/discovering-oracle-goldengate-targets-classic-instance.html#GUID-DD1E8937-3ADE-40FA-9DE2-B01E5CC20D31)
-* [New Route to Discovery in Oracle GoldenGate Enterprise Manager Plug-in](https://blogs.oracle.com/dataintegration/post/new-route-to-discovery-in-oracle-goldengate-enterprise-manager-plug-in-134200)
+* [Blog: Create an Oracle GoldenGate administrator user to manage Oracle GoldenGate-specific targets] (https://blogs.oracle.com/dataintegration/post/create-an-oracle-goldengate-administrator-user-to-manage-oracle-goldengate-specific-targets)
+* [Blog: New Route to Discovery in Oracle GoldenGate Enterprise Manager Plug-in](https://blogs.oracle.com/dataintegration/post/new-route-to-discovery-in-oracle-goldengate-enterprise-manager-plug-in-134200)
 * [Oracle GoldenGate Enterprise Manager Plug-in Documentation](https://docs.oracle.com/en/middleware/goldengate/emplugin/index.html)
