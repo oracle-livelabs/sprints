@@ -146,6 +146,9 @@ These Privileges give the administrator the right to perform particular manageme
    
    ![Start and stop buttons are enabled for the Extract.](./images/service-manager-extract-start-stop-enabled.png " ")
     
+**Video Preview**
+
+Watch this video on how to create an Oracle GoldenGate administrator user in GoldenGate Enterprise Manager Plug-in console: [Create an Oracle GoldenGate administrator user in GoldenGate Enterprise Manager Plug-in console](youtube:3a1zL7mQxqg)
 
 ## Learn More
 
