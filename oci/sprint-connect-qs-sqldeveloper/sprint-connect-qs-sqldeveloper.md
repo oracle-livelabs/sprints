@@ -1,7 +1,7 @@
 # How do I connect to Query Service from Oracle SQL Developer?
 Duration: 10 minutes
 
-In this sprint you will perform the steps required to connect to Query Service as the user **`PROJECT`** from SQL Developer.   
+In this sprint you will perform the steps required to connect to Query Service as the user **`PROJECT`** from SQL Developer.
 
 ### Prerequisites
 * An Oracle Cloud Account.
@@ -21,11 +21,11 @@ To connect to a Query Service project from SQL Developer, you need the following
 + Copy your project's JDBC Connection string from Query Service.
 + Create a new database connection in SQL Developer.
 
-1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+1. Sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. On the **Query Service Overview** page, click **Go to Projects**.
 
 2. On the **Query Service Projects** page, click the desired project name link to display the project's detail page.
 
-    ![The project name link is highlighted.](./images/project-name-link.png " ")  
+    ![The project name link is highlighted.](./images/project-name-link.png " ")
 
 3. On the project's detail page, click the **More Actions** drop-down list, and then select **Create or Update Database Password**.
 
@@ -35,7 +35,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 
     >**Note:** You can connect to the **PROJECT** schema using any Oracle Database client tool such as Oracle SQL Developer (you will do this in a later step), Oracle SQLcl, or SQL*Plus. You can then create Query service Project tables manually in this schema and run queries against those tables. It is also the Database User that the service uses to run queries submitted through the OCI Interface (UI/SDK/CLI).
 
-  ![The completed create database password dialog box is displayed.](./images/click-save-changes.png " ")  
+  ![The completed create database password dialog box is displayed.](./images/click-save-changes.png " ")
 
   The project's detail page is re-displayed.
 
@@ -115,7 +115,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 
 ### **Create an External Table in Query Service from SQL Developer**
 
->**Note:** Although you can create a regular database table in the **PROJECT** schema in Query Service, you cannot populate it with data since the **PROJECT** user has no tablespace quota.  
+>**Note:** Although you can create a regular database table in the **PROJECT** schema in Query Service, you cannot populate it with data since the **PROJECT** user has no tablespace quota.
 
 15. Click the **SQL Worksheet** icon in the toolbar to add a new empty worksheet.
 
@@ -173,7 +173,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 19. Add a new SQL worksheet. Click the **SQL Worksheet** drop-down list on the toolbar, and then select **qs-project-schema**.
     A new worksheet is displayed.
 
-20. Copy and paste the following script into your SQL Worksheet to query the newly created external table, and then click the **Run Statement** icon in the Worksheet toolbar.      
+20. Copy and paste the following script into your SQL Worksheet to query the newly created external table, and then click the **Run Statement** icon in the Worksheet toolbar.
 
     ```
     <copy>select *
@@ -186,7 +186,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 
 ### **View and Query the New External Table in Query Service**
 
-21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**.
+21. To view the newly created table in your Query Service project, sign in to the Oracle Cloud Infrastructure Console using your tenancy, username, and password. On the **Console** Home page, open the **Navigation** menu and click **Analytics & AI**. Under **Data Lake**, click **Query Service**. The **Query Service Overview** page is displayed. Click **Go to Projects**.
 
 22. On the **Query Service Projects** page, in the row for your Query Service project, click **Query Editor**. The **Query Editor** page is displayed.
 
@@ -198,7 +198,7 @@ To connect to a Query Service project from SQL Developer, you need the following
 
     > **Note:** It could take up to an hour after you create the external table in SQL Developer before it is displayed in Query Service.
 
-24. Query the **custsales\_jdbc** external table. Click the **Clear Editor** icon in the toolbar to delete any queries that you might have in your Scratchpad worksheet. Click the **Actions** icon next the **custsales\_jdbc** table, and then select **Query** from the Context menu. The auto generated SQL query is displayed in the Editor area. Click **Run Query** to run the query. A **Running Query** information box is displayed briefly.   
+24. Query the **custsales\_jdbc** external table. Click the **Clear Editor** icon in the toolbar to delete any queries that you might have in your Scratchpad worksheet. Click the **Actions** icon next the **custsales\_jdbc** table, and then select **Query** from the Context menu. The auto generated SQL query is displayed in the Editor area. Click the **Run Query** icon to run the query. A **Running Query** information box is displayed briefly.
 
   ![Select Query from the Actions context menu associated with CUSTSALES.](./images/query-external-table-qs.png " ")
 
@@ -216,4 +216,4 @@ To connect to a Query Service project from SQL Developer, you need the following
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, August 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022

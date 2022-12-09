@@ -1,11 +1,11 @@
 # How do I get started with Query Service (LA)?
 
->**_Important:_**    
-_The Query Service sprints in this series are based on the Query Service Limited Availability (LA) version._  
+>**_Important:_**
+_The Query Service sprints in this series are based on the Query Service Limited Availability (LA) version._
 
 ## About this Workshop
 
-The sprints in the Query Service series walk you through how to access and use Query Service from the Oracle Cloud Infrastructure Console, Oracle SQL Developer, and Oracle Analytics Cloud. You will learn about the required policies that you need before you can create and use Query Server projects. You learn how to create and query Object Storage tables in Query Service using Parquet and .csv files in public and private Object Storage buckets.
+The sprints in the Query Service series walk you through how to access and use Query Service from the Oracle Cloud Infrastructure Console, Oracle SQL Developer, and Oracle Analytics Cloud. You will learn about the required policies that you need before you can create and use Query Server projects. You learn how to create and query external tables in Query Service using different data sources.
 
 Duration: 2 minutes
 
@@ -16,11 +16,12 @@ Query Service is a native OCI query service that is scalable, performant, server
 ### Objectives
 
 In this workshop, you will:
-* Create the required Query Service projects policies.
+
+* Create the required policies to create and work with Query Service projects.
 * Create a Query Service project.
 * Query data using standard Oracle SQL in the Query Editor.
 * Explore the project Detail page.
-* Create Oracle Object Storage tables using Parquet and .csv files in Public and Private Object Storage buckets.
+* Create Oracle Object Storage external tables using different data sources.
 * Connect to Query Service from Oracle SQL Developer and optionally install SQL Developer.
 * Connect to Query Service from Oracle Analytics Cloud.
 
@@ -43,4 +44,4 @@ You may now proceed to the next lab.
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, August 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022
