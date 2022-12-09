@@ -1,5 +1,5 @@
 # How do I use the Explain functionality in Oracle Analytics Cloud and Server (OAC & OAS)?
-Duration: 3 minutes
+Duration: 2 minutes
 
 The Explain functionality of OAC is a powerful tool that uses machine learning
 to uncover insights about variables of interest in your data. These findings can be added to
@@ -7,7 +7,7 @@ your workbook with the click of a button, greatly accelerating the rate at which
 learn about your data and visualize your findings. Explain is a tool that users
 of all skill levels can leverage.
 
-## Using Explain on your Data.
+## Using Explain on Your Data.
 >**Note:** You must have the **DV Content Author** role in order to complete the following steps.
 
 
