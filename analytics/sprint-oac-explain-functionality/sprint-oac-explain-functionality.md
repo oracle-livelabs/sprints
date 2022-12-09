@@ -1,4 +1,4 @@
-# How do I use the Explain functionality in Oracle Analytics Cloud (OAC)?
+# How do I use the Explain functionality in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 3 minutes
 
 The Explain functionality of OAC is a powerful tool that uses machine learning
