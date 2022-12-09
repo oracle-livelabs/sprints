@@ -4,7 +4,7 @@ Duration: 3 minutes
 
 When you click on a specific data column, you have the option to direct the user to an external website to provide more information about that specific column. For example, you can link a vendor’s website to the vendor name column and when you right click on a visualization containing that column, you have the option to direct to the website.
 
-[](youtube:anxp2tCZO_I)
+[](youtube:anxp2tCZO_I:large)
 
 ## Creating the data action
 >**Note:** You must have the **DV Content Author** application role to successfully complete this action.

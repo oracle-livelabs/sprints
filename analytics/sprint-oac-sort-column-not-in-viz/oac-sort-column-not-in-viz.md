@@ -4,7 +4,7 @@ Duration: 1 minute
 
 Sorting is a great way to narrow your focus and reorganize your data to easily get insights out of your data. Sorting by one column is the most common way but Oracle Analytics allows you to create multiple sorts as well as sorting by columns not used in the visualization. This Sprint will guide you on how to create sorts with columns not used in your current visualization.
 
-[](youtube:om00JEvAY2w)
+[](youtube:om00JEvAY2w:large)
 
 ## Custom sort
 >**Note:** You must have the **BI Content Author** application role to successfully execute the following steps.

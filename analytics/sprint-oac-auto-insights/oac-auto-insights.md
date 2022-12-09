@@ -6,7 +6,7 @@ Auto Insights is a great way to create powerful visualization using suggestions 
 
 The following steps will show you how to enable Auto Insights if it is missing for your dataset.
 
-[](youtube:QslACkL2pbY)
+[](youtube:QslACkL2pbY:large)
 
 ## Enable Auto Insights
   > **Note:** You must have the **BI Service Administrator** application role to complete the following steps.

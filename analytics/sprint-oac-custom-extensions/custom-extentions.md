@@ -4,7 +4,7 @@ Duration: 2 minutes
 
 When working with visualizations in Oracle Analytics Cloud, there are over 45 pre-built visualizations to choose from. If the visualization you need is not available, then you have the ability to import your own custom visualizations. The [Oracle Analytics Extensions Library](https://www.oracle.com/business-analytics/data-visualization/extensions/) has many community developed visualizations available for download to enhance your visualizations and improve the reporting of your data.
 
-[](youtube:j43zHUmWZZU)
+[](youtube:j43zHUmWZZU:large)
 
 ## Import custom extensions
 The following steps will guide you on how to import custom extensions.
