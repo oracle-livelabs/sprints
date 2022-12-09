@@ -11,28 +11,30 @@ of all skill levels can leverage.
 >**Note:** You must have the **DV Content Author** role in order to complete the following steps.
 
 
-1. From your OAC homepage create a workbook by clicking on **Create** then **Workbook**. If
+1. From your Oracle Analytics homepage, create a workbook by clicking on **Create** then **Workbook**. If
 you have already created a workbook that you would like to use, you can optionally open it
 from the homepage and skip to step 3.
 
     ![OAC Homepage](images/1-oac-home.png)
 
-2. Choose the dataset that you would like to analyze with the Explain feature, then click **Add to Workbook**
+2. Choose the dataset that you would like to analyze with the Explain feature, then click **Add to Workbook**.
 
     ![OAC choose dataset](images/2-choose-dataset.png)
 
 3. Your data is now open in a workbook and ready to have the Explain feature used on it. Simply choose a variable which
-you would like to have explained, right click on it and choose **Explain**
+you would like to have explained, right click on it and choose **Explain**.
 
     ![OAC workbook choose variable](images/3-select-variable.png)
 
 4. The Explain feature presents you with information about your variable divided up into four sections.
-These sections are **Basic Facts**, **Key Drivers**, **Segments**, and **Anomalies**. Click on each section to view its insights. You may note that all four of these sections do not appear for the variable that you chose to explain. This may be because the **Segments** section only appears for variables that are attributes, and the **Anomalies** section only appears for  variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
+These sections are **Basic Facts**, **Key Drivers**, **Segments**, and **Anomalies**. Click on each section to view its insights.
 
-    ![OAC explain](images/4-explain-variable.png)
+    >**Note:** The four sections of the explain feature are dependent on the data type you choose to Explain. The **Segments** section only appears for variables that are attributes, and the **Anomalies** section only appears for variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
+
+  ![OAC explain](images/4-explain-variable.png)
 
 5. If you find any of the visualizations created by Explain insightful, you can add them to your canvas by clicking the
-check mark in their top right corner, then choosing **Add Selected**
+check mark in their top right corner, then choosing **Add Selected**.
 
     ![OAC explain choose visuals](images/5-add-explain-visuals.png)
 
@@ -40,12 +42,10 @@ check mark in their top right corner, then choosing **Add Selected**
 
     ![OAC explain visuals](images/6-view-explain-visuals.png)
 
-Congratulations, you have just learned how to use the Explain feature in Oracle Analytics Cloud!
-
 
 ## Learn More
 
-* [A detailed explanation of the Basic Facts, Key Drivers, Segments, and Anomalies sections.](https://docs.oracle.com/en/middleware/bi/analytics-desktop/bidvd/analyze-data-explain.html#GUID-1AE7FFB7-9DA5-40EF-A30A-5DC9DEED3D2D)
+* [A detailed explanation of the Basic Facts, Key Drivers, Segments, and Anomalies sections](https://docs.oracle.com/en/middleware/bi/analytics-desktop/bidvd/analyze-data-explain.html#GUID-1AE7FFB7-9DA5-40EF-A30A-5DC9DEED3D2D)
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub

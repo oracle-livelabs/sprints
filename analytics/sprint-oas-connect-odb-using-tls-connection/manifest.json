@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I connect to an Oracle Database using a TLS connection with TCPS Protocol in Oracle Analytics Server (OAS)?",
+         "description": "Learn how to connect to an Oracle Database using a TLS connection.",
+         "filename": "connect-odb-using-tls-connection.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
