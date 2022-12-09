@@ -60,7 +60,7 @@ A Query Service project is a collection of tables, worksheets, and queries relat
 
     ![The dynamic group and access Policy are created.](./images/group-policy-created.png " ")
 
-    > **Note:** To create the required dynamic group and the access policies that you need to use Query Service _manually_, view the **How do I create the required policies for Query Service projects?** sprint which you can select from the **Contents** menu on the left.
+    > **Note:** To create the required dynamic group and the access policies that you need to use Query Service _manually_, view the **How do I manually create the required policies for Query Service projects?** sprint which you can select from the **Contents** menu on the left.
 
 8. Click **Create Policy** to create the dynamic group and your access policy. _The access policy is created in your **root compartment**_.
 

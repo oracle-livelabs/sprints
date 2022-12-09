@@ -10,7 +10,7 @@ Before you can create and use a Query Service project, your tenancy must have a 
 
 > **Note:** Optionally, if you want to store your query results in Object Storage buckets, the dynamic group that contains the project must have read and write access to those buckets.
 
-Instead of creating the required dynamic group and access policy manually as described in this sprint, you can choose to have Query Service create them automatically when you create a new project. You have two options:
+Instead of creating the required dynamic group and access policy manually as described in this sprint, you can choose to have Query Service create them automatically when you create a new project as described in the **How do I create a Query Service project?** sprint. You have two options:
 
 * **Option 1:** Click the **Create Policy** button in the **Create Query Service project** panel to automatically generate the required dynamic group and the access policy that enables access to Query Service projects, Data Catalog, and Object Storage. _**The access policy is created in your root compartment**_.
 
@@ -116,7 +116,7 @@ allow dynamic-group training-qs-dynamic-group to manage object-family in tenancy
 ```
 
 >**Note:** In order to create an Object Storage table in Query Service based on a
-file that is stored in a private Object Storage bucket, you will need read access to that bucket. 
+file that is stored in a private Object Storage bucket, you will need read access to that bucket.
 
 ## Learn More
 
@@ -131,4 +131,4 @@ file that is stored in a private Object Storage bucket, you will need read acces
 * **Contributors:**
     + Alexey Filanovskiy, Senior Principal Product Manager
     + Ravi Ramkissoon, Software Development Director
-* **Last Updated By/Date:** Lauran Serhal, November 2022
+* **Last Updated By/Date:** Lauran Serhal, December 2022
