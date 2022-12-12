@@ -7,7 +7,15 @@ Learn how to add the database credentials to connect to the source and target da
 
 1. Ensure that you have the appropriate database privileges to be able to execute the commands in the Admin Client.
 
-2. Run the script: `adminclient` to open the Admin Client.
+2. To open the Admin Client, run the following script: 
+    ```
+    <copy>
+        adminclient
+
+    </copy> 
+
+    ```
+    
 
     **Note**: You don’t need to navigate to the *OGG_HOME/bin*  directory to run the Admin Client each time. The PATH environment variable is set for this. This is a client-server connection.
 
