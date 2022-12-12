@@ -1,5 +1,7 @@
-# How do I add extract process by using the Oracle GoldenGate Admin client?
+# How do I add an extract process by using the Oracle GoldenGate Admin client?
 Duration: 3 minutes
+
+## Add an Extract process
 
 Use `ADD EXTRACT` to create an Extract group/process. 
 
