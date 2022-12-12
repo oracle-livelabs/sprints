@@ -4,7 +4,7 @@ Duration: 3 minutes
 
 A dataset is a basic storage unit in Oracle Analytics which stores data from various data sources such as files, tables, subject areas or connections. A dataset can also be a self-service data model that contains multiple tables with relationships defined between the tables.
 
-[](youtube:YCdobBTjjQ4)
+[](youtube:YCdobBTjjQ4:large)
 
 ### Situation
 You have just uploaded your dataset "SampleOrders-DS" and searching is not working in the homepage's search results.

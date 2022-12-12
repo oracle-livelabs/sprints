@@ -4,7 +4,7 @@ Duration: 3 minutes
 
 Oracle Analytics allows you to join multiple tables into a dataset with its strong data prep capabilities. When you drag and drop a table into a dataset, Oracle Analytics automatically creates a join between tables if there are matching column names. If matching column names are not present, you have the ability to easily create joins whether its an inner, left, right, or full outer join. This Sprint will guide you on how to create joins between tables in a dataset!
 
-[](youtube:S8XJjIB93fg)
+[](youtube:S8XJjIB93fg:large)
 
 ## Create joins
 >**Note:** You must have the **DV Content Author** to be able to successfully execute the following steps.
