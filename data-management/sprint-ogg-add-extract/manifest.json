@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+     {
+        "title": "How do I add extract process by using the Oracle GoldenGate Admin client?",
+        "description": "How do I add extract process by using the Oracle GoldenGate Admin client? ",
+        "filename": "./../sprint-ogg-add-extract/sprint-ogg-add-extracts.md"
+     }
+
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
