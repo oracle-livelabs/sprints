@@ -14,7 +14,12 @@
         "title": "How do I add an Extract process by using the Oracle GoldenGate Admin client?",
         "description": "How do I add extract process by using the Oracle GoldenGate Admin client? ",
         "filename": "./../sprint-ogg-add-extract/sprint-ogg-add-extract.md"
-     }
+     },
+     {
+      "title": "How do I add database credentials by using the Oracle GoldenGate Admin client?",
+      "description": "How do I add database credentials by using the Oracle GoldenGate Admin client? ",
+      "filename": "./../sprint-ogg-add-credentials/sprint-ogg-add-credentials.md"
+   }
 
    ],
    "task_type": "Sections",
