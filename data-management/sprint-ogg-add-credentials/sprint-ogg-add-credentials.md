@@ -1,5 +1,6 @@
 # How do I add database credentials by using the Oracle GoldenGate Admin client?
 
+Duration: 3 minutes
 
 ## Connect to the Administration Service from the Admin Client and add database credentials
 

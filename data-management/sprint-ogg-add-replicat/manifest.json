@@ -19,6 +19,11 @@
       "title": "How do I add database credentials by using the Oracle GoldenGate Admin client?",
       "description": "How do I add database credentials by using the Oracle GoldenGate Admin client? ",
       "filename": "./../sprint-ogg-add-credentials/sprint-ogg-add-credentials.md"
+   },
+   {
+      "title": "How do I enable trandata, add Heartbeat and Checkpoint tables by using the Oracle GoldenGate Admin client?",
+      "description": "How do I enable trandata, add Heartbeat and Checkpoint tabless by using the Oracle GoldenGate Admin client? ",
+      "filename": "./../sprint-ogg-add-trandata-heartbeat-checkpoint/sprint-ogg-add-trandata-heartbeat-checkpoint.md"
    }
 
    ],
