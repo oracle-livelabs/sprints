@@ -23,7 +23,12 @@
       "title": "How do I add a Replicat process by using the Oracle GoldenGate Admin client?",
       "description": "How do I add a replicat process by using the Oracle GoldenGate Admin client? ",
       "filename": "./../sprint-ogg-add-replicat/sprint-ogg-add-replicat.md"
-     }
+     },
+     {
+      "title": " How do I test the data replication process by using the Oracle GoldenGate Admin client?",
+      "description": " How do I test the data replication process by using the Oracle GoldenGate Admin client? ",
+      "filename": "./../sprint-ogg-test-data-replication-process/sprint-ogg-test-data-replication-process.md"
+   }
 
    ],
    "task_type": "Sections",

@@ -1,4 +1,4 @@
-# How do I enable trandata, add Heartbeat and Checkpoint tables
+# How do I enable trandata, add Heartbeat and Checkpoint tables by using the Oracle GoldenGate Admin client?
 
 Duration: 5 mins
 
