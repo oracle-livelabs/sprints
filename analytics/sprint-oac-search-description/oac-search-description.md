@@ -2,7 +2,7 @@
 
 Duration: 1 minute
 
-Searching in Oracle Analytics allows you to find your contents whether they are workbooks, saved objects, or dataset columns directly in the homepage. If you want to narrow your search, searching for the description of a workbook is one way to find the exact workbook you are searching for. There are many advanced seach capabilities for finding the exact objects you want to find including searching for the name, owner, columns, or combining multiple search terms.
+Searching in Oracle Analytics allows you to find your contents whether they are workbooks, saved objects, or dataset columns directly in the homepage. If you want to narrow your search, searching for the description of a workbook is one way to find the exact workbook you are searching for. There are many advanced search capabilities for finding the exact objects you want to find including searching for the name, owner, columns, or combining multiple search terms.
 
 ### Scenario
 You want to narrow your search using a description of a workbook but you are not seeing any results.
