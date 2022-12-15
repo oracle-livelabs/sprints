@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como compartilhar um workbook no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a compartilhar workbooks no Oracle Analytics Cloud (OAC)!",
+         "filename": "./oac-share-workbook-pt.md"
+      }
+   ],
+   "task_type": "Sections", 
+ "hide_button": "true"
+}
