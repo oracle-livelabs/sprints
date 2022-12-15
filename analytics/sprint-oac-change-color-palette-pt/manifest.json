@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como posso mudar a paleta de cores para minhas visualizações no Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a mudar a paleta de cores para as suas visualizações em OAC!",
+         "filename": "sprint-oac-change-color-palette-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}

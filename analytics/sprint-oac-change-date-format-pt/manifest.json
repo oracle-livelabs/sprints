@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como posso alterar o formato padrão de data de uma coluna em um conjunto de dados no Oracle Analytics Cloud (OAC)?",
+         "description": "Saiba como alterar a exibição da data padrão dos seus conjuntos de dados em Oracle Analytics Cloud (OAC)!",
+         "filename": "change-date-format-pt.md"
+      }
+   ],
+   "task_type": "Sections", 
+ "hide_button": "true"
+}
