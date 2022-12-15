@@ -5,12 +5,7 @@
       {
          "title": "Como pesquisar a descrição de um workbook em Oracle Analytics Cloud (OAC)?",
          "description": "Aprenda a pesquisar a descrição de um workbook em OAC!",
-         "filename": "./oac-search-description-pt.md"
-      },
-      {
-         "title": "Como posso pesquisar meu conjunto de dados no Oracle Analytics Cloud (OAC)?",
-         "description": "",
-         "filename": "../sprint-oac-enable-search-pt/sprint-oac-enable-search.md"
+         "filename": "oac-search-description-pt.md"
       }
    ],
    "task_type": "Sections",
