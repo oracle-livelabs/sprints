@@ -3,8 +3,8 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I change the color palette for my visualizations in Oracle Analytics Cloud (OAC)??",
-         "description": "Learn how to change the color palette for your visualizations in OAC!",
+         "title": "How do I change the color palette for my visualizations in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn how to change the color palette for your visualizations!",
          "filename": "sprint-oac-change-color-palette.md"
       }
    ],

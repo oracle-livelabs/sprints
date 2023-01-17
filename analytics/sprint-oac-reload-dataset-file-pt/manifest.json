@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como atualizar datasets em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a atualizar datasets em OAC!",
+         "filename": "reload-dataset-file-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

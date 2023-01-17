@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I move FAW across compartments in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to move your FAW to different compartments.",
+         "filename": "move-faw-across-compartments.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

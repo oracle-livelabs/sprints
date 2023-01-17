@@ -1,5 +1,4 @@
-# How do I create a dataset using a local file in Oracle Analytics Cloud (OAC)?
-Duration: 1 minutes
+# How do I create a dataset using a local file in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 >**Note:** You must have the **DV Content Author** application role to execute the following steps.
 
@@ -19,7 +18,7 @@ You can upload Excel spreadsheets (XLSX or XLS), CSV files, and TXT files from y
     ![Specify separator for csv](images/separator.png)
 
 
-Congratulations! You have successfully learned how to create a dataset using a local file in Oracle Analytics Cloud and some best practices around it.
+Congratulations! You have successfully learned how to create a dataset using a local file in Oracle Analytics Cloud and Server (OAC & OAS).
 
 ## Learn More
 

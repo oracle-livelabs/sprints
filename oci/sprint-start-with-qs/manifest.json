@@ -7,14 +7,14 @@
        "description": " ",
        "filename": "./../sprint-start-with-qs/sprint-start-with-qs.md"},
       {
-        "title": "How do I create the required Query Service policies?",
-        "description": " ",
-        "filename": "./../sprint-create-qs-policies/sprint-create-qs-policies.md"
-     },
-      {
         "title": "How do I create a Query Service project?",
         "description": " ",
         "filename": "./../sprint-create-qs-project/sprint-create-qs-project.md"
+      },
+      {
+         "title": "How do I manually create the required Query Service policies?",
+         "description": " ",
+         "filename": "./../sprint-create-qs-policies/sprint-create-qs-policies.md"
       },
       {
          "title": "How do I query data in Query Service?",

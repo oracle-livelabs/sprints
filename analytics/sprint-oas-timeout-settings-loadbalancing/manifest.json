@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I set timeout settings for load balancing in OCI and communicate with Oracle Analytics Server (OAS)?",
+         "description": "Learn how to set timeout settings for loadbalancing in OAS.",
+         "filename": "timeout-settings-loadbalancing.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

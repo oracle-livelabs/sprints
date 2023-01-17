@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a User Group Mapping report in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to download the existing FAW User Group Mapping information.",
+         "filename": "user-group-mapping-report.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
