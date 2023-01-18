@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como criar Data Actions (Ação de Dados) para conexão com URLs externas a partir de Telas de Visualização?",
+         "description": "Crie Ação de Dados para conexão com URLs externas",
+         "filename": "data-actions-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

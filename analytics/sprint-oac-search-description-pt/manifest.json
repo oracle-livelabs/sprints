@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como pesquisar a descrição de um workbook em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a pesquisar a descrição de um workbook em OAC!",
+         "filename": "oac-search-description-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

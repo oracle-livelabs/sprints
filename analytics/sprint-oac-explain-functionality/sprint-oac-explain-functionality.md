@@ -49,4 +49,4 @@ check mark in their top right corner, then choosing **Add Selected**.
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
-* **Last Updated By/Date** - Shiva Oleti, December 2022
+* **Last Updated By/Date** - Nagwang Gyamtso, December 2022
