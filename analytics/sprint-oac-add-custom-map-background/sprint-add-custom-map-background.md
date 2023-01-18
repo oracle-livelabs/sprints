@@ -4,7 +4,7 @@ Duration: 3 minutes
 
 Map backgrounds are a great tool to improve the quality of your map visualizations and customize them to fit the specific theme of your workbooks in OAC and OAS. You can style your custom background using Google Maps or Baidu, as well as any maps created with Web Service Map or Tiled Web Map protocols.
 
-[](youtube:g5EiaGnUXDg)
+[](youtube:g5EiaGnUXDg:large)
 
 ## Adding a custom map background
 In order to complete this sprint you need to have the appropriate credentials
@@ -65,6 +65,10 @@ Congratulations, you have just learned how to add a custom map background in Ora
 
 * [Create a Map View of Your Data](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-create-map-view-of-data/#before_you_begin)
 * [Enhance Visualizations with Map Backgrounds](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/enhance-visualizations-map-backgrounds.html)
+
+## Acknowledgements
+* **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
+* **Last Updated By/Date** - Miles Novotny, August 2022 Backgrounds](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/enhance-visualizations-map-backgrounds.html)
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub

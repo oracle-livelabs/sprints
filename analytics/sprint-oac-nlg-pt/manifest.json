@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como criar uma language narrative das minhas visualizaçõpes em Oracle Analytics Cloud (OAC)?",
+         "description": "Como o NLG pode fornecer uma explicação em linguagem natural de suas visualizações com o clique de um botão.",
+         "filename": "oac-nlg-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

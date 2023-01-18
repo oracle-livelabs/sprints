@@ -4,7 +4,7 @@ Duration: 1 minute
 
 Oracle Analytics Cloud has powerful augmented analytics capabilities. For example, with Natural Language Generation, the underlying machine learning algorithm can give you a natural language explanation of your visualizations with just a click of a button.
 
-[](youtube:EQ6XLM7WBP4)
+[](youtube:EQ6XLM7WBP4:large)
 
 ### Situation
 Let's say that you have just created a canvas with many interesting visualizations but you are having a hard time making sense of the data. You're in a time cruch and are unable to process what the data means or you want a written explanation but do not want to write it out yourself.

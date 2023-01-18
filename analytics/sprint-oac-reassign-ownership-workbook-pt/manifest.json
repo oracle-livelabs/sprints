@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como trocar o proprietário de uma pasta de trabalho (workbook) em Oracle Analytics Cloud (OAC)?",
+         "description": "Aprenda a transferir a propriedade de um workbook em OAC!",
+         "filename": "sprint-oac-reassign-ownership-wrkbk-pt.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}

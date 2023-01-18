@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I use the Explain functionality in Oracle Analytics Cloud and Server (OAC & OAS)?",
+         "description": "Learn to use the One-Click Explain feature in OAC",
+         "filename": "sprint-oac-explain-functionality.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

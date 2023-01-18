@@ -6,7 +6,7 @@ Data Refresh Schedule in Fusion Analytics Warehouse allows you to automatically 
 
 The best practice when setting your Data Refresh Schedule is to set it to a time during non-business hours when your transaction volumes are very low. This will ensure that your business operations run without interruption during high traffic hours.
 
-[](youtube:OZsLm98TDV0)
+[](youtube:OZsLm98TDV0:large)
 
 ## Change Data Refresh Schedule
 > **Note:** You must have Service Admin role to be able to complete the following steps.
