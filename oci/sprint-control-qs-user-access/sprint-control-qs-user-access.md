@@ -166,7 +166,7 @@ You will create an Administrator group and then add the newly created admin user
 
 10. On the **training-qs-admin-group** page, scroll-down to the **Group Members** section, and then click **Add User to Group**.
 
-11. In the **Add User to Group** dialog box, click the **User** drop-down list and select the select the **`training-qs-analyst-1`** user. Next, click **Add**. The **Group Details** page is re-displayed and the newly added user to this group is displayed in the **Group Members** section.
+11. In the **Add User to Group** dialog box, click the **User** drop-down list and select the **`training-qs-admin-1`** user. Next, click **Add**. The **Group Details** page is re-displayed and the newly added user to this group is displayed in the **Group Members** section.
 
     ![Add the admin user to the admin group.](./images/admin-user-added-group.png " ")
 
@@ -228,12 +228,15 @@ Users in this group will have permissions to fully manage all the resources in Q
     * **Create Another Policy:** Select this checkbox to create the second analyst policy.
     * Click the **Copy** button in the following code box to copy the policy statement, and then paste it in the **Policy Builder** text box. This policy statement grants members of the `training-qs-admin-group` group full manage privileges on all the resources in Query Service in the current tenancy. Don't add any line breaks in any of the statements below. Replace the _'Enter your compartment ocid'_ placeholders with the ocids for your compartment that you copied earlier.
 
+        The first policy statement allows the Query Service Administrator group to create, manage, and delete Query Service projects in the specified compartment and to run queries in those projects.
+
+        The second policy statement allows the Query Service Administrator group to use buckets and objects in the specified compartment. This allows Query Administrators to use a Query Service project to browse object storage files, preview and analyze object storage file contents, and create tables based on object storage files.
+
         **Note:** Don't remove the tickmarks (' ').
 
         ```
         <copy>Allow group training-qs-admin-group to manage query-service-projects in compartment id 'Enter your compartment ocid'
-        Allow group training-qs-admin-group to use object-family in compartment id 'Enter your compartment ocid'
-        Allow dynamic-group training-qs-project-group to use object-family in compartment id 'Enter your compartment ocid'</copy>
+        Allow group training-qs-admin-group to use object-family in compartment id 'Enter your compartment ocid'</copy>
         ```
 
         ![Complete the dialog box and then click Create Policy.](./images/create-admin-policy-db.png " ")
@@ -256,6 +259,14 @@ Users in this group will have permissions to fully manage all the resources in Q
     * **Policy Builder:** Click and slide the **Show manual editor** slider to enable it. An empty text box is displayed in this section.
     * **Create Another Policy:** De-select this checkbox.
     * Click the **Copy** button in the following code box to copy the policy statements, and then paste them in the **Policy Builder** text box. Don't add any line breaks in any of the statements below. Replace the _'Enter your compartment ocid'_ and _'Enter your Query Service project ocid'_ placeholders with the OCIDs for your compartment and query service project that you copied earlier.
+
+        The first policy statement allows the Query Service Analyst group to list all projects in the specified compartment.
+
+        The next three policy statements allow the Query Service Analyst group to read the specified project and to use tables, schemas, and worksheets in that project.
+
+        The fifth policy statement allows the Query Service Analyst group to run queries.
+
+        The final policy statement allows the Query Service Analyst group to use buckets and objects in the specified compartment. This allows Query Analysts to use the Query Service project to browse object storage files, preview and analyze object storage file contents, and to create tables based on the object storage files.
 
         **Note:** Don't remove the tickmarks (' ').
 
