@@ -45,6 +45,11 @@
          "title": "How do I connect to Query Service from Analytics Cloud?",
          "description": " ",
          "filename": "./../sprint-connect-qs-analytics/sprint-connect-qs-analytics.md"
+      },
+      {
+         "title": "How do I control user access in Query Service?",
+         "description": " ",
+         "filename": "./../sprint-control-qs-user-access/sprint-control-qs-user-access.md"
       }
    ],
    "task_type": "Sections",

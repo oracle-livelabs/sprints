@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I control user access in Query Service?",
+         "type": "tenancy",
+         "description": "Control user access in Query Service",
+         "filename": "./../sprint-control-qs-user-access/sprint-control-qs-user-access.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
