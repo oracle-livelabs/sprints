@@ -4,7 +4,7 @@
    "tutorials": [
       {
          "title": "How do I auto-assign Fusion Analytics Warehouse (FAW) licensed groups to Oracle Fusion Cloud Application (FA) users?",
-         "description": "Learn how to migrate KPIs from test to production in Fusion Analytics!",
+         "description": "Learn how to auto-assign FAW licensed groups to FA users.",
          "filename": "./auto-assign-licensed-groups.md"
       }
    ],
