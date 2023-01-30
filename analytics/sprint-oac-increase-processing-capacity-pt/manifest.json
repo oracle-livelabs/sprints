@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Como aumentar a capacidade de processamento da minha instância no Oracle Analytics?",
+         "description": "Saiba como aumentar a capacidade de processamento da sua instância OAC!",
+         "filename": "oac-increase-processing-capacity-pt.md"
+      }
+   ],
+   "task_type": "Sections", 
+ "hide_button": "true"
+}

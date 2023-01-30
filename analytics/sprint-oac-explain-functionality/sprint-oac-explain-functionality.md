@@ -2,7 +2,7 @@
 Duration: 2 minutes
 
 The Explain functionality of OAC is a powerful tool that uses machine learning
-to uncover insights about variables of interest in your data. These findings can be added to
+to uncover insights about data elements of interest in your data. These findings can be added to
 your workbook with the click of a button, greatly accelerating the rate at which you can
 learn about your data and visualize your findings. Explain is a tool that users
 of all skill levels can leverage.
@@ -29,7 +29,7 @@ you would like to have explained, right click on it and choose **Explain**.
 4. The Explain feature presents you with information about your variable divided up into four sections.
 These sections are **Basic Facts**, **Key Drivers**, **Segments**, and **Anomalies**. Click on each section to view its insights.
 
-    >**Note:** The four sections of the explain feature are dependent on the data type you choose to Explain. The **Segments** section only appears for variables that are attributes, and the **Anomalies** section only appears for variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
+    >**Note:** The four sections of the explain feature are dependent on the data type you choose to Explain. The **Key Drivers** and **Segments** section only appears for variables that are attributes, and the **Basic Facts** and **Anomalies** section only appears for variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
 
   ![OAC explain](images/4-explain-variable.png)
 
@@ -38,7 +38,7 @@ check mark in their top right corner, then choosing **Add Selected**.
 
     ![OAC explain choose visuals](images/5-add-explain-visuals.png)
 
-6. The visualizations that you chose can now be interacted with on your canvas.
+6. The visualizations that you chose can now be interacted with and customized on your canvas.
 
     ![OAC explain visuals](images/6-view-explain-visuals.png)
 
@@ -49,4 +49,4 @@ check mark in their top right corner, then choosing **Add Selected**.
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
-* **Last Updated By/Date** - Miles Novotny, December 2022
+* **Last Updated By/Date** - Nagwang Gyamtso, December 2022
