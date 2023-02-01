@@ -1,4 +1,4 @@
-# How do I ingest Parquet files into AWS s3 buckets in real-time with Oracle GoldenGate for Big Data?
+# How do I ingest Parquet files into AWS S3 buckets in real-time with Oracle GoldenGate for Big Data?
 Duration: 5 minutes
 
 It is assumed tha you’ve [installed GoldenGate for Big Data](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/installing-oracle-goldengate-microservices-big-data.html#GUID-3145D2E1-C257-4C5D-A472-0EFAB31B6237) in your environment or from Oracle Cloud Infrastructure Market Place, and you've configured an [Extract](https://docs.oracle.com/en/middleware/goldengate/core/21.3/coredoc/extract-add-extract.html), which is up and running and trails are being sent to Oracle GoldenGate for Big Data Deployment. 
