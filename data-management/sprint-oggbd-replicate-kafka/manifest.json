@@ -10,8 +10,8 @@
       },
       
       {
-         "title": "How do I ingest messages into Kafka in real-time with Oracle GoldenGate for Big Data?",
-         "description": "How do I ingest messages into Kafka in real-time with Oracle GoldenGate for Big Data??",
+         "title": "How do I ingest messages into OCI Streaming in real-time with Oracle GoldenGate for Big Data?",
+         "description": "How do I ingest messages into OCI Streaming in real-time with Oracle GoldenGate for Big Data??",
          "filename": "./../sprint-oggbd-replicate-oci-streaming/sprint-oggbd-replicate-oci-streaming.md"
       },
       {
