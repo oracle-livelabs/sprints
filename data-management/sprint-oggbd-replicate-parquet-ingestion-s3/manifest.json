@@ -4,10 +4,15 @@
    "tutorials": [
 
      {
-        "title": "How do I ingest Parquet files into AWS s3 buckets in real-time with Oracle GoldenGate for Big Data?",
-        "description": "How do I ingest Parquet files into AWS s3 buckets in real-time with Oracle GoldenGate for Big Data?",
+        "title": "How do I ingest Parquet files into AWS S3 buckets in real-time with Oracle GoldenGate for Big Data?",
+        "description": "How do I ingest Parquet files into AWS S3 buckets in real-time with Oracle GoldenGate for Big Data?",
         "filename": "./../sprint-oggbd-replicate-parquet-ingestion-s3/sprint-oggbd-replicate-parquet-ingestion-s3.md"
-     }
+     },
+     {
+      "title": "How do I ingest Parquet files into  AWS Kinesis in real-time with Oracle GoldenGate for Big Data?",
+      "description": "How do I ingest Parquet files into  AWS Kinesis in real-time with Oracle GoldenGate for Big Data?",
+      "filename": "./../sprint-oggbd-replicate-parquet-ingestion-aws-kinesis/sprint-oggbd-replicate-parquet-ingestion-aws-kinesis.md"
+   }
      
      
    ],

@@ -1,0 +1,21 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+
+      {
+         "title": "How do I ingest Parquet files into  AWS Kinesis in real-time with Oracle GoldenGate for Big Data?",
+         "description": "How do I ingest Parquet files into  AWS Kinesis in real-time with Oracle GoldenGate for Big Data?",
+         "filename": "./../sprint-oggbd-replicate-parquet-ingestion-aws-kinesis/sprint-oggbd-replicate-parquet-ingestion-aws-kinesis.md"
+      },
+     {
+        "title": "How do I ingest Parquet files into AWS s3 buckets in real-time with Oracle GoldenGate for Big Data?",
+        "description": "How do I ingest Parquet files into AWS s3 buckets in real-time with Oracle GoldenGate for Big Data?",
+        "filename": "./../sprint-oggbd-replicate-parquet-ingestion-s3/sprint-oggbd-replicate-parquet-ingestion-s3.md"
+     }
+     
+     
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}
