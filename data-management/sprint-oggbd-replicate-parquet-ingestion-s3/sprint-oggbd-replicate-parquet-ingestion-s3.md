@@ -32,7 +32,7 @@ The following directories are created in ```GG_HOME/opt/DependencyDownloader/dep
    * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/hadoop_3.3.0```
    * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/parquet_1.12.3```
 
-        ![parquet.sh, hadoop.sh, and aws.sh directories created.](./images/parquet-hadoop-aws-directories.png " ")
+    ![parquet.sh, hadoop.sh, and aws.sh directories created.](./images/parquet-hadoop-aws-directories.png " ")
 
 ## Create a Replicat in Oracle GoldenGate for Big Data
 To create a replicat in Oracle GoldenGate for Big Data:
@@ -57,57 +57,57 @@ There are two different Replicat types here: Classic and Coordinated. Classic Re
     
 4. Enter Parameter File details and click **Next**. In the Parameter File, you can either specify source to target mapping or leave it as is with a wildcard selection. If you select Coordinated Replicat as the Replicat Type, then provide the following additional parameter: ```TARGETDB LIBFILE libggjava.so SET property=<ggbd-deployment_home>/etc/conf/ogg/your_replicat_name.properties```
 
-     ![Provide Parameter File details and click Next.](./images/common-parameter-files " ")
+    ![Provide Parameter File details and click Next.](./images/common-parameter-files.png " ")
 
 5. Copy and paste the following property list into the properties file, update as needed, and click **Create and Run**.
 
-```  
-<copy>
-    #The File Writer Handler – no need to change
-gg.handlerlist=filewriter
-gg.handler.filewriter.type=filewriter
-gg.handler.filewriter.mode=op
-gg.handler.filewriter.pathMappingTemplate=./dirout
-gg.handler.filewriter.stateFileDirectory=./dirsta
-gg.handler.filewriter.fileRollInterval=7m
-gg.handler.filewriter.inactivityRollInterval=30s
-gg.handler.filewriter.fileWriteActiveSuffix=.tmp
-gg.handler.filewriter.finalizeAction=delete
+    ```  
+    <copy>
+        #The File Writer Handler – no need to change
+    gg.handlerlist=filewriter
+    gg.handler.filewriter.type=filewriter
+    gg.handler.filewriter.mode=op
+    gg.handler.filewriter.pathMappingTemplate=./dirout
+    gg.handler.filewriter.stateFileDirectory=./dirsta
+    gg.handler.filewriter.fileRollInterval=7m
+    gg.handler.filewriter.inactivityRollInterval=30s
+    gg.handler.filewriter.fileWriteActiveSuffix=.tmp
+    gg.handler.filewriter.finalizeAction=delete
 
-### Avro OCF – no need to change
-gg.handler.filewriter.format=avro_row_ocf
-gg.handler.filewriter.fileNameMappingTemplate=${groupName}_${fullyQualifiedTableName}_${currentTimestamp}.avro
-gg.handler.filewriter.format.pkUpdateHandling=delete-insert
-gg.handler.filewriter.format.metaColumnsTemplate=${optype},${position}
-gg.handler.filewriter.format.iso8601Format=false
-gg.handler.filewriter.partitionByTable=true
-gg.handler.filewriter.rollOnShutdown=true
+    ### Avro OCF – no need to change
+    gg.handler.filewriter.format=avro_row_ocf
+    gg.handler.filewriter.fileNameMappingTemplate=${groupName}_${fullyQualifiedTableName}_${currentTimestamp}.avro
+    gg.handler.filewriter.format.pkUpdateHandling=delete-insert
+    gg.handler.filewriter.format.metaColumnsTemplate=${optype},${position}
+    gg.handler.filewriter.format.iso8601Format=false
+    gg.handler.filewriter.partitionByTable=true
+    gg.handler.filewriter.rollOnShutdown=true
 
-#The Parquet Event Handler – no need to change
-gg.handler.filewriter.eventHandler=parquet
-gg.eventhandler.parquet.type=parquet
-gg.eventhandler.parquet.pathMappingTemplate=./dirparquet
-gg.eventhandler.parquet.fileNameMappingTemplate=${groupName}_${fullyQualifiedTableName}_${currentTimestamp}.parquet
-gg.eventhandler.parquet.writeToHDFS=false
-gg.eventhandler.parquet.finalizeAction=delete
+    #The Parquet Event Handler – no need to change
+    gg.handler.filewriter.eventHandler=parquet
+    gg.eventhandler.parquet.type=parquet
+    gg.eventhandler.parquet.pathMappingTemplate=./dirparquet
+    gg.eventhandler.parquet.fileNameMappingTemplate=${groupName}_${fullyQualifiedTableName}_${currentTimestamp}.parquet
+    gg.eventhandler.parquet.writeToHDFS=false
+    gg.eventhandler.parquet.finalizeAction=delete
 
-#TODO Select S3 Event Handler – no need to change
-gg.eventhandler.parquet.eventHandler=s3
+    #TODO Select S3 Event Handler – no need to change
+    gg.eventhandler.parquet.eventHandler=s3
 
-#TODO Set S3 Event Handler- please update as needed
-gg.eventhandler.s3.type=s3
-gg.eventhandler.s3.region=your-aws-region
-gg.eventhandler.s3.bucketMappingTemplate=target s3 bucketname
-gg.eventhandler.s3.pathMappingTemplate=ogg/data/${fullyQualifiedTableName}
-gg.eventhandler.s3.accessKeyId=XXXXXXXXX
-gg.eventhandler.s3.secretKey=XXXXXXXX
+    #TODO Set S3 Event Handler- please update as needed
+    gg.eventhandler.s3.type=s3
+    gg.eventhandler.s3.region=your-aws-region
+    gg.eventhandler.s3.bucketMappingTemplate=target s3 bucketname
+    gg.eventhandler.s3.pathMappingTemplate=ogg/data/${fullyQualifiedTableName}
+    gg.eventhandler.s3.accessKeyId=XXXXXXXXX
+    gg.eventhandler.s3.secretKey=XXXXXXXX
 
-#TODO Set the classpath to the Parquet client libries and the Hadoop client with the path you noted in step1
-gg.classpath=
-jvm.bootoptions=-Xmx512m -Xms32m
+    #TODO Set the classpath to the Parquet client libries and the Hadoop client with the path you noted in step1
+    gg.classpath=
+    jvm.bootoptions=-Xmx512m -Xms32m
 
-</copy>
- ```   
+    </copy>
+    ```   
 6. If replicat starts successfully, then the replicat is in running state. You can go to action/details/statistics to see the replication statistics: 
     ![Replication Statistics](./images/common-replication-status.png " ")
 
@@ -117,10 +117,10 @@ jvm.bootoptions=-Xmx512m -Xms32m
     
 **Notes**:
 
-    * If target S3 bucket does not exist, then it will be auto created by Oracle GoldenGate for Big Data. Use [Template Keywords](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/template-keywords.html#GUID-742BA6BE-D446-4E21-8E38-7105AC9F5E5E) to dynamically assign S3 bucket names.
-    * [S3 Event Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-s3-event-handler.html#GUID-9CEECD8E-9FBE-4E6C-B676-250406ECC811) can be configured for the Proxy server. For more information, see Using the S3 Event Handler.
-    * You can use different properties to control the behaviour of file writing. You can set file sizes, inactivity periods, and more. For more information, see the [GoldenGate for Big Data File Writer Handler Behaviour](https://blogs.oracle.com/dataintegration/post/goldengate-for-big-data-file-writer-handler-behaviour).
-    * For Kafka connection issues, see [Oracle Support](https://support.oracle.com/knowledge/Middleware/2644967_1.html). 
+* If target S3 bucket does not exist, then it will be auto created by Oracle GoldenGate for Big Data. Use [Template Keywords](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/template-keywords.html#GUID-742BA6BE-D446-4E21-8E38-7105AC9F5E5E) to dynamically assign S3 bucket names.
+* [S3 Event Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-s3-event-handler.html#GUID-9CEECD8E-9FBE-4E6C-B676-250406ECC811) can be configured for the Proxy server. For more information, see Using the S3 Event Handler.
+* You can use different properties to control the behaviour of file writing. You can set file sizes, inactivity periods, and more. For more information, see the [GoldenGate for Big Data File Writer Handler Behaviour](https://blogs.oracle.com/dataintegration/post/goldengate-for-big-data-file-writer-handler-behaviour).
+* For Kafka connection issues, see [Oracle Support](https://support.oracle.com/knowledge/Middleware/2644967_1.html). 
 
 
 ## Learn More
