@@ -5,18 +5,18 @@ It is assumed tha you’ve [installed GoldenGate for Big Data](https://docs.orac
 
 **Video Preview**
 
-Get familiar with Oracle GoldenGate Microservices by watching this video: [Introduction to Oracle GoldenGate Microservices](youtube:v=aekcNiAYC7k)
+Get familiar with Oracle GoldenGate Microservices by watching this video: [Introduction to Oracle GoldenGate Microservices](youtube:aekcNiAYC7k)
 
 ## Install Dependency Files 
 
-Oracle GoldenGate for Big Data uses client libraries in the replication process. You need to download these libraries by using the Dependency Downloader utility available in Oracle GoldenGate for Big Data before setting up the replication process. Dependency downloader is a set of shell scripts that downloads dependency jar files from Maven and other repositories. 
+Oracle GoldenGate for Big Data uses client libraries in the replication process. You need to download these libraries by using the [Dependency Downloader utility](https://doc.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/dependency-downloader.html#GUID-6252EAFA-D76A-4A83-BB16-41BCCCC46194) available in Oracle GoldenGate for Big Data before setting up the replication process. Dependency downloader is a set of shell scripts that downloads dependency jar files from Maven and other repositories. 
 
 Oracle GoldenGate for Big Data uses a 3-step process to ingest parquet into S3 buckets:
 * Generating local files from trail files (these local files are not accessible in OCI GoldenGate)
 * Converting local files to Parquet format
 * Loading files into AWS S3 buckets
 
-For generating local parquet files with Oracle GoldenGate for Big Data, replicat uses [File Writer Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-file-writer-handler.html#GUID-437D8DCD-62A2-416F-BAA3-E1826280DF51) and [Parquet Event Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-parquet-event-handler.html#GUID-5BE451BB-196E-4A9D-9F70-C0432851A322). To load the parquet files into AWS S3, Oracle GoldenGate for Big Data uses S3 Event Handler (https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-s3-event-handler.html#GUID-9CEECD8E-9FBE-4E6C-B676-250406ECC811) in conjunction with File Writer and Parquet Event Handler.
+For generating local parquet files with Oracle GoldenGate for Big Data, replicat uses [File Writer Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-file-writer-handler.html#GUID-437D8DCD-62A2-416F-BAA3-E1826280DF51) and [Parquet Event Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-parquet-event-handler.html#GUID-5BE451BB-196E-4A9D-9F70-C0432851A322). To load the parquet files into AWS S3, Oracle GoldenGate for Big Data uses [S3 Event Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-s3-event-handler.html#GUID-9CEECD8E-9FBE-4E6C-B676-250406ECC811) in conjunction with File Writer and Parquet Event Handler.
 
 Oracle GoldenGate for Big Data uses 3 different set of client libraries to create parquet files and loading into AWS S3. 
 
@@ -29,8 +29,8 @@ To install the required dependency files:
 The following directories are created in ```GG_HOME/opt/DependencyDownloader/dependencies```:
 
    * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/aws_sdk_1.12.309```
-    * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/hadoop_3.3.0```
-    * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/parquet_1.12.3```
+   * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/hadoop_3.3.0```
+   * ```/u01/app/ogg/opt/DependencyDownloader/dependencies/parquet_1.12.3```
 
         ![parquet.sh, hadoop.sh, and aws.sh directories created.](./images/parquet-hadoop-aws-directories.png " ")
 
@@ -45,21 +45,21 @@ To create a replicat in Oracle GoldenGate for Big Data:
 
 There are two different Replicat types here: Classic and Coordinated. Classic Replicat is a single threaded process whereas Coordinated Replicat is a multithreaded one that applies transactions in parallel. 
 
-    ![Select the Replicat Type and click Next.](./images/common-select-replicat-type.png " ")
+![Select the Replicat Type and click Next.](./images/common-select-replicat-type.png " ")
 
-3. Enter the basic information, and click Next:
+3. Enter the basic information, and click **Next**:
 
-    * Process Name: Name of the Replicat
-    * Trail Name: Name of the required trail file
-    * Target: Do not fill this field. 
+    * **Process Name**: Name of the Replicat
+    * **Trail Name**: Name of the required trail file
+    * **Target**: Do not fill this field. 
 
     ![Enter the basic information, and click Next.](./images/common-basic-info-without-target.png " ")
     
-4. Enter Parameter File details and click Next. In the Parameter File, you can either specify source to target mapping or leave it as is with a wildcard selection. . If you select Coordinated Replicat as the Replicat Type, then provide the following additional parameter: ```TARGETDB LIBFILE libggjava.so SET property=<ggbd-deployment_home>/etc/conf/ogg/your_replicat_name.properties```
+4. Enter Parameter File details and click **Next**. In the Parameter File, you can either specify source to target mapping or leave it as is with a wildcard selection. If you select Coordinated Replicat as the Replicat Type, then provide the following additional parameter: ```TARGETDB LIBFILE libggjava.so SET property=<ggbd-deployment_home>/etc/conf/ogg/your_replicat_name.properties```
 
      ![Provide Parameter File details and click Next.](./images/common-parameter-files " ")
 
-5. Copy and paste the following property list into the properties file, update as needed, and click Create and Run.
+5. Copy and paste the following property list into the properties file, update as needed, and click **Create and Run**.
 
 ```  
 <copy>
