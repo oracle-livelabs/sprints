@@ -9,6 +9,11 @@
          "filename": "./../sprint-oggbd-replicate-oci-streaming/sprint-oggbd-replicate-oci-streaming.md"
       },
       {
+         "title": "How do I ingest messages into Kafka in real-time with Oracle GoldenGate for Big Data?",
+         "description": "How do I ingest messages into Kafka in real-time with Oracle GoldenGate for Big Data??",
+         "filename": "./../sprint-oggbd-replicate-kafka/sprint-oggbd-replicate-kafka.md"
+      },
+      {
         "title": "How do I ingest Parquet files into AWS S3 buckets in real-time with Oracle GoldenGate for Big Data?",
         "description": "How do I ingest Parquet files into AWS S3 buckets in real-time with Oracle GoldenGate for Big Data?",
         "filename": "./../sprint-oggbd-replicate-parquet-ingestion-s3/sprint-oggbd-replicate-parquet-ingestion-s3.md"
