@@ -114,16 +114,11 @@ There are two different Replicat types here: Classic and Coordinated. Classic Re
 7. Go to the AWS S3 console and check the bucket. 
 
     ![S3 Bucket](./images/common-sbucket.png " ")
-    
-**Notes**:
 
+## Learn More
 * If target S3 bucket does not exist, then it will be auto created by Oracle GoldenGate for Big Data. Use [Template Keywords](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/template-keywords.html#GUID-742BA6BE-D446-4E21-8E38-7105AC9F5E5E) to dynamically assign S3 bucket names.
 * [S3 Event Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-s3-event-handler.html#GUID-9CEECD8E-9FBE-4E6C-B676-250406ECC811) can be configured for the Proxy server. For more information, see Using the S3 Event Handler.
 * You can use different properties to control the behaviour of file writing. You can set file sizes, inactivity periods, and more. For more information, see the [GoldenGate for Big Data File Writer Handler Behaviour](https://blogs.oracle.com/dataintegration/post/goldengate-for-big-data-file-writer-handler-behaviour).
 * For Kafka connection issues, see [Oracle Support](https://support.oracle.com/knowledge/Middleware/2644967_1.html). 
-
-
-## Learn More
-
 * [Installing Oracle GoldenGate MA for Big Data Using the UI](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/installing-oracle-goldengate-microservices-big-data.html#GUID-3145D2E1-C257-4C5D-A472-0EFAB31B6237)
 * [Add Extracts in *Oracle GoldenGate Microservices Documentation*](https://docs.oracle.com/en/middleware/goldengate/core/21.3/coredoc/extract-add-extract.html)

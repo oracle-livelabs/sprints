@@ -80,12 +80,11 @@ To create a replicat in Oracle GoldenGate for Big Data:
 
     ![S3 Bucket](./images/kinesis-aws-console.png " ")
     
-**Note**: AWS Kinesis Event Handler can be configured for proxy server. For more information, see [Configuring the Proxy Server for Kinesis Streams Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-kinesis-handler.html#GUID-53289E28-F09A-4D51-83AE-B1A65963538E). 
-
 
 ## Learn More
 
-* [Installing Oracle GoldenGate MA for Big Data Using the UI](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/installing-oracle-goldengate-microservices-big-data.html#GUID-3145D2E1-C257-4C5D-A472-0EFAB31B6237)
-* [Add Extracts in *Oracle GoldenGate Microservices Documentation*](https://docs.oracle.com/en/middleware/goldengate/core/21.3/coredoc/extract-add-extract.html)
+* AWS Kinesis Event Handler can be configured for proxy server. For more information, see [Configuring the Proxy Server for Kinesis Streams Handler](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-kinesis-handler.html#GUID-53289E28-F09A-4D51-83AE-B1A65963538E)
 * [AWS Kinesis performance considerations](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-kinesis-handler.html#GUID-152F3692-ECBD-43F0-BD70-8B5E5448AA1A)
 * [Kinesis Streams Input Limits](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/using-kinesis-handler.html#GUID-3C114CC8-FC53-4935-8FE9-CD662EC0EDA4)
+* [Installing Oracle GoldenGate MA for Big Data Using the UI](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/installing-oracle-goldengate-microservices-big-data.html#GUID-3145D2E1-C257-4C5D-A472-0EFAB31B6237)
+* [Add Extracts in *Oracle GoldenGate Microservices Documentation*](https://docs.oracle.com/en/middleware/goldengate/core/21.3/coredoc/extract-add-extract.html)
