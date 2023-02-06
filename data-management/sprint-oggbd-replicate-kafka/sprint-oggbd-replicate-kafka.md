@@ -9,7 +9,7 @@ Get familiar with Oracle GoldenGate Microservices by watching this video: [Intro
 
 ## Install Dependency Files 
 
-Oracle GoldenGate for Big Data uses client libraries in the replication process. You need to download these libraries by using the [Dependency Downloader utility](https://doc.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/dependency-downloader.html#GUID-6252EAFA-D76A-4A83-BB16-41BCCCC46194) available in Oracle GoldenGate for Big Data before setting up the replication process. Dependency downloader is a set of shell scripts that downloads dependency jar files from Maven and other repositories. 
+Oracle GoldenGate for Big Data uses client libraries in the replication process. You need to download these libraries by using the [Dependency Downloader utility](https://docs.oracle.com/en/middleware/goldengate/big-data/21.1/gadbd/dependency-downloader.html#GUID-6252EAFA-D76A-4A83-BB16-41BCCCC46194) available in Oracle GoldenGate for Big Data before setting up the replication process. Dependency downloader is a set of shell scripts that downloads dependency jar files from Maven and other repositories. 
 
 
 To install the required dependency files:
@@ -49,10 +49,10 @@ To create a replicat in Oracle GoldenGate for Big Data:
 
 2. Select the Replicat Type and click **Next**.
 
-There are two different Replicat types here: Classic and Coordinated. Classic Replicat is a single threaded process whereas Coordinated Replicat is a multithreaded one that applies transactions in parallel. 
-For KafKa, Oracle recommends Classic replicat as sending messages in multiple threats may result in data consistency problems. 
+    There are two different Replicat types here: Classic and Coordinated. Classic Replicat is a single threaded process whereas Coordinated Replicat is a multithreaded one that applies transactions in parallel. 
+    For KafKa, Oracle recommends Classic replicat as sending messages in multiple threats may result in data consistency problems. 
 
-![Select the Replicat Type and click Next.](./images/common-select-replicat-type.png " ")
+    ![Select the Replicat Type and click Next.](./images/common-select-replicat-type.png " ")
 
 3. Enter the basic information, and click **Next**:
 
