@@ -1,4 +1,11 @@
-# How can I download the ADB Wallet using using OCI CLI?
+<!--
+    {
+        "name":"Download ADB Wallet using OCI CLI",
+        "description":"Downloading the ADB Wallet using OCI CLI"
+    }
+-->
+
+# Downloading the ADB Wallet using OCI CLI
 
 Duration: 1 minute
 
