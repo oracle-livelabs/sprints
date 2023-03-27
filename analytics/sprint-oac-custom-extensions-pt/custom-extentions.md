@@ -39,4 +39,4 @@ Visualization Using Custom Plug-ins](https://analyticsanddatasummit.org/wp-conte
 ## Reconhecimentos
 * **Autor** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Breno Comin, Cloud Solution Engineer, Brazil Data & AI Team
-* **Última Atualização** - Breno Comin, Setembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

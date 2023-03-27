@@ -39,4 +39,4 @@ Parabéns! Acabou de aprender como aumentar a capacidade de processamento da sua
 ## Acknowledgements
 * **Author:** Runit Malik, Solution Engineer
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

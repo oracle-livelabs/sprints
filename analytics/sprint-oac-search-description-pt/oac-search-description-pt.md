@@ -22,7 +22,7 @@ Essa sprint irá te guiar a utilizar buscas avançadas para buscar workbooks por
 
     ![Description with one term](images/desc-term.png)
 
-3. Recebendo multiplos resultados, você consegue refinar sua busca com mais termos, incluindo *and* entre dois termos. Por exemplo, se você quer buscar 'population census', o ideal é buscar '*description: population and description: census*'. Isso resultará em workbooks contendo as palavras population e census.
+3. Recebendo múltiplos resultados, você consegue refinar sua busca com mais termos, incluindo *and* entre dois termos. Por exemplo, se você quer buscar 'population census', o ideal é buscar '*description: population and description: census*'. Isso resultará em workbooks contendo as palavras population e census.
 
     >**Nota:** Você pode usar *description:* ou *desc:*. ambos irão buscar a descrição do workbook.
 
@@ -38,4 +38,4 @@ Parabéns! Você acaba de aprender a explorar as possibilidades das buscas avan�
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

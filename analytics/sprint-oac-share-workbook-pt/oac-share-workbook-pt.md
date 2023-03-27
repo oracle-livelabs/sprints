@@ -11,7 +11,7 @@ Compartilhar pastas de trabalho é uma ótima maneira de colaborar sem precisar 
 ## Compartilhar um workbook
 >**Nota:** Você deve ter o cargo **BI Content Author** para poder executar os próximos passos:
 
-1. Na sua **Homepage**, clique em **Navigation menu** (o menu de hamburguer) e clique em **Catalog**. Clique em **Shared Folders**. Aqui ficam todos os seus workbooks para compartilhar com outras pessoas em sua organização.
+1. Na sua **Homepage**, clique em **Navigation menu** (o menu de hambúrguer) e clique em **Catalog**. Clique em **Shared Folders**. Aqui ficam todos os seus workbooks para compartilhar com outras pessoas em sua organização.
 
     ![Shared folders](images/shared-folders.png)
 
@@ -51,4 +51,4 @@ Parabéns! Você acabou de aprender como compartilhar workbooks com outros usuá
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

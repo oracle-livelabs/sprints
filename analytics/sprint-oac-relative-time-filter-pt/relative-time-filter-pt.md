@@ -17,7 +17,7 @@ Trabalhando com colunas de data em seu conjunto de dados (dataset) no Oracle Ana
 
 3. Selecione **Filter Type**, então Selecione **Relative Time**. Isso irá mostrar as configurações para o filtro de tempo relativo.
 
-    ![Reltaive time](images/relative-time.png)
+    ![Relative time](images/relative-time.png)
 
 4. Aqui você pode mudar três configurações: Tipo (Type), Incremento (Increment), e Nível de Tempo (Time Level). O seguinte exemplo cria um filtro de tempo para os últimos 3 meses.
 
@@ -41,4 +41,4 @@ Parabéns, você aprendeu a criar filtros de tempo relativos em Oracle Analytics
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023
