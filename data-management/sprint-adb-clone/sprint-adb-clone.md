@@ -1,7 +1,10 @@
-# How do I clone Autonomous Database?
-Duration: 10 minutes
-
-##  Cloning and Moving an Autonomous Database
+<!--
+    {
+        "name":"Cloning and Moving an Autonomous Database",
+        "description":"Cloning and Moving an Autonomous Database"
+    }
+-->
+# Cloning and Moving an Autonomous Database
 
 Autonomous Database provides cloning where you can choose to create a full clone, create a metadata clone, or create a refreshable clone. You can also use cloning to upgrade your database to a newer Oracle Database version when newer Oracle Database versions are available. You can move an Autonomous Database to a different Oracle Cloud Infrastructure compartment.
 

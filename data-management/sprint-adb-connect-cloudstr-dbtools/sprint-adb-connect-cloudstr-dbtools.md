@@ -1,4 +1,10 @@
-# How can I connect Oracle Object Storage to my Oracle ADB instance using Database Tools?
+<!--
+    {
+        "name":"Connect Oracle Object Storage to a Oracle ADB instance using Database Tools",
+        "description":"Connect Oracle Object Storage to a Oracle ADB instance using Database Tools"
+    }
+-->
+# Connect Oracle Object Storage to a Oracle ADB instance using Database Tools
 
 Duration: 5 minutes
 
