@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I reset the cache for Data Augmentation?",
+         "description": "Learn how to reset the cache for Data Augmentation for FAW.",
+         "filename": "./reset-cache-data-augmentation.md"
+      }
+   ],
+   "task_type": "Sections"
+}

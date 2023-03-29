@@ -4,7 +4,7 @@ Duration: 2 minutes
 
 FA users will get access to FAW once FAW licensed groups are assigned manually. However, you can automatically assign FAW licensed groups to FA users when they're synchronized from your Oracle Fusion Cloud Applications instance to the Oracle Identity Cloud Service instance to provide these users immediate access to Oracle Fusion Analytics Warehouse. This is a one-time setup and any new FA user that would require access to FAW will have the licensed groups auto assigned with the sync process.
 
-## Migrate KPIs from test to production
+## Auto-assign FAW Licensed Groups to FA Users
 You must have the **FA Administrator, IDCS Administrator and FAW Service Administrator** roles to successfully complete the following steps.
 
 1. Identify users in Fusion Application that require access to FAW. Create a custom role in FA and associate the users that need access to FAW to the role. In this Sprint, we use a custom group called “Custom FAW Consumer” that was already created in FA to which the users that require FAW access are added.
