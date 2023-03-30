@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "Como criar uma language narrative das minhas visualizações em Oracle Analytics Cloud (OAC)?",
+         "title": "Como criar um gráfico de Linguagem Natural no Oracle Analytics Cloud (OAC)?",
          "description": "Como o NLG pode fornecer uma explicação em linguagem natural de suas visualizações com o clique de um botão.",
          "filename": "oac-nlg-pt.md"
       }
