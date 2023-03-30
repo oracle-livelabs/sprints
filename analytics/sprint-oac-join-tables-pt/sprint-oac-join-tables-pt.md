@@ -58,4 +58,4 @@ Parabéns! Você aprendeu como criar Joins entre duas tabelas em um conjunto de 
 ## Reconhecimentos
 * **Autor** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Breno Comin, Cloud Solution Engineer, Brazil Data & AI Team
-* **Última Atualização** - Breno Comin,  Setembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023
