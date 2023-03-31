@@ -36,10 +36,6 @@ As part of Oracle Fusion Analytics administration activities, you can terminate 
   ![Import](images/terminateinstance.png)
 
 
-## Learn More
-
-* [Bundle Your Application Artifacts](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/bundle-your-application-artifacts.html#GUID-596E4D3E-9E23-4A7C-ACF2-A57D8B4FB41C)
-
 ## Acknowledgements
 * **Author** - Prasad Kolli, CEAL
 * **Last Updated By/Date** - Nagwang Gyamtso,  March 2023
