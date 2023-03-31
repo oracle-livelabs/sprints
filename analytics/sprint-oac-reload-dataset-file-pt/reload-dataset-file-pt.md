@@ -3,7 +3,7 @@
 Duração: 1 minuto
 
 ### **Cenário:**
-Você tem uma pasta de trabalho (workbook) construido em cima de um conjunto de dados (dataset) desatualizado. Após receber uma versão mais recente do mesmo dataset você não quer refazer seu trabalho todo do zero. O que você faz?
+Você tem uma pasta de trabalho (workbook) construído em cima de um conjunto de dados (dataset) desatualizado. Após receber uma versão mais recente do mesmo dataset você não quer refazer seu trabalho todo do zero. O que você faz?
 
 ![Situação](images/first-canvas.png)
 
@@ -54,4 +54,4 @@ Parabéns! Você acabou de atualizar seus dados no Oracle Analytics Cloud!
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

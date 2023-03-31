@@ -28,4 +28,4 @@ Parabéns, você aprendeu a trocar a propriedade de um workbook em Oracle Analyt
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

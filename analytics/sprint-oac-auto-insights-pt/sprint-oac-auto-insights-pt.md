@@ -44,4 +44,4 @@ Oracle Analytics irá disponibilizar sugestões de visualizações com uma descr
 ## Reconhecimentos
 * **Autor** - Lucian Dinescu, Product Strategy, Analytics
 * **Tradução** - Thais Henrique, Cloud Engineer, Brazil Data & AI Team
-* **Última Atualização** - Thais Henrique,  Agosto 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

@@ -70,4 +70,4 @@ Parabéns! Você acabou de aprender como analisar Ano Vigente vs Ano Passado den
 ## Reconhecimentos
 * **Autor** - Lucian Dinescu, Product Strategy, Analytics
 * **Tradução** - Breno Comin, Cloud Solution Engineer, Brazil Data & AI Team
-* **Last Updated By/Date** - Breno Comin,  Agosto 2022
+* **Last Updated By/Date** - Thais Henrique,  Março 2023
