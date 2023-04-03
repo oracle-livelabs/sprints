@@ -22,39 +22,39 @@ Stop all the Services in the OAS Server and change the Oracle Database connectio
 
   File Locations on Oracle DB Server are as below:
 
-  * <code>/u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin/sqlnet.ora</code>
+    * <code>/u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin/sqlnet.ora</code>
 
-    ![sqlnet.ora](images/sqlnet-ora.png)
+      ![sqlnet.ora](images/sqlnet-ora.png)
 
-  * <code>/u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin/tnsnames.ora</code>
+    * <code>/u01/app/oracle/product/19.0.0.0/dbhome_1/network/admin/tnsnames.ora</code>
 
-    ![tnsnames.ora](images/tnsnames-ora.png)
+      ![tnsnames.ora](images/tnsnames-ora.png)
 
 3. Create a client wallet to connect to the Oracle Database Server in TCPS Protocol.
 
-  * Go to the TNS_ADMIN path
+    * Go to the TNS_ADMIN path
 
-    **OAS 5.5**: [DOMAIN_HOME]/bidata/components/core/serviceinstances/ssi/oracledb
+      **OAS 5.5**: [DOMAIN_HOME]/bidata/components/core/serviceinstances/ssi/oracledb
 
-    **OAS 5.9 & 6.4**: /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb
+      **OAS 5.9 & 6.4**: /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb
 
-  * Create the wallet
+    * Create the wallet
 
-  <code>export PATH=/u01/app/Oracle/Middleware/Oracle_Home/oracle_common/bin:$PATH</code>
+    <code>export PATH=/u01/app/Oracle/Middleware/Oracle_Home/oracle_common/bin:$PATH</code>
 
-  <code>orapki wallet create -wallet /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb -auto_login -pwd Oracle123</code>
+    <code>orapki wallet create -wallet /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb -auto_login -pwd Oracle123</code>
 
-  * Import the Trusted Certificate/Certificates to the Client wallet
+    * Import the Trusted Certificate/Certificates to the Client wallet
 
-  <code>orapki wallet add -wallet /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb -trusted_cert -cert oadb19_ca.cert -pwd Oracle123</code>
+    <code>orapki wallet add -wallet /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb -trusted_cert -cert oadb19_ca.cert -pwd Oracle123</code>
 
-  * Check the wallet
+    * Check the wallet
 
-  <code>orapki wallet display -wallet /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb</code>
+    <code>orapki wallet display -wallet /u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb</code>
 
-  * List the Files
+    * List the Files
 
-  cwallet.sso and ewallet.p12 should be listed.
+    cwallet.sso and ewallet.p12 should be listed.
 
 4. Make sure the cwallet.sso, sqlnet.ora & tnsnames.ora files exist at below path on the OAS Server
   <code>/u01/app/Oracle/Middleware/Oracle_Home/bi/modules/oracle.bi.servicelcm/oracledb</code>
@@ -79,10 +79,10 @@ Stop all the Services in the OAS Server and change the Oracle Database connectio
 
   ![Connection pool url](images/connection-pool-url.png)
 
-  * Change the URL for all the below Data Sources:
+    * Change the URL for all the below Data Sources:
     ![Data sources](images/data-sources.png)
 
-  * Or edit the files in the below path:
+    * Or edit the files in the below path:
   <code>/u01/data/domains/bi/config/jdbc/*.xml</code>
 
     >**Note**: All the Services should be down to edit files in the backend.

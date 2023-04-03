@@ -13,22 +13,22 @@ Some Organizations require Oracle Analytics Server to connect to Data Sources li
 
 2. Create a client wallet to connect to the Oracle Database Server in TCPS Protocol.
 
-  **A**. Navigate to the below path of the Oracle Analytics Client Tool <code>C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core</code>
+    * Navigate to the below path of the Oracle Analytics Client Tool <code>C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core</code>
 
-  **B**. Create the wallet
+    * Create the wallet
 
-  <code>orapki wallet create -wallet
-  C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core -auto_login -pwd Oracle123</code>
+    <code>orapki wallet create -wallet
+    C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core -auto_login -pwd Oracle123</code>
 
-  **C**. Import the Trusted Certificate/Certificates to the Client wallet
+    * Import the Trusted Certificate/Certificates to the Client wallet
 
-  <code>orapki wallet add -wallet C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core -trusted_cert -cert oadb19_ca.cert -pwd Oracle123</code>
+    <code>orapki wallet add -wallet C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core -trusted_cert -cert oadb19_ca.cert -pwd Oracle123</code>
 
-  **D**. Check the wallet
+    * Check the wallet
 
-  orapki wallet display -wallet <code>C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core</code>
+    orapki wallet display -wallet <code>C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core</code>
 
-  **E**. List the Files: cwallet.sso and eWallet.p12 should be listed
+    * List the Files: cwallet.sso and eWallet.p12 should be listed
 
 3. Copy the cwallet.sso, sqlnet.ora & tnsnames.ora files from the Oracle DB Server to the Oracle Analytics Client Machine Path:
 <code>C:\Oracle\Middleware\Oracle_Home\domains\bi\config\fmwconfig\bienv\core</code>
