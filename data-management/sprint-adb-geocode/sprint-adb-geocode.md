@@ -1,5 +1,5 @@
 # How can geocode addresses in Autonomous Database?
-Duration: 2 minute
+Duration: 5 minutes
 
 ## Geocoding in Autonomous Database
 
