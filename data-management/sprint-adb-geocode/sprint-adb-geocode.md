@@ -95,3 +95,8 @@ Geocoding determines the geographic coordinates of an address. This enables map 
     * SDO\_GCDR.ELOC\_REVOKE\_ACCESS
     * SDO\_GCDR.ELOC\_GEOCODE
     * SDO\_GCDR.ELOC\_GEOCODE\_AS\_GEOM
+
+## Acknowledgements
+
+* **Author** - David Lapp, Database Product Management, Oracle
+* **Last Updated By/Date** - David Lapp, April 2023
