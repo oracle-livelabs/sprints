@@ -1,4 +1,4 @@
-# How can geocode addresses in Autonomous Database?
+# How do I geocode addresses in Autonomous Database?
 Duration: 5 minutes
 
 ## Geocoding in Autonomous Database
