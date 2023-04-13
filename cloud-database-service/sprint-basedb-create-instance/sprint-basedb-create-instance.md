@@ -143,4 +143,4 @@ Watch the How-to video below for a quick walk-through of the sprint.
 ## Acknowledgements
 * **Author** - Leo Alvarado, Eddie Ambler, Product Management
 * **Contributors** -  Tammy Bednar, Product Management
-* **Last Updated By/Date** - Leo Alvarado, Product Management, March 2023
+* **Last Updated By/Date** - Leo Alvarado, Product Management, March 2023.
