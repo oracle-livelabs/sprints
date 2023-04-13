@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Create Database Custom Image for Oracle Base Database Service DB System.",
+         "description": "Sprint for Creating Database Custom Image for Oracle Base Database Service DB System",
+         "filename": "sprint-basedb-customimage.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}

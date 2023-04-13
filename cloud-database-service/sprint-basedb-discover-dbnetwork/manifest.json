@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Discover DB System Networking Details in Oracle Base Database Service.",
+         "description": "Sprint for Discovering DB System Networking Details in Oracle Base Database Service",
+         "filename": "sprint-basedb-discover-dbnetwork.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
