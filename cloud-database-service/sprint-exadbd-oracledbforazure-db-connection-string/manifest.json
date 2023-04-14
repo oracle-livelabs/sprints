@@ -3,11 +3,8 @@
    "help": "livelabs-help-**enterarea**_us@oracle.com",
    "tutorials": [
       {
-<<<<<<< HEAD
+
          "title": "How do I discover the database connection string of a database in Oracle Exadata Database Service on Oracle Database Service for Azure.",
-=======
-         "title": "How do I How do I Connect Azure Applications to Oracle Exadata Database Service on Oracle Database Service for Azure.",
->>>>>>> upstream/main
          "description": "",
          "filename": "sprint-exadbd-oracledbforazure-db-connection-string.md"
       }

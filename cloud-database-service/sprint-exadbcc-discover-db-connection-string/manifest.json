@@ -3,11 +3,8 @@
    "help": "livelabs-help-**enterarea**_us@oracle.com",
    "tutorials": [
       {
-<<<<<<< HEAD
+
          "title": "How do I discover the Database Connectivity Details of a pluggable database in Oracle Exadata Database Service on Cloud@Customer using the OCI Console.",
-=======
-         "title": "How do I Get the Database Connection String in Oracle Exadata Database Service on Cloud@Customer.",
->>>>>>> upstream/main
          "description": "",
          "filename": "sprint-exadbcc-discover-db-connection-string.md"
       }
