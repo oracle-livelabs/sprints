@@ -25,13 +25,13 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 3. To Configure automatic backups, on the **Database Details** page, click **Configure automatic backups**.
 
-  ![Enable Automatic Backup](./images/enable.auto.bkup.png" ")
+  ![Enable Automatic Backup](./images/enable-auto-bkup.png" ")
 
     In the **Configure automatic backups** dialog, check **Enable automatic backup**.
 
     When enabling automatic backups, you can choose to configure the following:
 
-  ![Enable Automatic Backup](./images/retention.period.png" ")
+  ![Enable Automatic Backup](./images/retention-period.png" ")
 
       * **Backup retention period**: If you enable automatic backups, you can choose one of the following preset retention  
         periods: 7 days, 15 days, 30 days, 45 days, or 60 days. The default selection is 30 days.

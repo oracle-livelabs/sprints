@@ -20,7 +20,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 4. Near the top of the page, Click on the **Change Shape** button.
 
-    ![Change Shape](./images/scale.up.png" ")
+    ![Change Shape](./images/scale-up.png" ")
 
     * This will bring up the Change Shape pop-up window
     * You will note that our Current DB System Shape is checked

@@ -18,7 +18,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 5. Click on the **Scale Storage Up** button
 
-    ![Scale DB System Storage](./images/scale.storage.png" ")
+    ![Scale DB System Storage](./images/scale-storage.png" ")
        
    In the Scale Storage Up panel, enter the information to scale your storage as needed:
 

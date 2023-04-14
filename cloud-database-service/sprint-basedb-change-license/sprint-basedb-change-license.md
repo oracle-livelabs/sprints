@@ -16,7 +16,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 4. On the **DB System Details page**, near the top of the page, click on the **More Actions button**, then click on **Update License Type**.
 
-    ![Change License Type](./images/license.type.png" ")
+    ![Change License Type](./images/license-type.png" ")
 
     * *The Update License Type dialog box will display the available license type options, with your current license type selected*.
 

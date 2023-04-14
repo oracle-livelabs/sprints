@@ -15,11 +15,11 @@ You can find the VCN, Subnet, Port, and DB IP address of a DB System in Oracle B
     * This will render the **DB System Details** page
     * In the **DB system information** tab, under the **Network** details of the page, note the value for the **VCN, Client Subnet,** and **Port**
 
-    ![View Database Details](./images/db.details.png" ")
+    ![View Database Details](./images/db-details.png" ")
 
 3. On the left rail, under **Resources**, Click on **Nodes.**
 
-    ![View Private and Public IP](./images/node.ip.png" ")
+    ![View Private and Public IP](./images/node-ip.png" ")
 
     * Record the value of the Private & Public IP (if available)
 

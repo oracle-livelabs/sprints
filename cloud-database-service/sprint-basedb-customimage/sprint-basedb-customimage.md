@@ -18,7 +18,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 2. On the left rail under **Resources**, click on **Database Software Images.**
 
-    ![Navigate to Custom DB Software Images](./images/resources.custom.image.png" ")
+    ![Navigate to Custom DB Software Images](./images/resources-custom-image.png" ")
 
 3. Click on the **Create Database Software Image** button.
 
@@ -30,7 +30,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
     * This will populate the eligible Database Versions for the selected shape.
 
-    ![Create Custom DB Software Image](./images/db.custom.image.png" ")
+    ![Create Custom DB Software Image](./images/db-custom-image.png" ")
 
 7. Choose the **Database Version** for your image.
 

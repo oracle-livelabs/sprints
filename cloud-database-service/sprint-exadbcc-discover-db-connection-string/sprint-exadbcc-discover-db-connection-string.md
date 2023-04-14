@@ -7,19 +7,19 @@ You can find the DB Connection Strings of a PDB in Oracle Exadata Database Servi
 
 1. Navigate to the the **Database Details** page of your Container Database (CDB).
 
-  ![Database Details Page](./images/myexadb.details.page.png" ")
+  ![Database Details Page](./images/myexadb-details-page.png" ")
 
 2. On the left rail, under **Resources**, Click on **Pluggable Databases.** then Click on the **Name of your Pluggable Database.**
 
-  ![PDB list menu](./images/mypdb.list.png" ")
+  ![PDB list menu](./images/mypdb-list.png" ")
 
 3. In the **Pluggable Databases section** of the page, Near the top of the page, Click on the **PDB Connection** button
 
-  ![PDB list menu](./images/mypdb.page.png" ")
+  ![PDB list menu](./images/mypdb-page.png" ")
 
 4. This will render the **Pluggable Database Connection** Screen, **Click** on the **Copy  Link** and paste the **Connection String** to your notepad or text editor.
 
-  ![PDB Connection](./images/pdb.connection.string.png" ")
+  ![PDB Connection](./images/pdb-connection-string.png" ")
 
 
 ## Acknowledgements

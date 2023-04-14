@@ -20,7 +20,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
      
 6. In the Pluggable Databases section of the Database Details page, Click on the **Create Pluggable Database button**.
 
-    ![Create PDB](./images/create.pdb.png" ")
+    ![Create PDB](./images/create-pdb.png" ")
 
 7. Specify a user-friendly **name** that you can use to identify the **PDB**
 

@@ -21,7 +21,7 @@ You can clone a PDB in an Oracle Base Database Service DB System using the OCI C
 
 7. Near the top of the page, Click on the **Clone** button.
 
-    ![Create PDB CLONE](./images/create.pdb.clone.png" ")
+    ![Create PDB CLONE](./images/create-pdb-clone.png" ")
 
     * *This will render the Clone PDB dialog box*
 

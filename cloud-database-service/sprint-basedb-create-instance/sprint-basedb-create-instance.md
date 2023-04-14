@@ -12,7 +12,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 2.	Click the **“Create DB System”** button to proceed.
 
-    ![Create DB System](./images/create.db.png" ")
+    ![Create DB System](./images/create-db.png" ")
 
     * This will bring up the Create DB System Dialog screen.
 
@@ -28,7 +28,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 6.	Click on **Change Shapes**, For the Shapes, you can choose between **AMD or Intel** Processors.
 
-    ![Change Shape](./images/change.shape.png" ")
+    ![Change Shape](./images/change-shape.png" ")
 
 7.	Click on the **Select Shape button** to complete the shape selection process.
 
@@ -45,15 +45,15 @@ Watch the How-to video below for a quick walk-through of the sprint.
     * The **Recovery Area Storage** field displays the amount of storage that will be available for recovery log data (RECO data) based on the amount of storage selected for the DATA space.
     * You can change the amount of Recovery area storage independently after provisioning.
 
-    ![Select Storage performance](./images/select.storage.perf.png" ")
+    ![Select Storage performance](./images/select-storage-perf.png" ")
 
 10.	Click on the **Save changes** button to continue configuring the DB system.
 
 11.	Next, Select the **Total number of VM Nodes** and the **Oracle Database Software Edition** for the DB System.
 
-    ![Configure Node](./images/configure.node.png" ")
+    ![Configure Node](./images/configure-node.png" ")
 
-    ![Select Database Edition](./images/db.edition.png" ")
+    ![Select Database Edition](./images/db-edition.png" ")
 
 12.	In the **Add SSH Keys section** of the page, we will add our SSH public key to enable access to the VM DB System via SSH. choose from one of the provided three options.
 
@@ -64,65 +64,65 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 14.	**In the Network Information section**:
 
-    a)	For the **VCN**, use the pull-down menu to **select the VCN** in which you want to launch the VM DB system.
+    1.)	For the **VCN**, use the pull-down menu to **select the VCN** in which you want to launch the VM DB system.
 
-    b)	For the **CLIENT SUBNET**
+    2.)	For the **CLIENT SUBNET**
 
-    ![Select VCN](./images/select.vcn.png" ")
+    ![Select VCN](./images/select-vcn.png" ")
 
-    c)	The **Use Network Security groups box** is optional and unchecked by default
+    3.)	The **Use Network Security groups box** is optional and unchecked by default
 
-    d)	For the HOSTNAME PREFIX, enter the desired value.
+    4.)	For the HOSTNAME PREFIX, enter the desired value.
 
       * The Hostname Prefix forms the first portion of the DB systems Host Name and will be used as part of the Fully Qualified Domain Name.
       * For RAC systems, the Database service automatically appends a node number after the hostname prefix.
 
-    e)	The **HOST Domain Name**, note how the Subnet DNS and VCN labels are used to auto-generate the **HOST DOMAIN NAME**.
+    5.)	The **HOST Domain Name**, note how the Subnet DNS and VCN labels are used to auto-generate the **HOST DOMAIN NAME**.
 
-    f)	The **Host and domain URL** is auto-generated and combines the hostname prefix and host domain name to display the fully qualified domain name (FQDN) for the database.
+    6.)	The **Host and domain URL** is auto-generated and combines the hostname prefix and host domain name to display the fully qualified domain name (FQDN) for the database.
 
     * If you click on the **Advanced Option Link**, you will see the ability to optionally select a **Fault Domain**, **Time Zone**, or **set Tags** for the DB System.
 
 15.	Click on **Next** to proceed with entering the **details for the initial database.**
 
-    a)	For the **Database Name** field, enter the **desired database name**  
+    1.)	For the **Database Name** field, enter the **desired database name**  
 
-    b)	For the **Database Unique Name Suffix,** enter **the desired value**
+    2.)	For the **Database Unique Name Suffix,** enter **the desired value**
 
       * Note that the Database Unique Name is the combination of the DB Name and the DB Unique Name Suffix.
 
-    c)  Click **Change Database Image Button** to list available database images
+    3.)  Click **Change Database Image Button** to list available database images
 
       * You are able to choose between **Oracle Database Software Images** and **Custom Database Software Images**.
 
-    ![Choose Database Software Image](./images/db.sw.image.png" ")
+    ![Choose Database Software Image](./images/db-sw-image.png" ")
 
       * Click on the **Select** Button to proceed with configuring the database details.
 
 
-    d)  For the **Pluggable Database Name**, enter **the desired value**
+    4.)  For the **Pluggable Database Name**, enter **the desired value**
 
-    e)  Enter the **Administrator Credentials**
+    5.)  Enter the **Administrator Credentials**
 
-    ![PDB Name](./images/pdb.name.png" ")
+    ![PDB Name](./images/pdb-name.png" ")
 
       * Ensure that the **Use Administrator password for the TDE wallet** box is checked if you want to **Use of Oracle Managed Keys**
 
-    f)  For the **Database Workload Type**, you can choose between **Transaction Processing** and **Data Warehouse**
+    6.)  For the **Database Workload Type**, you can choose between **Transaction Processing** and **Data Warehouse**
 
-    g)  **Enable Automatic  Backups** is selected by default
+    7.)  **Enable Automatic  Backups** is selected by default
 
-    ![Enable Automatic Backups](./images/enable.automatic.bkup.png" ")
+    ![Enable Automatic Backups](./images/enable-automatic-bkup.png" ")
 
       *	You can select the **backup retention period**.
 
-    ![Backup retention period](./images/retention.period.png" ")
+    ![Backup retention period](./images/retention-period.png" ")
 
       *	Specify the **Backup Scheduling window**
 
       *	Uncheck the **Enable Automatic Backups** box if you want to configure it after the database is provisioned
 
-    h) If you click on the **Advanced Options** link, you will find three tabs with options to fine-tune the planned database configuration.
+    8.) If you click on the **Advanced Options** link, you will find three tabs with options to fine-tune the planned database configuration.
 
       *	The **Management Tab** allows you to change the **Database Character Set** and the **National Character Set**
 
@@ -132,7 +132,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 16.	Click on the **Create DB System button** to launch the Create DB System workflow.
 
-      ![Create Database System](./images/create.db.system.png" ")
+      ![Create Database System](./images/create-db-system.png" ")
 
 ## Learn more
 

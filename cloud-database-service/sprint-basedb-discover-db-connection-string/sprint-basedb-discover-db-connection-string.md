@@ -10,15 +10,15 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 1. In the **Databases section** of the page, Click on the **Name of your Database.**
 
-  ![Click Database Name](./images/click.db.name.png" ")
+  ![Click Database Name](./images/click-db-name.png" ")
 
     * This will render the **Database Details** page
 
-  ![Database Page Details](./images/db.page.details.png" ")
+  ![Database Page Details](./images/db-page-details.png" ")
 
 2. On the left rail, under **Resources**, Click on **Pluggable Databases.**
 
-  ![Click Pluggable Databases](./images/click.pdb.png" ")
+  ![Click Pluggable Databases](./images/click-pdb.png" ")
 
 3. In the **Pluggable Databases section** of the page, Click on the **Name of your Pluggable Database.**
 
@@ -26,12 +26,12 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 4. Near the top of the page, Click on the **PDB Connection** button
 
-  ![Click PDB Connection](./images/click.pdb.connection.png" ")
+  ![Click PDB Connection](./images/click-pdb-connection.png" ")
 
     * This will render the Pluggable Database Connection Screen
     * **Click** on the **Copy  Link** and paste the **Connection String** to your notepad or text editor.
 
-  ![PDB Connection](./images/pdb.connection.png" ")
+  ![PDB Connection](./images/pdb-connection.png" ")
 
 
 
