@@ -64,34 +64,34 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
 14.	**In the Network Information section**:
 
-    1.)	For the **VCN**, use the pull-down menu to **select the VCN** in which you want to launch the VM DB system.
+    -	For the **VCN**, use the pull-down menu to **select the VCN** in which you want to launch the VM DB system.
 
-    2.)	For the **CLIENT SUBNET**
+    -	For the **CLIENT SUBNET**
 
     ![Select VCN](./images/select-vcn.png" ")
 
-    3.)	The **Use Network Security groups box** is optional and unchecked by default
+    -	The **Use Network Security groups box** is optional and unchecked by default
 
-    4.)	For the HOSTNAME PREFIX, enter the desired value.
+    -	For the HOSTNAME PREFIX, enter the desired value.
 
       * The Hostname Prefix forms the first portion of the DB systems Host Name and will be used as part of the Fully Qualified Domain Name.
       * For RAC systems, the Database service automatically appends a node number after the hostname prefix.
 
-    5.)	The **HOST Domain Name**, note how the Subnet DNS and VCN labels are used to auto-generate the **HOST DOMAIN NAME**.
+    -	The **HOST Domain Name**, note how the Subnet DNS and VCN labels are used to auto-generate the **HOST DOMAIN NAME**.
 
-    6.)	The **Host and domain URL** is auto-generated and combines the hostname prefix and host domain name to display the fully qualified domain name (FQDN) for the database.
+    -	The **Host and domain URL** is auto-generated and combines the hostname prefix and host domain name to display the fully qualified domain name (FQDN) for the database.
 
     * If you click on the **Advanced Option Link**, you will see the ability to optionally select a **Fault Domain**, **Time Zone**, or **set Tags** for the DB System.
 
 15.	Click on **Next** to proceed with entering the **details for the initial database.**
 
-    1.)	For the **Database Name** field, enter the **desired database name**  
+    -	For the **Database Name** field, enter the **desired database name**  
 
-    2.)	For the **Database Unique Name Suffix,** enter **the desired value**
+    -	For the **Database Unique Name Suffix,** enter **the desired value**
 
       * Note that the Database Unique Name is the combination of the DB Name and the DB Unique Name Suffix.
 
-    3.)  Click **Change Database Image Button** to list available database images
+    -  Click **Change Database Image Button** to list available database images
 
       * You are able to choose between **Oracle Database Software Images** and **Custom Database Software Images**.
 
@@ -100,17 +100,17 @@ Watch the How-to video below for a quick walk-through of the sprint.
       * Click on the **Select** Button to proceed with configuring the database details.
 
 
-    4.)  For the **Pluggable Database Name**, enter **the desired value**
+    -  For the **Pluggable Database Name**, enter **the desired value**
 
-    5.)  Enter the **Administrator Credentials**
+    -  Enter the **Administrator Credentials**
 
     ![PDB Name](./images/pdb-name.png" ")
 
       * Ensure that the **Use Administrator password for the TDE wallet** box is checked if you want to **Use of Oracle Managed Keys**
 
-    6.)  For the **Database Workload Type**, you can choose between **Transaction Processing** and **Data Warehouse**
+    -  For the **Database Workload Type**, you can choose between **Transaction Processing** and **Data Warehouse**
 
-    7.)  **Enable Automatic  Backups** is selected by default
+    -  **Enable Automatic  Backups** is selected by default
 
     ![Enable Automatic Backups](./images/enable-automatic-bkup.png" ")
 
@@ -122,7 +122,7 @@ Watch the How-to video below for a quick walk-through of the sprint.
 
       *	Uncheck the **Enable Automatic Backups** box if you want to configure it after the database is provisioned
 
-    8.) If you click on the **Advanced Options** link, you will find three tabs with options to fine-tune the planned database configuration.
+    - If you click on the **Advanced Options** link, you will find three tabs with options to fine-tune the planned database configuration.
 
       *	The **Management Tab** allows you to change the **Database Character Set** and the **National Character Set**
 
