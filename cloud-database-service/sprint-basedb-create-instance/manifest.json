@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Create an Oracle Base Database Service VM DB System Instance.",
+         "description": "Sprint for Creating an Oracle Base Database Service VM DB System Instance.",
+         "filename": "sprint-basedb-create-instance.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
