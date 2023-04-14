@@ -1,13 +1,10 @@
 {
    "workshoptitle": "LiveLabs Sprints",
-   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-<<<<<<< HEAD
+
          "title": "How do I Enable Automatic Backups in Oracle Base Database",
-=======
-         "title": "How do I Configure Automatic Backups for Oracle Base Database",
->>>>>>> upstream/main
          "description": "Sprint for Configuring Automatic Backups for Oracle Base Database",
          "filename": "sprint-basedb-autobackup.md"
       }
