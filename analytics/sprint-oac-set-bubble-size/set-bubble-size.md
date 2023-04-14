@@ -8,7 +8,7 @@ Data Layers tab under map properties lets users manage the properties of all map
 
 With the current release of Oracle Analytics, you have option to set Min Size and Max Size for the Point type Geometry.
 
-## Provision a FAW instance
+## Set Min and Max Bubble Size
 
 >**Note:** You must have the **DV Content Author** role to complete this Sprint.
 
