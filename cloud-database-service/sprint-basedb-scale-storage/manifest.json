@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Scale DB System Storage in Oracle Base Database Service.",
+         "description": "Sprint for scaling DB System storage in Oracle BaseDB",
+         "filename": "sprint-basedb-scale-storage.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}

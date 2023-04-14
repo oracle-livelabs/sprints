@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Change DB System License Type in an Oracle Base Database Service DB System.",
+         "description": "Sprint for Changing DB System License Type in an Oracle Base Database Service DB System",
+         "filename": "sprint-basedb-change-license.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
