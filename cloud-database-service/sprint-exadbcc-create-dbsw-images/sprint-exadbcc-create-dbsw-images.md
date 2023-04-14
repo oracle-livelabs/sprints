@@ -1,4 +1,4 @@
-# How do I Create a Custom Database Software Image for Exadata Database Service on Cloud@Customer.
+# How do I Create a Custom Database Software Image in Exadata Database Service on Cloud@Customer.
 Duration: 5 minutes
 
 You can create a Custom Database Software Image using the OCI Console:
