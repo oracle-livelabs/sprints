@@ -1,9 +1,10 @@
 {
    "workshoptitle": "LiveLabs Sprints",
-   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I How do I Connect Azure Applications to Oracle Exadata Database Service on Oracle Database Service for Azure.",
+
+         "title": "How do I discover the database connection string of a database in Oracle Exadata Database Service on Oracle Database Service for Azure.",
          "description": "",
          "filename": "sprint-exadbd-oracledbforazure-db-connection-string.md"
       }
