@@ -3,7 +3,7 @@
    "help": "livelabs-help-**enterarea**_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I Create Custom Database Software Image for Exadata Database Service on Cloud@Customer.",
+         "title": "How do I Create Custom Database Software Image in Exadata Database Service on Cloud@Customer.",
          "description": "Sprint for Creating Custom Database Software Image for ExaDB-C@C",
          "filename": "sprint-exadbcc-create-dbsw-images.md"
       }
