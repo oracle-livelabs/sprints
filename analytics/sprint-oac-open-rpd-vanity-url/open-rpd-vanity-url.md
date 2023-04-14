@@ -6,7 +6,7 @@ A vanity URL is a unique, customized web address that's branded for marketing pu
 
 In this Sprint, we will discuss the steps to be followed to open the RPD in cloud with the Vanity URL host name.
 
-## Provision a FAW instance
+## Open OAC RPD with Vanity URL
 
 >**Note:** You must have be an IDCS Native user to complete this Sprint.
 
