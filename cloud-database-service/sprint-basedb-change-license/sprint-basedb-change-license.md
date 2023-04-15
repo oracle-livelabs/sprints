@@ -1,4 +1,4 @@
-# How do I Change DB System License Type in an Oracle Base Database Service DB System.
+# How do I Change the DB System License Type in Oracle Base Database Service?
 Duration: 2 minutes
 
 You can change the license type of an Oracle Base Database Service VM DB System using the OCI Console

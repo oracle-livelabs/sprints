@@ -4,7 +4,7 @@
    "tutorials": [
       {
 
-         "title": "How do I Enable Automatic Backups in Oracle Base Database",
+         "title": "How do I Configure Automatic Backups for a database on an existing Oracle Base Database Service VM DB System?",
          "description": "Sprint for Configuring Automatic Backups for Oracle Base Database",
          "filename": "sprint-basedb-autobackup.md"
       }

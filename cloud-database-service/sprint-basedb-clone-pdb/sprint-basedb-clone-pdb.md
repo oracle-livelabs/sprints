@@ -1,4 +1,4 @@
-# How do I Clone a Pluggable Database (PDB) in an Oracle Base Database Service DB System.
+# How do I Clone a Pluggable Database (PDB) in an Oracle Base Database Service DB System?
 Duration: 5 minutes
 
 You can clone a PDB in an Oracle Base Database Service DB System using the OCI Console

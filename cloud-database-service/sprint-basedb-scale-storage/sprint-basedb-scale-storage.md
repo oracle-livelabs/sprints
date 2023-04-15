@@ -1,4 +1,4 @@
-# How do I Scale DB System Storage in Oracle Base Database Service.
+# How do I Scale the DB System Storage in Oracle Base Database Service?
 Duration: 10 minutes
 
 You can scale the Storage for Oracle Base Database Service DB System using the OCI Console

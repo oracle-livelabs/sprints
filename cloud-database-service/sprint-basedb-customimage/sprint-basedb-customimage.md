@@ -1,5 +1,5 @@
 
-# How do I Create a Custom Database Software Image in Oracle Base Database Service.
+# How do I Create a Custom Database Software Image in Oracle Base Database Service?
 Duration: 10 minutes
 
 You can create a Custom Database Software Image using the OCI Console:

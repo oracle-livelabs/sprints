@@ -3,7 +3,7 @@
    "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I Clone a Pluggable Database (PDB) in an Oracle Base Database Service DB System.",
+         "title": "How do I Clone a Pluggable Database (PDB) in an Oracle Base Database Service DB System?",
          "description": "Sprint for Cloning a Pluggable Database (PDB) in an Oracle Base Database Service DB System.",
          "filename": "sprint-basedb-clone-pdb.md"
       }

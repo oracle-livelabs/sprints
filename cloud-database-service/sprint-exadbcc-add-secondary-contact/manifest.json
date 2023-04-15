@@ -3,7 +3,7 @@
    "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I add a secondary contact in the Infrastructure Maintenance Contacts for Exadata Database Service on Cloud@Customer.",
+         "title": "How do I add a secondary contact in the Infrastructure Maintenance Contacts for Exadata Database Service on Cloud@Customer?",
          "description": "Sprit for adding a secondary contact in the infrastructure maintenance contacts for Exadata Database Service on Cloud@Customer",
          "filename": "sprint-exadbcc-add-secondary-contact.md"
       }

@@ -1,4 +1,4 @@
-# How do I Enable Automatic Backups in Oracle Base Database Service DB System.
+# How do I Configure Automatic Backups for a database on an existing Oracle Base Database Service VM DB System?
 Duration: 5 minutes
 
 When specifying the settings for backing up the database, You can enable Automatic Backups for a database on an existing Base Database Service VM DB System using the OCI Console

@@ -1,4 +1,4 @@
-# How do I discover the database connection string of a database in Oracle Exadata Database Service on Oracle Database Service for Azure.
+# How do I discover the database connection string of a database in Oracle Exadata Database Service on Oracle Database Service for Azure?
 Duration: 1 minute
 
 * Each database resource created in OracleDB for Azure obtains an Azure Connection String that you can use to connect to the database from any Azure application.

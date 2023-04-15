@@ -1,4 +1,4 @@
-# How do I Create an Oracle Base Database Service VM DB System Instance.
+# How do I Create an Oracle Base Database Service VM DB System Instance?
 Duration: 10 minutes (BaseDB VM DB System Instance provisioning might take approximately 20 minutes)
 
 You can create an Oracle Base Database Service DB System Instance using the OCI Console

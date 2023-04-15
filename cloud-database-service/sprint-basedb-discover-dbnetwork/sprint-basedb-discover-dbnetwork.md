@@ -1,4 +1,4 @@
-# How do I Discover DB System Networking Details in Oracle Base Database Service.
+# How do I Discover the DB System Networking Details in Oracle Base Database Service?
 Duration: 1 minute
 
 Watch the How-to video below for a quick walk-through of the sprint.

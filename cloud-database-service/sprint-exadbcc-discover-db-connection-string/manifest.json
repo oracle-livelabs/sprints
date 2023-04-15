@@ -4,7 +4,7 @@
    "tutorials": [
       {
 
-         "title": "How do I discover the Database Connectivity Details of a pluggable database in Oracle Exadata Database Service on Cloud@Customer using the OCI Console.",
+         "title": "How do I discover the Database Connectivity Details of a pluggable database in Oracle Exadata Database Service on Cloud@Customer using the OCI Console?",
          "description": "",
          "filename": "sprint-exadbcc-discover-db-connection-string.md"
       }
