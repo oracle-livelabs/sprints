@@ -1,4 +1,4 @@
-# How do I Create a Pluggable Database (PDB) in Oracle Base Database Service.
+# How do I Create a Pluggable Database (PDB) in Oracle Base Database Service?
 Duration: 5 minutes
 
 You can create a Pluggable Database (PDB) in Oracle Base Database Service DB System using the OCI Console

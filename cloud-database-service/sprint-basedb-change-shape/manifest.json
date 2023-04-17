@@ -3,7 +3,7 @@
    "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I Change DB System VM Shape / Scale OCPU in Oracle Base Database Service.",
+         "title": "How do I Change the DB System VM Shape / Scale OCPU in Oracle Base Database Service?",
          "description": "Sprint for Change DB System VM Shape / Scale OCPU in Oracle Base Database Service",
          "filename": "sprint-basedb-change-shape.md"
       }

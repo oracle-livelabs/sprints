@@ -1,4 +1,4 @@
-# How do I Change DB System VM Shape / Scale OCPU in Oracle Base Database Service.
+# How do I Change the DB System VM Shape / Scale OCPU in Oracle Base Database Service?
 Duration: 3 minutes (Change DB System VM Shape operation might take approximately 10-15 minutes)
 
 You can change the Shape of a VM DB System using the OCI Console

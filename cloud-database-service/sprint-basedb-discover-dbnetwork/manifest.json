@@ -3,7 +3,7 @@
    "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I Discover DB System Networking Details in Oracle Base Database Service.",
+         "title": "How do I Discover the DB System Networking Details in Oracle Base Database Service?",
          "description": "Sprint for Discovering DB System Networking Details in Oracle Base Database Service",
          "filename": "sprint-basedb-discover-dbnetwork.md"
       }

@@ -1,4 +1,4 @@
-# How do I Get the Database Connection String of a PDB in Oracle Base Database Service.
+# How do I Get the Database Connection String of a PDB in Oracle Base Database Service?
 Duration: 1 minute
 
 You can find the DB Connection String in Oracle Base Database Service using the OCI Console

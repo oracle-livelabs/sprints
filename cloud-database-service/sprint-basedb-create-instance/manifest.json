@@ -3,7 +3,7 @@
    "help": "livelabs-help-exadata_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I Create an Oracle Base Database Service VM DB System Instance.",
+         "title": "How do I Create an Oracle Base Database Service VM DB System Instance?",
          "description": "Sprint for Creating an Oracle Base Database Service VM DB System Instance.",
          "filename": "sprint-basedb-create-instance.md"
       }
