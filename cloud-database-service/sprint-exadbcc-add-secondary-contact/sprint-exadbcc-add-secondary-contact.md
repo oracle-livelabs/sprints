@@ -1,4 +1,4 @@
-# How do I add a secondary contact in the Infrastructure Maintenance Contacts for Exadata Database Service on Cloud@Customer.
+# How do I add a secondary contact in the Infrastructure Maintenance Contacts for Exadata Database Service on Cloud@Customer?
 Duration: 1 minute
 
 You can add up to nine secondary contacts in the Infrastructure Maintenance Contacts for Exadata Database Service on Cloud@Customer

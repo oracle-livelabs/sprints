@@ -1,4 +1,4 @@
-# How do I discover the Database Connectivity Details of a pluggable database in Oracle Exadata Database Service on Cloud@Customer using the OCI Console.
+# How do I discover the Database Connectivity Details of a pluggable database in Oracle Exadata Database Service on Cloud@Customer using the OCI Console?
 Duration: 1 minute
 
 You can find the DB Connection Strings of a PDB in Oracle Exadata Database Service on Cloud@Customer using the OCI Console
