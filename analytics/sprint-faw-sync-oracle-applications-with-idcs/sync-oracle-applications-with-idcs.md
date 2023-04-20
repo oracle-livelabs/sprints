@@ -10,7 +10,7 @@ This is first of the three LiveLabs Sprints in the provisioning of FA instance. 
 
 ## Synchronize Oracle Applications with IDCS
 
->**Note:** You must be the **Fusion Application IDCS Administrator** and have access to the **Security Console** to successfully complete this Sprint.
+>**Note:** You must be the **Fusion Application IDCS Administrator** to successfully complete this Sprint.
 
 1. Sign in your IDCS instance.
 
