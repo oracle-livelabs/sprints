@@ -1,5 +1,5 @@
 # How Do I download SQL Monitor and AWR Reports for my FAW database?
-Duration: 10 minutes
+Duration: 5 minutes
 
 FAW customers with ADMIN access can download SQL monitor or AWR reports to gather performance information on their FAW reports and database.
 
