@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "How Do I download SQL Monitor and AWR Reports for my FAW database?",
+         "title": "How do I download SQL Monitor and AWR Reports for my FAW database?",
          "description": "Learn how to download SQL Monitor and AWR Reports.",
          "filename": "download-faw-sql-monitor.md"
       }
