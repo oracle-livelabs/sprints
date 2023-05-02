@@ -10,7 +10,7 @@ You can create an on-demand full backup of a database in Exadata Database Servic
 
 2. Choose your **Compartment**.
 
-3. Navigate to the **Exadata VM Cluster** containing the database you want to back up:
+3. Navigate to the **Exadata VM Cluster** containing the database you want to back up.
 
 4. In the list of databases, find the database for which you want to create an on-demand full backup and click its name to display database details.
 
