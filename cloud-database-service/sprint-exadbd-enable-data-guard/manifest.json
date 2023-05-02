@@ -1,0 +1,15 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+
+         "title": "How do I Enable Oracle Data Guard on Exadata Database Service on Dedicated Infrastructure?",
+         "description": "Learn how to Enable Oracle Data Guard on Exadata Database Service",
+         "filename": "sprint-exadbd-enable-data-guard.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
