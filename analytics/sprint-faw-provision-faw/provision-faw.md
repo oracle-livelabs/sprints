@@ -1,5 +1,5 @@
 # How do I provision a Fusion Analytics Warehouse (FAW) instance?
-Duration: 1 minute
+Duration: 5 minutes
 
 This is the third of the three live labs series that will walk you through the steps to provision the Fusion Analytics instance. It is assumed that the Fusion Analytics subscription is activated, and you have completed the following two live labs in this series:
 1. How do I synchronize Oracle Applications with Oracle Identity Cloud Service (IDCS)?
