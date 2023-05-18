@@ -50,4 +50,4 @@ Parabéns! Você acabou de aprender como adicionar notas ou observações a visu
 ## Reconhecimentos
 * **Autor** - Lucian Dinescu, Product Strategy, Analytics
 * **Tradução** - Thais Henrique, Cloud Engineer, Brazil Data & AI Team
-* **Última Atualização** - Thais Henrique,  Agosto 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

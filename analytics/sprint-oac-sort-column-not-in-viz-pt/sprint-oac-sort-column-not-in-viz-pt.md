@@ -40,4 +40,4 @@ Parabéns! Você aprendeu como classificar uma visualização por uma coluna nã
 ## Reconhecimentos
 * **Autor** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Thais Henrique, Cloud Engineer, Brazil Data & AI Team
-* **Última Atualização** - Thais Henrique,  Agosto 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I open Oracle Analytics Cloud RPD with Vanity URL Hostname?",
+         "description": "Learn how to open an OAC RPD with a vanity url hostname.",
+         "filename": "open-rpd-vanity-url.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

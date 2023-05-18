@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I set Min and Max bubble size for point layer type in Oracle Analytics DV Maps?",
+         "description": "Learn how to set the Min and Max bubble size for point layer type in OAC.",
+         "filename": "set-bubble-size.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

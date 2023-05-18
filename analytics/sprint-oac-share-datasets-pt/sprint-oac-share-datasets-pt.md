@@ -37,9 +37,9 @@ Parabéns! Você acaba de aprender como compartilhar seu dataset com outros usu�
 
 ## Saiba mais
 
-* [Crie ou atualize uma permisão de dataset](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-or-update-datasets-permissions.html)
+* [Crie ou atualize uma permissão de dataset](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-or-update-datasets-permissions.html)
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias, Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

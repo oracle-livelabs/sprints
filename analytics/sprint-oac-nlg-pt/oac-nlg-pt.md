@@ -34,7 +34,7 @@ Esse sprint irá te mostrar a capacidade de geração de linguagem natural do Or
     ![Meaning of up](images/change-meaning.png)
 
 
-Parabéns! Você acabou de aprender a criar uma narrativa em linguagem natural das suas visualizaçõpes utilizando Natural Language Generation no Oracle Analytics Cloud!
+Parabéns! Você acabou de aprender a criar uma narrativa em linguagem natural das suas visualizações utilizando Natural Language Generation no Oracle Analytics Cloud!
 
 ## Saiba mais
 * [Add a Language Narrative Visualization](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-language-narrative-visualization.html#GUID-F25DA183-DFFB-4788-8581-B6D935A26EE9)
@@ -44,4 +44,4 @@ Parabéns! Você acabou de aprender a criar uma narrativa em linguagem natural d
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023
