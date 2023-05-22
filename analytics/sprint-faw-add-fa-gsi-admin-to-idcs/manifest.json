@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I add the FA_GSI_Administrator role to a Fusion IDCS or IAM Domain user using IDCS REST APIs?",
+         "description": "Learn how to add FA_GSI Administrator role to Fusion IDCS or IAM Domain user.",
+         "filename": "./add-fa-gsi-admin-to-idcs.md"
+      }
+   ],
+   "task_type": "Sections"
+}
