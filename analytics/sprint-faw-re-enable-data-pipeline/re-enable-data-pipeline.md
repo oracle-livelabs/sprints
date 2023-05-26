@@ -41,6 +41,8 @@ When working with FAW, there may be scenarios where your Data Pipeline has been 
 
   ![Enabled pipeline](images/no-banner.png)
 
+## Learn more
+* [Disable Data Pipeline](https://docs.oracle.com/en/cloud/saas/analytics/23r2/fawag/disable-data-pipeline.html)
 
 ## Acknowledgements
 * **Author** - Krithika Raghavan, Director, Oracle Analytics
