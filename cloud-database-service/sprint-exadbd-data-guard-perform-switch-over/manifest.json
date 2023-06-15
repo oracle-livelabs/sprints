@@ -1,0 +1,15 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+
+         "title": "How do I Perform a database switchover operation using the Data Guard association in Exadata Database Service on Dedicated Infrastructure?",
+         "description": "Learn how to Perform a database switchover operation using the Data Guard association in Exadata Database Service on Dedicated Infrastructure",
+         "filename": "sprint-exadbd-data-guard-perform-switch-over.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}

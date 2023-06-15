@@ -53,4 +53,4 @@ Parabéns! Você acabou de aprender como verificar a precisão de um modelo de m
 ## Reconhecimentos
 * **Autor** - Miles Novotny, Solution Engineer, North America Specialist Hub
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

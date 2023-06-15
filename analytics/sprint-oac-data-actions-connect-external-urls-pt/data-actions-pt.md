@@ -50,4 +50,4 @@ Parabéns, você aprendeu com sucesso como criar Data Actions para se conectar a
 ## Reconhecimentos
 * **Autor** - Thea Lazarova, Solution Engineer, North America Specialist Hub
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Connect to Oracle Database as a Data Source using TLS Connection with TCPS Protocol from Oracle Analytics Client Tools for Oracle Analytics Server (OAS)?",
+         "description": "Learn how to connect to Oracle Database as a data source using TLS Connection with TCPS Protocol from Oracle Analytics Client Tools for OAS.",
+         "filename": "connect-odb-using-tls-bi-admin-tool.md"
+      },
+      {
+         "title": "How do I connect to Oracle Database as a data source using TLS Connection with TCPS Protocol from Oracle Analytics Server (OAS)?",
+         "description": "",
+         "filename": "../sprint-oas-connect-odb-tcps-protocol-from-rpd-runtime/connect-odb-tcps-protocol.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}

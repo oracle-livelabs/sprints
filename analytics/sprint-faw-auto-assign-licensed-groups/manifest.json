@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I auto-assign Fusion Analytics Warehouse (FAW) licensed groups to Oracle Fusion Cloud Application (FA) users?",
+         "description": "Learn how to auto-assign FAW licensed groups to FA users.",
+         "filename": "./auto-assign-licensed-groups.md"
+      }
+   ],
+   "task_type": "Sections"
+}

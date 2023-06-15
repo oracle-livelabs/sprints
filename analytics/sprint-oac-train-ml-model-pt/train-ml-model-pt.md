@@ -17,7 +17,7 @@ Nessa sprint, nós usaremos as ferramentas de machine learning da Oracle integra
 
     ![Selecione o dataset](images/select-data.png)
 
-3. Clique no ícone **Add a step (+)** e clique em  **Select Columns**. Se você sabe exatamenmte quais colunas afetarão os valores que você quer prever, selecione as colunas que não tenham nenhum efeito e clique em **Remove selected**. Caso não tenha certeza, utilize todas as colunas.
+3. Clique no ícone **Add a step (+)** e clique em  **Select Columns**. Se você sabe exatamente quais colunas afetarão os valores que você quer prever, selecione as colunas que não tenham nenhum efeito e clique em **Remove selected**. Caso não tenha certeza, utilize todas as colunas.
    
     ![Selecione as colunas](images/select-columns.png)
 
@@ -69,4 +69,4 @@ Parabéns, você acaba de aprender como treinar um modelo de Machine Learning em
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
 * **Tradução** - Isabel Giannecchini, Cloud Engineer GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias, Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

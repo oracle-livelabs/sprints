@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I terminate a Fusion Analytics Warehouse (FAW) instance?",
+         "description": "Learn how to terminate a FAW instance.",
+         "filename": "terminate-faw.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

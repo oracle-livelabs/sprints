@@ -47,4 +47,4 @@ Parabéns! Você acabou de aprender como ativar a opção **Utilizar a Conectivi
 ## Reconhecimentos
 * **Autor** - Lucian Dinescu, Product Strategy, Analytics
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023

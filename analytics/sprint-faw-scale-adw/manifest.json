@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I scale up the Autonomous Data Warehouse (ADW) storage for my Fusion Analytics Warehouse (FAW) instance?",
+         "description": "Learn how to scale your ADW storage for FAW.",
+         "filename": "sprint-faw-scale-adw.md"
+      }
+   ],
+   "task_type": "Sections",
+ "hide_button": "true"
+}
