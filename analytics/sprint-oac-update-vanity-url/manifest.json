@@ -3,14 +3,14 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
      {
-        "title": "How do I delete an Oracle Analytics Cloud Vanity URL?",
-        "description": "Learn how to delete an OAC vanity url.",
-        "filename": "delete-vanity-url.md"
-     },
-     {
         "title": "How do I update an Oracle Analytics Cloud Vanity URL?",
         "description": "Learn how to update an OAC vanity url.",
-        "filename": "../sprint-oac-update-vanity-url/update-vanity-url.md"
+        "filename": "update-vanity-url.md"
+     },
+     {
+        "title": "How do I delete an Oracle Analytics Cloud Vanity URL?",
+        "description": "Learn how to delete an OAC vanity url.",
+        "filename": "../sprint-oac-delete-oac-vanity-url/delete-vanity-url.md"
      },
       {
          "title": "How do I open Oracle Analytics Cloud RPD with Vanity URL Hostname?",
