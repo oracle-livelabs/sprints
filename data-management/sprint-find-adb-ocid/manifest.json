@@ -9,7 +9,7 @@
       }
    ],   "show_related": [
       { "title": "Related Sprints", "filename": "related_sprints.json", "tags": [
-         "adb-shared",
+         "adb-serverless",
          "adw","ajd","atp",
          "cloud-infrastructure"
          ], "state": "collapsed" }
