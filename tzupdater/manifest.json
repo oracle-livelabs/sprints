@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Java Timezone Data",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Learn how to use TZUpdater to update Java's timezone data.",
+         "description": "Learn how to use TZUpdater to update Java's timezone data.",
+         "filename": "tzupdater.md"
+      }
+   ],
+   "task_type": "Sections"
+}
