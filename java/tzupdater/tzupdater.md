@@ -36,7 +36,7 @@ You can ignore the rest.
 ### 4. Latest tzdata
 ![Slide 4 - Latest tzdata](./images/slide4.png)
 You can find the latest tzdata on the IANA website.
-Right click the link with tzdata and copy the link
+Right click the link with tzdata and copy the link.
 
 ### 5. Update tzadata
 ![Slide 5 - Update tzadata](./images/slide5.png)
