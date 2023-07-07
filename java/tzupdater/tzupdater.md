@@ -7,7 +7,7 @@ Duration: 2 minutes
 ## Slides
 
 ### 1. Introduction
-![Slide 1 - Introduction](./images/slide1.png)
+![Slide 1 - Introduction](/images/slide1.png)
 
 This is a quick tutorial on how to use TZUpdater to update the tzdata in Java.
 
