@@ -7,7 +7,7 @@ Duration: 2 minutes
 ## Slides
 
 ### 1. Introduction
-![Slide 1 - Introduction](/images/slide1.png)
+![Slide 1 - Introduction](./images/slide1.png)
 
 This is a quick tutorial on how to use TZUpdater to update the tzdata in Java.
 
@@ -29,7 +29,8 @@ Customers can download the latest TZUpdater tool from [Document 1439822.2 Suppor
 ### 3. How to Verify TZ Data Version
 ![Slide 3 - How to Verify TZ Data Version](./images/slide3.png)
 
-From the directory of where you have the tzupdater jar file, you can check the tzdata version by running this command:
+From the directory of where you have the tzupdater jar file, you can check the tzdata version by running this command:  
+`java -jar tzupdater/jar -V`  
 You only need to note the line with JRE tzdata version.
 You can ignore the rest.
 
