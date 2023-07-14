@@ -46,7 +46,7 @@ This sprint provides step-by-step instructions on how to update the timezone dat
     This will install tzdata directly from the IANA website.
     If you get an error, check you have the right permissions and try again.
 
-6. - Verify Again to Confirm
+6. Verify Again to Confirm
     ![Slide 6 - Verify Again to Confirm](./images/slide6.png)
     Run the verify command again to see if the change has taken effect.
 
