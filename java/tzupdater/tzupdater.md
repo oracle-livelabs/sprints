@@ -59,8 +59,6 @@ This sprint provides step-by-step instructions on how to update the timezone dat
 
 
 
-
-
 ## Acknowledgements
 **Video** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
