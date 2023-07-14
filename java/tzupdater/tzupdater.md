@@ -1,4 +1,4 @@
-# How Can I Update the Timezone Data in Java?
+# Update the timezone data in Java
 Duration: 2 minutes
 
 This sprint provides step-by-step instructions on how to update the timezone data in your Java installations. Java uses [timezone data provided by the IANA](https://www.iana.org/time-zones). The IANA's update schedule and Java's update schedule are out of sync, so downloading the latest version of Java does not ensure that you have the latest IANA timezone data.
