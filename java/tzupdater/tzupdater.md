@@ -55,7 +55,7 @@ This sprint provides step-by-step instructions on how to update the timezone dat
     Java SE Subscribers can learn more by viewing [Document 1999305.1 on My Oracle Support](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294479586613931&id=1999305.1).  
   
 ## Learn More  
-- [TZUpdater Documentation.](https://www.oracle.com/java/technologies/javase/tzupdater-readme.html)
+- [TZUpdater Documentation](https://www.oracle.com/java/technologies/javase/tzupdater-readme.html)
 
 
 
