@@ -2,7 +2,7 @@
 
 Duration: 4 minutes
 
-To manage certain applications in FA IDCS sub-stripes, the FA IDCS user must have the FA_GSI_Administrator role on the FA IDCS sub-stripe in order to fully manage all aspects of the application. For example, the IDCS admin user should enable the provisioning in the Oracle Applications Cloud (Fusion) application to Sync Users and Roles from FA to IDCS. These steps need the admin user to grant roles like Identity Domain Administrator and Application Administrator however the options are greyed out to any user who does not have the FA_GSI_Administrator role. The IDCS user can be added to the required role using the IDCS REST APIs.
+To manage certain applications in FA IDCS sub-stripes, the FA IDCS user must have the FA\_GSI\_Administrator role on the FA IDCS sub-stripe in order to fully manage all aspects of the application. For example, the IDCS admin user should enable the provisioning in the Oracle Applications Cloud (Fusion) application to Sync Users and Roles from FA to IDCS. These steps need the admin user to grant roles like Identity Domain Administrator and Application Administrator however the options are greyed out to any user who does not have the FA\_GSI\_Administrator role. The IDCS user can be added to the required role using the IDCS REST APIs.
 
 ## Add FA\_GSI\_Administrator role to Fusion IDCS/IAM
 

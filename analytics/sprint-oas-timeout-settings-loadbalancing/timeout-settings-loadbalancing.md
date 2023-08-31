@@ -28,6 +28,8 @@ You can increase the default timeout setting to 7200 seconds if either the Oracl
 
   ![Confirm restart](images/listener.png)
 
+## Learn more
+* [Load Balancer Timeout Connection Settings](https://docs.oracle.com/en-us/iaas/Content/Balance/Reference/connectionreuse.htm)
 
 ## Acknowledgements
 * **Author** - Ahmed Awan, CEAL
