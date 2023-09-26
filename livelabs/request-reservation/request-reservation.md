@@ -34,7 +34,7 @@ Note that at the end of your LiveLabs reservation, the environment created for t
     - **Attendee Timezone** - Choose your timezone
     - **Start Workshop Now** - Turn on this radio button if you want to reserve the environment now.
     - **Choose date to attend** and **Choose time to attend** - If you want to schedule your reservation to run the workshop at a later point in time, choose the date and time you want to run for the environment to start provisioning on that date and time.
-    - **Public SSH Keys** - Not all workshops needs you to provide your Public SSH Keys. If your workshop need them, paste your publish SSH keys. If you do not know how to create them, follow these instructions to [generate ssh keys.](https://github.com/oracle/learning-library/blob/master/common/labs/generate-ssh-key-local/generate-ssh-keys-local.md)
+    - **Public SSH Keys** - Not all workshops needs you to provide your Public SSH Keys. If your workshop need them, paste your publish SSH keys. If you do not know how to create them, follow these instructions to [generate ssh keys.](https://github.com/oracle-livelabs/common/blob/main/labs/generate-ssh-key-local/generate-ssh-keys-local.md)
     - **I consent to receive the reservation emails** - Check this box to receive the reservation status emails.
     - **Submit Reservation** - Click Submit Reservation to reserve the environment on Oracle-owned tenancy.
 
@@ -55,5 +55,5 @@ Note that at the end of your LiveLabs reservation, the environment created for t
 ## Learn More
 
 * [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
-* [Request Oracle Freetier Account](https://github.com/oracle/learning-library/blob/master/common/labs/cloud-login/pre-register-free-tier-account.md)
+* [Request Oracle Freetier Account](https://github.com/oracle-livelabs/common/blob/main/labs/cloud-login/pre-register-free-tier-account.md)
 * [Create an Oracle Accout](http://www.oracle.com/)
