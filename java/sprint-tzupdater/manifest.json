@@ -5,7 +5,8 @@
       {
          "title": "Learn how to use TZUpdater",
          "description": "Learn how to use TZUpdater to update Java's timezone data.",
-         "filename": "tzupdater.md"
+         "filename": "sprint-tzupdater.md"
+
       }
    ],
    "task_type": "Sections"
