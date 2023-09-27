@@ -16,7 +16,7 @@ Before you get started with any workshop in [Oracle LiveLabs](http://developer.o
 
 - There are four different ways you can choose to run your workshop in Oracle LiveLabs.
 
-    - **Free Trial** - Oracle Cloud Free Tier allows you to sign up for an Oracle Cloud account which provides a number of Always Free services and a Free Trial with US$300 of free credit to use on all eligible Oracle Cloud Infrastructure services for up to 30 days. You need a valid email address to [request a free trial account.](https://github.com/oracle/learning-library/blob/master/common/labs/cloud-login/pre-register-free-tier-account.md)
+    - **Free Trial** - Oracle Cloud Free Tier allows you to sign up for an Oracle Cloud account which provides a number of Always Free services and a Free Trial with US$300 of free credit to use on all eligible Oracle Cloud Infrastructure services for up to 30 days. You need a valid email address to [request a free trial account.](https://github.com/oracle-livelabs/common/blob/main/labs/cloud-login/pre-register-free-tier-account.md)
 
     - **Always Free** - The Always Free services are available for an unlimited time. The Free Trial services may be used until your US$300 of free credits are consumed or the 30 days have expired, whichever comes first.
 
@@ -64,7 +64,7 @@ Before you get started with any workshop in [Oracle LiveLabs](http://developer.o
     - **Attendee Timezone** - Choose your timezone
     - **Start Workshop Now** - Turn on this radio button if you want to reserve the environment now.
     - **Choose date to attend** and **Choose time to attend** - If you want to schedule your reservation to run the workshop at a later point in time, choose the date and time you want to run for the environment to start provisioning on that date and time.
-    - **Public SSH Keys** - Not all workshops needs you to provide your Public SSH Keys. If your workshop need them, paste your publish SSH keys. If you do not know how to create them, follow these instructions to [generate ssh keys.](https://github.com/oracle/learning-library/blob/master/common/labs/generate-ssh-key-local/generate-ssh-keys-local.md)
+    - **Public SSH Keys** - Not all workshops needs you to provide your Public SSH Keys. If your workshop need them, paste your publish SSH keys. If you do not know how to create them, follow these instructions to [generate ssh keys.](https://github.com/oracle-livelabs/common/blob/main/labs/generate-ssh-key-local/generate-ssh-keys-local.md)
     - **I consent to receive the reservation emails** - Check this box to receive the reservation status emails.
     - **Submit Reservation** - Click Submit Reservation to reserve the environment on the Oracle-owned tenancy.
 
@@ -85,5 +85,5 @@ Before you get started with any workshop in [Oracle LiveLabs](http://developer.o
 ## Learn More
 
 * [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
-* [Request Oracle Freetier Account](https://github.com/oracle/learning-library/blob/master/common/labs/cloud-login/pre-register-free-tier-account.md)
+* [Request Oracle Freetier Account](https://github.com/oracle-livelabs/common/blob/main/labs/cloud-login/pre-register-free-tier-account.md)
 * [Create an Oracle Accout](http://www.oracle.com/)
