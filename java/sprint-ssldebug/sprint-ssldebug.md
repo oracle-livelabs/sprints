@@ -1,7 +1,7 @@
-# How to enable SSL debugging in Java?
+# How to enable SSL debugging in the JDK?
 Duration: 5 minutes
 
-## Enable SSL debugging in Java
+## Enable SSL debugging in the JDK
 
 [How to Enable SSL Debugging](videohub:1_5vweehhb)
 

@@ -1,10 +1,10 @@
 {
-   "workshoptitle": "Enable SSL debugging in Java",
+   "workshoptitle": "Enable SSL debugging in the JDK",
    "help": "livelabs-help-sprints_us@oracle.com",
    "tutorials": [
       {
-         "title": "Enable SSL debugging in Java",
-         "description": "Learn how to enable SSL debugging in Java.",
+         "title": "Enable SSL debugging in the JDK",
+         "description": "Learn how to enable SSL debugging in the JDK.",
          "filename": "sprint-ssldebug.md"
       }
    ],

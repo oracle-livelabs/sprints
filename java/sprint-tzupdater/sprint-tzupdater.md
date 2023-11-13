@@ -1,7 +1,7 @@
-# Update the timezone data in Java
+# Update the timezone data in the JDK
 Duration: 2 minutes
 
-This sprint provides step-by-step instructions on how to update the timezone data in your Java installations. Java uses [timezone data provided by the IANA](https://www.iana.org/time-zones). The IANA's update schedule and Java's update schedule are out of sync, so downloading the latest version of Java does not ensure that you have the latest IANA timezone data.
+This sprint provides step-by-step instructions on how to update the timezone data in your JDK installations. The JDK uses [timezone data provided by the IANA](https://www.iana.org/time-zones). The IANA's update schedule and Java's update schedule are out of sync, so downloading the latest version of Java does not ensure that you have the latest IANA timezone data.
 
 **NOTE:** Currently, the `-XshowSettings:all` option does not display the tzdata version. This will be fixed in an upcoming release. See [JDK-8305950](https://bugs.openjdk.org/browse/JDK-8305950) for details.
 
@@ -52,7 +52,7 @@ This sprint provides step-by-step instructions on how to update the timezone dat
 
 7. References
     ![Slide 7 - References](./images/7-references.png)
-    Java SE Subscribers can learn more by viewing [Document 1999305.1 on My Oracle Support](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294479586613931&id=1999305.1).  
+    Java SE Subscribers can learn more by viewing [Document 1999305.1 on My Oracle Support](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294479586613931&id=1999305.1).
   
 ## Learn More  
 - [TZUpdater Documentation](https://www.oracle.com/java/technologies/javase/tzupdater-readme.html)
