@@ -1,10 +1,10 @@
 {
-   "workshoptitle": "Update Java's timezone data",
+   "workshoptitle": "Update the JDK's timezone data",
    "help": "livelabs-help-sprints_us@oracle.com",
    "tutorials": [
       {
          "title": "Learn how to use TZUpdater",
-         "description": "Learn how to use TZUpdater to update Java's timezone data.",
+         "description": "Learn how to use TZUpdater to update the JDK's timezone data.",
          "filename": "sprint-tzupdater.md"
 
       }
