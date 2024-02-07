@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How to use Log Explorer for analytics and visualizations?",
+         "description": "Overview of Log Explorer of Logging Analytics.",
+         "filename": "sprint-log-explorer-for-analytics-and-visualizations.md"
+      }
+   ],
+   "task_type": "Sections"
+}

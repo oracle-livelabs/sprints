@@ -1,0 +1,37 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create alerts on statistical outliers and deviations in Logging Analytics?",
+         "description": "Explains creation of alarm on real-life based use case. Creating a alarm if there are more than 30% of failed APIs.",
+         "filename": "sprint-create-alerts-on-statistical-outliers-and-deviations.md"
+      },
+      {
+         "title": "Related Sprint: How to create alerts on logs with Logging Analytics?",
+         "description": "Explains how to create OCI Alarms and verify it.",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      },
+      {
+         "title": "Related Sprint: How do I create and trigger an ingest time detection rule in Logging Analytics?",
+         "description": "Explains how to create an ingest time detection rule and trigger it in Logging Analytics.",
+         "filename": "../sprint-create-and-trigger-ingest-time-detection-rule/sprint-create-and-trigger-ingest-time-detection-rule.md"
+      },
+      {
+         "title": "Related Sprint: How do I create a user-defined label in Logging Analytics?",
+         "description": "Explains user defined label creation in Logging Analytics.",
+         "filename": "../sprint-create-label/sprint-create-label.md"
+      },
+      {
+         "title": "Related Sprint: How to create a user-defined REGEX parser using guided mode in Logging Analytics?",
+         "description": "Guided regex parser creation flow to create single line parser in Logging Analytics.",
+         "filename": "../sprint-create-parser/sprint-create-parser.md"
+      },
+      {
+         "title": "Related Sprint: How do I create a user-defined source in Logging Analytics?",
+         "description": "Explains user defined source creation in Logging Analytics.",
+         "filename": "../sprint-create-source/sprint-create-source.md"
+      }
+   ],
+   "task_type": "Sections"
+}

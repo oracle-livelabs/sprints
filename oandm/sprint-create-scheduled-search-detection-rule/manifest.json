@@ -1,0 +1,12 @@
+{
+  "workshoptitle": "LiveLabs Sprints",
+  "help": "livelabs-help-sprints_us@oracle.com",
+  "tutorials": [
+     {
+        "title": "How to create scheduled search detection rules?",
+        "description": "This sprint explains how to create scheduled search detection rules.",
+        "filename": "sprint-create-scheduled-search-detection-rule.md"
+     }
+  ],
+  "task_type": "Sections"
+}

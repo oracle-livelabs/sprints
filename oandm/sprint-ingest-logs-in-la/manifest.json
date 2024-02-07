@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I ingest logs in Logging Analytics?",
+         "description": "Ingest logs in Logging Analytics.",
+         "filename": "sprint-ingest-logs-in-la.md"
+      },
+      {
+         "title": "Related Sprint: How to upload Files into a Source from the OCI console?",
+         "description": "",
+         "filename": "../sprint-upload-log-file/sprint-upload-log-file.md"
+      }
+   ],
+   "task_type": "Sections"
+}

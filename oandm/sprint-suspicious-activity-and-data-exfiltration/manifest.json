@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Sprint - How can I set up an alert for detecting suspicious activity and potential data exfiltration from logs using Logging Analytics?",
+         "description": "",
+         "filename": "sprint-suspicious-activity-and-data-exfiltration.md"
+      },
+      {
+         "title": "How to use Log Explorer for analytics and visualizations?",
+         "description": "",
+         "filename": "../sprint-log-explorer-for-analytics-and-visualizations/sprint-log-explorer-for-analytics-and-visualizations.md"
+      },
+      {
+         "title": "How to create scheduled search detection rules?",
+         "description": "",
+         "filename": "../sprint-create-scheduled-search-detection-rule/sprint-create-scheduled-search-detection-rule.md"
+      },
+      {
+         "title": "How to create alerts on logs?",
+         "description": "",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      }
+   ],
+   "task_type": "Sections"
+}
