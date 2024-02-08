@@ -6,6 +6,8 @@ This lab will walk you through the steps to Create & verify Scheduled Detection 
 
 This lab explains scheduled task detection rules based on numerical thresholds.
 
+## Create a Detection Rule
+
 1. Navigate to the logs explorer (Refer to [How to use Log Explorer for analytics and visualizations?](?lab=sprint-log-explorer-for-analytics-and-visualizations) for more info) and run this query:
 
     ```MQL
@@ -45,6 +47,8 @@ Your Detection Rule should be up and ready and you should see a notification sim
 ![Figure 5: Detection Rule creation Confirmation Message](images/detection-rule-creation-confirmation-message.png)
 
 Trigger the Detection Rule and make its metrics available in the alarms service. The fastest way to achieve this is by signing in to your tenancy with a wrong password.
+
+## Create the Alarm
 
 Create an alarm and verify it:
 

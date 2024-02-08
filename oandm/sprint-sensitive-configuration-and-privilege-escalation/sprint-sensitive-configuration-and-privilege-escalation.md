@@ -5,6 +5,8 @@ Duration: 15 minutes
 This lab will walk you through the steps to Create & verify Scheduled Detection rules alarms to detect **Sensitive Configuration and Privilege Escalation**.
 This lab explains how to create and manage single and multi-conditional labels for ingest time detection rules.
 
+## Create a conditional label
+
 1. Prepare and upload a log sample by copying and pasting this command into your oracle cloud shell:
 
     ```bash
@@ -45,6 +47,8 @@ This lab explains how to create and manage single and multi-conditional labels f
 
 Your new conditional label should now be ready to be used in other Monitoring services.
 
+## Create a Detection Rule
+
 Create a Detection Rule:
 
 1. Go to **"Administration"** > **"Label"**, Select the Label you just created for the Conditional Label and Click on **"Ingest time detection rule"** to move to the Detection Rules tab:
@@ -64,6 +68,8 @@ Prepare the logs to upload and trigger the Detection Rule making its metrics ava
     ![Figure 9: Detection Rule triggered](images/detection-rule-triggered.png)
 
   The Detection Rule should be up and ready to be used in other Monitoring services.
+
+## Create the Alarm
 
 Create the alarm from the Detection Rule:
 

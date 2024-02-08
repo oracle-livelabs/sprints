@@ -5,6 +5,8 @@ Duration: 15 minutes
 This lab will walk you through the steps to create schedule tasks to detect when a **Container Image is Pulled with the latest Tag**.
 This lab explains how to schedule search tasks to identify if a container image was pulled manually in Kubernetes.
 
+## Create a scheduled Detection Rule
+
 The images pulled by Kubernetes can be found in the Oracle **"Kubernetes Event Object Logs"** out-of-the-box source. These logs can be monitored from the Log Explorer.
 
 1. Navigate to the Log Explorer (Refer to [How to use Log Explorer for analytics and visualizations?](?lab=sprint-log-explorer-for-analytics-and-visualizations) for more info) and run this query:
@@ -27,6 +29,8 @@ The images pulled by Kubernetes can be found in the Oracle **"Kubernetes Event O
 5. Fill the Detection Rule form showing up (Refer to [How to create and trigger an ingest time detection rule?](?lab=sprint-create-and-trigger-ingest-time-detection-rule) for more details):
   ![Figure 5: Fill the form to create the detection rule](images/fill-detection-rule-form.png)
 
+## Upload Logs
+
 Prepare the logs to upload and trigger the Detection Rule making its metrics available to the alarms service:
 
 1. Open your OCI Cloud Shell Console.
@@ -43,6 +47,8 @@ Prepare the logs to upload and trigger the Detection Rule making its metrics ava
 
     Once successfully triggered, the results section of your Detection rule page should show a graph similar to this one:
     ![Figure 6: Trigger the detection rule](images/wait-for-rule-to-be-triggered.png)
+
+## Create the alarm
 
 Create the alarm from the Detection Rule:
 

@@ -4,6 +4,8 @@ Duration: 15 minutes
 
 This lab explains how to associate OOTB Labels (Out of the Box Oracle defined labels) to log sources and entities. By the end of this Live Lab, You will create Detection Rules & alarms for **Oracle Database Abnormal Termination** incidents.
 
+## Create an Ingest Time Detection Rule
+
 1. Create an "Ingest Time Detection Rule" with the following fields (Follow the instructions on [How to create and trigger an ingest time detection rule?](?lab=sprint-create-and-trigger-ingest-time-detection-rule)):
 
   **Consistent values for the lab (Use these exact values to get the same results as the live lab):**
@@ -25,6 +27,8 @@ Your Detection Rule should be up and ready and you should see a screen similar t
 
 ![Figure 3: Detection Rule creation Confirmation Message](images/detection-rule-creation-confirmation-message.png)
 
+## Upload Logs
+
 Prepare the logs to upload and trigger the Detection Rule making its metrics available to the alarms service:
 
 1. Open your OCI Cloud Shell Console.
@@ -37,6 +41,8 @@ Prepare the logs to upload and trigger the Detection Rule making its metrics ava
     ```
 
     **Explanation:** This script generates dummy logs into a new file & uploads them into your OCI Logging Analytics Service to trigger your Detection Rule.
+
+## Create the alarm
 
 Create the alarm from the Detection Rule:
 
