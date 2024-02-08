@@ -27,20 +27,17 @@ Here are the main parts of the user interface that will be used throughout this 
 
 ## Using Visualizations Panel and Fields Panel
 
-1. **Visualization Panel**:
+**Visualization Panel**:
 
 The interactive data visualizations in Oracle Logging Analytics enable you to get deeper insights into your log data. Based on what you want to achieve with your data set, you can select the visualization type that best suits your application.
 ![Visualization panel](images/visualization-panel.png)
 
   1. **Visualizations:** There are different visualizations type available in this panel, examples are, Pie, Bar, Horizontal bar, Map, Line, World Cloud, Summary Table, Records, Table, Distinct, Tile, Records with histogram, Table with histogram, Sunburn, Treemap. Some of the visualizations are used to perform advanced analysis of large data set to figure out the root cause an issue, to identify potential issues, to view trends, or to detect an anomaly, examples are, Cluster, Link and Issues. Select any of the visualizations to show data according to it.
   ![Visualization types](images/visualization-types.png)
-
     - If **Word Cloud** is selected, output will be:
     ![Word cloud](images/word-cloud.png)
-
     - If **Records with Histogram** is selected, output will be:
     ![Records with histogram](images/records-with-histogram.png)
-
     There will be more options which changes the view of log records or filter the log records based on the visualization selected.
 
   2. **Display Options** filter the logs on based on options selected:
