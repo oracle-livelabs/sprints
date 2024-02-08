@@ -18,18 +18,18 @@ Duration: 10 minutes
       ```
       ![](./images/example-log-content.png "Example log content")
 
-7. Specify the following regular expression at **Parser regular expression**.
+6. Specify the following regular expression at **Parser regular expression**.
       ```Regular expression
          <copy>{TIMEDATE}\s+(.+)</copy>
       ```
       ![](./images/parser-regular-expression.png "Parser regular expression")
 
-8. Select **Message** for the second field.
+7. Select **Message** for the second field.
    ![](./images/message-field.png "Message field")
 
-9. To verify the fields are matching with the example logs we provided, click on **Parser Test** and then on **Run Test**.
+8. To verify the fields are matching with the example logs we provided, click on **Parser Test** and then on **Run Test**.
 
-10. Click on **Create Parser**.
+9. Click on **Create Parser**.
 
 ## Create User Defined Source
 
