@@ -31,7 +31,7 @@ This sprint provides step-by-step instructions on how to update the timezone dat
     ![Slide 3 - How to Verify TZ Data Version](./images/3-verify-version.png)
 
     From the directory of where you have the tzupdater jar file, you can check the tzdata version by running this command:  
-    `java -jar tzupdater/jar -V`  
+    `java -jar tzupdater/jar -V`
     You only need to note the line with JRE tzdata version.
     You can ignore the rest.
 
