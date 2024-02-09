@@ -3,6 +3,7 @@ Duration: 7 minutes
 
 This sprint introduces the reader to the `java.security` file: what it is, how it is used by the JDK, and how to disable crptographic algorithms.
 
+## The java.security File
 [Understand the java.security File](videohub:1_twqibl5d)
 
 1. Introduction  
@@ -77,16 +78,22 @@ Understanding and managing the `java.security` file is vital for maintaining a s
 
 
 16. Additional Help  
-- Java SE Support subscribers can learn by viewing [Document 2937047.1 Disabling and Restricting Cryptographic Algorithms in the JDK](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=472322353756120&id=2937047.1) on My Oracle Support.
-- Support subscribers can also open a Service Request with Java SE Support (product code 856)
-- 
+- Java SE Support subscribers can learn more by viewing [Document 2937047.1 Disabling and Restricting Cryptographic Algorithms in the JDK](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=472322353756120&id=2937047.1) on My Oracle Support.
+- Support subscribers can also open a Service Request with Java SE Support on [My Oracle Support](https://support.oracle.com) (use product code 856).
 
+## Further Reading
+- [Disable weak named curves by default in TLS, CertPath, and Signed JAR](https://bugs.openjdk.org/browse/JDK-8235540)
+- Java SE "Security Developer's Guide" for:
+    - [JDK 21](https://docs.oracle.com/en/java/javase/21/security/index.html#Java-Platform%2C-Standard-Edition)
+    - [JDK 17](https://docs.oracle.com/en/java/javase/17/security/index.html#Java-Platform%2C-Standard-Edition)
+    - [JDK 11](https://docs.oracle.com/en/java/javase/11/security/index.html#Java-Platform%2C-Standard-Edition)
+- [Java Security Overview (JDK 8)](https://docs.oracle.com/javase/8/docs/technotes/guides/security/overview/jsoverview.html)
 
 
 ## Acknowledgements
 **Video** - Cody Gaffney, Technical Support Engineer, Java Platform Group
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group
-**Last Updated By/Date** - Jason Begy,  July 2023
+**Last Updated By/Date** - Jason Begy,  February 2024
 
 
 

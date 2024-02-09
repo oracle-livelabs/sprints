@@ -5,6 +5,8 @@ This sprint provides step-by-step instructions on how to update the timezone dat
 
 **NOTE:** Currently, the `-XshowSettings:all` option does not display the tzdata version. This will be fixed in an upcoming release. See [JDK-8305950](https://bugs.openjdk.org/browse/JDK-8305950) for details.
 
+## TZUpdater Tutorial
+
 [TZUpdater Tutorial](videohub:1_oshhvfcf)
 
 1. Introduction
