@@ -4,7 +4,7 @@ Duration: 7 minutes
 This sprint introduces the reader to the `java.security` file: what it is, how it is used by the JDK, and how to disable crptographic algorithms.
 
 ## The java.security File
-[Understand the java.security File](videohub:1_twqibl5d)
+[Understand the java.security File](videohub:1_h7j2bi7k)
 
 1. Introduction  
 The `java.security` file is a vital component of Java's security framework. It contains important configuration data, and maintains security properties for the JDK environment. It is crucial to know that it's location can vary, depending on your operating system.
@@ -50,7 +50,7 @@ The `jdk.tls.disabledAlgorithms` security property is used by some JSSE code to 
 Example: `jdk.tls.disabledAlgorithms=MD5, SSLv3, DSA, RSA keySize < 2048`
 
 8. jdk.tls.legacyAlgorithms  
-Algorithms that the JDK considers "legacy" may be found in the security property `jdk.tls.legacyAlgorithms`. Some algorithms may be unsuitable in specific situations, yet because they are part of legacy software, cannot be turned off. Legacy algorithms are not negotiated during TLS/DTLS security parameter negotiations unless no alternative candidates are available. 
+Algorithms that the JDK considers "legacy" may be found in the security property `jdk.tls.legacyAlgorithms`. Some algorithms may be unsuitable in specific situations, yet because they are part of legacy software, cannot be turned off. If no alternative candidates are available, legacy algorithms are negotiated during TLS/DTLS security parameter negotiation.  
 Example: `jdk.tls.legacyAlgorithms=DH_anon, DES_CBC, SSL_RSA_WITH_RC4_128_MD5`
 
 9. jdk.jar.disabledAlgorithms  
@@ -68,7 +68,7 @@ SHA-1 signed JAR files are disabled by default. Exceptions apply, but this polic
 XML signature secure validation mode enhances security when validating XML signatures. It enforces restrictions such as forbidding XSLT transforms, and limiting the number of elements.
 
 13. Enhancements in JDK 17  
-Starting in JDK 17, XML signature secure validation mode is enabled by default, providing improved security. Additionally, SHA-1 XML signatures are now disabled by default as well, although users can re-enable SHA-1 at their own risk.
+Starting in JDK 17, XML signature secure validation mode is enabled by default, providing improved security. Additionally, SHA-1 XML signatures are now disabled by default as well, although users can re-enable them at their own risk.
 
 14. Deprecate Weak Algorithms in Kerberos  
 Weak encryption algorithms, including 3DES and RC4 Kerberos, have been deprecated in the JDK. They are disabled by default but users can re-enable them by adjusting configuration settings.
