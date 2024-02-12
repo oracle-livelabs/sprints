@@ -1,0 +1,32 @@
+{
+  "workshoptitle": "LiveLabs Sprints",
+  "help": "livelabs-help-sprints_us@oracle.com",
+  "tutorials": [
+      {
+        "title": "How can I setup alerts for occurrences of critical event signatures in custom application logs using Logging Analytics?",
+        "description": "This lab explains how to create problem labels, EFDs, and new-fields using eval/extract for a custom log.",
+        "filename": "sprint-problem-labels-for-custom-apps-logs.md"
+      },
+      {
+         "title": "Related Sprint: How to create a user defined Source?",
+         "description": "Explains user defined source creation.",
+         "filename": "../sprint-create-source/sprint-create-source.md"
+      },
+      {
+         "title": "Related Sprint: How to upload Files into a Source from the OCI console?",
+         "description": "Explains how to upload logs file using OCI console.",
+         "filename": "../sprint-upload-log-file/sprint-upload-log-file.md"
+      },
+      {
+         "title": "Related Sprint: How to create scheduled search detection rules?",
+         "description": "This sprint explains how to create scheduled search detection rules.",
+         "filename": "../sprint-create-scheduled-search-detection-rule/sprint-create-scheduled-search-detection-rule.md"
+      },
+      {
+         "title": "Related Sprint: How to create alerts on logs with Logging Analytics?",
+         "description": "Explains how to create OCI Alarms and verify it.",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      }
+  ],
+  "task_type": "Sections"
+}

@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Sprint - How do I detect Oracle Database Abnormal Termination events like ORA-12547 using Logging Analytics?",
+         "description": "",
+         "filename": "sprint-oracle-database-abnormal-termination.md"
+      },
+      {
+         "title": "How to create and trigger an ingest time detection rule?",
+         "description": "",
+         "filename": "../sprint-create-and-trigger-ingest-time-detection-rule/sprint-create-and-trigger-ingest-time-detection-rule.md"
+      },
+      {
+         "title": "How to create alerts on logs?",
+         "description": "",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      }
+   ],
+   "task_type": "Sections"
+}

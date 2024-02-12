@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Sprint - How do I create an alert for sensitive configuration and privilege configuration changes in Oracle Database using Logging Analytics?",
+         "description": "",
+         "filename": "sprint-sensitive-configuration-and-privilege-escalation.md"
+      },
+      {
+         "title": "How to create alerts on logs?",
+         "description": "",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,0 +1,27 @@
+{
+  "workshoptitle": "LiveLabs Sprints",
+  "help": "livelabs-help-sprints_us@oracle.com",
+  "tutorials": [
+      {
+         "title": "How do I collect logs and performance data from Oracle Database tables using Logging Analytics?",
+         "description": "This lab explains how to create a DB table log-source.",
+         "filename": "sprint-logs-from-db-tables.md"
+      },
+      {
+         "title": "Related Sprint: How to create a user defined Label?",
+         "description": "This lab explains how to create a user defined label.",
+         "filename": "../sprint-create-label/sprint-create-label.md"
+      },
+      {
+         "title": "Related Sprint: How to create scheduled search detection rules?",
+         "description": "This sprint explains how to create scheduled search detection rules.",
+         "filename": "../sprint-create-scheduled-search-detection-rule/sprint-create-scheduled-search-detection-rule.md"
+      },
+      {
+         "title": "Related Sprint: How to create alerts on logs with Logging Analytics?",
+         "description": "Explains how to create OCI Alarms and verify it.",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      }
+  ],
+  "task_type": "Sections"
+}

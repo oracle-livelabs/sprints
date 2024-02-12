@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Sprint - How to upload Files into a Source?",
+         "description": "",
+         "filename": "sprint-create-label.md"
+      }
+   ],
+   "task_type": "Sections"
+}
