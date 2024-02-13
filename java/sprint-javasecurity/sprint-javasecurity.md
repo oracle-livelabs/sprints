@@ -1,5 +1,5 @@
 # Understand the java.security File
-Duration: 7 minutes
+Duration: 6 minutes
 
 This sprint introduces the reader to the `java.security` file: what it is, how it is used by the JDK, and how to disable crptographic algorithms.
 
@@ -82,7 +82,7 @@ Understanding and managing the `java.security` file is vital for maintaining a s
 - Support subscribers can also open a Service Request with Java SE Support on [My Oracle Support](https://support.oracle.com) (use product code 856).
 
 ## Further Reading
-- [Disable weak named curves by default in TLS, CertPath, and Signed JAR](https://bugs.openjdk.org/browse/JDK-8235540)
+- [JDK-8235540 Disable weak named curves by default in TLS, CertPath, and Signed JAR](https://bugs.openjdk.org/browse/JDK-8235540)
 - Java SE "Security Developer's Guide" for:
     - [JDK 21](https://docs.oracle.com/en/java/javase/21/security/index.html#Java-Platform%2C-Standard-Edition)
     - [JDK 17](https://docs.oracle.com/en/java/javase/17/security/index.html#Java-Platform%2C-Standard-Edition)
@@ -91,8 +91,8 @@ Understanding and managing the `java.security` file is vital for maintaining a s
 
 
 ## Acknowledgements
-**Video** - Cody Gaffney, Technical Support Engineer, Java Platform Group
-**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group
+**Video** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
+**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
 **Last Updated By/Date** - Jason Begy,  February 2024
 
 
