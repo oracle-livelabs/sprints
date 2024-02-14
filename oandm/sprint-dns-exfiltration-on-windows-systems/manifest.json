@@ -1,0 +1,37 @@
+{
+  "workshoptitle": "LiveLabs Sprints",
+  "help": "livelabs-help-sprints_us@oracle.com",
+  "tutorials": [
+     {
+        "title": "How do I create an alert for DNS exfiltration events from Windows Systems using Logging Analytics?",
+        "description": "This lab uses labels and SST to identify DNS exfilteration attempts.",
+        "filename": "sprint-dns-exfiltration-on-windows-systems.md"
+     },
+     {
+         "title": "Related Sprint: How to create a user defined Source?",
+         "description": "Explains user defined source creation.",
+         "filename": "../sprint-create-source/sprint-create-source.md"
+      },
+      {
+         "title": "Related Sprint: How to upload Files into a Source from the OCI console?",
+         "description": "Explains how to upload logs file using OCI console.",
+         "filename": "../sprint-upload-log-file/sprint-upload-log-file.md"
+      },
+      {
+         "title": "Related Sprint: How to create scheduled search detection rules?",
+         "description": "This sprint explains how to create scheduled search detection rules.",
+         "filename": "../sprint-create-scheduled-search-detection-rule/sprint-create-scheduled-search-detection-rule.md"
+      },
+      {
+         "title": "Related Sprint: How to create and trigger an ingest time detection rule?",
+         "description": "Explains how to create a ingest time detection rule and trigger it.",
+         "filename": "../sprint-create-and-trigger-ingest-time-detection-rule/sprint-create-and-trigger-ingest-time-detection-rule.md"
+      },
+      {
+         "title": "Related Sprint: How to create alerts on logs with Logging Analytics?",
+         "description": "Explains how to create OCI Alarms and verify it.",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      }
+  ],
+  "task_type": "Sections"
+}
