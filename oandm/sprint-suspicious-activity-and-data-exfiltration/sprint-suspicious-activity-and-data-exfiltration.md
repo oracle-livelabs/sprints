@@ -25,7 +25,7 @@ This lab explains scheduled task detection rules based on numerical thresholds.
       - Feel free to add a **description** to your saved search
     ![Figure 2: Save the "Log Explorer" Search](images/save-search-from-log-explorer.png)
 
-3. Create the Detection Rule (Refer to [How to create and trigger an ingest time detection rule?](?lab=create-scheduled-search-detection-rule) for more details):
+3. Create the Detection Rule (Refer to [How to create and trigger an ingest time detection rule?](?lab=sprint-create-scheduled-search-detection-rule) for more details):
 
     1. Click on **"Actions"** and Select **"Create Detection Rule"**:
     ![Figure 3: Open the Detection Rule's creation Panel](images/open-detection-rule-creation-panel.png)
@@ -57,7 +57,7 @@ Create an alarm and verify it:
 
 2. Fill the Alarm form fields:
 
-    1. Fill the fields as described in the in [How to create alerts on logs with Logging Analytics?](?labs=sprint-alerts-on-logs-with-logging-analytics)
+    1. Fill the fields as described in the in [How to create alerts on logs with Logging Analytics?](?lab=sprint-alerts-on-logs-with-logging-analytics)
     2. Click on "Switch to Advanced Mode".
     3. From the query in your query code editor, save the resourceId (we will need it in the next step).
     4. Copy this query into your query code editor and replace **"unsuccessful_logins"**, **&lt;resource\_id>** and **&lt;your-username>** by your metric name, the resourceId you just saved and the username you want to monitor from the Detection Rule respectively:

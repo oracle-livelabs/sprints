@@ -8,6 +8,11 @@
          "filename": "sprint-sensitive-configuration-and-privilege-escalation.md"
       },
       {
+         "title": "How to create and trigger an ingest time detection rule?",
+         "description": "",
+         "filename": "../sprint-create-and-trigger-ingest-time-detection-rule/sprint-create-and-trigger-ingest-time-detection-rule.md"
+      },
+      {
          "title": "How to create alerts on logs?",
          "description": "",
          "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"

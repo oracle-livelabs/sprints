@@ -26,7 +26,7 @@ The images pulled by Kubernetes can be found in the Oracle **"Kubernetes Event O
   ![Figure 3: Fill the form to save the search](images/fill-save-search-form.png)
 4. Create a Scheduled Detection Rule by clicking on "Actions" and Selecting "Create detection rule":
   ![Figure 4: Click on "Create detection rule" button](images/click-on-detection-rule-creation.png)
-5. Fill the Detection Rule form showing up (Refer to [How to create and trigger an ingest time detection rule?](?lab=sprint-create-and-trigger-ingest-time-detection-rule) for more details):
+5. Fill the Detection Rule form showing up (Refer to [How to create and trigger an ingest time detection rule?](?lab=sprint-create-scheduled-search-detection-rule) for more details):
   ![Figure 5: Fill the form to create the detection rule](images/fill-detection-rule-form.png)
 
 ## Upload Logs
@@ -52,10 +52,10 @@ Prepare the logs to upload and trigger the Detection Rule making its metrics ava
 
 Create the alarm from the Detection Rule:
 
-1. Create the alarm (Refer to [How to create alerts on logs with Logging Analytics?](?labs=sprint-alerts-on-logs-with-logging-analytics) for how to do so):
+1. Create the alarm (Refer to [How to create alerts on logs with Logging Analytics?](?lab=sprint-alerts-on-logs-with-logging-analytics) for how to do so):
   ![Figure 7: Create the alarm](images/click-on-create-alarm.png)
 
-2. Fill the Alarm Form (Refer to [How to create alerts on logs with Logging Analytics?](?labs=sprint-alerts-on-logs-with-logging-analytics) for more info), Be sure to set:
+2. Fill the Alarm Form, Be sure to set:
     - The Metrics Interval to: 1 minute
     - The Statistic to: count
     ![Figure 5: Fill the alarm metrics](images/fill-alarm-metrics.png)

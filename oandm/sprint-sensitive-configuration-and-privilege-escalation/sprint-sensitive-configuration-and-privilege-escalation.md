@@ -56,7 +56,7 @@ Create a Detection Rule:
 
 2. Click on **"Create rule"**
 
-3. Fill the fields to create the Detection Rule:
+3. Fill the fields to create the Detection Rule (Refer to [How to create and trigger an ingest time detection rule?](?lab=sprint-create-and-trigger-ingest-time-detection-rule) for more info):
   ![Figure 8: Fill the Detection Rule creation fields](images/create-detection-rule.png)
   **Explanation:**
     1. Fill the name, log source, Metric Namespace & Name.
@@ -76,7 +76,7 @@ Create the alarm from the Detection Rule:
 1. Create the alarm by going to **"Administration"** > **"Detection Rules"** and Select the Detection Rule you just created for your Label (you can use the breadcrumb) > Click on Create Alarm to open the alarm creation page:
 
   ![Figure 10: Open the alarm creation panel](images/open-alarm-creation-panel.png)
-2. Fill the Alarm Form (Refer to [How to create alerts on logs with Logging Analytics?](?labs=sprint-alerts-on-logs-with-logging-analytics) for more info), Be sure to set:
+2. Fill the Alarm Form (Refer to [How to create alerts on logs with Logging Analytics?](?lab=sprint-alerts-on-logs-with-logging-analytics) for more info), Be sure to set:
     - The Metrics Interval to: 1 minute
     - The Statistic to: count
 
