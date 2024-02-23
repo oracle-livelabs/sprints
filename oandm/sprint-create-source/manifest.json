@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a user-defined source in Logging Analytics?",
+         "description": "Explains user defined source creation in Logging Analytics.",
+         "filename": "sprint-create-source.md"
+      },
+      {
+         "title": "Related Sprint: How to create a user-defined REGEX parser using guided mode in Logging Analytics?",
+         "description": "Guided regex parser creation flow to create single line parser in Logging Analytics.",
+         "filename": "../sprint-create-parser/sprint-create-parser.md"
+      }
+   ],
+   "task_type": "Sections"
+}

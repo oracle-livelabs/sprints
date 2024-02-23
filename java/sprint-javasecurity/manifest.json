@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "Understand the java.security File",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Understand the java.security File",
+         "description": "Learn how to change security settings in the JDK with the java.security file.",
+         "filename": "sprint-javasecurity.md"
+
+      }
+   ],
+   "task_type": "Sections"
+}

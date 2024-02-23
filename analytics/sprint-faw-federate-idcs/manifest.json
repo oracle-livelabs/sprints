@@ -1,0 +1,18 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I federate the Oracle Identity Cloud Service (IDCS) for Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to federate IDCS for FAW.",
+         "filename": "federate-idcs.md"
+      },
+      {
+         "title": "How do I synchronize Oracle Applications with Oracle Identity Cloud Service (IDCS)?",
+         "description": "Learn how to synchronize Oracle Applications with IDCS.",
+         "filename": "../sprint-faw-sync-oracle-applications-with-idcs/sync-oracle-applications-with-idcs.md"
+      }
+   ],
+   "task_type": "Sections",
+   "hide_button": "true"
+}

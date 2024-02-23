@@ -1,0 +1,15 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+
+         "title": "How do I Create an On-demand Full Backup of a Database in Exadata Database Service on Dedicated Infrastructure?",
+         "description": "Learn how to create an On-demand Full Backup of a Database in Exadata Database Service on Dedicated Infrastructure?",
+         "filename": "sprint-exadbd-create-on-demand-full-backup.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}

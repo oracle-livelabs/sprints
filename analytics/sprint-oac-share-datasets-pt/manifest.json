@@ -3,7 +3,7 @@
    "help": "livelabs-help-analytics_us@oracle.com",
    "tutorials": [
       {
-         "title": "Como compartilhar meus datasets em Oracle Analytics Cloud (OAC)?",
+         "title": "Como compartilhar meus datasets no Oracle Analytics Cloud (OAC)?",
          "description": "Aprenda duas formas de compartilhar datasets in OAC!",
          "filename": "sprint-oac-share-datasets-pt.md"
       }

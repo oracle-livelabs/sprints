@@ -68,4 +68,4 @@ Outra maneira de povoar a página de cálculo é predefinindo clusters ou outlie
 
 * **Autor** - Nicholas Cusato, Solution Engineer, Santa Monica Specialists Hub
 * **Tradução** - Isabelle Dias, GenO, Brazil Data & AI Team
-* **Última Atualização** - Isabelle Dias,  Novembro 2022
+* **Última Atualização** - Thais Henrique,  Março 2023
