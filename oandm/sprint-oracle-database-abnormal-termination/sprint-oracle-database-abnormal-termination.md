@@ -49,7 +49,7 @@ Create the alarm from the Detection Rule:
 1. Go back to the Detection Rule's page and Click on "Create Alarm":
 ![Figure 4: Detection Rule Page](images/detection-rule-page.png)
 
-2. Fill the Alarm Form (Refer to [How to create alerts on logs with Logging Analytics?](?labs=sprint-alerts-on-logs-with-logging-analytics) for more info), Be sure to set:
+2. Fill the Alarm Form (Refer to [How to create alerts on logs with Logging Analytics?](?lab=sprint-alerts-on-logs-with-logging-analytics) for more info), Be sure to set:
     - The Metrics Interval to: 1 minute
     - The Statistic to: count
   ![Figure 5: Fill the alarm metrics](images/fill-alarm-metrics.png)

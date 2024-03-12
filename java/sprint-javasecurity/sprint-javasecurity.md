@@ -1,6 +1,7 @@
 # Understand the java.security File
 Duration: 6 minutes
 
+
 This sprint introduces the reader to the `java.security` file: what it is, how it is used by the JDK, and how to disable cryptographic algorithms.
 
 ## The java.security File
