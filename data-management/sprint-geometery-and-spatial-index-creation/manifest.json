@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Sprint - How do I use simplified geometry and spatial index creation in Oracle Database 23ai?",
+         "description": "",
+         "filename": "sprint-geometery-and-spatial-index-creation.md"
+      }
+   ],
+   "task_type": "Sections"
+}
