@@ -7,7 +7,7 @@ Duration: 5 minutes
 * Creating longitute/latitude point geometries is simplified by requiring only coordinates in the constructor.
 * Creating spatial indexes is simplified by automatically creating required spatial metadata.
 
-1. Let's start by creating a table for our geometry.
+1. Let's start by creating a table for our geometries.
 
     > NOTE: In this example we load a point and polygon into the same table. While this is technically allowed, best practice is to store point features such as geocoded address locations in a separate table from polygon features such as county polygons.
  
@@ -15,7 +15,7 @@ Duration: 5 minutes
     <copy>CREATE TABLE spatial_test (geometry SDO_GEOMETRY );</copy>
     ```
 
-2. Insert the point geometry into our new table.
+2. Insert a point geometry into our new table. Note the constructor only requires a longitude, latitude coordinate.
 
     ```
     <copy>INSERT INTO spatial_test VALUES (
@@ -23,7 +23,7 @@ Duration: 5 minutes
     );</copy>
     ```
 
-3. Insert the polygon geometry into our new table. Note the use of the constant.
+3. Insert a polygon geometry into our new table. Note the use of the new constant constants.
 
     ```
     <copy>INSERT INTO spatial_test VALUES (
@@ -35,7 +35,7 @@ Duration: 5 minutes
     sdo_ordinate_array(- 106.41769, 26.17113, - 93.74627, 36.39554)) );</copy>
     ```
 
-4. Create an index.
+4. Create a spatial index. Note that teh required spatial metadata is now automatically generated.
 
     ```
     <copy>CREATE INDEX spatial_test_sidx
