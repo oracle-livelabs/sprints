@@ -35,7 +35,7 @@ Duration: 5 minutes
     sdo_ordinate_array(- 106.41769, 26.17113, - 93.74627, 36.39554)) );</copy>
     ```
 
-4. Create a spatial index. Note that teh required spatial metadata is now automatically generated.
+4. Create a spatial index. Note that the required spatial metadata is now automatically generated.
 
     ```
     <copy>CREATE INDEX spatial_test_sidx
