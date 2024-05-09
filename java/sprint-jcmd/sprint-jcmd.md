@@ -22,7 +22,7 @@ As highlighted in the image, the process ID is the number you see along with you
 To view the list of options available with `jcmd`, use:
 
 ```
-jcmd <PID> help
+jcmd [PID] help
 ```
 
 ![jcmd Help Example](./images/02-help.png)
@@ -35,7 +35,7 @@ This tutorial will cover some of these commonly used commands in detail.
 If you want to know more about a specific command, such as it’s purpose, impact, and options that can be passed, use:
 
 ```
-jcmd <PID/MAIN_CLASS> help <COMMAND>
+jcmd [PID/MAIN_CLASS] help [COMMAND]
 ```
 
 ![Additional Help Options](./images/03-additionalhelp.png)
@@ -48,7 +48,7 @@ For example, in this image, you can see all the details you need to know for `Th
 To view information about the JVM environment and status, use:
 
 ```
-jcmd <PID/MAIN_CLASS> VM.info
+jcmd [PID/MAIN_CLASS] VM.info
 ```
 
 As you can see below, the command prints detailed information about the JVM.
@@ -60,7 +60,7 @@ As you can see below, the command prints detailed information about the JVM.
 To print all the flags and their current values, use:
 
 ```
-jcmd <PID/MAIN_CLASS> VM.flags
+jcmd [PID/MAIN_CLASS] VM.flags
 ```
 
 Even if you have not provided any flags, some of the default values will be printed. For example, you can see in the below image the default values set for the initial and maximum heap sizes.
@@ -70,7 +70,7 @@ Even if you have not provided any flags, some of the default values will be prin
 To print JVM version information, use:
 
 ```
-jcmd <PID/MAIN_CLASS> VM.version
+jcmd [PID/MAIN_CLASS] VM.version
 ```
 
 ![JVM Version](./images/06-vmversion.png)
@@ -78,7 +78,7 @@ jcmd <PID/MAIN_CLASS> VM.version
 To print all the system properties that are set for a VM, use:
 
 ```
-jcmd <PID/MAIN_CLASS> VM.system_properties
+jcmd [PID/MAIN_CLASS] VM.system_properties
 ```
 
 For example, in the image below you can find properties like the Java library path, Java VM and vendor information, the operating system details, and so on.
@@ -91,7 +91,7 @@ For example, in the image below you can find properties like the Java library pa
 Analyzing a heap dump is one of the best ways to troubleshoot memory-leak problems and optimize memory usage in Java applications. To collect a heap dump, use:
 
 ```
-jcmd <PID/MAIN_CLASS> GC.heap_dump <FILENAME>
+jcmd [PID/MAIN_CLASS] GC.heap_dump [FILENAME]
 ```
 
 This creates a heap dump file at the same location as the application jar if no directory or path is specified.
@@ -109,7 +109,7 @@ Tools that can be used to analyze the heap dump file includes `jhat`, which is d
 To print all running threads with stack traces, use `Thread.print`. To view ownable synchronizers in the heap and locks, use the `-l` option. To print extended thread information use the `-e` option. For example,
 
 ```
-jcmd <PID/MAIN_CLASS> Thread.print -l -e
+jcmd [PID/MAIN_CLASS] Thread.print -l -e
 ```
 
 produces the following output:
@@ -124,7 +124,7 @@ Java Flight Recorder (JFR) is a tool for collecting diagnostic and profiling dat
 To initiate a flight recording, use the command `JFR.start`. For example, to start a 2-minute recording on a Java process and save it to a file named `myrecording.jfr`, pass the following command:
 
 ```
-jcmd <PID/MAIN_CLASS> JFR.start name=MyRecording settings=profile delay=20s duration=2m filename=C:\tmp\myrecording.jfr
+jcmd [PID/MAIN_CLASS] JFR.start name=MyRecording settings=profile delay=20s duration=2m filename=C:\tmp\myrecording.jfr
 ```
 
 ![JFR Recording Start](./images/11-jfrstart1.png)
@@ -140,7 +140,7 @@ You can also create a custom jfc file and include the path for that file in the 
 To print information about a running flight recording, use:
 
 ```
-jcmd <PID/MAIN_CLASS> JFR.check
+jcmd [PID/MAIN_CLASS] JFR.check
 ```
 
 ![Checking a Running Flight Recording](./images/13-jfrcheck.png)
@@ -148,7 +148,7 @@ jcmd <PID/MAIN_CLASS> JFR.check
 To write data to a file while a flight recording is running, use:
 
 ```
-jcmd <PID/MAIN_CLASS> JFR.dump name=MyRecording filename=C:\tmp\myrecording.jfr
+jcmd [PID/MAIN_CLASS] JFR.dump name=MyRecording filename=C:\tmp\myrecording.jfr
 ```
 
 ![JFR Dump](./images/14-jfrdump.png)
