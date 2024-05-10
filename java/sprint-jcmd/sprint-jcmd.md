@@ -162,9 +162,9 @@ jcmd [PID/MAIN_CLASS] JFR.dump name=MyRecording filename=C:\tmp\myrecording.jfr
 
 
 ## Acknowledgements
-**Video** - Anjana Sajeev, Technical Support Engineer, Java Platform Group
-**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group
-**Last Updated By/Date** - Jason Begy,  July 2023
+**Video** - Anjana Sajeev, Technical Support Engineer, Java Platform Group  
+**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
+**Last Updated By/Date** - Jason Begy,  May 2024
 
 
 
