@@ -6,7 +6,7 @@ Before you get started with any workshop in [Oracle LiveLabs](http://developer.o
 
 There are four different ways you can choose to run your workshop in Oracle LiveLabs.
 
-- **Free Trial** - Oracle Cloud Free Tier allows you to sign up for an Oracle Cloud account which provides a number of Always Free services and a Free Trial with US$300 of free credit to use on all eligible Oracle Cloud Infrastructure services for up to 30 days. You need a valid email address to [request a free trial account.](https://github.com/oracle/learning-library/blob/master/common/labs/cloud-login/pre-register-free-tier-account.md)
+- **Free Trial** - Oracle Cloud Free Tier allows you to sign up for an Oracle Cloud account which provides a number of Always Free services and a Free Trial with US$300 of free credit to use on all eligible Oracle Cloud Infrastructure services for up to 30 days. You need a valid email address to [request a free trial account.](https://github.com/oracle-livelabs/common/blob/main/labs/cloud-login/pre-register-free-tier-account.md)
 
 - **Always Free** - The Always Free services are available for an unlimited time. The Free Trial services may be used until your US$300 of free credits are consumed or the 30 days have expired, whichever comes first.
 
@@ -43,4 +43,4 @@ Let's get started with your workshop.
 ## Learn More
 
 * [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
-* [Request Oracle Freetier Account](https://github.com/oracle/learning-library/blob/master/common/labs/cloud-login/pre-register-free-tier-account.md)
+* [Request Oracle Freetier Account](https://github.com/oracle-livelabs/common/blob/main/labs/cloud-login/pre-register-free-tier-account.md)

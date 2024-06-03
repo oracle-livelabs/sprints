@@ -41,6 +41,8 @@ The best practice when setting your Data Refresh Schedule is to set it to a time
 
 Congratulations! You have successfully learned how to change the Data Refresh Schedule in Fusion Analytics Warehouse (FAW) and some best practices around it.
 
+## Learn more
+* [Set Up the Pipeline Parameters](https://docs.oracle.com/en/cloud/saas/analytics/23r2/fawag/set-pipeline-parameters.html)
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy

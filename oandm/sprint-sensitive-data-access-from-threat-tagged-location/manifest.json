@@ -1,0 +1,27 @@
+{
+  "workshoptitle": "LiveLabs Sprints",
+  "help": "livelabs-help-sprints_us@oracle.com",
+  "tutorials": [
+      {
+         "title": "How can I generate an alert for suspicious access to sensitive data from specific IPs using Logging Analytics?",
+         "description": "This lab explains how to create multi-conditional labels, and OOTB Threat score enrichment.",
+         "filename": "sprint-sensitive-data-access-from-threat-tagged-location.md"
+      },
+      {
+         "title": "Related Sprint: How to create and trigger an ingest time detection rule?",
+         "description": "Explains how to create a ingest time detection rule and trigger it.",
+         "filename": "../sprint-create-and-trigger-ingest-time-detection-rule/sprint-create-and-trigger-ingest-time-detection-rule.md"
+      },
+      {
+         "title": "Related Sprint: How to create alerts on logs with Logging Analytics?",
+         "description": "Explains how to create OCI Alarms and verify it.",
+         "filename": "../sprint-alerts-on-logs-with-logging-analytics/sprint-alerts-on-logs-with-logging-analytics.md"
+      },
+      {
+         "title": "Related Sprint: How to upload Files into a Source from the OCI console?",
+         "description": "Explains how to upload logs file using OCI console.",
+         "filename": "../sprint-upload-log-file/sprint-upload-log-file.md"
+      }
+  ],
+  "task_type": "Sections"
+}
