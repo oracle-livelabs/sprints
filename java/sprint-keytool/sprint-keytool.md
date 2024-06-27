@@ -88,8 +88,8 @@ keytool -[COMMAND_NAME] -help
 
 
 ## Acknowledgements
-**Video** - Anjana Sajeev, Technical Support Engineer, Java Platform Group
-**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group
+**Video** - Anjana Sajeev, Technical Support Engineer, Java Platform Group  
+**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
 **Last Updated By/Date** - Jason Begy,  June 2024
 
 
