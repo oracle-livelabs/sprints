@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "How to Use the JDK's keytool Utility",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "keytoolTutorial",
+         "description": "Learn how to use keytool to manage Java public/private key pairs and certificates.",
+         "filename": "sprint-keytool.md"
+
+      }
+   ],
+   "task_type": "Sections"
+}
