@@ -1,10 +1,10 @@
-# jkeytool Tutorial
+# keytool Tutorial
 Duration: 5 minutes
 
 
 ## keytool Tutorial
 
-[keytool Tutorial]()
+[keytool Tutorial](videohub:1_5dpusf5t)
 
 ### 1 Java Keytool
 This is a quick tutorial on using the `keytool` command. This is a key and certificate management utility that enables users to administer their own public/private key pairs and associated certificates for self-authentication or data integrity.
@@ -37,7 +37,7 @@ One of the basic functions of `keytool` is to list certificates.
 
 The `-list` command prints the contents of the keystore identified by `-alias`. If no alias is specified, as in the example below, then the contents of the entire keystore is printed.
 
-The following command will list the certificates in a keystore. The `-keystore [KEYSTORE_NAME]` option is the name of the keystore whose certificates you want to list, and `[KEYSTORE_PASSWORD]' is the password for that keystore.
+The following command will list the certificates in a keystore. The `-keystore [KEYSTORE_NAME]` option is the name of the keystore whose certificates you want to list, and `[KEYSTORE_PASSWORD]` is the password for that keystore.
 ```
 keytool -v -list -keystore [KEYSTORE_NAME] -storepass [KEYSTORE_PASSWORD]
 ```
@@ -46,7 +46,7 @@ The `-v` option enables verbose output, which causes the certificate to be print
 ### 6 Import Certificates
 You can also use `keytool` to import certificates.
 
-The `-importcert` command reads the certificate or certificate chain from the file [CERT_FILE] and stores it in the keystore entry identified by [ALIAS_NAME]:
+The `-importcert` command reads the certificate or certificate chain from the file `[CERT_FILE]` and stores it in the keystore entry identified by `[ALIAS_NAME]`:
 ```
 keytool -v -importcert -alias [ALIAS_NAME] -file [CERT_FILE] -keystore [KEYSTORE_NAME] -storepass [KEYSTORE_PASSWORD]
 ```
@@ -56,16 +56,16 @@ keytool -v -importcert -alias [ALIAS_NAME] -file [CERT_FILE] -keystore [KEYSTORE
 ```
 
 ### 7 Export Certificates
-The `-exportcert` command is used to read certificates associated with an alias from the keystore, and store them in the [CERT_FILE] file. If no file is specified, the certificate is ouput to stdout. 
+The `-exportcert` command is used to read certificates associated with an alias from the keystore, and store them in the `[CERT_FILE]` file. If no file is specified, the certificate is ouput to stdout.
 ```
 keytool -v -exportcert -alias [ALIAS_NAME] -file [CERT_FILE] -keystore [KEYSTORE_NAME] -storepass [KEYSTORE_PASSWORD]
 ```
-If [ALIAS_NAME] refers to a trusted certificate, then that certificate is the output.
+If `[ALIAS_NAME]` refers to a trusted certificate, then that certificate is the output.
 
-Otherwise, [ALIAS_NAME] refers to a key entry with an associated certificate chain. In this case, the first certificate in the chain is returned. This certificate authenticates the public key of the entity addressed by [ALIAS_NAME].
+Otherwise, `[ALIAS_NAME]` refers to a key entry with an associated certificate chain. In this case, the first certificate in the chain is returned. This certificate authenticates the public key of the entity addressed by `[ALIAS_NAME]`.
 
 ### 8 Delete Certificates
-The `-delete` command is used to delete entries identified as [ALIAS_NAME] from the keystore. The user is prompted for the alias if no alias is provided.
+The `-delete` command is used to delete entries identified as `[ALIAS_NAME]` from the keystore. The user is prompted for the alias if no alias is provided.
 ```
 keytool -v -delete -alias [ALIAS_NAME] -keystore [KEYSTORE_NAME] -storepass [KEYSTORE_PASSWORD]
 ```
@@ -74,9 +74,9 @@ keytool -v -delete -alias [ALIAS_NAME] -keystore [KEYSTORE_NAME] -storepass [KEY
 ### 9 Help
 The `-help` command can be used to list basic commands and options.
 
-For more information about a specific command, enter the following, where [COMMAND_NAME] is the name of the `keytool` command:
+For more information about a specific command, enter the following, where `[COMMAND_NAME]` is the name of the `keytool` command:
 ```
-keytool -[COMMAND_NAME] -help`
+keytool -[COMMAND_NAME] -help
 ```
 
 ### 10 Learn More
