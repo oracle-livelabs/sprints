@@ -58,15 +58,15 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
     The output looks similar to the following:
 
     ```none
-                           id: 1 
-                         name: Vector Store Loader 
-                      message: Task starting. 
-                     progress: 0 
-                       status: RUNNING 
-               scheduled_time: 2024-07-02 14:42:38 
-    estimated_completion_time: NULL 
-     estimated_remaining_time: NULL 
-                 progress_bar: __________
+                           id: 1
+                         name: Vector Store Loader
+                      message: Task starting.
+                     progress: 0
+                       status: RUNNING
+               scheduled_time: 2024-07-02 14:42:38
+    estimated_completion_time: NULL
+     estimated_remaining_time: NULL
+                 progress_bar: __________
     ```
 
 1. After the task status has changed to Completed, verify that embeddings are loaded in the vector embeddings table:
@@ -102,7 +102,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
     The `heatwave_chat` method automatically loads the LLM and runs a contextual search on the available vector stores by default. The output is similar to the following: 
 
     ```none
-    |  HeatWave AutoML is a feature of MySQL HeatWave that makes it easy to use machine learning,
+    |  HeatWave AutoML is a feature of MySQL HeatWave that makes it easy to use machine learning,
     whether you are a novice user or an experienced ML practitioner. It analyzes the characteristics
     of the data and creates an optimized machine learning model that can be used to generate
     predictions and explanations. The data and models never leave MySQL HeatWave, saving time and
@@ -119,13 +119,13 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
     The output is similar to the following:
 
     ```none
-    |  To set up HeatWave AutoML in MySQL HeatWave, you need to follow these steps:
+    |  To set up HeatWave AutoML in MySQL HeatWave, you need to follow these steps:
       1\. Ensure that you have an operational MySQL DB System and are able to connect to it using a MySQL client.
       If not, complete the steps described in Getting Started with MySQL HeatWave.
       2\. Ensure that your MySQL DB System has an operational HeatWave Cluster. If not, complete the steps
-      described in Adding a HeatWave Cluster.     
-      3\. Obtain the MySQL user privileges described in Section 3.2, Before You Begin. 
-      4\. Prepare and load training and test data. See Section 3.4, Preparing Data. 
+      described in Adding a HeatWave Cluster.
+      3\. Obtain the MySQL user privileges described in Section 3.2, Before You Begin.
+      4\. Prepare and load training and test data. See Section 3.4, Preparing Data.
       5\. Train a machine learning model. See Section 3.5, Training a Model.
       6\. Make predictions using the trained model. See Section 3.6, Making Predictions.
       7\. Generate explanations for the predictions made by the model. See Section 3.7, Generating Explanations.
