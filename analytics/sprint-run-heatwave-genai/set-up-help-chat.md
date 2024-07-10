@@ -11,7 +11,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
 3. [Upload the PDF file to the Object Storage Bucket](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/managingobjects_topic-To_upload_objects_to_a_bucket.htm) using the prefix `quickstart/` to create a new folder by the name **quickstart**. 
     
 
-## Setting Up the Environment 
+## Setting Up the Environment
 
 1. [Connect to your HeatWave database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/compute-instance.html#GUID-6087DA45-06E0-44AD-9CAB-0FC37423A07A).
    To run this quickstart, you need HeatWave database system version `9.0.0 - Innovation` or higher. 
@@ -57,7 +57,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
 
     The output looks similar to the following:
 
-    ```none
+    ```text
     ---
                            id: 1
                          name: Vector Store Loader
@@ -79,7 +79,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
 
     If you a numerical value in the output, similar to the following, then your embeddings are successfully loaded in the table:
 
-    ```none
+    ```text
     +----------+
     | count(*) |
     +----------+
@@ -103,7 +103,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
 
     The `heatwave_chat` method automatically loads the LLM and runs a contextual search on the available vector stores by default. The output is similar to the following: 
 
-    ```none
+    ```text
     |  HeatWave AutoML is a feature of MySQL HeatWave that makes it easy to use machine learning,
     whether you are a novice user or an experienced ML practitioner. It analyzes the characteristics
     of the data and creates an optimized machine learning model that can be used to generate
