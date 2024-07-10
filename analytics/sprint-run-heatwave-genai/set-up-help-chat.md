@@ -43,17 +43,17 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
     call sys.vector_store_load('oci://quickstart_bucket@<TenancyName>/quickstart/heatwave-en.a4.pdf', '{"table_name": "quickstart_embeddings"}');
     ```
 
-   Replace <TenancyName> with the name of the tenancy that you're using.
+   Replace <var>&lt;TenancyName&gt;</var> with the name of the tenancy that you're using.
 
    This creates a task in the background which loads the vector embeddings into the specified table `quickstart_embeddings`.
 
 1. To track the progress of the task, run the task query displayed on the screen:
     
     ```mysql
-    select id, name, message, progress, status, scheduled_time,estimated_completion_time, estimated_remaining_time, progress_bar FROM mysql_task_management.task_status WHERE id=TaskID\G
+    select id, name, message, progress, status, scheduled_time,estimated_completion_time, estimated_remaining_time, progress_bar FROM mysql_task_management.task_status WHERE id=<TaskID>\G
     ```
 
-    Replace **<var>TaskID</var>** with the task ID that is displayed.
+    Replace <var>&lt;TaskID&gt;</var> with the task ID that is displayed.
 
     The output looks similar to the following:
 
@@ -120,7 +120,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
 
     The output is similar to the following:
 
-    ```none
+    ```text
     |  To set up HeatWave AutoML in MySQL HeatWave, you need to follow these steps:
       1\. Ensure that you have an operational MySQL DB System and are able to connect to it using a MySQL client.
       If not, complete the steps described in Getting Started with MySQL HeatWave.
