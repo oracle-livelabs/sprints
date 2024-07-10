@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a virtual machine (VM) cluster on a single VM for Oracle Exadata Database Service on Cloud@Customer.",
+         "description": "Sprint for creating a virtual machine (VM) cluster on a single VM for Oracle Exadata Database Service on Cloud@Customer.",
+         "filename": "sprint-exadbcc-create-vm-clusters-on-single-vm.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
