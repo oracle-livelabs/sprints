@@ -2,7 +2,7 @@
 
 This lab shows how to use the vector store functionality and use HeatWave Chat to create an AI-powered Help chat that refers to the HeatWave user guide to respond to HeatWave related queries. 
 
-**Note**: This quickstart assumes that you’re familiar with the HeatWave database systems. 
+**Note**: This lab assumes that you’re familiar with the HeatWave database systems. 
 
 ## Setting Up the Object Storage Bucket  
 
