@@ -58,6 +58,7 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
     The output looks similar to the following:
 
     ```none
+    ---
                            id: 1
                          name: Vector Store Loader
                       message: Task starting.
@@ -67,9 +68,10 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
     estimated_completion_time: NULL
      estimated_remaining_time: NULL
                  progress_bar: __________
+    ---
     ```
 
-1. After the task status has changed to Completed, verify that embeddings are loaded in the vector embeddings table:
+1. After the task status has changed to <code>Completed</code>, verify that embeddings are loaded in the vector embeddings table:
 
     ```mysql
     select count(*) from quickstart_embeddings;
@@ -77,13 +79,13 @@ This lab shows how to use the vector store functionality and use HeatWave Chat t
 
     If you a numerical value in the output, similar to the following, then your embeddings are successfully loaded in the table:
 
-   ```none
+    ```none
     +----------+
     | count(*) |
     +----------+
     |     2112 |
     +----------+
-   ```
+    ```
 
 ## Starting a Chat Session 
 
