@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Create a Custom Oracle Grid Infrastructure Software Image for Oracle Exadata Database Service.",
+         "description": "Sprint for creating a Custom Oracle Grid Infrastructure Software Image for Oracle Exadata Database Service.",
+         "filename": "sprint-exadb-create-custom-gi-sw-images.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
