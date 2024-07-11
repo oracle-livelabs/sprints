@@ -84,7 +84,7 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
     ---
     ```
 
-1. After the task status has changed to <code>Completed</code>, verify that embeddings are loaded in the vector embeddings table:
+1. After the task status has changed to `Completed`, verify that embeddings are loaded in the vector embeddings table:
 
     ```mysql
     select count(*) from quickstart_embeddings;
@@ -92,12 +92,14 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
 
     If you a numerical value in the output, similar to the following, then your embeddings are successfully loaded in the table:
 
+
     ```text
     +----------+
     | count(*) |
     +----------+
     |     2112 |
     +----------+
+
     ```
 
 ## Starting a Chat Session 
