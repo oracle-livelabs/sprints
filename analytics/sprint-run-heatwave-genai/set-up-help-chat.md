@@ -1,27 +1,40 @@
-# How to Set Up a GenAI-Powered Help Chat?
+# How to Set Up a HeatWave GenAI-Powered Chat?
 
-This lab shows how to use the vector store functionality and use HeatWave Chat to create an AI-powered Help chat that refers to the HeatWave user guide to respond to HeatWave related queries. 
+This lab demonstrates to use the vector store functionality and use HeatWave Chat to create an AI-powered Help chat that refers to the HeatWave user guide to respond to HeatWave related queries. 
 
-**Note**: This lab assumes that you’re familiar with the HeatWave database systems. 
+**Note**: This lab assumes that you’re familiar with the HeatWave database systems.
 
-## Setting Up the Object Storage Bucket  
+## Before You Begin
 
-1. Download the [HeatWave user guide PDF (A4) - 1.7Mb](https://downloads.mysql.com/docs/heatwave-en.a4.pdf).  
-2. [Create an Object Storage Bucket](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/managingbuckets_topic-To_create_a_bucket.htm) with the name `quickstart_bucket`.  
-3. [Upload the PDF file to the Object Storage Bucket](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/managingobjects_topic-To_upload_objects_to_a_bucket.htm) using the prefix `quickstart/` to create a new folder by the name **quickstart**. 
-    
-
-## Setting Up the Environment
-
-1. [Connect to your HeatWave database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/compute-instance.html#GUID-6087DA45-06E0-44AD-9CAB-0FC37423A07A).
-   To run this quickstart, you need HeatWave database system version `9.0.0 - Innovation` or higher. 
+1. [Connect to your HeatWave Database System](https://docs.oracle.com/en-us/iaas/mysql-database/doc/compute-instance.html#GUID-6087DA45-06E0-44AD-9CAB-0FC37423A07A).
+   To run this quickstart, you need HeatWave Database System version `9.0.0 - Innovation` or higher. 
 1. If not already done, [add a HeatWave Cluster to your database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/adding-heatwave-cluster.html). 
 1. If not already done, [enable HeatWave Lakehouse on the database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/managing-heatwave-cluster.html#MYAAS-GUID-1E6279C0-B7DB-4110-975B-2812846E3CD7). 
-1. Enable the database system to access an OCI Object Storage bucket. For more information, see [Resource Principals](https://dev.mysql.com/doc/heatwave/en/mys-hw-resource-principal.html).
+1. If not already done, enable the database system to access an OCI Object Storage bucket. For more information, see [Resource Principals](https://dev.mysql.com/doc/heatwave/en/mys-hw-resource-principal.html).
 
-## Setting Up the Vector Store 
+## Create an Object Storage Bucket  
 
-1. Create a new database:
+1. Download the [HeatWave user guide PDF (A4) - 1.7Mb](https://downloads.mysql.com/docs/heatwave-en.a4.pdf).
+1. Go to [cloud.oracle.com](cloud.oracle.com).
+1. Open the navigation menu and click **Storage**.
+1. Under **Object Storage & Archive Storage**, click **Buckets**.
+1. Under **List Scope**, select a compartment from the list. All buckets in that compartment are listed in tabular form. 
+   This is the compartment where the bucket you create is located.
+1. Click **Create Bucket**. The **Create Bucket** dialog box appears.
+1. In the **Bucket Name** field, enter`quickstart_bucket`.
+1. Click **Create**. The bucket is listed with all over buckets available in that compartment in tabular form.
+
+## Upload the PDF File to the Object Storage Bucket
+
+1. On the Buckets page, select `quickstart_bucket`. The buckets **Details** page appears.
+1. Under **Objects**, click **Upload**. The **Upload Objects** dialog box appears.
+1. In the **Object Name Prefix** field, enter `/quickstart`.
+1. In the **Choose Files from your Computer**, click **select files** to upload the `heatwave-en.a4.pdf` which you downloaded in the previous section.
+1. After the file upload is complete, click **Close** to close the **Upload Objects** dialog.
+   
+## Setting Up the Vector Store
+
+1. From the terminal of your local machine, after you've connected to your DB system, create a new database:
 
     ```mysql
     create database quickstart_db;
