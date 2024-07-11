@@ -52,7 +52,7 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
    
 ## Setting Up the Vector Store
 
-1. After you've connected to your DB system, on your local machine, , create a new database:
+1. After you've connected to your DB system, on your local machine, create a new database:
 
     ```mysql
     create database quickstart_db;
