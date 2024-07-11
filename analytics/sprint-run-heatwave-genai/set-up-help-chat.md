@@ -7,9 +7,11 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
 ## Before You Begin
 
 1. [Connect to your HeatWave Database System](https://docs.oracle.com/en-us/iaas/mysql-database/doc/compute-instance.html#GUID-6087DA45-06E0-44AD-9CAB-0FC37423A07A).
-   To run this quickstart, you need HeatWave Database System version `9.0.0 - Innovation` or higher.
+   To run this quickstart, you need a HeatWave Database System that meets the following requirements:
 
-   1. If not already done, [add a HeatWave Cluster to your database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/adding-heatwave-cluster.html). 
+   1. The database system must be version `9.0.0 - Innovation` or higher.
+   1. The ECPU Shape of the HeatWave Database System must be `MySQL.32`.
+   1. If not already done, [add a HeatWave Cluster to your database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/adding-heatwave-cluster.html). The shape of the cluster must be `HeatWave.512GB`.
    1. If not already done, [enable HeatWave Lakehouse on the database system](https://docs.oracle.com/en-us/iaas/mysql-database/doc/managing-heatwave-cluster.html#MYAAS-GUID-1E6279C0-B7DB-4110-975B-2812846E3CD7).
 
 1. If not already done, enable the database system to access an OCI Object Storage bucket. For more information, see [Resource Principals](https://dev.mysql.com/doc/heatwave/en/mys-hw-resource-principal.html).
