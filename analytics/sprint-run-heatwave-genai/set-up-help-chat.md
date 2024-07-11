@@ -35,7 +35,7 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
 
 ## Upload the PDF File to the Object Storage Bucket
 
-1. On the Buckets page, select `quickstart_bucket`. The buckets **Details** page appears.
+1. Select `quickstart_bucket`. The buckets **Details** page appears.
 1. Under **Objects**, click **Upload**.
    
    ![Open Storage Buckets page](images/upload_button.png)
@@ -179,4 +179,16 @@ To avoid being billed for the resources that you created for this quickstart, pe
     drop database quickstart_db;
     ```
 
-1.  Delete `quickstart_bucket`. For more information, see [Deleting the Object Storage Bucket](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/managingbuckets_topic-To_delete_a_bucket.htm).
+1.  Delete `quickstart_bucket`.
+
+   ### Deleting the Bucket
+
+   1. In the [OCI Console](cloud.oracle.com), open the navigation menu and click **Storage**, and then click **Buckets** under **Object Storage & Archive Storage**.
+   
+   ![Open Storage Buckets page](images/storage_buckets.png)
+
+   2. Under **List Scope**, select a compartment from the list. All buckets in that compartment are listed in tabular form.
+   3. Select `quickstart_bucket`. The buckets **Details** page appears.
+   4. Click **Delete**.
+   5. In the **Delete Bucket** dialog that appears, enter `quickstart_bucket` to confirm resource and bucket deletion, and then click **Delete**. The bucket is deleted and no longer appears in the list of buckets in the compartment. 
+   
