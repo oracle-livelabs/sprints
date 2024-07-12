@@ -4,6 +4,12 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
 
 **Note**: This lab assumes that you’re familiar with the HeatWave Database Systems.
 
+## About HeatWave GenAI
+
+HeatWave GenAI is an inbuilt functionality of HeatWave that lets you communicate with the HeatWave environment using natural language queries. It uses large language models (LLMs) to enable natural language communication and provides an inbuilt vector store that you can use to store enterprise-specific proprietary content.
+
+HeatWave Chat is a chatbot that extends text-generation and vector search to let you ask multiple follow-up questions about a topic in a single session. It can even draw its knowledge from documents ingested by the vector store.
+
 ## Database System Requirements
 
 To run this lab, you need a HeatWave Database System that meets the following requirements:
