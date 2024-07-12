@@ -21,7 +21,7 @@ To run this lab, you need a HeatWave Database System that meets the following re
 ## Before You Begin
 
 1. If not already done, enable the database system to access an OCI Object Storage bucket. For more information, see [Resource Principals](https://dev.mysql.com/doc/heatwave/en/mys-hw-resource-principal.html).
-
+1. To use in this lab, download the [HeatWave user guide PDF (A4) - 1.7Mb](https://downloads.mysql.com/docs/heatwave-en.a4.pdf).
 1. [Connect to your HeatWave Database System](https://docs.oracle.com/en-us/iaas/mysql-database/doc/compute-instance.html#GUID-6087DA45-06E0-44AD-9CAB-0FC37423A07A).
 
    Ensure that you use the `--sqlc` flag while connecting to your database system:
@@ -31,10 +31,10 @@ To run this lab, you need a HeatWave Database System that meets the following re
    ```
 
    Replace <var>&lt;Admin&gt;</var> with the database system admin name, <var>&lt;Password&gt;</var> with the database system password, and <var>&lt;PrivateIP&gt;</var> with the private IP of the database system.
+
    
 ## Create an Object Storage Bucket  
 
-1. Download the [HeatWave user guide PDF (A4) - 1.7Mb](https://downloads.mysql.com/docs/heatwave-en.a4.pdf).
 1. In the [OCI Console](cloud.oracle.com), open the navigation menu and click **Storage**, and then click **Buckets** under **Object Storage & Archive Storage**.
    
    ![Open Storage Buckets page](images/storage_buckets.png)
