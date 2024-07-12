@@ -4,6 +4,12 @@ This lab demonstrates to use the vector store functionality and use HeatWave Cha
 
 **Note**: This lab assumes that you’re familiar with the HeatWave Database Systems.
 
+## About HeatWave GenAI
+
+HeatWave GenAI is an inbuilt functionality of HeatWave that lets you communicate with the HeatWave environment using natural language queries. It uses large language models (LLMs) to enable natural language communication and provides an inbuilt vector store that you can use to store enterprise-specific proprietary content.
+
+HeatWave Chat is a chatbot that extends text-generation and vector search to let you ask multiple follow-up questions about a topic in a single session. It can even draw its knowledge from documents ingested by the vector store.
+
 ## Database System Requirements
 
 To run this lab, you need a HeatWave Database System that meets the following requirements:
@@ -15,7 +21,7 @@ To run this lab, you need a HeatWave Database System that meets the following re
 ## Before You Begin
 
 1. If not already done, enable the database system to access an OCI Object Storage bucket. For more information, see [Resource Principals](https://dev.mysql.com/doc/heatwave/en/mys-hw-resource-principal.html).
-
+1. To use in this lab, download the [HeatWave user guide PDF (A4) - 1.7Mb](https://downloads.mysql.com/docs/heatwave-en.a4.pdf).
 1. [Connect to your HeatWave Database System](https://docs.oracle.com/en-us/iaas/mysql-database/doc/compute-instance.html#GUID-6087DA45-06E0-44AD-9CAB-0FC37423A07A).
 
    Ensure that you use the `--sqlc` flag while connecting to your database system:
@@ -28,7 +34,6 @@ To run this lab, you need a HeatWave Database System that meets the following re
    
 ## Create an Object Storage Bucket  
 
-1. Download the [HeatWave user guide PDF (A4) - 1.7Mb](https://downloads.mysql.com/docs/heatwave-en.a4.pdf).
 1. In the [OCI Console](cloud.oracle.com), open the navigation menu and click **Storage**, and then click **Buckets** under **Object Storage & Archive Storage**.
    
    ![Open Storage Buckets page](images/storage_buckets.png)
@@ -53,7 +58,7 @@ To run this lab, you need a HeatWave Database System that meets the following re
    ![Open Storage Buckets page](images/upload_button.png)
    
 1. On the **Upload Objects** dialog box that appears, in the **Object Name Prefix** field, enter `quickstart/`.
-1. In the **Choose Files from your Computer**, click **select files** to upload the `heatwave-en.a4.pdf` which you downloaded in the previous section.
+1. In the **Choose Files from your Computer**, click **select files** to upload the `heatwave-en.a4.pdf` which you downloaded earlier in this lab.
 1. Click **Upload**.
 
    ![Open Storage Buckets page](images/upload_objects_dialog.png)
