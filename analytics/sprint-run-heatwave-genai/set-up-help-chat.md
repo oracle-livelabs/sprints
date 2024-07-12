@@ -58,7 +58,7 @@ To run this lab, you need a HeatWave Database System that meets the following re
    ![Open Storage Buckets page](images/upload_button.png)
    
 1. On the **Upload Objects** dialog box that appears, in the **Object Name Prefix** field, enter `quickstart/`.
-1. In the **Choose Files from your Computer**, click **select files** to upload the `heatwave-en.a4.pdf` which you downloaded in the previous section.
+1. In the **Choose Files from your Computer**, click **select files** to upload the `heatwave-en.a4.pdf` which you downloaded earlier in this lab.
 1. Click **Upload**.
 
    ![Open Storage Buckets page](images/upload_objects_dialog.png)
