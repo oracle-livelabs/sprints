@@ -26,7 +26,7 @@ To run this lab, you need a HeatWave Database System that meets the following re
 
    Ensure that you use the `--sqlc` flag while connecting to your database system:
 
-   ```mysql
+   ```text
    mysqlsh -u<Admin> -p<Password> -h<PrivateIP> --sqlc
    ```
 
