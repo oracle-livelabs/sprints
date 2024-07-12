@@ -27,10 +27,10 @@ To run this lab, you need a HeatWave Database System that meets the following re
    Ensure that you use the `--sqlc` flag while connecting to your database system:
 
    ```text
-   mysqlsh -u<Admin> -p<Password> -h<PrivateIP> --sqlc
+   mysqlsh -uAdmin -pPassword -hPrivateIP --sqlc
    ```
 
-   Replace <var>&lt;Admin&gt;</var> with the database system admin name, <var>&lt;Password&gt;</var> with the database system password, and <var>&lt;PrivateIP&gt;</var> with the private IP of the database system.
+   Replace <var>Admin</var> with the database system admin name, <var>Password</var> with the database system password, and <var>PrivateIP</var> with the private IP of the database system.
    
 ## Create an Object Storage Bucket  
 
