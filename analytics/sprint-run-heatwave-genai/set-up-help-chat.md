@@ -31,7 +31,6 @@ To run this lab, you need a HeatWave Database System that meets the following re
    ```
 
    Replace <var>&lt;Admin&gt;</var> with the database system admin name, <var>&lt;Password&gt;</var> with the database system password, and <var>&lt;PrivateIP&gt;</var> with the private IP of the database system.
-
    
 ## Create an Object Storage Bucket  
 
