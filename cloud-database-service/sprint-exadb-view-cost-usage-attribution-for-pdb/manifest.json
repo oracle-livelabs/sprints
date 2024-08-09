@@ -1,0 +1,14 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Generate Attributed Cost and Usage Analysis Report for Pluggable Databases on Exadata Database Service",
+         "description": "How do I Generate Attributed Cost and Usage Analysis Report for Pluggable Databases on Exadata Database Service.",
+         "filename": "sprint-exadb-view-cost-usage-attribution-for-pdb.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
