@@ -14,4 +14,4 @@ Duration: 1 minute
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)

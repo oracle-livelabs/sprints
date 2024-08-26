@@ -18,7 +18,7 @@ Java has a truststore called `cacerts` which resides in the `[JAVA_HOME]/lib/sec
 
 The security property `keystore.type` in the `java.security` file controls the format for the keystore.
 
-To learn more about the `java.security` file, see [Understand the java.security File](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3905) on LiveLabs.
+To learn more about the `java.security` file, see [Understand the java.security File](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3905) on LiveLabs.
 
 ### 3 How are Keystores and Truststores Used?
 If a client talks to a Java-based server over HTTPS, the server will look up the associated key from its keystore, and present the public key and certificate to the client. The client looks-up these things in its truststore.
