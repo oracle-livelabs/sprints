@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "How to Use jcmd",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "jcmd Tutorial",
+         "description": "Learn how to use jcmd for troubleshooting the JDK.",
+         "filename": "sprint-jcmd.md"
+
+      }
+   ],
+   "task_type": "Sections"
+}
