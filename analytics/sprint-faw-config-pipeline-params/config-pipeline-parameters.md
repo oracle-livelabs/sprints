@@ -35,7 +35,7 @@ Before running your data pipelines for the functional areas in Fusion Analytics 
 
     * Interval, Time, TimeZone: Specify the frequency, time and timezone for when to schedule the data refresh.
 
-    >**Note:** For more information about changing the Data Refresh Schedule, read [this Sprint](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/run-workshop?p210_wid=3213&session=106134135621032).
+    >**Note:** For more information about changing the Data Refresh Schedule, read [this Sprint](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/run-workshop?p210_wid=3213&session=106134135621032).
 
     ![Global parameters](images/global-params.png)
 

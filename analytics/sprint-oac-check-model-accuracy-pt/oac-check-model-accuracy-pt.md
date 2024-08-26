@@ -8,7 +8,7 @@ Os passos seguintes lhe mostrarão como avaliar rápida e efetivamente a precis�
 
 ## Verifique a precisão de um modelo de machine learning
 
-Primeiro você deve ter treinado um modelo de aprendizagem de máquina no Oracle Analytics Cloud para completar os seguintes passos. Para acessar um guia sobre criação de modelos, [clique aqui.](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
+Primeiro você deve ter treinado um modelo de aprendizagem de máquina no Oracle Analytics Cloud para completar os seguintes passos. Para acessar um guia sobre criação de modelos, [clique aqui.](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3281&session=107730485068362)
 >**Nota:** Você deve ter o cargo **DV Content Author** para executar as seguintes etapas.
 
 1. A partir da página inicial do OAC, clique em **Aprendizado por Máquina** e encontre o modelo treinado cuja precisão você gostaria de verificar.
