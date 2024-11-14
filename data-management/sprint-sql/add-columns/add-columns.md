@@ -25,5 +25,5 @@ add country_code varchar2(2);
 ## Learn More
 
 * Explore more about [Alter Table statement](https://docs.oracle.com/javadb/10.6.2.1/ref/rrefsqlj81859.html)
-* [Introduction to Oracle SQL Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=943)
+* [Introduction to Oracle SQL Workshop](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=943)
 * [SQL Language Reference](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/Introduction-to-Oracle-SQL.html#GUID-049B7AE8-11E1-4110-B3E4-D117907D77AC)

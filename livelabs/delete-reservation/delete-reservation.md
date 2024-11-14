@@ -6,7 +6,7 @@ You can delete a completed workshop or your active reservation at any point in t
 
 ## Delete your reservation
 
-1. Navigate to **My Reservations** on [Oracle LiveLabs](http://developer.oracle.com/livelabs) home page.
+1. Navigate to **My Reservations** on [Oracle LiveLabs](http://livelabs.oracle.com) home page.
 
 2. Then click on **Remove** of your active reservation or the completed workshop you want to delete from your My Reservations page.
 
@@ -18,4 +18,4 @@ You can delete a completed workshop or your active reservation at any point in t
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)

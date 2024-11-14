@@ -16,4 +16,4 @@ Check if you are in the tenancy and region assigned to you in the LiveLabs reser
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)

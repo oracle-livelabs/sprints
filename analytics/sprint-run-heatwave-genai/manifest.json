@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "HeatWave GenAI LiveLabs",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How to Set Up a HeatWave GenAI-Powered Chat?",
+         "description": "Learn how to set up a Help chat using the vector store and RAG functionalities of HeatWave GenAI together with HeatWave Chat.",
+         "filename": "./set-up-help-chat.md"
+      }
+   ],
+   "task_type": "Sections"
+}
