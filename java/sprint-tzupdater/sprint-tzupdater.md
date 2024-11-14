@@ -3,8 +3,6 @@ Duration: 2 minutes
 
 This sprint provides step-by-step instructions on how to update the timezone data in your JDK installations. The JDK uses [timezone data provided by the IANA](https://www.iana.org/time-zones). The IANA's update schedule and Java's update schedule are out of sync, so downloading the latest version of Java does not ensure that you have the latest IANA timezone data.
 
-**NOTE:** Currently, the `-XshowSettings:all` option does not display the tzdata version. This will be fixed in an upcoming release. See [JDK-8305950](https://bugs.openjdk.org/browse/JDK-8305950) for details.
-
 ## TZUpdater Tutorial
 
 [TZUpdater Tutorial](videohub:1_oshhvfcf)
@@ -32,7 +30,7 @@ This sprint provides step-by-step instructions on how to update the timezone dat
 3. How to Verify TZ Data Version
     ![Slide 3 - How to Verify TZ Data Version](./images/3-verify-version.png)
 
-    From the directory of where you have the tzupdater jar file, you can check the tzdata version by running this command:  
+    From the directory of where you have the tzupdater jar file, you can check the tzdata version by running this command:
     `java -jar tzupdater/jar -V`
     You only need to note the line with JRE tzdata version.
     You can ignore the rest.
