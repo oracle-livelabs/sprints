@@ -38,9 +38,9 @@ caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
 2. Manually add the certificate to `cacerts` by executing the following command:
 
     ```
-    <copy>keytool -import -trustcacerts 
-    -file [certificate-file] 
-    -alias [alias] 
+    <copy>keytool -import -trustcacerts
+    -file [certificate-file]
+    -alias [alias]
     -keystore $JAVA_HOME/lib/security/cacerts</copy>
     ```
 
