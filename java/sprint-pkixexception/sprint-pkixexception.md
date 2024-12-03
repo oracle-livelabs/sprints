@@ -23,19 +23,19 @@ caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
 
 ### 2. Common Causes
 
-**Multiple JRE/JDK Versions:** Having multiple JRE/JDK installations in the client can result in the certificate being imported into the wrong cacerts file, leading to trust issues.
+**Multiple JRE/JDK Versions:** Having multiple JRE/JDK installations in the client can result in the certificate being imported into the wrong `cacerts` file, leading to trust issues.
 
-**Using a Custom Trust Store:** If a custom trust store is specified using `-Djavax.net.ssl.trustStore`, ensure the application is correctly pointing to it. Misconfiguration can override the default trust store (cacerts) and cause validation errors even if the Root CA certificate is present.
+**Using a Custom Trust Store:** If a custom trust store is specified using `-Djavax.net.ssl.trustStore`, ensure the application is correctly pointing to it. Misconfiguration can override the default trust store (`cacerts`) and cause validation errors even if the root CA certificate is present.
 
-**Using Self-Signed Certificates:** Java applications attempting to connect to a server using a self-signed certificate will encounter trust issues, as Java does not recognize self-signed certificates unless specifically configured.
+**Using Self-Signed Certificates:** Java applications attempting to connect to a server using a self-signed certificate will encounter trust issues, as Java does not recognize self-signed certificates unless specifically configured to do so.
 
-**Using a Non-popular Certificate Authority (CA):** It can happen when there are many intermediate certificate authorities involved in the chain of certificates used by the domain. In such cases, Java fails to validate authenticity unless all intermediate certificates are known to it.
+**Using a Non-popular Certificate Authority (CA):** This can happen when there are many intermediate certificate authorities involved in the chain of certificates used by the domain. In such cases, Java fails to validate authenticity unless all intermediate certificates are known to it.
 
 ### 3. Resolution
 
 1. The public certificate needs to be imported into the Java trust store that your application uses. The JDK/JRE provides a tool to interact with the certificate store to administer its content. This tool is Keytool and can be found in `$JAVA_HOME/bin/keytool`.
 
-2. Manually add the certificate to cacerts by executing the following command:
+2. Manually add the certificate to `cacerts` by executing the following command:
 
     ```
     <copy>keytool -import -trustcacerts 
@@ -44,7 +44,7 @@ caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
     -keystore $JAVA_HOME/lib/security/cacerts</copy>
     ```
 
-3. Verify the certificates added to Java trust store by using the below command:
+3. Verify the certificates added to Java trust store by using the following command:
 
     ```
     <copy>
@@ -65,7 +65,7 @@ caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
     Certificate fingerprints:
     ```
 
-4. Use the below script to automate the whole process (sample given is for Unix):
+4. Use the below script to automate the whole process (example given is for Unix):
     ```
     <copy>
     #!/bin/sh
@@ -78,9 +78,9 @@ caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.Validator
     rm /tmp/$1.pem
     </copy>
     ```
-    This script opens an SSL connection to the domain name system (DNS) passed as the first argument and requests it to show the certificates. The certificate information is piped through openssl and is stored as a PEM file. This PEM file is then used by keytool to import the certificate into the cacerts file with the DNS as the alias.
+    This script opens an SSL connection to the domain name system (DNS) passed as the first argument and requests it to show the certificates. The certificate information is piped through OpenSSL and is stored as a PEM file. This PEM file is then used by keytool to import the certificate into the cacerts file with the DNS as the alias.
 
-    For instance, we can try adding the certificate for https://<SAMPLE_URL\>
+    For instance, we can try adding the certificate for https://<URL\>
 
     ```
     cacerts.sh <URL>
@@ -96,9 +96,9 @@ If you are still unable to resolve the issue, the following debug parameters can
 
 ### 5. Some Less Common Causes
 
-- This error can arise from a very strict network configuration or firewall rule. To eliminate this, head to your favorite browser and try to access the URL that creates problems. If the browser can process it without errors, then it means the problem is with the client application’s certificate configuration.
+- This error can arise from a very strict network configuration or firewall rule. To eliminate this possibility, head to your favorite browser and try to access the URL that creates problems. If the browser can process it without errors, then it means the problem is with the client application’s certificate configuration.
 
-- You may also come across this error after upgrading, reinstalling, or changing the configurations of your Java installation. At times, the certificate configurations in Java’s internal trust store may get messed up during these activities and can result in this error. So always check that your application is pointing to the right Java installation and verify the cacerts file is available in $JAVA_HOME/lib/security.
+- You may also come across this error after upgrading, reinstalling, or changing the configurations of your Java installation. At times, the certificate configurations in Java’s internal trust store may get messed up during these activities and can result in this error. So always check that your application is pointing to the right Java installation and verify the `cacerts` file is available in `$JAVA_HOME/lib/security`.
 
 - Check if your trust store is outdated. If so, upgrade Java to the latest version supported by your application.
 
