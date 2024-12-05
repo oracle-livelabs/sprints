@@ -3,7 +3,8 @@ Duration: 7 minutes
 
 This sprint covers possible causes of a 'sun.security.validator.ValidatorException: PKIX path building failed' exception, and how to resolve them.
 
-## Troubleshooting ‘sun.security.validator.ValidatorException: PKIX path building failed’ Exceptions
+
+## Troubleshooting ‘sun.security.validator.ValidatorException: PKIX path building failed’
 
 [Troubleshooting SSL Exceptions](videohub:1_3848m5e3)
 
