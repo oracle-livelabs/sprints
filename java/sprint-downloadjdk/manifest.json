@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "How to Download the Oracle JDK",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Introduction and Licensing",
+         "description": "Find the best JDK download for your use case.",
+         "filename": "/labs/intro.md"
+
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -30,4 +30,4 @@ Follow the steps below to contact us and get a quick resolution to your issue.
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)
