@@ -4,6 +4,8 @@ Duration: 2 minutes
 
 When working with datasets in Oracle Analytics, you have the ability to collaborate with your team by sharing datasets and granting access control to those datasets. This Sprint will show you two ways to share datasets: sharing with other users in Oracle Analytics and sharing with external members.
 
+[](youtube:eAU2lZgt6XM:large)
+
 ## Sharing datasets
 
 ### Within Oracle Analytics
