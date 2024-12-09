@@ -5,46 +5,31 @@
       {
          "title": "Introduction",
          "description": "Find the best JDK download for your use case.",
-         "filename": "sprint-downloadjdk.md"
-
+         "filename": "./sprint-downloadjdk.md"
       },
       {
-         "title": "Licensing Information",
-         "description": "The Oracle JDK is made available under different licenses, depending on the version.",
-         "filename": "/labs/licensing.md"
-
-      },
-      {
-         "title": "Manually from My Oracle Support",
+         "title": "Manual Downloads from My Oracle Support",
          "description": "Customers can download the JDK, components, and BPRs from My Oracle Support.",
-         "filename": "/labs/manual-mos.md"
+         "filename": "./labs/manual-mos.md"
 
       },
       {
-         "title": "Manually from Oracle.com",
+         "title": "Manual Downloads from Oracle.com or Software Delivery Cloud",
          "description": "Anyone can download manually from Oracle.com.",
-         "filename": "/labs/manual-oracle.md"
+         "filename": "./labs/manual-oracle.md"
 
       },
       {
-         "title": "Manually from Oracle Software Delivery Cloud",
-         "description": "Anyone with an Oracle account can download from Software Delivery Cloud.",
-         "filename": "/labs/edelivery/md"
-
-      },
-      {
-         "title": "Automatically from Oracle.com",
-         "description": "Anyone can automate downloads from Oracle.com.",
-         "filename": "/labs/auto-oracle.md"
-
-      },
-      {
-         "title": "Automatically or Manually with Java Management Service on Oracle Cloud Infrastructure",
+         "title": "Automatic Downloads with Java Management Service on OCI",
          "description": "OCI users can use Java Management Service to download the JDK.",
-         "filename": "/labs/oci-jms.md"
+         "filename": "./labs/oci-jms.md"
+      },
+      {
+         "title": "Automatic Downloads from Oracle.com",
+         "description": "Anyone can automate downloads from Oracle.com.",
+         "filename": "./labs/auto-oracle.md"
 
       }
-
    ],
    "task_type": "Sections"
 }

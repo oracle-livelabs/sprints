@@ -1,7 +1,5 @@
-# Lab Title
+# Manually Downloading from My Oracle Support
 
-
-## Lab Subtitle
 
 [VIDEO NAME](videohub:1_oshhvfcf)
 
