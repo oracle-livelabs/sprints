@@ -3,7 +3,7 @@
    "help": "livelabs-help-sprints_us@oracle.com",
    "tutorials": [
       {
-         "title": "Introduction",
+         "title": "Introduction and Licensing",
          "description": "Find the best JDK download for your use case.",
          "filename": "./sprint-downloadjdk.md"
       },
@@ -15,7 +15,7 @@
       },
       {
          "title": "Manual Downloads from Oracle.com or Software Delivery Cloud",
-         "description": "Anyone can download manually from Oracle.com.",
+         "description": "Anyone can download manually from Oracle.com or Software Delivery Cloud.",
          "filename": "./labs/manual-oracle.md"
 
       },

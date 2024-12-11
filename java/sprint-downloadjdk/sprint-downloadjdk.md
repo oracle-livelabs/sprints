@@ -28,11 +28,11 @@ The table assumes that you know what types of releases you want, but if you woul
 |--------|-----------|-------------|------------------------|
 | The JDK for a different OS | | | |
 | | I want to download it manually | | |
-| | | I am an Oracle customer | Manual Downloads from My Oracle Support |
-| | | I am not a customer     | Manual Downloads from Oracle.com or Software Delivery Cloud |
+| | | I am an Oracle customer | [Manual Downloads from My Oracle Support](../sprint-downloadjdk/index.html?lab=manual-mos) |
+| | | I am not a customer     | [Manual Downloads from Oracle.com or Software Delivery Cloud](../sprint-downloadjdk/index.html?lab=manual-oracle) |
 | | I want to automate downloading | | |
-| | | I am an OCI user | Automatic Downloads with Java Management Service on OCI |
-| | | I do not use OCI | Automatic Downloads from Oracle.com |
+| | | I am an OCI user | [Automatic Downloads with Java Management Service on OCI](../sprint-downloadjdk/index.html?lab=oci-jms) |
+| | | I do not use OCI | [Automatic Downloads from Oracle.com](../sprint-downloadjdk/index.html?lab=auto-oracle) |
 {: title="Oracle JDK Download Methods"}
 
 ## Acknowledgements
