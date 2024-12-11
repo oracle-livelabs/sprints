@@ -1,66 +1,42 @@
-# Update the timezone data in the JDK
-Duration: 2 minutes
+# Downloading the Oracle JDK
+Duration: 5 minutes
 
-This sprint provides step-by-step instructions on how to update the timezone data in your JDK installations. The JDK uses [timezone data provided by the IANA](https://www.iana.org/time-zones). The IANA's update schedule and Java's update schedule are out of sync, so downloading the latest version of Java does not ensure that you have the latest IANA timezone data.
+## Introduction
+There are multiple ways to download the JDK, each ideal for a different user and use-case combination.
 
-## TZUpdater Tutorial
+For security reasons, only download the Oracle JDK from Oracle sources.
 
-[TZUpdater Tutorial](videohub:1_oshhvfcf)
+## Licenses
+Different Java releases are made available under different licenses. It is the user's responsibility to ensure that their use of Java conforms to the applicable license.
 
-1. Introduction
-    ![Slide 1 - Introduction](./images/1-intro.png)
+Licenses mentioned in this workshop include:
 
-    This is a quick tutorial on how to use TZUpdater to update the tzdata in Java.
-
-    Oracle updates the TZ Data database irregularly.
-
-    Whenever a new tzdata is released from the Standards body IANA, the database is usually made available in between Java releases, so Java will rarely have the most recent updates.
-
-    TZUpdater has an option `-L` which allows the user to go to the IANA website and update using the most recent version of the TZ Database.
-
-    So the user can instantly be on the current TZ Database without having to update their Java version.
-
-2. TZUPdater Download
-![Slide 2 - TZUpdater Download](./images/2-tzupdater-download.png)
-
-    Customers can download the latest TZUpdater tool from [Document 1439822.2 Supported Java SE and Java Component Downloads](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294109915825213&id=1439822.2) on My Oracle Support.
-
-    **NOTE:** All users can [download TZUpdater here](https://www.oracle.com/java/technologies/downloads/tools/#TZUpdater).
-
-3. How to Verify TZ Data Version
-    ![Slide 3 - How to Verify TZ Data Version](./images/3-verify-version.png)
-
-    From the directory of where you have the tzupdater jar file, you can check the tzdata version by running this command:
-    `java -jar tzupdater/jar -V`
-    You only need to note the line with JRE tzdata version.
-    You can ignore the rest.
-
-4. Latest tzdata
-    ![Slide 4 - Latest tzdata](./images/4-latest-tzdata.png)
-    You can find the latest tzdata on the IANA website.
-    Right click the link with tzdata and copy the link.
-
-5. Update tzadata
-    ![Slide 5 - Update tzadata](./images/5-update-tzdata.png)
-    Use this command and paste the latest tzdata link you copied.
-    This will install tzdata directly from the IANA website.
-    If you get an error, check you have the right permissions and try again.
-
-6. Verify Again to Confirm
-    ![Slide 6 - Verify Again to Confirm](./images/6-confirm.png)
-    Run the verify command again to see if the change has taken effect.
-
-7. References
-    ![Slide 7 - References](./images/7-references.png)
-    Java SE Subscribers can learn more by viewing [Document 1999305.1 on My Oracle Support](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294479586613931&id=1999305.1).
-  
-## Learn More  
-- [TZUpdater Documentation](https://www.oracle.com/java/technologies/javase/tzupdater-readme.html)
+- [Oracle No-Fee Terms and Conditions License (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html). All JDK Feature releases, including Long-Term Support (LTS) releases, are initially made available under this license. LTS releases convert to the OTN license (see next item) after 3 years. Non-LTS releases remain are supported for 6 months and remain on the NFTC license. See the [Oracle Java SE Support Roadmap](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) for details.
+- [Oracle Technology Network License Agreement for Oracle Java SE (OTN)](https://www.oracle.com/downloads/licenses/javase-license1.html). A free Oracle account is required to download any releases covered by OTN.
+- [Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX (BCL)](https://www.oracle.com/downloads/licenses/binary-code-license.html)
+- [The Universal Permissive License (UPL), Version 1.0](https://oss.oracle.com/licenses/upl/)
+- [The GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 
+## Oracle JDK Download Methods
+The table below will guide you to the best download location for your needs. Use the menu on the left for detailed instructions. 
+
+The table assumes that you know what types of releases you want, but if you would like some guidance, see [Choosing the Right JDK Version: An Unofficial Guide](https://blogs.oracle.com/java/post/choosing-the-right-jdk-version). Oracle customers can also open a Non-Technical Service Request for assistance.
+
+
+| I Want | ...and... | ...also ... |...so I will refer to...|
+|--------|-----------|-------------|------------------------|
+| The JDK for a different OS | | | |
+| | I want to download it manually | | |
+| | | I am an Oracle customer | [Manual Downloads from My Oracle Support](../sprint-downloadjdk/index.html?lab=manual-mos) |
+| | | I am not a customer     | [Manual Downloads from Oracle.com or Software Delivery Cloud](../sprint-downloadjdk/index.html?lab=manual-oracle) |
+| | I want to automate downloading | | |
+| | | I am an OCI user | [Automatic Downloads with Java Management Service on OCI](../sprint-downloadjdk/index.html?lab=oci-jms) |
+| | | I do not use OCI | [Automatic Downloads from Oracle.com](../sprint-downloadjdk/index.html?lab=auto-oracle) |
+{: title="Oracle JDK Download Methods"}
 
 ## Acknowledgements
-**Video** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
+**Videos** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
 **Last Updated By/Date** - Jason Begy,  November 2024
 
