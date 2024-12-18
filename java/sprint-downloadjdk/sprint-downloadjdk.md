@@ -38,7 +38,4 @@ The table assumes that you know what types of releases you want, but if you woul
 ## Acknowledgements
 **Videos** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
-**Last Updated By/Date** - Jason Begy,  November 2024
-
-
-
+**Last Updated By/Date** - Jason Begy,  December 2024

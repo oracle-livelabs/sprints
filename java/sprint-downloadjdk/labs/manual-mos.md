@@ -58,9 +58,3 @@ To download Java SE and JRockit releases that have reached sustaining support:
 5. Click the **Download** button.
 
 6. In the popup window, click the filename to begin the download.
-
-
-
-
-
-
