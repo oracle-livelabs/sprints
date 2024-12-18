@@ -61,10 +61,3 @@ Anyone with an Oracle account can download any version of the JDK using [Oracle 
 9. Run the customized downloader to download your queued packages. The downloader will download them as ZIP files to the directory of your choice.
 
 10. Once the downloads are complete, you can verify the downloaded .zip files and extract the JDK packages for installation.
-
-
-
-
-
-
-

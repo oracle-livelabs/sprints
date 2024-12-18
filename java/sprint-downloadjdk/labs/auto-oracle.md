@@ -4,7 +4,6 @@
 
 This tutorial covers automating downloads of the latest NFTC releases of Oracle JDK and GraalVM. 
 
-
 1. Navigate to the [Java Downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
     **Note:** You can also use this shorter URL: oracle.com/javadownload
@@ -20,9 +19,6 @@ For example, in a script, you can use this URL to download Oracle JDK or GraalVM
 Similarly, Dockerfiles can use this URL to fetch the necessary Java components automatically during container builds.
 
 **Note:** A script configured to download the latest version of a release family will cease functioning when that release family reaches end-of-life and enters sustaining support.
-
-
-
 
 ## References
 - [JDK and GraalVM Script Friendly URLs on Oracle.com](https://www.oracle.com/java/technologies/jdk-script-friendly-urls/)

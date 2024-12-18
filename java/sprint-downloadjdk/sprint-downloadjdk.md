@@ -40,5 +40,3 @@ The table assumes that you know what types of releases you want, but if you woul
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
 **Last Updated By/Date** - Jason Begy,  December 2024
 
-
-
