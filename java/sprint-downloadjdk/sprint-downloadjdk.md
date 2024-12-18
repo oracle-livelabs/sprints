@@ -26,7 +26,7 @@ The table assumes that you know what types of releases you want, but if you woul
 
 | I Want | ...and... | ...also ... |...so I will refer to...|
 |--------|-----------|-------------|------------------------|
-| The JDK for a different OS | | | |
+| The JDK for Linux, Windows, or macOS | | | |
 | | I want to download it manually | | |
 | | | I am an Oracle customer | [Manual Downloads from My Oracle Support](../sprint-downloadjdk/index.html?lab=manual-mos) |
 | | | I am not a customer     | [Manual Downloads from Oracle.com or Software Delivery Cloud](../sprint-downloadjdk/index.html?lab=manual-oracle) |
