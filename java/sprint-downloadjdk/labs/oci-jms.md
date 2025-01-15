@@ -3,19 +3,18 @@
 ## Overview
 Any Oracle Cloud Infrastructure (OCI) user can download the Oracle JDK through Java Management Service (JMS).
 
-Java Management Service can generate customized terminal commands and Dockerfiles to automate downloading the latest versions of releases available under the NFTC and OTN licenses.
+Java Management Service (JMS) can generate customized commands and Dockerfiles to automate downloading the latest versions of releases available under the NFTC and OTN licenses.
 
-Java Management Service tracks all of a user's downloads and can generate reports based on that data. These reporting features are mainly useful for fleet management and can be ignored if they are not useful to you.
+Java Management Service tracks all of a user's downloads and can generate reports based on that data. These reporting features are useful for fleet management.
 
-Another advantage of using JMS is that you if you automate a download of an LTS release covered by the NFTC, and the license changes to OTN, you simply have to login to OCI and accept the new terms. Your existing download tokens will automatically be extended to the new license, which means you do not have to update any scripts.
+Another advantage of using JMS is that you if you automate a download of an LTS release covered by the NFTC, and the license changes to OTN, you have the option of accepting the new terms, which will extend your tokens and allow them to continue working. This will allow your to continue using existing scripts.
 
-Note that when creating an OCI account, even a free tier, Oracle will ask for a credit card number to verify your identity. Your credit card information will not be saved and you will never be automatically billed.
+Note that when creating an OCI account, even a free tier, Oracle will ask for a credit card number to verify your identity. The credit card information used to establish the OCI account will not be saved and will be used for verification purposes only.  If you later decide to switch to a paid account you will have to enter a credit card again, or establish billing terms.
 
 ## Tutorials
 [Download Using Java Management Service on OCI](videohub:1_5oyb4ujr)
 
-To get started, you will need an Oracle Cloud Infrastructure (OCI) account. Even if you're using the free tier, Oracle requires a credit card for identity verification. 
-You will not be charged, and your credit card details will not be saved.
+To get started, you will need an Oracle Cloud Infrastructure (OCI) account. 
 
 ### Manual Downloads
 1. [Sign-in to OCI](https://www.oracle.com/cloud/sign-in.html), and then click on the navigation menu in the top-left corner of the screen.
@@ -25,6 +24,8 @@ You will not be charged, and your credit card details will not be saved.
 3. Click on **Java Download** under "Java Management."
 
 4. On the following page, select the required JDK release, then scroll down and click on the **Download** button for your desired platform.
+
+**Note:** Bundled Patch Releases (BPRs) are linked from this page.  These updates are only accessible to Java SE Support customers. These are meant to be used only when a critical bug fix is needed and you cannot wait for it to be included in the next scheduled release.  
 
 ### Automating Downloads
 1. Follow steps 1 - 3 above.
@@ -44,6 +45,8 @@ You will not be charged, and your credit card details will not be saved.
 8. Click **Copy download command** to generate the command.
 
 9. In a terminal, paste and run the copied command to download. This command can be used in scripts to automate the download process.
+
+Once a release has a token you will also be able to download a dockerfile that leverages your token to download an up-to-date JDK version during the docker build process.
 
 
 ## Learn More

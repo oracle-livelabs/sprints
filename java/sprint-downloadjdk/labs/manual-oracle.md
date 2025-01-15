@@ -6,7 +6,7 @@ Anyone can download the Oracle JDK and GraalVM from [the Java downloads page on 
 
 Currently-supported releases covered by the [Oracle No-Fee Terms and Conditions (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html) license are at the top of the page, and releases covered by the [Oracle Technology Network License Agreement for Oracle Java SE (OTN)](https://www.oracle.com/downloads/licenses/javase-license1.html) license are below.
 
-For releases in sustaining support, see the [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/). These releases are covered by the [NFTC](https://www.oracle.com/downloads/licenses/no-fee-license.html), [OTN](https://www.oracle.com/downloads/licenses/javase-license1.html), or [BCL](https://www.oracle.com/downloads/licenses/java-se-archive-license.html) license.
+For releases in sustaining support, see the [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/). These releases are covered by the [NFTC](https://www.oracle.com/downloads/licenses/no-fee-license.html), [OTN](https://www.oracle.com/downloads/licenses/javase-license1.html), or (for some of the older releases) [BCL](https://www.oracle.com/downloads/licenses/java-se-archive-license.html) license.
 
 ### Tutorial
 [Download Manually from Oracle.com](videohub:1_pxs09t22)
@@ -15,17 +15,20 @@ For releases in sustaining support, see the [Java Archive](https://www.oracle.co
 
 1. Open the [Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
-    **Note:** You can also use this shorter URL: oracle.com/javadownload
+    You can also use this shorter URL: [oracle.com/javadownload](https://www.oracle.com/javadownload)
 
-2. Use the horizontal menus to select the release family you want. NFTC releases are near the top of the page, and OTN releases are below.
+2. Scroll horizontally to find the release you want. NFTC releases are near the top of the page, and OTN releases are lower.  
 
-2. Use the smaller horizontal menu to choose your operating system.
+3. Select the tab for the feature release. 
 
-3. A list of download options will appear. Choose your desired file.
+4. Use the sub-tab to choose your operating system.
 
-    **Note:** A free Oracle account is required to download releases covered by the OTN.
+5. A list of download options will appear. Choose your desired file.  Be sure to select the right architecture and bundling option.
 
-#### Download a Release in Sustaining Support
+
+ A free Oracle account is required to download releases covered by the OTN.
+
+#### Download older Update releases
 
 1. Open the [Java Archive page](https://www.oracle.com/java/technologies/downloads/archive/).
 
@@ -36,7 +39,9 @@ For releases in sustaining support, see the [Java Archive](https://www.oracle.co
 
 
 ## Manually Downloading from Oracle Software Delivery Cloud
-Anyone with an Oracle account can download any version of the JDK using [Oracle Software Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx). This system allows you to select multiple Oracle products and then download a customized downloader. That downloader will download ZIP files of the chosen packages. These are made available under Oracle Standard Terms and Restrictions.
+Anyone with an Oracle account can download the JDK using [Oracle Software Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx). This system allows you to select multiple Oracle products and then download a customized downloader. That downloader will download ZIP files of the chosen packages. These are made available under Oracle Standard Terms and Restrictions.
+
+Oracle Software Delivery Cloud offers only the most recent JDK releases.  
 
 ### Tutorial
 
