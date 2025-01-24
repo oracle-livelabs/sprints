@@ -1,0 +1,34 @@
+{
+   "workshoptitle": "How to Download the Oracle JDK",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Introduction and Licensing",
+         "description": "Find the best JDK download for your use case.",
+         "filename": "./sprint-downloadjdk.md"
+      },
+      {
+         "title": "Manual Downloads from My Oracle Support",
+         "description": "Customers can download the JDK, components, and BPRs from My Oracle Support.",
+         "filename": "./labs/manual-mos.md"
+
+      },
+      {
+         "title": "Manual Downloads from Oracle.com or Software Delivery Cloud",
+         "description": "Anyone can download manually from Oracle.com or Software Delivery Cloud.",
+         "filename": "./labs/manual-oracle.md"
+
+      },
+      {
+         "title": "Automatic Downloads with Java Management Service on OCI",
+         "description": "OCI users can use Java Management Service to download the JDK.",
+         "filename": "./labs/oci-jms.md"
+      },
+      {
+         "title": "Automatic Downloads from Oracle.com",
+         "description": "Anyone can automate downloads from Oracle.com.",
+         "filename": "./labs/auto-oracle.md"
+      }
+   ],
+   "task_type": "Sections"
+}

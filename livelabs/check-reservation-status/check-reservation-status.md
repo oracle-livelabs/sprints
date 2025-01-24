@@ -6,7 +6,7 @@ You can always check your workshop reservation status or the estimated time to c
 
 ## Check your reservation status
 
-1. Navigate to **My Reservations** on [Oracle LiveLabs](http://developer.oracle.com/livelabs) home page.
+1. Navigate to **My Reservations** on [Oracle LiveLabs](http://livelabs.oracle.com) home page.
 
 2. Look at the status of the workshop reservation you requested.
 
@@ -14,4 +14,4 @@ You can always check your workshop reservation status or the estimated time to c
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)

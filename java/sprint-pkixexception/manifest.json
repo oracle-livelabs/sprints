@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Troubleshoot SSL Exceptions in Java: ‘sun.security.validator.ValidatorException: PKIX path building failed’",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Troubleshoot ‘sun.security.validator.ValidatorException: PKIX path building failed’ Exceptions",
+         "description": "Learn how to troubleshoot ‘sun.security.validator.ValidatorException: PKIX path building failed’ exceptions.",
+         "filename": "sprint-pkixexception.md"
+      }
+   ],
+   "task_type": "Sections"
+}

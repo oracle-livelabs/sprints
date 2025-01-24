@@ -6,7 +6,7 @@ You can always reset your active reservation's Oracle Cloud account (tenancy) pa
 
 ## Reset your password
 
-1. Navigate to **My Reservations** on [Oracle LiveLabs](http://developer.oracle.com/livelabs) home page.
+1. Navigate to **My Reservations** on [Oracle LiveLabs](http://livelabs.oracle.com) home page.
 
 2. Then click on **Launch Workshop** of your active reservation for which you want to reset the tenancy password.
 
@@ -16,4 +16,4 @@ You can always reset your active reservation's Oracle Cloud account (tenancy) pa
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)

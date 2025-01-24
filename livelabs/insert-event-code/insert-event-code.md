@@ -4,7 +4,7 @@ Duration: 1 minute
 
 ## Insert event code
 
-1. If you have been provided with an event code by Oracle, navigate to the [Oracle LiveLabs]((http://developer.oracle.com/livelabs)) home page.
+1. If you have been provided with an event code by Oracle, navigate to the [Oracle LiveLabs]((http://livelabs.oracle.com)) home page.
 
 2.  Click on **Have an Event Code?**
 
@@ -16,4 +16,4 @@ Duration: 1 minute
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)
