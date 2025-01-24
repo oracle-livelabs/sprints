@@ -8,8 +8,8 @@ Using sample data consisting of two CSV files containing synthetic bank accounts
 
 ## Prerequisites
 
-•    Provision an Autonomous Database instance. For these steps, I spun up a free tier instance.
-•    Download the [Bank Graph Dataset](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos) contents from Oracle samples project Github  into a local directory, e.g., downloads/bankgraphdataset.
+* Provision an Autonomous Database instance. For these steps, I spun up a [free tier instance](https://www.oracle.com/autonomous-database/free-trial/_).
+* Download the Bank Graph Dataset contents from [Oracle samples project GitHub](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos)  into a local directory, e.g., downloads/bankgraphdataset.
 
 ## The Steps
 
@@ -27,11 +27,11 @@ Using sample data consisting of two CSV files containing synthetic bank accounts
 2. Click + Create User.
 
     ![Click create user](./images/create-user.png " ")
-    
+
 3. Fill out the resulting form as shown in the image below.
 
     ![Create User form](./images/create-user-form.png " ")
-    
+
 A video overview of these steps can be found [here](https://youtu.be/RiGEklbA1i0?si=2Hy9wonqbBKTABfp).
 
 ### Connect as GRAPHUSER and load the data
@@ -44,19 +44,19 @@ A video overview of these steps can be found [here](https://youtu.be/RiGEklbA1i0
 
     ![Launch Data Load](./images/launch-data-load.png " ")
 
-3. Select LOAD DATA
+3. Select LOAD DATA.
 
     ![Load Data](./images/load-data.png " ")
 
-4. Upload the (two files)[https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos] you downloaded in the beginning.
+4. Upload the [two files](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos) you downloaded in the beginning.
 
     ![Upload files](./images/upload-files.png " ")
 
 ### Create a property graph named BANK_GRAPH
 
-The BANK_TRANSFERS table has columns named TXN_ID, SRC_ACCT_ID, DST_ACCT_ID, DESCRIPTION, and AMOUNT. Each row represents a money transfer from the source (SRC_ACCT_ID) to the destination (DST_ACCT_ID). This table represents the connections between two accounts and hence becomes an edge in the property graph. The TXN_ID value identifies an edge and the AMOUNT; optionally, the SRC_ACCT_ID and DST_ACCT_ID become properties of the edge.
+The BANK\_TRANSFERS table has columns named TXN\_ID, SRC\_ACCT\_ID, DST\_ACCT\_ID, DESCRIPTION, and AMOUNT. Each row represents a money transfer from the source (SRC\_ACCT\_ID) to the destination (DST\_ACCT\_ID). This table represents the connections between two accounts and hence becomes an edge in the property graph. The TXN\_ID value identifies an edge and the AMOUNT; optionally, the SRC\_ACCT\_ID and DST\_ACCT\_ID become properties of the edge.
 An edge connects vertices. In this instance, the BANK_ACCOUNTS table represents those vertices. The ID column identifies a vertex, while the NAME and BALANCE columns become its properties.
-So, in property graph terms, BANK_ACCOUNTS is a vertex table, and BANK_TRANSFERS is an edge table.
+So, in property graph terms, BANK\_ACCOUNTS is a vertex table, and BANK\_TRANSFERS is an edge table.
 
 1. Now, let’s create the property graph. Enter and execute the following statement in SQL while connected as GRAPHUSER.
 
@@ -79,20 +79,21 @@ So, in property graph terms, BANK_ACCOUNTS is a vertex table, and BANK_TRANSFERS
     ```
 
 See the “SQL DDL Statements for Property Graphs” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/24.4/spgdg/sql-ddl-statements-property-graphs.html) for more details.
-Next, we’ll query the BANK_GRAPH to look for circular payment chains.
+Next, we’ll query the BANK\_GRAPH to look for circular payment chains.
 First, here’s a brief introduction to the GRAPH_TABLE and MATCH clause constructs.
 
 ### Querying property graphs
 
-GRAPH_TABLE is an operator that enables you to query the property graph by specifying a graph pattern to look for and then return the results as a set of columns, i.e., a normal SQL table.
+GRAPH\_TABLE is an operator that enables you to query the property graph by specifying a graph pattern to look for and then return the results as a set of columns, i.e., a normal SQL table.
 The MATCH clause lets you specify the graph patterns. The following example,
 
 ```
 (src) – [e] -> (dst)
 ```
+
 consists of two vertex patterns and one edge pattern. The () indicates a vertex, [] an edge, and the arrow -> specifies the edge’s direction.
-See the “SQL GRAPH_TABLE Queries” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/24.4/spgdg/sql-graph-queries.html) for more details.
-Now, let’s query the BANK_GRAPH.
+See the “SQL GRAPH\_TABLE Queries” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/24.4/spgdg/sql-graph-queries.html) for more details.
+Now, let’s query the BANK\_GRAPH.
 First, we look for the top 10 accounts by the number of incoming transfers. Then, we look for the top 10 accounts that are at the center of 2-hop transfers.
 
 ```sql
@@ -112,6 +113,7 @@ The result should be:
 ![Top 10 accounts by incoming transfers](./images/incoming-transfers.png " ")
 
 Next, let’s check for any 3-, 4-, or 5-hop circular payment chains.
+
 ```sql
 <copy>
 REM Check if there are any 3-hop transfers that start and end at the same account
