@@ -8,7 +8,7 @@ Using sample data consisting of two CSV files containing synthetic bank accounts
 
 ## Prerequisites
 
-* Provision an Autonomous Database instance. For these steps, I spun up a [free tier instance](https://www.oracle.com/autonomous-database/free-trial/_).
+* Provision an Autonomous Database instance. For this sprint, I spun up a [free tier instance](https://www.oracle.com/autonomous-database/free-trial/_).
 * Download the Bank Graph Dataset contents from [Oracle samples project GitHub](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos)  into a local directory, e.g., downloads/bankgraphdataset.
 
 ## The Steps
