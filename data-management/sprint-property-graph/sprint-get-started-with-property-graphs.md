@@ -6,19 +6,12 @@ Duration: 10 minutes
 
 Using sample data consisting of two CSV files containing synthetic bank accounts and money transfers, we will determine if there are any circular payment chains, i.e., a chain of money transfers that start and end at the same account after going through 3, 4, or 5 intermediate accounts. Sounds like a too complex problem to solve? Don’t worry – Use of Property Graph makes it simple and easy to analyze connections in data that are seemingly difficult to do.
 
-## Prerequisites
+### **Prerequisites**
 
 * Provision an Autonomous Database instance. For this sprint, I spun up a [free tier instance](https://www.oracle.com/autonomous-database/free-trial/_).
 * Download the Bank Graph Dataset contents from [Oracle samples project GitHub](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos)  into a local directory, e.g., downloads/bankgraphdataset.
 
-## The Steps
-
-1. Create a user, grant necessary roles and privileges
-2. Load the CSV files into the database
-3. Create a property graph as a view on these tables
-4. Query the property graph
-
-### Create the user GRAPHUSER
+### **Create the user GRAPHUSER**
 
 1. Once your Autonomous Database is provisioned, we'll create a new user named GRAPHUSER with the necessary quota and grants. We’ll use Database Actions to launch Database Users.
 
@@ -34,7 +27,7 @@ Using sample data consisting of two CSV files containing synthetic bank accounts
 
 A video overview of these steps can be found [here](https://youtu.be/RiGEklbA1i0?si=2Hy9wonqbBKTABfp).
 
-### Connect as GRAPHUSER and load the data
+### **Connect as GRAPHUSER and load the data**
 
 1. Sign out of Database Actions and sign back in as GRAPHUSER. Enter the password when prompted.
 
@@ -52,7 +45,7 @@ A video overview of these steps can be found [here](https://youtu.be/RiGEklbA1i0
 
     ![Upload files](./images/upload-files.png " ")
 
-### Create a property graph named BANK_GRAPH
+### **Create a property graph named BANK_GRAPH**
 
 The BANK\_TRANSFERS table has columns named TXN\_ID, SRC\_ACCT\_ID, DST\_ACCT\_ID, DESCRIPTION, and AMOUNT. Each row represents a money transfer from the source (SRC\_ACCT\_ID) to the destination (DST\_ACCT\_ID). This table represents the connections between two accounts and hence becomes an edge in the property graph. The TXN\_ID value identifies an edge and the AMOUNT; optionally, the SRC\_ACCT\_ID and DST\_ACCT\_ID become properties of the edge.
 An edge connects vertices. In this instance, the BANK_ACCOUNTS table represents those vertices. The ID column identifies a vertex, while the NAME and BALANCE columns become its properties.
@@ -82,7 +75,7 @@ See the “SQL DDL Statements for Property Graphs” section in the [Graph Devel
 Next, we’ll query the BANK\_GRAPH to look for circular payment chains.
 First, here’s a brief introduction to the GRAPH_TABLE and MATCH clause constructs.
 
-### Querying property graphs
+### **Querying property graphs**
 
 GRAPH\_TABLE is an operator that enables you to query the property graph by specifying a graph pattern to look for and then return the results as a set of columns, i.e., a normal SQL table.
 The MATCH clause lets you specify the graph patterns. The following example,
