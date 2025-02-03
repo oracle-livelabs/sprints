@@ -6,6 +6,7 @@ Oracle offers multiple locations to download the Java SE Development Kit (JDK), 
 
 For security, we recommend only downloading the Oracle JDK from Oracle or trusted sources.
 
+
 ## Licenses
 Java releases and Java updates are made available under different licenses. It is the user's responsibility to ensure that their use of Java conforms to the applicable license.
 
@@ -37,6 +38,7 @@ The table assumes that you know what types of releases you want, but if you woul
 
 ## Acknowledgements
 **Videos** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
-**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
+**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group
 **Last Updated By/Date** - Jason Begy,  February 3, 2025
+
 

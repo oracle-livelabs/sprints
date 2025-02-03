@@ -1,6 +1,5 @@
 # Manually Downloading from Oracle.com or Oracle Software Delivery Cloud
 
-
 ## Manually Downloading from Oracle.com
 Subject to the relevant license terms, anyone can download the Oracle JDK and GraalVM from [the Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
@@ -11,8 +10,8 @@ Older update releases can be found in the  [Java Archive](https://www.oracle.com
 ### Tutorial
 [Download Manually from Oracle.com](videohub:1_pxs09t22)
 
-#### Downloading Up-to-Date Releases
 
+#### Downloading Up-to-Date Releases
 1. Open the [Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
     You can also use this shorter URL: [oracle.com/javadownload](https://www.oracle.com/javadownload)
@@ -25,9 +24,11 @@ Older update releases can be found in the  [Java Archive](https://www.oracle.com
 
 5. A list of download options will appear. Choose your desired file.  Be sure to select the right architecture and bundling option.
 
+
 An easily created [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx) is required to download releases covered by the OTN from Oracle.com.
 
 #### Downloading Older Releases
+A free Oracle account is required to download releases covered by the OTN.
 
 1. Open the [Java Archive page](https://www.oracle.com/java/technologies/downloads/archive/).
 

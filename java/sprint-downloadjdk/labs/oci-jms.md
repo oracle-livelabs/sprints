@@ -17,6 +17,7 @@ To get started, you will need an Oracle Cloud Infrastructure (OCI) account.
 
 When creating an OCI account, Oracle will ask for a credit card number to verify your identity. The credit card information used to create the OCI account will be used for verification purposes only.  OCI accounts receive an initial trial period.  At the end of the trial period, the account will convert into a "free-tier" account. if you decide to upgrade the account into a paid account, you will have to enter a credit card again or contact OCI sales to establish billing terms. The JMS download feature described in this tutorial can be used with any of the OCI accounts: trial, paid, and even free-tier.
 
+
 ### Manual Downloads
 1. [Sign-in to OCI](https://www.oracle.com/cloud/sign-in.html), and then click on the navigation menu in the top-left corner of the screen.
 
@@ -26,7 +27,8 @@ When creating an OCI account, Oracle will ask for a credit card number to verify
 
 4. On the following page, select the required JDK release, then scroll down and click on the **Download** button for your desired platform.
 
-**Note:** Bundled Patch Releases (BPRs) are linked from this page.  These updates are only accessible to Java SE Support customers. These are meant to be used only when a critical bug fix is needed and you cannot wait for it to be included in the next scheduled release.
+**Note:** Bundled Patch Releases (BPRs) are linked from this page. These updates are only accessible to Java SE Support customers. These are meant to be used only when a critical bug fix is needed and you cannot wait for it to be included in the next scheduled release.
+
 
 ### Automating Downloads
 1. Follow steps 1 - 3 above.

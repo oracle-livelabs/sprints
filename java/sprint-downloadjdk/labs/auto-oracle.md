@@ -12,27 +12,26 @@ Subject to the license terms, this method is available to everyone and does not 
 ## Automate Downloading the Latest Releases
 There are URLs available on the [Java Downloads page](https://www.oracle.com/java/technologies/downloads/) that point to the updates for releases covered by the [NFTC license](https://www.java.com/freeuselicense) or [GraalVM Free Terms and Conditions (GFTC)](https://www.oracle.com/downloads/licenses/graal-free-license.html). These URLs can be used in scripts and Dockerfiles to automate downloading. You can use them to ensure that your deployments are always up-to-date.
 
+
 1. Navigate to the [Java Downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
     You can also use this shorter URL: [oracle.com/javadownload](https://www.oracle.com/javadownload)
 
-2. Scroll to the area of the page that lists the releases offered under NFTC terms.   Releases offered under NFTC are listed near the top of the page, releases offered under the  OTN license are listed further below.  
+2. Scroll to the area of the page that lists the releases offered under NFTC terms.   Releases offered under NFTC releases are near the top of the page, releases offered under the  OTN license are listed further below.  Use the tabs to find the Feature release of your choice.
 
-3. Use the tabs to find the Feature release version of your choice.
+3. Use the sub-tab to select your operating system. 
 
-4. Use the sub-tabs to select your operating system.
+4. Copy the link that corresponds to your desired download.  Notice that in some cases there are multiple architectures and different packaging options
 
-5. Copy the link that corresponds to your desired download.  Notice that for some operating systems  there are multiple architectures and different packaging options.
+You can use these URLs to automate the download process by integrating them into scripts or Dockerfiles. For example, in a script, you can download the latest Oracle JDK or GraalVM directly via command line. Similarly, Dockerfiles can use this URL to fetch the necessary Java components automatically during container builds.
 
-You can use these URLs to automate the download process by integrating them into scripts or Dockerfiles. For example, in a script, you can download the latest Oracle JDK or GraalVM directly via command line. Similarly, Dockerfiles can use these URLs to fetch the necessary Java components automatically during container builds.
-
-For example, to download the latest release of JDK 21 on Linux using `wget`, run the following command in the terminal:
+For example, to download the latest release of JDK 23 on Linux using `wget`, run the following command in the terminal:
 ```
-wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+wget https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.tar.gz
 ```
 This also works with `curl`:
 ```
-curl https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+curl https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.tar.gz
 ```
 
 These URLs offer up-to-date releases of the selected release families. For example, `https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.tar.gz` will serve the General Availability (GA) version of JDK 23, until the first Critical Patch Update (CPU) for JDK 23 is released. It will then offer 23.0.1 (the first CPU) until the next JDK 23 CPU is released, at which point it will offer JDK 23.0.2.
