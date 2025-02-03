@@ -1,34 +1,33 @@
-# Manually Downloading From Oracle.com or Oracle Software Delivery Cloud
+# Manually Downloading from Oracle.com or Oracle Software Delivery Cloud
 
 
 ## Manually Downloading from Oracle.com
-Anyone can download the Oracle JDK and GraalVM from [the Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/). 
+Subject to the relevant license terms, anyone can download the Oracle JDK and GraalVM from [the Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
 Currently-supported releases covered by the [Oracle No-Fee Terms and Conditions (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html) license are at the top of the page, and releases covered by the [Oracle Technology Network License Agreement for Oracle Java SE (OTN)](https://www.oracle.com/downloads/licenses/javase-license1.html) license are below.
 
-For releases in sustaining support, see the [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/). These releases are covered by the [NFTC](https://www.oracle.com/downloads/licenses/no-fee-license.html), [OTN](https://www.oracle.com/downloads/licenses/javase-license1.html), or (for some of the older releases) [BCL](https://www.oracle.com/downloads/licenses/java-se-archive-license.html) license.
+Older update releases can be found in the  [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/). These older releases are covered by the [NFTC](https://www.oracle.com/downloads/licenses/no-fee-license.html), [OTN](https://www.oracle.com/downloads/licenses/javase-license1.html), or (for some of the older releases) [BCL](https://www.oracle.com/downloads/licenses/java-se-archive-license.html) license.
 
 ### Tutorial
 [Download Manually from Oracle.com](videohub:1_pxs09t22)
 
-#### Download a Currently-Supported Release
+#### Downloading Up-to-Date Releases
 
 1. Open the [Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 
     You can also use this shorter URL: [oracle.com/javadownload](https://www.oracle.com/javadownload)
 
-2. Scroll horizontally to find the release you want. NFTC releases are near the top of the page, and OTN releases are lower.  
+2. Scroll horizontally to find the release you want. NFTC releases are near the top of the page, and OTN releases are lower.
 
-3. Select the tab for the feature release. 
+3. Select the tab for the feature release.
 
 4. Use the sub-tab to choose your operating system.
 
 5. A list of download options will appear. Choose your desired file.  Be sure to select the right architecture and bundling option.
 
+An easily created [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx) is required to download releases covered by the OTN from Oracle.com.
 
- A free Oracle account is required to download releases covered by the OTN.
-
-#### Download older Update releases
+#### Downloading Older Releases
 
 1. Open the [Java Archive page](https://www.oracle.com/java/technologies/downloads/archive/).
 
@@ -39,15 +38,15 @@ For releases in sustaining support, see the [Java Archive](https://www.oracle.co
 
 
 ## Manually Downloading from Oracle Software Delivery Cloud
-Anyone with an Oracle account can download the JDK using [Oracle Software Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx). This system allows you to select multiple Oracle products and then download a customized downloader. That downloader will download ZIP files of the chosen packages. These are made available under Oracle Standard Terms and Restrictions.
+Subect to the relevant license terms, anyone with an easily created [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx) can download the JDK using [Oracle Software Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx). This system allows you to select multiple Oracle products and then download a customized downloader. The downloader will download ZIP files of the chosen packages. All packages downloaded from Oracle Software Delivery Cloud are made available under Oracle Standard Terms and Restrictions.
 
-Oracle Software Delivery Cloud offers only the most recent JDK releases.  
+Oracle Software Delivery Cloud offers only the most recent JDK releases.
 
 ### Tutorial
 
 [Download from Software Delivery Cloud](videohub:1_pqszdej4)
 
-1. First, sign in to [Oracle Software Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx) using your Oracle account. If you don’t have an account, you can create one for free.
+1. First, sign in to [Oracle Software Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx) using your [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx).
 
 2. When you are signed in, enter "Oracle JDK" in the search bar. (You can also search for other Oracle products you may want to download.)
 

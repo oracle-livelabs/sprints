@@ -4,15 +4,15 @@ Duration: 5 minutes
 ## Introduction
 Oracle offers multiple locations to download the Java SE Development Kit (JDK), each designed for a different use-case.
 
-Be aware that other parties, unaffiliated with Oracle, sometimes offer what they claim to be Oracle JDK binaries through other channels. For security, we recommend downloading the Oracle JDK only from Oracle sources.
+For security, we recommend only downloading the Oracle JDK from Oracle or trusted sources.
 
 ## Licenses
 Java releases and Java updates are made available under different licenses. It is the user's responsibility to ensure that their use of Java conforms to the applicable license.
 
 Licenses mentioned in this workshop include:
 
-- [Oracle No-Fee Terms and Conditions License (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html).  Subject to the conditions of the license, it permits free use for all users – even commercial and production use. The NFTC was Introduced in September of 2021 with the release of JDK 17.  Since then, all JDK Feature releases have been made available under this license.  Oracle offers updates to the most recent Feature releases, and the most recent Long Term Support (LTS) release, under these terms.  Non-LTS releases and their updates are offered under these terms for their entire support lifetime.  LTS releases remain under these terms for one year after they are superseded by a newer LTS release - so users who rely on release under these terms can migrate to the newer version. Later updates switch to the OTN license (see next item) after a total of 3 years (two years between LTS releases plus one year of overlap). See the [Oracle Java SE Support Roadmap](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) for details.
-- [Oracle Technology Network License Agreement for Oracle Java SE (OTN)](https://www.oracle.com/downloads/licenses/javase-license1.html).  This license permits personal use, development, testing, prototyping, demonstrating, and some other limited uses at no cost.  Other uses will require a Java SE Subscription (or other legacy product) This license.  An Oracle account, which can be create at no cost, is required to download any releases covered by OTN.
+- [Oracle No-Fee Terms and Conditions License (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html).  Subject to the conditions of the license, it permits free use for all users – even commercial and production use. Oracle offers updates to the most recent Feature Non-Long Term Support (Non LTS) releases, and the most recent Long Term Support (LTS) release, under these terms. For more information on the current licensing and frequently asked questions, please see the [Oracle Java SE Licensing FAQ](https://www.oracle.com/java/technologies/javase/jdk-faqs.html). For a detailed explanation of what happens when a new LTS supercedes an older one, please see [JDK 17 approaches end-of-permissive license](https://blogs.oracle.com/java/post/jdk-17-approaches-endofpermissive-license). For Roadmap information, please see the [Oracle Java SE Support Roadmap](https://www.oracle.com/java/technologies/java-se-support-roadmap.html).
+- [Oracle Technology Network License Agreement for Oracle Java SE (OTN)](https://www.oracle.com/downloads/licenses/javase-license1.html).  This license permits personal use, development, testing, prototyping, demonstrating, and some other limited uses at no cost.  Other uses require a Java SE Subscription (or other legacy product). An easily created [Oracle account](https://profile.oracle.com/myprofile/account/create-account.jspx) or an Oracle Cloud Infrastructure (OCI) account is required to download any releases subject to the OTN.
 - [Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX (BCL)](https://www.oracle.com/downloads/licenses/binary-code-license.html) was used for certain releases up to April of 2019.  No current releases are offered under these terms. 
 - [The Universal Permissive License (UPL), Version 1.0](https://oss.oracle.com/licenses/upl/)
 - [The GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html)
@@ -31,12 +31,12 @@ The table assumes that you know what types of releases you want, but if you woul
 | | | I am an Oracle customer | [Manual Downloads from My Oracle Support](../sprint-downloadjdk/index.html?lab=manual-mos) |
 | | | I am not a customer     | [Manual Downloads from Oracle.com or Software Delivery Cloud](../sprint-downloadjdk/index.html?lab=manual-oracle) |
 | | I want to automate downloading | | |
-| | | I have an OCI account (including free accounts) OR <br />Want reports on which versions I have downloaded OR <br />need access to updates for JDK versions that are no longer offer under NFTC terms. | [Automatic Downloads with Java Management Service on OCI](../sprint-downloadjdk/index.html?lab=oci-jms) |
+| | | I have an OCI account (including free accounts) OR <br />I want reports on which versions I have downloaded OR <br />I need access to updates for JDK versions that are no longer offer under NFTC terms. | [Automatic Downloads with Java Management Service on OCI](../sprint-downloadjdk/index.html?lab=oci-jms) |
 | | | I do not have an OCI account  AND<br />I plan to use only releases under NFTC | [Automatic Downloads from Oracle.com](../sprint-downloadjdk/index.html?lab=auto-oracle) |
 |{: title="Oracle JDK Download Methods"}||||
 
 ## Acknowledgements
 **Videos** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
-**Last Updated By/Date** - Aurelio Garcia-Ribeyro,  January 2025
+**Last Updated By/Date** - Jason Begy,  February 3, 2025
 
