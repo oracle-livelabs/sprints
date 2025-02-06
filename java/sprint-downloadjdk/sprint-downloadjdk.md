@@ -36,6 +36,7 @@ The table assumes that you know what types of releases you want, but if you woul
 | | | I do not have an OCI account  AND<br />I plan to use only releases under NFTC | [Automatic Downloads from Oracle.com](../sprint-downloadjdk/index.html?lab=auto-oracle) |
 |{: title="Oracle JDK Download Methods"}||||
 
+
 ## Authors
 Jason Begy, Principal User Assistance Developer, Java Platform Group  
 Cody Gaffney, Technical Support Engineer, Java Platform Group  
