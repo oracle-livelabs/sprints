@@ -51,18 +51,19 @@ This sprint provides step-by-step instructions on how to update the timezone dat
     Run the verify command again to see if the change has taken effect.
 
 7. References
-    ![Slide 7 - References](./images/7-references.png)
-    Java SE Subscribers can learn more by viewing [Document 1999305.1 on My Oracle Support](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294479586613931&id=1999305.1).
-  
+    - [How to Use the TZUpdater "-l" Option to Add New Timezone Data to JDK or JRE Installations (Doc ID 1999305.1)](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=294479586613931&id=1999305.1) on My Oracle support
+
 ## Learn More  
+- [Timezone Updater Tool](https://www.oracle.com/java/technologies/javase/tzupdater-readme.html)
 - [TZUpdater Documentation](https://www.oracle.com/java/technologies/javase/tzupdater-readme.html)
+- [Timezone Data Versions in the Java Runtime](https://www.oracle.com/java/technologies/tzdata-versions.html)
 
 
 
 ## Acknowledgements
 **Video** - Cody Gaffney, Technical Support Engineer, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
-**Last Updated By/Date** - Jason Begy,  November 2024
+**Last Updated By/Date** - Jason Begy,  December 2024
 
 
 
