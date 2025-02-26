@@ -1,4 +1,4 @@
-# How do I determine if there are any circular payment chains using property graphs in Oracle Database 23ai?
+# How do I determine if there are any circular payment chains using Oracle Database 23ai?
 
 Duration: 10 minutes
 

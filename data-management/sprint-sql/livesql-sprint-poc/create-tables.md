@@ -1,5 +1,7 @@
 # How can I create tables in the Oracle database?
- <button onclick = "window.location.href = 'https://livesql.oracle.com/ords/livesql/file/tutorial_CT7TS7W016WULZZL5VLY92W9K.html';" style = "background-color: #884EA2; font-size: 14px; font-style: italic; font-weight: bold; color: white; border-radius: 8px; width: 100px; height: 30px; border: 0px;">Try It Now</button></br>
+<a href="https://livesql.oracle.com/ords/livesql/file/tutorial_CT7TS7W016WULZZL5VLY92W9K.html" target = "_blank">
+     <button style = "background-color: #884EA2; font-size: 14px; font-style: italic; font-weight: bold; color: white; border-radius: 8px; width: 100px; height: 30px; border: 0px;">Try It Now</button></br>
+</a> 
 
 Duration: 2 minutes
 
