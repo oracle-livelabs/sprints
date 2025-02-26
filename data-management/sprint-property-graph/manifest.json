@@ -3,7 +3,7 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
       {
-         "title": "Sprint - How do I determine if there are any circular payment chains using Oracle Database 23ai?",
+         "title": "Sprint - How do I determine if there are any circular payment chains using property graphs in Oracle Database 23ai?",
          "description": "",
          "filename": "sprint-get-started-with-property-graphs.md"
       }
