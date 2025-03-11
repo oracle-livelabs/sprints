@@ -73,3 +73,7 @@ In Wireshark, under the **Edit** menu select **Preferences**. In the Preferences
 The entries in the Info column for encrypted packets will now be decrypted.
     ![Decrypted packets](./images/decrypted-packet.png)
 
+## Acknowledgements
+**Video** - Raghu Kale, Principal Technical Support Engineer, Java Platform Group  
+**Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
+**Last Updated By/Date** - Jason Begy,  December 2025
