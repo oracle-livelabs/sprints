@@ -4,8 +4,8 @@
    "tutorials": [
       {
          "title": "Network Traffic Analysis With Wireshark",
-         "description": "Learn how to use Wireshark to capture and analyse HTTPS traffic.",
-         "filename": "sprint-ssldebug.md"
+         "description": "Learn how to use Wireshark to capture and analyze HTTPS traffic.",
+         "filename": "sprint-networktraffic.md"
       }
    ],
    "task_type": "Sections"
