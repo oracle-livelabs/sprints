@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Network Traffic Analysis With Wireshark",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Network Traffic Analysis With Wireshark",
+         "description": "Learn how to use Wireshark to capture and analyse HTTPS traffic.",
+         "filename": "sprint-ssldebug.md"
+      }
+   ],
+   "task_type": "Sections"
+}
