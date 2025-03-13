@@ -6,7 +6,7 @@ You can extend your active reservation by up to two times the original allotted 
 
 ## Extend your reservation
 
-1. Navigate to **My Reservations** on [Oracle LiveLabs](http://developer.oracle.com/livelabs) home page.
+1. Navigate to **My Reservations** on [Oracle LiveLabs](http://livelabs.oracle.com) home page.
 
 2. Then click on **Launch Workshop** of the active reservation you want to extend.
 
@@ -16,4 +16,4 @@ You can extend your active reservation by up to two times the original allotted 
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)

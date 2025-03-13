@@ -2,7 +2,7 @@
 
 Duration: 5 minutes
 
-Before you get started with any workshop in [Oracle LiveLabs](http://developer.oracle.com/livelabs), you will need an Oracle Cloud account either a Freetier, Always Free, customer/partner-owned or Oracle-owned cloud tenancy. Oracle LiveLabs provides the environments for most of our workshops. If you want to extend the workshop to create a proof-of-concept or start a project of their own, the workshops also run in Oracle Free Trial environments!
+Before you get started with any workshop in [Oracle LiveLabs](http://livelabs.oracle.com), you will need an Oracle Cloud account either a Freetier, Always Free, customer/partner-owned or Oracle-owned cloud tenancy. Oracle LiveLabs provides the environments for most of our workshops. If you want to extend the workshop to create a proof-of-concept or start a project of their own, the workshops also run in Oracle Free Trial environments!
 
 ## Using Oracle LiveLabs
 
@@ -84,6 +84,6 @@ Before you get started with any workshop in [Oracle LiveLabs](http://developer.o
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)
 * [Request Oracle Freetier Account](https://github.com/oracle-livelabs/common/blob/main/labs/cloud-login/pre-register-free-tier-account.md)
 * [Create an Oracle Accout](http://www.oracle.com/)

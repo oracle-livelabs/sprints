@@ -15,4 +15,4 @@ execute DBMS_APP_CONT_ADMIN.ENABLE_TAC('databaseid_tp.adb.oraclecloud.com', 'AUT
 ## Learn More
 
 * [Configure Your Service to Enable Application Continuity](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/application-continuity-configure.html#GUID-BFD31E09-1BA2-4D4B-AFBC-42D54B3E2BF0)
-* [Application Continuity Fundamentals](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=801&clear=180&session=2985410566499)
+* [Application Continuity Fundamentals](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=801&clear=180&session=2985410566499)

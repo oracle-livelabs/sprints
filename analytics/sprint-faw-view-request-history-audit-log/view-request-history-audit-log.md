@@ -23,7 +23,7 @@ When you run a job in Fusion Analytics Warehouse, it's a best practice to verify
 
 4. Here, you can see the list of requests such as data refreshes and data loads that were made to your functional areas. To view the list of request types and request statuses, click [here](https://docs.oracle.com/en/cloud/saas/analytics/22r2/fawag/view-load-request-history.html#GUID-6085251E-FB1C-4AE3-A3E8-517B2B3E5F65). Go back to **Data Configuration** and click **Audit Log**.
 
-    >**Note:** Incremental data refreshes are not recorded here. For a comprehensive list of refresh runs with more details, you must view the 'Common - Warehouse Refresh Statistics' subject area. This [LiveLabs Sprint](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3210&session=11021557938086) will guide you on how to explore that subject area to verify your incremental data refreshes.
+    >**Note:** Incremental data refreshes are not recorded here. For a comprehensive list of refresh runs with more details, you must view the 'Common - Warehouse Refresh Statistics' subject area. This [LiveLabs Sprint](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=3210&session=11021557938086) will guide you on how to explore that subject area to verify your incremental data refreshes.
 
   ![Request history](images/request-history.png)
 

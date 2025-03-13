@@ -6,7 +6,7 @@ Double-check that you are using the correct information and credentials provided
 
 ## Details to provide to sign in to Oracle Cloud account
 
-1. Navigate to **My Reservations** on [Oracle LiveLabs](http://developer.oracle.com/livelabs) home page.
+1. Navigate to **My Reservations** on [Oracle LiveLabs](http://livelabs.oracle.com) home page.
 
 2. Then click on **Launch Workshop** of your active reservation.
 
@@ -20,4 +20,4 @@ Double-check that you are using the correct information and credentials provided
 
 ## Learn More
 
-* [Experience Oracle's best technology, live!](http://developer.oracle.com/livelabs)
+* [Experience Oracle's best technology, live!](http://livelabs.oracle.com)
