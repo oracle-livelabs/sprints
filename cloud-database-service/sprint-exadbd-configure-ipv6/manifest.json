@@ -1,0 +1,15 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-exadata_us@oracle.com",
+   "tutorials": [
+      {
+
+         "title": "How do I configure IPv4/IPv6 Dual-Stack Networking for Oracle Exadata Database Service on Dedicated Infrastructure?",
+         "description": "Sprint for Configuring IPv4/IPv6 Dual-Stack Networking for Oracle Exadata Database Service on Dedicated Infrastructure",
+         "filename": "sprint-exadbd-configure-ipv6.md"
+      }
+
+
+   ],
+   "task_type": "Sections"
+}
