@@ -4,28 +4,33 @@ Duration: 9 minutes
 [video title](videohub:1_f4rft40n)
 
 ## Wireshark Overview
-Wireshark is an open source network traffic analyzer that offers deep insights into the behavior and performance of networks. It can capture network traffic from internet, Bluetooth, and wireless connections, and stores the data for offline analysis. WIt is useful for analysis and identifying issues.
+Wireshark is an open-source network traffic analyzer that provides in-depth insights into network behavior and performance. It captures network traffic from various sources, including the internet, Bluetooth, and wireless connections, and stores the data for offline analysis. Wireshark is valuable for analyzing network traffic and identifying issues. It helps in diagnosing problems, detecting performance bottlenecks, and uncovering security vulnerabilities.
 
 Key uses include:
 - Troubleshooting, to identify and analyze network issues such as latency or packet loss
 - Security Analysis, to detect potential security issues by marking suspicious traffic
 - Protocol Development, to assist developers in debugging and testing network protocols
 
-Wireshark supports multiple operating systems. This tutorial is for Linux, but the basics are the same across operating systems.
+Wireshark is compatible with multiple operating systems. While this tutorial focuses on Linux, the core functionalities and usage are consistent across other platforms as well.
 
 ## Packets
-Wireshark captures packets from network connections. A packet is a piece of data sent over a network. Packets contain various headers to specify the type of packet, the source and destination IP addresses, and the protocol.
+Wireshark captures packets from network connections. A packet is a unit of data transmitted over a network. Each packet includes headers that provide essential information, such as the type of packet, source and destination IP addresses, and the communication protocol used.
 
-In capturing network traffic, Wireshark will trace the packet from layers 2 to 7 of the Open Systems Interconnection (OSI) model.
+In network traffic analysis, Wireshark traces each packet through layers 2 to 7 of the Open Systems Interconnection (OSI) model, which is a conceptual framework used to understand and describe how different network protocols interact.
 
 ## How to Capture and Analyze HTTPS Traffic
 Launch Wireshark from a terminal using:
 ```
 wireshark &
 ```
-When Wireshark opens, select a network interface to capture traffic. To find out which interface is for your network connection, run `ifconfig` in the terminal.
+When Wireshark opens, the first step is to select a network interface through which you want to capture traffic. This interface represents the network connection (such as Ethernet, Wi-Fi, etc.) from which the data packets will be captured.
 
-Use the output to determine your local IP address and which interface is using it. Select this interface in Wireshark.
+To determine which network interface corresponds to your active network connection, follow these steps:
+
+1. Open the terminal on your Linux system.
+2. Type the command `ifconfig` and press Enter.
+
+Look for the network interface that has the IP address matching your current connection. Once you've identified the correct interface, select it in Wireshark to begin capturing network traffic.
 
 The next step is to capture packets. There are three ways to do this:
 - Click the **Start capturing packets** button in the tool bar
@@ -71,9 +76,9 @@ export SSLKEYLOGFILE=~/ssl-key.log
 In Wireshark, under the **Edit** menu select **Preferences**. In the Preferences window, expand **Protocols**. Scroll down and select **TLS**. Specify a (Pre)-Master-Secret log filename by clicking **Browse**. Navigate to your home directory and select the `ssl-key.log` file.
 
 The entries in the Info column for encrypted packets will now be decrypted.
-    ![Decrypted packets](./images/decrypted-packet.png)
+![Decrypted packets](./images/decrypted-packet.png)
 
 ## Acknowledgements
 **Video** - Raghu Kale, Principal Technical Support Engineer, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
-**Last Updated By/Date** - Jason Begy,  December 2025
+**Last Updated By/Date** - Jason Begy, March 2025
