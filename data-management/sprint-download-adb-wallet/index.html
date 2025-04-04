@@ -22,7 +22,14 @@
         document.write('<script src="//c.oracleinfinity.io/acs/account/wh3g12c3gg/js/oraclelabs/odc.js"><\/script>');
     }
     </script>
-    <script src="https://www.oracle.com/us/assets/metrics/ora_apex.js"></script>
+    <script>
+        if (!window.location.hostname.includes("github.io")) {
+            var script = document.createElement("script");
+            script.src = "https://www.oracle.com/us/assets/metrics/ora_apex.js";
+            script.async = true;
+            document.head.appendChild(script);
+        }
+    </script>
 </head>
 
 <body>
