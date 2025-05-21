@@ -1,5 +1,5 @@
 # How can I create tables in the Oracle database?
- <button onclick = "window.location.href = 'https://livesql.oracle.com/ords/livesql/file/tutorial_CT7TS7W016WULZZL5VLY92W9K.html';" style = "background-color: #884EA2; font-size: 14px; font-style: italic; font-weight: bold; color: white; border-radius: 8px; width: 100px; height: 30px; border: 0px;">Try It Now</button></br>
+<livesql-button>
 
 Duration: 2 minutes
 
@@ -25,17 +25,20 @@ For example, you define a table with a table name, such as employees, and a set 
 You can specify rules for each column of a table. These rules are called integrity constraints. One example is a NOT NULL integrity constraint. This constraint forces the column to contain a value in every row.
 
 ```
+<livesql>
 create table DEPARTMENTS (  
     deptno        number,  
     name          varchar2(50) not null,  
     location      varchar2(50),  
     constraint pk_departments primary key (deptno)  
 );
+</livesql>
 ```
 
 Tables can declarative specify relationships between tables, typically referred to as referential integrity. To see how this works we can create a "child" table of the DEPARTMENTS table by including a foreign key in the EMPLOYEES table that references the DEPARTMENTS table.
 
 ```
+<livesql>
 create table EMPLOYEES (  
     empno             number,  
     name              varchar2(50) not null,  
@@ -49,6 +52,7 @@ create table EMPLOYEES (
     constraint fk_employees_deptno foreign key (deptno) 
         references DEPARTMENTS (deptno)  
 );
+</livesql>
 ```
 
 Foreign keys must reference primary keys, so to create a "child" table the "parent" table must have a primary key for the foreign key to reference.
