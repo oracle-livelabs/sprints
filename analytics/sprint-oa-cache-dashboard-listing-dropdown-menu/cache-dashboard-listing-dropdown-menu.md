@@ -12,19 +12,19 @@ The Cache Dashboard Listing Dropdown Menu option is a great way to improve perfo
 
   ![Console](images/console.png)
 
-2. Under **Configuration and Administration**, select **System Settings**.
+2. Under **Configuration and Settings**, select **Advanced System Settings**.
 
   ![System Settings](images/system-settings.png)
 
-3. Within the System Settings, click on **Performance and Compatibility** and search for **Cache Dashboard Listing Dropdown Menu**. Toggle the button to enable this option.
+3. Within the Advanced System Settings, click on **Performance and Compatibility** and search for **Cache Dashboard Listing Dropdown Menu**. Toggle the button to enable this option.
 
   ![Performance](images/performance.png)
 
-4. Once you enable this option, scroll to the top and click **Restart** to apply this change.
+4. Once you enable this option, scroll to the top and click **Apply** to apply this change.
 
   ![Restart](images/restart.png)
 
-5. Click **OK** to restart the OBI Presentation Server component. The Cache Dashboard Listing Dropdown Menu should now be enabled.
+5. The Cache Dashboard Listing Dropdown Menu should now be enabled.
 
   ![Confirm restart](images/obips.png)
 
