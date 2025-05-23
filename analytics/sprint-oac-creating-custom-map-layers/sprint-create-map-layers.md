@@ -12,7 +12,7 @@ Map backgrounds enhance visualizations within your workbooks. Based on the colum
 
     ![Navigating to the console](images/navigate-to-console.png)
 
-2. In the console, open **Maps** under **Visualizations and Sharing**.
+2. In the console, open **Maps** under **Extensions and Enrichments**.
 
     ![Open the maps page](images/open-maps.png)
 
