@@ -9,7 +9,7 @@ As a BI Service Administrator in OAC, one of the privileges you have is the abil
 ## Reassign ownership of a workbook
 >**Note:** You must have **BI Service Administrator** application role to execute the following steps.
 
-1. Using the **Navigation menu** on the top left, click on **Console**. Within the console, scroll down and select **Content**. This will navigate you to the Content Management section.
+1. Using the **Navigation menu** on the top left, click on **Console**. Within the console, scroll down and select **Content Management**. This will navigate you to the Content Management section.
 
     ![Console](images/console.png)
 
