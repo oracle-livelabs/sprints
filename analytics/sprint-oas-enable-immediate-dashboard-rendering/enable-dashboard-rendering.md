@@ -12,7 +12,7 @@ When the 'Enable Immediate Dashboard Rendering' option is enabled, it displays d
 
   ![Console](images/console.png)
 
-2. Under **Configuration and Administration**, select **System Settings**.
+2. Under **Configuration and Settings**, select **Advanced System Settings**.
 
   ![Configuration Admin](images/system-settings.png)
 
@@ -20,11 +20,11 @@ When the 'Enable Immediate Dashboard Rendering' option is enabled, it displays d
 
   ![System Settings](images/performance.png)
 
-4. Once you enable this option, scroll to the top and click **Restart** to apply this change.
+4. Once you enable this option, scroll to the top and click **Apply** to apply this change.
 
   ![Restart](images/restart.png)
 
-5. Click **OK** to restart the OBI Presentation Server component. Your dashboard content should now be rendered immediately.
+5. Your dashboard content should now be rendered immediately.
 
   ![Confirm restart](images/obips.png)
 
