@@ -18,10 +18,10 @@ Você pode se conectar a fontes de dados remotas on-premises através de um [Pri
 
    ![Console](images/console.png)
 
-2. Clique em **Conectividade Remota de Dados**.
+2. Clique em **Conectividade de Dados remotos**.
    ![Remote Data Connectivity](images/remote-data-connectivity.png)  
 
-3. Alterne para a opção **Ativar Gateway De Dados** 
+3. Alterne para a opção **Ativar Gateway De Dados**
 
    ![Enable the Enable Data Gateway](images/enable-data-gateway.png)   
 
@@ -29,7 +29,7 @@ Você pode se conectar a fontes de dados remotas on-premises através de um [Pri
 
    ![Create Connection](images/create-connection.png)  
 
-5. Selecione a conexão **Oracle Database** 
+5. Selecione a conexão **Oracle Database**
 
    ![Oracle Data Base Connection](images/connection-database.png)   
 
