@@ -1,18 +1,16 @@
-# How do I delete an Oracle Analytics Cloud Vanity URL?
+# How do I delete an Oracle Analytics Cloud(OAC) Vanity URL?
 
 Duration: 1 minute
 
-Deleting the vanity URL is needed when you no longer need it or when the domain name is changed, as you have to delete and create the vanity URL for the new domain name.
+You can delete a vanity URL when you no longer need it. You must delete and recreate a vanity URL when the domain name has changed.
 
-Delete the SSL certificates for your Vanity URL in below scenarios.
-*	Vanity URL is no longer needed.
-*	Domain Name is changed.
+Deleting a vanity URL removes its SSL certificates
 
-## Delete OAC Vanity URL
+## Delete an OAC Vanity URL
 
->**Note:** You must have an **OAC Administrator** role to complete this Sprint.
+>**Note:** You must have an **OAC Administrator** role to complete the following steps.
 
-1. Sign in to the OCI Console at https://cloud.oracle.com
+1. Go to https://cloud.oracle.com and Sign into Oracle Cloud.
 
 2. In Oracle Cloud Infrastructure Console, click **Navigation menu** in the top left corner.
 
@@ -20,7 +18,7 @@ Delete the SSL certificates for your Vanity URL in below scenarios.
 
 3. Select the compartment that contains the OAC instance you're looking for.
 
-4. Click the name of the OAC instance for which you want to delete the vanity URL.
+4. Click the OAC instance with the vanity URL you want to delete.
 
 5. On the **Instance Details** page, click **More Actions** and then select **Remove Vanity URL**.
 
