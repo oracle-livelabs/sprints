@@ -20,11 +20,7 @@ Use the Enable Immediate Dashboard Rendering system setting to display dashboard
 
   ![System Settings](images/performance.png)
 
-4. Once you enable this option, scroll to the top and click **Apply** to apply this change.
-
-  ![Restart](images/restart.png)
-
-5. Your dashboard content should now be rendered immediately.
+4.Your dashboard content should now be rendered immediately.
 
   ![Confirm restart](images/obips.png)
 
