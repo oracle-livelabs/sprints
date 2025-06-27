@@ -6,7 +6,7 @@ The Cache Dashboard Listing Dropdown Menu option is a great way to improve perfo
 
 ## Enable cache dashboard listing dropdown menu
 
->**Note:** You must have the **BI Service Administrator** application role to complete this Sprint. This setting can result in a stale list and is refreshed when your user logs out and logs back in.
+>**Note:** You must have the **BI Service Administrator** role to complete the following steps. Changing this system setting can result in users experiencing stale dashboard lists. After you change this setting, users should log out and log back into Oracle Analytics.
 
 1. In your Oracle Analytics instance, click the **Navigation menu** and select **Console**.
 
@@ -14,17 +14,13 @@ The Cache Dashboard Listing Dropdown Menu option is a great way to improve perfo
 
 2. Under **Configuration and Settings**, select **Advanced System Settings**.
 
-  ![System Settings](images/system-settings.png)
+  ![Configuration Admin](images/system-settings.png)
 
-3. Within the Advanced System Settings, click on **Performance and Compatibility** and search for **Cache Dashboard Listing Dropdown Menu**. Toggle the button to enable this option.
+3. Within the System Settings, click the **Performance and Compatibility** and search for **Enable Immediate Dashboard Rendering**. Click the toggle to enable it.
 
-  ![Performance](images/performance.png)
+  ![System Settings](images/performance.png)
 
-4. Once you enable this option, scroll to the top and click **Apply** to apply this change.
-
-  ![Restart](images/restart.png)
-
-5. The Cache Dashboard Listing Dropdown Menu should now be enabled.
+4. Your dashboard content should now be rendered immediately.
 
   ![Confirm restart](images/obips.png)
 
