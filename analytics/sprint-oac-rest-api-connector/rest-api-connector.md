@@ -8,23 +8,11 @@ As of the September 2022 update, Oracle Analytics allows you to create a connect
 
 >**Note:** You must have the **BI Service Administrator** application role to complete this Sprint.
 
-1. In your Oracle Analytics instance, click the **Navigation menu** and select **Console**.
-
-  ![Console](images/console.png)
-
-2. Under **Configuration and Administration**, select **System Settings**.
-
-  ![System Settings](images/config-admin.png)
-
-3. Scroll down to the **Preview** section and enable the **Preview the Generic Rest Connector** toggle.
-
-  ![Toggle](images/systemsettings.png)
-
-4. You will need to sign out and sign back in to apply the change to your instance. From the homepage, click **Create** and select **Connections**. You should now see the REST API connector in the **Create Connections** menu. Select **REST API**.
+1. From the homepage, click **Create** and select **Connections**. You should now see the REST API connector in the **Create Connections** menu. Select **REST API**.
 
   ![Connections](images/create-connections.png)
 
-5. In the next screen, enter the details of your REST API that you want to access and click **Save**. The basic information required for connecting are:
+2. In the next screen, enter the details of your REST API that you want to access and click **Save**. The basic information required for connecting are:
 
     * Base URL of the REST API
     * REST API endpoints
@@ -33,11 +21,11 @@ As of the September 2022 update, Oracle Analytics allows you to create a connect
 
   ![Enter REST API connector details](images/connection-details.png)
 
-6. Once the connection has been created, you can create a dataset using the REST API connection in the normal fashion. On the homepage, click **Create** and select **Dataset**. Select the **REST API** connection we just created.
+3. Once the connection has been created, you can create a dataset using the REST API connection in the normal fashion. On the homepage, click **Create** and select **Dataset**. Select the **REST API** connection we just created.
 
   ![Create dataset](images/create-dataset.png)
 
-7. In the connection panel, expand the REST API connection to the **AUTOREST** schema to access the result sets of the endpoints. The RESULTS tables contain the data from the endpoints and the others contain metadata of the endpoints.
+4. In the connection panel, expand the REST API connection to the **AUTOREST** schema to access the result sets of the endpoints. The RESULTS tables contain the data from the endpoints and the others contain metadata of the endpoints.
 
   ![New dataset](images/new-dataset.png)
 

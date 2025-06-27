@@ -1,44 +1,44 @@
 # How do I create a dataset using Dropbox in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 3 minutes
 
-You can create a dataset from Dropbox by creating a connection in Oracle Analytics Cloud.
+You can create a connection to Dropbox to access files to use in datasets.
 
-## Create a Dataset From a Dropbox Connection
+## Create a dataset From a Dropbox Connection
 
->**Note:** You must have the **DV Content Author** application role to execute the following steps.
+>**Note:** You must have the **DV Content Author** role to complete the following steps.
 
-1. On the Home page, click **Create** and then click **Dataset.**
-
-    ![Create Best Visualization to populate image](images/create-dataset.png)
-
-2. In the Create Dataset dialog, select **Create a Connection**.
-
-    ![Select statistics for clusters or outliers](images/create-connection.png)
-
-3. Browse for and select the **Dropbox** Connection.
-
-    ![Select Dropbox option](images/select-dropbox.png)
-
-4. In the **Create Connection** dialog box, you'll need to enter your connection details.
-
-    ![Connection credentials](images/dropbox-connection.png)
-
-5. The Client ID and Client Secret will be available after creating an app for Dropbox. You can access the Dropbox developers app console to create an app by clicking this link: [Dropbox apps](https://www.dropbox.com/developers/apps)
+1. The Client ID and Client Secret will be available after creating an app for Dropbox. Click this link: [Dropbox apps](https://www.dropbox.com/developers/apps) to access the console.
 
 
-6. Sign into Dropbox and create an app. Fill out the information and click **Create app**.
+2. In Dropbox, create an app as shown below. Click **Create app**.
 
     ![Dropbox App](images/dropbox-oauth.png)
 
-7. The result will populate the **App key** and the **App secret**. Copy and paste the App key into the **Client ID** field and the App secret into the **Client Secret** in the OAC/OAS **Create Connection** dialogue box.
+3. Creating the app populates the **App key** and the **App secret**. These are the values you'll need when you create the OAC connection to Dropbox.
 
     >**Note:** You will need to paste the **Redirect URL** from Oracle Analytics' create connection window.
 
   ![Dropbox app creation](images/dropbox-direct-url.png)
 
-8. Lastly, navigate to the **Permissions** tab and enable read/write permissions for the fields under **Account Info** and **Files and Folders**. Click **Submit**.
+4. Lastly, navigate to the **Permissions** tab and enable read/write permissions for the fields under **Account Info** and **Files and Folders**. Click **Submit**.
 
   ![Dropbox Permissions](images/permissions.png)
+
+5. On the Home page, click **Create** and then click **Dataset.**
+
+    ![Create Best Visualization to populate image](images/create-dataset.png)
+
+6. In the Create Dataset dialog, select **Create a Connection**.
+
+    ![Select statistics for clusters or outliers](images/create-connection.png)
+
+7. Browse for and select the **Dropbox** connection.
+
+    ![Select Dropbox option](images/select-dropbox.png)
+
+8. In **Create Connection**, enter a name in Connection Name. In Client ID paste the Dropbox App key, and in Client Secret paste the Dropbox App App secret. Click Authorize.
+
+    ![Connection credentials](images/dropbox-connection.png)
 
 9. Select **Authorize** and in the Dropbox prompt to authorize the connection, click **Allow.** Then click **OK.**
 
@@ -51,7 +51,7 @@ You can create a dataset from Dropbox by creating a connection in Oracle Analyti
 
     ![OAC datasets from drive](images/drive-updated.png)
 
-Congratulations! You have successfully learned how to create a dataset using Dropbox in Oracle Analytics Cloud and Server (OAC & OAS).
+Congratulations! You have learned how to create a dataset using Dropbox in Oracle Analytics Cloud and Server (OAC & OAS).
 
 ## Learn More
 
