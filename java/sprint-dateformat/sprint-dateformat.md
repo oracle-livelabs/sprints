@@ -3,7 +3,7 @@ Duration: 5 minutes
 
 This is a quick tutorial on the significance of 'YYYY' (uppercase Y) and 'yyyy' (lowercase y) in Java date formatting.
 
-[jcmd Tutorial](videohub:1_)
+[The Significance of 'YYYY' and 'yyyy' in Java Date Formatting](videohub:1_gwyao78b)
 
 
 ## Introduction
@@ -96,10 +96,12 @@ The 'yyyy' format is more suitable for standard date formatting and is used for 
 - [Class DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)
 - [Java SE] YYYY vs yyyy in Java Date Formatting ([Doc ID 3066357.1](https://support.oracle.com/epmos/faces/DocumentDisplay?id=3066357.1))
 
+
 ## Acknowledgements
 **Video** - Anjana Sajeev, Technical Support Engineer, Java Platform Group  
+**Additional Content** - Aurelio Garcia-Ribeyro, Sr. Director of Product Management, Java Platform Group  
 **Workshop** -  Jason Begy, Principal User Assistance Developer, Java Platform Group  
-**Last Updated By/Date** - Jason Begy,  May 2025
+**Last Updated By/Date** - Jason Begy,  June 2025
 
 
 
