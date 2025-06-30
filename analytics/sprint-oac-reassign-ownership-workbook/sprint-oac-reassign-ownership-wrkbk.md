@@ -27,4 +27,4 @@ Congratulations, you've learned how to change workbook ownership in Oracle Analy
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
-* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
+* **Last Updated By/Date** - Shiva Oleti,  June 2025
