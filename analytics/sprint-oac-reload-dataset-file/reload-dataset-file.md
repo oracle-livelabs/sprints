@@ -1,45 +1,43 @@
-# How do I reload my dataset files in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I reload my dataset's files in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 1 minute
 
 ### Situation
-You have a workbook that you built with visualizations and multiple canvases based on an outdated dataset. You have received a newer version of the dataset with updated rows and you don't want to create a new workbook and build all the visualizations over again. What do you do?
+When your create a dataset from a file such as a spreadsheet, you might need to reload a newer version of the file so that your workbooks contain the most current data. This sprint teaches you two ways of reloading a file to a dataset.
 
 ![Situation canvas](images/first-canvas.png)
 
-This Sprint will show you two methods of reloading a data file in Oracle Analytics Cloud.
-
 ## Reload dataset files
->**Note:** You must have the **DV Content Author** application role to successfully execute this Sprint.
+>**Note:** You must have the **DV Content Author** role to complete the following steps.
 
 ### Reload datasets within a workbook
 
-1. Within your Oracle analytics workbook, click on **Data** and click the **Actions Menu** represented by the three dots for the dataset you want to reload. Click **Reload Data**.
+1. Open your workbook for editing, click **Data**, locate the table sourced from the file that you want to update, click **Actions**, and select **Reload Data**.
 
     ![Reload data](images/data-reload.png)
 
-2. Click **Select File** and open the updated dataset. Once you receive the message that the data reload was successful, click **OK**.
+2. In Reload Data, click **Select a File** and browse for and select the replacement file. Click **Open**. After the file has been uploaded, click **OK**.
 
-    >**Note:** Your reload will fail if the new data file is missing columns that are in the original dataset.
+    >**Note:** Your reload will fail, if the new data file is missing columns that are in the original dataset.
 
     ![Select file](images/select-file.png)
 
-3. Click on **Visualize** and your canvases will automatically update to reflect the updated dataset.
+3. In the canvas, click **Visualize**. The visualizations update with the updated data.
 
     ![Updated](images/updated-canvas.png)
 
 
 ### Reload datasets outside of a workbook
 
-1. From your Oracle Analytics homepage, navigate to your **Datasets** by clicking on the **Navigation menu** and selecting **Data**. This will display all your datasets.
+1. In the Oracle Analytics Home page, click **Navigator** and select **Data**.
 
     ![Datasets navigation](images/console-data.png)
 
-2. Find the dataset you want to reload with your updated data and **right click** and select **Reload Data**.
+2. In the datasets list, hover over the dataset you want to reload, click **Actions**, and select **Reload Data**.
 
     ![Reload data](images/reload-data.png)
 
-3. Click **Select File** and open the updated file. When you receive a message that your reload was successful, click **OK**. Your dataset should now be updated with the new rows.
+3. In Reload Data, click Select a File and browse for and select the replacement file. Click **Open**. After the file has been uploaded, click **OK**.
 
     >**Note:** Your reload will fail if the new data file is missing columns that are in the original dataset.
 
@@ -53,4 +51,4 @@ Congratulations! You have just learned how to reload a dataset file in Oracle An
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Product Manager, Product Strategy
-* **Last Updated By/Date** - Nagwang Gyamtso,  June 2022
+* **Last Updated By/Date** - Shiva Oleti,  June 2025
