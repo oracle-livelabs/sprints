@@ -1,27 +1,25 @@
-# How do I reassign ownership of a workbook in Oracle Analytics Cloud (OAC)?
+# How do I reassign ownership of a workbook in Oracle Analytics Cloud and Oracle Analytics Server (OAC & OAS)?
 
 Duration: 1 minute
 
-As a BI Service Administrator in OAC, one of the privileges you have is the ability to reassign content to other users. For example, when someone in your team leaves the organization, you can reassign the ownership of the content owned by said user to another user or yourself within your team.
-
-[](youtube:JhUGmiDG28Q:large)
+As an administrator you can reassign content from one user to another, such as when someone on a team leaves the organization.
 
 ## Reassign ownership of a workbook
->**Note:** You must have **BI Service Administrator** application role to execute the following steps.
+>**Note:** You must have the BI Service Administrator role to complete the following steps.
 
-1. Using the **Navigation menu** on the top left, click on **Console**. Within the console, scroll down and select **Content Management**. This will navigate you to the Content Management section.
+1. In the Oracle Analytics Home page, click **Navigator** and select **Console**. In the **Management and Administration** section, click **Content Management**.
 
     ![Console](images/console.png)
 
-2. Once inside the Content Management section, select the workbook that you want to change the ownership of. Once the workbook is selected, click the **Change Ownership** button.
+2. In Content Management, click to select the workbook you want to change ownership for. Click **Change Ownership**.
 
     ![Content management](images/content-management.png)
 
-3. In the change ownership window, search for the user that you want to assign the ownership to and select that user. Once you click **OK**, you should see the ownership of the workbook update to the user that you have selected.
+3. In the Change Ownership dialog, click the Change ownership dropdown and select Users. In the search box, type the name of the user you want to reassign the workbook to. Click to select the user name, and then click **OK**.
 
     ![change-owner](images/change-owner.png)
 
-Congratulations, you have now learned how to reassign ownership of a workbook in Oracle Analytics Cloud (OAC)!
+Congratulations, you've learned how to change workbook ownership in Oracle Analytics!
 
 ## Learn More
 
