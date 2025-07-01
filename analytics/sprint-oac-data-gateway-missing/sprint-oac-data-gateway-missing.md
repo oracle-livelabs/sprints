@@ -41,7 +41,7 @@ You can connect to remote on-premises data sources over a [Private Access Channe
    ![Remote Data Connectivity Option](images/remote-database-connectivity-option.png)  
 
 
-Congratulations, you've learned hot to enable the **Use Remote Data Connectivity** option to connect to private data sources!
+Congratulations, you've learned how to enable the **Use Remote Data Connectivity** option to connect to private data sources!
 
 
 ## Learn More
