@@ -46,4 +46,4 @@ Congratulations, you've learned how to setup the REST API connector in Oracle An
 ## Acknowledgements
 
 * **Author** - Joel Acha, Senior Business Solutions Architect, Qubix
-* **Last Updated By/Date** - Nagwang Gyamtso, November 2022
+* **Last Updated By/Date** - Shiva Oleti, June 2025
