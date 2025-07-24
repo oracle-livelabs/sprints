@@ -8,6 +8,11 @@
          "filename": "./sprint-downloadjdk.md"
       },
       {
+         "title": "Oracle Linux on OCI",
+         "description": "Install the JDK on Oracle Linux via OCI YUM repositories.",
+         "filename": "./labs/ol-oci.md"
+      },
+      {
          "title": "Manual Downloads from My Oracle Support",
          "description": "Customers can download the JDK, components, and BPRs from My Oracle Support.",
          "filename": "./labs/manual-mos.md"
