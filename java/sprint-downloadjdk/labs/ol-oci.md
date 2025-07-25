@@ -1,7 +1,10 @@
-# Installing the JDK on Oracle Linux Using OCI YUM Repositories
+# Manually Downloading the the JDK on Oracle Linux Using OCI yum Repositories
 
 ## Overview
-This tutorial covers installing the JDK on Oracle Linux using Oracle Cloud Infrastructure (OCI) YUM repositories.
+This tutorial covers installing the JDK on Oracle Linux using Oracle Cloud Infrastructure (OCI) yum repositories.
+
+This method is available to OCI customers.  
+<br />
 
 ## Tutorial
 [Downloading for Oracle Linux on OCI](videohub:1_cmjf7kys)
@@ -36,11 +39,11 @@ This command assumes you are using Oracle Linux 9. If you are using a different 
 
 This ensures your system can communicate with Oracle's official package server.
 
-If you get a `No such command: config --manager` error, make sure you have `dnf -plugin -core` installed.  
+If you get a `No such command: config-manager` error, make sure you have `dnf-plugin-core` installed.  
 <br />
 
 ### 4. View Available JDK Versions
-View the JDK versions available from the repository:
+View which JDK versions are available from the repository:
 ```
 <copy>dnf list available | grep jdk</copy>
 ```
@@ -49,12 +52,12 @@ This will show all the available Oracle JDK packages, and a few other packages a
 The Oracle JDK packages are named `jdk-VERSION-headless/headful`.  
 <br />
 
-### 5. Install the JDK
-To download the JDK, in this example JDK 17:
+### 5. Download and Install the JDK
+Download and install the JDK (in this example JDK 17):
 ```
 <copy>sudo dnf install jdk-17-headful -y</copy>
 ```
-Replace `17-headful` with the name of the package you want to install.
+To download a different version, replace `17-headful` with the name of the package you want to install.
 
 If you get a `package not found` error, ensure you are entering the package name exactly as it appears in the list.  
 <br />
