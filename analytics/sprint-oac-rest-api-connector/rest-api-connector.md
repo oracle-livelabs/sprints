@@ -1,27 +1,32 @@
-# How do I setup the REST API connector in Oracle Analytics Cloud (OAC)?
+# How do I setup the REST API connector in Oracle Analytics Cloud (OAC) and Oracle Analytics Server(OAS)?
 
 Duration: 3 minutes
 
-As of the September 2022 update, Oracle Analytics allows you to create a connection to your data source using a REST API connector. This Sprint will guide you on how to set that up.
+This sprint teaches you how to use a REST API connector to create an OAC connection.
 
-## Setup the REST API Connector
+## Setup the REST API connector
 
->**Note:** You must have the **BI Service Administrator** application role to complete this Sprint.
+>**Note:** You must have the **BI Service Administrator** role to complete the following steps.
 
-1. From the homepage, click **Create** and select **Connections**. You should now see the REST API connector in the **Create Connections** menu. Select **REST API**.
+1. In the Oracle Analytics Home page, click **Create** and select **Connections**. Click **REST API**.
 
   ![Connections](images/create-connections.png)
 
-2. In the next screen, enter the details of your REST API that you want to access and click **Save**. The basic information required for connecting are:
+2. In Create Connection, enter values in these fields:
 
-    * Base URL of the REST API
-    * REST API endpoints
-    * Authentication type
-    * Authentication credentials
+	 * REST base URL
+   * REST endpoints
+   * Authentication
+   * Authentication Header
+   * Security Token
+
+   Click **Save**
 
   ![Enter REST API connector details](images/connection-details.png)
 
-3. Once the connection has been created, you can create a dataset using the REST API connection in the normal fashion. On the homepage, click **Create** and select **Dataset**. Select the **REST API** connection we just created.
+3. Use the REST API connection to create a dataset. From the Home page, click **Create** and select **Dataset**.
+
+   In Create Dataset, select the **REST API connection** you created.
 
   ![Create dataset](images/create-dataset.png)
 
@@ -29,7 +34,7 @@ As of the September 2022 update, Oracle Analytics allows you to create a connect
 
   ![New dataset](images/new-dataset.png)
 
-Congratulations! You have successfully learned how to setup the REST API connector in Oracle Analytics Cloud (OAC).
+Congratulations, you've learned how to setup the REST API connector in Oracle Analytics!
 
 ## Learn More
 
@@ -41,4 +46,4 @@ Congratulations! You have successfully learned how to setup the REST API connect
 ## Acknowledgements
 
 * **Author** - Joel Acha, Senior Business Solutions Architect, Qubix
-* **Last Updated By/Date** - Nagwang Gyamtso, November 2022
+* **Last Updated By/Date** - Shiva Oleti, June 2025
