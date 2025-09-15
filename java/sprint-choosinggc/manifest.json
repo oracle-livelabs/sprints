@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "Choosing a Garbage Collector",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Choosing a Garbage Collector",
+         "description": "An Introduction to the Java Heap and its Garbage Collectors for the Oracle JDK.",
+         "filename": "sprint-choosinggc.md"
+
+      }
+   ],
+   "task_type": "Sections"
+}
