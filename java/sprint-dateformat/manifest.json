@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "The Significance of 'YYYY' and 'yyyy' in Java Date Formatting",
+   "help": "livelabs-help-sprints_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "'YYYY' versus 'yyyy' Date Formatting'",
+         "description": "Learn about week-based year date formatting in the JDK.",
+         "filename": "sprint-dateformat.md"
+
+      }
+   ],
+   "task_type": "Sections"
+}
