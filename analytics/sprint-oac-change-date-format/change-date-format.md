@@ -2,25 +2,25 @@
 
 Duration: 1 minute
 
-When you are working with date columns in Oracle Analytics Cloud, there are many alterations you can make to it. You have the ability to extract parts of your date such as days, months, quarters and years as well as change the format of your date. In this Sprint, we will learn how to change the display format of our date columns in Oracle Analytics Cloud.
+There are many ways that you can change a data column, for example, extract parts of a date like day, month, quarter, and year, and change a date's format. In this sprint you'll learn how to change a date column's display format.
 
 ## Change date format
 
->**Note:** You must have the **DV Content Author** application role to execute the following steps.
+>**Note:** You must have the **DV Content Author** application role to complete the following steps.
 
-1. In your workbook, open the dataset editor by clicking on **Data** and then clicking the **Pencil** icon of the dataset you want to edit.
+1. Open a workbook that uses a dataset containing a date column. Click **Data** and then click the **Pencil** icon to display the dataset's columns.
 
     ![Dataset editor](images/edit-dataset.png)
 
-2. In the dataset editor, find and select the date column that you want to edit the display format of. This will toggle the **Data Pane** for this specific column we have selected. Click the **Date/Time Format** as shown by the clock icon.
+2. In the Dataset editor, find and click the date column to edit. The Preparation Script panel updates to display the column's properties. In the panel, click **Date/Time Format**.
 
     ![Date editor](images/date-editor.png)
 
-3. In the **Format** section, click the current selection which is **Auto** and you will see the different options you have for formatting your date column.
+3. In **Format**, click **Auto** to view the available formatting options.
 
     ![Format options](images/format-options.png)
 
-4. Choose the format you want and the date column will update to reflect the change you have made. Click **Apply Script** to save your changes.
+4. Choose a date format.  The date column updates. Click **Save** to save the workbook.
 
     ![Apply script](images/apply-script.png)
 

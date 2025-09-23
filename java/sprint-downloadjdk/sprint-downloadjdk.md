@@ -27,6 +27,8 @@ The table assumes that you know what types of releases you want, but if you woul
 
 | I Want | ...and... | ...also ... |...so I will refer to...|
 |--------|-----------|-------------|------------------------|
+| The JDK for Oracle Linux | | | |
+| | I am an OCI customer | | [Manual Downloads for Oracle Linux on OCI](../sprint-downloadjdk/index.html?lab=ol-oci) |
 | The JDK for Linux, Windows, or macOS | | | |
 | | I want to download it manually | | |
 | | | I am an Oracle customer | [Manual Downloads from My Oracle Support](../sprint-downloadjdk/index.html?lab=manual-mos) |
@@ -42,4 +44,4 @@ Jason Begy, Principal User Assistance Developer, Java Platform Group
 Cody Gaffney, Technical Support Engineer, Java Platform Group  
 Aurelio Garcia-Ribeyro, Sr. Director of Product Management, Java Platform Group  
 
-**Last Updated By/Date** - Jason Begy, February 6, 2025
+**Last Updated By/Date** - Jason Begy, July 2025

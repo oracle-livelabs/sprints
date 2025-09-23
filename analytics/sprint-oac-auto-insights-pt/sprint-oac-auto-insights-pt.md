@@ -14,7 +14,7 @@ As etapas a seguir mostrarão como habilitar o Auto Insights se não estiver apa
 
    ![Console](images/console.png)
 
-2. Clique em **Definições do Sistema**.
+2. Clique em **Configurações avançadas do sistema**.
 
    ![System Settings](images/system-settings.png)
 

@@ -11,7 +11,7 @@ Custom map layers are a unique way to leverage the geo spatial capabilities of O
 
     ![Navigating to the console](images/navigate-to-console.png)
 
-2. In the console, open **Maps** under **Visualizations and Sharing**.
+2. In the console, open **Maps** under **Extensions and Enrichments**.
 
     ![Open the maps page](images/open-maps.png)
 
