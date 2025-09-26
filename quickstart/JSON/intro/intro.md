@@ -8,7 +8,7 @@ In the fast-paced world of application development, the need to handle dynamic, 
 
 This QuickStart will introduce you to JSON Relational Duality, a powerful feature that allows you to store data in relational tables while accessing it as JSON documents — or the other way around. Imagine having the performance and consistency of relational databases, combined with the flexibility of JSON, all within a single, unified system. Let's explore how this game-changing feature can simplify your development process and take your data management to the next level.
 
-[](youtube:REPLACE_WITH_VIDEO_ID)
+#[](youtube:REPLACE_WITH_VIDEO_ID)
 
 ## What you gain with JSON in Oracle Database 23ai:
 

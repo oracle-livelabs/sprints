@@ -188,8 +188,8 @@ Congratulations, you have successfully completed the QuickStart Demo on JSON in 
 
 ## Walkthrough
 
-(placeholder for walkthrough video)
-[](youtube:REPLACE_WITH_VIDEO_ID)
+#(placeholder for walkthrough video)
+#[](youtube:REPLACE_WITH_VIDEO_ID)
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
