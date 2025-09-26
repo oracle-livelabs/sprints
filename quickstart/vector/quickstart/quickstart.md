@@ -238,16 +238,13 @@ Retailers can enhance product discovery by finding similar items or understandin
     /
     <copy>
     ```
-2. Congratulations, you have succesfully completed your first AI Vector Search similarity search!
+2. Congratulations, you have successfully completed your first AI Vector Search similarity search!
 
     ![Navigate to Directory](./images/vector-results.png " ")
 
 These snippets demonstrate the core concepts and practical applications. For production use, consider security, error handling, and performance tuning.
 
-## Walkthrough
 
-#(placeholder for walkthrough video)
-#[](youtube:REPLACE_WITH_VIDEO_ID)
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management

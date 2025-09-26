@@ -19,8 +19,6 @@ Key benefits include:
 
 This QuickStart provides hands-on examples to get you started with AI Vector Search in Oracle Database 23ai, focusing on practical business cases in Financial, Manufacturing, and Retail industries.
 
-#(placeholder for 30 second hook)
-#[](youtube:REPLACE_WITH_VIDEO_ID)
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
