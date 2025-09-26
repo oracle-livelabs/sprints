@@ -19,7 +19,7 @@ What you'll do:
 
 - Apply everything in a pre-built APEX app.
 
-👉 [Start the Advanced Workshop](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=4166)
+👉 Click here to [Start the Advanced Workshop](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=4166&clear=RR,180&session=13771097537930)
 
 
 ## Learn More
@@ -30,6 +30,6 @@ What you'll do:
 
 
 ## Acknowledgements
-* **Author** - Kevin Lazarz, Database Product Management
-* **Contributors** -  William Masdon, Linda Foinding, Pat Sheppard, Francis Regalado,
+* **Author** - Linda Foinding, Database Product Management
+* **Contributors** -  Kevin Lazarz, William Masdon, Linda Foinding, Pat Sheppard, Francis Regalado, Brianna Ambler
 * **Last Updated By/Date** - Linda Foinding, September 2025

@@ -2,12 +2,13 @@
 
 ## About this LiveLabs QuickStart
 
-(placeholder for 30 second hook)
-[](youtube:REPLACE_WITH_VIDEO_ID)
+### Harness the Power of AI Vector Search for Smarter Data Retrieval
 
-AI Vector Search is a revolutionary technology that enables semantic search by representing data as vectors in a high-dimensional space. Unlike traditional keyword-based searches that rely on exact matches, vector search finds content based on meaning and context. This is achieved through embeddings—numerical representations of data that capture semantic relationships.
+AI Vector Search isn’t just another search tool — it’s a game-changer. Unlike traditional keyword searches that focus on exact matches, AI Vector Search taps into the meaning and context behind the data. How? By transforming information into vectors — mathematical representations that capture the semantic relationships within the data. This allows you to search not just for keywords, but for concepts that are contextually relevant.
 
-Why is AI Vector Search important? In today's data-rich world, businesses generate vast amounts of unstructured data like text, images, and documents. Traditional search methods often fail to understand the nuances of language or the context behind queries. Vector search bridges this gap by allowing for similarity searches that go beyond surface-level keywords, enabling more accurate and relevant results.
+So, why should you care about AI Vector Search? In today’s data-driven world, businesses are overwhelmed with unstructured data: documents, images, text, and more. Traditional search methods struggle to understand the nuances of human language or the deeper context of a query. But AI Vector Search bridges that gap. It enables you to perform semantic searches, finding content that’s relevant not just by matching keywords, but by understanding the true meaning behind your search.
+
+Imagine being able to search for a product based on concepts like "eco-friendly," or a document based on its context rather than just its title. AI Vector Search takes your data retrieval to the next level by providing results that are more accurate, relevant, and meaningful.
 
 Key benefits include:
 - **Improved Relevance**: Find documents, products, or answers by meaning, not just words.
@@ -18,7 +19,10 @@ Key benefits include:
 
 This QuickStart provides hands-on examples to get you started with AI Vector Search in Oracle Database 23ai, focusing on practical business cases in Financial, Manufacturing, and Retail industries.
 
+(placeholder for 30 second hook)
+[](youtube:REPLACE_WITH_VIDEO_ID)
+
 ## Acknowledgements
-* **Author** - Kevin Lazarz, Database Product Management
-* **Contributors** -  William Masdon, Linda Foinding, Pat Sheppard, Francis Regalado,
+* **Author** - Linda Foinding, Database Product Management
+* **Contributors** -  Kevin Lazarz, William Masdon, Linda Foinding, Pat Sheppard, Francis Regalado, Brianna Ambler
 * **Last Updated By/Date** - Linda Foinding, September 2025

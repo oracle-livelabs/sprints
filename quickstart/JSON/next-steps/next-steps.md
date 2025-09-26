@@ -12,7 +12,7 @@ What you'll do:
 - Apply JSON operations in manufacturing scenarios.
 - Build applications that leverage both relational and document models.
 
-👉 Click Here to [Start the Advanced JSON Workshop](https://apexapps.oracle.com/pls/apex/f?p=133:180:16090110673701::::wid:3635)
+👉 Click here to [Start the Advanced JSON Workshop](https://apexapps.oracle.com/pls/apex/f?p=133:180:16090110673701::::wid:3635)
 
 
 ## Learn More
