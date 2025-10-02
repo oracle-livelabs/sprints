@@ -186,11 +186,6 @@ Manufacturers can manage complex product specifications, track inventory levels,
 
 Congratulations, you have successfully completed the QuickStart Demo on JSON in Oracle Database!
 
-## Walkthrough
-
-#(placeholder for walkthrough video)
-#[](youtube:REPLACE_WITH_VIDEO_ID)
-
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
 * **Contributors** - Kevin Lazarz, William Masdon, Pat Sheppard, Francis Regalado, Brianna Ambler

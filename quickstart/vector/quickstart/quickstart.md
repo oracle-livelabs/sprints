@@ -244,11 +244,6 @@ Retailers can enhance product discovery by finding similar items or understandin
 
 These snippets demonstrate the core concepts and practical applications. For production use, consider security, error handling, and performance tuning.
 
-## Walkthrough
-
-#(placeholder for walkthrough video)
-#[](youtube:REPLACE_WITH_VIDEO_ID)
-
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
 * **Contributors** - Kevin Lazarz, William Masdon, Pat Sheppard, Francis Regalado, Brianna Ambler

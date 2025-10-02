@@ -24,6 +24,6 @@ What you'll do:
 
 
 ## Acknowledgements
-* **Author** - AI Assistant
-* **Contributors** - Linda Foinding
-* **Last Updated By/Date** - AI Assistant, September 2025
+* **Author** - Linda Foinding, Database Product Management
+* **Contributors** - Kevin Lazarz, William Masdon, Pat Sheppard, Francis Regalado, Brianna Ambler
+* **Last Updated By/Date** - Linda Foinding, September 2025
