@@ -1,14 +1,14 @@
 # QuickStart Demo
 
-## Try JSON in Oracle AI Database
+## Try JSON in Oracle Database 23ai
 
-This QuickStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle AI Database. You can copy and run these SQL commands in your Oracle environment.
+This QuickStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle Database 23ai. You can copy and run these SQL commands in your Oracle Database 23ai environment.
 
 ### Business Case Example
 
 #### Manufacturing: Product Catalogs and Inventory Management
 
-Manufacturers can manage complex product specifications, track inventory levels, and handle hierarchical data efficiently using JSON documents and duality views in Oracle AI Database. The following steps will show you how!
+Manufacturers can manage complex product specifications, track inventory levels, and handle hierarchical data efficiently using JSON documents and duality views in Oracle Database 23ai. The following steps will show you how!
 
 ### Step 1: Create a Table for JSON Data
 
@@ -185,6 +185,9 @@ Manufacturers can manage complex product specifications, track inventory levels,
     ![Navigate to Directory](./images/json-final.png " ")
 
 Congratulations, you have successfully completed the QuickStart Demo on JSON in Oracle Database!
+
+## Walkthrough
+
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
