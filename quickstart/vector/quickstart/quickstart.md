@@ -1,8 +1,8 @@
 # QuickStart Demo
 
-## Try AI Vector Search in Oracle Database 23ai
+## Try AI Vector Search in Oracle AI Database
 
-This QuickStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle Database 23ai environment. 
+This QuickStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle AI Database environment. 
 **Note** that our example uses ONNX models but it is possible to use external transformers.
 
 ### Prerequisites
@@ -47,7 +47,7 @@ Retailers can enhance product discovery by finding similar items or understandin
 
 ### Step 2: Create a Table with a Vector Column
 
-1. Create a table to store vectors. The VECTOR datatype is new in Oracle Database 23ai.
+1. Create a table to store vectors. The VECTOR datatype is new in Oracle AI Database.
     ```sql
     <copy>
     -- Create table for product embeddings

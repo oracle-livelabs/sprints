@@ -17,7 +17,7 @@ Key benefits include:
 - **Integration**: Seamlessly blend with existing relational databases for comprehensive data management.
 - **AI Foundation**: Powers advanced applications like Retrieval-Augmented Generation (RAG), recommendation systems, and anomaly detection.
 
-This QuickStart provides hands-on examples to get you started with AI Vector Search in Oracle Database 23ai, focusing on practical business cases in the Retail industry.
+This QuickStart provides hands-on examples to get you started with AI Vector Search in Oracle AI Database, focusing on practical business cases in the Retail industry.
 
 
 ## Acknowledgements
