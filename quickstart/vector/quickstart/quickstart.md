@@ -240,7 +240,7 @@ Retailers can enhance product discovery by finding similar items or understandin
     /
     <copy>
     ```
-2. Congratulations, you have succesfully completed your first AI Vector Search similarity search!
+2. Congratulations, you have successfully completed your first AI Vector Search similarity search!
 
     ![Navigate to Directory](./images/vector-results.png " ")
 
