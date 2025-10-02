@@ -2,12 +2,14 @@
 
 ## Try AI Vector Search in Oracle Database 23ai
 
-This QuickStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle Database 23ai environment.
+This QuickStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle Database 23ai environment. 
+**Note** that our example uses ONNX models but it is possible to use external transformers.
 
 ### Prerequisites
 
-- Oracle Database 23ai with AI Vector Search enabled.
-- For ONNX models, load the prebuilt `DEMO_MODEL`
+- Oracle AI Database with AI Vector Search enabled.
+- Hugging Face's `all-MiniLM-L12-v2 model` in ONNX format.
+- In the following examples, we will be using `DEMO_MODEL` to refer to the `all_MiniLM_L12_v2.onnx`.  
 
 ### Business Case Example
 
