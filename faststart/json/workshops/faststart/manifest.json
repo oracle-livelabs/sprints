@@ -1,13 +1,13 @@
 {"help": "livelabs-help-db_us@oracle.com",
-  "workshoptitle": "LiveLabs QuickStart - AI Vector Search",
+  "workshoptitle": "LiveLabs FastStart - JSON in Oracle Database 23ai",
     "tutorials": [
         {
             "title": "Introduction",
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "QuickStart",
-            "filename": "../../quickstart/quickstart.md"
+            "title": "FastStart",
+            "filename": "../../faststart/faststart.md"
         },
         {
             "title": "Next Steps",
