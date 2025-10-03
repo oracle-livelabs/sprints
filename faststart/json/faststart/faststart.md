@@ -1,8 +1,8 @@
-# QuickStart Demo
+# FastStart Demo
 
 ## Try JSON in Oracle Database 23ai
 
-This QuickStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle Database 23ai. You can copy and run these SQL commands in your Oracle Database 23ai environment.
+This FastStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle Database 23ai. You can copy and run these SQL commands in your Oracle Database 23ai environment.
 
 ### Business Case Example
 
@@ -184,7 +184,7 @@ Manufacturers can manage complex product specifications, track inventory levels,
     ```
     ![Navigate to Directory](./images/json-final.png " ")
 
-Congratulations, you have successfully completed the QuickStart Demo on JSON in Oracle Database!
+Congratulations, you have successfully completed the FastStart Demo on JSON in Oracle Database!
 
 ## Walkthrough
 
