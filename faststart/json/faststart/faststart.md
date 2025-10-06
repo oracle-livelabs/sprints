@@ -1,8 +1,8 @@
-# QuickStart Demo
+# FastStart Demo
 
 ## Try JSON in Oracle Database 23ai
 
-This QuickStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle Database 23ai. You can copy and run these SQL commands in your Oracle Database 23ai environment.
+This FastStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle Database 23ai. You can copy and run these SQL commands in your Oracle Database 23ai environment.
 
 ### Business Case Example
 
@@ -184,9 +184,69 @@ Manufacturers can manage complex product specifications, track inventory levels,
     ```
     ![Navigate to Directory](./images/json-final.png " ")
 
-Congratulations, you have successfully completed the QuickStart Demo on JSON in Oracle Database!
+### Step 6: Work with JSON Collections
 
-## Walkthrough
+
+Oracle AI Database natively supports JSON collections, allowing you to store and query JSON documents directly in relational tables using standard SQL and SQL/JSON functions.
+This provides all the simplicity of document storage with the power and security of the Oracle Database.
+
+
+1. Create a SODA collection for manufacturing products.
+
+    ```sql
+    <copy>
+    CREATE TABLE MANUFACTURING_COLLECTION (
+    id RAW(16) DEFAULT SYS_GUID() PRIMARY KEY,
+    data JSON
+    );
+    <copy>
+    ```
+    ![Navigate to Directory](./images/json-col1.png " ")
+
+2. Insert JSON documents into the collection.
+
+    ```sql
+    <copy>
+    INSERT INTO MANUFACTURING_COLLECTION (DATA)
+    VALUES (JSON('{
+    "name": "Robotic Arm Assembly Line",
+    "category": "Automation",
+    "manufacturer": "RoboTech Solutions",
+    "specifications": {
+        "reach": "2.5m",
+        "payload": "50kg",
+        "speed": "1.2 m/s"
+    },
+    "inventory": {
+        "quantity": 8,
+        "location": "Warehouse C",
+        "reorder_point": 5
+    },
+    "pricing": {
+        "list_price": 75000.00,
+        "discount_eligible": true
+    }
+    }'));
+    COMMIT;
+    <copy>
+    ```
+    ![Navigate to Directory](./images/json-co2.png " ")
+
+3. Query collection using SQL/JSON on the underlying table.
+
+    ```sql
+    <copy>
+    SELECT JSON_VALUE(DATA, '$.name') AS product_name,
+        JSON_VALUE(DATA, '$.manufacturer') AS manufacturer,
+        JSON_VALUE(DATA, '$.specifications.reach') AS reach,
+        JSON_VALUE(DATA, '$.pricing.list_price') AS price
+    FROM MANUFACTURING_COLLECTION
+    WHERE JSON_VALUE(DATA, '$.name') = 'Robotic Arm Assembly Line';
+    <copy>
+    ```
+    ![Navigate to Directory](./images/json-col3.png " ")
+
+Congratulations, you have successfully completed the FastStart Demo on JSON in Oracle Database!
 
 
 ## Acknowledgements

@@ -1,8 +1,8 @@
-# QuickStart Demo
+# FastStart Demo
 
 ## Try AI Vector Search in Oracle AI Database
 
-This QuickStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle AI Database environment. 
+This FastStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle AI Database environment. 
 **Note** that our example uses ONNX models but it is possible to use external transformers.
 
 ### Prerequisites
