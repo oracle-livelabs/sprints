@@ -223,7 +223,7 @@ You now have your own **Oracle Cloud Free Tier Account** that you can use to gai
 ## ***Task 3: Connect to Always Free Oracle Autonomous AI Database & Open Database Action Launchpad***
 <br>
 
-**Estimated Time:** ***15 minutes***
+**Estimated Time:** ***2 minutes***
 
 >Skip to **Step 4** ***if you are continuing from Task 2*** 
 
