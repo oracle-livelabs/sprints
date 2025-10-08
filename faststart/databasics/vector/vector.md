@@ -8,7 +8,7 @@ AI vector search finds results by concept—not only exact matches. It transform
 
 If you own product search, support, or internal knowledge, here’s why it matters: teams manage piles of unstructured data. Traditional search struggles with nuance; vector search bridges that gap. It returns semantically similar items even when the query and the source use different words.
 
-**Concrete examples**
+**Common business challenges**
 - E-commerce: “Breathable running shoes” matches “mesh trainers,” even without the phrase.
 - Support: “Credit card failed” surfaces the fix filed under “billing—locked account.”
 - Internal search: “Supplier onboarding steps” finds the policy section that explains the process.
@@ -18,7 +18,7 @@ If you own product search, support, or internal knowledge, here’s why it matte
 - Improved relevance: Find documents, products, or answers by meaning, not just words.
 - Multimodal: Search across text, images, audio, and other data types.
 - Efficiency: Run fast similarity search at scale with algorithms such as HNSW.
-- Integration: Connect to relational databases and data lakes via connectors, adapters, or ETL.
+- Integration: Connect to databases and data lakes via connectors, adapters, or ETL.
 - AI foundation: Power applications such as retrieval-augmented generation (RAG), recommendations, and anomaly detection.
 
 ### Prerequisites
@@ -281,7 +281,7 @@ What you'll do:
 
 - Apply everything in a pre-built APEX app.
 
-👉 Click here to [Start the Advanced Workshop](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=4166&clear=RR,180&session=13771097537930)
+👉 Click here to [Start the Signature Workshop](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=4166&clear=RR,180&session=13771097537930)
 
 
 ## Learn More
