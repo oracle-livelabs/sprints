@@ -1,19 +1,35 @@
-# FastStart Demo
+# LiveLabs FastStart - AI Vector Search
 
-## Try AI Vector Search in Oracle AI Database
+## Introduction
 
-This FastStart provides hands-on code snippets to get you started with AI Vector Search. You can copy and run these SQL commands in your Oracle AI Database environment. 
-**Note** that our example uses ONNX models but it is possible to use external transformers.
+Search by meaning, not just words
+
+AI vector search finds results by concept—not only exact matches. It transforms your data into vectors—mathematical representations of meaning—so you can retrieve what’s contextually relevant across documents, images, audio, and more.
+
+If you own product search, support, or internal knowledge, here’s why it matters: teams manage piles of unstructured data. Traditional search struggles with nuance; vector search bridges that gap. It returns semantically similar items even when the query and the source use different words.
+
+**Concrete examples**
+- E-commerce: “Breathable running shoes” matches “mesh trainers,” even without the phrase.
+- Support: “Credit card failed” surfaces the fix filed under “billing—locked account.”
+- Internal search: “Supplier onboarding steps” finds the policy section that explains the process.
+- Multilingual: “Portable charger” matches “batterie externe” and “power bank.”
+
+**Key benefits**
+- Improved relevance: Find documents, products, or answers by meaning, not just words.
+- Multimodal: Search across text, images, audio, and other data types.
+- Efficiency: Run fast similarity search at scale with algorithms such as HNSW.
+- Integration: Connect to relational databases and data lakes via connectors, adapters, or ETL.
+- AI foundation: Power applications such as retrieval-augmented generation (RAG), recommendations, and anomaly detection.
 
 ### Prerequisites
 
-- Oracle AI Database with AI Vector Search enabled.
-- Hugging Face's `all-MiniLM-L12-v2 model` in ONNX format.
+- An Oracle AI Database environment with a trained `all-MiniLM-L12-v2 model` in ONNX format.
+
+    - [Follow this guide to load a model to ADB](https://blogs.oracle.com/machinelearning/post/use-our-prebuilt-onnx-model-now-available-for-embedding-generation-in-oracle-database-23ai)
+
 - In the following examples, we will be using `DEMO_MODEL` to refer to the `all_MiniLM_L12_v2.onnx`.  
 
-### Business Case Example
-
-#### Retail: Product Recommendations and Customer Insights
+## Example: Recommendations and Customer Insights
 
 Retailers can enhance product discovery by finding similar items or understanding customer preferences through vector search on product descriptions and reviews. The following steps will show you show!
 
@@ -246,7 +262,39 @@ Retailers can enhance product discovery by finding similar items or understandin
 
 These snippets demonstrate the core concepts and practical applications. For production use, consider security, error handling, and performance tuning.
 
+
+## Signature Workshop
+
+Ready to go deeper? These workshops let you move from demo to hands-on practice.
+
+What you'll do:
+
+- Add the new vector datatype.
+
+- Verify ONNX embedding models.
+
+- Create embeddings for text and images.
+
+- Run exact and approximate similarity searches with indexes.
+
+- Combine similarity search with relational queries.
+
+- Apply everything in a pre-built APEX app.
+
+👉 Click here to [Start the Advanced Workshop](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=4166&clear=RR,180&session=13771097537930)
+
+
+## Learn More
+
+* [AI Vector Search Docs](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/)
+* [AI Vector Search Product Page](https://www.oracle.com/database/ai-vector-search/)
+* [LiveLabs Workshop](https://livelabs.oracle.com/pls/apex/f?p=133:180:114898719666832::::wid:4166)
+
+
+
+
+
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
-* **Contributors** - Kevin Lazarz, William Masdon, Pat Sheppard, Francis Regalado, Brianna Ambler
-* **Last Updated By/Date** - Linda Foinding, September 2025
+* **Contributors** - Patrick Shepherd
+* **Last Updated By/Date** - Linda Foinding, October 2025
