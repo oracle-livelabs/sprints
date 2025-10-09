@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "LiveLabs FastStart - AI Vector Search",
+    "workshoptitle": "LiveLabs FastStart - JSON Relational Duality Views",
     "help": "livelabs-help-database_us@oracle.com",
     "tutorials": [
         {
@@ -7,8 +7,8 @@
             "filename": "../../common/introduction/faststart-introduction.md"
         },
         {
-            "title": "FastStart - Explore AI Vector Search",
-            "filename": "../../databasics/vector/vector.md"
+            "title": "FastStart - Explore JSON Relational Duality Views",
+            "filename": "../../content/json-relational-duality/json-relational-duality.md"
         },
         {
             "title": "Need Help?",
