@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Search by meaning, not just words
+*Search by meaning, not just words*
 
 AI vector search finds results by concept—not only exact matches. It transforms your data into vectors—mathematical representations of meaning—so you can retrieve what’s contextually relevant across documents, images, audio, and more.
 
