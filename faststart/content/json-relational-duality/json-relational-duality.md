@@ -187,7 +187,7 @@ A duality view gives you the best of both worlds: rows you can join and constrai
     ```
     ![Navigate to Directory](./images/json-step51.png " ")
     
-2. Update the `products` inventory using duality view
+2. Update the `products` inventory using duality view.
     ```sql
     <copy>
     -- Update inventory through the duality view
@@ -196,20 +196,24 @@ A duality view gives you the best of both worlds: rows you can join and constrai
     WHERE JSON_VALUE(data, '$.name') = 'Industrial Pump Model X1';
     <copy>
     ```
+     
+    ```sql
+    <copy>
+    -- Verify that the tables are updated
+    SELECT * FROM products_dv;
+    <copy>
+    ```
     ![Navigate to Directory](./images/json-final.png " ")
 
 ### Step 6: Work with JSON Collections
 
 Need lightweight document storage without leaving the database? Create a JSON collection and start inserting documents you can query, index, and secure with familiar SQL. Think of a JSON collection as a table optimized for documents—no rigid columns, just an _id and a JSON payload. You get the agility of a doc store with Oracle’s reliability and control.
 
-1. Create a JSON collection for manufacturing products.
+1. Create a JSON collection for manufacturing products. Oracle automatically generates an _id and data column for every JSON collection you create. The _id uniquely identifies each document, and the data column holds the JSON information.
 
     ```sql
     <copy>
-    CREATE TABLE MANUFACTURING_COLLECTION (
-    id RAW(16) DEFAULT SYS_GUID() PRIMARY KEY,
-    data JSON
-    );
+    CREATE TABLE MANUFACTURING_COLLECTION;
     <copy>
     ```
     ![Navigate to Directory](./images/json-col1.png " ")
