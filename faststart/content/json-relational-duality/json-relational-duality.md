@@ -1,21 +1,34 @@
-# FastStart Demo
+# LiveLabs FastStart - JSON Relational Duality
 
-## Try JSON in Oracle Database 23ai
+## Introduction
 
-This FastStart provides hands-on code snippets to get you started with JSON and Relational Duality in Oracle Database 23ai. You can copy and run these SQL commands in your Oracle Database 23ai environment.
+*Model fast, scale smart: JSON your way in 23ai.*
 
-### Business Case Example
+JSON (JavaScript Object Notation) is the standard format for modern data exchange. It’s lightweight, human-readable, and supported across major programming languages. Its popularity comes from its simplicity and flexibility—ideal for APIs, configurations, and semi-structured data.
 
-#### Manufacturing: Product Catalogs and Inventory Management
+Application development today depends on handling dynamic, hierarchical data. Traditional relational databases, bound by fixed schemas, struggle with these patterns. Oracle Database 23ai treats JSON as a first-class data type, so you can store documents natively, index them, and query them with full SQL alongside relational columns. 
 
-Manufacturers can manage complex product specifications, track inventory levels, and handle hierarchical data efficiently using JSON documents and duality views in Oracle Database 23ai. The following steps will show you how!
+From that foundation, you have two higher-level options depending on how your application evolves. 
 
-### Step 1: Create a Table for JSON Data
+**JSON collection tables are document-first**: a table that holds JSON documents (one per row) with a unique _id, optional concurrency control (e.g., ETAG), and the ability to add virtual (expression) columns for constraints, partitioning, and performance. They shine when your schema changes frequently, teams iterate quickly, or you need a lightweight store for user profiles, content, logs, or configuration—with immediate access via SQL and document APIs. 
+
+**JSON-relational Duality Views** are for when you want the best of both worlds: you model data relationally (keys, constraints, joins), and the same rows appear as updatable JSON documents. This is ideal for systems of record that demand transactions and rich SQL but also need document ergonomics for microservices or mobile apps. 
+
+**In practice:** 
+- pick JSON columns in existing tables to enrich entities with flexible attributes,
+- choose a collection table when the data is document-centric and fast-moving,
+- use a duality view when you must preserve relational integrity and analytics while offering a clean JSON interface. 
+
+The result is a unified platform where each workload—exploratory, operational, or analytical—gets the right JSON shape without data duplication or sync headaches.
+
+
+## Example: Working with JSON as data type, JSON Duality Views, and JSON Collection Tables
+
+### Step 1: Create a table with JSON columns
 
 1. Log in to your ADB instance and open SQL worksheet
 
     ![Open Terminal](./images/json-initial.png " ")
-
 
 2. Create a table to store JSON documents. This example creates a product catalog table for a manufacturing company.
     
@@ -30,7 +43,6 @@ Manufacturers can manage complex product specifications, track inventory levels,
     ```
 
     ![Navigate to Directory](./images/json-create.png " ")
-
 
 ### Step 2: Insert JSON Documents
 
@@ -131,6 +143,8 @@ Manufacturers can manage complex product specifications, track inventory levels,
 
 ### Step 4: Create a Duality View
 
+A duality view gives you the best of both worlds: rows you can join and constrain, and the very same data as updatable JSON documents. Create one over your products table to get a document API without duplicating data.
+
 1. Create a duality view that provides relational access to the JSON data.
 
     ```sql
@@ -149,7 +163,7 @@ Manufacturers can manage complex product specifications, track inventory levels,
     <copy>
     ```
 2. Congratulations, your JSON Duality View was created successfully!
-     
+
     ![Navigate to Directory](./images/json-create-dv.png " ")
 
 ### Step 5: Query the Duality View
@@ -186,12 +200,9 @@ Manufacturers can manage complex product specifications, track inventory levels,
 
 ### Step 6: Work with JSON Collections
 
+Need lightweight document storage without leaving the database? Create a JSON collection and start inserting documents you can query, index, and secure with familiar SQL. Think of a JSON collection as a table optimized for documents—no rigid columns, just an _id and a JSON payload. You get the agility of a doc store with Oracle’s reliability and control.
 
-Oracle AI Database natively supports JSON collections, allowing you to store and query JSON documents directly in relational tables using standard SQL and SQL/JSON functions.
-This provides all the simplicity of document storage with the power and security of the Oracle Database.
-
-
-1. Create a SODA collection for manufacturing products.
+1. Create a JSON collection for manufacturing products.
 
     ```sql
     <copy>
@@ -246,10 +257,26 @@ This provides all the simplicity of document storage with the power and security
     ```
     ![Navigate to Directory](./images/json-col3.png " ")
 
-Congratulations, you have successfully completed the FastStart Demo on JSON in Oracle Database!
 
+
+## Signature Workshop
+
+* Work with JSON datatype
+* Work with JSON Collections
+* Work with JSON Duality Views
+* Work with Oracle Database API for MongoDB
+
+
+👉 Click here to [Start the JSON LiveLabs Signature Workshop](https://apexapps.oracle.com/pls/apex/f?p=133:180:16090110673701::::wid:3635)
+
+## Learn More
+
+* [Oracle AI Database JSON Relational Duality Feature Overview]( https://www.oracle.com/database/json-relational-duality/ )
+* [JSON Relational Duality Developer's Guide - Oracle Documentation]( https://docs.oracle.com/en/database/oracle/oracle-database/23/jsnvu/overview-json-relational-duality-views.html )
+* [JSON Developer’s Guide - Oracle Documentation]( https://docs.oracle.com/en/database/oracle/oracle-database/23/adjsn/)
+* [Oracle Database API for MongoDB - Blogs]( https://docs.oracle.com/en/database/oracle/mongodb-api/blogs.html )
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Database Product Management
-* **Contributors** - Kevin Lazarz, William Masdon, Pat Sheppard, Francis Regalado, Brianna Ambler
-* **Last Updated By/Date** - Linda Foinding, September 2025
+* **Contributors** - Patrick Shepherd
+* **Last Updated By/Date** - Linda Foinding, October 2025
