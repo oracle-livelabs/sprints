@@ -1,18 +1,25 @@
-# Understanding JSON Relational Duality in Oracle AI Database
+# How to use JSON Relational Duality Views in Oracle AI Database
 
 Duration: 10 minutes
 
 ## Introduction
 
-JSON Relational Duality Views are a groundbreaking feature in Oracle AI Database that bridge the gap between relational and JSON data models. They allow you to create views that present relational data as JSON documents while maintaining automatic synchronization between the two representations.
+JSON Relational Duality Views are a groundbreaking feature in Oracle AI Database that bridge the gap between relational and JSON data models.  
+They allow you to create views that present relational data as JSON documents while maintaining automatic synchronization between the two representations.  
 
-This LiveLabs Sprint will introduce you to JSON Relational Duality Views, showing how to create them and demonstrating their powerful consistency guarantees.
-
-You'll create relational tables, populate them with data, create a duality view, and see how updates through the JSON interface are automatically reflected in the underlying relational tables.
+In this FastStart Lab, we will introduce you to JSON Relational Duality Views, show you how to create them, and demonstrate their powerful consistency guarantees.  
+You'll create relational tables, populate them with data, create a duality view, and see how updates through the JSON Duality Views are automatically reflected in the underlying relational tables.
 
 ---
 
-## Step 1: Create a Schema (User)
+## Task 1: Launch SQL Worksheet
+
+![OCI Console – Open SQL Worksheet from Database Actions Launchpad](./images/open-sql-worksheet-from-database-actions-launchpad.png "=50%x*")
+
+
+---
+
+## Task2: Create a Schema (User)
 
 First, let's create a user (schema) called `DUALITY_SPRINT` for this demonstration.
 
@@ -37,7 +44,7 @@ ALTER SESSION SET CURRENT_SCHEMA = duality_sprint;
 
 ---
 
-## Step 2: Create the Relational Tables
+## Task 3: Create Relational Tables
 
 Let's create the `DEPARTMENTS` and `EMPLOYEES` tables that will form the basis of our duality view.
 
@@ -61,7 +68,7 @@ CREATE TABLE employees (
 
 ---
 
-## Step 3: Insert Sample Data
+## Task 4: Insert Sample Data
 
 Populate the tables with some sample data.
 
@@ -80,7 +87,7 @@ INSERT INTO employees VALUES (7566, 'JONES', 'MANAGER', 2975, 20);
 
 ---
 
-## Step 4: Create a JSON Relational Duality View
+## Task 5: Create a JSON Relational Duality View
 
 Now, create a duality view that presents the department and employee data as JSON documents. The view automatically maintains consistency between the JSON representation and the underlying relational tables.
 
@@ -104,7 +111,7 @@ FROM departments d;
 
 ---
 
-## Step 5: Query the Duality View
+## Task 6: Query the JSON Duality View
 
 Query the duality view to see the JSON representation of your relational data.
 
@@ -118,11 +125,11 @@ You'll see JSON documents that represent each department with its nested employe
 
 ---
 
-## Step 6: Update Data Through the JSON Interface
+## Task 7: Update Data through JSON Duality View
 
 One of the powerful features of duality views is that you can perform DML operations directly on the JSON data, and the changes are automatically reflected in the underlying relational tables.
 
-Try updating an employee's salary through the JSON interface:
+Try updating the salary for employee 7369 through the JSON Duality View:
 
 ```
 <copy>
@@ -132,7 +139,7 @@ WHERE JSON_VALUE(dv.DATA, '$._id') = 20;
 </copy>
 ```
 
-Now check the underlying table to see the change:
+## Task 8: Validate Data Update is visible in underlying table
 
 ```
 <copy>
@@ -144,9 +151,9 @@ The salary has been updated to 900, demonstrating the automatic synchronization 
 
 ---
 
-## Step 7: Insert New Data
-
-You can also insert new data through the duality view. Let's add a new employee to a department:
+## Task 9: Insert Data through JSON Duality View
+  
+Let's add a new employee named ADAMS to a new department named OPERATIONS through the JSON Duality View:  
 
 ```
 <copy>
@@ -166,7 +173,9 @@ INSERT INTO dept_emp_dv VALUES (
 </copy>
 ```
 
-Verify that the new department and employee were added to the relational tables:
+## Task 10: Validate Data Loaded via the JSON Duality View is visible in underlying tables
+
+Let's validate that the new department and employee were added to the corresponding relational tables:
 
 ```
 <copy>
@@ -177,9 +186,9 @@ SELECT * FROM employees WHERE deptno = 40;
 
 ---
 
-## Learn More
 
-### Try our Signature Workshop
+
+## Try our Signature Workshop
 
 👉 Click here to [Start the JSON LiveLabs Signature Workshop](https://apexapps.oracle.com/pls/apex/f?p=133:180:16090110673701::::wid:3635)
 
@@ -188,9 +197,14 @@ SELECT * FROM employees WHERE deptno = 40;
 * Work with JSON Duality Views
 * Work with Oracle Database API for MongoDB
 
-### Additional Resources
+## Learn More
 
 * [Oracle AI Database JSON Relational Duality Feature Overview]( https://www.oracle.com/database/json-relational-duality/ )
 * [JSON Relational Duality Developer's Guide - Oracle Documentation]( https://docs.oracle.com/en/database/oracle/oracle-database/23/jsnvu/overview-json-relational-duality-views.html )
 * [JSON Developer’s Guide - Oracle Documentation]( https://docs.oracle.com/en/database/oracle/oracle-database/23/adjsn/)
 * [Oracle Database API for MongoDB - Blogs]( https://docs.oracle.com/en/database/oracle/mongodb-api/blogs.html )
+
+## Acknowledgements
+* **Author** - LiveLabs Team, Eddie Ambler, Linda Foinding
+* **Contributors** - LiveLabs Team, Pat Shepherd
+* **Last Updated By/Date** - Eddie Ambler - October 2025

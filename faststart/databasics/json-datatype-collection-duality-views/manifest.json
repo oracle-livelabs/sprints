@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "LiveLabs FastStart - Data Manipulation with Select, Insert, Update, Delete in Oracle AI Database",
+    "workshoptitle": "LiveLabs FastStart - All things JSON in Oracle AI Database",
     "help": "livelabs-help-database_us@oracle.com",
     "tutorials":
     [
@@ -9,9 +9,9 @@
              "filename": "../../common/get-started/faststart-get-started.md"
         },
         {
-            "title": "Lab 1: Data Manipulation with Select, Insert, Update, Delete in Oracle AI Database",
+            "title": "Lab 1: All things JSON in Oracle AI Database",
             "description": "In this lab you will learn how to modify and manage data structures",
-            "filename": "../../databasics/data-manipulation-select-insert-update-delete/data-manipulation-select-insert-update-delete.md"
+            "filename": "../../databasics/json-datatype-collection-duality-views/json-datatype-collections-duality-views.md"
         },
         {
             "title": "Need Help - Want to Submit Feedback?",
