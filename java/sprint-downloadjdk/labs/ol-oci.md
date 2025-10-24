@@ -1,4 +1,4 @@
-# Manually Downloading the the JDK on Oracle Linux Using OCI yum Repositories
+# Manually Downloading the JDK on Oracle Linux Using OCI yum Repositories
 
 ## Overview
 This tutorial covers installing the JDK on Oracle Linux using Oracle Cloud Infrastructure (OCI) yum repositories.
