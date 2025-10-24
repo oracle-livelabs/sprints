@@ -5,30 +5,26 @@ This is a beginner level introduction to Java memory management.
 
 [Choosing a Garbage Collector](videohub:1_ut7i2uzu)
 
-
-## Safe Harbor Statement
-??
-
 ## Table of Contents
-1. Introducing the Java Heap
-2. Java Heap Space
+1. Introducing the Java Heap  
+2. Java Heap Space  
 3. The Garbage Collectors  
 3.1 Choosing a Garbage Collector  
 3.2 Heap Layouts  
 3.3 Primary Responsibilities  
 3.4 Managing the Young Generation  
 3.5 Managing the Old Generation  
-3.6 The Z Garbage Collector (ZGC) – Something Different
+3.6 The Z Garbage Collector (ZGC) – Something Different  
 4. Monitoring and Troubleshooting  
 4.1 Always-on Logging  
 4.2 Diagnostics  
-5. Summary
-6. Further Learning
+5. Summary  
+6. Further Learning  
 
 ## 1. Introducing the Java Heap
 ![Diagram of the Java heap and memory consumers.](./images/1-intro.png)
 
-The Java heap is a memory pool within the virtual memory space of a Java process. It contains the Java objects, their fields, references, class names, and so on.  When Java program code creates a new object, the memory for that object is allocated in the Java heap at runtime.  
+The Java heap is a memory pool within the virtual memory space of a Java process. It contains the Java objects, their fields, references, class names, and so on. When Java program code creates a new object, the memory for that object is allocated in the Java heap at runtime.  
 
 The Java heap is just one of several memory consumers in a Java process. For example, the Metaspace is another memory pool, and it contains the loaded Java classes and their metadata. In fact, objects in the Java heap contain references to their class data in the Metaspace.  
 
@@ -115,10 +111,10 @@ To help meet their performance goals, the various garbage collectors lay out the
 **Serial GC and Parallel GC:**  
 The heap is divided into two contiguous generation spaces in which each generation is also a contiguous memory space. In this scenario, the entire Young Generation is collected during a Young GC, and the entire heap is collected during a Full GC.
 
-**G1 and ZGC:**
+**G1 and ZGC:**  
 The heap is divided into regions that are logically generational. The regions allow for collecting the Young and Old generations in increments, which helps reduce pause times. The Young and Old regions are not contiguous. Regions are dynamically assigned as Young or Old during the runtime, and the number of Young or Old regions can change, as the Young Generation grows or shrinks to respond to application workloads.  
 
-There are some differences in how G1 and ZGC regionalize their heaps. 
+There are some differences in how G1 and ZGC regionalize their heaps.  
 
 G1 configures one constant region size at startup, dividing the initial heap size into 2048 regions (ideally). If the heap grows during runtime, regions of the that same constant size will be added when more heap memory is allocated. Also, any object that is too large to fit in a region will be given a Humongous region just for that object. G1 simply combines two or more regions to make Humongous regions as needed.  
 
@@ -127,10 +123,10 @@ ZGC, on the other hand, is more dynamic. While it also has small regions of a co
 ### 3.3 Primary Responsibilities
 ![List of primary responsibilities.](./images/5-primary-resp.png)
 
-A garbage collector has three primary responsibilities: 
-- Allocate new objects in the heap
-- Keep track of objects - locations, whether referenced/reachable ("live")
-- Perform garbage colelctions - reclaim the memory used by unreferenced/unreachable (“dead”) objects
+A garbage collector has three primary responsibilities:  
+- Allocate new objects in the heap  
+- Keep track of objects - locations, whether referenced/reachable ("live")  
+- Perform garbage colelctions - reclaim the memory used by unreferenced/unreachable (“dead”) objects  
 
 We say that objects are “live” when they are referenced or reachable, which means they can be reached by application threads to be accessed and operated on. Objects that are unreferenced or unreachable are referred to as “dead” or “garbage.” Threads can no longer access them, so they are eligible for garbage collection.  
 
@@ -158,21 +154,21 @@ The general process of Young Generation allocation and collection is as follows:
 	b. Copy the live objects from Eden to a Survivor space  
     c. Age the survivors - Young GC keeps an aging counter for each of the survivors and increments it each time that object survives a collection  
     d. Make Eden eligible for allocations again This is where updating of the references to the survivors occurs and when objects essentially die.  
-3. The next time Eden fills up, a Young GC copies the live objects from both Eden and the occupied Survivor space into the empty Survivor space. 
-4. A Young GC will continue copying survivors from one Survivor space to the other until an object reaches the maximum number of copies.  This is called  the Tenuring Threshold, which is a configurable threshold, with a maximum of 15. 
-5. During a Young GC, tenured objects are promoted to the Old Generation instead of being copied to the empty Survivor space.
+3. The next time Eden fills up, a Young GC copies the live objects from both Eden and the occupied Survivor space into the empty Survivor space.  
+4. A Young GC will continue copying survivors from one Survivor space to the other until an object reaches the maximum number of copies.  This is called  the Tenuring Threshold, which is a configurable threshold, with a maximum of 15.  
+5. During a Young GC, tenured objects are promoted to the Old Generation instead of being copied to the empty Survivor space.  
 
-Three noteworthy exceptions to this process:
+Three noteworthy exceptions to this process:  
 
 First, the heap can be configured without Survivor spaces, in which case all live objects are promoted to the Old Generation at every Young GC.  
-  
->**Note:** Survivor spaces are more performant for most workloads. This is based on the premise that most objects are short-lived. They can be collected from the Young Generation more often and more efficiently, because it contains a higher percentage of dead objects per collection. The Survivor spaces give objects some extra time to die in the Young Generation. This will prevent a lot of short-lived objects from filling the Old Generation, which would cause expensive collections to occur more often.
 
-However, there are some rare workloads for which the above premise is not true, and for these workloads, the option of turning off the Survivor spaces is available.
-	
+>**Note:** Survivor spaces are more performant for most workloads. This is based on the premise that most objects are short-lived. They can be collected from the Young Generation more often and more efficiently, because it contains a higher percentage of dead objects per collection. The Survivor spaces give objects some extra time to die in the Young Generation. This will prevent a lot of short-lived objects from filling the Old Generation, which would cause expensive collections to occur more often.  
+
+However, there are some rare workloads for which the above premise is not true, and for these workloads, the option of turning off the Survivor spaces is available.  
+
 The second exception is that G1 and ZGC may choose to collect only some of the Young regions at any given collection, targeting those with the most garbage for collection.  
 
-The last exception is that large objects may not be created in Eden. They will instead be created in the Old Generation. For G1 GC, this means Humongous regions in the Old Generation. Likewise, if an object is too large to fit in a Survivor space, it is promoted to the Old Generation. If the Survivor spaces are too small to hold all the live objects found in the Young Generation, the collectors will promote the overflow to the Old Generation. (This paragraph does not apply to ZGC) 
+The last exception is that large objects may not be created in Eden. They will instead be created in the Old Generation. For G1 GC, this means Humongous regions in the Old Generation. Likewise, if an object is too large to fit in a Survivor space, it is promoted to the Old Generation. If the Survivor spaces are too small to hold all the live objects found in the Young Generation, the collectors will promote the overflow to the Old Generation. (This paragraph does not apply to ZGC.)  
 
 ZGC is the only collector that collects the Young Generation concurrently with application threads. For all other collectors, Young GCs are Stop-The-World (STW) events, meaning, they will stop the application threads while a Young Collection is running.  
 
@@ -369,7 +365,7 @@ Detailed GC logs can be used to monitor many aspects of GC and heap activity and
 
 Notice that the set of command line flags used to enable detailed GC logging depends on the JDK version. Log file rotation and limitations for the log file size and number of log files in the rotation can be configured. Click on the JDK 8 or JDK9+ links for the options to set that up.
 
-- [JDK 7](https://www.oracle.com/java/technologies/javase/vmoptions-jsp.html)
+- [JDK 8](https://www.oracle.com/java/technologies/javase/vmoptions-jsp.html) (Note: This page indicates that it is for JDK 7 only, but the information on log rotation options applies to JDK 8 as well.)
 - [JDK 9+](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html#enable-logging-with-the-jvm-unified-logging-framework)
 
 We also recommend logging the Java version and the initial JVM configuration at startup.  These can also be very useful when troubleshooting issues. They print to `stdout`, so we recommend redirecting `stdout` to a log for retention.  
