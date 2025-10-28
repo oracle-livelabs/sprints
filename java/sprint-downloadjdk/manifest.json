@@ -12,7 +12,7 @@
          "description": "Install the JDK on Oracle Linux via OCI yum repositories.",
          "filename": "./labs/ol-oci.md"
       },
-            {
+      {
          "title": "Manual Downloads for Oracle Linux via ULN",
          "description": "Install the JDK on Oracle Linux via Unbreakable Linux Network channels.",
          "filename": "./labs/ol-uln.md"

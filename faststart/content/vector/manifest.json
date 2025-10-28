@@ -1,0 +1,18 @@
+{
+    "workshoptitle": "LiveLabs FastStart - AI Vector Search",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "filename": "../../common/get-started/faststart-get-started.md"
+        },
+        {
+            "title": "FastStart - Explore AI Vector Search",
+            "filename": "vector.md"
+        },
+        {
+            "title": "Need Help?",
+            "filename":"../../common/need-help-feedack/faststart-livelabs-need-help-feedack.md"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "workshoptitle": "LiveLabs FastStart - JSON Relational Duality Views",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "filename": "../../common/introduction/faststart-introduction.md"
+        },
+        {
+            "title": "FastStart - Explore JSON Relational Duality Views",
+            "filename": "../../content/json-relational-duality/json-relational-duality.md"
+        },
+        {
+            "title": "Need Help?",
+            "filename":"../../common/need-help-feedack/faststart-livelabs-need-help-feedack.md"
+        }
+    ]
+}
