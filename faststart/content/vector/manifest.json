@@ -4,11 +4,11 @@
     "tutorials": [
         {
             "title": "Introduction",
-            "filename": "../../common/introduction/faststart-introduction.md"
+            "filename": "../../common/get-started/faststart-get-started.md"
         },
         {
             "title": "FastStart - Explore AI Vector Search",
-            "filename": "../../content/vector/vector.md"
+            "filename": "vector.md"
         },
         {
             "title": "Need Help?",
