@@ -1,76 +1,103 @@
 # Manually Downloading the JDK on Oracle Linux Using Unbreakable Linux Network Channels
 
 ## Overview
+
 This tutorial covers installing the JDK on Oracle Linux using Unbreakable Linux Network (ULN) channels.
 
-This method is available to OCI customers.  
+This method is only available to Oracle Linux Support customers using Oracle Linux.  
 <br />
 
 ## Tutorial
+
 [Downloading for Oracle Linux on OCI](videohub:1_40lj26on)
 
-### 1. Make Sure You Are Running Oracle Linux
+### 1. Register for Unbreakable Linux Network
 
+The first step is to [register for an Unbreakable Linux Network (ULN)](https://linux.oracle.com/ords/f?p=101:30) account.
 
+If you already have an Oracle Single Sign-On (SSO) account, click the **Sign On** button, and then enter your CSI on the next page.
 
+If you don't have an SSO account, click the **Create New Single Signon Account** button. Follow the prompts to create an SSO and associate it with your CSI.
 
+### 2. Generate a Secret Key
 
-Hello everyone. In this video, I’m going to walk you through how to install the Oracle JDK on Oracle Linux using the Unbreakable Linux Network, or ULN. This is a straightforward way to get Oracle’s official JDK on your system and keep it up to date, all from the terminal.
+Once you have logged in, go to the **Auth Token** tab to generate a secret key. You’ll use this key instead of your password during registration on the system.
 
-First, you’ll need to register for ULN. If you already have an Oracle Single Sign-On account, you can use that with your CSI. If you don’t have SSO, you can register for an Oracle account first, then associate it with your CSI to get access.
+### 3. Register Your System and Select Packages
 
-Next, generate an Auth Token for ULN. You’ll use this token instead of your password during registration on the system.
+After you have registered and have your secret key ready, go to the terminal and verify the Linux version:
+```
+<copy>cat /etc/os-release</copy>
+```
+You should see “Oracle Linux Server” in the output. If not, the ULN method will not work for you. Check the other guides in this workshop for how to download the right Oracle JDK for your distribution.
 
-After you’ve registered and have your token ready, let’s go to the terminal and verify the Linux version:
+Next, register this system with ULN using your SSO email, secret key, and CSI. In the terminal, run:
+```
+<copy>sudo uln_register</copy>
+```
+Follow the prompts.
 
-cat /etc/os-release
+At the login screen, enter the following information:
 
-You should see “Oracle Linux Server” in the output. If not, these steps won’t work for you. If you’re using a different Linux distribution, check the other guides for how to get the right Oracle JDK for your distribution.
+- **Login:** your SSO email address
 
-Now we’ll register this system with ULN using your SSO email, your Auth Token, and your CSI. In the terminal, run:
+- **Password:** your secret key
 
-sudo uln_register
+- **CSI:** your CSI
 
-Follow the prompts. Enter your Oracle SSO email as the username. The Auth Token as your password. And finally, the CSI. Continue through the prompts until registration finishes.
+Continue through the prompts until registration finishes.
 
-Right after registration, you’ll be prompted on what software packages are relevant to your system. Go ahead and select all the package groups you require so ULN can determine the right updates for your environment.
+After registration you will be prompted to select which software packages are relevant to your system. Select all the package groups you require so ULN can determine the right updates for your environment.
 
-Next, let’s confirm the repositories that are now available:
+### 4. Confirm the Repositories that are Available
 
-sudo dnf repolist
+In the terminal, run:
+```
+<copy>sudo dnf repolist</copy>
+```
+The terminal will output a list of enabled ULN channels.
 
-You should see your enabled ULN channels listed here. If you don’t see the expected Java or software channels, go back to linux.oracle.com, open your system under Systems > <System Name> > Manage Subscriptions, and enable the appropriate channels for your Oracle Linux version and architecture.
+If you don’t see the expected Java versions or software channels, go back to [the ULN website](https://linux.oracle.com), open your system under **Systems** > **SYSTEM_NAME** > **Manage Subscriptions**, and enable the appropriate channels for your Oracle Linux version and architecture.
 
-Now we’re ready to install the JDK. To see which versions are available, you can run:
+### 5. Install the Oracle JDK
 
-dnf list available | grep jdk
+Now you are ready to install the JDK. To see which versions are available, run:
+```
+<copy>dnf list available | grep jdk</copy>
+```
+You should see entries for all supported JDK versions, both headless and headful.
 
-You should see entries for all supported JDK versions, and have the option to select headless or headful for each version. If you want a minimal package, just for running headless applications, choose the headless version. If you want a full JDK, including development and debugging tools, choose the headful version (even if you want to develop only headless applications).
+If you want a minimal package for running headless applications, choose the headless version.
 
-Let’s say we want to install Java 17. We’ll run:
+If you want a full JDK, including development and debugging tools, choose the headful version (even if you want to develop only headless applications).
 
-sudo dnf install jdk-17-headful -y
+As an example, to install a headful JDK 17, run:
+```
+<copy>sudo dnf install jdk-17-headful -y</copy>
+```
+You can replace "17" with whichever version you need, just match it to the package name you see in the list.
 
-You can replace 17 with whichever version you need, just match it to the package name you see in the list.
-
-Once installation completes, check that Java is installed and working by typing:
-
-java --version
-
+Once installation completes, check that Java is installed and working:
+```
+<copy>java --version</copy>
+```
 You should see details about your Oracle JDK version.
 
-Oracle will provide quarterly updates for the JDK per Oracle “Critical Patch Update” in January, April, July, and October. You can get the exact dates and register to receive notices of new releases by searching for “Oracle Critical Patch Updates”. The result should be the top or among the top ones.
+### 6. Updating Installed Packages
 
-All versions of the JDK installed through this repository will be updated every time you tell dnf to update installed packages by running:
+Oracle provides quarterly Critical Patch Updates (CPUs) in January, April, July, and October for each supported version of the JDK. It is highly recommended to update your JDK to the newest CPU when it becomes available.
 
-sudo dnf update -y
+To find the exact dates and register to receive notices of new releases, see [Critical Patch Updates, Security Alerts, and Bulletins](https://www.oracle.com/security-alerts/).
 
-You can update individual JDK versions if you prefer. From our previous example, once you installed jdk-17-headful, you could update it by running:
-
-sudo dnf update jdk-17-headful -y
-
-You can verify your Java version again with:
-
-java --version
-
-And that’s it! You’ve registered your system with ULN, installed the Oracle JDK on Oracle Linux using official channels, and learned how to keep it up to date. Thanks for watching!
+To update all of the versions of the JDK installed via ULN:
+```
+<copy>sudo dnf update -y</copy>
+```
+You can also update individual JDK versions. From the previous example, after installing jdk-17-headful, update it by running:
+```
+<copy>sudo dnf update jdk-17-headful -y</copy>
+```
+Then verify your Java version:
+```
+<copy>java --version</copy>
+```
