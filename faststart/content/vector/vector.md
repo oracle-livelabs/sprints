@@ -11,7 +11,7 @@ If you own product search, support, or internal knowledge, here’s why it matte
 **Common business challenges**
 - E-commerce: “Breathable running shoes” matches “mesh trainers,” even without the phrase.
 - Support: “Credit card failed” surfaces the fix filed under “billing—locked account.”
-- Internal search: “Supplier onboarding steps” finds the policy section that explains the process.
+- Internal search: “Supplier onboarding Tasks” finds the policy section that explains the process.
 - Multilingual: “Portable charger” matches “batterie externe” and “power bank.”
 
 **Key benefits**
@@ -23,17 +23,23 @@ If you own product search, support, or internal knowledge, here’s why it matte
 
 ### Prerequisites
 
+>Note: The following instructions will work only on an Oracle AI Database hosted in OCI, Azure, GoogleCloud, or AWS.
+
+- Connected to Database Actions see [Go Introduction](?lab=faststart-get-started)
+
 - An Oracle AI Database environment with a trained `all-MiniLM-L12-v2 model` in ONNX format.
 
     - [Follow this guide to load a model to ADB](https://blogs.oracle.com/machinelearning/post/use-our-prebuilt-onnx-model-now-available-for-embedding-generation-in-oracle-database-23ai)
 
-- In the following examples, we will be using `DEMO_MODEL` to refer to the `all_MiniLM_L12_v2.onnx`.  
+- In the following examples, we will be using `DEMO_MODEL` to refer to the `all_MiniLM_L12_v2.onnx`.
+
+
 
 ## Example: Recommendations and Customer Insights
 
-Retailers can enhance product discovery by finding similar items or understanding customer preferences through vector search on product descriptions and reviews. The following steps will show you show!
+Retailers can enhance product discovery by finding similar items or understanding customer preferences through vector search on product descriptions and reviews. The following Tasks will show you show!
 
-### Step 1: Check Model Existence and Perform Example Search
+### Task 1: Check Model Existence and Perform Example Search
 
 1. Check if the ONNX model called `DEMO_MODEL` exists.
     
@@ -49,7 +55,7 @@ Retailers can enhance product discovery by finding similar items or understandin
 
         -- If the model exists, output a message
         IF (model_count > 0) THEN
-            DBMS_OUTPUT.PUT_LINE('DEMO_MODEL exists, proceed to the next step for using it.');
+            DBMS_OUTPUT.PUT_LINE('DEMO_MODEL exists, proceed to the next Task for using it.');
         ELSE
             DBMS_OUTPUT.PUT_LINE('DEMO_MODEL does not exist, please load the model.');
         END IF;
@@ -57,11 +63,11 @@ Retailers can enhance product discovery by finding similar items or understandin
     /
     <copy>
     ```
-2. DEMO_MODEL exists, proceed to the next step for using it
+2. DEMO_MODEL exists, proceed to the next Task for using it
 
     ![Navigate to Directory](./images/aivector-load.png " ")
 
-### Step 2: Create a Table with a Vector Column
+### Task 2: Create a Table with a Vector Column
 
 1. Create a table to store vectors. The VECTOR datatype is new in Oracle AI Database.
     ```sql
@@ -79,7 +85,7 @@ Retailers can enhance product discovery by finding similar items or understandin
 
     ![Navigate to Directory](./images/vector-table.png " ")
 
-### Step 3: Generate Embeddings
+### Task 3: Generate Embeddings
 1. Use the built-in embedding function to convert text into vectors. Now that the model is loaded, you can generate embeddings.
     ```sql
     <copy>
@@ -214,7 +220,7 @@ Retailers can enhance product discovery by finding similar items or understandin
     ```
     ![Navigate to Directory](./images/vector-ten-rows.png " ")
 
-### Step 4: Perform a similarity search
+### Task 4: Perform a similarity search
 
 1. Execute the vector search query using VECTOR_DISTANCE for product recommendations based on the embeddings
     ```sql
