@@ -1,7 +1,5 @@
 # How to use JSON Data Type, JSON Collections, and JSON Duality Views in Oracle AI Database
 
-**Duration:** ***15 minutes***
-
 ## Introduction
 
 In the fast-paced world of application development, the need to handle dynamic, hierarchical data is more important than ever.  
@@ -18,34 +16,34 @@ That’s exactly what the **JSON Relational Duality View** feature of the **Orac
 
 In this FastStart lab, we will introduce you to JSON concepts, demonstrates basic operations, and shows practical usage examples.  
 This FastStart provides hands-on code snippets to quickly get you started with using the **JSON data type**, **JSON Collections**, and **JSON Relational Duality Views** in ***Oracle AI Database***.  
- 
 
----
+### Prerequisites
+
+- Connected to Database Actions see [Go Introduction](?lab=faststart-get-started)
+
 
 ## Task 1: Launch SQL Worksheet
 
-![OCI Console – Open SQL Worksheet from Database Actions Launchpad](./images/open-sql-worksheet-from-database-actions-launchpad.png "=50%x*")
+Click the SQL option in Database Actions
 
----
+![OCI Console – Open SQL Worksheet from Database Actions Launchpad](./images/open-sql-worksheet-from-database-actions-launchpad.png =30%x*)
 
-## Task 2: Create a table to store Relational & JSON documents side by side in native formats
+## Task 2: Create a table to store Relational and JSON documents side by side in native formats
 
 This example creates a product catalog table for a manufacturing company with product_data column as a flexible JSON field.
 
-    ```sql
-    <copy>
-    DROP TABLE IF EXISTS products ;
-    CREATE TABLE products (
-        id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-        product_data JSON
-    );
-    </copy>
-    ```
-
+```sql
+<copy>
+DROP TABLE IF EXISTS products ;
+CREATE TABLE products (
+    id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    product_data JSON);
+</copy>
+```
 
 ## Task 3: Insert JSON Documents into table
 
-Insert a document that represents a manufacturing product with nested specifications.  
+1. Insert a document that represents a manufacturing product with nested specifications.  
 
     ```sql
     <copy>
@@ -74,10 +72,11 @@ Insert a document that represents a manufacturing product with nested specificat
     </copy>
     ```
 
-![Navigate to Directory](./images/json-run-insert1.png " ")
+    ![Navigate to Directory](./images/json-run-insert1.png =30%x*)
 
->Insert another document that represents manufacturing product with nested specifications.  
->Note how the attributes in the specifications are different from the 1st document we loaded.  
+2. Insert another document that represents manufacturing product with nested specifications.  
+
+    >Note how the attributes in the specifications are different from the 1st document we loaded.  
 
     ```sql
     <copy>
@@ -106,21 +105,20 @@ Insert a document that represents a manufacturing product with nested specificat
     </copy>
     ```
 
-
 ## Task 4: Query JSON Data using Dot Notation
 
 Use Dot Notation to find all of the Pumps in the products table
 
-    ```sql
-    <copy>
-    -- Find all pumps
-    SELECT p.product_data.name, p.product_data.specifications.power
-    FROM products p
-    WHERE p.product_data.category = 'Pumps';
-    </copy>
-    ```
-![Navigate to Directory](./images/json-select2.png " ")
+```sql
+<copy>
+-- Find all pumps
+SELECT p.product_data.name, p.product_data.specifications.power
+FROM products p
+WHERE p.product_data.category = 'Pumps';
+</copy>
+```
 
+![Navigate to Directory](./images/json-select2.png =30%x*)
 
 
 ## Task 5: Use SQL/JSON operator JSON_VALUE to extract nested values from JSON Documents
@@ -128,16 +126,17 @@ Use Dot Notation to find all of the Pumps in the products table
 Extract the product name, list price, and location from the JSON Documents
 
 
-    ```sql
-    <copy>
-    -- Extract nested values
-    SELECT p.product_data.name,
-        JSON_VALUE(p.product_data, '$.pricing.list_price') as price,
-        JSON_VALUE(p.product_data, '$.inventory.location') as location
-    FROM products p;
-    </copy>
-    ```
-![Navigate to Directory](./images/json-select3.png " ")
+```sql
+<copy>
+-- Extract nested values
+SELECT p.product_data.name,
+    JSON_VALUE(p.product_data, '$.pricing.list_price') as price,
+    JSON_VALUE(p.product_data, '$.inventory.location') as location
+FROM products p;
+</copy>
+```
+
+![Navigate to Directory](./images/json-select3.png =30%x*)
 
 ## Task 6: Work with JSON Collections
 
@@ -146,9 +145,7 @@ Each document in a collection is uniquely identified by a key, that is stored in
 Oracle will automatically generate a unique _id for the document if one is not provided.
 With Collections, you can use SQL/JSON functions and conditions to work with the JSON Collection just as we have been doing for data stored in the native JSON data type.
 
-
-
-Step 1) Let's create our products table as a JSON Collection Table.
+1. Let's create our products table as a JSON Collection Table.
 
     ```sql
     <copy>
@@ -157,7 +154,7 @@ Step 1) Let's create our products table as a JSON Collection Table.
     ```
 
 
-Step 2) Now let's insert a JSON Document into the collection table that represents a manufacturing product with nested specifications.  
+2. Now let's insert a JSON Document into the collection table that represents a manufacturing product with nested specifications.  
 
     ```sql
     <copy>
@@ -186,8 +183,7 @@ Step 2) Now let's insert a JSON Document into the collection table that represen
     </copy>
     ```
 
-Step 3) Now let's query the JSON Collection Table to extract the product name, list price, and inventory location from the JSON Documents
-
+3. Now let's query the JSON Collection Table to extract the product name, list price, and inventory location from the JSON Documents
 
     ```sql
     <copy>
@@ -199,43 +195,41 @@ Step 3) Now let's query the JSON Collection Table to extract the product name, l
     </copy>
     ```
 
-
 Congratulations!!!  
-You have now worked with JSON as a Data Type in a Realtional Table and in a JSON Collection Table.
-This has been fun but there is more. With Oracle AI Database we can also work with Relational Data as JSON.
+You have now worked with JSON as a data type in a relational table and in a JSON Collection Table.
+This has been fun but there is more. With Oracle AI Database we can also work with relational data as JSON.
 Let's check this out in our next task.
-
 
 ## Task 7: Create a Duality View that allows you to work with relational data using JSON format.
 
-Step 1) Create relational tables for **orders** and **order\_items**
+1. Create relational tables for **orders** and **order\_items**
 
     ```sql
     <copy>
-    CREATE TABLE orders (
-     order_id NUMBER PRIMARY KEY,
-     customer_name VARCHAR2(50),
-     status VARCHAR2(20)
-    );
+        CREATE TABLE orders (
+        order_id NUMBER PRIMARY KEY,
+        customer_name VARCHAR2(50),
+        status VARCHAR2(20)
+        );
     </copy>
     ```
 
     ```sql
     <copy>
-    CREATE Table order_items (
-     order_id NUMBER,
-     item_name VARCHAR2(100),
-     qty NUMBER,
-     price NUMBER,
-    CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    CONSTRAINT t_pk primary key (order_id, item_name) 
-    );
+        CREATE Table order_items (
+        order_id NUMBER,
+        item_name VARCHAR2(100),
+        qty NUMBER,
+        price NUMBER,
+        CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES orders(order_id),
+        CONSTRAINT t_pk primary key (order_id, item_name) 
+        );
     </copy>
     ```
 
-Step 2) Insert Sample Data into Orders and Order_Items tables
+2. Insert Sample Data into Orders and Order_Items tables
 
-* Insert 4 orders for use in our examples
+    Insert 4 orders for use in our examples
 
     ```sql
     <copy>
@@ -247,7 +241,7 @@ Step 2) Insert Sample Data into Orders and Order_Items tables
     </copy>
     ```
 
-* Insert Order Items for each Customers Order
+   Insert Order Items for each Customers Order
 
     ```sql
     <copy>
@@ -262,10 +256,7 @@ Step 2) Insert Sample Data into Orders and Order_Items tables
     </copy>
     ```
 
-
-Step 3) Create Duality View on top of the orders and order_items tables (like a JSON window into both tables)
-
-* Create Duality View via SQL Syntax
+3. Create a JSON Duality View on top of the orders and order_items tables (like a JSON window into both tables) using SQL Syntax
 
     ```sql
     <copy>
@@ -286,7 +277,7 @@ Step 3) Create Duality View on top of the orders and order_items tables (like a 
     </copy>
     ```
 
-* ***Alternatively***, you can also create the Duality View via GraphQL Syntax
+    ***Alternatively***, you can also create the Duality View via GraphQL Syntax
 
     ```sql
     <copy>
@@ -311,7 +302,7 @@ Step 3) Create Duality View on top of the orders and order_items tables (like a 
 
 ## Task 8: Query the JSON Duality View
 
-Step 1) Access all customer orders from JSON Duality View
+1. Access all customer orders from JSON Duality View
 
     ```sql
     <copy>
@@ -319,10 +310,11 @@ Step 1) Access all customer orders from JSON Duality View
     SELECT * FROM orders_dv;
     </copy>
     ```
->Note that this query returns the JSON data formatted as a flat string
+    
+    >Note that this query returns the JSON data formatted as a flat string
 
 
-Step 2)  Now let's return the orders data in a more human readable format
+2. Now let's return the orders data in a more human readable format
 
     ```sql
     <copy>
@@ -330,10 +322,11 @@ Step 2)  Now let's return the orders data in a more human readable format
     SELECT json_serialize(data PRETTY) FROM orders_dv;
     </copy>
     ```
->Note how the query uses the Oracle database function **json_serialize** to access the JSON data stored in the database and return it as text, and uses the **PRETTY** keyword to format the JSON data output with indentation for better readability;
+
+    >Note how the query uses the Oracle database function **json_serialize** to access the JSON data stored in the database and return it as text, and uses the **PRETTY** keyword to format the JSON data output with indentation for better readability;
 
 
-Step 3)  Now lets filter the order data to return just the orders that have **Shipped**
+3. Now lets filter the order data to return just the orders that have **Shipped**
 
     ```sql
     <copy>
@@ -341,12 +334,13 @@ Step 3)  Now lets filter the order data to return just the orders that have **Sh
     SELECT json_serialize(data PRETTY) FROM orders_dv dv WHERE dv.data.status ='Shipped';
     </copy>
     ```
->Note that based on our sample data, this returns the expected 2 rows that shipped
+
+    >Note that based on our sample data, this returns the expected 2 rows that shipped
 
 
 ## Task 9:  Update Data via Duality View
 
-Step 1) Update the Status to **Shipped** for **Alpha Company** Order through Duality View
+1. Update the Status to **Shipped** for **Alpha Company** Order through Duality View
 
     ```sql
     <copy>
@@ -355,29 +349,32 @@ Step 1) Update the Status to **Shipped** for **Alpha Company** Order through Dua
     WHERE JSON_VALUE(data, '$.customer') = 'Alpha Company';
     </copy>
     ```
->Note that you could also use Dot Notation for the WHERE clause like this --> WHERE dv.data.customer = 'Alpha Company';
 
-Step 2) Validate Update via Duality View
+    >Note that you could also use Dot Notation for the WHERE clause like this --> WHERE dv.data.customer = 'Alpha Company';
+
+2. Validate Update via Duality View
 
     ```sql
     <copy>
     SELECT count(*) FROM orders_dv dv WHERE dv.data.status ='Shipped';
     </copy>
     ```
->Returns the expected Count of 3 orders shipped
 
-Step 3) Validate Update via Relational Table
+    >Returns the expected Count of 3 orders shipped
+
+3. Validate Update via Relational Table
 
     ```sql
     <copy>
     Select Count(*) FROM orders WHERE status = 'Shipped';
     </copy>
     ```
->Returns the expected Count of 3 orders shipped
+
+    >Returns the expected Count of 3 orders shipped
 
 ## Task 10: Insert a JSON Document via Duality View and watch it split into underlying relational tables
 
-Step 1) Insert a JSON Document via Duality View
+1. Insert a JSON Document via Duality View
 
     ```sql
     <copy>
@@ -394,7 +391,7 @@ Step 1) Insert a JSON Document via Duality View
     </copy>
     ```
 
-Step 2) Validate that you see the data from **Duality View**
+2. Validate that you see the data from **Duality View**
 
     ```sql
     <copy>
@@ -402,7 +399,7 @@ Step 2) Validate that you see the data from **Duality View**
     </copy>
     ```
 
-Step 3) Validate that you see the data from **Relational Tables**
+3. Validate that you see the data from **Relational Tables**
 
     ```sql
     <copy>
@@ -411,7 +408,7 @@ Step 3) Validate that you see the data from **Relational Tables**
     </copy>
     ```
 
-***Congratulations***, you have successfully completed the FastStart Demo on working with JSON in Oracle AI Database!
+***Congratulations***, you have successfully completed the FastStart on working with JSON in Oracle AI Database!
 
 
 ## Signature Workshop
@@ -419,9 +416,6 @@ Step 3) Validate that you see the data from **Relational Tables**
 👉 Click here to [Start the Advanced JSON Workshop](https://apexapps.oracle.com/pls/apex/f?p=133:180:16090110673701::::wid:3635)
 
 This workshop contains labs that dive deeper into how to work with JSON in Oracle AI Database.
-
--
-
 
 ## Learn More
 
