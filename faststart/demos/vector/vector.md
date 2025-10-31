@@ -5,7 +5,7 @@
 Oracle AI Vector Search is a breakthrough capability in Oracle AI Database that enables searching data by semantic meaning rather than just keywords. This technology bridges the gap between traditional structured data and the growing volume of unstructured business data - documents, images, support tickets, and more - allowing you to search them all by their conceptual content. Using ONNX-based embeddings, you can combine semantic similarity with business filters directly in SQL, keeping operations simple.
 
 
-[](youtube:REPLACE_WITH_VIDEO_ID)
+<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2171811/embedPlaykitJs/uiconf_id/54927872?iframeembed=true&amp;entry_id=1_aasjdfcc&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_f4r29m1z%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 512px;height: 288px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Demo: AI Vector Search"></iframe>
 
 
 The interactive demo requires no setup or prerequisites. Simply click through the workflow to:
@@ -73,7 +73,7 @@ The demo showcases approach #2, demonstrating how text is converted to vectors u
 ### **How this will benefit your stakeholders:**
 - **Lower TCO & complexity** - Do similarity search in the database alongside business data; avoid moving data to a separate vector store and the integration/security overhead that comes with it. 
 - **Enterprise-grade by default** - Because AI runs inside Oracle Database, you inherit HA, performance, and security: Partitioning, RAC, Sharding, Exadata, Data Guard, TDE, Key Vault, Audit Vault, VPD, and more.
-- **Deploy anywhere you already run Oracle** - Cloud, on-prem, hybrid; VMs, containers, Kubernetes. A feature of Oracle Database 23ai.
+- **Deploy anywhere you already run Oracle** - Cloud, on-prem, hybrid; VMs, containers, Kubernetes. A feature of Oracle AI Database.
 - **Ready now** - Load an embedding model via ONNX, generate vectors, and query with vector_distance() alongside SQL filters.
 - **RAG-ready** - Retrieve governed business context for LLMs to reduce hallucinations without retraining on sensitive data.
 - **Included** - AI Vector Search is a no-charge feature in every Oracle AI Database.
