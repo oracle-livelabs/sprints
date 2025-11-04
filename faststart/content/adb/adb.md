@@ -13,8 +13,6 @@ This LiveLabs FastStart shows you the fastest way to create a new Autonomous AI 
 
 [Create ADB](videohub:1_vvp8wj7a)
 
-## Task 1: Login to SQL | Database Actions
-
 ## Task 1: Login to OCI and go to the Oracle Autonomous AI Database overview screen.
 
 1. After logging in to OCI, you should see the OCI landing page
