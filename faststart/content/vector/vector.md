@@ -1,5 +1,9 @@
 # LiveLabs FastStart - AI Vector Search
 
+Welcome to this **LiveLabs FastStart** workshop.
+
+LiveLabs FastStart workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
+
 ## Introduction
 
 *Search by meaning, not just words*
@@ -33,7 +37,7 @@ Consider this: Retailers can enhance product discovery by finding similar items 
 
 - Check our [LiveLabs FastStart - Load a pre-built ONNX embedding generation model](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4277) to see how to load an ONNX model into ADB and to get a quick primer on ONNX.
 
-## Video Walkthrough
+### Video Walkthrough
 
 [Create ADB](videohub:1_5vxvrznb)
 
