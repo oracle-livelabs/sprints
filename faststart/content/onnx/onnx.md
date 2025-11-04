@@ -1,5 +1,9 @@
 # LiveLabs FastStart - Load a pre-built ONNX embedding generation model
 
+Welcome to this **LiveLabs FastStart** workshop.
+
+LiveLabs FastStart workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
+
 ## Introduction
 
 This LiveLabs FastStart hows you load a pre-built ONNX embedding generation model into an Autonomous AI Database.
@@ -15,7 +19,7 @@ You can deploy ONNX models directly into the database and use them for various t
 
 Check this LiveLabs FastStart to learn how to provision an Autonomous AI Database:
 
-## Video Walkthrough
+### Video Walkthrough
 
 [ONNX Model](videohub:1_rl1otmla)
 

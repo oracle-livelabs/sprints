@@ -3,10 +3,6 @@
     "help": "livelabs-help-database_us@oracle.com",
     "tutorials": [
         {
-            "title": "Introduction",
-            "filename": "../../common/get-started/faststart-get-started.md"
-        },
-        {
             "title": "FastStart - Explore AI Vector Search",
             "filename": "vector.md"
         },
