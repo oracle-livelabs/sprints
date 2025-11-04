@@ -4,6 +4,8 @@ Welcome to this **LiveLabs FastStart** workshop.
 
 LiveLabs FastStart workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
 
+Estimated Time: 10 minutes
+
 ## Introduction
 
 *Search by meaning, not just words*

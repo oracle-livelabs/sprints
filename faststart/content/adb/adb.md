@@ -4,9 +4,12 @@ Welcome to this **LiveLabs FastStart** workshop.
 
 LiveLabs FastStart workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
 
+Estimated Time: 5 minutes
+
 ## Introduction
 
 This LiveLabs FastStart shows you the fastest way to create a new Autonomous AI Database instance using default settings. To explore more configuration options, see this LiveLabs workshop:[Use Autonomous Database 15 Minute Quick Start](https://livelabs.oracle.com/pls/apex/f?p=133:180:4579534958655::::wid:928)
+
 
 ### Prerequisites
 

@@ -4,9 +4,12 @@ Welcome to this **LiveLabs FastStart** workshop.
 
 LiveLabs FastStart workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
 
+Estimated Time: 5 minutes
+
 ## Introduction
 
 This LiveLabs FastStart hows you load a pre-built ONNX embedding generation model into an Autonomous AI Database.
+
 
 ### What is ONNX?
 ONNX (Open Neural Network Exchange) is an open standard format for machine learning models. It defines a shared set of operators (the core components of machine learning and deep learning models) and a common file format. This allows AI developers to use models across different frameworks, tools, runtimes, and compilers.
