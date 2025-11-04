@@ -4,12 +4,7 @@
   "tutorials": [
     {
       "title": "Introduction",
-      "description": "Learn more about Oracle's Vector Search feature in Oracle Database 23ai",
-      "filename": "../vector-demo-introduction.md"
-    },
-    {
-      "title": "Introduction_2",
-      "description": "Learn more about Oracle's Vector Search feature in Oracle Database 23ai",
+      "description": "Learn more about Oracle's Vector Search feature in Oracle AI Database",
       "filename": "../vector.md"
     }
   ]
