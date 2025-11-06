@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastStart - <title>",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastStart - <title>",
+            "filename": "onnx.md"
+        }
+    ]
+}

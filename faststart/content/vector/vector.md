@@ -35,9 +35,13 @@ Consider this: Retailers can enhance product discovery by finding similar items 
 
 >Note: The following instructions will work only on an Oracle AI Database hosted in OCI, Azure, GoogleCloud, or AWS.
 
+- An Oracle Autonomous AI Database
+
+  - Check our [LiveLabs FastStart - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+
 - An Oracle AI Database environment with a trained `all-MiniLM-L12-v2 model` in ONNX (Open Neural Network Exchange) format.
 
-- Check our [LiveLabs FastStart - Load a pre-built ONNX embedding generation model](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4277) to see how to load an ONNX model into ADB and to get a quick primer on ONNX.
+  - Check our [LiveLabs FastStart - Load a pre-built ONNX embedding generation model](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4277) to see how to load an ONNX model into ADB and to get a quick primer on ONNX.
 
 ### Video Walkthrough
 
