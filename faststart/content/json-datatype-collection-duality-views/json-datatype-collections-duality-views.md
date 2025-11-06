@@ -1,26 +1,34 @@
-# How to use JSON Data Type, JSON Collections, and JSON Duality Views in Oracle AI Database
+# LiveLabs FastStart - How to use JSON Data Type, JSON Collections, and JSON Duality Views in Oracle AI Database
+
+Welcome to this **LiveLabs FastStart** workshop.
+
+LiveLabs FastStart workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
+
+Estimated Time: <X>> minutes
 
 ## Introduction
 
-In the fast-paced world of application development, the need to handle dynamic, hierarchical data is more important than ever.  
-Relational databases, with their rigid tables, often struggle to capture the nuance of such data.  
-Enter **JSON** (JavaScript Object Notation): the perfect solution for developers dealing with data that doesn’t fit neatly into a table.  
+In the fast-paced world of application development, the need to handle dynamic, hierarchical data is more important than ever. Relational databases, with their rigid tables, often struggle to capture the nuance of such data.
+Enter **JSON** (JavaScript Object Notation): the perfect solution for developers dealing with data that doesn’t fit neatly into a table.
 
-**JSON** is the go-to format for modern data exchange.  
-It’s lightweight, human-readable, and works seamlessly across virtually every programming language. But why is it so popular?  
-The answer lies in it's simplicity and flexibility. JSON has become the backbone of APIs, configurations, and semi-structured data in today's applications, offering an ideal way to manage complex data in a simple, organized manner.  
+**JSON** is the go-to format for modern data exchange.
+It’s lightweight, human-readable, and works seamlessly across virtually every programming language. But why is it so popular?  The answer lies in it's simplicity and flexibility. JSON has become the backbone of APIs, configurations, and semi-structured data in today's applications, offering an ideal way to manage complex data in a simple, organized manner.
 
-But what if you could combine the reliability and performance of relational databases with the flexibility of JSON?  
-That’s exactly what the **JSON Relational Duality View** feature of the **Oracle AI Database** delivers.
+But what if you could combine the reliability and performance of relational databases with the flexibility of JSON? That’s exactly what the **JSON Relational Duality View** feature of the **Oracle AI Database** delivers.
 
 
-In this FastStart lab, we will introduce you to JSON concepts, demonstrates basic operations, and shows practical usage examples.  
-This FastStart provides hands-on code snippets to quickly get you started with using the **JSON data type**, **JSON Collections**, and **JSON Relational Duality Views** in ***Oracle AI Database***.  
+In this FastStart lab, we will introduce you to JSON concepts, demonstrates basic operations, and shows practical usage examples.
+This FastStart provides hands-on code snippets to quickly get you started with using the **JSON data type**, **JSON Collections**, and **JSON Relational Duality Views** in ***Oracle AI Database***.
 
 ### Prerequisites
 
-- Connected to Database Actions see [Go Introduction](?lab=faststart-get-started)
+- An Oracle Autonomous AI Database
 
+  - Check our [LiveLabs FastStart - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+
+<!-- ### Video Walkthrough -->
+
+<!-- [JSON](videohub:1_5vxvrznb) -->
 
 ## Task 1: Launch SQL Worksheet
 

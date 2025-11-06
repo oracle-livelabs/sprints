@@ -5,10 +5,6 @@
         {
             "title": "FastStart - Explore AI Vector Search",
             "filename": "vector.md"
-        },
-        {
-            "title": "LiveLabs FastStart Library",
-            "filename":"../../common/library/library.md"
         }
     ]
 }
