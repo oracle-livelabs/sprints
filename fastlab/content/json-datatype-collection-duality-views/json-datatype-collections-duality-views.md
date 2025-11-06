@@ -12,7 +12,7 @@ In the fast-paced world of application development, the need to handle dynamic, 
 Enter **JSON** (JavaScript Object Notation): the perfect solution for developers dealing with data that doesn’t fit neatly into a table.
 
 **JSON** is the go-to format for modern data exchange.
-It’s lightweight, human-readable, and works seamlessly across virtually every programming language. But why is it so popular?  The answer lies in it's simplicity and flexibility. JSON has become the backbone of APIs, configurations, and semi-structured data in today's applications, offering an ideal way to manage complex data in a simple, organized manner.
+It’s lightweight, human-readable, and works seamlessly across virtually every programming language. But why is it so popular?  The answer lies in its simplicity and flexibility. JSON has become the backbone of APIs, configurations, and semi-structured data in today's applications, offering an ideal way to manage complex data in a simple, organized manner.
 
 But what if you could combine the reliability and performance of relational databases with the flexibility of JSON? That’s exactly what the **JSON Relational Duality View** feature of the **Oracle AI Database** delivers.
 
@@ -428,7 +428,7 @@ This workshop contains labs that dive deeper into how to work with JSON in Oracl
 
 * [JSON Developer’s Guide](https://docs.oracle.com/en/database/oracle/oracle-database/23/adjsn/)
 * [JSON Relational Duality Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/jsnvu/)
-* [Oracle Database 23ai JSON Features](https://www.oracle.com/database/json/)
+* [Oracle AI Database JSON Features](https://www.oracle.com/database/json/)
 * [LiveLabs JSON Workshop](https://apexapps.oracle.com/pls/apex/f?p=133:180:16090110673701::::wid:3635)
 
 
