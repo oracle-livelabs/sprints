@@ -1,0 +1,11 @@
+{
+    "workshoptitle": "LiveLabs FastLab - All things JSON in Oracle AI Database",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials":
+    [
+        {
+            "title": "FastLab: All things JSON in Oracle AI Database",
+            "filename": "json-datatype-collections-duality-views.md"
+        }
+    ]
+}
