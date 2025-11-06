@@ -1,0 +1,22 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Graphs in Oracle AI Database",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials":
+    [
+        {
+            "title": "Get Started with FastLab Workshop",
+            "description": "This is the instructions for launching lab environments for customers using Free Trial Accounts and Paid tenancies.",
+             "filename": "../../common/get-started/FastLab-get-started.md"
+        },
+        {
+            "title": "Lab 1: Graphs in Oracle AI Database",
+            "description": "In this lab you will learn how to modify and manage data structures",
+            "filename": "../../databasics/graphs-in-oracle-ai-database/graphs-in-oracle-ai-database.md"
+        },
+        {
+            "title": "Need Help - Want to Submit Feedback?",
+            "description": "FastLab - Instructions for getting support for lab instruction issues and providing feedback",
+            "filename":"../../common/need-help-feedack/FastLab-livelabs-need-help-feedack.md"
+        }
+    ]
+}

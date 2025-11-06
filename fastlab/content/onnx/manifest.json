@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Load a pre-built ONNX embedding generation model",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Load a pre-built ONNX embedding generation model",
+            "filename": "onnx.md"
+        }
+    ]
+}

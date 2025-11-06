@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - AI Vector Search",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Explore AI Vector Search",
+            "filename": "vector.md"
+        }
+    ]
+}

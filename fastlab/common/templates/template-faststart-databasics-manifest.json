@@ -1,0 +1,22 @@
+{
+    "workshoptitle": "LiveLabs FastLab - (Enter FastLab Topic Name Here)",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": 
+    [
+        {
+            "title": "Get Started with FastLab Workshop",
+            "description": "This is the instructions for launching lab environments for customers using Free Trial Accounts and Paid tenancies.",
+             "filename": "../../common/labs/get-started/FastLab-get-started.md"
+        },
+        {
+            "title": "Lab 1: (Enter FastLab Topic Name Here)",
+            "description": "In this lab you will learn (Enter Key Learning Points of FastLab Topic Here)",
+            "filename": "../../databasics/(Enter FastLab Topic Name Here.md)"
+        },
+        {
+            "title": "Need Help - Want to Submit Feedback?",
+            "description": "FastLab - Instructions for getting support for lab instruction issues and providing feedback",
+            "filename":"../../common/labs/need-help-feedack/FastLab-livelabs-need-help-feedack.md"
+        }
+    ]
+}
