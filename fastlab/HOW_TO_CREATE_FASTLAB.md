@@ -7,7 +7,7 @@ Steps to create a new LiveLabs FastLab.
 3. Rename the /FastLab/content/{{topic}}/template.md file to {{topic}}.md
 4. Update /FastLab/content/{{topic}}/manifest.json
    1. Update "workshoptitle" to "{{topic}}"
-   2. Update "title": "FastLab - {{topic}}"
+   2. Update "title": "{{topic}}"
    3. Update "filename": "../../content/{{topic}}/{{topic}}.md"
 5. Fill in /FastLab/content/{{topic}}/{{topic}}.md with appropriate content.
    1. Review guidance in Markdown file
