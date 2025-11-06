@@ -29,6 +29,7 @@ The table assumes that you know what types of releases you want, but if you woul
 |--------|-----------|-------------|------------------------|
 | The JDK for Oracle Linux | | | |
 | | I am an OCI customer | | [Manual Downloads for Oracle Linux on OCI](../sprint-downloadjdk/index.html?lab=ol-oci) |
+| | I am an Oracle Linux user | I am an Oracle Linux Support customer | [Unbreakable Linux Netowrk (ULN) Channels](../sprint-downloadjdk/index.html?lab=ol-uln)
 | The JDK for Linux, Windows, or macOS | | | |
 | | I want to download it manually | | |
 | | | I am an Oracle customer | [Manual Downloads from My Oracle Support](../sprint-downloadjdk/index.html?lab=manual-mos) |

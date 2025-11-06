@@ -1,0 +1,19 @@
+{
+    "workshoptitle": "LiveLabs FastStart - All things JSON in Oracle AI Database",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials":
+    [
+        {
+            "title": "Introduction",
+            "filename": "../../common/get-started/faststart-get-started.md"
+        },
+        {
+            "title": "FastStart: All things JSON in Oracle AI Database",
+            "filename": "json-datatype-collections-duality-views.md"
+        },
+        {
+            "title": "Need Help - Want to Submit Feedback?",
+            "filename":"../../common/need-help-feedack/faststart-livelabs-need-help-feedack.md"
+        }
+    ]
+}

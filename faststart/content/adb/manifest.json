@@ -1,0 +1,14 @@
+{
+    "workshoptitle": "LiveLabs FastStart - Create an Autonomous AI Database",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastStart - Create an Autonomous AI Database",
+            "filename": "adb.md"
+        },
+        {
+            "title": "LiveLabs FastStart Library",
+            "filename":"../../common/library/library.md"
+        }
+    ]
+}
