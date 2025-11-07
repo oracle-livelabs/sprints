@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON in the Oracle AI Database</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh
+        }
+
+        .header {
+            background: linear-gradient(to right, #0f766e, #115e59);
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1)
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: left
+        }
+
+        .header-title {
+            display: flex;
+            align-items: left;
+            gap: 12px;
+            margin-bottom: 8px
+        }
+
+        .header-title h1 {
+            font-size: 28px;
+            font-weight: 700
+        }
+
+        .header-subtitle {
+            color: #99f6e4;
+            font-size: 14px
+        }
+
+        .problem-banner {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px
+        }
+
+        .problem-text {
+            font-size: 18px;
+            color: #856404;
+            font-weight: 600
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            min-height: 42px
+        }
+
+        .btn.completed {
+            background: #16a34a !important
+        }
+
+        .btn.completed::before {
+            content: '✓ '
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-teal {
+            background: #0d9488;
+            color: #fff
+        }
+
+        .btn-teal:hover {
+            background: #0f766e
+        }
+
+        .btn-success {
+            background: #16a34a;
+            color: #fff
+        }
+
+        .btn-success:hover {
+            background: #15803d
+        }
+
+        .btn-gray {
+            background: #e5e7eb;
+            color: #374151
+        }
+
+        .btn-gray:hover {
+            background: #d1d5db
+        }
+
+        .btn-orange {
+            background: #ea580c;
+            color: #fff
+        }
+
+        .btn-orange:hover {
+            background: #c2410c
+        }
+
+        .btn-blue {
+            background: #0d9488;
+            color: #fff
+        }
+
+        .btn-blue:hover {
+            background: #0f766e
+        }
+
+        .btn-purple {
+            background: #9333ea;
+            color: #fff
+        }
+
+        .btn-purple:hover {
+            background: #7c3aed
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: #fff
+        }
+
+        .btn-danger:hover {
+            background: #dc2626
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px
+        }
+
+        @media (max-width:1100px) {
+            .main-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .panel {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+
+        .panel-header {
+            background: #1f2937;
+            color: #fff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        .panel-content {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto
+        }
+
+        .mode-indicator {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none
+        }
+
+        .mode-indicator.active {
+            display: block
+        }
+
+        .mode-indicator.view {
+            background: #f0fdf4;
+            border-color: #16a34a
+        }
+
+        .mode-indicator.query {
+            background: #ccfbf1;
+            border-color: #0d9488
+        }
+
+        .mode-indicator.duality {
+            background: #f3e8ff;
+            border-color: #9333ea
+        }
+
+        .mode-indicator.update {
+            background: #ffedd5;
+            border-color: #ea580c
+        }
+
+        .mode-indicator.delete {
+            background: #fef2f2;
+            border-color: #dc2626
+        }
+
+        .mode-indicator.insert {
+            background: #ecfdf5;
+            border-color: #10b981
+        }
+
+        .mode-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .mode-description {
+            font-size: 13px;
+            color: #6b7280
+        }
+
+        .sql-box {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #1f2937;
+            white-space: pre-wrap;
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            min-height: 180px;
+            max-height: 220px;
+            overflow-y: auto
+        }
+
+        .results-summary {
+            background: #dcfce7;
+            border: 2px solid #22c55e;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 12px 0;
+            display: none
+        }
+
+        .results-text {
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        .data-table-container {
+            margin-top: 8px;
+            border-top: 2px solid #e5e7eb;
+            padding-top: 8px;
+            overflow: auto;
+            max-height: 300px;
+        }
+
+        .data-table {
+            width: 100%;
+            font-size: 10px;
+            border-collapse: collapse;
+            min-width: 420px;
+            table-layout: fixed;
+        }
+
+        .data-table th {
+            background: #f3f4f6;
+            padding: 6px;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            border: 1px solid #e5e7eb
+        }
+
+        .data-table td {
+            padding: 6px;
+            border: 1px solid #e5e7eb;
+            color: #1f2937
+        }
+
+        .data-table .new-row {
+            background: #dcfce7;
+            border: 2px solid #16a34a;
+            animation: pulse 2s ease-in-out 3
+        }
+
+        .data-table .json-col {
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px
+        }
+
+        .result-table th {
+            background: #0d9488;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            font-size: 12px
+        }
+
+        .result-table td {
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            font-size: 12px
+        }
+
+        .result-table tr:nth-child(even) {
+            background: #f9fafb
+        }
+
+        .code-display,
+        .json-display {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #1f2937;
+            white-space: pre-wrap;
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            max-height: 400px;
+            overflow-y: auto
+        }
+
+        .json-key {
+            color: #dc2626;
+            font-weight: 600
+        }
+
+        .json-string {
+            color: #059669
+        }
+
+        .json-number {
+            color: #2563eb
+        }
+
+        .visual-container {
+            background: #09736a;
+            border-radius: 8px;
+            padding: 40px 20px;
+            margin-top: 12px;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .app-box {
+            background: #fff;
+            border: 2px solid #0d9488;
+            border-radius: 8px;
+            padding: 8px 12px;
+            width: 110px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+            text-align: center
+        }
+
+        .app-icon {
+            font-size: 20px;
+            margin-bottom: 4px
+        }
+
+        .app-title {
+            font-size: 10px;
+            font-weight: 700;
+            color: #0d9488;
+            margin-bottom: 2px
+        }
+
+        .app-desc {
+            font-size: 8px;
+            color: #666
+        }
+
+        .dv-box {
+            background: linear-gradient(135deg, #9333ea, #7c3aed);
+            border-radius: 8px;
+            padding: 20px;
+            width: 160px;
+            box-shadow: 0 4px 12px rgba(147, 51, 234, .3);
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 10
+        }
+
+        .dv-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .dv-subtitle {
+            font-size: 10px;
+            opacity: .9
+        }
+
+        .db-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-top: 40px
+        }
+
+        .table-box {
+            background: #fff;
+            border: 2px solid #ea580c;
+            border-radius: 6px;
+            padding: 12px 16px;
+            width: 140px;
+            box-shadow: 0 2px 8px rgba(234, 88, 12, .2);
+            text-align: center
+        }
+
+        .table-icon {
+            font-size: 20px;
+            margin-bottom: 4px
+        }
+
+        .table-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: #ea580c
+        }
+
+        .flow-line-h {
+            position: absolute;
+            height: 3px;
+            background: #fff;
+            opacity: .3
+        }
+
+        .flow-line-v {
+            position: absolute;
+            width: 3px;
+            background: #fff;
+            opacity: .3
+        }
+
+        .data-packet-json {
+            position: absolute;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, .5);
+            animation: moveJsonToDV 3s ease-in-out infinite
+        }
+
+        .data-packet-split {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5)
+        }
+
+        .packet-to-customers {
+            animation: moveDVToCustomers 3s ease-in-out infinite;
+            animation-delay: .5s
+        }
+
+        .packet-to-orders {
+            animation: moveDVToOrders 3s ease-in-out infinite;
+            animation-delay: .7s
+        }
+
+        .data-packet-sql {
+            position: absolute;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, .5);
+            animation: moveSqlToTable 3s ease-in-out infinite;
+            animation-delay: 1.5s
+        }
+
+        .data-packet-doc-mobile {
+            position: absolute;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, .5);
+            animation: moveDocFromMobileApp 3s ease-in-out infinite
+        }
+
+        .data-packet-doc-web {
+            position: absolute;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, .5);
+            animation: moveDocFromWebApp 3s ease-in-out infinite;
+            animation-delay: 0.3s
+        }
+
+        .data-packet-doc-erp {
+            position: absolute;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, .5);
+            animation: moveDocFromERP 3s ease-in-out infinite;
+            animation-delay: 0.6s
+        }
+
+        .data-packet-doc-analytics {
+            position: absolute;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, .5);
+            animation: moveDocFromAnalytics 3s ease-in-out infinite;
+            animation-delay: 0.9s
+        }
+
+        .data-packet-update-to-dv {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5);
+            animation: moveUpdateToDV 3s ease-in-out infinite
+        }
+
+        .data-packet-update-to-table {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5);
+            animation: moveUpdateToTable 3s ease-in-out infinite;
+            animation-delay: 0.5s
+        }
+
+        .data-packet-delete-request {
+            position: absolute;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, .5);
+            animation: moveDeleteRequestToDV 3s ease-in-out infinite
+        }
+
+        .data-packet-delete-cascade {
+            position: absolute;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, .5);
+            animation: moveDeleteToTables 3s ease-in-out infinite
+        }
+
+        .data-packet-records-trash {
+            position: absolute;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, .5);
+            animation: moveRecordsToTrash 3s ease-in-out infinite
+        }
+
+        .data-packet-delete1 {
+            position: absolute;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, .5);
+            animation: moveRecordToTrash1 3s ease-in-out infinite
+        }
+
+        .data-packet-delete2 {
+            position: absolute;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, .5);
+            animation: moveRecordToTrash2 3s ease-in-out infinite;
+            animation-delay: 0.3s
+        }
+
+        @keyframes moveJsonToDV {
+            0% {
+                left: 120px;
+                top: 55px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 270px;
+                top: 100px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDVToCustomers {
+
+            0%,
+            50% {
+                left: 270px;
+                top: 100px;
+                opacity: 0
+            }
+
+            55% {
+                opacity: 1
+            }
+
+            90% {
+                left: 480px;
+                top: 190px;
+                opacity: 1
+            }
+
+            95% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDVToOrders {
+
+            0%,
+            50% {
+                left: 270px;
+                top: 110px;
+                opacity: 0
+            }
+
+            55% {
+                opacity: 1
+            }
+
+            90% {
+                left: 480px;
+                top: 245px;
+                opacity: 1
+            }
+
+            95% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveUpdateToDV {
+            0% {
+                left: 120px;
+                top: 55px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 270px;
+                top: 100px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveUpdateToTable {
+            0%,
+            50% {
+                left: 270px;
+                top: 100px;
+                opacity: 0
+            }
+
+            55% {
+                opacity: 1
+            }
+
+            90% {
+                left: 480px;
+                top: 190px;
+                opacity: 1
+            }
+
+            95% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveSqlToTable {
+            0% {
+                left: 60px;
+                top: 250px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            85% {
+                left: 500px;
+                top: 250px;
+                opacity: 1
+            }
+
+            90% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDocFromMobileApp {
+            0% {
+                left: 270px;
+                top: 100px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 120px;
+                top: 55px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDocFromWebApp {
+            0% {
+                left: 270px;
+                top: 100px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 120px;
+                top: 145px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDocFromERP {
+            0% {
+                left: 480px;
+                top: 190px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 120px;
+                top: 250px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDocFromAnalytics {
+            0% {
+                left: 480px;
+                top: 245px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 120px;
+                top: 350px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveRecordToTrash1 {
+            0% {
+                left: 420px;
+                top: 190px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 270px;
+                top: 200px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveRecordToTrash2 {
+            0% {
+                left: 420px;
+                top: 245px;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            45% {
+                left: 270px;
+                top: 210px;
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDeleteRequestToDV {
+            0% {
+                left: 120px;
+                top: 55px;
+                opacity: 0
+            }
+
+            15% {
+                opacity: 1
+            }
+
+            30% {
+                left: 270px;
+                top: 100px;
+                opacity: 1
+            }
+
+            35% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveDeleteToTables {
+            0%,
+            35% {
+                left: 270px;
+                top: 100px;
+                opacity: 0
+            }
+
+            40% {
+                opacity: 1
+            }
+
+            60% {
+                left: 420px;
+                top: 220px;
+                opacity: 1
+            }
+
+            65% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes moveRecordsToTrash {
+            0%,
+            65% {
+                left: 420px;
+                top: 220px;
+                opacity: 0
+            }
+
+            70% {
+                opacity: 1
+            }
+
+            95% {
+                left: 270px;
+                top: 205px;
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes connectionToDV {
+            0% {
+                opacity: 0;
+                stroke-dashoffset: 200
+            }
+
+            20% {
+                opacity: 1
+            }
+
+            80% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+
+            100% {
+                opacity: 1;
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes pulseConnection {
+            0%, 40% {
+                opacity: 0
+            }
+            50% {
+                opacity: 0.6
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes schemaFromCustomers {
+            0% {
+                left: 480px;
+                top: 190px;
+                opacity: 0;
+                transform: scale(0.5)
+            }
+
+            20% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                left: 340px;
+                top: 100px;
+                opacity: 1;
+                transform: scale(0.8)
+            }
+
+            55% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes schemaFromOrders {
+            0% {
+                left: 480px;
+                top: 245px;
+                opacity: 0;
+                transform: scale(0.5)
+            }
+
+            20% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                left: 340px;
+                top: 110px;
+                opacity: 1;
+                transform: scale(0.8)
+            }
+
+            55% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes dvActivate {
+            0%, 55% {
+                opacity: 0;
+                transform: scale(0.95)
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1.05)
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes drawArrowFromCustomers {
+            0% {
+                stroke-dashoffset: 250;
+                opacity: 1
+            }
+
+            50% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes drawArrowFromOrders {
+            0% {
+                stroke-dashoffset: 250;
+                opacity: 1
+            }
+
+            50% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes dvBoxAppear {
+            0%, 50% {
+                opacity: 0;
+                transform: scale(0.3)
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.15)
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes syncIconAppear {
+            0%, 70% {
+                opacity: 0;
+                transform: scale(0.3)
+            }
+
+            90% {
+                opacity: 1;
+                transform: scale(1.2)
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes flowFromCustomers {
+            0% {
+                left: 460px;
+                top: 190px;
+                opacity: 0;
+                transform: scale(0.8)
+            }
+
+            15% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            45% {
+                left: 360px;
+                top: 100px;
+                opacity: 1;
+                transform: scale(0.9)
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes flowFromOrders {
+            0% {
+                left: 460px;
+                top: 245px;
+                opacity: 0;
+                transform: scale(0.8)
+            }
+
+            15% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            45% {
+                left: 360px;
+                top: 110px;
+                opacity: 1;
+                transform: scale(0.9)
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        @keyframes drawLineFromCustomers {
+            0% {
+                stroke-dashoffset: 200;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            50% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes drawLineFromOrders {
+            0% {
+                stroke-dashoffset: 200;
+                opacity: 0
+            }
+
+            10% {
+                opacity: 1
+            }
+
+            50% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 1
+            }
+        }
+
+        .dotted-line-customers {
+            stroke-dasharray: 8 6;
+            stroke-dashoffset: 200;
+            animation: drawLineFromCustomers 3s ease-out forwards
+        }
+
+        .dotted-line-orders {
+            stroke-dasharray: 8 6;
+            stroke-dashoffset: 200;
+            animation: drawLineFromOrders 3s ease-out forwards;
+            animation-delay: 0.2s
+        }
+
+        .flow-packet-customers {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5);
+            animation: flowFromCustomers 3s ease-out forwards
+        }
+
+        .flow-packet-orders {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5);
+            animation: flowFromOrders 3s ease-out forwards;
+            animation-delay: 0.2s
+        }
+
+        .arrow-draw-customers {
+            stroke-dasharray: 250;
+            stroke-dashoffset: 250;
+            animation: drawArrowFromCustomers 3s ease-out forwards
+        }
+
+        .arrow-draw-orders {
+            stroke-dasharray: 250;
+            stroke-dashoffset: 250;
+            animation: drawArrowFromOrders 3s ease-out forwards;
+            animation-delay: 0.2s
+        }
+
+        .dv-box-create {
+            animation: dvBoxAppear 3s ease-out forwards
+        }
+
+        .sync-icon-final {
+            position: absolute;
+            font-size: 24px;
+            animation: syncIconAppear 3s ease-out forwards;
+            color: #10b981
+        }
+
+        .schema-packet-customers {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5);
+            animation: schemaFromCustomers 3s ease-in-out infinite
+        }
+
+        .schema-packet-orders {
+            position: absolute;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .5);
+            animation: schemaFromOrders 3s ease-in-out infinite;
+            animation-delay: 0.2s
+        }
+
+        .dv-activate {
+            animation: dvActivate 3s ease-in-out infinite
+        }
+
+        .connection-line {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: connectionToDV 3s ease-in-out infinite
+        }
+
+        .sync-icon {
+            position: absolute;
+            font-size: 24px;
+            animation: pulseConnection 3s ease-in-out infinite
+        }
+
+        .architecture-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px;
+            position: relative
+        }
+
+        .apps-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .middle-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-top: -150px
+        }
+
+        .highlight-flow {
+            animation: pulse-glow 2s ease-in-out infinite
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 12px rgba(16, 185, 129, .3)
+            }
+
+            50% {
+                box-shadow: 0 6px 20px rgba(16, 185, 129, .8)
+            }
+        }
+
+        .fullscreen-toggle {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 9999;
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: #111827;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: .9
+        }
+
+        .fullscreen-toggle:hover {
+            opacity: 1;
+            background: #0b1220
+        }
+
+        .fullscreen-toggle svg {
+            width: 22px;
+            height: 22px
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                    </path>
+                </svg>
+                <h1>JSON in the Oracle AI Database</h1>
+            </div>
+            <p class="header-subtitle">Manage data with the same confidence and control, and build apps with JSON speed and relational power</p>
+        </div>
+    </div>
+
+    <div class="problem-banner">
+        <span class="problem-text">"Keep every application aligned to the same real-time data. Store data once, use it as JSON or Relational."</span>
+    </div>
+
+    <div class="container">
+        <div class="button-group">
+            <button id="btnDuality" class="btn btn-purple">Create Duality View</button>
+            <button id="btnInsert" class="btn btn-success">Insert Record</button>
+            <button id="btnQuery" class="btn btn-blue">Generate Report</button>
+            <button id="btnUpdate" class="btn btn-orange">Modify Record</button>
+            <button id="btnDelete" class="btn btn-danger">Remove Record</button>
+            <button id="btnReset" class="btn btn-gray">Reset</button>
+        </div>
+
+        <div class="main-grid">
+            <div class="panel">
+                <div class="panel-header"><span>▶</span><span>JSON Duality View</span></div>
+                <div class="panel-content">
+                    <div id="modeIndicator" class="mode-indicator">
+                        <div class="mode-title"></div>
+                        <div class="mode-description"></div>
+                    </div>
+                    <div id="sqlOutput" style="display:none">
+                        <div style="font-size:12px;font-weight:600;color:#374151;margin:16px 0 8px">Query Results:</div>
+                        <div id="queryResults"></div>
+                    </div>
+                    <div id="resultsSummary" class="results-summary"></div>
+                    <div id="dataTableContainer" class="data-table-container" style="display:none">
+                        <div style="font-size:12px;font-weight:600;color:#374151;margin-bottom:8px">📊 Customer Data (Duality View)</div>
+                        <div id="dataTable"></div>
+                    </div>
+                    <div style="margin-top:16px">
+                        <div style="font-size:14px;font-weight:700;color:#374151;margin-bottom:8px" id="sampleTitle">
+                            Sample JSON Document</div>
+                        <div class="json-display" id="sampleContent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header"><span style="color:#fbbf24">📋</span><span>JSON Duality View & Visual
+                        Demo</span></div>
+                <div class="panel-content">
+                    <div id="explanationBox"
+                        style="background:#f0f9ff;border-left:4px solid #0284c7;padding:12px;border-radius:4px;margin-bottom:16px">
+                        <div style="font-size:14px;font-weight:700;color:#0c4a6e;margin-bottom:8px;">What is JSON
+                            Duality?</div>
+                        <div
+                            style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:4px;padding-left:16px;position:relative">
+                            <span style="position:absolute;left:0;color:#0284c7;font-weight:bold">•</span>
+                            <strong>JSON Documents:</strong> Store data as flexible JSON with nested structures
+                        </div>
+                        <div
+                            style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:4px;padding-left:16px;position:relative">
+                            <span style="position:absolute;left:0;color:#0284c7;font-weight:bold">•</span>
+                            <strong>Relational Tables:</strong> Query and modify using standard SQL
+                        </div>
+                        <div
+                            style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:4px;padding-left:16px;position:relative">
+                            <span style="position:absolute;left:0;color:#0284c7;font-weight:bold">•</span>
+                            <strong>Automatic Sync:</strong> Changes in one view instantly reflect in the other
+                        </div>
+                    </div>
+                    <div style="margin-top:16px">
+                        <div style="font-size:14px;font-weight:700;color:#374151;margin-bottom:8px">Operation
+                            Visualization</div>
+                        <div id="visualContainer" class="visual-container">
+                            <div class="database">
+                                <div class="db-top"></div>
+                                <div class="db-body"></div>
+                                <div class="db-bottom"></div>
+                                <div class="db-label">Oracle<br>Database</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="fsToggle" class="fullscreen-toggle">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z" />
+        </svg>
+    </button>
+
+    <script>
+        const customersData = [{ _id: 1, name: "John Smith", email: "john.smith@email.com", status: "active", orders: [{ order_id: 101, product: "Laptop", amount: 1299.99 }, { order_id: 104, product: "Wireless Mouse", amount: 49.99 }, { order_id: 105, product: "USB-C Adapter", amount: 29.99 }] }, { _id: 2, name: "Jane Thompson", email: "jane.doe@email.com", status: "active", orders: [{ order_id: 102, product: "Mouse", amount: 29.99 }, { order_id: 103, product: "Keyboard", amount: 89.99 }] }, { customer_id: 3, name: "Bob Johnson", email: "bob.j@email.com", status: "inactive", orders: [] }];
+        const newCustomers = [
+            { name: "Alice Williams", email: "alice.w@email.com", status: "active" }, 
+            { name: "Charlie Brown", email: "charlie.b@email.com", status: "active" }, 
+            { name: "Diana Prince", email: "diana.p@email.com", status: "active" }, 
+            { name: "Eve Martinez", email: "eve.m@email.com", status: "inactive" },
+            { name: "Frank Miller", email: "frank.m@email.com", status: "active" },
+            { name: "Grace Chen", email: "grace.c@email.com", status: "active" },
+            { name: "Henry Davis", email: "henry.d@email.com", status: "inactive" },
+            { name: "Isabel Rodriguez", email: "isabel.r@email.com", status: "active" }
+        ];
+        const newProducts = [{ product: "Monitor", amount: 299.99 }, { product: "Webcam", amount: 79.99 }, { product: "Headset", amount: 129.99 }, { product: "USB Hub", amount: 39.99 }, { product: "Desk Lamp", amount: 49.99 }];
+        let currentData = JSON.parse(JSON.stringify(customersData));
+        let nextId = 4, nextOrderId = 106, insertIndex = 0, hasDualityView = false, newCustomerId = null, updateIndex = 0;
+
+        function formatJSON(obj) {
+            return JSON.stringify(obj, null, 2).replace(/"([^"]+)":/g, '<span class="json-key">$1</span>:').replace(/: "([^"]+)"/g, ': <span class="json-string">"$1"</span>').replace(/: (\d+\.?\d*)/g, ': <span class="json-number">$1</span>');
+        }
+
+        function updateButtonStates() {
+            // Progressive unlocking based on workflow state
+            if (!hasDualityView) {
+                // State 1: No Duality View created yet - only Create DV button is enabled
+                document.getElementById('btnInsert').disabled = true;
+                document.getElementById('btnQuery').disabled = true;
+                document.getElementById('btnUpdate').disabled = true;
+                document.getElementById('btnDelete').disabled = true;
+            } else if (currentData.length === 0) {
+                // State 2: Duality View created but no data - only Insert is enabled
+                document.getElementById('btnInsert').disabled = false;
+                document.getElementById('btnQuery').disabled = true;
+                document.getElementById('btnUpdate').disabled = true;
+                document.getElementById('btnDelete').disabled = true;
+            } else {
+                // State 3: Duality View created with data - all operations enabled
+                document.getElementById('btnInsert').disabled = false;
+                document.getElementById('btnQuery').disabled = false;
+                document.getElementById('btnUpdate').disabled = false;
+                document.getElementById('btnDelete').disabled = false;
+            }
+        }
+
+        function updateTableVisibility(operation) {
+            const dataTableContainer = document.getElementById('dataTableContainer');
+            const queryResults = document.getElementById('sqlOutput');
+            
+            // Define which operations show which elements
+            if (operation === 'duality') {
+                // Creating view - hide both
+                dataTableContainer.style.display = 'none';
+                queryResults.style.display = 'none';
+            } else if (operation === 'query') {
+                // Generate report - hide customer data, show query results
+                dataTableContainer.style.display = 'none';
+                queryResults.style.display = 'block';
+            } else if (operation === 'insert' || operation === 'update' || operation === 'delete') {
+                // Insert, Update, Delete - show customer data, hide query results
+                dataTableContainer.style.display = 'block';
+                queryResults.style.display = 'none';
+            } else {
+                // Default - hide both
+                dataTableContainer.style.display = 'none';
+                queryResults.style.display = 'none';
+            }
+        }
+
+        function showVisual(type) {
+            const vc = document.getElementById('visualContainer');
+            const baseArchitecture = '<div class="architecture-container"><div class="apps-section"><div class="app-box"><div class="app-icon">📱</div><div class="app-title">Mobile App</div><div class="app-desc">Customer Transactions</div></div><div class="app-box"><div class="app-icon">🌐</div><div class="app-title">Web App</div><div class="app-desc">Online Portal</div></div><div class="app-box"><div class="app-icon">🏢</div><div class="app-title">ERP System</div><div class="app-desc">Business Operations</div></div><div class="app-box"><div class="app-icon">📊</div><div class="app-title">Analytics Tools</div><div class="app-desc">Reporting</div></div></div><div class="middle-section"><div class="dv-box"><div class="dv-title">JSON Duality View</div><div class="dv-subtitle">customers_dv</div></div></div><div class="db-container"><div class="table-box"><div class="table-icon">👥</div><div class="table-name">CUSTOMERS</div></div><div class="table-box"><div class="table-icon">🛒</div><div class="table-name">ORDERS</div></div></div></div>';
+
+            if (type === 'insert') {
+                vc.innerHTML = baseArchitecture + '<div class="data-packet-json" style="left:120px;top:55px">📄 JSON Doc</div><div class="data-packet-split packet-to-customers" style="left:270px;top:100px">👤 Customer</div><div class="data-packet-split packet-to-orders" style="left:270px;top:110px">🛒 Order</div><div style="position:absolute;left:50%;top:20px;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5);white-space:nowrap">Insert: App → JSON Duality View → Tables</div>';
+            } else if (type === 'delete') {
+                vc.innerHTML = baseArchitecture + '<div style="position:absolute;left:270px;top:180px;font-size:80px;filter:drop-shadow(0 4px 12px rgba(239,68,68,.4));z-index:5">🗑️</div><div class="data-packet-delete-request" style="left:120px;top:55px">🗑️ Delete</div><div class="data-packet-delete-cascade" style="left:270px;top:100px">🗑️ Delete</div><div class="data-packet-records-trash" style="left:420px;top:220px">✓ Deleted</div><div style="position:absolute;left:50%;top:20px;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5);white-space:nowrap">Delete: App → Duality View → Tables → Trash</div>';
+            } else if (type === 'update') {
+                vc.innerHTML = baseArchitecture + '<div class="data-packet-update-to-dv" style="left:120px;top:55px">✏️ Update</div><div class="data-packet-update-to-table" style="left:270px;top:100px">✓ Sync</div><div style="position:absolute;left:50%;top:20px;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5);white-space:nowrap">Update: App → JSON Duality View → CUSTOMERS Table</div>';
+            } else if (type === 'query') {
+                vc.innerHTML = baseArchitecture + '<div class="data-packet-doc-mobile" style="left:120px;top:55px">📄 Data</div><div class="data-packet-doc-web" style="left:120px;top:125px">📄 Data</div><div class="data-packet-doc-erp" style="left:120px;top:250px">📊 Data</div><div class="data-packet-doc-analytics" style="left:120px;top:350px">📊 Data</div><div style="position:absolute;left:50%;top:20px;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5);white-space:nowrap">Generate Report: Tables → Duality View | SQL → Applications</div>';
+            } else if (type === 'duality') {
+                const baseWithoutDV = '<div class="architecture-container"><div class="apps-section"><div class="app-box"><div class="app-icon">📱</div><div class="app-title">Mobile App</div><div class="app-desc">Customer Transactions</div></div><div class="app-box"><div class="app-icon">🌐</div><div class="app-title">Web App</div><div class="app-desc">Online Portal</div></div><div class="app-box"><div class="app-icon">🏢</div><div class="app-title">ERP System</div><div class="app-desc">Business Operations</div></div><div class="app-box"><div class="app-icon">📊</div><div class="app-title">Analytics Tools</div><div class="app-desc">Reporting</div></div></div><div class="middle-section"><div class="dv-box dv-box-create"><div class="dv-title">JSON Duality View</div><div class="dv-subtitle">customers_dv</div></div></div><div class="db-container"><div class="table-box"><div class="table-icon">👥</div><div class="table-name">CUSTOMERS</div></div><div class="table-box"><div class="table-icon">🛒</div><div class="table-name">ORDERS</div></div></div></div>';
+                vc.innerHTML = baseWithoutDV + '<svg style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1"><line class="dotted-line-customers" x1="460" y1="190" x2="360" y2="100" stroke="#f59e0b" stroke-width="3"/><line class="dotted-line-orders" x1="460" y1="245" x2="360" y2="110" stroke="#f59e0b" stroke-width="3"/></svg><div style="position:absolute;left:50%;top:20px;transform:translateX(-50%);color:#fff;font-size:14px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5);white-space:nowrap">Building JSON Duality View from Table Schemas</div>';
+            } else {
+                vc.innerHTML = baseArchitecture + '<div style="position:absolute;left:50%;top:20px;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.5);white-space:nowrap">Architecture: Apps → Duality View → Database Tables</div>';
+            }
+        }
+
+        function updateRightPanel(mode) {
+            const configs = { query: { bg: '#ccfbf1', border: '#0d9488', color: '#134e4a', title: 'JSON Query Operations', items: ['Filtered Search: Queries JSON documents for relevant customer data', 'Unified Results: Combines JSON and relational data in one report', 'Real-Time Insight: Reflects the most current information instantly'] }, duality: { bg: '#f3e8ff', border: '#9333ea', color: '#581c87', title: 'JSON Duality View Benefits', items: ['Single Definition: Builds a JSON Duality View that links documents and relational tables', 'Unified Access: Lets developers work in JSON while analysts use SQL on the same data', 'Real-Time Sync: Keeps operational updates and business reports automatically aligned'] }, update: { bg: '#ffedd5', border: '#ea580c', color: '#7c2d12', title: 'JSON Update Operations', items: ['Targeted Edits: Updates specific customer fields using JSON_TRANSFORM for precise, efficient changes', 'Automatic Mapping: Reflects updates across relational tables defined in the Duality View', 'Real-Time Consistency: Keeps customer and order information synchronized across all systems'] }, insert: { bg: '#ecfdf5', border: '#10b981', color: '#064e3b', title: 'JSON Insert Operations', items: ['Customer Document: Inserts a complete customer profile with nested order details', 'Auto Mapping: Automatically maps JSON fields to relational tables through the Duality View', 'Instant Availability: Makes new customer data immediately accessible for applications and reporting'] }, delete: { bg: '#fef2f2', border: '#dc2626', color: '#7f1d1d', title: 'JSON Delete Operations', items: ['Document Deletion: Removes the targeted customer document and all nested order details', 'Automatic Cascade: Deletes corresponding relational records through the Duality View', 'Data Integrity: Maintains referential consistency and keeps analytics aligned after deletion'] } };
+            const config = configs[mode] || { bg: '#f0f9ff', border: '#0284c7', color: '#0c4a6e', title: 'JSON Duality View', items: ['JSON Documents: Support fast, modern applications with flexible, business-ready data structures', 'Relational Tables: Deliver trusted analytics and reporting from the same live data', 'Automatic Sync: Ensure every change is reflected instantly across systems for consistency and accuracy'] };
+            const eb = document.getElementById('explanationBox');
+            eb.style.background = config.bg;
+            eb.style.borderColor = config.border;
+            let html = '<div style="font-size:14px;font-weight:700;color:' + config.color + ';margin-bottom:8px">' + config.title + '</div>';
+            config.items.forEach(item => { html += '<div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:4px;padding-left:16px;position:relative"><span style="position:absolute;left:0;color:' + config.border + ';font-weight:bold">•</span><strong>' + item.split(':')[0] + ':</strong>' + item.split(':')[1] + '</div>'; });
+            eb.innerHTML = html;
+            showVisual(mode);
+        }
+
+        function updateDataTable() {
+            let html = '<table class="data-table"><thead><tr><th style="width:40px">ID</th><th style="width:120px">Name</th><th style="width:150px">Email</th><th style="width:60px">Status</th><th style="width:50px">Orders</th></tr></thead><tbody>';
+            currentData.forEach(customer => {
+                const rowClass = (newCustomerId && customer._id === newCustomerId) ? 'new-row' : '';
+                html += '<tr ' + (rowClass ? 'class="' + rowClass + '"' : '') + '><td><strong>' + customer.customer_id + '</strong></td><td>' + customer.name + '</td><td>' + customer.email + '</td><td><span style="padding:2px 8px;border-radius:12px;font-size:10px;background:' + (customer.status === 'active' ? '#dcfce7' : '#fee2e2') + ';color:' + (customer.status === 'active' ? '#166534' : '#991b1b') + '">' + customer.status + '</span></td><td>' + customer.orders.length + '</td></tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('dataTable').innerHTML = html;
+        }
+
+        function showIntro() {
+            document.getElementById('modeIndicator').className = 'mode-indicator intro active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '🧩 JSON Duality View';
+            document.getElementById('modeIndicator').querySelector('.mode-description').innerHTML =
+                'Oracle JSON Duality View connects application and analytical data in real time within the same database. It exposes relational data as JSON without duplication, enabling developers to work with JSON and analysts to query the same live data using SQL. In this demo, you will create a Duality View, manage customer records, and generate reports to see how Oracle keeps every system aligned with one consistent view of information.';
+        }
+
+        function viewJSONData() {
+            newCustomerId = null;
+            document.getElementById('modeIndicator').className = 'mode-indicator view active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '✅ View JSON Data';
+            document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 'Displaying all JSON documents from the Duality View';
+
+            document.getElementById('resultsSummary').style.display = 'block';
+            document.getElementById('resultsSummary').innerHTML = '<span>✅</span><span class="results-text">Retrieved ' + currentData.length + ' JSON documents</span>';
+            document.getElementById('sqlOutput').style.display = 'none';
+            document.getElementById('sampleTitle').textContent = 'JSON Document Retrieved';
+            document.getElementById('sampleContent').innerHTML = formatJSON(currentData[0]);
+            updateRightPanel('view');
+            updateDataTable();
+        }
+
+        function runJSONQuery() {
+            newCustomerId = null;
+            document.getElementById('modeIndicator').className = 'mode-indicator query active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '🔍 Generate Report';
+            document.getElementById('modeIndicator').querySelector('.mode-description').innerHTML =
+                'Oracle JSON Duality View lets applications work from the same live data within the database. JSON data captured by applications is immediately available for relational queries and analysis, delivering faster, more accurate insights for the business.';
+
+            const results = currentData.filter(c => c.status === 'active' && c.orders.length > 0);
+
+            document.getElementById('resultsSummary').style.display = 'block';
+            document.getElementById('resultsSummary').innerHTML = 
+                '<span>✅</span><span class="results-text">Found ' + results.length + 
+                ' matching customers. The result includes only active customers with valid orders, providing a clear and accurate view of current business activity. By automatically excluding inactive records, Oracle JSON Duality View ensure every report reflects real-time data for faster, more confident decisions.</span>';
+
+            document.getElementById('sqlOutput').style.display = 'block';
+
+            // Build HTML results table
+            let html = '<table class="result-table"><thead><tr><th>Name</th><th>Email</th><th>Status</th><th>Order Total ($)</th></tr></thead><tbody>';
+            results.forEach(r => {
+                const total = r.orders.reduce((sum, o) => sum + o.amount, 0).toFixed(2);
+                html += '<tr><td>' + r.name + '</td><td>' + r.email + '</td><td>' + r.status + '</td><td>$' + total + '</td></tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('queryResults').innerHTML = html;
+
+            // JSON query sample text (unchanged except simplified to remove customer_id)
+            document.getElementById('sampleTitle').textContent = 'Query Operation - JSON Query Code';
+            document.getElementById('sampleContent').className = 'code-display';
+            document.getElementById('sampleContent').textContent =
+            '-- Query via JSON Duality View using JSON_VALUE and JSON_TABLE\n' +
+            'SELECT \n' +
+            '  JSON_VALUE(data, \'$._id\') AS customer_id,\n' +
+            '  JSON_VALUE(data, \'$.name\') AS name,\n' +
+            '  JSON_VALUE(data, \'$.email\') AS email,\n' +
+            '  JSON_VALUE(data, \'$.status\') AS status,\n' +
+            '  (SELECT SUM(JSON_VALUE(value, \'$.amount\'))\n' +
+            '     FROM JSON_TABLE(data, \'$.orders[*]\'\n' +
+            '       COLUMNS(value CLOB PATH \'$\')\n' +
+            '     )\n' +
+            '  ) AS total_order_amount\n' +
+            'FROM customers_dv\n' +
+            'WHERE JSON_VALUE(data, \'$.status\') = \'active\';\n\n' +
+            '-- ✓ Returns active customers with their total order value\n' +
+            '-- ✓ Executes directly on JSON documents within the Duality View\n' +
+            '-- ✓ Ensures consistent, real-time data for both apps and reports';
+
+            // Make sure visibility is set correctly for query operation
+            updateTableVisibility('query');
+            updateRightPanel('query');
+        }
+
+        function createDualityView() {
+            newCustomerId = null;
+            hasDualityView = true;
+            document.getElementById('modeIndicator').className = 'mode-indicator duality active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '🔄 Create Duality View';
+            document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 'Oracle JSON Duality View brings application and analytical data together in a single, consistent model within the database. It eliminates duplication, reduces integration complexity, and keeps every system aligned with real-time information, helping businesses move faster, make better decisions, and maintain complete data consistency.';
+            document.getElementById('sampleTitle').textContent = 'JSON Duality View Code';
+            document.getElementById('sampleContent').className = 'code-display';
+            document.getElementById('sampleContent').textContent =
+            '-- Create JSON Relational Duality View\n' +
+            'CREATE OR REPLACE JSON RELATIONAL DUALITY VIEW customers_dv AS\n' +
+            'SELECT JSON {\n' +
+            '  \'_id\' : c.customer_id,\n' +
+            '  \'name\'       : c.name,\n' +
+            '  \'email\'      : c.email,\n' +
+            '  \'status\'     : c.status,\n' +
+            '  \'orders\'     : [\n' +
+            '    SELECT JSON {\n' +
+            '      \'orderId\' : o.order_id,\n' +
+            '      \'product\' : o.product,\n' +
+            '      \'amount\'  : o.amount\n' +
+            '    }\n' +
+            '    FROM orders o\n' +
+            '    WHERE o.customer_id = c.customer_id\n' +
+            '  ]\n' +
+            '}\n' +
+            'FROM customers c\n' +
+            'WITH INSERT, UPDATE, DELETE;\n\n' +
+            '-- Benefits:\n' +
+            '-- • Access the same data as JSON documents or relational tables\n' +
+            '-- • Insert, update, and delete across multiple tables through one view\n' +
+            '-- • Changes are automatically synchronized in both directions\n' +
+            '-- • Combines the flexibility of JSON with the reliability of relational data';
+
+            document.getElementById('resultsSummary').style.display = 'block';
+            document.getElementById('resultsSummary').innerHTML = '<span>✅</span><span class="results-text">JSON Duality View created successfully! This connects applications and analytics to the same real-time data, eliminating duplication and ensuring accuracy across the business.</span>';
+            
+            // Clear data - view is created but no data inserted yet
+            currentData = [];
+            nextId = 1; // Reset to start inserts from customer_id #1
+            
+            updateButtonStates();
+            updateTableVisibility('duality');
+            updateRightPanel('duality');
+            updateDataTable();
+        }
+
+        function updateJSON() {
+            newCustomerId = null;
+
+            // Pick a random customer
+            const randomIndex = Math.floor(Math.random() * currentData.length);
+            const customerToUpdate = currentData[randomIndex];
+            const oldStatus = customerToUpdate.status;
+
+            // Start log variables
+            let newOrders = [];
+            let statusChanged = false;
+
+            // 50% chance to toggle customer status
+            if (Math.random() < 0.5) {
+                customerToUpdate.status =
+                    customerToUpdate.status === 'active' ? 'inactive' : 'active';
+                statusChanged = true;
+            }
+
+            // 60% chance to add a new order
+            if (Math.random() < 0.6) {
+                const randomProduct = newProducts[Math.floor(Math.random() * newProducts.length)];
+                const newOrder = { ...randomProduct, order_id: nextOrderId++ };
+                customerToUpdate.orders.push(newOrder);
+                newOrders.push(newOrder);
+            } else if (customerToUpdate.orders.length > 0) {
+                // Otherwise, update one existing order amount (if any orders exist)
+                const randomOrderIndex = Math.floor(Math.random() * customerToUpdate.orders.length);
+                const order = customerToUpdate.orders[randomOrderIndex];
+                order.amount = parseFloat((order.amount * (1 + (Math.random() * 0.2 - 0.1))).toFixed(2)); // ±10%
+            }
+
+            // --- UI setup ---
+            document.getElementById('modeIndicator').className = 'mode-indicator update active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '✏️ Modify Customer';
+            document.getElementById('modeIndicator').querySelector('.mode-description').textContent =
+                'When customer information changes, such as contact or account status, updates instantly flow through every connected system. This guarantees accuracy across systems while enforcing all relational constraints for data integrity and compliance.';
+
+            // --- JSON side (Duality View) ---
+            const updatedJSON = JSON.stringify(customerToUpdate, null, 2);
+            let jsonText =
+                '-- Update JSON document via Duality View\n' +
+                'UPDATE customers_dv\n' +
+                'SET data = JSON_TRANSFORM(\n' +
+                '  data,\n' +
+                '  SET \'$.status\' = \'' + customerToUpdate.status + '\'\n' +
+                ')\n' +
+                'WHERE JSON_VALUE(data, \'$.customerId\') = ' + customerToUpdate.customer_id + ';\n\n';
+
+            if (newOrders.length > 0) {
+                jsonText += '-- Added first order for this customer:\n' +
+                            JSON.stringify(newOrders[0], null, 2) + '\n\n';
+            }
+
+            jsonText += '-- Updated Document:\n' + updatedJSON +
+                        '\n\n-- ✓ Changes automatically synchronized between JSON and relational tables';
+            document.getElementById('sampleContent').className = 'code-display';
+            document.getElementById('sampleContent').textContent = jsonText;
+
+            // --- Summary ---
+            document.getElementById('resultsSummary').style.display = 'block';
+            const summaryMsg = newOrders.length > 0
+                ? 'Added first order for customer #' + customerToUpdate.customer_id + ' (' + customerToUpdate.name + ')'
+                : 'Updated customer ' + ' - ' + customerToUpdate.name + '. Updating customer or order information through a JSON Duality View automatically synchronizes the underlying relational data.';
+            document.getElementById('resultsSummary').innerHTML = '<span>✅</span><span class="results-text">' + summaryMsg + '.</span>';
+
+            updateTableVisibility('update');
+            updateRightPanel('update');
+            updateDataTable();
+        }
+
+        function deleteJSON() {
+            if (currentData.length === 0) { alert('No records to delete. Please insert a record first.'); return; }
+            newCustomerId = null;
+            const deletedCustomer = currentData[currentData.length - 1];
+            document.getElementById('modeIndicator').className = 'mode-indicator delete active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '🗑️ Remove Record';
+            document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 'Removing a customer or outdated record through a JSON Duality View automatically deletes related records in the relational model. This simplifies data maintenance, ensures integrity, and keeps every application aligned with clean, compliant information.';
+            document.getElementById('resultsSummary').style.display = 'block';
+            document.getElementById('resultsSummary').innerHTML = '<span>✅</span><span class="results-text">Deleted customer ' + ' - ' + deletedCustomer.name + '. All related data has been automatically removed, preserving data integrity and ensuring reports, dashboards, and applications reflect only accurate, up-to-date information.</span>';
+            document.getElementById('sqlOutput').style.display = 'none';
+            document.getElementById('sampleTitle').textContent = 'Delete Operation - JSON Delete Code';
+            document.getElementById('sampleContent').className = 'code-display';
+            document.getElementById('sampleContent').textContent = '-- Delete JSON document via Duality View\nDELETE FROM customers_dv\nWHERE JSON_VALUE(data, \'$.customer_id\') = ' + deletedCustomer.customer_id + ';\n\n-- Deleted Document:\n' + JSON.stringify(deletedCustomer, null, 2) + '\n\n-- ✓ Customer document removed from JSON view\n-- ✓ Corresponding record deleted from relational tables\n-- ✓ Related orders automatically cascade deleted\n-- ✓ Application and reports instantly reflect the change';
+            currentData.pop();
+            
+            updateTableVisibility('delete');
+            updateButtonStates(); // Re-lock buttons if we deleted all data
+            updateRightPanel('delete');
+            updateDataTable();
+        }
+
+        function insertJSON() {
+            const customerTemplate = newCustomers[insertIndex % newCustomers.length];
+            const newOrder = newProducts[Math.floor(Math.random() * newProducts.length)];
+            const newCustomer = { customer_id: nextId++, name: customerTemplate.name, email: customerTemplate.email, status: customerTemplate.status, orders: [{ ...newOrder, order_id: nextOrderId++ }] };
+            currentData.push(newCustomer);
+            newCustomerId = newCustomer.customer_id;
+            insertIndex++;
+            document.getElementById('modeIndicator').className = 'mode-indicator insert active';
+            document.getElementById('modeIndicator').querySelector('.mode-title').textContent = '➕ Insert New Customer';
+            document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 'When new data is added through a JSON Duality View, Oracle automatically maps it to relational tables in real time. This removes the need for manual synchronization and ensures new information is instantly visible across all connected systems.';
+            document.getElementById('resultsSummary').style.display = 'block';
+            document.getElementById('resultsSummary').innerHTML = '<span>✅</span><span class="results-text">Inserted new customer ' + ' - ' + newCustomer.name + '. The record is instantly available across all connected systems, ensuring immediate visibility, accuracy, and data consistency throughout the business.</span>';
+            document.getElementById('sampleTitle').textContent = 'Insert Customer - JSON Insert Code';
+            document.getElementById('sampleContent').className = 'code-display';
+            document.getElementById('sampleContent').textContent = '-- Insert new JSON document via Duality View\nINSERT INTO customers_dv VALUES (\n' + JSON.stringify(newCustomer, null, 2) + '\n);\n\n-- ✓ New customer document inserted\n-- ✓ Automatically mapped to relational tables\n-- ✓ Nested orders array becomes orders table records';
+            
+            updateTableVisibility('insert');
+            updateButtonStates(); // Unlock other buttons now that we have data
+            updateRightPanel('insert');
+            updateDataTable();
+            setTimeout(() => { newCustomerId = null; updateDataTable(); }, 3000);
+        }
+
+        function resetDemo() {
+            currentData = JSON.parse(JSON.stringify(customersData));
+            nextId = 4;
+            nextOrderId = 106;
+            insertIndex = 0;
+            updateIndex = 0;
+            hasDualityView = false;
+            newCustomerId = null;
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('completed'));
+            updateButtonStates();
+            document.getElementById('modeIndicator').classList.remove('active');
+            document.getElementById('resultsSummary').style.display = 'none';
+            document.getElementById('sqlOutput').style.display = 'none';
+            document.getElementById('dataTableContainer').style.display = 'none';
+            document.getElementById('sampleTitle').textContent = 'Sample JSON Document';
+            document.getElementById('sampleContent').className = 'json-display';
+            document.getElementById('sampleContent').innerHTML = formatJSON(customersData[0]);
+            updateRightPanel('view');
+            updateDataTable();
+            showIntro();
+        }
+
+        document.getElementById('btnQuery').addEventListener('click', runJSONQuery);
+        document.getElementById('btnDuality').addEventListener('click', createDualityView);
+        document.getElementById('btnUpdate').addEventListener('click', updateJSON);
+        document.getElementById('btnDelete').addEventListener('click', deleteJSON);
+        document.getElementById('btnInsert').addEventListener('click', insertJSON);
+        document.getElementById('btnReset').addEventListener('click', resetDemo);
+
+        const fsBtn = document.getElementById('fsToggle');
+        function isFullscreen() { return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement; }
+        async function enterFullscreen(el) { const target = el || document.documentElement; if (target.requestFullscreen) return target.requestFullscreen(); if (target.webkitRequestFullscreen) return target.webkitRequestFullscreen(); if (target.msRequestFullscreen) return target.msRequestFullscreen(); }
+        async function exitFullscreen() { if (document.exitFullscreen) return document.exitFullscreen(); if (document.webkitExitFullscreen) return document.webkitExitFullscreen(); if (document.msExitFullscreen) return document.msExitFullscreen(); }
+        function updateFsButtonUI() { const active = !!isFullscreen(); fsBtn.innerHTML = active ? '<svg viewBox="0 0 24 24"><path d="M9 7H5v4H3V5a2 2 0 0 1 2-2h6v2H9zm6-2h6a2 2 0 0 1 2 2v6h-2V9h-4V7zM3 13h2v4h4v2H5a2 2 0 0 1-2-2v-4zm18 0v4a2 2 0 0 1-2 2h-4v-2h4v-4h2z"/></svg>' : '<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>'; }
+        fsBtn.addEventListener('click', async () => { try { if (!isFullscreen()) { await enterFullscreen(document.documentElement); } else { await exitFullscreen(); } } catch (e) { console.warn('Fullscreen failed:', e); } });
+        document.addEventListener('fullscreenchange', updateFsButtonUI);
+        document.addEventListener('webkitfullscreenchange', updateFsButtonUI);
+        document.addEventListener('msfullscreenchange', updateFsButtonUI);
+        document.addEventListener('keydown', (e) => { if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey && !e.altKey) { fsBtn.click(); } });
+
+        window.addEventListener('load', () => {
+            updateButtonStates();
+            updateDataTable();
+            document.getElementById('sampleContent').innerHTML = formatJSON(customersData[0]);
+            updateRightPanel('view');
+            updateFsButtonUI();
+        });
+        window.addEventListener('load', showIntro);
+
+
+    </script>
+</body>
+
+</html>
