@@ -40,7 +40,7 @@ This example creates a product catalog table for a manufacturing company with pr
 
 ```sql
 <copy>
---Task 2: Create a table to store relational and JSON documents side by side in native formats
+--Task 2: Create a table with a column of type JSON
 DROP TABLE IF EXISTS products ;
 CREATE TABLE products (
     product_data JSON);
