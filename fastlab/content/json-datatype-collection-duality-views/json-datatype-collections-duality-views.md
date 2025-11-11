@@ -161,7 +161,6 @@ With Collections, you can use SQL/JSON functions and conditions to work with the
 
 2. Now let's insert a JSON Document into the collection table that represents a manufacturing product with nested specifications.
 
-> JSON-relational duality offers two views of the same data: a document view, as JSON documents, and a table view, as relational tables. It blends the strengths of both while sidestepping their limits. With duality views, applications can create, query, or update the same data either as a collection of JSON documents or as related tables and columns.
 
     ```sql
     <copy>
@@ -208,6 +207,8 @@ This has been fun but there is more. With Oracle AI Database we can also work wi
 Let's check this out in our next task.
 
 ## Task 7: Create a Duality View that allows you to work with relational data using JSON format.
+
+JSON-relational duality offers two views of the same data: a document view, as JSON documents, and a table view, as relational tables. It blends the strengths of both while sidestepping their limits. With duality views, applications can create, query, or update the same data either as a collection of JSON documents or as related tables and columns.
 
 1. Create relational tables for **orders** and **order\_items**
 
