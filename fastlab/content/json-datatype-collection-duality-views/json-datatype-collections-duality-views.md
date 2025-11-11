@@ -8,11 +8,11 @@ Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-Today’s apps demand smart ways to handle messy, layered data. Traditional relational databases, built around rigid tables, often fall short.
+Today’s apps thrive on multi-facetted data and agile development cycles.
 
-JSON solves that problem. It is lightweight, easy to read, and works with nearly every programming language. Its real power? Simplicity and flexibility. JSON drives modern APIs, stores app configurations, and handles semi-structured data with ease.
+JSON documents are lightweight, easy to read, and work with nearly every programming language. It's real power? Simplicity and flexibility. JSON drives modern APIs, stores app configurations, and handles evolving data with ease.
 
-Now imagine merging that flexibility with the speed and structure of relational databases. The JSON Relational Duality View in the Oracle AI Database makes that possible.
+Now imagine merging that flexibility with the efficiency and versatility of relational databases. The embedding of JSON documents and native data types in Oracle AI Database makes that not just possible but simple.
 
 This FastLab gives you a hands-on introduction to what JSON is and how it works, how to perform basic JSON operations, and how to use JSON data types, JSON collections, and JSON Relational Duality Views in the Oracle AI Database.
 
@@ -40,7 +40,6 @@ This example creates a product catalog table for a manufacturing company with pr
 <copy>
 DROP TABLE IF EXISTS products ;
 CREATE TABLE products (
-    id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     product_data JSON);
 </copy>
 ```
@@ -149,6 +148,8 @@ Each document in a collection is uniquely identified by a key, that is stored in
 Oracle will automatically generate a unique _id for the document if one is not provided.
 With Collections, you can use SQL/JSON functions and conditions to work with the JSON Collection just as we have been doing for data stored in the native JSON data type.
 
+> Importantly, a collection table (or collection view) is also accessible via non-SQL APIs. Notably the Oracle AI Database API for MongoDB and Oracle SODA and REST APIs all natively support collections, making Oracle AI Database a great document databases. [Read more here](https://www.oracle.com/database/mongodb-migration/).
+
 1. Let's create our products table as a JSON Collection Table.
 
     ```sql
@@ -158,7 +159,9 @@ With Collections, you can use SQL/JSON functions and conditions to work with the
     ```
 
 
-2. Now let's insert a JSON Document into the collection table that represents a manufacturing product with nested specifications.  
+2. Now let's insert a JSON Document into the collection table that represents a manufacturing product with nested specifications.
+
+> JSON-relational duality offers two views of the same data: a document view, as JSON documents, and a table view, as relational tables. It blends the strengths of both while sidestepping their limits. With duality views, applications can create, query, or update the same data either as a collection of JSON documents or as related tables and columns.
 
     ```sql
     <copy>
