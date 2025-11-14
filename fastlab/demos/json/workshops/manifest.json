@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick JSON Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle's JSON feature in Oracle AI Database",
+      "filename": "../json.md"
+    }
+  ]
+}

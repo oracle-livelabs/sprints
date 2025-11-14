@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deliver Enterprise JSON with Oracle AI Database</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+    background:linear-gradient(to bottom right,#f8fafc,#e2e8f0);
+    min-height:100vh;color:#1f2937;
+  }
+  .header{background:linear-gradient(to right,#0f766e,#115e59);color:#fff;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,.1)}
+  .header-content{max-width:1400px;margin:0 auto}
+  .header-title{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .header-title h1{font-size:28px;font-weight:700}
+  .header-subtitle{color:#99f6e4;font-size:14px}
+  .problem-banner{background:#fff3cd;border:2px solid #ffc107;padding:12px;border-radius:8px;margin:16px auto;max-width:1400px;display:flex;align-items:center;justify-content:center;gap:8px}
+  .problem-text{font-size:16px;color:#856404;font-weight:600}
+  .container{max-width:1400px;margin:0 auto;padding:20px}
+
+  .button-group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .btn{padding:10px 16px;border-radius:8px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;min-height:42px;color:#fff;position:relative}
+  .btn:disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+  .btn-blue{background:#0d9488}.btn-blue:hover{background:#0f766e}
+  .btn-teal{background:#0d9488}.btn-teal:hover{background:#0f766e}
+  .btn-orange{background:#ea580c}.btn-orange:hover{background:#c2410c}
+  .btn-danger{background:#ef4444}.btn-danger:hover{background:#dc2626}
+  .btn-purple{background:#9333ea}.btn-purple:hover{background:#7c3aed}
+  .btn-gray{background:#e5e7eb;color:#374151}.btn-gray:hover{background:#d1d5db}
+  .btn.completed{background:#16a34a!important}
+  .btn.completed::before{content:'✓ '}
+  .btn.next-hint::after{content:'';position:absolute;inset:-4px;border-radius:10px;border:2px solid rgba(13,148,136,.0);animation:btnPulse 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite}
+  @keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(13,148,136,.45);border-color:rgba(13,148,136,.35)}70%{box-shadow:0 0 0 12px rgba(13,148,136,0);border-color:rgba(13,148,136,.1)}100%{box-shadow:0 0 0 0 rgba(13,148,136,0);border-color:rgba(13,148,136,.0)}}
+
+  .main-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:20px}
+  @media (max-width:1100px){.main-grid{grid-template-columns:1fr}}
+  .panel{background:#fff;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,.1);overflow:hidden;display:flex;flex-direction:column}
+  .panel-header{background:#1f2937;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+  .panel-content{padding:16px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px}
+
+  .mode-indicator{display:none;background:#f0f9ff;border:2px solid #0284c7;padding:12px;border-radius:8px}
+  .mode-indicator.mode-create{background:#ccfbf1;border-color:#0d9488;}
+  .mode-indicator.mode-insert{background:#f3e8ff;border-color:#9333ea;}
+  .mode-indicator.mode-query{background:#dbeafe;border-color:#2563eb;}
+  .mode-indicator.mode-update{background:#ffedd5;border-color:#ea580c;}
+  .mode-indicator.mode-delete{background:#fee2e2;border-color:#ef4444;}
+  .mode-indicator.active{display:block}
+  .mode-title{font-size:16px;font-weight:700;margin-bottom:2px}
+  .mode-description{font-size:13px;color:#6b7280}
+
+  .explain{display:none;background:#ffffff;border:2px solid #e5e7eb;padding:14px;border-radius:10px}
+  .explain.active{display:block}
+  .explain h3{font-size:14px;margin-bottom:6px;display:flex;gap:8px;align-items:center}
+  .explain p{font-size:13px;color:#374151;line-height:1.45}
+  .explain small{display:block;margin-top:6px;color:#6b7280}
+
+  .explain-confirm{display:none;margin-top:8px;font-size:13px;background:#ecfdf5;border-left:3px solid #10b981;padding:8px 10px;border-radius:6px;color:#065f46}
+  .explain-confirm.active{display:block}
+
+  .results-summary{display:none;background:#dcfce7;border:2px solid #22c55e;padding:10px;border-radius:8px}
+  .results-text{font-size:14px;font-weight:600;color:#065f46}
+
+  .stack-top{order:0}
+  .stack-table{order:1}
+  .stack-json{order:98}
+  .stack-sql{order:99}
+
+  .sql-output{display:none;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;font-family:monospace;font-size:13px}
+  .code-display,.json-display{font-family:'Courier New',monospace;font-size:12px;white-space:pre-wrap;background:#f9fafb;padding:12px;border-radius:6px;border:1px solid #e5e7eb;min-height:120px}
+  .data-table-container{display:none;margin-top:0}
+  .data-table-wrap{max-height:280px;overflow:auto;border:1px solid #e5e7eb;border-radius:8px}
+  table.data-table{width:100%;border-collapse:collapse;font-size:12px}
+  .data-table th{position:sticky;top:0;background:#0d9488;color:#fff;padding:8px;text-align:left;z-index:1}
+  .data-table td{padding:8px;border-bottom:1px solid #e5e7eb}
+  .new-row{animation:fadeIn 1s ease-in}
+  @keyframes fadeIn{from{background:#fef08a;opacity:0}to{background:transparent;opacity:1}}
+
+  .visual{background:#09736a;border-radius:8px;min-height:380px;position:relative;overflow:hidden;padding:20px}
+  .app, .sql-sink, .json-sink{position:absolute;background:#fff;border-radius:8px;border:2px solid rgba(0,0,0,.08);padding:8px 10px;width:130px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .app-title{font-size:11px;font-weight:700;color:#0d9488}
+  .sink-title{font-size:11px;font-weight:700}
+  .db{position:absolute;left:calc(50% - 85px);top:120px;width:170px;background:linear-gradient(135deg,#0d9488,#10b981);color:#fff;border-radius:10px;padding:16px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .db-title{font-weight:800}.db-sub{font-size:12px;opacity:.95}
+  .db.pulse{box-shadow:0 0 0 0 rgba(16,185,129,.6);animation:pulseGlow 2s cubic-bezier(0.45, 0, 0.55, 1) 1}
+
+  .dest-glow{animation:destGlow 1200ms cubic-bezier(0.45, 0, 0.55, 1) 1}
+  @keyframes destGlow{0%{box-shadow:0 0 0 0 rgba(56,189,248,.55)}60%{box-shadow:0 0 22px 8px rgba(56,189,248,.35)}100%{box-shadow:0 0 0 0 rgba(56,189,248,0)}}
+  @keyframes pulseGlow{0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)}70%{box-shadow:0 0 0 16px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+
+  .packet{position:absolute;color:#fff;padding:7px 12px;border-radius:16px;font-size:11px;font-weight:700;opacity:0;pointer-events:none}
+  .p-json{background:linear-gradient(135deg,#10b981,#059669)}
+  .p-sql{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+  .p-der{background:linear-gradient(135deg,#f59e0b,#d97706)}
+
+  
+  @keyframes jsonFromMobileToDB {
+  0%   { opacity: 0; left: 90px; top: 80px; }
+  15%  { opacity: 1; }
+  85%  { left: calc(50% - 10px); top: 150px; opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes jsonFromWebToDB {
+  0%   { opacity: 0; left: 90px; top: 240px; }
+  15%  { opacity: 1; }
+  85%  { left: calc(50% - 10px); top: 170px; opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes dbToSQLLand {
+  0% {
+    opacity: 0;
+    left: calc(50% - 10px);
+    top: 165px;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    left: calc(100% - 120px);
+    top: 75px;
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 120px);
+    top: 75px;
+    opacity: 0;
+  }
+}
+
+@keyframes dbToJSONLand {
+  0% {
+    opacity: 0;
+    left: calc(50% - 10px);
+    top: 165px;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    left: calc(100% - 120px);
+    top: 210px;
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 120px);
+    top: 210px;
+    opacity: 0;
+  }
+}
+
+.explain-right{background:#f0f9ff;border-left:4px solid #0284c7;padding:12px;border-radius:8px;margin-bottom:8px}
+  .explain-right.explain-create{background:#ccfbf1;border-left-color:#0d9488;}
+  .explain-right.explain-insert{background:#f3e8ff;border-left-color:#9333ea;}
+  .explain-right.explain-query{background:#dbeafe;border-left-color:#2563eb;}
+  .explain-right.explain-update{background:#ffedd5;border-left-color:#ea580c;}
+  .explain-right.explain-delete{background:#fee2e2;border-left-color:#ef4444;}
+  .explain-right h4{font-size:14px;font-weight:700;color:#0c4a6e;margin-bottom:6px}
+  .explain-right .item{font-size:12px;color:#475569;line-height:1.6;margin-bottom:4px;padding-left:16px;position:relative}
+  .explain-right .item::before{content:'•';position:absolute;left:0;color:#0284c7;font-weight:700}
+
+  .fs-toggle{position:fixed;bottom:20px;right:20px;background:#0f766e;color:#fff;border:none;width:48px;height:48px;border-radius:50%;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:100}
+  .fs-toggle:hover{background:#134e4a;transform:scale(1.08)}
+  .fs-toggle svg{width:22px;height:22px;fill:currentColor}
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="header-title">
+        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+        </svg>
+        <h1>Deliver Enterprise JSON with Oracle AI Database</h1>
+      </div>
+      <p class="header-subtitle">Simplify data: great JSON documents for apps AND full SQL for insights</p>
+    </div>
+  </div>
+
+  <div class="problem-banner">
+    <span class="problem-text"> "Store JSON data once and use it everywhere. Apps, reports, and analytics all stay in sync."</span>
+  </div>
+
+  <div class="container">
+    <div class="button-group">
+      <button id="btnCreate" class="btn btn-teal">📦 Create JSON Collection</button>
+      <button id="btnInsert" class="btn btn-purple" disabled>➕ Insert Document</button>
+      <button id="btnQuery" class="btn btn-blue" disabled>🔍 Generate Report</button>
+      <button id="btnUpdate" class="btn btn-orange" disabled>✏️ Modify Document</button>
+      <button id="btnDelete" class="btn btn-danger" disabled>🗑️ Remove Document</button>
+      <button id="btnReset" class="btn btn-gray" style="color:#111827">🔄 Restart Demo</button>
+    </div>
+
+    <div class="main-grid">
+      <!-- Left -->
+      <div class="panel">
+        <div class="panel-header">JSON Collections - Live Demo</div>
+        <div class="panel-content">
+          <div id="modeIndicator" class="mode-indicator stack-top">
+            <div class="mode-title"></div><div class="mode-description"></div>
+          </div>
+
+          <!-- LEFT EXPLANATION -->
+          <div id="explain" class="explain stack-top">
+            <h3 id="explainTitle">👋 Welcome</h3>
+            <p id="explainBody">In this demo, you’ll see how Oracle AI Database lets you store JSON once and use it as both JSON and SQL in a single system. JSON Collections give you the best of both worlds: data is stored as JSON but can also be accessed with SQL. One database supports multiple data types and workloads, without needing separate specialized databases.</p>
+            
+          </div>
+
+          <div id="resultsSummary" class="results-summary stack-top">
+            <span class="results-text"></span>
+          </div>
+
+          <div id="dataTableContainer" class="data-table-container stack-table">
+            <h3 style="margin:0 0 6px;font-size:14px">📊 Collection Data - customers</h3>
+            <div class="data-table-wrap">
+              <table id="dataTable" class="data-table"></table>
+            </div>
+          </div>
+
+          <!-- Code blocks at bottom -->
+          <pre id="sampleContent" class="json-display stack-json"></pre>
+          <div id="sqlOutput" class="sql-output stack-sql">
+            <strong>SQL Query Results</strong>
+            <pre id="sqlQuery" style="white-space:pre-wrap"></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="panel">
+        <div class="panel-header">Oracle AI Database - JSON Collections, SQL-ready</div>
+        <div class="panel-content">
+          <!-- RIGHT EXPLANATION ABOVE ANIMATION -->
+          <div id="explainRight" class="explain-right">
+            <h4 id="explainRightTitle">What you’ll do</h4>
+            <div class="item" id="explainRightItem1"><strong>Create:</strong> Start a JSON Collection - simple, flexible storage.</div>
+            <div class="item" id="explainRightItem2"><strong>Insert & Query:</strong> Add documents and analyze them with standard SQL.</div>
+            <div class="item" id="explainRightItem3"><strong>Update & Delete:</strong> Safe, consistent updates - one source of truth.</div>
+          </div>
+
+          <div class="visual" id="visual">
+            <div class="app" style="left:30px;top:50px"><div class="app-title">Mobile App</div><div style="font-size:10px;color:#666">Writes JSON</div></div>
+            <div class="app" style="left:30px;top:210px"><div class="app-title">Web App</div><div style="font-size:10px;color:#666">Writes JSON</div></div>
+            <div id="dbBox" class="db"><div class="db-title">Oracle AI Database</div><div class="db-sub">JSON Collections + SQL</div></div>
+            <div id="sqlSink" class="sql-sink" style="right:20px;top:50px"><div class="sink-title" style="color:#2563eb">Analytics / SQL</div><div style="font-size:10px;color:#666">Reports, joins, BI</div></div>
+            <div id="jsonSink" class="json-sink" style="right:20px;top:210px"><div class="sink-title" style="color:#059669">APIs / JSON</div><div style="font-size:10px;color:#666">Serve documents</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="fsToggle" class="fs-toggle" title="Toggle Fullscreen (F)">
+    <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>
+  </button>
+
+<script>
+  const customersData = [
+    {"id":"123","name":"Acme","type":"enterprise","status":"active"},
+    {"id":"124","name":"Jane","email":"jane@co.com","status":"active"},
+    {"id":"125","name":"Bob's Shop","site":"bob.co","status":"active"}
+  ];
+  const newCustomers = [
+    {"id":"126","name":"TechStart Inc","type":"startup","founder":"Sarah Chen"},
+    {"id":"127","name":"Global Shipping","logistics":true,"regions":["NA","EU"]},
+    {"id":"128","name":"Cloud Services","saas":true,"certifications":["ISO","SOC2"]},
+    {"id":"129","name":"DataCorp","analytics":"advanced","employees":150}
+  ];
+
+  let currentData = JSON.parse(JSON.stringify(customersData));
+  let insertIndex = 0;
+  let hasCollection = false;
+
+  const $ = (id)=>document.getElementById(id);
+  function hintNext(btnId){ const b = $(btnId); b.classList.add('next-hint'); setTimeout(()=>b.classList.remove('next-hint'), 4200); }
+  function enable(btnId){ const b = $(btnId); b.disabled = false; hintNext(btnId); }
+  function disable(btnId){ $(btnId).disabled = true; }
+  function formatJSON(obj){
+    return JSON.stringify(obj,null,2)
+      .replace(/"([^"]+)":/g,'<span class="json-key">"$1"</span>:')
+      .replace(/: "([^"]*)"/g,': <span class="json-string">"$1"</span>')
+      .replace(/: (\\d+)/g,': <span class="json-number">$1</span>')
+      .replace(/: (true|false)/g,': <span class="json-boolean">$1</span>')
+      .replace(/: null/g,': <span class="json-null">null</span>');
+  }
+  function renderSample(idx=0){ $('sampleContent').innerHTML = formatJSON(currentData[idx] || {}); }
+  function renderTable(){
+    const ctn = $('dataTableContainer'); const tbl = $('dataTable');
+    if(!hasCollection || currentData.length===0){ ctn.style.display='none'; return; }
+    ctn.style.display='block';
+    const keys = Array.from(new Set(currentData.flatMap(o=>Object.keys(o))));
+    tbl.innerHTML = '<thead><tr>'+keys.map(k=>`<th>${k}</th>`).join('')+'</tr></thead>';
+    const rows = currentData.map((o,i)=>'<tr'+(i>=customersData.length?' class="new-row"':'')+'>'+keys.map(k=>`<td>${(o[k]===undefined?'':(typeof o[k]==='object'?JSON.stringify(o[k]):o[k]))}</td>`).join('')+'</tr>').join('');
+    tbl.innerHTML += '<tbody>'+rows+'</tbody>';
+  }
+  function setMode(title,desc,key){ const m=$('modeIndicator'); m.classList.add('active'); m.classList.remove('mode-create','mode-insert','mode-query','mode-update','mode-delete'); if(key==='create') m.classList.add('mode-create'); else if(key==='insert') m.classList.add('mode-insert'); else if(key==='query') m.classList.add('mode-query'); else if(key==='update') m.classList.add('mode-update'); else if(key==='delete') m.classList.add('mode-delete'); m.querySelector('.mode-title').textContent=title; m.querySelector('.mode-description').textContent=desc; }
+
+  function setConfirm(text){ const c=$('explainConfirm'); if(!c) return; if(!text){ c.classList.remove('active'); c.textContent=''; } else { c.textContent='✅ '+text; c.classList.add('active'); } }
+
+  function setExplainState(key){
+    const leftTitle = $('explainTitle'); const leftBody = $('explainBody'); const ex = $('explain'); ex.classList.add('active');
+    const rt = $('explainRightTitle'); const i1 = $('explainRightItem1'); const i2 = $('explainRightItem2'); const i3 = $('explainRightItem3'); const er = $('explainRight');
+    if(er){ er.classList.remove('explain-create','explain-insert','explain-query','explain-update','explain-delete');
+      if(key==='create') er.classList.add('explain-create');
+      else if(key==='insert') er.classList.add('explain-insert');
+      else if(key==='query') er.classList.add('explain-query');
+      else if(key==='update') er.classList.add('explain-update');
+      else if(key==='delete') er.classList.add('explain-delete');
+    }
+    const copy = {
+      welcome: {
+        lt: '👋 Welcome',
+        lb: "In this demo, you’ll see how Oracle AI Database lets you store JSON once and use it as both JSON and SQL in a single system. JSON Collections give you the best of both worlds: data is stored as JSON but can also be accessed with SQL. One database supports multiple data types and workloads, without needing separate specialized databases.",
+        rt: 'What you’ll do',
+        bullets: [
+          ['Create','Start a JSON Collection - simple, flexible storage'],
+          ['Insert & Query','Add documents and analyze with standard SQL'],
+          ['Update & Delete','Safe, consistent updates - one source of truth']
+        ]
+      },
+      create: {
+        lt: '📦 Create JSON Collection',
+        lb: "A JSON Collection is a simple place in Oracle’s AI Database where apps can store JSON documents. JSON is flexible; every document can look a little different, which makes it great for modern applications. But unlike other systems, Oracle also lets you use SQL on the same data, so developers and data teams do not need separate databases or copies of information. Everything lives in one system, works faster, and stays ready for analytics and AI right away.",
+        rt: 'Create Collection',
+        bullets: [
+          ['Unified model','JSON + SQL on the same data, no duplication'],
+          ['Instant readiness','Collection is immediately queryable with SQL'],
+          ['Enterprise fit','ACID, governance, and security built-in']
+        ]
+      },
+      insert: {
+        lt: '➕ Insert Document JSON Documents',
+        lb: "Now we are adding new JSON documents into the collection. Each document can have slightly different fields, like different forms with different details. This makes it easy to grow and change your app over time without redesigning the database. As soon as the document is inserted, it is stored safely and can be used right away by apps or SQL queries.",
+        rt: 'Insert JSON',
+        bullets: [
+          ['Flexible schema','Evolve documents without migrations'],
+          ['Nested structures','Naturally model real-world entities'],
+          ['Immediate access','Available to SQL and APIs right away']
+        ]
+      },
+      query: {
+        lt: '🔍 SQL on JSON Collections',
+        lb: "Here we use SQL to ask questions about the JSON data in the collection. We can pick certain rows, choose which fields to show, and even combine data, all with a simple SQL statement. Because everything stays in one database, reports and dashboards can read the live JSON data directly, without copying it or running extra ETL jobs.",
+        rt: 'SQL on JSON',
+        bullets: [
+          ['Standard SQL','Use familiar tools and BI systems'],
+          ['No ETL','Analyze directly over JSON documents'],
+          ['Performance','Smart indexes speed up queries']
+        ]
+      },
+      update: {
+        lt: '✏️ Modify Document JSON In-Place',
+        lb: "Here we edit a JSON document in the collection, like changing a customer’s status or details. Oracle makes sure each update is applied safely and fully, so there are no half-finished changes. As soon as the update is done, both JSON APIs and SQL queries see the same new information, keeping every view in sync.",
+        rt: 'Update JSON',
+        bullets: [
+          ['Safe updates','Transactional, consistent changes'],
+          ['One source','JSON APIs and SQL see updates instantly'],
+          ['Governed','Policies and constraints apply uniformly']
+        ]
+      },
+      delete: {
+        lt: '🗑️ Remove Document Documents',
+        lb: "Here we remove a JSON document from the collection, like closing an old customer account. Oracle makes sure the delete is applied safely, so the document is fully removed and does not linger in any view. Apps, reports, and analytics all see the same clean result, keeping the system accurate and easy to trust.",
+        rt: 'Delete JSON',
+        bullets: [
+          ['Transactional','Deletes enforced with integrity'],
+          ['No drift','Apps and analytics stay aligned'],
+          ['Compliant','Supports governance requirements']
+        ]
+      }
+    };
+    const c = copy[key];
+    leftTitle.textContent = c.lt; leftBody.textContent = c.lb;
+    setConfirm('');
+    rt.textContent = c.rt;
+    i1.innerHTML = '<strong>'+c.bullets[0][0]+':</strong> '+c.bullets[0][1];
+    i2.innerHTML = '<strong>'+c.bullets[1][0]+':</strong> '+c.bullets[1][1];
+    i3.innerHTML = '<strong>'+c.bullets[2][0]+':</strong> '+c.bullets[2][1];
+  }
+
+  const visual = $('visual'); const conn = $('conn'); const dbBox = $('dbBox');
+  function playConn(){}
+  function spawnPacket(label, klass, animationName, duration=2000, persist=false){
+    const p = document.createElement('div'); p.className = `packet ${klass}`; p.textContent = label;
+    p.style.animation = `${animationName} ${duration}ms cubic-bezier(0.45, 0, 0.55, 1) 1 ${persist ? 'forwards' : ''}`; visual.appendChild(p);
+    p.addEventListener('animationend', ()=> p.remove());
+  }
+  function pulseDB(){ dbBox.classList.remove('pulse'); void dbBox.offsetWidth; dbBox.classList.add('pulse'); }
+
+  function glow(el){ if(!el) return; el.classList.remove('dest-glow'); void el.offsetWidth; el.classList.add('dest-glow'); setTimeout(()=>el.classList.remove('dest-glow'), 1300); }
+
+  $('btnCreate').addEventListener('click',()=>{
+    hasCollection = true;
+    setMode('Create Collection',"Created 'customers' JSON collection - flexible schema, SQL-accessible.",'create');
+    setExplainState('create');
+    const rs=$('resultsSummary'); rs.style.display='block';
+    rs.querySelector('.results-text').textContent="✔️ Collection 'customers' created";
+    setConfirm("Created the 'customers' JSON Collection. It is immediately available for JSON APIs and SQL analytics in one place.");
+    renderSample(0); renderTable();
+    playConn(); pulseDB();
+    spawnPacket('JSON ➜ Collection','p-json','jsonFromMobileToDB',2400);
+    spawnPacket('JSON ➜ Collection','p-json','jsonFromWebToDB',2400);
+    glow(dbBox);
+    complete('btnCreate'); enable('btnInsert');
+  });
+
+  $('btnInsert').addEventListener('click',()=>{
+    if(!hasCollection) return;
+    if(insertIndex < newCustomers.length){
+      currentData.push(newCustomers[insertIndex++]);
+      setMode('Insert', 'Inserted a new JSON document into customers.','insert'); setExplainState('insert');
+      renderSample(currentData.length-1); renderTable();
+      const _insName = currentData[currentData.length-1]?.name || 'New document';
+      setConfirm(`Inserted document - ${_insName}. Instantly queryable via SQL and available to APIs without ETL or schema changes.`);
+      playConn(); pulseDB();
+      spawnPacket('JSON ➜ Collection','p-json','jsonFromMobileToDB',2400);
+      spawnPacket('JSON ➜ Collection','p-json','jsonFromWebToDB',2400);
+      glow(dbBox);
+      complete('btnInsert');
+      if(insertIndex === 1){ enable('btnQuery'); }
+      if(insertIndex >= newCustomers.length){ disable('btnInsert'); }
+    }
+  });
+
+  $('btnQuery').addEventListener('click',()=>{
+    if(!hasCollection) return;
+    setMode('SQL Query','Run standard SQL over JSON documents in the collection.','query'); setExplainState('query');
+    const res = currentData.filter(r => r.type==='enterprise').map(r=>({name:r.name,email:r.email||null,type:r.type||null}));
+    $('sqlOutput').style.display='block';
+    $('sqlQuery').textContent =
+`SELECT data.name, data.email, data.type
+FROM   customers
+WHERE  data.type = 'enterprise';
+
+-- Results:
+${JSON.stringify(res,null,2)}`;
+    const rs=$('resultsSummary'); rs.style.display='block';
+    rs.querySelector('.results-text').textContent=`Returned ${res.length} row(s)`;
+    setConfirm(`Generated a live SQL report over the JSON Collection. Results reflect the same data used by the apps — no movement, no duplication.`);
+    playConn(); pulseDB(); spawnPacket('SQL Results','p-sql','dbToSQLLand',2400,false);
+    glow(document.getElementById('sqlSink'));
+    complete('btnQuery'); enable('btnUpdate');
+  });
+
+  $('btnUpdate').addEventListener('click',()=>{
+    if(!hasCollection) return;
+    const t = currentData.find(r=>r.id==='124');
+    if(t){
+      t.status = (t.status==='active' ? 'vip' : 'active');
+    }
+    setMode('Update','Modify a document field; changes are immediately queryable via SQL.','update');
+    setExplainState('update');
+    renderSample(1);
+    renderTable();
+    const _updName = (t && t.name) ? t.name : 'Target document';
+    setConfirm(`Modified document - ${_updName}. The update is applied safely and fully, and both JSON APIs and SQL queries see the same new information.`);
+    // SQL panel: SELECT-only version reflecting updated data
+    document.getElementById('sqlOutput').style.display = 'block';
+    if(t){
+      document.getElementById('sqlQuery').textContent =
+`-- Read back the updated document:
+SELECT data.id, data.name, data.status
+FROM customers
+WHERE data.id = '124';
+
+-- Result:
+${JSON.stringify({ id: t.id, name: t.name, status: t.status }, null, 2)}`;
+    }
+    playConn();
+    pulseDB();
+    spawnPacket('JSON Doc','p-der','dbToJSONLand',2400,true);
+    glow(document.getElementById('jsonSink'));
+    complete('btnUpdate');
+    enable('btnDelete');
+});
+
+  $('btnDelete').addEventListener('click',()=>{
+    if(!hasCollection) return;
+    const idx = currentData.findIndex(r=>r.id==='125');
+    let deleted = null;
+    if(idx > -1){
+      deleted = currentData[idx];
+      currentData.splice(idx,1);
+    }
+    setMode('Delete','Remove a document from the collection.','delete');
+    setExplainState('delete');
+    renderSample(0);
+    renderTable();
+    const _delName = (deleted && deleted.name) ? deleted.name : 'Document';
+    setConfirm(`Removed document - ${_delName}. The document is fully removed so apps, reports, and analytics no longer see it.`);
+    // SQL panel: show that the deleted document no longer appears
+    $('sqlOutput').style.display = 'block';
+    $('sqlQuery').textContent =
+`-- Check that the document has been removed:
+SELECT data.id, data.name
+FROM customers
+WHERE data.id = '125';
+
+-- Result:
+[]  -- no rows`;
+    // Animation: show delete flowing out to both SQL and JSON views
+    pulseDB();
+    spawnPacket('Deleted','p-der','dbToSQLLand',2400,false);
+    glow($('sqlSink'));
+    spawnPacket('Deleted','p-der','dbToJSONLand',2400,false);
+    glow($('jsonSink'));
+    complete('btnDelete');
+  });
+
+  $('btnReset').addEventListener('click',()=>{
+    // Cold-start reset
+    currentData = JSON.parse(JSON.stringify(customersData));
+    insertIndex = 0; hasCollection=false;
+    $('modeIndicator').classList.remove('active');
+    $('resultsSummary').style.display='none';
+    $('sqlOutput').style.display='none';
+    $('sampleContent').textContent='';
+    $('dataTableContainer').style.display='none';
+    Array.from(document.querySelectorAll('.btn')).forEach(b=>b.classList.remove('completed'));
+    ['btnInsert','btnQuery','btnUpdate','btnDelete'].forEach(disable);
+    enable('btnCreate');
+    setExplainState('welcome'); setConfirm(''); setConfirm('');
+    document.querySelectorAll('.packet').forEach(p=>p.remove());
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  function complete(btnId){ $(btnId).classList.add('completed'); $(btnId).classList.remove('next-hint'); }
+
+  function toggleFS(){ if(!document.fullscreenElement){ document.documentElement.requestFullscreen?.(); } else{ document.exitFullscreen?.(); } }
+  $('fsToggle').addEventListener('click',toggleFS);
+  window.addEventListener('keydown',e=>{ if(e.key.toLowerCase()==='f') toggleFS(); });
+
+  // Initial load: show WELCOME, do not auto-run animations
+  $('sampleContent').textContent='';
+  renderTable();
+  ['btnInsert','btnQuery','btnUpdate','btnDelete'].forEach(disable);
+  hintNext('btnCreate');
+  setExplainState('welcome'); setConfirm(''); setConfirm('');
+</script>
+</body>
+</html>
