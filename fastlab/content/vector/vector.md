@@ -10,26 +10,26 @@ Estimated Time: 10 minutes
 
 *Search by meaning, not just words*
 
-AI vector search finds results by concept and not only exact matches. It transforms your data into vectors (a mathematical representations of meaning) so you can retrieve what’s contextually relevant across documents, images, audio, and more.
+AI vector search finds concepts, not just keywords. It converts data into vectors (mathematical maps of meaning) so you can pull what matters across documents, images, audio, and more.
 
-If you own product search, support, or internal knowledge, here’s why it matters: teams manage piles of unstructured data. Traditional search struggles with nuance; vector search bridges that gap. It returns semantically similar items even when the query and the source use different words.
+Why it matters: If you manage product search, customer support, or internal knowledge, your data is likely messy and unstructured. Traditional search misses nuance. Vector search closes that gap. It matches ideas, even when the words do not align.
 
-**Common business challenges**
+**Real Business Wins**
 
-- E-commerce: “Breathable running shoes” matches “mesh trainers,” even without the phrase.
-- Support: “Credit card failed” surfaces the fix filed under “billing—locked account.”
-- Internal search: “Supplier onboarding Tasks” finds the policy section that explains the process.
-- Multilingual: “Portable charger” matches “batterie externe” and “power bank.”
+- **E-commerce:** "Breathable running shoes" finds "mesh trainers."
+- **Support:** "Credit card failed" points to a fix listed under "billing—locked account."
+- **Multilingual:** "Portable charger" matches "batterie externe" and "power bank."
 
-**Key benefits**
+**Why Teams Choose Vector Search**
 
-- Improved relevance: Find documents, products, or answers by meaning, not just words.
-- Multimodal: Search across text, images, audio, and other data types.
-- Efficiency: Run fast similarity search at scale with algorithms such as HNSW.
-- Integration: Connect to databases and data lakes via connectors, adapters, or ETL.
-- AI foundation: Power applications such as retrieval-augmented generation (RAG), recommendations, and anomaly detection.
+- **Better results:** Match meaning, not just words.
+- **Cross-format search:** Work across text, images, audio, and more.
+- **AI-powered:** Fuel systems like RAG, recommendations, and anomaly detection.
 
-Consider this: Retailers can enhance product discovery by finding similar items or understanding customer preferences through vector search on product descriptions and reviews. This LiveLabs FastLab will show you how!
+One Example:
+Retailers can boost discovery by matching products to customer intent even across languages and phrasing. Use vector search to scan descriptions, reviews, and more.
+
+This LiveLabs FastLab shows you how.
 
 ### Prerequisites
 
@@ -37,11 +37,11 @@ Consider this: Retailers can enhance product discovery by finding similar items 
 
 - An Oracle Autonomous AI Database
 
-  - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+    - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
 - An Oracle AI Database environment with a trained `all-MiniLM-L12-v2 model` in ONNX (Open Neural Network Exchange) format.
 
-  - Check our [LiveLabs FastLab - Load a pre-built ONNX embedding generation model](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4277) to see how to load an ONNX model into ADB and to get a quick primer on ONNX.
+    - Check our [LiveLabs FastLab - Load a pre-built ONNX embedding generation model](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4277) to see how to load an ONNX model into ADB and to get a quick primer on ONNX.
 
 ### Video Walkthrough
 
