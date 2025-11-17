@@ -23,9 +23,9 @@ In 15 minutes, you’ll learn to store, query, and update JSON alongside relatio
 
   - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
-<!-- ### Video Walkthrough -->
 
-<!-- [JSON](videohub:1_5vxvrznb) -->
+
+[JSON](videohub:1_ic97k4pb)
 
 
 ## Task 1: Launch SQL Worksheet
