@@ -11,9 +11,9 @@ Estimated Time: 15 minutes
 
 Today’s apps thrive on multi-faceted data and agile development cycles.
 
-JSON documents are lightweight, easy to read, and work with nearly every programming language. Its real power? Simplicity and flexibility. JSON drives modern APIs, stores app configurations, and handles evolving data with ease.
+**JSON documents** are lightweight, easy to read, and work with nearly every programming language. Its real power? Simplicity and flexibility. **JSON drives modern APIs, stores app configurations, and handles evolving data with ease**.
 
-Now imagine merging that flexibility with the efficiency and versatility of relational databases. The embedding of JSON documents and native data types in Oracle AI Database makes that not just possible but simple.
+Now imagine merging that flexibility with the efficiency and versatility of relational databases. **The embedding of JSON documents and native data types in Oracle AI Database** makes that not just possible but simple.
 
 In 15 minutes, you’ll learn to store, query, and update JSON alongside relational data in Oracle AI Database.
 
@@ -519,4 +519,4 @@ This workshop contains labs that dive deeper into how to work with JSON in Oracl
 ## Acknowledgements
 * **Author** - Eddie Ambler, Linda Foinding
 * **Contributors** - Kevin Lazarz, Pat Sheppard
-* **Last Updated By/Date** - Eddie Ambler, October 2025
+* **Last Updated By/Date** - Linda Foinding, November 2025
