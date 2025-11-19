@@ -1,0 +1,11 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Select AI in Oracle Autonomous Database",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials":
+    [
+        {
+            "title": "FastLab: Select AI",
+            "filename": "selectai.md"
+        }
+    ]
+}
