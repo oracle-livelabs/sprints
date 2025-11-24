@@ -11,7 +11,7 @@ Another advantage of using JMS is that you if you automate downloads of an LTS r
 
 
 ## Tutorials
-[Download Using Java Management Service on OCI](videohub:1_5oyb4ujr)
+[Download Using Java Management Service on OCI](videohub:1_5oyb4ujr:large)
 
 To get started, you will need an Oracle Cloud Infrastructure (OCI) account.
 

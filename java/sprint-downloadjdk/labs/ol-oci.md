@@ -7,7 +7,7 @@ This method is available to OCI customers.
 <br />
 
 ## Tutorial
-[Downloading for Oracle Linux on OCI](videohub:1_cmjf7kys)
+[Downloading for Oracle Linux on OCI](videohub:1_cmjf7kys:large)
 
 All of the steps in this tutorial are completed using the Linux terminal.  
 <br />

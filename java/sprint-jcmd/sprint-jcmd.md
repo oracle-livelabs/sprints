@@ -4,7 +4,7 @@ Duration: 6 minutes
 
 ## jcmd Tutorial
 
-[jcmd Tutorial](videohub:1_uadm1tjk)
+[jcmd Tutorial](videohub:1_uadm1tjk:large)
 
 ### 1 Introduction
 

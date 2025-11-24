@@ -6,7 +6,7 @@ This sprint covers possible causes of a 'sun.security.validator.ValidatorExcepti
 
 ## Troubleshooting ‘sun.security.validator.ValidatorException: PKIX path building failed’
 
-[Troubleshooting SSL Exceptions](videohub:1_3848m5e3)
+[Troubleshooting SSL Exceptions](videohub:1_3848m5e3:large)
 
 ### 1. Introduction
 

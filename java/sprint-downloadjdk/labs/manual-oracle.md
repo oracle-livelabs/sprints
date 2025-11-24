@@ -8,7 +8,7 @@ Currently-supported releases covered by the [Oracle No-Fee Terms and Conditions 
 Older update releases can be found in the  [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/). These older releases are covered by the [NFTC](https://www.oracle.com/downloads/licenses/no-fee-license.html), [OTN](https://www.oracle.com/downloads/licenses/javase-license1.html), or (for some of the older releases) [BCL](https://www.oracle.com/downloads/licenses/java-se-archive-license.html) license.
 
 ### Tutorial
-[Download Manually from Oracle.com](videohub:1_pxs09t22)
+[Download Manually from Oracle.com](videohub:1_pxs09t22:large)
 
 
 #### Downloading Up-to-Date Releases

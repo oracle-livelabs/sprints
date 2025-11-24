@@ -3,7 +3,7 @@ Duration: 5 minutes
 
 This is a quick tutorial on the significance of 'YYYY' (uppercase Y) and 'yyyy' (lowercase y) in Java date formatting.
 
-[The Significance of 'YYYY' and 'yyyy' in Java Date Formatting](videohub:1_gwyao78b)
+[The Significance of 'YYYY' and 'yyyy' in Java Date Formatting](videohub:1_gwyao78b:large)
 
 
 ## Introduction

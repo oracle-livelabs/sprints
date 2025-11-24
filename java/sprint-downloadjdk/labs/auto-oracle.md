@@ -6,7 +6,7 @@ This tutorial covers automating downloads of Oracle JDK and GraalVM.
 
 Subject to the license terms, this method is available to everyone and does not require login or license.
 
-[Automate Downloads from Oracle.com](videohub:1_b66ya1gy)
+[Automate Downloads from Oracle.com](videohub:1_b66ya1gy:large)
 
 
 ## Automate Downloading the Latest Releases

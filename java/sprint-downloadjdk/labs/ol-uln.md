@@ -9,7 +9,7 @@ This method is only available to Oracle Linux Support customers using Oracle Lin
 
 ## Tutorial
 
-[Downloading for Oracle Linux on OCI](videohub:1_40lj26on)
+[Downloading for Oracle Linux on OCI](videohub:1_40lj26on:large)
 
 ### 1. Register for Unbreakable Linux Network
 

@@ -29,7 +29,7 @@ If you are familiar with MOS, you can use the links below to go directly to the 
 
 
 ## Tutorials
-[Download Manually from My Oracle Support](videohub:1_01hfc6wp)
+[Download Manually from My Oracle Support](videohub:1_01hfc6wp:large)
 
 ### Latest JDK Releases
 To download the latest JDK releases for all release families:

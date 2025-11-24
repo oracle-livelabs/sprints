@@ -3,7 +3,7 @@ Duration: 45 minutes
 
 This is a beginner level introduction to Java memory management.
 
-[Choosing a Garbage Collector](videohub:1_ut7i2uzu)
+[Choosing a Garbage Collector](videohub:1_ut7i2uzu:large)
 
 ## Table of Contents
 1. Introducing the Java Heap  
