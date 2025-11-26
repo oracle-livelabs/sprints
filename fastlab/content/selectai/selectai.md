@@ -1,230 +1,355 @@
-# How to use Select AI in Oracle Autonomous AI Database
+# Select AI in Oracle Autonomous AI Database
 
 Welcome to this **LiveLabs FastLab** workshop.
 
-LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle Autonomous AI Database. You will go from beginner to confident user in a short time.
+LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with Oracle Autonomous AI Database. You move from beginner to confident user in a short time.
 
 Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-In today's data-driven world, accessing and analyzing information quickly is crucial, especially in fields like healthcare where timely insights can save lives. However, writing SQL queries requires specialized skills that not all business users possess.
+With Select AI in Oracle Autonomous AI Database, you query by meaning, not by SQL syntax.
+In many teams, data is locked behind the SQL skills of a few specialists, which slows down everyday questions and decisions.
 
-**Select AI** is Oracle's generative AI feature integrated into Autonomous Database that translates natural language questions into accurate SQL queries. It democratizes data access, allowing analysts, doctors, and managers to derive insights from databases using plain English, without needing to learn complex SQL syntax.
+Select AI is a generative AI feature that turns natural language questions into SQL, runs them against your database, and returns the results.
 
-This capability is particularly important in healthcare, where non-technical staff can query patient records, treatment outcomes, or resource allocation to support faster decision-making and improve patient care. With Select AI, you can focus on the questions that matter, while the AI handles the technical details.
+In this FastLab, you will use a small sample dataset to ask questions in plain English, see the SQL that Select AI generates, and run it yourself.
 
-In this 15-minute lab, you'll create a sample healthcare dataset and use Select AI to generate and execute queries for common business cases.
+### Objectives: 
+
+- Create a small sample **patients** dataset
+- Use **Select AI chat** or **`SELECT AI` in SQL Worksheet** to ask natural language questions
+- See and run the SQL that Select AI generates
+
 
 ### Prerequisites
 
-- An Oracle Autonomous AI Database - If you do not have one, see:   
-    [LiveLabs FastLab - Create an Autonomous Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+You will need the following before you start:
 
-- Select AI already configured for your database:
-      - `EXECUTE` privilege on `DBMS_CLOUD_AI` for your lab user
-      - An AI profile that:
-         - Points to a supported LLM provider (for example OCI Generative AI or OpenAI)
-         - Includes your schema in its `object_list` so Select AI can see the `PATIENTS` table
+1. An **Oracle Autonomous AI Database**
+    - If you do not have one yet, see:  
+      [LiveLabs FastLab - Create an Autonomous Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
-> If you have not configured Select AI yet, complete the Select AI setup first  
-> (["How to Use Oracle Select AI: A Step-by-Step Guide (Generative AI)”](https://blogs.oracle.com/datawarehousing/how-to-use-oracle-select-ai-a-stepbystep-guide-generative-ai)) before this FastLab.
+2. **Select AI already configured** for your lab user:
+    - Your user should have `EXECUTE` on `DBMS_CLOUD_AI`
+    - An **AI profile** that:
+      - Uses an LLM provider available in your environment (for example, OCI Generative AI or OpenAI)
+      - Includes your schema in its `OBJECT_LIST` so Select AI can see the `PATIENTS` table
+
+3. To confirm that at least one profile exists, you can later run:
+
+    ```sql
+    SELECT profile_name, status 
+    FROM   user_cloud_ai_profiles;
+    ```
 
 
 ## Task 1: Launch Database Actions and SQL Worksheet
 
-You will use Database Actions as your workspace. This task opens the SQL Worksheet so you can run SQL commands.
+1. In the Oracle Cloud Console, navigate to your **Autonomous AI Database** instance.
 
-1. In the Oracle Cloud Console, navigate to your Autonomous Database.
+2. On the database details page, click **Database Actions**.
 
-2. Click **Database Actions** and select **SQL**.
+3. In the Database Actions launchpad, click **SQL** to open the **SQL Worksheet**.
 
-3. Verify that a profile exists
-      ```sql
-         <copy>
-         SELECT profile_name, status
-         FROM user_cloud_ai_profiles;
-      </copy>
-         ```
+
 
 ## Task 2: Create a Sample Healthcare Dataset
 
-To demonstrate Select AI, we'll create a simple `patients` table with sample data representing patient records.
+1. In SQL Worksheet, run the following SQL to create the table and insert data:
 
-1. Run the following SQL to create the table and insert data:
+   ```sql
+   <copy>
+   -- Create PATIENTS table
+   CREATE TABLE patients (
+       id             NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+       name           VARCHAR2(100),
+       age            NUMBER,
+       gender         VARCHAR2(10),
+       condition      VARCHAR2(100),
+       admission_date DATE
+   );
 
-    ```sql
-    <copy>
-    -- Create patients table
-    CREATE TABLE patients (
-        id NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
-        name VARCHAR2(100),
-        age NUMBER,
-        gender VARCHAR2(10),
-        condition VARCHAR2(100),
-        admission_date DATE
-    );
+   COMMENT ON TABLE patients IS 'Sample patient records for Select AI FastLab';
+   COMMENT ON COLUMN patients.condition IS 'Primary medical condition or diagnosis';
 
-    -- Insert sample data
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('John Doe', 65, 'Male', 'Diabetes', DATE '2024-01-15');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Jane Smith', 72, 'Female', 'Heart Disease', DATE '2024-03-20');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Bob Johnson', 55, 'Male', 'Hypertension', DATE '2024-05-10');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Alice Brown', 68, 'Female', 'Diabetes', DATE '2024-02-05');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Charlie Wilson', 80, 'Male', 'Heart Disease', DATE '2024-06-01');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Diana Davis', 45, 'Female', 'Asthma', DATE '2024-04-12');
+   -- Insert sample data
+   INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
+   ('John Doe',     65, 'Male',   'Diabetes',     DATE '2024-01-15');
+   INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
+   ('Jane Smith',   72, 'Female', 'Heart Disease', DATE '2024-03-20');
+   INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
+   ('Bob Johnson',  55, 'Male',   'Hypertension', DATE '2024-05-10');
+   INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
+   ('Alice Brown',  68, 'Female', 'Diabetes',     DATE '2024-02-05');
+   INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
+   ('Charlie Wilson', 80, 'Male', 'Heart Disease', DATE '2024-06-01');
+   INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
+   ('Diana Davis',  45, 'Female', 'Asthma',       DATE '2024-04-12');
 
-    COMMIT;
-    </copy>
-    ```
+   COMMIT;
+   </copy>
+   ```
 
 2. Verify the data:
 
-    ```sql
-    <copy>
-    SELECT * FROM patients;
-    </copy>
-    ```
-
-## Task 3: Access Select AI
-
-You can use Select AI either from SQL (using the `SELECT AI` command) or from the Select AI chat UI in Database Actions.
-
-1. From the Autonomous Database details page, click **Database Actions**.
-
-2. In the Database Actions launchpad, do one of the following (depending on your environment):
-
-   - **Option A – Use SQL Worksheet (recommended for this FastLab)**  
-     Click **SQL** to open the SQL Worksheet. You will run `SELECT AI` statements directly in Task 4.
-
-   - **Option B – Use the Select AI chat UI**  
-     If your launchpad includes a **Select AI** or **Select AI chat** entry (often under **Development → Machine Learning → Oracle Machine Learning**), click it to open the chat interface.
-
-3. Sign in with your database user if prompted.
-
-
-## Task 4: Generate SQL Queries with Select AI for Healthcare Business Cases
-
-Select AI analyzes your natural language and generates SQL based on your schema.  
-Your SQL may not match the examples below exactly, but it should be logically equivalent and return the same rows.
-
-   >If you are using the chat UI, type this question in the prompt box.
-
-   >If you are using SQL Worksheet, run this as a SELECT AI statement.
-
-Note: Behind the scenes, Select AI uses your AI profile to know which tables and columns it can use (for this lab, the `PATIENTS` table). 
-It sends natural language plus table metadata to the LLM, gets back SQL, and then runs that SQL in your database.
-   
-
-1. **Business Case: Identify elderly patients with diabetes for follow-up care.**
-
-   Enter in Select AI: "List all patients over 60 years old with diabetes."
-
-   Example SQL generated by Select AI:
-
    ```sql
-   SELECT * FROM patients WHERE age > 60 AND condition = 'Diabetes';
+   <copy>
+   SELECT * FROM patients;
+   </copy>
    ```
 
-   - This query would return John Doe and Alice Brown.
+You should see six rows of sample patient data.
 
-2. **Business Case: Analyze admissions for heart conditions in the past 6 months.**
+## Task 3: Access Select AI (Chat and SQL)
 
-   Enter: “How many patients were admitted with heart disease in 2024?”
+1. From the Autonomous AI Database details page, click **Database Actions** if you are not already there.
 
-   Example SQL generated by Select AI:
+2. On the launchpad, choose one of these options (both work for this lab):
 
-   ```sql
-      SELECT COUNT(*) 
-   FROM   patients
-   WHERE  condition = 'Heart Disease'
-   AND    admission_date BETWEEN DATE '2024-01-01' AND DATE '2024-12-31';
-   ```
+   * **Option A – Select AI chat UI**
 
-   - This helps in resource planning for cardiology.
+     * Open the **Select AI** or **Select AI chat** entry in Database Actions.
+       It may appear as a card on the launchpad or under **Machine Learning / Oracle Machine Learning**.
+     * Sign in with your database user if prompted.
 
-3. **Business Case: Gender distribution of patients with chronic conditions.**
+   * **Option B – `SELECT AI` in SQL Worksheet**
 
-   Enter: "Show the number of male and female patients with diabetes or heart disease."
+     * Stay in **SQL Worksheet**.
+     * You will type natural language inside `SELECT AI` statements such as:
 
-   Example SQL generated by Select AI:
+       ```sql
+       <copy>
+       SELECT AI runsql  'List all patients over 60 years old with diabetes';
+       SELECT AI showsql 'List all patients over 60 years old with diabetes';
+       </copy>
+       ```
 
-   ```sql
-   SELECT gender, COUNT(*) FROM patients WHERE condition IN ('Diabetes', 'Heart Disease') GROUP BY gender;
-   ```
+3. Pick one approach to use as you go through the examples:
 
-   - Useful for demographic analysis in healthcare studies.
+   * Use **chat** if you want a conversational experience.
+   * Use **SQL Worksheet** if you want to see results directly in SQL and reuse the generated SQL.
 
-4. **Business Case: Recent admissions overview.**
+Behind the scenes, Select AI uses your **AI profile** to know which tables and columns it can query (in this lab, the `PATIENTS` table).
 
-   Enter: "List patients admitted after April 2024, sorted by admission date."
+## Task 4: Ask Healthcare Questions with Select AI
 
-   Example SQL generated by Select AI:
+Now you use natural language questions to solve realistic healthcare business cases. Select AI will generate the SQL for you based on the `PATIENTS` table.
 
-   ```sql
-   SELECT * FROM patients WHERE admission_date > DATE '2024-04-01' ORDER BY admission_date;
-   ```
+> Your SQL may not match the examples below exactly. It should be logically equivalent and return the same kind of result.
 
-   - Aids in tracking recent cases.
+For each case:
 
-For each query, Select AI will display the generated SQL. You can review, modify if needed, and execute it.
+* If you use **chat**, type the question into the Select AI prompt and run it.
+* If you use **SQL Worksheet**, run:
 
-## Task 5: Optional – Tweak and run the generated SQL in SQL Worksheet
+  ```sql
+  <copy>
+  SELECT AI runsql 'your question here';
+  </copy>
+  ```
 
-The Select AI chat UI can already execute the SQL it generates.
+  and optionally:
 
-If you want to:
-- Edit the SQL, or
-- Save it as part of a script
+  ```sql
+  <copy>
+  SELECT AI showsql 'your question here';
+  </copy>
+  ```
 
-you can copy it into the SQL Worksheet and run it there.
+  to see the SQL.
 
-For example, copy this SQL and modify it:
+### Case 1: Elderly patients with diabetes
+
+**Business question**
+
+Identify elderly patients with diabetes for follow-up care.
+
+**Ask Select AI**
+
+> `List all patients over 60 years old with diabetes.`
+
+**Example SQL generated by Select AI**
 
 ```sql
-      SELECT * 
-      FROM   patients 
-      WHERE  age > 60 
-      AND    condition = 'Diabetes';
+<copy>
+SELECT *
+FROM   patients
+WHERE  age > 60
+AND    condition = 'Diabetes';
+</copy>
 ```
 
-## Task 6: Ask your own questions
+**Result**
 
-Now use Select AI to ask at least **three** of your own questions about the `patients` table.
+You should see **John Doe** and **Alice Brown**. These patients match the criteria “over 60 with diabetes” and could be targeted for follow-up programs.
 
-Ideas to try:
+### Case 2: Heart disease admissions in 2024
 
-- "What is the average age of patients with diabetes?"
-- "Show the number of patients by condition."
-- "How many female patients were admitted in February 2024?"
-- "List all patients ordered from oldest to youngest."
+**Business question**
+
+Understand how many patients with heart disease were admitted during 2024.
+
+**Ask Select AI**
+
+> `How many patients were admitted with heart disease in 2024?`
+
+**Example SQL generated by Select AI**
+
+```sql
+<copy>
+SELECT COUNT(*) AS heart_disease_admissions_2024
+FROM   patients
+WHERE  condition = 'Heart Disease'
+AND    admission_date BETWEEN DATE '2024-01-01' AND DATE '2024-12-31';
+</copy>
+```
+
+**Result**
+
+You should see a count of **2** (Jane Smith and Charlie Wilson). This simple metric can feed capacity and resource planning for cardiology services.
+
+### Case 3: Gender and condition distribution
+
+**Business question**
+
+See how many patients you have by condition and gender.
+
+**Ask Select AI**
+
+> `Show the number of male and female patients for each condition.`
+
+**Example SQL generated by Select AI**
+
+```sql
+<copy>
+SELECT condition,
+       gender,
+       COUNT(*) AS patient_count
+FROM   patients
+GROUP  BY condition, gender
+ORDER  BY condition, gender;
+</copy>
+```
+
+**Result**
+
+You see a small matrix of conditions versus gender counts. This type of breakdown helps with demographic analysis (for example, understanding whether certain conditions skew by gender).
+
+### Case 4: Recent admissions in 2024
+
+**Business question**
+
+Review the most recent admissions to see who arrived later in the year.
+
+**Ask Select AI**
+
+> `List patients admitted after April 1, 2024, sorted by admission date.`
+
+**Example SQL generated by Select AI**
+
+```sql
+<copy>
+SELECT *
+FROM   patients
+WHERE  admission_date > DATE '2024-04-01'
+ORDER  BY admission_date;
+</copy>
+```
+
+**Result**
+
+You should see patients admitted after 1 April 2024, ordered from earliest to latest admission date. This helps you quickly scan recent cases.
+
+## Task 5: Optional – Tweak and Run the SQL Yourself
+
+1. In the Select AI chat result, copy the generated SQL for one of the questions.
+
+2. Switch to **SQL Worksheet**, paste the SQL, and modify it. For example, start from the Case 1 query and tighten the age filter:
+
+   ```sql
+   <copy>
+   SELECT *
+   FROM   patients
+   WHERE  age >= 65
+   AND    condition = 'Diabetes'
+   ORDER  BY admission_date;
+   </copy>
+   ```
+
+3. Run the modified SQL and review the results.
+
+This workflow is how analysts can move from “one-off questions” to “saved queries and dashboards.”
+
+## Task 6: Ask Your Own Questions
+
+You learn Select AI best by asking your own questions. In this task, you practice using natural language to explore the `PATIENTS` table without any prompts.
+
+Ask Select AI at least **three** of your own questions.
+
+Here are some ideas:
+
+* `What is the average age of patients with diabetes?`
+* `Show the number of patients by condition.`
+* `How many female patients were admitted in February 2024?`
+* `List all patients ordered from oldest to youngest.`
+* `Show the number of patients admitted each month in 2024.`
 
 Tips:
 
-- Use natural language; you do **not** need to know the column names.
-- If the result is not what you expected, refine your question, for example  
-  "Only include patients over 50" or "group by condition".
-- If you are using SQL Worksheet, try both:
-  - `SELECT AI runsql 'your question here';`
-  - `SELECT AI showsql 'your question here';` to see the SQL that was generated.
+* Use plain English; you do **not** need exact column names.
+* Refine your question if needed:
+  For example, add “only show patients over 50” or “group the results by condition.”
+* In SQL Worksheet, try both:
 
-Congratulations!  
-You've successfully used Select AI to generate and execute SQL queries for healthcare scenarios, demonstrating how it simplifies data analysis for beginners.
+  ```sql
+  <copy>
+  SELECT AI runsql  'your question here';
+  SELECT AI showsql 'your question here';
+  </copy>
+  ```
+
+  to see both the answer and the SQL.
+
+## Next Steps
+
+You have now seen how Select AI turns natural language into SQL on a simple healthcare dataset. To build on this FastLab, consider:
+
+* **Use Select AI on your own schema**
+  Point an AI profile at a real application schema and try similar questions.
+
+* **Combine Select AI with applications**
+  Call `SELECT AI` from APEX, ORDS, or a microservice to let business users ask questions through a web UI.
+
+* **Explore other AI capabilities in Oracle Autonomous AI Database**
+
+  * **AI Vector Search** for semantic search on documents and embeddings
+  * **Select AI `explainsql` and `narrate` actions** to help users understand complex SQL
+
+If you are following a LiveLabs path, your next recommended workshop is the **Select AI Signature Workshop**, where you build a richer end-to-end scenario.
+
+
+Congratulations!
+You have successfully completed the Select AI FastLab. 
+
+You can now ask natural language questions against a real Oracle database, see the SQL that Select AI generates, and start turning ad hoc questions into reusable SQL for your own projects.
 
 ## Signature Workshop
 
-Ready to dive deeper? Try our signature workshop: [Use Autonomous Database with Generative AI Features](https://livelabs.oracle.com/pls/apex/f?p=133:180:4579534958655::::wid:some-wid)
+Ready to dive deeper? These workshops move you from demo to hands-on practice.
+
+👉 Click here to start our signature workshop: [Select AI Signature Workshop](https://livelabs.oracle.com/pls/apex/f?p=133:180:4579534958655::::wid:selectai-sig)
 
 ## Learn More
 
 * [Introducing Natural Language to SQL Generation on Autonomous Database](https://blogs.oracle.com/machinelearning/introducing-natural-language-to-sql-generation-on-autonomous-database)
 * [How to Use Oracle Select AI: A Step-by-Step Guide](https://blogs.oracle.com/datawarehousing/how-to-use-oracle-select-ai-a-stepbystep-guide-generative-ai)
-* [Oracle Autonomous Database Documentation](https://docs.oracle.com/en/cloud/paas/autonomous-database/)
+* Oracle documentation: **Select AI with Oracle Autonomous AI Database**
+* Oracle LiveLabs: Search for **Select AI** and **Autonomous AI Database** workshops
+* Blogs and videos on:
+
+  * Building AI-powered apps with Oracle Database
+  * Using AI profiles and AI Vector Search
 
 ## Acknowledgements
 * **Author** - Linda Foinding
