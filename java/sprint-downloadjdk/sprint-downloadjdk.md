@@ -1,13 +1,13 @@
 # Downloading the Oracle JDK
+
 Duration: 5 minutes
 
-## Introduction
+### Introduction
 Oracle offers multiple locations to download the Java SE Development Kit (JDK), each designed for a different use-case.
 
 For security, we recommend only downloading the Oracle JDK from Oracle or trusted sources.
 
-
-## Licenses
+### Licenses
 Java releases and Java updates are made available under different licenses. It is the user's responsibility to ensure that their use of Java conforms to the applicable license.
 
 Licenses mentioned in this workshop include:
@@ -19,7 +19,7 @@ Licenses mentioned in this workshop include:
 - [The GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 
-## Oracle JDK Download Locations
+### Oracle JDK Download Locations
 The table below will guide you to the best download location for your needs. Use the menu on the left for detailed instructions. 
 
 The table assumes that you know what types of releases you want, but if you would like some guidance, see [Choosing the Right JDK Version: An Unofficial Guide](https://blogs.oracle.com/java/post/choosing-the-right-jdk-version). Oracle customers can also open a Non-Technical Service Request for assistance.
@@ -40,7 +40,7 @@ The table assumes that you know what types of releases you want, but if you woul
 |{: title="Oracle JDK Download Methods"}||||
 
 
-## Authors
+### Authors
 Jason Begy, Principal User Assistance Developer, Java Platform Group  
 Cody Gaffney, Technical Support Engineer, Java Platform Group  
 Aurelio Garcia-Ribeyro, Sr. Director of Product Management, Java Platform Group  

@@ -1,5 +1,7 @@
 # Manually Downloading from Oracle.com or Oracle Software Delivery Cloud
 
+Duration: 2 minutes
+
 ## Manually Downloading from Oracle.com
 Subject to the relevant license terms, anyone can download the Oracle JDK and GraalVM from [the Java downloads page on Oracle.com](https://www.oracle.com/java/technologies/downloads/).
 

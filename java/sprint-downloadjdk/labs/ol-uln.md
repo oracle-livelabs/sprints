@@ -1,13 +1,13 @@
 # Manually Downloading the JDK on Oracle Linux Using Unbreakable Linux Network Channels
 
-## Overview
+### Overview
 
 This tutorial covers installing the JDK on Oracle Linux using Unbreakable Linux Network (ULN) channels.
 
 This method is only available to Oracle Linux Support customers using Oracle Linux.  
 <br />
 
-## Tutorial
+### Tutorial
 
 [Downloading for Oracle Linux on OCI](videohub:1_40lj26on:large)
 

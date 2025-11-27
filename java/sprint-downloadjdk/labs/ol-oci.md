@@ -1,6 +1,8 @@
 # Manually Downloading the the JDK on Oracle Linux Using OCI yum Repositories
 
-## Overview
+Duration: 4 minutes
+
+### Overview
 This tutorial covers installing the JDK on Oracle Linux using Oracle Cloud Infrastructure (OCI) yum repositories.
 
 This method is available to OCI customers.  
@@ -70,7 +72,7 @@ After the installation has completed, check to make sure Java is installed and w
 In the terminal output you should see the Oracle JDK version.  
 <br />
 
-## Good to Know
+### Good to Know
 - Oracle releases supported JDK updates every 3 months
 - To update Java at any time, run:
 ```
