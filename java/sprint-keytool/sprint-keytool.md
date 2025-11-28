@@ -4,7 +4,7 @@ Duration: 5 minutes
 
 ## keytool Tutorial
 
-[keytool Tutorial](videohub:1_5dpusf5t)
+[keytool Tutorial](videohub:1_5dpusf5t:large)
 
 ### 1 Java Keytool
 This is a quick tutorial on using the `keytool` command. This is a key and certificate management utility that enables users to administer their own public/private key pairs and associated certificates for self-authentication or data integrity.
