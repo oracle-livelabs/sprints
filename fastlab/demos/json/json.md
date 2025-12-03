@@ -9,8 +9,7 @@ JSON Collections are part of a converged Oracle AI Database that supports many d
 Behind the scenes, you still get enterprise-grade capabilities: transactions, governance, security, and performance that is now applied directly to your JSON documents.
 
 
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2171811/embedPlaykitJs/uiconf_id/54927872?iframeembed=true&amp;entry_id=1_bgtvmaze&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_qv7xaqap%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 640px;height: 360px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Demo: JSON"></iframe>
-
+[Video hosted on Oracle Video Hub](videohub:1_bgtvmaze)
 
 ### **Try the Interactive Demo**
 Note: You can minimze the menu by clicking '≡' to better interactive with the demo.
