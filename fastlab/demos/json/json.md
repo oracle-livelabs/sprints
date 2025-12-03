@@ -8,10 +8,8 @@ JSON Collections are part of a converged Oracle AI Database that supports many d
 
 Behind the scenes, you still get enterprise-grade capabilities: transactions, governance, security, and performance that is now applied directly to your JSON documents.
 
-You may add an optional video, using this format: [](youtube:YouTube video id)
 
-[](youtube:REPLACE_WITH_VIDEO_ID)
-
+[Video hosted on Oracle Video Hub](videohub:1_bgtvmaze)
 
 ### **Try the Interactive Demo**
 Note: You can minimze the menu by clicking '≡' to better interactive with the demo.
