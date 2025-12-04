@@ -31,17 +31,21 @@ You will need the following before you start:
       [LiveLabs FastLab - Create an Autonomous Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
 2. **Select AI already configured** for your lab user:
+    - If you do not have one yet, see Labs 2 and 3:  
+      [Chat with Your Data in Autonomous AI Database Using Select AI](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?clear=RR,180&wid=3831&session=937205042399)
     - Your user should have `EXECUTE` on `DBMS_CLOUD_AI`
     - An **AI profile** that:
-      - Uses an LLM provider available in your environment (for example, OCI Generative AI or OpenAI)
-      - Includes your schema in its `OBJECT_LIST` so Select AI can see the `PATIENTS` table
+        - Uses an LLM provider available in your environment (for example, OCI Generative AI or OpenAI)
+        - Includes your schema in its `OBJECT_LIST` so Select AI can see the `PATIENTS` table
 
 3. To confirm that at least one profile exists, you can later run:
 
-    ```sql
-    SELECT profile_name, status 
-    FROM   user_cloud_ai_profiles;
-    ```
+      ```sql
+      <copy>
+      SELECT profile_name, status 
+      FROM   user_cloud_ai_profiles;
+      </copy>
+      ```
 
 
 ## Task 1: Launch Database Actions and SQL Worksheet
