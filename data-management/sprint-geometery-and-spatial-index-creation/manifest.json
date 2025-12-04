@@ -3,7 +3,7 @@
     "help": "livelabs-help-sprints_us@oracle.com",
     "tutorials": [
        {
-          "title": "Sprint - How do I use simplified geometry and spatial index creation in Oracle Database 23ai?",
+          "title": "Sprint - How do I use simplified geometry and spatial index creation in Oracle AI Database 26ai?",
           "description": "",
           "filename": "sprint-geometery-and-spatial-index-creation.md"
        }
