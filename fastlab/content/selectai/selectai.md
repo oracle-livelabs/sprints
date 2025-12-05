@@ -48,15 +48,9 @@ You will need the following before you start:
       ```
 
 
-## Task 1: Launch Database Actions and SQL Worksheet
+## Task 1. Click the SQL option in Database Actions
 
-1. In the Oracle Cloud Console, navigate to your **Autonomous AI Database** instance.
-
-2. On the database details page, click **Database Actions**.
-
-3. In the Database Actions launchpad, click **SQL** to open the **SQL Worksheet**.
-
-
+  ![OCI Console – Open SQL Worksheet from Database Actions Launchpad](./images/open-sql-worksheet-from-database-actions-launchpad.png =30%x*)
 
 ## Task 2: Create a Sample Healthcare Dataset
 
@@ -105,16 +99,17 @@ You will need the following before you start:
 
 You should see six rows of sample patient data.
 
+  ![Navigate to Directory](./images/patients.png )
+
 ## Task 3: Access Select AI (Chat and SQL)
 
 1. From the Autonomous AI Database details page, click **Database Actions** if you are not already there.
 
 2. On the launchpad, choose one of these options (both work for this lab):
 
-   * **Option A – Select AI chat UI**
+   * **Option A – `SELECT AI` chat UI**
 
-     * Open the **Select AI** or **Select AI chat** entry in Database Actions.
-       It may appear as a card on the launchpad or under **Machine Learning / Oracle Machine Learning**.
+     * Open the `SELECT AI` entry in Database Actions under **Machine Learning**.
      * Sign in with your database user if prompted.
 
    * **Option B – `SELECT AI` in SQL Worksheet**
@@ -348,12 +343,7 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 * [Introducing Natural Language to SQL Generation on Autonomous Database](https://blogs.oracle.com/machinelearning/introducing-natural-language-to-sql-generation-on-autonomous-database)
 * [How to Use Oracle Select AI: A Step-by-Step Guide](https://blogs.oracle.com/datawarehousing/how-to-use-oracle-select-ai-a-stepbystep-guide-generative-ai)
-* Oracle documentation: **Select AI with Oracle Autonomous AI Database**
-* Oracle LiveLabs: Search for **Select AI** and **Autonomous AI Database** workshops
-* Blogs and videos on:
 
-  * Building AI-powered apps with Oracle Database
-  * Using AI profiles and AI Vector Search
 
 ## Acknowledgements
 * **Author** - Linda Foinding
