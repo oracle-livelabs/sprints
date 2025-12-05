@@ -50,7 +50,7 @@ You will need the following before you start:
 
 ## Task 1. Click the SQL option in Database Actions
 
-  ![OCI Console – Open SQL Worksheet from Database Actions Launchpad](./images/open-sql-worksheet-from-database-actions-launchpad.png =30%x*)
+  ![OCI Console – Open SQL Worksheet from Database Actions Launchpad](./images/open-sql-worksheet-from-database-actions-launchpad.png)
 
 ## Task 2: Create a Sample Healthcare Dataset
 
@@ -99,7 +99,7 @@ You will need the following before you start:
 
 You should see six rows of sample patient data.
 
-  ![Navigate to Directory](./images/patients.png )
+  ![Navigate to Directory](./images/patients.png)
 
 ## Task 3: Access Select AI (Chat and SQL)
 
