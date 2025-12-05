@@ -3,7 +3,7 @@
    "help": "livelabs-help-db_us@oracle.com",
    "tutorials": [
       {
-         "title": "How do I geocode addresses in Autonomous Database?",
+         "title": "How do I geocode addresses in Oracle Autonomous AI Database?",
          "description": "",
          "filename": "sprint-adb-geocode.md"
       }

@@ -1,9 +1,10 @@
-# How do I geocode addresses in Autonomous Database?
+# How do I geocode addresses in Oracle Autonomous AI Database?
+
 Duration: 5 minutes
 
-## Geocoding in Autonomous Database
+## Geocoding in Oracle Autonomous AI Database
 
-Geocoding determines the geographic coordinates of an address. This enables map visualization and location analysis of your address data. Geocoding in ADB requires that a privilege be granted. Once the privilege is granted, a user may perform geocoding.
+Geocoding determines the geographic coordinates of an address. This enables map visualization and location analysis of your address data. Geocoding in Autonomous AI Database requires that a privilege be granted. Once the privilege is granted, a user may perform geocoding.
 
 1. Connect to SQL Worksheet as the **ADMIN** user to grant the required privilege to a non-admin user.
    
@@ -19,7 +20,7 @@ Geocoding determines the geographic coordinates of an address. This enables map 
 
     ```
     <copy>
-    EXEC SDO_GCDR.ELOC_GRANT_ACCESS(<username>);
+    EXEC SDO_GCDR.ELOC_GRANT_ACCESS('<username>');
     </copy>
     ```
 
@@ -90,7 +91,7 @@ Geocoding determines the geographic coordinates of an address. This enables map 
 ## Learn More
 
 * See [blog](https://blogs.oracle.com/oraclespatial/post/new-in-database-geocoder-for-autonomous-database-shared) for overview and examples.
-* See [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/SDO_GCDR-reference.html) for the following operations:
+* See [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/26/spatl/sdo_gcdr-package-geocoding.html) for the following operations:
     * SDO\_GCDR.ELOC\_GRANT\_ACCESS
     * SDO\_GCDR.ELOC\_REVOKE\_ACCESS
     * SDO\_GCDR.ELOC\_GEOCODE
@@ -99,4 +100,4 @@ Geocoding determines the geographic coordinates of an address. This enables map 
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - David Lapp, April 2023
+* **Last Updated By/Date** - Denise Myrick, December 2025
