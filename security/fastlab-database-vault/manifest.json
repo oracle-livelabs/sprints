@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - <title>",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Separating DBAs from Sensitive Data",
+            "filename": "database-vault.md"
+        }
+    ]
+}
