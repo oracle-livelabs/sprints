@@ -4,7 +4,7 @@ Welcome to this **Oracle Database Vault LiveLabs FastLab** workshop.
 
 LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience regarding separating sensitive data from your privileged users, such as database administrators, system administrators, and cloud administrators. You will go from beginner to confident user in a short time.
 
-Note: This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN)
+Note: This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN).
 
 Estimated Time: 15 minutes
 
@@ -30,7 +30,7 @@ Estimated Time: 15 minutes
 
 ## Task 2: Create the `SH1` schema and clone the SH.CUSTOMERS table
 
-1. The first thing you'll do is create a new user and a new table based on the Sales History (SH) that is included in your Oracle Autonomous AI Database. 
+1. The first thing you'll do is create a schema-only database account and a new table based on the Sales History (SH) that is included in your Oracle Autonomous AI Database. A schema-only account is useful for storing objects without the security risk of authentication. 
 
       ```
          <copy>
@@ -68,7 +68,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       ```
 
 
-2. Next, create a Database Vault realm. This is the first step to secure all objects in the `SH1` schema. A mandatory realm blocks all access, including access by the object owner, and only allows users who are authorized by the realm to use their privileges. 
+2. Next, create a Database Vault realm to secure all objects in the `SH1` schema. A mandatory realm blocks all access, including access by the object owner, and only allows users who are authorized by the realm to use their privileges. 
 
       ```
       <copy>
@@ -110,7 +110,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-5. Add `ADMIN` as an authorized user who can query the data. Adding a user to the realm does not replace the existing privilege model. The user must have privileges (DML/DDL) to the objects in the realm first, then because it's a mandatory realm, they must be authorized into the realm.
+5. Add `ADMIN` as an authorized user who can query the data. Adding a user to the realm does not replace the existing privilege model. The user must first have privileges (DML/DDL) to the objects in the realm, and then must be authorized into the realm.
 
       ```
       <copy>
@@ -159,9 +159,9 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-9. (optional) Clean up by dropping the realm.
+9. (Optional) Clean up by dropping the realm.
 
-      ```sql
+      ```
       <copy>
          BEGIN
             DVSYS.DBMS_MACADM.DELETE_REALM_CASCADE(realm_name => 'PROTECT_SH1');
@@ -169,8 +169,7 @@ A realm is a protected zone that secures database schemas, database objects, and
          /
       </copy>
       ```
-
-      
+     
 That's it! You've now learned how powerful Oracle Database Vault is and how quickly you could protect your application data from privileged users such as system administrators, cloud administrators, and database administrators. 
 
 
