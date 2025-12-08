@@ -4,7 +4,7 @@ Welcome to this **Oracle Database Vault LiveLabs FastLab** workshop.
 
 LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience regarding separating sensitive data from your privileged users, such as database administrators, system administrators, and cloud administrators. You will go from beginner to confident user in a short time.
 
-Note: This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN).
+**Note:** This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN).
 
 Estimated Time: 15 minutes
 
@@ -67,14 +67,13 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-
-2. Next, create a Database Vault realm to secure all objects in the `SH1` schema. A mandatory realm blocks all access, including access by the object owner, and only allows users who are authorized by the realm to use their privileges. 
+2. Next, create a Database Vault realm to secure all objects in the `SH1` schema. A mandatory realm blocks all access attempts, including by the schema owner and DBAs, and only allows explicitly authorized users to access protected objects. 
 
       ```
       <copy>
       -- Create the "PROTECT_SH1" DV realm
          BEGIN
-            DVSYS.DBMS_MACADM.CREATE_REALM(
+            DBMS_MACADM.CREATE_REALM(
                 realm_name => 'PROTECT_SH1',
                 description => 'A mandatory realm to protect SH1 tables',
                 enabled => DBMS_MACUTL.G_YES,
@@ -90,7 +89,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       <copy>
       -- Set SH1 objects as protected by the DV realm "PROTECT_SH1"
          BEGIN
-             DVSYS.DBMS_MACADM.ADD_OBJECT_TO_REALM(
+             DBMS_MACADM.ADD_OBJECT_TO_REALM(
                  realm_name   => 'PROTECT_SH1',
                  object_owner => 'SH1',
                  object_name  => '%',
@@ -100,7 +99,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-4. Now, **no one can query the data** because there is no authorized user to access the data. 
+4. Now, **no one can query the data** because there is no authorized user to access the data. Use the SQL below to attempt to query the data. You should receive an "insufficient privileges" error.
 
       ```
       <copy>
@@ -110,21 +109,23 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-5. Add `ADMIN` as an authorized user who can query the data. Adding a user to the realm does not replace the existing privilege model. The user must first have privileges (DML/DDL) to the objects in the realm, and then must be authorized into the realm.
+      **Note:** In production, ensure application users are authorized **before** enabling a realm to avoid service disruption. Always test realm configurations in non-production environments first. Database Vault offers a simulation mode for realms to help you identify users or roles that would have been blocked had the realm been enabled. 
+
+
+5. Add `ADMIN` as an authorized user who can query the data.
 
       ```
-      <copy>
-         BEGIN
-             DVSYS.DBMS_MACADM.ADD_AUTH_TO_REALM(
-                 realm_name   => 'PROTECT_SH1',
-                 grantee      => 'ADMIN');
-         END;
-         /
-      </copy>
+         <copy>
+            BEGIN
+               DBMS_MACADM.ADD_AUTH_TO_REALM(
+                  realm_name   => 'PROTECT_SH1',
+                  grantee      => 'ADMIN');
+            END;
+            /
+         </copy>
       ```
 
-      Note: This is an example. In a production environment you would not want to use `ADMIN` to manage Database Vault nor would you want to let `ADMIN` access sensitive data. Oracle recommends using named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts.
-
+      **Note:** Realm authorization works alongside standard database privileges. Users must first have object privileges (SELECT, INSERT, etc.) and then must be explicitly authorized into the realm to access protected objects.
 
 6. Re-execute the SQL query to show that `ADMIN` now can query the data. 
 
@@ -136,18 +137,21 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-7. Remove `ADMIN` from the Database Vault realm authorization list. Ideally, you should add only the application user (`SH1`) and named accounts (e.g. GKRAMER, CMACK, JSMITH) to the list and not use shared accounts (e.g. SYS, SYSTEM, ADMIN) to access sensitive data. 
+7. Remove `ADMIN` from the Database Vault realm authorization list. 
 
       ```
       <copy>
          BEGIN
-             DVSYS.DBMS_MACADM.REMOVE_AUTH_FROM_REALM(
+             DBMS_MACADM.REMOVE_AUTH_FROM_REALM(
                  realm_name   => 'PROTECT_SH1',
                  grantee      => 'ADMIN');
          END;
          /
       </copy>
       ```
+      
+      **Note:** Ideally, you should add only the application user (`SH1`) and named accounts (e.g. GKRAMER, CMACK, JSMITH) to the list and not use shared accounts (e.g. SYS, SYSTEM, ADMIN) to access sensitive data. 
+
 
 8. Re-execute the SQL query to show that `ADMIN` **cannot** query the data. 
 
@@ -164,13 +168,13 @@ A realm is a protected zone that secures database schemas, database objects, and
       ```
       <copy>
          BEGIN
-            DVSYS.DBMS_MACADM.DELETE_REALM_CASCADE(realm_name => 'PROTECT_SH1');
+            DBMS_MACADM.DELETE_REALM_CASCADE(realm_name => 'PROTECT_SH1');
          END;
          /
       </copy>
       ```
      
-That's it! You've now learned how powerful Oracle Database Vault is and how quickly you could protect your application data from privileged users such as system administrators, cloud administrators, and database administrators. 
+That's it! You've now learned how powerful Oracle Database Vault is and how quickly you can implement separation of duties to meet compliance requirements. Realms allow you to protect sensitive application data while DBAs maintain their administrative capabilities. For a more robust strategy, you can combine realms, Database Vault command rules, and secure application roles to create a comprehensive security policy.
 
 
 ## Signature Workshop
