@@ -68,7 +68,7 @@ Estimated Time: 15 minutes
       </copy>
       ```
 
-**The COO was right!** You can query, and see, all of the data. 
+**The COO was right!** You can query, and see, all of the data. Next, you'll mitigate this issue. 
 
 ## Task 3: Create a Database Vault realm to protect the SH1 schema
 
