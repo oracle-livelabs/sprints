@@ -55,6 +55,9 @@ Estimated Time: 15 minutes
          </copy>
       ```
 
+      **Note**: You are creating this schema and table so you have a copy you can experiment with. In a real world deployment, you would apply the policy to product schemas or schema objects.
+
+
 2. Verify you can query the new table. 
 
       ```
