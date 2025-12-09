@@ -4,7 +4,12 @@ Welcome to this **Oracle Database Vault LiveLabs FastLab** workshop.
 
 LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience regarding separating sensitive data from your privileged users, such as database administrators, system administrators, and cloud administrators. You will go from beginner to confident user in a short time.
 
-**Note:** This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN).
+## The Wake-Up Call
+
+Your Chief Compliance Officer walks into your office with troubling news: "We have a problem. If someone steals our DBA credentials, they'll have unrestricted access to all customer data. Even with trusted DBAs, regulators require technical controls, not just trust. We need separation of duties, and we need it fast."
+
+The reality hits hard: as an ADMIN user, you can see everything in the database. While you're trustworthy, regulations don't operate on trust—they require technical controls that prevent even privileged users from accessing sensitive data unless there's a legitimate business need.
+
 
 Estimated Time: 15 minutes
 
@@ -59,6 +64,7 @@ Estimated Time: 15 minutes
 
 A realm is a protected zone that secures database schemas, database objects, and/or database roles. Use realms to control access to sensitive data by restricting system and object privileges to specific database accounts or database roles.
 
+
 1. First, ensure Database Vault is enabled by querying the view.
 
       ```
@@ -82,6 +88,9 @@ A realm is a protected zone that secures database schemas, database objects, and
          /
       </copy>
       ```
+
+      **Note:** This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN).
+
 
 3. Next, add all objects in the `SH1` schema to the realm. The realm protection will include objects that `SH1` might create in the future. 
 
