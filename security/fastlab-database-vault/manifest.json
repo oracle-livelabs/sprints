@@ -1,9 +1,9 @@
 {
-    "workshoptitle": "LiveLabs FastLab - <title>",
+    "workshoptitle": "LiveLabs FastLab - Quickly protect your sensitive data from privileged users",
     "help": "livelabs-help-database_us@oracle.com",
     "tutorials": [
         {
-            "title": "FastLab - Separating DBAs from Sensitive Data",
+            "title": "FastLab - Quickly protect your sensitive data from privileged users",
             "filename": "database-vault.md"
         }
     ]
