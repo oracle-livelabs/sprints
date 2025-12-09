@@ -29,13 +29,17 @@ Estimated Time: 15 minutes
 
 ## Task 1: Login to SQL | Database Actions
 
+**The Situation:** Your CCO is waiting for results. You need to quickly demonstrate how Database Vault can enforce separation of duties. The clock is ticking, and you're about to show how to protect sensitive data in under 15 minutes.
+
 1. In the ADB Console, click Database Actions and select SQL.
 
     ![OCI](./images/sql.png " ")
 
 ## Task 2: Create the `SH1` schema and clone the SH.CUSTOMERS table
 
-1. The first thing you'll do is create a schema-only database account and a new table based on the Sales History (SH) that is included in your Oracle Autonomous AI Database. A schema-only account is useful for storing objects without the security risk of authentication. 
+**The Challenge:** You need to demonstrate the problem first. Right now, as an ADMIN user, you can see all customer data—names, emails, phone numbers. The regulators won't accept this. Let's set up a test environment that mirrors your production customer data so you can show exactly what needs to be protected.
+
+1. In this scenario, the first thing you'll do is create a schema-only database account and a new table based on the Sales History (SH), which is included in your Oracle Autonomous AI Database. A schema-only account is useful for storing objects without the security risk of authentication. 
 
       ```
          <copy>
@@ -62,8 +66,9 @@ Estimated Time: 15 minutes
 
 ## Task 3: Create a Database Vault realm to protect the SH1 schema
 
-A realm is a protected zone that secures database schemas, database objects, and/or database roles. Use realms to control access to sensitive data by restricting system and object privileges to specific database accounts or database roles.
+**The Solution:** Now comes the game-changer. You're about to implement the technical control your CCO needs—a Database Vault realm that will block even your ADMIN credentials from accessing customer data. This is how you prove to regulators that trust isn't your security model; technical enforcement is.
 
+A realm is a protected zone that secures database schemas, database objects, and/or database roles. Use realms to control access to sensitive data by restricting system and object privileges to specific database accounts or database roles.
 
 1. First, ensure Database Vault is enabled by querying the view.
 
@@ -171,18 +176,9 @@ A realm is a protected zone that secures database schemas, database objects, and
           WHERE rownum < 10;
       </copy>
       ```
+   
+**Mission Accomplished:** You walk back into your CCO's office with confidence. In just 15 minutes, you've demonstrated a technical control that blocks privileged users—including yourself—from accessing sensitive customer data unless explicitly authorized. No more relying on trust alone. You've implemented separation of duties with Database Vault realms, giving your organization the regulatory compliance it needs while your DBAs maintain their administrative capabilities.
 
-9. (Optional) Clean up by dropping the realm.
-
-      ```
-      <copy>
-         BEGIN
-            DBMS_MACADM.DELETE_REALM_CASCADE(realm_name => 'PROTECT_SH1');
-         END;
-         /
-      </copy>
-      ```
-     
 That's it! You've now learned how powerful Oracle Database Vault is and how quickly you can implement separation of duties to meet compliance requirements. Realms allow you to protect sensitive application data while DBAs maintain their administrative capabilities. For a more robust strategy, you can combine realms, Database Vault command rules, and secure application roles to create a comprehensive security policy.
 
 
