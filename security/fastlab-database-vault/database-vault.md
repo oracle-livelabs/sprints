@@ -6,20 +6,21 @@ LiveLabs FastLab workshops give you clear, step-by-step instructions to help you
 
 ## The Wake-Up Call
 
-Your Chief Compliance Officer walks into your office with troubling news: "We have a problem. If someone steals our DBA credentials, they'll have unrestricted access to all customer data. Even with trusted DBAs, regulators require technical controls, not just trust. We need separation of duties, and we need it fast."
+Your Chief Compliance Officer (CCO) walks into your office with troubling news: "We have a problem. If someone steals our database administrator (DBA) credentials, they'll have unrestricted access to all customer data. Even with trusted DBAs, regulators require technical controls, not just trust. We need separation of duties, and we need it fast."
 
-The reality hits hard: as an ADMIN user, you can see everything in the database. While you're trustworthy, regulations don't operate on trust—they require technical controls that prevent even privileged users from accessing sensitive data unless there's a legitimate business need.
+The reality hits hard: as an administrative user, you can see everything in the database. While you're trustworthy, regulations don't operate on trust—they require technical controls that prevent even privileged users from accessing sensitive data unless there's a legitimate business need.
 
 
 Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-
+<!--
 ### Prerequisites
 
-- <Prerequisites may require additional FastLab creation>  
+- Database Vault configured and enabled on your Oracle Autonomous AI Database
 
+-->
 
 ### Video Walkthrough
 
