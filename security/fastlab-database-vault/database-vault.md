@@ -68,6 +68,8 @@ Estimated Time: 15 minutes
       </copy>
       ```
 
+**The COO was right!** You can query, and see, all of the data. 
+
 ## Task 3: Create a Database Vault realm to protect the SH1 schema
 
 **The Solution:** Now comes the game-changer. You're about to implement the technical control your CCO needs—a Database Vault realm that will block even your ADMIN credentials from accessing customer data. This is how you prove to regulators that trust isn't your security model; technical enforcement is.
