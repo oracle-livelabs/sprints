@@ -2,7 +2,7 @@
 
 Welcome to this **Oracle Database Vault LiveLabs FastLab** workshop.
 
-LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience regarding separating sensitive data from your privileged users, such as database administrators, system administrators, and cloud administrators. You will go from beginner to confident user in a short time.
+LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience protecting sensitive data from privileged users, such as database administrators, system administrators, and cloud administrators. You will go from beginner to confident user in a short time.
 
 ## The Wake-Up Call
 
@@ -55,7 +55,7 @@ Estimated Time: 15 minutes
          </copy>
       ```
 
-      **Note**: You are creating this schema and table so you have a copy you can experiment with. In a real world deployment, you would apply the policy to product schemas or schema objects.
+      **Note**: You are creating this schema and table for testing purposes. In an actual deployment, you would apply the policy to your schemas or schema objects.
 
 
 2. Verify you can query the new table. 
@@ -68,7 +68,7 @@ Estimated Time: 15 minutes
       </copy>
       ```
 
-**The COO was right!** You can query, and see, all of the data. Next, you'll mitigate this issue. 
+**The CCO was right!** You can query and see all of the data. Next, you'll mitigate this issue. 
 
 ## Task 3: Create a Database Vault realm to protect the SH1 schema
 
@@ -100,7 +100,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-      **Note:** This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g. GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g. SYS, SYSTEM, ADMIN).
+      **Note:** This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g., GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g., SYS, SYSTEM, ADMIN).
 
 
 3. Next, add all objects in the `SH1` schema to the realm. The realm protection will include objects that `SH1` might create in the future. 
@@ -145,9 +145,9 @@ A realm is a protected zone that secures database schemas, database objects, and
          </copy>
       ```
 
-      **Note:** Realm authorization works alongside standard database privileges. Users must first have object privileges (SELECT, INSERT, etc.) and then must be explicitly authorized into the realm to access protected objects.
+      **Note:** Realm authorization works alongside standard database privileges. Users must first have object privileges (e.g., SELECT, INSERT) and then must be explicitly authorized into the realm to access protected objects.
 
-6. Re-execute the SQL query to show that `ADMIN` now can query the data. 
+6. Re-execute the SQL query to show that `ADMIN` can now query the data. 
 
       ```
       <copy>
@@ -170,7 +170,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
       
-      **Note:** Ideally, you should add only the application user (`SH1`) and named accounts (e.g. GKRAMER, CMACK, JSMITH) to the list and not use shared accounts (e.g. SYS, SYSTEM, ADMIN) to access sensitive data. 
+      **Note:** Ideally, you should add only the application user (`SH1`) and named accounts (e.g., GKRAMER, CMACK, JSMITH) to the list and not use shared accounts (e.g., SYS, SYSTEM, ADMIN) to access sensitive data. 
 
 
 8. Re-execute the SQL query to show that `ADMIN` **cannot** query the data. 
