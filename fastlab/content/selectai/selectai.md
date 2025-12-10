@@ -8,12 +8,13 @@ Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-With Select AI in Oracle Autonomous AI Database, you query by meaning, not by SQL syntax.
+With Select Al in Oracle Autonomous Al Database, you can interact with your database using natural language, whether to query your data by natural language - not by SQL syntax - or text documents to help your Al model produce more relevant responses on your own documents. Other select Al features include direct chat with your LLM, synthetic data generation, text translation and summarization, and Al agents. In this session, you'll focus on what we call "natural language to SOL generation" or NL2SQL.
+
 In many teams, data is locked behind the SQL skills of a few specialists, which slows down everyday questions and decisions.
 
-Select AI is a generative AI feature that turns natural language questions into SQL, runs them against your database, and returns the results.
+Select Al uses generative Al to turn natural language questions into SQL based on your specific database tables and views. You can view the generated SQL, have Select Al run that SOL against your database and returns the results, explain the SQL query step-by-step, or have narrated (textual) response of the query results.
 
-In this FastLab, you will use a small sample dataset to ask questions in plain English, see the SQL that Select AI generates, and run it yourself.
+In this FastLab, you will use a small sample dataset to ask questions in plain English, see the SQL that Select Al generates, and run it yourself. It's worth noting that depending on the capabilities of your large language model (LLM), you can also ask questions in languages other than English. Give it a try!
 
 ### Objectives: 
 
