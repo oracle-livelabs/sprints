@@ -47,6 +47,8 @@ Duration: 4 minutes
 
     **Note:** Permissions assigned at a higher level (like Workspace or Master Catalog) automatically cascade to all contained objects such as schemas, volumes, and tables. Double-check before granting broad permissions to ensure you’re not exposing more than intended.
 
+    ![Add new permission](images/new-permission.png)
+
     ![Add role permission](images/add-role-permission.png)
 
 6. **Verify access and adjust as needed.** Test access by logging in as (or checking with) a user assigned to the new role. Confirm that users can see and do only what you expect. Update members and permissions as team needs change.
