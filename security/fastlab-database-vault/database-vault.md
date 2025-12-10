@@ -15,12 +15,9 @@ Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-<!--
 ### Prerequisites
 
-- Database Vault configured and enabled on your Oracle Autonomous AI Database
-
--->
+This lab assumes Database Vault is already configured and enabled on your Oracle Autonomous AI Database. For detailed setup instructions and a comprehensive Database Vault workshop, check out our [signature workshop](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?wid=3071).
 
 ### Video Walkthrough
 
@@ -38,7 +35,7 @@ Estimated Time: 15 minutes
 
 ## Task 2: Create the `SH1` schema and clone the SH.CUSTOMERS table
 
-**The Challenge:** You need to demonstrate the problem first. Right now, as an ADMIN user, you can see all customer data—names, emails, phone numbers. The regulators won't accept this. Let's set up a test environment that mirrors your production customer data so you can show exactly what needs to be protected.
+**The Challenge:** You need to demonstrate the problem first. Right now, as a privileged user, you can see all customer data—names, emails, phone numbers. The regulators won't accept this. Let's set up a test environment that mirrors your production customer data so you can show exactly what needs to be protected.
 
 1. In this scenario, the first thing you'll do is create a schema-only database account and a new table based on the Sales History (SH), which is included in your Oracle Autonomous AI Database. A schema-only account is useful for storing objects without the security risk of authentication. 
 
@@ -72,7 +69,7 @@ Estimated Time: 15 minutes
 
 ## Task 3: Create a Database Vault realm to protect the SH1 schema
 
-**The Solution:** Now comes the game-changer. You're about to implement the technical control your CCO needs—a Database Vault realm that will block even your ADMIN credentials from accessing customer data. This is how you prove to regulators that trust isn't your security model; technical enforcement is.
+**The Solution:** Now comes the game-changer. You're about to implement the technical control your CCO needs—a Database Vault realm that will block even your administrator credentials from accessing customer data. This is how you prove to regulators that trust isn't your security model; technical enforcement is.
 
 A realm is a protected zone that secures database schemas, database objects, and/or database roles. Use realms to control access to sensitive data by restricting system and object privileges to specific database accounts or database roles.
 
@@ -100,7 +97,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-      **Note:** This is an example lab. In a production environment, you would not want `ADMIN` to have access to sensitive data. You should use named database accounts (e.g., GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g., SYS, SYSTEM, ADMIN).
+      **Note:** This is an example lab. In a production environment, you would not want `ADMIN` or other highly privileged users to have access to sensitive data. You should use named database accounts (e.g., GKRAMER, CMACK, JSMITH) instead of shared accounts (e.g., SYS, SYSTEM, ADMIN).
 
 
 3. Next, add all objects in the `SH1` schema to the realm. The realm protection will include objects that `SH1` might create in the future. 
@@ -119,7 +116,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       </copy>
       ```
 
-4. Now, **no one can query the data** because there is no authorized user to access the data. Use the SQL below to attempt to query the data. You should receive an "insufficient privileges" error.
+4. Now, **no one can query the data** because no user is authorized to access the data. Use the SQL below to attempt to query the data. You should receive an "insufficient privileges" error.
 
       ```
       <copy>
@@ -203,5 +200,5 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 
 ## Acknowledgements
-* **Author** - Kevin Lazarz, Database Product Management
+* **Author** - Richard C. Evans, Database Product Management
 * **Last Updated By/Date** - Richard C. Evans, December 2025
