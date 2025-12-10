@@ -7,7 +7,7 @@ Como um administrador do OAC, um dos privilégios é passar o conteúdo para out
 ## Trocando a propriedade de um workbook
 >**Nota:** Você deve ter o cargo **BI Service Administrator** para seguir os próximos passos.
 
-1. Por meio do **Menu de navegação** (menu de hambúrguer) no canto superior esquerdo, clique em **Console**. Dentro de console, selecione **Content**. Isso irá te levar para a seção de gerenciamento de conteúdos.
+1. Por meio do **Menu de navegação** (menu de hambúrguer) no canto superior esquerdo, clique em **Console**. Dentro de console, selecione **Content Management**. Isso irá te levar para a seção de gerenciamento de conteúdos.
 
     ![Console](images/console.png)
 

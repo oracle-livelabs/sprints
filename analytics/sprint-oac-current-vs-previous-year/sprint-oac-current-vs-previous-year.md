@@ -1,64 +1,73 @@
-# How do I create a Current Year vs Previous Year analysis with the same dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I create a current year vs previous year analysis with the same dataset in Oracle Analytics Cloud and Server (OAC & OAS)?
 
 Duration: 4 minutes
 
-With Oracle Analytics Cloud, you can add multiple files to one dataset, where each file becomes a table and you can define joins between tables within a dataset.
+Suppose you uploaded the "SampleOrders-DS" file to a dataset and then try to create a visualization analyzing current year sales versus previous year sales. The table contains one column representing Sales and one column representing Years. In this scenario, you're missing a column for last year's sales.
 
-### Situation
-You have just uploaded your dataset, "SampleOrders-DS" and you are trying to create a visualization analyzing the 'Current Year Sales vs Previous Year Sales'. The challenge is that you only one column representing Sales and one column representing years. To create an analysis between years, you need a column for last year's sales.
+This sprint shows you how to work around this issue by uploading the table twice to the dataset, creating a column called Previous Year Sales, and joining it to the Sales column.
 
    ![No Last Year Sales](images/no-last-year-sales.png)
 
-## Create Current Year vs Previous Year analysis
-We are going to upload and join the same dataset to each other and in our data preparation step, we will add functions to create the columns we need.
+## Prepare the dataset and create a current year vs previous year analysis
 
->**Note:** You must have the **DV Content Author** application role to successfully execute this Sprint.
+>**Note:** You must have the **DV Content Author** role to complete the following steps.
 
-1. Create a dataset and upload the same data file twice.
+1. From the Home page, click Create and select Dataset to create the dataset.
 
-2. For the second data file, change the name by adding 'Last Year' to the end of the dataset name.
+2. Add the file again to the dataset. In Dataset editor, go to the Connection panel, click Add, Add File, and then select the same data file.
+
+In the Create Dataset dialog, go to the Name field, add "Last Year" to the end of the file name. Click OK.
 
    ![Ok](images/dataset-same-file-ok.png)  
 
-3. You are going to create a **YEAR** column in each dataset, and use it to join the datasets. Start with the first dataset by clicking **Add Preparation Step** represented by the '+' icon in the data pane. For the **Name** field, type 'YEAR'. In the function box, type **YEAR(Order Date)**. Click **Validate** and click **Add Step**.
+3. Create a **YEAR** column in the first dataset table.
+
+Click to open the first table . Click **Add Preparation Step**. In the **Name** field, enter YEAR, and in the function field, enter **YEAR(Order Date)**.
+
+Click Validate, and then click Add Step.
       >**Note:** In your own example, replace 'Order Date' in the function with the date you want to compare.
 
       ![YEAR](images/column-year.png)
 
-4. Click the second dataset and click **Add Preparation Step**. For **Name**, type 'Previous YEAR' and add the function **YEAR(Order Date)+1**, click **Validate** and click **Add Step**.
+4. Create a **Previous YEAR** column in the second dataset table.
+
+Click to open the second table. Click **Add Preparation Step**. In the **Name** field, enter 'Previous YEAR', and in the function field, enter **YEAR(Order Date)+1**.
+
+Click Validate, and then click Add Step.
 
    ![Last YEAR](images/column-last-year.png)
 
-5. Locate the **Sales** column, double-click and rename it as '**Sales Previous YEAR**'.
+5. In the second table, locate and double-click the **Sales** column and rename it to '**Sales Previous YEAR**'.
 
    ![Sales Previous YEAR](images/column-sales-previous-year.png)  
 
-6. Go to the **Join Diagram** and click the join in the middle. Choose Left Join for the join type and select the two columns you created to join on. For example, join 'YEAR' with 'Previous Year'.
+6. Click to open the **Join Diagram**, click the table join. From the join type drop-down, choose Left, and select the YEAR and Previous YEAR columns to join them.
 
-    > **Note:** You choose Left Outer to get all the data for the current Year column
+Note: We chose the left outer join to access all of the YEAR column's data.
+Go to the **Join Diagram** and click the join in the middle. Choose Left Join for the join type and select the two columns you created to join on. For example, join 'YEAR' with 'Previous Year'.
+
+    > **Note:** You choose left outer join to access all of the YEAR column's data.
 
    ![Left Join](images/left-join.png)  
 
 
-7. Right-click on the first dataset and select **Preserve Grain**.
-
-      >**Note:** Click [here](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/what-is-preserve-grain.html) to learn more about how preserve grain works.
+7. Right-click on the first table and select **Preserve Grain**.
 
       ![Preserve Grain](images/preserve-grain.png)
 
-8. **Save** the dataset and give it a name. Then click **OK**.
+8. Click **Save** to save and name the dataset. Click**OK**.
 
     ![Save Dataset](images/dataset-save.png)  
 
-9. We will now create a table in a workbook using this dataset to compare sales between years. Click **Create Workbook**.
+9.  Click **Create Workbook**.
 
     ![Create Workbook](images/create-workbook.png)  
 
-10. Select **Sales**, **YEAR** and **Sales Previous YEAR**. Right click **Pick Visualization** and select **Table**.
+10. Select **Sales**, **YEAR** and **Sales Previous YEAR**. Right click Choose **Pick Visualization** and clickt **Table**.
 
     ![Pick Visualization](images/pick-visualization.png)  
 
-11. Now you have Sales and Previous Year Sales in one table. You can
+11. Now you have Sales and Previous Year Sales in one table.
 
     ![Sales](images/last-year-sales.png)  
 
@@ -68,6 +77,7 @@ Congratulations! You have just learned how to analyze current year vs previous y
 ## Learn More
 * [Add Multiple Files to a Dataset](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/create-dataset-files.html#GUID-3314A9C3-9780-40C6-A71E-AA0B29689165)
 * [Joining Multiple Files In a Single Oracle Analytics Dataset](https://www.youtube.com/watch?v=mJmuDIdqCqU)
+>**Note:** Click [here](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/what-is-preserve-grain.html) to learn more about how preserve grain works.
 
 ## Acknowledgements
 * **Author** - Lucian Dinescu, Product Strategy, Analytics

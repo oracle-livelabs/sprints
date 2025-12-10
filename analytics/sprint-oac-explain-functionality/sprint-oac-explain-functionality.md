@@ -1,47 +1,41 @@
-# How do I use the Explain functionality in Oracle Analytics Cloud and Server (OAC & OAS)?
+# How do I use the Explain in Oracle Analytics Cloud and Server (OAC & OAS)?
 Duration: 2 minutes
 
-The Explain functionality of OAC is a powerful tool that uses machine learning
-to uncover insights about data elements of interest in your data. These findings can be added to
-your workbook with the click of a button, greatly accelerating the rate at which you can
-learn about your data and visualize your findings. Explain is a tool that users
-of all skill levels can leverage.
+Explain uses machine learning to uncover insights about the data elements in a dataset. You can add the insights to the workbook
 
-## Using Explain on Your Data.
->**Note:** You must have the **DV Content Author** role in order to complete the following steps.
+## Using Explain to find insights on your data.
+>**Note:** You must have the **DV Content Author** role to complete the following steps.
 
 
-1. From your Oracle Analytics homepage, create a workbook by clicking on **Create** then **Workbook**. If
-you have already created a workbook that you would like to use, you can optionally open it
+1. In the Oracle Analytics Home page, click **Create** and select **Workbook**. You can optionally open it
 from the homepage and skip to step 3.
 
     ![OAC Homepage](images/1-oac-home.png)
 
-2. Choose the dataset that you would like to analyze with the Explain feature, then click **Add to Workbook**.
+2. In Add Dataset, select the dataset that you want to use Oracle Analytics Explain on and click **Add to Workbook**.
 
     ![OAC choose dataset](images/2-choose-dataset.png)
 
-3. Your data is now open in a workbook and ready to have the Explain feature used on it. Simply choose a variable which
-you would like to have explained, right click on it and choose **Explain**.
+3. To use Oracle Analytics Explain, right click a Column and select **Explain**.
 
     ![OAC workbook choose variable](images/3-select-variable.png)
 
-4. The Explain feature presents you with information about your variable divided up into four sections.
-These sections are **Basic Facts**, **Key Drivers**, **Segments**, and **Anomalies**. Click on each section to view its insights.
+4. Inspect the results.
 
-    >**Note:** The four sections of the explain feature are dependent on the data type you choose to Explain. The **Key Drivers** and **Segments** section only appears for variables that are attributes, and the **Basic Facts** and **Anomalies** section only appears for variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
+
+    >**Note:** Explain provided **Basic Facts**, **Key Drivers**, **Segments**, and **Anomalies**. Click on each section to view its insights. These four sections of the explain feature are dependent on the data type you choose to Explain. The **Key Drivers** and **Segments** section only appears for variables that are attributes, and the **Basic Facts** and **Anomalies** section only appears for variables that are measures or attributes and use the **sum** or **count** aggregation methods. There are also some variables that will show no results for Explain, such as attributes that have 100 or more unique values.
 
   ![OAC explain](images/4-explain-variable.png)
 
-5. If you find any of the visualizations created by Explain insightful, you can add them to your canvas by clicking the
-check mark in their top right corner, then choosing **Add Selected**.
+5. To add a visualization to the workbook, hover over the visualization and click Select for Canvas. And then click **Add Selected**.
 
     ![OAC explain choose visuals](images/5-add-explain-visuals.png)
 
-6. The visualizations that you chose can now be interacted with and customized on your canvas.
+6. You can interact with and update the  visualizations that you added.
 
     ![OAC explain visuals](images/6-view-explain-visuals.png)
 
+Congratulations, you've learned how to use Explain to find insights and add them to the workbook in Oracle Analytics!
 
 ## Learn More
 
@@ -49,4 +43,4 @@ check mark in their top right corner, then choosing **Add Selected**.
 
 ## Acknowledgements
 * **Author** - Miles Novotny, Solution Engineer, North America Specialist Hub
-* **Last Updated By/Date** - Nagwang Gyamtso, December 2022
+* **Last Updated By/Date** - Shiva Oleti, June 2025

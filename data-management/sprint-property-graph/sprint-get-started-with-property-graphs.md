@@ -1,4 +1,4 @@
-# How do I determine if there are any circular payment chains using Oracle Database 23ai?
+# How do I determine if there are any circular payment chains with property graphs in Oracle Database 23ai?
 
 Duration: 10 minutes
 
@@ -9,13 +9,13 @@ Using sample data consisting of two CSV files containing synthetic bank accounts
 ### **Prerequisites**
 
 * Provision an Autonomous Database instance. For this sprint, I spun up a [free tier instance](https://www.oracle.com/autonomous-database/free-trial/_).
-* Download the Bank Graph Dataset contents from [Oracle samples project GitHub](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos)  into a local directory, e.g., downloads/bankgraphdataset.
+* Download the Bank Graph Dataset contents from [Oracle samples project GitHub](https://github.com/oracle-samples/oracle-graph/tree/master/23c-graph-demos)  into a local directory, e.g., downloads/bankgraphdataset.
 
 ### **Create the user GRAPHUSER**
 
 1. Once your Autonomous Database is provisioned, we'll create a new user named GRAPHUSER with the necessary quota and grants. We’ll use Database Actions to launch Database Users.
 
-    ![Launch Database Actions - Database Users](./images/database-users.png " ")
+    ![Launch Database Actions - Database Users](./images/database-users-v1.png " ")
 
 2. Click + Create User.
 
@@ -23,7 +23,7 @@ Using sample data consisting of two CSV files containing synthetic bank accounts
 
 3. Fill out the resulting form as shown in the image below.
 
-    ![Create User form](./images/create-user-form.png " ")
+    ![Create User form](./images/create-user-form-v1.png " ")
 
 A video overview of these steps can be found [here](https://youtu.be/RiGEklbA1i0?si=2Hy9wonqbBKTABfp).
 
@@ -35,15 +35,15 @@ A video overview of these steps can be found [here](https://youtu.be/RiGEklbA1i0
 
 2. From Database Actions, navigate to Data Studio -> Data Load.
 
-    ![Launch Data Load](./images/launch-data-load.png " ")
+    ![Launch Data Load](./images/launch-data-load-v1.png " ")
 
 3. Select LOAD DATA.
 
-    ![Load Data](./images/load-data.png " ")
+    ![Load Data](./images/load-data-v1.png " ")
 
-4. Upload the [two files](https://github.com/oracle-samples/pgx-samples/tree/master/23c-graph-demos) you downloaded in the beginning.
+4. Upload the [two files](https://github.com/oracle-samples/oracle-graph/tree/master/23c-graph-demos) you downloaded in the beginning.
 
-    ![Upload files](./images/upload-files.png " ")
+    ![Upload files](./images/upload-files-v1.png " ")
 
 ### **Create a property graph named BANK_GRAPH**
 
@@ -52,6 +52,8 @@ An edge connects vertices. In this instance, the BANK_ACCOUNTS table represents 
 So, in property graph terms, BANK\_ACCOUNTS is a vertex table, and BANK\_TRANSFERS is an edge table.
 
 1. Now, let’s create the property graph. Enter and execute the following statement in SQL while connected as GRAPHUSER.
+
+    ![Launch SQL](./images/launch-sql.png " ")
 
     ```sql
     <copy>
@@ -71,9 +73,8 @@ So, in property graph terms, BANK\_ACCOUNTS is a vertex table, and BANK\_TRANSFE
     </copy>
     ```
 
-See the “SQL DDL Statements for Property Graphs” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/24.4/spgdg/sql-ddl-statements-property-graphs.html) for more details.
-Next, we’ll query the BANK\_GRAPH to look for circular payment chains.
-First, here’s a brief introduction to the GRAPH_TABLE and MATCH clause constructs.
+See the “SQL DDL Statements for Property Graphs” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/25.3/spgdg/sql-ddl-statements-property-graphs.html) for more details.
+Next, we’ll query the BANK\_GRAPH to look for circular payment chains. But first, here’s a brief introduction to the GRAPH_TABLE and MATCH clause constructs.
 
 ### **Querying property graphs**
 
@@ -85,7 +86,7 @@ The MATCH clause lets you specify the graph patterns. The following example,
 ```
 
 consists of two vertex patterns and one edge pattern. The () indicates a vertex, [] an edge, and the arrow -> specifies the edge’s direction.
-See the “SQL GRAPH\_TABLE Queries” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/24.4/spgdg/sql-graph-queries.html) for more details.
+See the “SQL GRAPH\_TABLE Queries” section in the [Graph Developer’s Guide for Property Graph](https://docs.oracle.com/en/database/oracle/property-graph/25.3/spgdg/sql-graph-queries.html) for more details.
 Now, let’s query the BANK\_GRAPH.
 First, we look for the top 10 accounts by the number of incoming transfers. Then, we look for the top 10 accounts that are at the center of 2-hop transfers.
 
@@ -171,4 +172,4 @@ Mission accomplished. Nice job! Take a break and get a coffee! We hope you found
 ## Acknowledgements
 
 * **Author** - Denise Myrick, Senior Product Manager, Oracle Graph
-* **Last Updated By/Date** - Denise Myrick, January 2025
+* **Last Updated By/Date** - Denise Myrick, September 2025

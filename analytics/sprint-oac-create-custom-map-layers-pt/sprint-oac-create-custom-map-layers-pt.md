@@ -12,7 +12,7 @@ Os planos de fundo de mapas aprimoram as visualizações de seus relatórios. Co
 
     ![Navegando para a Console](images/navigate-to-console.png)
 
-2. Na Console, clique em **Maps** abaixo de **Visualizations and Sharing**.
+2. Na Console, clique em **Maps** abaixo de **Extensions and Enrichments**.
 
     ![Abra a página de Mapas](images/open-maps.png)
 

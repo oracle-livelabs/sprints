@@ -1,15 +1,15 @@
-## How do I increase the processing capacity of my Oracle Analytics (OAC) instance?
+## How do I increase the processing capacity of my Oracle Analytics (OAC) ?
 
 Duration: 1 minute
 
-When working with Oracle Analytics Cloud, you can leverage the platform's scalability. For this, you will need access to the Oracle Cloud Infrastructure Console.
+You can access the Oracle Cloud Infrastructure (OCI) Console to scale your Oracle Analytics Cloud instance.
 
-The OCI Console is where you can accomplish most administrative tasks for OAC. You can access services and update instance details using the Console, API, or command line. In this document, we'll be using the OCI Console.
+You can use the OCI Console to perform many of your OAC instance administration tasks. You can access services and update instance details by using the Console, API, or command line. In this sprint you'll learn how to use the OCI Console.
 
 [](youtube:z7FWKmGE6Z4:large)
 
-### View or Update OAC Processing Capacity using the Console
->**Note:** You must either have the **Cloud Account Administrator** role with full administrative privileges in OCI or you must be part of a group with **Manage Analytics-Instances** permission for the compartment where your OAC instance is.
+### View or Update OAC processing capacity using the Console
+>**Note:** To complete these steps in this sprint, You must either have the **Cloud Account Administrator** role with full administrative privileges in OCI or you must be part of a group with **Manage Analytics-Instances** permission for the compartment where your OAC instance is.
 
 1. Sign in to your Oracle Cloud account.
 
@@ -29,11 +29,11 @@ The OCI Console is where you can accomplish most administrative tasks for OAC. Y
 
   ![Change capacity](images/change-capacity.png)
 
-6. From here, you can view and change the number of OCPUs being used to scale up your Oracle Analytics Cloud instance. Scale up or down by click the drop down option and select the OCPU Count. Then click **Save**.
+6. From here, you can view and change the number of OCPUs being used to scale up your Oracle Analytics Cloud instance. Scale up or down by click the drop-down option and select the OCPU Count. Then click **Save**.
 
   ![Change OCPUs](images/save.png)
 
-Congratulations! You have just learned how to increase the processing capacity of your Oracle Analytics Cloud instance!
+Congratulations! You have just learned how to increase the processing capacity of your Oracle Analytics Cloud!
 
 
 ## Learn More
