@@ -1,5 +1,7 @@
 # Manually Downloading from My Oracle Support
 
+Duration: 2 minutes
+
 ## Introduction
 [Oracle customers](https://support.oracle.com/portal/) have access to the latest stability, security, and performance updates of Oracle JDK and GraalVM as a manual download. From My Oracle Support (MOS) you can download:
 - Any JDK or GraalVM release from a currently-supported release family.
@@ -28,8 +30,8 @@ If you are familiar with MOS, you can use the links below to go directly to the 
 - [Java SE and JRockit Archived Downloads on MOS for Java Versions that Have Reached EOL (Doc ID 1534791.2)](https://support.oracle.com/epmos/faces/DocumentDisplay?id=1534791.2) has all versions of releases that have reached end-of-life. Some of the releases in this document are exclusive to customers and not available from the [Java Archive on Oracle.com](https://www.oracle.com/java/technologies/downloads/archive/).
 
 
-## Tutorials
-[Download Manually from My Oracle Support](videohub:1_01hfc6wp)
+### Tutorials
+[Download Manually from My Oracle Support](videohub:1_01hfc6wp:large)
 
 ### Latest JDK Releases
 To download the latest JDK releases for all release families:
