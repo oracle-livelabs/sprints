@@ -65,12 +65,10 @@ By following these steps and best practices, you will maintain secure, scalable,
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
 * [Roles](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/roles.html#GUID-1A453AE4-47B6-4F26-9B0F-1E45624273BE)
 * [Permissions Model](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/permissions-model.html)
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Senior Product Manager, Analytics Service Excellence
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name,  Month Year>
+[//]: # (* **Contributors** - )
+* **Last Updated By/Date** - Nagwang Gyamtso,  December 2025
