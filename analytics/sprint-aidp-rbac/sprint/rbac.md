@@ -24,8 +24,8 @@ Duration: 4 minutes
 3. Select **+** to create a new role. Enter a clear, descriptive name and purpose for your role (for example, Data_Engineer). Then click **Create**.
 
     **Best Practice:**
-    * Use descriptive role names to help downstream audits and team clarity.
-    * Keep role responsibilities aligned with actual job functions to avoid overly broad permissions.
+    * Use descriptive role names to help downstream audits and team clarity
+    * Keep role responsibilities aligned with actual job functions to avoid overly broad permissions
 
     ![Create role](images/create-role.png)
 
@@ -51,7 +51,7 @@ Duration: 4 minutes
 6. **Verify access and adjust as needed.** Test access by logging in as (or checking with) a user assigned to the new role. Confirm that users can see and do only what you expect. Update members and permissions as team needs change.
 
 
-#### **Extra Best Practices & Pitfalls to Avoid**
+**Best practices and pitfalls to avoid**
 * **Apply least-privilege:** Only grant permissions the role truly needs.  
 * **Regularly review roles, members, and object permissions** to minimize stale or risky assignments.  
 * **Leverage the Auditor role** to monitor for unapproved permission changes or unexpected access patterns.  
