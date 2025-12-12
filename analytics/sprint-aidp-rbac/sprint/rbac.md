@@ -6,9 +6,6 @@ Duration: 4 minutes
 
 **Pre-requisites:**  
 * Make sure you have administrative rights or have been assigned a role with sufficient permissions.  
-* Plan your roles around real team responsibilities.  
-* Apply the principle of least privilege.  
-* Periodically review audit logs and assigned permissions.  
 
 ## Answer
 
@@ -43,7 +40,7 @@ Duration: 4 minutes
 
     ![Member details](images/member-details.png)
 
-5. **Assign permissions to the role on specific AIDP Workbench objects.** Go to the target object (e.g. the **Sales\_Data catalog**). Click the **Permissions** tab for that object. Click the **New Permission** icon. Choose the permission (e.g., **SELECT**, **MANAGE**, **CREATE_SCHEMA**, **ADMIN**), principal type as **Role**, and select your new role. Click **Create**.
+5. **Assign permissions to the role on specific AIDP Workbench objects.** Go to the target object (e.g. the **Sales catalog**). Click the **Permissions** tab for that object. Click the **New Permission** icon. Choose the permission (e.g., **SELECT**, **MANAGE**, **CREATE_SCHEMA**, **ADMIN**), principal type as **Role**, and select your new role. Click **Create**.
 
     **Note:** Permissions assigned at a higher level (like Workspace or Master Catalog) automatically cascade to all contained objects such as schemas, volumes, and tables. Double-check before granting broad permissions to ensure you’re not exposing more than intended.
 
@@ -70,5 +67,5 @@ By following these steps and best practices, you will maintain secure, scalable,
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Senior Product Manager, Analytics Service Excellence
-[//]: # (* **Contributors** - )
+* **Reviewers** - Lucian Dinescu, Candace Marles
 * **Last Updated By/Date** - Nagwang Gyamtso,  December 2025
