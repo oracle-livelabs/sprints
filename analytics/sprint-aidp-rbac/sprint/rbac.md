@@ -1,15 +1,15 @@
-# How to control access permissions using Role Based Access Control (RBAC) in AIDP Workbench.
+# How to Control Access Permissions Using Role Based Access Control (RBAC) in AIDP Workbench.
 
 Duration: 4 minutes
 
 **Controlling access with RBAC in Oracle AIDP Workbench** enables secure, scalable, and auditable data platform management. RBAC lets you precisely assign permissions by role rather than individually, supporting both operational efficiency and compliance.  
 
-**Pre-requisites:**  
+**Prerequisites:**  
 * Make sure you have administrative rights or have been assigned a role with sufficient permissions.  
 
 ## Answer
 
-1. **Click Roles.** From the AIDP Workbench home page, navigate to the **Roles** section.
+1. Select **Roles.** From the AIDP Workbench home page, navigate to the **Roles** section.
 
     ![Homepage](images/aidp-homepage.png)
 
@@ -21,7 +21,7 @@ Duration: 4 minutes
 
     ![System roles](images/system-roles.png)
 
-3. **Since I am an admin, I can create new roles and assign users to them.** Click the **plus (+) icon** to create a new role. Enter a clear, descriptive name and purpose for your role (e.g., “Data_Engineer”). Then click **Create**.
+3. Select **+** to create a new role. Enter a clear, descriptive name and purpose for your role (for example, Data_Engineer). Then click **Create**.
 
     **Best Practice:**
     * Use descriptive role names to help downstream audits and team clarity.
@@ -42,7 +42,7 @@ Duration: 4 minutes
 
 5. **Assign permissions to the role on specific AIDP Workbench objects.** Go to the target object (e.g. the **Sales catalog**). Click the **Permissions** tab for that object. Click the **New Permission** icon. Choose the permission (e.g., **SELECT**, **MANAGE**, **CREATE_SCHEMA**, **ADMIN**), principal type as **Role**, and select your new role. Click **Create**.
 
-    **Note:** Permissions assigned at a higher level (like Workspace or Master Catalog) automatically cascade to all contained objects such as schemas, volumes, and tables. Double-check before granting broad permissions to ensure you’re not exposing more than intended.
+    **Note:** Permissions assigned at a higher level, such as Workspace or Master Catalog, automatically cascade to all contained objects, including schemas, volumes, and tables. Double-check before granting broad permissions to ensure you’re not exposing more than intended.
 
     ![Add new permission](images/new-permission.png)
 
