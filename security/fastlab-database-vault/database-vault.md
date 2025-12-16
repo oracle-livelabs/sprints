@@ -41,7 +41,7 @@ This lab assumes Database Vault is already configured and enabled on your Oracle
 
       ```
          <copy>
-           CREATE USER sh1 IDENTIFIED BY NO AUTHENTICATION;
+           CREATE USER sh1 NO AUTHENTICATION;
            GRANT UNLIMITED TABLESPACE TO sh1;
          </copy>
       ```
@@ -159,7 +159,7 @@ A realm is a protected zone that secures database schemas, database objects, and
       ```
       <copy>
          BEGIN
-             DBMS_MACADM.REMOVE_AUTH_FROM_REALM(
+             DBMS_MACADM.DELETE_AUTH_FROM_REALM(
                  realm_name   => 'PROTECT_SH1',
                  grantee      => 'ADMIN');
          END;
