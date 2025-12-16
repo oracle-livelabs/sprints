@@ -1,173 +1,235 @@
-# How to use Select AI in Oracle Autonomous Database
+# Select AI in Oracle Autonomous AI Database
 
 Welcome to this **LiveLabs FastLab** workshop.
 
-LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle Autonomous Database. You will go from beginner to confident user in a short time.
+LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with Oracle Autonomous AI Database. You move from beginner to confident user in a short time.
 
 Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-In today's data-driven world, accessing and analyzing information quickly is crucial, especially in fields like healthcare where timely insights can save lives. However, writing SQL queries requires specialized skills that not all business users possess.
+Select AI in Oracle Autonomous AI Database lets you interact with your data using natural language; whether asking questions without SQL syntax or supplying text documents to improve your model’s responses. Select AI also supports chatting directly with your LLM, generating synthetic data, translating and summarizing text, and building AI agents. In this session, we focus on natural language to SQL (NL2SQL).
 
-**Select AI** is Oracle's generative AI feature integrated into Autonomous Database that translates natural language questions into accurate SQL queries. It democratizes data access, allowing analysts, doctors, and managers to derive insights from databases using plain English, without needing to learn complex SQL syntax.
+Many teams still rely on a few SQL experts, slowing everyday questions and decisions. Select AI removes this bottleneck by turning natural language questions into SQL based on your actual tables and views. You can review the generated SQL, run it, get step-by-step explanations, or receive a textual summary of the results.
 
-This capability is particularly important in healthcare, where non-technical staff can query patient records, treatment outcomes, or resource allocation to support faster decision-making and improve patient care. With Select AI, you can focus on the questions that matter, while the AI handles the technical details.
+In this FastLab, you’ll use a small dataset to ask questions in plain English, see the SQL Select AI produces, and execute it. Depending on your LLM provider, you can also ask questions in other languages. Give it a try!
 
-In this 15-minute lab, you'll create a sample healthcare dataset and use Select AI to generate and execute queries for common business cases.
+### Objectives: 
+
+* Use Select AI to query data using natural language 
+* Use the Select AI demo application to chat with your data in your own language
+* See and understand the SQL that Select AI generates
 
 ### Prerequisites
 
-- An Oracle Autonomous Database
+Ensure the following before starting:
 
-  - Check our [LiveLabs FastLab - Create an Autonomous Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+**Select AI already configured** for your lab user; (see Labs 1–2 in the following workshop):
+[Chat with Your Data in Autonomous AI Database Using Select AI](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?clear=RR,180&wid=3831&session=937205042399)
 
-## Task 1: Launch Database Actions and SQL Worksheet
 
-You will use Database Actions as your workspace. This task opens the SQL Worksheet so you can run SQL commands.
+## Task 1. How to ask natural language questions
+You can ask questions using Oracle's SELECT AI feature. **AI** is a special keyword in the select statement that tells the Autonomous Database that the subsequent text will be either an action or a natural language question.
 
-1. In the Oracle Cloud Console, navigate to your Autonomous Database.
+Here are the actions:
 
-2. Click **Database Actions** and select **SQL**.
+    1. chat - general AI chat in natural language
+    2. runsql - [default, if not action is specified] ask a question and get a structured result
+    3. narrate - ask a question and get a conversational result
+    4. showsql - SQL used to produce the result
+    5. explainsql - an explanation of the SQL used to produce the result
 
-## Task 2: Create a Sample Healthcare Dataset
+  ![Navigate to Directory](./images/task1.png )
 
-To demonstrate Select AI, we'll create a simple `patients` table with sample data representing patient records.
+## Task 2: Oracle MovieStream Business Scenario
+This fastlabs's business scenario is based on Oracle MovieStream - a fictitious movie streaming service that is similar to services to which you currently subscribe. You'll be able to ask questions about movies, customers who watch movies, and the movies they decide to watch.
 
-1. Run the following SQL to create the table and insert data:
+Here are the numerous tables included as part of the AI profile:
+
+    movies
+    streams
+    customer_extension
+    customer_contact
+    customer_segment
+    pizza_shop
+    genre
+    actors
+
+Behind the scenes, Select AI uses your **AI profile** to know which tables and columns it can query.
+
+## Task 3: Access Select AI (Chat or OML)
+
+Pick one approach to use as you go through the examples below.
+
+  >Note, you will need to complete the prerequisites stated above to perform the following tasks. Use this workshop to get started: [Chat with Your Data in Autonomous AI Database Using Select AI](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?clear=RR,180&wid=3831&session=937205042399)
+
+1. **Option A – `ASK ORACLE` APEX chatbot app** 
+     * Sign in with your database user credentials from the prerequisites.
+     ![Navigate to Directory](./images/optiona.png )
+
+2. **Option B – `OML Notebooks` from Oracle Machine Learning**
+      * Sign in with your database user credentials from the prerequisites.
+      ![Navigate to Directory](./images/optionb.png )
+
+3. In the Ask Oracle chatbot, you have the ability to use various options for interacting with your LLM.
+
+   * Use **narrate** if you want a conversational experience.
+   * Use **explain** if you want to see the generated SQL.
+   * Use **database** for all queries that relate to the `moviestream` dataset
+
+
+## Task 4: Ask Questions with `Ask Oracle powered by Select AI`
+
+In the following examples, we will ask questions about movies based on Oracle MovieStream - a fictitious movie streaming service.
+
+For each case:
+
+* If you use **Ask Oracle chat**, type the question into the Select AI prompt and run it.
+* If you use **OML**, run:
 
     ```sql
     <copy>
-    -- Create patients table
-    CREATE TABLE patients (
-        id NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
-        name VARCHAR2(100),
-        age NUMBER,
-        gender VARCHAR2(10),
-        condition VARCHAR2(100),
-        admission_date DATE
-    );
-
-    -- Insert sample data
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('John Doe', 65, 'Male', 'Diabetes', DATE '2024-01-15');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Jane Smith', 72, 'Female', 'Heart Disease', DATE '2024-03-20');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Bob Johnson', 55, 'Male', 'Hypertension', DATE '2024-05-10');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Alice Brown', 68, 'Female', 'Diabetes', DATE '2024-02-05');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Charlie Wilson', 80, 'Male', 'Heart Disease', DATE '2024-06-01');
-    INSERT INTO patients (name, age, gender, condition, admission_date) VALUES 
-    ('Diana Davis', 45, 'Female', 'Asthma', DATE '2024-04-12');
-
-    COMMIT;
+    SELECT AI runsql 'your question here';
     </copy>
     ```
 
-2. Verify the data:
+    and optionally to see the SQL:
 
     ```sql
     <copy>
-    SELECT * FROM patients;
+    SELECT AI showsql 'your question here';
     </copy>
     ```
 
-## Task 3: Access Select AI
+### Case 1: Total sales by movie
 
-Select AI is available through the Database Actions interface.
+**Ask Oracle - Select AI**
 
-1. From the Autonomous Database details page, click **Database Actions**.
+> `What are our total sales by movie with best movies first?`
 
-2. In the Launchpad, click **Select AI**.
+  ![Navigate to Directory](./images/task41.png)
 
-   - If prompted, sign in with your database credentials.
+**Example SQL generated by Select AI**
+ 
+ >Note: Your SQL may not match the examples below exactly. It should be logically equivalent and return the same kind of result.
 
-3. The Select AI chat interface will open, where you can enter natural language questions.
+    ```sql
+    <copy>
+    SELECT 
+      m."TITLE" AS "Movie Title", 
+      SUM(s."SALES") AS "Total Sales"
+    FROM 
+      "MOVIESTREAM"."STREAMS" s
+      JOIN "MOVIESTREAM"."MOVIES" m ON s."MOVIE_ID" = m."MOVIE_ID"
+    GROUP BY 
+      m."TITLE"
+    ORDER BY 
+      "Total Sales" DESC
+      <copy>
+    ```
 
-## Task 4: Generate SQL Queries with Select AI for Healthcare Business Cases
+Select the `Explain` or `show SQL` buttons to view the generated SQL
 
-Select AI analyzes your natural language input and generates the corresponding SQL query based on your database schema. Here are examples of healthcare-related queries.
+  ![Navigate to Directory](./images/task41_2.png)
+  ![Navigate to Directory](./images/task41_3.png)
 
-1. **Business Case: Identify elderly patients with diabetes for follow-up care.**
 
-   Enter in Select AI: "List all patients over 60 years old with diabetes."
+**Oracle SQL Query Explanation**
 
-   Expected generated SQL:
+The provided Oracle SQL query is designed to retrieve the total sales for each movie from the "STREAMS" and "MOVIES" tables in the "MOVIESTREAM" schema. 
 
-   ```sql
-   SELECT * FROM patients WHERE age > 60 AND condition = 'Diabetes';
-   ```
+IMAGE HERE 
 
-   - This query would return John Doe and Alice Brown.
+Some things to notice when you check out the generated SQL under the `Explain` option:
 
-2. **Business Case: Analyze admissions for heart conditions in the past 6 months.**
+* Finds tables to join
+* Determines columns to query - even when the columns aren't mentioned in the query
+  ![Navigate to Directory](./images/task4_4.png)
+  ![Navigate to Directory](./images/task4_5.png)
 
-   Enter: "How many patients were admitted in the last 6 months with heart disease?"
+### Case 2: Best selling movies using the `narrate` option
 
-   Expected generated SQL:
+**Ask Oracle - Select AI**
 
-   ```sql
-   SELECT COUNT(*) FROM patients WHERE admission_date >= ADD_MONTHS(SYSDATE, -6) AND condition = 'Heart Disease';
-   ```
+> `What are our top 5 selling movies?`
 
-   - This helps in resource planning for cardiology.
+  ![Navigate to Directory](./images/task5.png)
 
-3. **Business Case: Gender distribution of patients with chronic conditions.**
+### Case 3: A specific movie saga
 
-   Enter: "Show the number of male and female patients with diabetes or heart disease."
+**Ask Oracle - Select AI**
 
-   Expected generated SQL:
+> `List all spider-man movies in order of sales`
 
-   ```sql
-   SELECT gender, COUNT(*) FROM patients WHERE condition IN ('Diabetes', 'Heart Disease') GROUP BY gender;
-   ```
+  ![Navigate to Directory](./images/task6.png)
 
-   - Useful for demographic analysis in healthcare studies.
+**Example SQL generated by Select AI**
 
-4. **Business Case: Recent admissions overview.**
+      ```sql
+      <copy>
+    SELECT 
+      m."TITLE" AS "Movie Title", 
+      SUM(s."SALES") AS "Total Sales"
+    FROM 
+      "MOVIESTREAM"."STREAMS" s
+      JOIN "MOVIESTREAM"."MOVIES" m ON s."MOVIE_ID" = m."MOVIE_ID"
+    WHERE 
+      UPPER(m."TITLE") LIKE UPPER('%Spider-Man%')
+    GROUP BY 
+      m."TITLE"
+    ORDER BY 
+      "Total Sales" DESC
+      <copy>
+      ```
 
-   Enter: "List patients admitted after April 2024, sorted by admission date."
+**Oracle SQL Query Explanation**
 
-   Expected generated SQL:
+This Oracle SQL query is designed to retrieve the total sales for movies with titles containing the phrase "Spider-Man". The query joins two tables, "STREAMS" and "MOVIES", based on the "MOVIE_ID" column, and then filters the results to include only movies with titles matching the specified criteria.
 
-   ```sql
-   SELECT * FROM patients WHERE admission_date > DATE '2024-04-01' ORDER BY admission_date;
-   ```
 
-   - Aids in tracking recent cases.
+## Task 5: Ask your own questions
 
-For each query, Select AI will display the generated SQL. You can review, modify if needed, and execute it.
+You learn Select AI best by asking your own questions. In this task, you practice using natural language to explore the MOVIESTREAM tables without any prompts.
 
-## Task 5: Execute Generated SQL in SQL Worksheet
+Ask Select AI at least ***three*** of your own questions.
 
-1. Copy the SQL from Select AI.
+Here are some ideas to get you started:
 
-2. Paste and run it in the SQL Worksheet to see results.
+* `select ai runsql what are sales by customer segment`
+* `select ai chat what are considered the best movies produced in the past 20 years`
 
-   For example, run the first query:
+**Congratulations!**
+You have successfully completed the Oracle AI Database Select AI FastLab. 
 
-   ```sql
-   <copy>
-   SELECT * FROM patients WHERE age > 60 AND condition = 'Diabetes';
-   </copy>
-   ```
+You can now ask natural language questions against a real Oracle database, see the SQL that Select AI generates, and start turning ad hoc questions into reusable SQL for your own projects.
 
-Congratulations!  
-You've successfully used Select AI to generate and execute SQL queries for healthcare scenarios, demonstrating how it simplifies data analysis for beginners.
+## Next Steps
+
+You have now seen how Select AI turns natural language into SQL on a simple movies dataset. To build on this FastLab, consider:
+
+* **Use Select AI on your own schema**
+  Point an AI profile at a real application schema and try similar questions.
+
+* **Combine Select AI with applications**
+  Call `SELECT AI` from APEX, ORDS, or a microservice to let business users ask questions through a web UI.
+
 
 ## Signature Workshop
 
-Ready to dive deeper? Try our signature workshop: [Use Autonomous Database with Generative AI Features](https://livelabs.oracle.com/pls/apex/f?p=133:180:4579534958655::::wid:some-wid)
+Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
+👉 Click here to start our signature workshop: [Develop AI RAG Apps with Autonomous AI Database Select AI](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?wid=4114)
 ## Learn More
 
+* [Try the new ASK Oracle chatbot powered by Select AI machinelearning](https://blogs.oracle.com/machinelearning/try-the-new-ask-oracle-chatbot-powered-by-select-ai)
 * [Introducing Natural Language to SQL Generation on Autonomous Database](https://blogs.oracle.com/machinelearning/introducing-natural-language-to-sql-generation-on-autonomous-database)
 * [How to Use Oracle Select AI: A Step-by-Step Guide](https://blogs.oracle.com/datawarehousing/how-to-use-oracle-select-ai-a-stepbystep-guide-generative-ai)
-* [Oracle Autonomous Database Documentation](https://docs.oracle.com/en/cloud/paas/autonomous-database/)
+* [Announcing Oracle Autonomous Database Select AI Feedback for enhanced SQL query generation](https://blogs.oracle.com/machinelearning/announcing-oracle-autonomous-database-select-ai-feedback-for-enhanced-sql-query-generation)
+* [Announcing Oracle Autonomous Database Select AI for text translation and summarization](https://blogs.oracle.com/machinelearning/announcing-oracle-adb-select-ai-for-text-translation-and-summarization)
+* [Build Your Agentic Solution using Oracle Autonomous AI Database Select AI Agent – an Autonomous Agent Framework](https://blogs.oracle.com/machinelearning/build-your-agentic-solution-using-oracle-adb-select-ai-agent)
+* [https://blogs.oracle.com/machinelearning/supercharge-sql-unleashing-ai-queries-with-oracle-adb-select-ai](https://blogs.oracle.com/machinelearning/supercharge-sql-unleashing-ai-queries-with-oracle-adb-select-ai)
+
 
 ## Acknowledgements
-* **Author** - Linda Foinding
-* **Contributors** - 
-* **Last Updated By/Date** - Linda Foinding, November 2025
+* **Author** - Linda Foinding, Principal Product Manager, Database Product Management
+* **Last Updated By/Date** - Linda Foinding, December 2025

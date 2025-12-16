@@ -5,7 +5,7 @@ This sprint provides step-by-step instructions on how to update the timezone dat
 
 ## TZUpdater Tutorial
 
-[TZUpdater Tutorial](videohub:1_oshhvfcf)
+[TZUpdater Tutorial](videohub:1_oshhvfcf:large)
 
 1. Introduction
     ![Slide 1 - Introduction](./images/1-intro.png)

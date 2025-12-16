@@ -1,7 +1,7 @@
 # Network Traffic Analysis With Wireshark on Linux
 Duration: 9 minutes
 
-[video title](videohub:1_f4rft40n)
+[video title](videohub:1_f4rft40n:large)
 
 ## Wireshark Overview
 Wireshark is an open-source network traffic analyzer that provides in-depth insights into network behavior and performance. It captures network traffic from various sources, including the internet, Bluetooth, and wireless connections, and stores the data for offline analysis. Wireshark is valuable for analyzing network traffic and identifying issues. It helps in diagnosing problems, detecting performance bottlenecks, and uncovering security vulnerabilities.

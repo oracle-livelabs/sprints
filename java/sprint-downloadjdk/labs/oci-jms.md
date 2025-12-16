@@ -1,6 +1,8 @@
 # Downloading with Java Management Service on Oracle Cloud Infrastructure
 
-## Overview
+Duration: 2 minutes
+
+### Overview
 Oracle Cloud Infrastructure (OCI) users can download the Oracle JDK through Java Management Service (JMS).
 
 Java Management Service can generate customized commands and Dockerfiles to automate downloading the latest versions of releases available under the [Oracle No-Fee Terms and Conditions (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html) and [Oracle Technology Network License Agreement for Oracle Java SE (OTN)](https://www.oracle.com/downloads/licenses/javase-license1.html) licenses.
@@ -11,7 +13,7 @@ Another advantage of using JMS is that you if you automate downloads of an LTS r
 
 
 ## Tutorials
-[Download Using Java Management Service on OCI](videohub:1_5oyb4ujr)
+[Download Using Java Management Service on OCI](videohub:1_5oyb4ujr:large)
 
 To get started, you will need an Oracle Cloud Infrastructure (OCI) account.
 

@@ -5,7 +5,7 @@ Duration: 6 minutes
 This sprint introduces the reader to the `java.security` file: what it is, how it is used by the JDK, and how to disable cryptographic algorithms.
 
 ## The java.security File
-[Understand the java.security File](videohub:1_xlke71it)
+[Understand the java.security File](videohub:1_xlke71it:large)
 
 1. Introduction  
 The `java.security` file is a vital component of Java's security framework. It contains important configuration data, and maintains security properties for the JDK environment. It is crucial to know that it's location can vary, depending on your operating system.
