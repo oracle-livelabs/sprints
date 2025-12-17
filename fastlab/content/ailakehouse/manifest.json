@@ -1,10 +1,20 @@
 {
-    "workshoptitle": "Autonomous AI Lakehouse",
-    "help": "livelabs-help-database_us@oracle.com",
-    "tutorials": [
-        {
-            "title": "Autonomous AI Lakehouse",
-            "filename": "lab1.md"
-        }
-    ]
+   "workshoptitle": "LiveLabs FastLab - Autonomous AI Lakehouse",
+   "help": "livelabs-help-database_us@oracle.com",
+   "tutorials":
+   [
+       {
+           "title": "Lab 1: Discover and View your Data Assets from Autonomous AI Data Catalog",
+           "filename":"discover-and-catalog.md"
+       },
+       {
+           "title": "Lab 2: Build a Data Pipeline: Load & Transform Data",
+           "filename":"load-transform.md"
+       },
+       {
+           "title": "Need Help - Want to Submit Feedback?",
+           "description": "FastLab - Instructions for getting support for lab instruction issues and providing feedback",
+           "filename":"../../common/need-help-feedack/FastLab-livelabs-need-help-feedack.md"
+       }
+   ]
 }
