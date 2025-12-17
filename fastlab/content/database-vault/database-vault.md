@@ -31,7 +31,7 @@ This lab assumes Database Vault is already configured and enabled on your Oracle
 
 1. In the ADB Console, click Database Actions and select SQL.
 
-    ![OCI](./images/sql.png " ")
+    ![OCI](./images/sql.png "Image demonstrating how to open the SQL page in Database Actions on OCI for an ADB instance.")
 
 ## Task 2: Create the `SH1` schema and clone the SH.CUSTOMERS table
 
