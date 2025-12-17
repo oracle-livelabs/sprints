@@ -51,7 +51,7 @@ In this tutorial, you'll learn how to create an external catalog in Oracle AI Da
         ![Choose ADW Instance](images/choose-adw-instance.png)
 
 7. Enter connection credentials. Provide the **Username** and **Password** for the connection.
-   - Optionally, add a **Wallet Password** if your wallet file is password-protected.
+     - Optionally, add a **Wallet Password** if your wallet file is password-protected.
    ![Provide Username and Password](images/username.png)
 
 8. Test the connection. Click the **Test Connection** button to verify that the credentials and connection details are correct.
