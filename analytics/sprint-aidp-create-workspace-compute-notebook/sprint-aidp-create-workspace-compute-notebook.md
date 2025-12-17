@@ -20,7 +20,7 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 
 3. Add a folder to your workspace to organize project files. Select your workspace from the list to open it. Click the plus (+) icon. Choose **Folder** from the options. Enter a name for the folder. Click **Create** to create the folder.  
 
-   **Best Practice:** Use descriptive folder names. Organize by project phase or data type to make permissions and navigation easier.
+   **Note:** Use descriptive folder names. Organize by project phase or data type to make permissions and navigation easier.
 
    ![Adding a folder inside a workspace.](images/add-folder.png)  
    ![Folder name.](images/folder-name.png)
@@ -35,7 +35,7 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 
 6. Enter a name for your cluster. Pick appropriate options for your cluster. You can create a quickstart cluster with default configurations or choose the custom option where you can specify details like the driver and worker shapes. Once you have selected your configurations, click **Create**. Your cluster will be created in a few minutes.
 
-   **Best Practice:** Check cluster resources regularly. Adjust settings if your workloads change over time.
+   **Note:** Check cluster resources regularly. Adjust settings if your workloads change over time.
 
    ![Confirm configurations.](images/compute-quickstart.png)  
 
@@ -51,20 +51,17 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 
 10. Run code in your notebook. Enter Python or SQL commands into a cell. Click **Run** or use the appropriate keyboard shortcut to execute your code.  
 
-     **Tip:** Break code into logical sections. Add comments for clarity. Good organization supports collaboration and troubleshooting.
+     **Note:** Break code into logical sections and add comments for clarity. Good organization supports collaboration and troubleshooting.
 
     ![Running code in a notebook and viewing output.](images/run-code.png)  
 
-  
 
 
-**Additional Best Practices**
+**Best Practices**
 
 * Maintain your workspace as your project evolves. 
 * Regularly organize files. 
 * Update permissions to reflect team changes. 
-* Review cluster and library requirements as needed.  
-
 
 Congratulations, you have learned how to create a workspace, notebook, and compute cluster in Oracle AI Data Platform Workbench!
 
@@ -76,5 +73,5 @@ Congratulations, you have learned how to create a workspace, notebook, and compu
 
 ## Acknowledgements
 * **Author** - Nagwang Gyamtso, Senior Product Manager, Analytics Service Excellence
-* **Reviewers** - Lucian Dinescu, Candace Marles
-* **Last Updated By/Date** - Nagwang Gyamtso,  December 2025
+* **Reviewers** - Lucian Dinescu, Miles Novotny
+* **Last Updated By/Date** - Nagwang Gyamtso, December 2025
