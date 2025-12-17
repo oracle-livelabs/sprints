@@ -2,7 +2,6 @@
 
 Duration: 8 minutes
 
-**Summary**  
 This Sprint explains how to set up a workspace, configure a compute cluster, and create a notebook in Oracle AI Data Platform (AIDP) Workbench. Follow these instructions to prepare your environment, and streamline development.
 
 **Prerequisites**
@@ -10,7 +9,7 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 - Access to Oracle AIDP Workbench.
 - Permission to create workspaces and clusters.
 
-**Procedure**
+## **Create a Workspace, Notebook, and Compute Cluster**
 
 1. Open Oracle AIDP Workbench in your web browser and sign in with your credentials.  
 
@@ -71,7 +70,7 @@ Congratulations, you have learned how to create a workspace, notebook, and compu
 
 ## Learn More
 
-* [Wrokspaces](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/workspaces.html#GUID-0ABE2F96-2F43-43B8-BC42-B8B0A3CB162C)
+* [Workspaces](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/workspaces.html#GUID-0ABE2F96-2F43-43B8-BC42-B8B0A3CB162C)
 * [Notebooks](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/notebooks.html#GUID-F877C72C-D857-40C3-BD1E-056DCE9A7131)
 * [Compute](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/compute.html#GUID-F877C72C-D857-40C3-BD1E-056DCE9A7131)
 

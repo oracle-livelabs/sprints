@@ -6,6 +6,11 @@
          "title": "How to Create a Workspace, Notebook, and Compute Cluster in Oracle AI Data Platform Workbench.",
          "description": "This LiveLabs sprint walks you through how to create a workspace, notebook, and compute cluster.",
          "filename": "sprint-aidp-create-workspace-compute-notebook.md"
+      },
+      {
+         "title": "How to control access permissions using Role Based Access Control (RBAC) in AIDP Workbench.",
+         "description": "This LiveLabs sprint walks you through how to apply governance using RBAC and permissions.",
+         "filename": "../sprint-aidp-rbac/sprint/rbac.md"
       }
 
    ],
