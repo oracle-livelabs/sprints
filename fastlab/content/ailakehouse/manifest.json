@@ -10,11 +10,6 @@
        {
            "title": "Lab 2: Build a Data Pipeline: Load & Transform Data",
            "filename":"load-transform.md"
-       },
-       {
-           "title": "Need Help - Want to Submit Feedback?",
-           "description": "FastLab - Instructions for getting support for lab instruction issues and providing feedback",
-           "filename":"../../common/need-help-feedack/FastLab-livelabs-need-help-feedack.md"
        }
    ]
 }
