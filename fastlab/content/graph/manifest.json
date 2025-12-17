@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Oracle AI Database Graph",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Oracle AI Database Graph",
+            "filename": "oracle-ai-database-graph.md"
+        }
+    ]
+}

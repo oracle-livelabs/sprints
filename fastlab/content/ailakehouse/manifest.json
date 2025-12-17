@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "Autonomous AI Lakehouse",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Autonomous AI Lakehouse",
+            "filename": "lab1.md"
+        }
+    ]
+}
