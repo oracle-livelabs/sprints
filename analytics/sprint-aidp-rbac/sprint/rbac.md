@@ -51,7 +51,7 @@ Duration: 4 minutes
 6. **Verify access and adjust as needed.** Test access by logging in as (or checking with) a user assigned to the new role. Confirm that users can see and do only what you expect. Update members and permissions as team needs change.
 
 
-**Best practices and pitfalls to avoid**
+**Best practices**
 * **Apply least-privilege:** Only grant permissions the role truly needs.  
 * **Regularly review roles, members, and object permissions** to minimize stale or risky assignments.  
 * **Leverage the Auditor role** to monitor for unapproved permission changes or unexpected access patterns.  
