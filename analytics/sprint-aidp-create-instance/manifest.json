@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How to create an instance of AIDP Workbench",
+         "description": "This LiveLabs Sprint walks you through the steps to create a new Oracle AI Data Platform Workbench instance",
+         "filename": "sprint-aidp-create-instance.md"
+      }
+   ],
+   "task_type": "Sections"
+}
