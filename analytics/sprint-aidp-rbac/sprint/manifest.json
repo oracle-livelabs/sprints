@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How to control access permissions using Role Based Access Control (RBAC) in AIDP Workbench.",
+         "description": "This LiveLabs sprint walks you through how to apply governance using RBAC and permissions.",
+         "filename": "rbac.md"
+      }
+
+   ],
+   "task_type": "Sections"
+}
