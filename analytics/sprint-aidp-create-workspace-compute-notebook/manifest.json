@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How to Create a Workspace, Notebook, and Compute Cluster in Oracle AI Data Platform Workbench.",
+         "description": "This LiveLabs sprint walks you through how to create a workspace, notebook, and compute cluster.",
+         "filename": "sprint-aidp-create-workspace-compute-notebook.md"
+      }
+
+   ],
+   "task_type": "Sections"
+}
