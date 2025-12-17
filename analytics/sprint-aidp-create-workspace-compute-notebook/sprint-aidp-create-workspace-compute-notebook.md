@@ -27,7 +27,7 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
    
 
 
-4. Before you create a notebook, you must first create a compute cluster to power your Spark notebook.
+4. Before you create a notebook, you must first create a compute cluster to power your notebook.
 
 5. Create a compute cluster. Compute clusters are computing resources available in the workspace that power notebooks, Python files, SQL files, and process workloads. In your Workspace, choose **Compute** from the navigation panel. Click **Create**. 
 
