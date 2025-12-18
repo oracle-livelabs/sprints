@@ -21,19 +21,47 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
   This lab assumes you have:
   * Completed Lab 1 --> Task 1 and 2 which creates the **Cloud Store Location named LOANAPP\_LAB\_FILES**
 
-## Task 1: Prepare to Build a Live Feed Data Pipeline
+## Task 1: Prepare to Build a Live Feed Data Pipeline: 
 
-  1. ADD INSTRUCTIONS TO CREATE OBJECT STORAGE BUCKET CALLED MY\_DEMO\_BUCKET with a directory called FUNDING.
+  1. Create a Private Oracle Object Storage Bucket called **MY\_DEMO\_BUCKET** with a directory called **FUNDING** to store your data.
+  
+  2. Navigate back to the Oracle Cloud Console. 
 
-  2. Upload the **funding_commitments1.json** file from LOANAPP\_LAB\_FILES to the FUNDING folder under MY\_DEMO\_BUCKET
+  3. Open the **Navigation** menu in the Oracle Cloud console and click **Storage**. Under **Object Storage & Archive Storage**, click **Buckets**.
+  
+  4. On the **Buckets** page, select the compartment where you want to create the bucket from the **Compartment** drop-down list in the **List Scope** section. Make sure you are in the region where you want to create your bucket.
+  
+  5. Click **Create Bucket**.
+  
+  6. In the **Create Bucket** panel, specify the following:
+      - **Bucket Name:** Enter **MY\_DEMO\_BUCKET**.
+      - **Default Storage Tier:** Accept the default **Standard** storage tier. Use this tier for storing frequently accessed data that requires fast and immediate access. For infrequent access, choose the **Archive** storage tier.
+      - **Encryption:** Accept the default **Encrypt using Oracle managed keys**.
+  
+      >**Note:** Bucket names must be unique per tenancy and region.
+  
+  7. Click **Create** to create the bucket.
+  
+    ![The completed Create Bucket panel is displayed.](./images/create-bucket-panel.png " ")
+  
+  8. The new bucket is displayed on the **Buckets** page. The default bucket type (visibility) is **Private**.
+  
+    ![The new bucket is displayed on the Buckets page.](./images/ll-bucket-created.png " ")
 
-  16.	Return to **Data Load | Oracle Database** tab.
+  
+## Task 2: Move data from staged lab files bucket to Live Feed folder
+
+  1. Download the **funding_commitments1.json** file from LOANAPP\_LAB\_FILES
+
+  2. Upload the **funding_commitments1.json** file to the FUNDING folder under MY\_DEMO\_BUCKET
+
+  3.	Validate files are visible in MY\_DEMO\_BUCKET.
 
     * Click the **Actions** icon in the **LOANAPP\_LAB\_FILES** panel, then select **Objects** from the context menu.
 
     ![Switch Tab & Select LOANAPP_FUNDING Connection](./images/move-data-file1.png "")
 
-  17.	Expand the **FUNDING** folder icon to confirm that the **funding\_commitments1.json** file from the **LOANAPP\_FUNDING** bucket has been successfully copied here.
+  4.	Expand the **FUNDING** folder icon to confirm that the **funding\_commitments1.json** file from the **LOANAPP\_FUNDING** bucket has been successfully copied here.
 
     ![Confirm File 1 Copy](./images/confirm-move-data-file1.png "")
 
@@ -41,7 +69,7 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
 
   ***Congratulations!*** You have now successfully interacted with data in object storage using PL/SQL from the Data Studio tools and your Autonomous Database.
 
-## Task 2: Build Initial Live Feed Table
+## Task 3: Build Initial Live Feed Table
 
 1. From the **Data Load | Oracle Database** tab - Navigate to Live Feed.
 
@@ -113,18 +141,20 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
 ***Congratulations!*** You have successfully created your Live Feed table.
 
 
-## Task 3: Test Live Feed Table Data Population
+## Task 4: Test Live Feed Table Data Population
 
-1. Upload the **funding_commitments2.json** file from LOANAPP\_LAB\_FILES to the FUNDING folder under MY\_DEMO\_BUCKET
+1. Download the **funding_commitments1.json** file from LOANAPP\_LAB\_FILES
 
-2. Navigate to the **Data Load | Oracle Database** tab.
+2. Upload the **funding_commitments1.json** file to the FUNDING folder under MY\_DEMO\_BUCKET
+
+3. Navigate to the **Data Load | Oracle Database** tab.
 
      * Review the details for the Live Table Feed.  **Here we see that 4 new rows were loaded.**
      >Remember that it may take up to 2 minutes to display the new data, as we have configured a 2 minute polling schedule for our Live Feed process.
 
      ![Review Live Feed Execution](./images/verify-live-feed-load-file2.png)
 
-3. Open SQL worksheet and query the staging table called **FUNDING\_PROVIDER\_OFFER\_STG**.
+4. Open SQL worksheet and query the staging table called **FUNDING\_PROVIDER\_OFFER\_STG**.
 
 ***Congratulations!*** On creating a Live Feed that can automatically load data from object storage into your database and be integrated into an automated business process.
 
