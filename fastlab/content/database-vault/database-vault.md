@@ -8,7 +8,7 @@ LiveLabs FastLab workshops give you clear, step-by-step instructions to help you
 
 Your Chief Compliance Officer (CCO) walks into your office with troubling news: "We have a problem. If someone steals our database administrator (DBA) credentials, they'll have unrestricted access to all customer data. Even with trusted DBAs, regulators require technical controls, not just trust. We need separation of duties, and we need it fast."
 
-The reality hits hard: as an administrative user, you can see everything in the database. While you're trustworthy, regulations don't operate on trust—they require technical controls that prevent even privileged users from accessing sensitive data unless there's a legitimate business need.
+The reality hits hard: as an administrative user, you can see everything in the database. While you're trustworthy, regulations don't operate on trust. Regulations require technical controls that prevent even privileged users from accessing sensitive data unless there's a legitimate business need.
 
 
 Estimated Time: 15 minutes
@@ -21,9 +21,7 @@ This lab assumes Database Vault is already configured and enabled on your Oracle
 
 ### Video Walkthrough
 
-<add a walkthrough. Upload to videohub>
-
-[Database Vault realm creation](videohub:1_rl1otmla)
+[Database Vault realm creation](videohub:1_joc43qia)
 
 ## Task 1: Login to SQL | Database Actions
 
