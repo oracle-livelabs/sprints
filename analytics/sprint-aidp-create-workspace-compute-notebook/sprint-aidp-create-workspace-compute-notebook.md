@@ -13,27 +13,27 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 
 1. Open Oracle AIDP Workbench in your web browser and sign in with your credentials.  
 
-2. Create a workspace. From the AIDP Homepage, select **Workspace**. Then click **Create** to start a new workspace. Enter a workspace name and confirm your choices to finish workspace creation.  
+2. Create a **Workspace**. From the AIDP Homepage, select **Workspace**. Then click **Create** to start a new workspace. Enter a workspace name and optionally, choose a default catalog you want your workspace to pull data from. Confirm your choices to finish workspace creation.  
 
    ![Dialog for creating a workspace in AIDP Workbench.](images/create-workspace.png) 
    ![Workspace details.](images/workspace-details.png)
 
-3. Add a folder to your workspace to organize project files. Select your workspace from the list to open it. Click the plus (+) icon. Choose **Folder** from the options. Enter a name for the folder. Click **Create** to create the folder.  
+3. Add a folder to your workspace to organize project files. Select your workspace from the list to open it. Click the plus (+) icon. Choose **Folder** from the options. Enter a name for the folder. Click **Create**.  
 
-   **Note:** Use descriptive folder names. Organize by project phase or data type to make permissions and navigation easier.
+   **Note:** Use descriptive folder names. Organize by project phase or file type to make permissions and navigation easier.
 
    ![Adding a folder inside a workspace.](images/add-folder.png)  
    ![Folder name.](images/folder-name.png)
    
 
 
-4. Before you create a notebook, you must first create a compute cluster to power your notebook.
+4. Before you create a notebook, you must first create a compute cluster to power your notebook. Compute clusters are computing resources available in the workspace that power notebooks, Python files, SQL files, and process workloads.
 
-5. Create a compute cluster. Compute clusters are computing resources available in the workspace that power notebooks, Python files, SQL files, and process workloads. In your Workspace, choose **Compute** from the navigation panel. Click **Create**. 
+5. Create a compute cluster. In your workspace, choose **Compute** from the navigation panel. Click **Create**. 
 
    ![Creating a compute cluster in AIDP Workbench.](images/create-compute.png)
 
-6. Enter a name for your cluster. Pick appropriate options for your cluster. You can create a quickstart cluster with default configurations or choose the custom option where you can specify details like the driver and worker shapes. Once you have selected your configurations, click **Create**. Your cluster will be created in a few minutes.
+6. Enter a name for your cluster. You can choose between a quickstart cluster with default configurations or a custom cluster where you can specify details like the driver and worker shapes. Once you have selected your configurations, click **Create**. Your cluster will be created in a few minutes.
 
    **Note:** Check cluster resources regularly. Adjust settings if your workloads change over time.
 
@@ -41,7 +41,7 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 
 
 
-7. Create a new notebook in your workspace. Click on your Workspace from the navigation panel and open the folder you created earlier. Click the plus (+) icon. Choose **Notebook**. 
+7. Create a new notebook in your workspace. Click on your **Workspace** from the navigation panel and open the folder you created earlier. Click the plus (+) icon. Choose **Notebook**. 
 
    ![Creating a new notebook in your workspace.](images/create-notebook.png)
 
