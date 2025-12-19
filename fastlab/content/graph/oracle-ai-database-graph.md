@@ -8,11 +8,9 @@ Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-In today’s interconnected world, data relationships drive critical insights—from detecting fraud rings and recommendation networks to mapping supply chain dependencies and social influences. Traditional relational databases struggle with complex queries involving multiple relationships, such as "find all people connected within 3 degrees of separation" or "what's the shortest path between two entities." These often require expensive self-joins that scale poorly beyond a few hops.
+This workshop focuses on working with property graphs in Oracle AI Database. You will create a graph from two tables, one containing bank account information, and another containing bank transactions information. You will then run graph pattern queries in SQL on this graph. You will find circular payment chains, multi-hop paths between accounts, and more.
 
-Oracle AI Database Graph addresses this challenge by providing native graph capabilities directly within the database. It allows you to model and query highly connected data where relationships are as important as the entities themselves. Graphs are derived views on existing relational tables—no data duplication or ETL needed. Inserts, updates, and deletes in the tables are instantly reflected in the graph, making it ideal for operational workloads.
-
-Using industry-standard SQL syntax (from SQL:2023) for property graphs, you can perform real-time traversals and network analysis on millions of relationships in milliseconds. Oracle AI Database supports two graph models: Property Graphs for flexible traversal and analytics, and RDF (Resource Description Framework) for semantic understanding and reasoning. Integrated with all database features, including AI Vector Search for Graph RAG (Retrieval-Augmented Generation), it combines symbolic graph precision with probabilistic semantic search for more accurate AI applications.
+In Oracle AI Database the GRAPH_TABLE function and MATCH clause of the SQL:2023 standard enable you to write simple SQL queries to follow connections in data. This workshop illustrates how you can model your data as a graph and run graph queries in SQL to quickly see relationships in your data that are difficult to identify otherwise.
 
 In this 15-minute FastLab, you'll create a property graph from sample banking data and use SQL to query transfer paths, uncovering hidden connections like suspicious transaction chains.
 
@@ -169,7 +167,7 @@ Use SQL's `GRAPH_TABLE` to traverse the graph. This use case finds accounts conn
 
 Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
-👉 Click here to start our signature workshop: [Graphs in Oracle AI Database](https://livelabs.oracle.com/pls/apex/f?p=133:180:4579534958655::::wid:3950)
+👉 [Explore Operational Property Graphs in Oracle AI Database](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?wid=3978)
 
 ## Learn More
 
@@ -179,5 +177,5 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 * [Try Oracle Autonomous AI Database Free](https://www.oracle.com/autonomous-database/free-trial/)
 
 ## Acknowledgements
-* **Author** - Cline, based on Oracle AI Database Graph content
-* **Last Updated By/Date** - Cline, December 2025
+* **Author** - Linda Foinding, Principal Product Manager, Database Product Management
+* **Last Updated By/Date** - Linda Foinding, December 2025
