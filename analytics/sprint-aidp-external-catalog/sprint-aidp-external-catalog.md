@@ -9,6 +9,9 @@ In this tutorial, you'll learn how to create an external catalog in Oracle AI Da
 - Access to an AIDP Workbench instance with the necessary permissions.
 - Ensure that the Default Cluster is active before creating an external catalog.
 
+[](youtube:dSuQdIOaHX8:large)
+
+
 ## Create an External Catalog
 
 1. Log in to your AIDP Workbench instance. Click on the **Master Catalog** in the left navigation pane.
