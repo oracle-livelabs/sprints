@@ -180,4 +180,4 @@ This workshop contains labs that dive deeper into working with Oracle Autonomous
 ## Acknowledgements
 
 * **Authors** - Eddie Ambler, Linda Foinding, Database Product Management
-* **Last Updated By/Date** - Linda Foinding, Database Product Management, December 2025
+* **Last Updated By/Date** - Linda Foinding, January 2026
