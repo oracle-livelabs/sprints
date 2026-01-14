@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick Select AI Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle's Select AI feature in Oracle AI Database",
+      "filename": "../selectai.md"
+    }
+  ]
+}

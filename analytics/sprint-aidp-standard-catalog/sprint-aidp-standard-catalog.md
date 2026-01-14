@@ -9,6 +9,9 @@ This guide provides step-by-step instructions on creating and managing standard 
 - Access to Oracle AIDP Workbench.
 - Appropriate permissions to create and manage catalogs and schemas.
 
+[](youtube:dSuQdIOaHX8:large)
+
+
 ## Create a Standard Catalog
 
 1. Log in to the AIDP Workbench. On the **Master Catalog** page, click the **Create Catalog** button.

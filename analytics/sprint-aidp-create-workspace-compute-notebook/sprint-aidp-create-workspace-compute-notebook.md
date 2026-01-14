@@ -9,6 +9,9 @@ This Sprint explains how to set up a workspace, configure a compute cluster, and
 - Access to Oracle AIDP Workbench.
 - Permission to create workspaces and clusters.
 
+[](youtube:3qq_uLz9ucU:large)
+
+
 ## **Create a Workspace, Notebook, and Compute Cluster**
 
 1. Open Oracle AIDP Workbench in your web browser and sign in with your credentials.  
