@@ -17,6 +17,10 @@ Estimated Time: 15 minutes
 
 ### Prerequisites
 
+- An Oracle Autonomous AI Database
+
+    - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+
 This lab assumes Database Vault is already configured and enabled on your Oracle Autonomous AI Database. For detailed setup instructions and a comprehensive Database Vault workshop, check out our [signature workshop](https://livelabs.oracle.com/ords/r/dbpm/livelabs/view-workshop?wid=3071).
 
 ### Video Walkthrough
