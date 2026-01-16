@@ -9,12 +9,6 @@ Estimated Lab Time: 15 minutes
 
 [Walkthrough video](videohub:1_ijcbblxm:medium)
 
-### Prerequisites
-
-- An Oracle Autonomous AI Database
-
-    - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
-
 ### Objectives
 
 Leverage Data Studio Tools to Build a Live Feed Data Pipeline
@@ -23,6 +17,10 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
  * Simulate how new data loaded into object storage triggers Live Feed automation
 
 ### Prerequisites
+
+- An Oracle Autonomous AI Database
+
+    Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
   This lab assumes you have:
   * Completed Lab 1 --> Task 1 and 2 which creates the **Cloud Store Location named LOANAPP\_LAB\_FILES**
@@ -48,11 +46,11 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
   
   7. Click **Create** to create the bucket.
   
-    ![The completed Create Bucket panel is displayed.](./images/create-bucket-panel.png " ")
+    ![The completed Create Bucket panel is displayed.](./images/create-bucket-panel.png "=50%x*")
   
   8. The new bucket is displayed on the **Buckets** page. The default bucket type (visibility) is **Private**.
   
-    ![The new bucket is displayed on the Buckets page.](./images/ll-bucket-created.png " ")
+    ![The new bucket is displayed on the Buckets page.](./images/ll-bucket-created.png "=50%x*")
 
   
 ## Task 2: Move data from staged lab files bucket to Live Feed folder
