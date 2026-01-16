@@ -8,7 +8,7 @@ Rather than coding your own AI solutions or learning multiple APIs and vector da
 
 Because Select AI is integrated with Oracle’s converged database, you can reduce the gap between users and data, leading to fewer tickets, faster insights, and minimized need for custom reports, all while keeping your sensitive data securely in place.
 
-[Video hosted on Oracle Video Hub](videohub:)
+[Video hosted on Oracle Video Hub](videohub:1_g3figd1t)
 
 
 ### **Try the Interactive Demo**
@@ -52,4 +52,4 @@ Note: You can minimize the menu by clicking '≡' to better interactive with the
 ## Acknowledgements
 - Author - Francis Regalado Database Product Manager
 - Contributors - Mark Hornick
-- Last Updated By/Date - Francis Regalado, December 2025
+- Last Updated By/Date - Francis Regalado, January 2026

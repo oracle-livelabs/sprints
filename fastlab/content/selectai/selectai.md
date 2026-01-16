@@ -14,7 +14,7 @@ Estimated Time: 15 minutes
 
 **Select AI** in Oracle Autonomous AI Database lets you **interact with your data using natural language;** whether asking questions without SQL syntax or supplying text documents to improve your model’s responses. Select AI also supports chatting directly with your LLM, generating synthetic data, translating and summarizing text, and building AI agents. In this session, we focus on **natural language to SQL (NL2SQL)**.
 
-Many teams still rely on a few SQL experts, slowing your ability to get responses to everyday questions and delaying decisions. Select AI helps to remove this bottleneck by **turning natural language questions into SQL based on your actual tables and views**. You can review the generated SQL, run it, get step-by-step explanations, or receive a textual summary of the results.
+Many teams still rely on a few SQL experts, slowing your ability to get responses to everyday questions and delaying decisions. Select AI helps to remove this bottleneck by turning natural language questions into SQL based on your actual tables and views. You can review the generated SQL, run it, get step-by-step explanations, or receive a textual summary of the results.
 
 In this FastLab, you’ll use a small dataset to ask questions in plain English, see the SQL Select AI produces, and run it. Depending on your LLM provider, you can also ask questions in other languages. Give it a try!
 
@@ -164,7 +164,7 @@ Some things to notice when you check out the generated SQL under the `Explain` o
 
 * Identifies specific tables to join
 * Aggregation and sorting 
-* Determines columns to query - even when the columns are not mentioned in the query
+* Determines columns to query - even when the columns aren't mentioned in the query
   ![Navigate to Directory](./images/task4_4.png)
   ![Navigate to Directory](./images/task4_5.png)
 
@@ -209,7 +209,7 @@ This SQL query retrieves the total sales for movies with titles containing the p
 
 ### Case 4: Dynamic data visualization
 
-Select AI can generate a pie chart to visualize data. Enabling you to interact with the chart and dynamically explore the results from different angles.
+This SQL query retrieves the total sales for movies with titles containing the phrase "Spider-Man". The query joins two tables, "STREAMS" and "MOVIES", based on the "MOVIE_ID" column, and then filters the results to include only movies with titles matching the specified criteria.
 
 **Ask Oracle - Select AI**
 
@@ -274,5 +274,5 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Principal Product Manager, Database Product Management
-* **Contributors** - Mark Hornick, Sherry LaMonica
+* **Contributors - Mark Hornick, Sherry LaMonica
 * **Last Updated By/Date** - Linda Foinding, January 2026
