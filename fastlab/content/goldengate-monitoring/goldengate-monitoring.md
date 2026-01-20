@@ -25,7 +25,7 @@ GoldenGate captures changes at the log level without modifying your application 
 
 **What You'll Build**
 
-In this FastLab, you'll replicate financial transactions from Seer Group Finance's transactional schema (SEER_FINANCE) to a monitoring schema (SEER_MONITOR) for compliance and fraud detection. Every transaction is instantly captured and replicated, enabling real-time dashboards and alerts without touching the source application.
+In this FastLab, you'll replicate financial transactions from Seer Group Finance's transactional schema (SEER\_FINANCE) to a monitoring schema (SEER_MONITOR) for compliance and fraud detection. Every transaction is instantly captured and replicated, enabling real-time dashboards and alerts without touching the source application.
 
 ### Prerequisites
 
@@ -270,7 +270,7 @@ Create a connection to the same database as the target.
 
 10. Click **Next**, then click **Create** to finish.
 
-You should now see both **DB_SOURCE** and **DB_TARGET** connections on the GoldenGate Free Home page.
+You should now see both **DB\_SOURCE** and **DB\_TARGET** connections on the GoldenGate Free Home page.
 
 ## Task 5: Create a Replication Pipeline
 
@@ -302,7 +302,7 @@ Create a pipeline to replicate transactions from source to target.
 
 8. On the **Mapping** screen, configure the source-to-target mapping:
 
-    > Note: You'll see all schemas (SEER_FINANCE, SEER_MONITOR, etc.) on both sides because both connections point to the same database. Select the appropriate schema for each role.
+    > Note: You'll see all schemas (SEER\_FINANCE, SEER\_MONITOR, etc.) on both sides because both connections point to the same database. Select the appropriate schema for each role.
 
     **Source Schema** (left side):
     - Expand `SEER_FINANCE`
@@ -312,7 +312,7 @@ Create a pipeline to replicate transactions from source to target.
     - Expand `SEER_MONITOR`
     - Select `TRANSACTIONS` as the target
 
-    > Important: Map SEER_FINANCE.TRANSACTIONS → SEER_MONITOR.TRANSACTIONS. Do NOT map to SEER_FINANCE on the target side.
+    > Important: Map SEER\_FINANCE.TRANSACTIONS → SEER\_MONITOR.TRANSACTIONS. Do NOT map to SEER_FINANCE on the target side.
 
 9. Save the mapping configuration.
 
@@ -389,7 +389,7 @@ Insert a new transaction and verify it replicates instantly.
     </copy>
     ```
 
-You've successfully configured real-time transaction monitoring with GoldenGate Free. Every change in SEER_FINANCE is now instantly captured and replicated to SEER_MONITOR for compliance and fraud detection.
+You've successfully configured real-time transaction monitoring with GoldenGate Free. Every change in SEER\_FINANCE is now instantly captured and replicated to SEER\_MONITOR for compliance and fraud detection.
 
 ## Signature Workshop
 
