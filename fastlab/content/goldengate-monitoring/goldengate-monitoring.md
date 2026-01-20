@@ -31,7 +31,7 @@ In this FastLab, you'll replicate financial transactions from Seer Group Finance
 
 - GoldenGate Free and Oracle AI Database Free deployed on OCI Compute
 
-    - Check our [LiveLabs FastLab - Deploy GoldenGate Free on OCI Compute](link-to-gg-free-fastlab)
+    - Check our [LiveLabs FastLab - Deploy GoldenGate Free on OCI Compute](https://livelabs.oracle.com/ords/dbpm/r/livelabs/view-workshop?wid=4323)
 
 ## Task 1: Connect to the Database and Create Demo Environment
 
