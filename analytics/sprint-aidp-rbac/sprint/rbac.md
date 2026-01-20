@@ -7,6 +7,9 @@ Duration: 4 minutes
 **Prerequisites:**  
 * Make sure you have administrative rights or have been assigned a role with sufficient permissions.  
 
+[](youtube:Bfs4AYVuleE:large)
+
+
 ## Answer
 
 1. Select **Roles.** From the AIDP Workbench home page, navigate to the **Roles** section.

@@ -1,15 +1,15 @@
-# How to create an AIDP Workbench instance?
+# How to create an AIDP Workbench instance.
 
-Duration: 10 minute
-
-## About Oracle AI Data Platform
+Duration: 10 minutes
 
 In this sprint, you'll **create a new Oracle AI Data Platform Workbench instance** to access a dedicated, secure workspace for your data and analytics projects. Each Workbench provides a dedicated environment where you can ingest data, run AI and analytics workflows, and manage resources without impacting other projects or data.
 
-## Prerequisites
+**Prerequisites**
 
 - Access to Oracle Cloud Infrastructure (OCI) with appropriate permissions.
 - Basic understanding of IAM concepts in OCI.
+
+[](youtube:KGsSn690ZDc:large)
 
 ## Steps to Create an Oracle AI Data Platform Workbench Instance
 
