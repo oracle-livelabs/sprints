@@ -18,6 +18,8 @@ This FastLab prepares your environment for real-time data replication scenarios 
 
 ## Task 1: Create an OCI Compute Instance
 
+GoldenGate deployments require a host environment where both the replication engine and source/target databases can communicate. In production, these components often run on separate servers for scalability. For this lab, you'll deploy everything on a single OCI Compute instance—giving you a complete, self-contained environment to learn GoldenGate's capabilities without complex networking.
+
 Create a Linux compute instance to host the GoldenGate Free and Oracle AI Database Free containers.
 
 1. In the OCI Console, navigate to **Compute > Instances** and click **Create Instance**.
@@ -42,6 +44,8 @@ Create a Linux compute instance to host the GoldenGate Free and Oracle AI Databa
 6. Note the **Public IP Address** from the instance details page.
 
 ## Task 2: Connect and Install Podman
+
+Containers provide a fast, repeatable way to deploy Oracle software without complex installation procedures. Podman is Oracle Linux's preferred container runtime—it's daemonless, rootless-capable, and fully compatible with Docker images. By using containers, you can have GoldenGate and Oracle Database running in minutes rather than hours.
 
 Connect to your instance and install Podman.
 
@@ -80,6 +84,8 @@ Connect to your instance and install Podman.
     You should see output like `podman version 5.x.x`.
 
 ## Task 3: Deploy Oracle AI Database Free Container
+
+Every GoldenGate deployment needs databases to replicate between. Oracle AI Database Free provides a fully-featured Oracle Database at no cost—perfect for development, testing, and learning. In this lab, you'll use a single database instance with separate schemas to simulate source and target environments, just as Seer Group Finance would separate their transactional and monitoring systems.
 
 Pull and run the Oracle AI Database Free container.
 
@@ -125,6 +131,8 @@ Pull and run the Oracle AI Database Free container.
     > Note: Both containers run on Podman's internal bridge network. GoldenGate connects to the database using this internal network IP, not the host's public IP. This allows container-to-container communication without exposing the database externally.
 
 ## Task 4: Deploy GoldenGate Free Container
+
+GoldenGate Free is Oracle's entry-level replication solution, offering the same core change data capture technology used by enterprises worldwide—now available at no cost. The container includes a modern web-based console for configuration and monitoring, eliminating the need for command-line expertise. This is the same interface used in GoldenGate Cloud Service and enterprise deployments.
 
 Pull and run the GoldenGate Free container.
 
@@ -172,6 +180,8 @@ Pull and run the GoldenGate Free container.
 
 ## Task 5: Configure Network Access
 
+OCI Compute instances are secure by default—both the OS firewall and OCI Security Lists block inbound traffic until explicitly allowed. For GoldenGate's web console, you need to open ports 80 (HTTP redirect) and 443 (HTTPS). You'll also open port 1521 so you can optionally connect to the database from desktop tools like SQL Developer for testing and development.
+
 Open ports 80 and 443 on both the compute instance firewall and OCI Security List.
 
 1. On the compute instance, open the GoldenGate and database ports in the firewall:
@@ -207,6 +217,8 @@ Open ports 80 and 443 on both the compute instance firewall and OCI Security Lis
 6. Click **Add Ingress Rules**.
 
 ## Task 6: Access GoldenGate Console
+
+The GoldenGate web console is your command center for managing replication. From here, you'll create database connections, define replication pipelines, monitor data flow, and troubleshoot issues. This final verification confirms your environment is ready for the Transaction Monitoring FastLab, where you'll configure actual replication between Seer Group Finance's schemas.
 
 Verify you can access the GoldenGate web console.
 
