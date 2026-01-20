@@ -25,7 +25,7 @@ GoldenGate captures changes at the log level without modifying your application 
 
 **What You'll Build**
 
-In this FastLab, you'll replicate financial transactions from Seer Group Finance's transactional schema (SEER\_FINANCE) to a monitoring schema (SEER_MONITOR) for compliance and fraud detection. Every transaction is instantly captured and replicated, enabling real-time dashboards and alerts without touching the source application.
+In this FastLab, you'll replicate financial transactions from Seer Group Finance's transactional schema (SEER\_FINANCE) to a monitoring schema (SEER\_MONITOR) for compliance and fraud detection. Every transaction is instantly captured and replicated, enabling real-time dashboards and alerts without touching the source application.
 
 ### Prerequisites
 
@@ -34,6 +34,8 @@ In this FastLab, you'll replicate financial transactions from Seer Group Finance
     - Check our [LiveLabs FastLab - Deploy GoldenGate Free on OCI Compute](https://livelabs.oracle.com/ords/dbpm/r/livelabs/view-workshop?wid=4323)
 
 ## Task 1: Connect to the Database and Create Demo Environment
+
+Seer Group Finance needs to separate their transactional systems from their monitoring infrastructure. The transactional schema (SEER\_FINANCE) handles live customer transactions and must remain performant. The monitoring schema (SEER\_MONITOR) feeds fraud detection dashboards and compliance reports. By creating both schemas upfront with identical table structures, you establish the foundation for GoldenGate to replicate data between them without impacting production workloads.
 
 Connect to Oracle AI Database Free and run the setup script.
 
@@ -147,6 +149,8 @@ Connect to Oracle AI Database Free and run the setup script.
 
 ## Task 2: Get Database Container IP Address
 
+GoldenGate connects to databases using standard Oracle Net connections. When running in containers, each container gets its own IP address on Podman's internal bridge network. You need this internal IP—not the host's public IP—because GoldenGate and the database communicate directly within the container network. This mirrors production deployments where GoldenGate typically connects via private network addresses for security.
+
 Get the Oracle Database container's IP address for the GoldenGate connection.
 
 1. Run the following command to get the database container IP:
@@ -162,6 +166,8 @@ Get the Oracle Database container's IP address for the GoldenGate connection.
     > Note: This is the internal Podman network IP. Both containers (GoldenGate and Oracle Database) share this internal network, allowing them to communicate directly without using the host's public IP.
 
 ## Task 3: Create Source Database Connection
+
+The source connection tells GoldenGate where to capture changes from. GoldenGate reads the database's redo logs—the same logs Oracle uses for recovery—to identify every INSERT, UPDATE, and DELETE as it happens. This "log-based" capture has near-zero impact on the source database because GoldenGate reads committed transactions from disk rather than querying tables directly. The connection also creates a dedicated GoldenGate admin user with the precise privileges needed for change capture.
 
 Create a connection to Oracle AI Database Free as the source in GoldenGate.
 
@@ -225,6 +231,8 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
 
 ## Task 4: Create Target Database Connection
 
+The target connection tells GoldenGate where to apply captured changes. In this scenario, both source and target are in the same database but different schemas—a common pattern for creating monitoring or reporting copies without standing up separate infrastructure. In production, Seer Group Finance might target a dedicated analytics database, a data warehouse, or even a cloud database in another region for disaster recovery.
+
 Create a connection to the same database as the target.
 
 1. On the GoldenGate Free Home page, click **Create connection**.
@@ -274,6 +282,8 @@ You should now see both **DB\_SOURCE** and **DB\_TARGET** connections on the Gol
 
 ## Task 5: Create a Replication Pipeline
 
+A pipeline ties everything together: which source tables to capture, which target tables to update, and how data flows between them. GoldenGate Free's "One-way Database Replication" recipe is ideal for monitoring scenarios—changes flow from the transactional system to the monitoring system, but never back. The mapping step is critical: you'll explicitly route SEER\_FINANCE.TRANSACTIONS to SEER\_MONITOR.TRANSACTIONS, ensuring operational and analytical data stay cleanly separated.
+
 Create a pipeline to replicate transactions from source to target.
 
 1. On the GoldenGate Free Home page, click **Create pipeline**.
@@ -319,6 +329,8 @@ Create a pipeline to replicate transactions from source to target.
 10. Start the pipeline. It should show a **Running** status.
 
 ## Task 6: Test Real-Time Transaction Replication
+
+This is the moment of truth. You'll simulate a high-value transaction in the source system—exactly the kind of activity Seer Group Finance's fraud team needs to catch immediately. Within seconds of committing the transaction, it should appear in the monitoring schema. This sub-second latency is what makes GoldenGate invaluable for fraud detection: suspicious patterns can trigger alerts before funds leave the institution, not hours later when batch reports finally run.
 
 Insert a new transaction and verify it replicates instantly.
 
