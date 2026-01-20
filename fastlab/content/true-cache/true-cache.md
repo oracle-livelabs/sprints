@@ -14,13 +14,23 @@ True Cache is a diskless Active Data Guard replica that offloads read queries wh
 
 ### Prerequisites
 
-- An OCI tenancy with permissions to create Compute instances
+- **OCI Compute**, **macOS**, or **Windows** with:
+    - Podman installed
+    - jq installed
+    - openssl installed
+- Minimum 12 GB RAM to run both containers
 
-## Task 1: Create an OCI Compute Instance
+> **macOS and Windows users:** See the [Appendix](#appendix-installing-prerequisites-on-macos-and-windows) for installation instructions.
 
-In a production environment, Seer Retail would deploy True Cache on dedicated servers close to their application tier to minimize network latency. For this lab, you'll create a single compute instance that hosts both the primary database and True Cache containers—simulating the architecture where read-heavy e-commerce traffic is offloaded from the transactional database.
+> **Windows users:** All commands in this lab use bash syntax. Run them in **WSL2** (Windows Subsystem for Linux), which is required for Podman on Windows. Open a WSL2 terminal by typing `wsl` in PowerShell or Command Prompt.
 
-Create a Linux compute instance to host both the primary database and True Cache containers.
+## Task 1: Set Up Your OCI Environment
+
+In a production environment, Seer Retail would deploy True Cache on dedicated servers close to their application tier to minimize network latency. For this lab, you'll run both the primary database and True Cache containers on a single machine—simulating the architecture where read-heavy e-commerce traffic is offloaded from the transactional database.
+
+> **Running locally?** If you're using macOS or Windows with Podman, jq, and openssl already installed, skip to Task 2.
+
+**For OCI Compute:** Create a Linux compute instance to host both containers.
 
 1. In the OCI Console, navigate to **Compute > Instances** and click **Create Instance**.
 
@@ -31,9 +41,7 @@ Create a Linux compute instance to host both the primary database and True Cache
     | Name | true-cache-demo |
     | Compartment | Your compartment |
     | Image | Oracle Linux 9 |
-    | Shape | VM.Standard.E5.Flex (2 OCPUs, 32 GB RAM) |
-
-    > Note: 32 GB RAM is recommended to run both primary database and True Cache containers with adequate memory.
+    | Shape | VM.Standard.E5.Flex (1 OCPU, 12 GB RAM) |
 
 3. Under **Networking**, select a public subnet.
 
@@ -43,13 +51,7 @@ Create a Linux compute instance to host both the primary database and True Cache
 
 6. Note the **Public IP Address** from the instance details page.
 
-## Task 2: Install Podman and Configure Network
-
-True Cache requires network connectivity to the primary database to receive redo logs and stay synchronized. In containerized deployments, both containers must share a network so True Cache can continuously apply changes from the primary. You'll also configure encrypted secrets for database passwords—a security best practice that Seer Retail's compliance team requires for all database deployments.
-
-Connect to your instance, install Podman, and create the container network.
-
-1. SSH into your compute instance:
+7. SSH into your compute instance:
 
     ```bash
     <copy>
@@ -57,7 +59,7 @@ Connect to your instance, install Podman, and create the container network.
     </copy>
     ```
 
-2. Update system packages and install required tools:
+8. Update system packages and install required tools:
 
     ```bash
     <copy>
@@ -66,7 +68,11 @@ Connect to your instance, install Podman, and create the container network.
     </copy>
     ```
 
-3. Set up environment variables for the True Cache deployment:
+## Task 2: Configure Podman Network
+
+True Cache requires network connectivity to the primary database to receive redo logs and stay synchronized. In containerized deployments, both containers must share a network so True Cache can continuously apply changes from the primary. You'll also configure encrypted secrets for database passwords—a security best practice that Seer Retail's compliance team requires for all database deployments.
+
+1. Set up environment variables for the True Cache deployment:
 
     ```bash
     <copy>
@@ -79,7 +85,7 @@ Connect to your instance, install Podman, and create the container network.
     </copy>
     ```
 
-4. Create the Podman network and storage volumes:
+2. Create the Podman network and storage volumes:
 
     ```bash
     <copy>
@@ -89,15 +95,17 @@ Connect to your instance, install Podman, and create the container network.
     # Create volume for primary database (persistent storage)
     sudo podman volume create "${DB_DATA_VOL}"
 
-    # Create directory for True Cache and set ownership for Oracle user (uid 54321)
+    # Create directory for True Cache
     mkdir -vp "${TC_DATA_DIR}"
-    sudo chown -R 54321:54321 "${TC_DATA_DIR}"
+
+    # Set ownership for Oracle user (Linux only - skip on Mac)
+    # sudo chown -R 54321:54321 "${TC_DATA_DIR}"
     </copy>
     ```
 
-    > Note: The primary database uses a Podman volume for portability. True Cache requires a host directory owned by the Oracle user (uid 54321) inside the container.
+    > **Note:** On **Linux** and **Windows (WSL2)**, uncomment and run `sudo chown -R 54321:54321 "${TC_DATA_DIR}"` to set Oracle user ownership. On **macOS**, skip this command—Podman's VM handles permissions automatically.
 
-5. Extract IP addresses from the network for container configuration:
+3. Extract IP addresses from the network for container configuration:
 
     ```bash
     <copy>
@@ -110,7 +118,7 @@ Connect to your instance, install Podman, and create the container network.
     </copy>
     ```
 
-6. Create encrypted secrets for database password (required by Oracle containers):
+4. Create encrypted secrets for database password (required by Oracle containers):
 
     ```bash
     <copy>
@@ -275,7 +283,7 @@ Deploy the True Cache container that will handle read queries for Seer Retail's 
     </copy>
     ```
 
-    > Note: The `PDB_TC_SVCS` variable maps the primary service (SEER\_CATALOG) to a True Cache service (SEER\_CATALOG\_TC). Port 1522 is used to avoid conflict with the primary.
+    > **Note:** The `PDB_TC_SVCS` variable maps the primary service (SEER\_CATALOG) to a True Cache service (SEER\_CATALOG\_TC). Port 1522 is used to avoid conflict with the primary.
 
 2. Monitor the True Cache startup (takes 3-5 minutes):
 
@@ -325,7 +333,7 @@ Verify the True Cache configuration and demonstrate read acceleration.
     ```
     NAME      OPEN_MODE              DATABASE_ROLE    CONTROLFILE_TYPE
     --------- ---------------------- ---------------- -----------------
-    FREE      READ ONLY WITH APPLY   TRUE CACHE       STANDBY
+    FREE      READ ONLY WITH APPLY   TRUE CACHE       TRUE CACHE
     ```
 
 3. Check True Cache synchronization status:
@@ -427,6 +435,78 @@ You have deployed:
 2. **JDBC True Cache driver** - Oracle's JDBC Thin driver can automatically route read-only transactions to True Cache while sending writes to the primary
 
 3. **Service-based routing** - Use Oracle services (SEER\_CATALOG for primary, SEER\_CATALOG\_TC for True Cache) with listener load balancing
+
+## Appendix: Installing Prerequisites on macOS and Windows
+
+### macOS (using Homebrew)
+
+If you don't have Homebrew installed, install it first from [brew.sh](https://brew.sh).
+
+```bash
+<copy>
+brew install podman jq openssl
+</copy>
+```
+
+After installing Podman, initialize and start the Podman machine:
+
+```bash
+<copy>
+podman machine init
+podman machine start
+</copy>
+```
+
+### Windows (WSL2)
+
+**Step 1: Install Podman Desktop in Windows**
+
+Using Winget in PowerShell:
+
+```powershell
+<copy>
+winget install RedHat.Podman
+</copy>
+```
+
+Or using [Chocolatey](https://chocolatey.org/install) in an elevated PowerShell:
+
+```powershell
+<copy>
+choco install podman-desktop
+</copy>
+```
+
+**Step 2: Initialize Podman machine**
+
+```powershell
+<copy>
+podman machine init
+podman machine start
+</copy>
+```
+
+**Step 3: Install jq and openssl in WSL2**
+
+Open WSL2 by typing `wsl` in PowerShell, then install the required tools.
+
+For **Ubuntu/Debian**:
+
+```bash
+<copy>
+sudo apt update && sudo apt install -y jq openssl
+</copy>
+```
+
+For **Fedora**:
+
+```bash
+<copy>
+sudo dnf install -y jq openssl
+</copy>
+```
+
+All lab commands should be run in WSL2.
 
 ## Signature Workshop
 
