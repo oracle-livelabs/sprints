@@ -14,13 +14,21 @@ This FastLab prepares your environment for real-time data replication scenarios 
 
 ### Prerequisites
 
-- An OCI tenancy with permissions to create Compute instances
+- **OCI Compute** or **Windows** with:
+    - Podman installed
+- Minimum 16 GB RAM to run both containers
+
+> **Important:** macOS with Apple Silicon is not supported. The GoldenGate Free container image is x86_64 only and does not run on ARM-based Macs.
+
+> **Windows users:** See the [Appendix](#appendix-installing-podman-on-windows) for installation instructions, then skip to **Task 3**. Tasks 1 and 2 are for OCI Compute setup only. All commands in this lab use bash syntax. Run them in **WSL2** (Windows Subsystem for Linux), which is required for Podman on Windows. Open a WSL2 terminal by typing `wsl` in PowerShell or Command Prompt.
 
 ## Task 1: Create an OCI Compute Instance
 
-GoldenGate deployments require a host environment where both the replication engine and source/target databases can communicate. In production, these components often run on separate servers for scalability. For this lab, you'll deploy everything on a single OCI Compute instance—giving you a complete, self-contained environment to learn GoldenGate's capabilities without complex networking.
+GoldenGate deployments require a host environment where both the replication engine and source/target databases can communicate. In production, these components often run on separate servers for scalability. For this lab, you'll deploy everything on a single machine, giving you a complete, self-contained environment to learn GoldenGate's capabilities without complex networking.
 
-Create a Linux compute instance to host the GoldenGate Free and Oracle AI Database Free containers.
+> **Running on Windows?** If you're using Windows with Podman already installed via WSL2, skip to Task 3.
+
+**For OCI Compute:** Create a Linux compute instance to host the GoldenGate Free and Oracle AI Database Free containers.
 
 1. In the OCI Console, navigate to **Compute > Instances** and click **Create Instance**.
 
@@ -251,6 +259,84 @@ You have deployed:
 |-----------|---------------|------|---------|
 | Oracle AI Database Free | oracle-db | 1521 | Source and target database |
 | GoldenGate Free | goldengate-free | 80, 443 | Replication engine |
+
+## Appendix: Installing Podman on Windows
+
+We recommend installing **Podman Desktop**, which provides a graphical interface and simplifies container management. While there are other ways to install Podman, Podman Desktop handles WSL2 integration automatically and makes troubleshooting easier.
+
+**Step 1: Install Podman Desktop in Windows**
+
+Using Winget in PowerShell:
+
+```powershell
+<copy>
+winget install RedHat.Podman
+</copy>
+```
+
+Or using [Chocolatey](https://chocolatey.org/install) in an elevated PowerShell:
+
+```powershell
+<copy>
+choco install podman-desktop
+</copy>
+```
+
+**Step 2: Initialize Podman machine**
+
+```powershell
+<copy>
+podman machine init
+podman machine start
+</copy>
+```
+
+**Step 3: Open WSL2 and run lab commands**
+
+Open WSL2 by typing `wsl` in PowerShell. All lab commands should be run in WSL2.
+
+> **Note:** When using Podman in WSL2, you may need to use `podman` instead of `sudo podman` depending on your configuration. If a command fails with permission errors, try removing `sudo`.
+
+## Appendix: Clean Up Your Environment
+
+When you're finished with the lab, follow these steps to stop and remove the containers and free up resources.
+
+**Step 1: Stop the containers**
+
+```bash
+<copy>
+sudo podman stop goldengate-free oracle-db
+</copy>
+```
+
+**Step 2: Remove the containers**
+
+```bash
+<copy>
+sudo podman rm goldengate-free oracle-db
+</copy>
+```
+
+**Step 3: (Optional) Remove the container images**
+
+If you want to free up disk space, remove the downloaded images:
+
+```bash
+<copy>
+sudo podman rmi container-registry.oracle.com/goldengate/goldengate-free:latest
+sudo podman rmi container-registry.oracle.com/database/free:latest
+</copy>
+```
+
+**Step 4: (OCI Compute only) Terminate the compute instance**
+
+If you created an OCI Compute instance for this lab and no longer need it:
+
+1. In the OCI Console, navigate to **Compute > Instances**.
+2. Click on your **goldengate-free** instance.
+3. Click **More Actions > Terminate**.
+4. Check **Permanently delete the attached boot volume** if you don't need to preserve the data.
+5. Click **Terminate Instance**.
 
 ## Signature Workshop
 

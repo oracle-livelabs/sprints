@@ -459,6 +459,8 @@ podman machine start
 
 ### Windows (WSL2)
 
+We recommend installing **Podman Desktop**, which provides a graphical interface and simplifies container management. While there are other ways to install Podman, Podman Desktop handles WSL2 integration automatically and makes troubleshooting easier.
+
 **Step 1: Install Podman Desktop in Windows**
 
 Using Winget in PowerShell:
@@ -507,6 +509,59 @@ sudo dnf install -y jq openssl
 ```
 
 All lab commands should be run in WSL2.
+
+## Appendix: Clean Up Your Environment
+
+When you're finished with the lab, follow these steps to stop and remove the containers and free up resources.
+
+**Step 1: Stop the containers**
+
+```bash
+<copy>
+sudo podman stop tru-cc-free pri-db-free
+</copy>
+```
+
+**Step 2: Remove the containers**
+
+The containers were started with `--rm`, so they are automatically removed when stopped. If they still exist, remove them manually:
+
+```bash
+<copy>
+sudo podman rm tru-cc-free pri-db-free
+</copy>
+```
+
+**Step 3: Remove the network, volume, and secrets**
+
+```bash
+<copy>
+sudo podman network rm truecache-net
+sudo podman volume rm primary-db-data
+sudo podman secret rm oracle_pwd oracle_pwd_privkey
+rm -rf "${HOME}/truecache-data"
+</copy>
+```
+
+**Step 4: (Optional) Remove the container image**
+
+If you want to free up disk space, remove the downloaded image:
+
+```bash
+<copy>
+sudo podman rmi container-registry.oracle.com/database/free:latest
+</copy>
+```
+
+**Step 5: (OCI Compute only) Terminate the compute instance**
+
+If you created an OCI Compute instance for this lab and no longer need it:
+
+1. In the OCI Console, navigate to **Compute > Instances**.
+2. Click on your **true-cache-demo** instance.
+3. Click **More Actions > Terminate**.
+4. Check **Permanently delete the attached boot volume** if you don't need to preserve the data.
+5. Click **Terminate Instance**.
 
 ## Signature Workshop
 
