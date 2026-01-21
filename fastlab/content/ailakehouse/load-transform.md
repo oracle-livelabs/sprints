@@ -1,33 +1,30 @@
-# 🏗️ Build a Live Feed Data Pipeline: Load and Transform Data
+# Build a Live Feed Data Pipeline: Load and Transform Data
 
-## Introduction
+Welcome to this **LiveLabs FastLab** workshop.
 
-In this lab, you’ll practice setting up the live feed capabilities, that can be used to load data that is continuously collected into cloud object storage. <br>
-When a load job is enabled for live feed, it can be a scheduled job or connected to the OCI event notification and subscription mechanism, so that every time a new object is created in the object store bucket, it triggers the live feed, that then loads the contents to the database.
+LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
 
-Estimated Lab Time: 15 minutes
+Estimated Time: 15 minutes
 
-[Walkthrough video](videohub:1_ijcbblxm:medium)
+## FastLab Introduction
 
-### Objectives
+This workshop focuses on building automated data pipelines using Oracle's Live Feed feature. You will create a Live Feed that monitors an object storage bucket and automatically loads new files into your database as they arrive.
 
-Leverage Data Studio Tools to Build a Live Feed Data Pipeline
- * Explore using PL/SQL to interact with data in object storage
- * Create a Live Feed table in Autonomous Database
- * Simulate how new data loaded into object storage triggers Live Feed automation
+SeersEquities partners with multiple funding providers who submit loan commitment data throughout the day. Rather than waiting for batch loads, the risk team needs this data flowing into their systems continuously. In this FastLab, you'll build a Live Feed pipeline that ingests funding data automatically.
 
 ### Prerequisites
 
 - An Oracle Autonomous AI Database
 
-    Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+    - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
-  This lab assumes you have:
-  * Completed Lab 1 --> Task 1 and 2 which creates the **Cloud Store Location named LOANAPP\_LAB\_FILES**
+- Completed FastLab 1 (Tasks 1 and 2) which creates the **Cloud Store Location named LOANAPP\_LAB\_FILES**
 
-## Task 1: Prepare to Build a Live Feed Data Pipeline: 
+## Task 1: Prepare to Build a Live Feed Data Pipeline
 
-  1. Create a Private Oracle Object Storage Bucket called **MY\_DEMO\_BUCKET** with a directory called **FUNDING** to store your data.
+To build an automated data pipeline, you first need a destination for incoming files. SeersEquities receives loan funding commitments from multiple providers. Each file lands in object storage before being processed. Here, you'll create a private bucket with a structured folder to stage this data.
+
+1. Create a Private Oracle Object Storage Bucket called **MY\_DEMO\_BUCKET** with a directory called **FUNDING** to store your data.
   
   2. Navigate back to the Oracle Cloud Console. 
 
@@ -53,9 +50,11 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
     ![The new bucket is displayed on the Buckets page.](./images/ll-bucket-created.png "=50%x*")
 
   
-## Task 2: Move data from staged lab files bucket to Live Feed folder
+## Task 2: Move Data from Staged Lab Files Bucket to Live Feed Folder
 
-  1. Download the **funding_commitments1.json** file from LOANAPP\_LAB\_FILES
+This step simulates incoming loan funding data from SeersEquities' providers. In production, funding commitment files would arrive automatically from external systems. Here, you'll manually copy a sample file to your bucket to prepare for Live Feed configuration.
+
+1. Download the **funding_commitments1.json** file from LOANAPP\_LAB\_FILES.
 
   2. Upload the **funding_commitments1.json** file to the FUNDING folder under MY\_DEMO\_BUCKET
 
@@ -71,11 +70,13 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
 
     * Click **Close** to exit.
 
-  ***Congratulations!*** You have now successfully interacted with data in object storage using PL/SQL from the Data Studio tools and your Autonomous Database.
+You have now successfully staged data in object storage for your Live Feed pipeline.
 
 ## Task 3: Build Initial Live Feed Table
 
-1. From the **Data Load | Oracle Database** tab - Navigate to Live Feed.
+Live Feed is Oracle's solution for continuously loading data that arrives in object storage. Instead of manually running load jobs, Live Feed monitors your bucket and automatically loads new files into the database. For SeersEquities, this means funding commitment data flows into their systems in near real-time without manual intervention.
+
+1. From the **Data Load | Oracle Database** tab, navigate to Live Feed.
 
     * On Left rail expand **Data Load**, then click on **Live Feed**.
 
@@ -104,12 +105,12 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
 
      * **For Option**: Choose **Merge Into Table** from drop-down list
 
-     * **For target Table Name**: Enter the name of the target table of the Live Feed -- **FUNDING\_PROVIDER\_OFFER\_STG**. ***In ALL CAPS*** <br>
+     * **For Target Table Name**: Enter **FUNDING\_PROVIDER\_OFFER\_STG**
 
-     * <u>Then modify **Mapping** details exactly as shown below:</u>
-        * **Update Data Type** to NUMBER for: FUNDING\_PROVIDER\_ID and FUNDING\_OFFER\_REFERENCE\_ID <br>
-        * **For Merge Key**: Select FUNDING\_PROVIDER\_ID and FUNDING\_OFFER\_REFERENCE\_ID<br>
-        * **Unselect last row:** Inclusion of SYSTIMESTAMP Source
+     * Then modify **Mapping** details exactly as shown below:
+        * **Update Data Type** to NUMBER for: FUNDING\_PROVIDER\_ID and FUNDING\_OFFER\_REFERENCE\_ID
+        * **For Merge Key**: Select FUNDING\_PROVIDER\_ID and FUNDING\_OFFER\_REFERENCE\_ID
+        * **Unselect last row**: Inclusion of SYSTIMESTAMP Source
 
       ![Create Live Feed Wizard - step 2](./images/live-feed-wizard-step2-table-settings.png "")
 
@@ -121,11 +122,11 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
 
       * Click **Next** to proceed.
 
-6. Enter remaining details for the **Live Table Feed**
+6. Enter remaining details for the **Live Table Feed**:
 
-      a. Enter live feed name **LOANAPP\_FUNDING\_FEED** <br>
-      b. Check box to **Enable for Scheduling**. <br>
-      c. Select every **2 minutes** for the polling time interval
+      - Enter live feed name: **LOANAPP\_FUNDING\_FEED**
+      - Check the box to **Enable for Scheduling**
+      - Select every **2 minutes** for the polling time interval
 
       ![Create Live Feed Wizard - step 4](./images/live-feed-wizard-step4.png "")
 
@@ -142,32 +143,36 @@ Leverage Data Studio Tools to Build a Live Feed Data Pipeline
 
       ![Active Live Table Feed](./images/active-live-feed.png)
 
-***Congratulations!*** You have successfully created your Live Feed table.
+You have successfully created your Live Feed table. It will now automatically poll for new files every 2 minutes.
 
 
 ## Task 4: Test Live Feed Table Data Population
 
-1. Download the **funding_commitments1.json** file from LOANAPP\_LAB\_FILES
+Now you'll test the automation by adding a second funding file. This simulates real-world operation where new data arrives continuously. When the Live Feed detects the new file, it automatically loads the contents, demonstrating the hands-free data pipeline you've built.
 
-2. Upload the **funding_commitments1.json** file to the FUNDING folder under MY\_DEMO\_BUCKET
+1. Download the **funding_commitments2.json** file from LOANAPP\_LAB\_FILES.
+
+2. Upload the **funding_commitments2.json** file to the FUNDING folder under MY\_DEMO\_BUCKET.
 
 3. Navigate to the **Data Load | Oracle Database** tab.
 
-     * Review the details for the Live Table Feed.  **Here we see that 4 new rows were loaded.**
-     >Remember that it may take up to 2 minutes to display the new data, as we have configured a 2 minute polling schedule for our Live Feed process.
+     * Review the details for the Live Table Feed. **Here we see that 4 new rows were loaded.**
+
+     >**Note**: It may take up to 2 minutes to display the new data, as you configured a 2-minute polling schedule for your Live Feed process.
 
      ![Review Live Feed Execution](./images/verify-live-feed-load-file2.png)
 
 4. Open SQL worksheet and query the staging table called **FUNDING\_PROVIDER\_OFFER\_STG**.
 
-***Congratulations!*** On creating a Live Feed that can automatically load data from object storage into your database and be integrated into an automated business process.
+Your Live Feed has automatically detected and loaded the new file. This demonstrates how Oracle automates data ingestion from object storage into your database.
 
-## Conclusion
-***Congratulations***, you have successfully completed the FastLab on working with Autonomous AI Lakehouse! You built a data pipeline using the Oracle Live Table Feed tool and successfully used the data from the pipeline in a PL/SQL block that was run from Oracle Autonomous Database to automate business processes.
+## Summary
 
-In this workshop, you’ve also seen how Oracle’s Data Share tool helps teams like SeersEquities’ Risk Department securely access loan data without needing to duplicate the data, or incur delays in data access due to manual handoffs between the teams.
-Having dependable access to data ensures faster risk analysis, smarter decisions, and tighter collaboration across the business.
-Oracle makes it easy to use and share data on it's data platform powered by Oracle Autonomous Database, that unlocks the value of governed, AI-ready data.
+Congratulations! You have successfully completed this FastLab on building data pipelines with Autonomous AI Lakehouse. You created a Live Feed that automatically monitors object storage and loads new funding commitment data into your database without manual intervention.
+
+For SeersEquities, this means the risk team can access loan funding data in near real-time as it arrives from providers. Automated pipelines like this ensure faster risk analysis, smarter decisions, and tighter collaboration across the business.
+
+Oracle Autonomous AI Lakehouse makes it easy to build governed, AI-ready data pipelines that unlock the value of your data.
 
 
 ## Signature Workshop

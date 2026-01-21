@@ -122,6 +122,11 @@ These principles take priority over structural rules. A FastLab that follows str
 
 **Why**: The PowerPoint's story was chosen for business relevance. Generic alternatives lose the hook that motivates users.
 
+In case, you do not get a story from a PPT, use this overarching story to find an applicable use case:
+
+SeerGroup is a global conglomerate with multiple divisions. Each division buried in transactions, documents, and customer data. 
+The divisions are: finance, retail, manufacturing, healthcare, media & gaming, energy & utilities, life sciences, telecommunications, hightech, state & local government, transportation, 
+
 ## 2.2 Keep Introductions Under 50 Words
 
 The introduction should answer three questions in ~50 words:
