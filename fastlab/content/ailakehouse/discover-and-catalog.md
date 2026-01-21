@@ -1,4 +1,4 @@
-# Discover and View your Database and Data Lake Assets from your Data Catalog
+# Discover Data Assets with the Autonomous AI Database Data Catalog
 
 Welcome to this **LiveLabs FastLab** workshop.
 

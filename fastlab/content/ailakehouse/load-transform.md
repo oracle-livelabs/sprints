@@ -1,4 +1,4 @@
-# Build a Live Feed Data Pipeline: Load and Transform Data
+# Build a Live Feed Data Pipeline
 
 Welcome to this **LiveLabs FastLab** workshop.
 
