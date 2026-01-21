@@ -1,9 +1,9 @@
 {
-    "workshoptitle": "LiveLabs FastLab - Oracle AI Database Graph",
+    "workshoptitle": "LiveLabs FastLab",
     "help": "livelabs-help-database_us@oracle.com",
     "tutorials": [
         {
-            "title": "FastLab - Oracle AI Database Graph",
+            "title": "LiveLabs FastLab - Trace Money Flows to Detect Fraud",
             "filename": "oracle-ai-database-graph.md"
         }
     ]

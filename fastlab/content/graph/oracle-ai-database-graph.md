@@ -1,4 +1,4 @@
-# Oracle AI Database Graph: Uncover Insights from Relationships
+# Oracle AI Database Graph: Trace Money Flows to Detect Fraud
 
 Welcome to this **LiveLabs FastLab** workshop.
 
@@ -8,11 +8,9 @@ Estimated Time: 15 minutes
 
 ## FastLab Introduction
 
-This workshop focuses on working with property graphs in Oracle AI Database. You will create a graph from two tables, one containing bank account information, and another containing bank transactions information. You will then run graph pattern queries in SQL on this graph. You will find circular payment chains, multi-hop paths between accounts, and more.
+Seer Group is a conglomerate spanning multiple vertical industries including finance, retail, manufacturing, and healthcare. In the finance division, detecting fraud requires tracing money flows across accounts to find suspicious patterns that traditional SQL queries miss.
 
-In Oracle AI Database the GRAPH_TABLE function and MATCH clause of the SQL:2023 standard enable you to write simple SQL queries to follow connections in data. This workshop illustrates how you can model your data as a graph and run graph queries in SQL to quickly see relationships in your data that are difficult to identify otherwise.
-
-In this 15-minute FastLab, you'll create a property graph from sample banking data and use SQL to query transfer paths, uncovering hidden connections like suspicious transaction chains.
+This workshop focuses on working with property graphs in Oracle AI Database. You will create a graph from two tables containing bank account and transaction data. You will then run graph pattern queries in SQL to find circular payment chains and multi-hop paths—the kind of hidden connections that reveal fraud rings.
 
 ### Prerequisites
 
@@ -22,13 +20,13 @@ In this 15-minute FastLab, you'll create a property graph from sample banking da
 
 ## Task 1: Launch SQL Worksheet
 
-You will use Database Actions as your SQL workspace. This task opens SQL Worksheet so you can run the rest of the lab.
+Seer Group's fraud analysts work directly with SQL to investigate suspicious activity. Database Actions provides a browser-based SQL environment where you can run queries against your Autonomous Database without installing any tools.
 
 1. In the ADB Console, click **Database Actions** and select **SQL**.
 
 ## Task 2: Create Tables for Banking Data
 
-We'll create two relational tables: one for bank accounts (vertices) and one for transfers (edges). This simulates a simple banking scenario where accounts are connected via money transfers.
+Seer Group's finance division stores customer accounts and transaction history in relational tables. These two tables—accounts and transfers—form the foundation for fraud detection. The transfer table captures who sent money to whom, which becomes critical when tracing suspicious flows.
 
 1. Create the `bank_accounts` table to store account details.
 
@@ -62,7 +60,7 @@ We'll create two relational tables: one for bank accounts (vertices) and one for
 
 ## Task 3: Insert Sample Data
 
-Populate the tables with sample accounts and transfers. We'll include "Russell Rivera" as in the use case, along with a chain of transfers to demonstrate path queries.
+This sample data simulates a fraud investigation scenario. Russell Rivera is a person of interest, and the transfers create a chain of money movement: Russell → Alice → Bob → Charlie. Fraud analysts need to trace these indirect connections to understand how money flows through intermediaries.
 
 1. Insert sample accounts.
 
@@ -100,7 +98,7 @@ Populate the tables with sample accounts and transfers. We'll include "Russell R
 
 ## Task 4: Create a Property Graph
 
-A Property Graph models entities (vertices) and relationships (edges). Here, accounts are vertices, and transfers are directed edges with properties like amount.
+Traditional SQL requires complex self-joins to trace multi-hop transfers—and performance degrades exponentially with each hop. A property graph solves this by modeling accounts as vertices (nodes) and transfers as edges (connections). Once created, you can traverse any number of hops with simple, readable queries.
 
 1. Create the property graph `BANK_GRAPH` as a view on the relational tables.
 
@@ -115,9 +113,9 @@ A Property Graph models entities (vertices) and relationships (edges). Here, acc
      )
      EDGE TABLES (
        bank_transfers
+       KEY (transfer_id)
        SOURCE KEY (from_acct) REFERENCES bank_accounts (account_id)
        DESTINATION KEY (to_acct) REFERENCES bank_accounts (account_id)
-       KEY (transfer_id)
        PROPERTIES (transfer_id, amount, transaction_date)
      );
    </copy>
@@ -125,7 +123,7 @@ A Property Graph models entities (vertices) and relationships (edges). Here, acc
 
 ## Task 5: Query the Graph to Uncover Connections
 
-Use SQL's `GRAPH_TABLE` to traverse the graph. This use case finds accounts connected to Russell Rivera via 1 to 3 transfer hops, helping detect potential fraud rings or influence networks.
+Now for the payoff: finding hidden connections. Using `GRAPH_TABLE`, fraud analysts can ask questions like "Who received money from Russell Rivera within 3 transfers?" This type of query would require multiple self-joins in traditional SQL, but graph queries express it naturally and execute efficiently.
 
 1. Simple query: Find direct transfers from any account.
 
@@ -136,9 +134,9 @@ Use SQL's `GRAPH_TABLE` to traverse the graph. This use case finds accounts conn
    FROM GRAPH_TABLE (BANK_GRAPH
      MATCH (s) -[e IS BANK_TRANSFERS]-> (d)
      COLUMNS (
-       VERTEX_ID(s) AS source_name,
-       VERTEX_ID(d) AS dest_name,
-       EDGE_ID(e).amount AS transfer_amount
+       s.name AS source_name,
+       d.name AS dest_name,
+       e.amount AS transfer_amount
      )
    );
    </copy>
@@ -161,7 +159,31 @@ Use SQL's `GRAPH_TABLE` to traverse the graph. This use case finds accounts conn
    </copy>
    ```
 
-   This reveals indirect connections, such as paths through Alice or direct to Bob, in milliseconds—impossible with traditional SQL joins for deeper traversals.
+   This reveals indirect connections, such as paths through Alice or directly to Bob, in milliseconds—impossible with traditional SQL joins for deeper traversals.
+
+## Summary
+
+In this FastLab, you created a property graph from relational banking data and used SQL graph queries to trace money flows across multiple accounts. Here's what you accomplished:
+
+- **Created relational tables** to store accounts and transfers—the same structure Seer Group's finance division uses
+- **Built a property graph** that models accounts as vertices and transfers as edges, without copying data
+- **Queried multi-hop paths** to find all accounts connected to a person of interest within 1-3 transfers
+
+**Why this matters for fraud detection:**
+
+| Traditional SQL | Property Graph |
+|-----------------|----------------|
+| Requires complex self-joins for each hop | Simple `MATCH` pattern for any depth |
+| Performance degrades exponentially | Consistent performance at scale |
+| Hard to read and maintain | Intuitive, relationship-focused syntax |
+
+Seer Group's fraud analysts can now answer questions like "Who is connected to this suspicious account?" in milliseconds—even across millions of transactions.
+
+**Impact on end user applications:**
+
+Property graphs power features that end users interact with daily. For Seer Group's finance customers, this means real-time fraud alerts that catch suspicious patterns before transactions complete. Behind the scenes, graph queries run in milliseconds to check if a transaction connects to known fraud rings—something users experience as instant, seamless protection.
+
+The same technology enables personalized recommendations in retail ("customers who bought X also bought Y"), optimized delivery routes in manufacturing, and care coordination in healthcare. End users see faster responses, smarter suggestions, and better outcomes—all powered by graph queries running against their relational data.
 
 ## Signature Workshop
 
