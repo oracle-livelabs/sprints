@@ -245,7 +245,7 @@ Verify you can access the GoldenGate web console.
     | Username | oggadmin |
     | Password | Welcome1#GG23 |
 
-4. You should see the GoldenGate Service Manager console with the "Deployment" deployment listed.
+4. You should see the GoldenGate Free console.
 
     ![GoldenGate Console](./images/gg-console.png " ")
 
