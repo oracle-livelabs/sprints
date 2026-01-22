@@ -39,7 +39,7 @@ Seer Group Finance needs to separate their transactional systems from their moni
 
 Connect to Oracle AI Database Free and run the setup script.
 
-1. SSH into your compute instance:
+1. SSH into your compute instance if you are running your environment on OCI. You can skip this step if you are running the environment on Windows.
 
     ```bash
     <copy>
@@ -182,6 +182,7 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
     | Database name | DB_SOURCE |
     | Description | Seer Group Finance source database |
 
+
 4. Click **Next**.
 
 5. On the **Connection Details** page:
@@ -192,6 +193,7 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
     | Connection type | Basic |
     | Hostname | (container IP from Task 3, e.g., 10.88.0.2) |
     | Port | 1521 |
+
 
 6. For **Database type**, select **Pluggable database (PDB) in Oracle Database 21c or above**.
 
@@ -217,17 +219,18 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
     | GoldenGate username | ggadmin |
     | GoldenGate password | Welcome1#GG23 |
 
+
 12. Click **Next**.
 
-13. On the **Validate Configuration** page, click **Validate** to test the connection.
+13. On the **Configuration** page, click **Run analysis** to review the required database settings.
 
-14. Click **Next**.
+    > **Important:** You need to scroll down to end the of the SQL statement so you can confirm that you have reviewed the statement.
 
-15. On the **Configuration** page, click **Run analysis** to review the required database settings.
 
-16. Click **Run SQL** to apply the configuration automatically.
+14. Click **Run SQL** to apply the configuration automatically.
 
-17. Click **Next**, then click **Create** to finish.
+
+15. Click **Next**, then click **Create** to finish.
 
 ## Task 4: Create Target Database Connection
 
@@ -276,7 +279,10 @@ Create a connection to the same database as the target.
 
 9. On the **Configuration** page, click **Run analysis**, then **Run SQL**.
 
+    > **Important:** You need to scroll down to end the of the SQL statement so you can confirm that you have reviewed the statement.
+
 10. Click **Next**, then click **Create** to finish.
+
 
 You should now see both **DB\_SOURCE** and **DB\_TARGET** connections on the GoldenGate Free Home page.
 
@@ -314,19 +320,25 @@ Create a pipeline to replicate transactions from source to target.
 
     > Note: You'll see all schemas (SEER\_FINANCE, SEER\_MONITOR, etc.) on both sides because both connections point to the same database. Select the appropriate schema for each role.
 
-    **Source Schema** (left side):
-    - Expand `SEER_FINANCE`
-    - Check/select `TRANSACTIONS`
+    **Unselect** the first (PDBADMIN) and third row (SEER_MONITOR)
 
-    **Target Schema** (right side):
-    - Expand `SEER_MONITOR`
-    - Select `TRANSACTIONS` as the target
+    ![unselect](images/map1.png)
+
+    Click the **Pencil** on the second row
+
+    ![edit](images/map2.png)
+
+    Edit the **Target** field and change it to **SEER_MONITOR**
+
+    ![edit2](images/map3.png)
 
     > Important: Map SEER\_FINANCE.TRANSACTIONS → SEER\_MONITOR.TRANSACTIONS. Do NOT map to SEER_FINANCE on the target side.
 
 9. Save the mapping configuration.
 
-10. Start the pipeline. It should show a **Running** status.
+    ![save](images/map4.png)
+
+10. Click **Start** to enable the pipeline. You will see the different components starting up. It should show a **Running** status after a few minutes.
 
 ## Task 6: Test Real-Time Transaction Replication
 
