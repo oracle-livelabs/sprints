@@ -167,7 +167,17 @@ Connect to your Oracle AI Database Free using SQL*Plus from within the container
     </copy>
     ```
 
-2. Verify the database version:
+2. Set up SQL*Plus formatting for better output readability:
+
+    ```sql
+    <copy>
+    SET LINESIZE 150
+    SET PAGESIZE 50
+    SET WRAP OFF
+    </copy>
+    ```
+
+3. Verify the database version:
 
     ```sql
     <copy>
@@ -175,7 +185,7 @@ Connect to your Oracle AI Database Free using SQL*Plus from within the container
     </copy>
     ```
 
-3. Check available AI Database features:
+4. Check available AI Database features:
 
     ```sql
     <copy>
@@ -183,7 +193,7 @@ Connect to your Oracle AI Database Free using SQL*Plus from within the container
     </copy>
     ```
 
-4. Create a test table to confirm everything works:
+5. Create a test table to confirm everything works:
 
     ```sql
     <copy>
@@ -193,7 +203,7 @@ Connect to your Oracle AI Database Free using SQL*Plus from within the container
     </copy>
     ```
 
-5. Exit SQL*Plus:
+6. Exit SQL*Plus:
 
     ```sql
     <copy>
