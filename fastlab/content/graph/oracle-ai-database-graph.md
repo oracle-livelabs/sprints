@@ -79,10 +79,10 @@ This sample data simulates a fraud investigation scenario. Russell Rivera is a p
    ```sql
    <copy>
    -- Task 3: Insert sample transfers
-   INSERT INTO bank_transfers VALUES (101, 1, 2, 500, SYSDATE);  -- Russell to Alice
-   INSERT INTO bank_transfers VALUES (102, 2, 3, 300, SYSDATE);  -- Alice to Bob
-   INSERT INTO bank_transfers VALUES (103, 3, 4, 700, SYSDATE);  -- Bob to Charlie
-   INSERT INTO bank_transfers VALUES (104, 1, 3, 1000, SYSDATE); -- Direct Russell to Bob
+   INSERT INTO bank_transfers VALUES (101, 1, 2, 500, SYSDATE);
+   INSERT INTO bank_transfers VALUES (102, 2, 3, 300, SYSDATE);
+   INSERT INTO bank_transfers VALUES (103, 3, 4, 700, SYSDATE);
+   INSERT INTO bank_transfers VALUES (104, 1, 3, 1000, SYSDATE);
    </copy>
    ```
 
