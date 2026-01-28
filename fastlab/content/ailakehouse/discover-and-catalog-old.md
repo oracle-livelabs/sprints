@@ -1,23 +1,23 @@
+# Discover Data Assets with the Autonomous AI Database Data Catalog
 
-# 🔍 Discover and View your Database and Data Lake Assets from your Data Catalog
+Welcome to this **LiveLabs FastLab** workshop.
 
-## Introduction
-
-To build better loan products, SeersEquities’ data team must pull insights from everywhere—internal systems and external sources alike. But before they can transform that data, they need to find it. In this lab, you’ll step into that role. 
-
-You’ll use Oracle Autonomous Database's Catalog Tool to **discover, connect to, and query data** stored in cloud object storage and databases. By the end, you’ll have a single view across your data landscape—so you can spend less time hunting for data and more time using it to power smarter decisions.
+LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
 
 Estimated Time: 15 minutes
 
-[Walkthrough video](videohub:1_vl8obrud:medium)
+## FastLab Introduction
+
+### Prerequisites
+
+- An Oracle Autonomous AI Database
+
+    - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
 ### Objectives
+This workshop focuses on discovering and cataloging data assets in Oracle Autonomous AI Database. You will use the Catalog Tool to connect to cloud object storage and browse data across multiple sources from a single, unified view.
 
-* **Discover and browse data assets** across Autonomous Database and cloud object storage using the Catalog Tool
-
-* Set up **secure connections** to access and unify data from multiple sources
-
-* Query and explore data from a unified catalog to support faster, insight-driven decisions
+In this 15-minute FastLab, you'll help SeersEquities' data team find and preview loan data stored across databases and object storage. This lays the foundation for building better loan products.
 
 ### Prerequisites
 
@@ -26,6 +26,8 @@ Estimated Time: 15 minutes
     - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
 ## Task 1: Access Local Data Catalog | Database Actions
+
+Before SeersEquities can build better loan products, they need visibility into what data exists across their systems. The Catalog Tool provides a unified view of all data assets, including databases and cloud storage, so teams can find the right data without hunting through multiple systems.
 
 1. Open the **Navigation Menu** by clicking the hamburger icon in the top-left corner.
     ![OCI Console – Open Navigation Menu](./images/select-adb-open-navigation-menu.png "=50%x*")
@@ -39,7 +41,8 @@ Estimated Time: 15 minutes
 4. On database details page select **Database Actions** button and click on **View all database actions**
     ![OCI Console – Select Database Actions](./images/select-adb-select-database-actions.png "=50%x*")
 
-    **This opens the Database Actions Launchpad**, ***where you can access the built-in web-based tools, including Data Studio.***
+    This opens the Database Actions Launchpad, where you can access the built-in web-based tools, including Data Studio.
+
     ![OCI Console – Database Actions Launchpad](./images/select-adb-database-actions-launchpad.png "=50%x*")
 
 5. Click on **Data Studio**.  
@@ -50,11 +53,11 @@ Estimated Time: 15 minutes
 
     ![Access Local Data Catalog](./images/access-local-data-catalog-4.png "Access Local Data Catalog")  
 
->You’ve now unlocked a unified view of your data—no matter where it lives. With this foundation in place, you’re ready to explore, connect, and start building data products that drive real insights.
+You've now unlocked a unified view of your data, regardless of where it lives. With this foundation in place, you're ready to explore, connect, and start building data products that drive real insights.
 
-## Task 2: Add Connections to Catalog for Object Storage Buckets & Data Shares  
+## Task 2: Add Connections to Catalog for Object Storage Buckets & Data Shares
 
-🚀 Next, you’ll connect your catalog to a specific object storage bucket, so you can start exploring what’s inside.
+SeersEquities stores loan application files in cloud object storage. To access this data from your catalog, you need to create a connection. Once connected, the catalog can discover and display files alongside your database objects, giving you a complete view of available data assets.
 
 1. On the left rail of the Database Actions page, select **Data Load**.  
 
@@ -80,13 +83,15 @@ Estimated Time: 15 minutes
 
   Click the **Create** button to proceed.
 
-5. You’ve just added your own object storage connection to the Catalog, now you can easily discover, track, and query external data alongside your database assets. This step lays the foundation for building richer data products and speeding up access to the insights that matter.
+5. Verify the connection was created successfully.
 
-    ![Add Connections to Catalog](./images/add-connections-to-catalog-6.png "Add Connections to Catalog")  
+    ![Add Connections to Catalog](./images/add-connections-to-catalog-6.png "Add Connections to Catalog")
+
+You've added your own object storage connection to the Catalog. You can now easily discover, track, and query external data alongside your database assets. This lays the foundation for building richer data products.  
 
 ## Task 3: Search for items discovered by your Catalog  
 
-With your connections in place, it’s time to search the catalog. You’ll choose which schemas and entity types to display—so you can quickly find the data that matters.
+With your connections in place, it's time to search the catalog. You'll choose which schemas and entity types to display so you can quickly find the data that matters.
 
 1. On the left rail, select **Catalog**.  
 
@@ -104,11 +109,11 @@ With your connections in place, it’s time to search the catalog. You’ll choo
 
     ![Data Catalog Data Objects](./images/data-catalog-data-objects.png "Data Catalog Data Objects")
 
-By searching the Catalog with filters and schema selections, you’ve learned how to quickly surface the data that matters. This step helps you cut through clutter and find the right assets faster—so you can spend less time searching and more time building with data.
+By searching the Catalog with filters and schema selections, you've learned how to quickly surface the data that matters. This step helps you cut through clutter and find the right assets faster, so you can spend less time searching and more time building with data.
 
-## Task 4: Preview Data in Catalog  
+## Task 4: Preview Data in Catalog
 
-Preview the data discovered in the catalog. From this view, you’ll see the files available in your object storage buckets.
+Before loading data into your pipeline, you need to validate its structure and quality. The preview feature lets you inspect file contents directly from the catalog without loading them first, so you can quickly assess if the data meets your needs.
 
 1. Click the preview icon for the file named **LoanAppCustomer_segment.csv**.  
 
@@ -121,11 +126,11 @@ Preview the data discovered in the catalog. From this view, you’ll see the fil
    Click **Close** to return to Data Catalog listings  
 
 
-## Conclusion
+## Summary
 
-***Congratulations***, you have successfully completed the FastLab on working with Autonomous AI Lakehouse! In this lab, you discovered how to connect, browse, and preview data across your database and object storage—all from a single, unified catalog. You’ve built the foundation SeersEquities needs to turn scattered data into data products.
+Congratulations! You have successfully completed this FastLab on discovering and cataloging data with Autonomous AI Lakehouse. You learned how to connect, browse, and preview data across your database and object storage, all from a single, unified catalog.
 
-With these skills, you can now help the team evaluate new data faster, integrate it seamlessly, and drive smarter, real-time decisions that power better loan products and risk strategies.
+You've built the foundation SeersEquities needs to turn scattered data into data products. With these skills, the team can evaluate new data faster, integrate it seamlessly, and drive smarter decisions that power better loan products and risk strategies.
 
 ## Signature Workshop
 
