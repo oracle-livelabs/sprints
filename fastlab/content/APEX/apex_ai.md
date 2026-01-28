@@ -2,90 +2,137 @@
 
 Welcome to this **LiveLabs FastLab** workshop.
 
-LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
+LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with Oracle technologies. You will go from beginner to confident user in a short time.
 
 Estimated Time: 10 minutes
 
 ## FastLab Introduction
 
-This workshop focuses on using the AI-powered assistant in Oracle APEX to generate an application from natural language. You will create an application foundation and refine it using conversational prompts.
+This workshop focuses on using the AI-powered assistant in Oracle APEX to generate an application from natural language. You will create an application foundation and iteratively refine it using conversational prompts.
 
-In this 10-minute FastLab, you'll generate a working APEX application from a plain-English description and iterate on it without writing code.
+You will turn a plain-English description into a working APEX application while staying within standard APEX patterns and security.
 
 ### Prerequisites
 
-- An Oracle Autonomous Database
+- An Oracle Autonomous Database with Oracle APEX enabled
 
   - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
 
-## Task 1: Launch Oracle APEX App Builder
+- An APEX workspace with sample data available  
+  (for example, the WKSP_APEXLAB schema with customers, products, and orders data)
 
-1. From the Autonomous Database console, open **Database Actions**.
-2. Launch **Oracle APEX** and sign in to your workspace.
-3. Click **App Builder**.
+- A configured Generative AI service in APEX  
+  (OCI Generative AI or OpenAI)
 
-## Task 2: Start the APEX AI Application Generator
+> *Note: If the APEX Assistant is not available, ensure Generative AI is configured for the workspace.*
 
-The APEX AI Application Generator creates an application foundation using metadata, not custom code.
 
-1. Click **Create App**.
-2. Select **Generate App using AI**.
-3. Open the AI prompt panel.
+[JSON](videohub:1_ic97k4pb)
 
-## Task 3: Generate an Application from Natural Language
 
-Describe the application you want to build using plain English.
+## Task 1: Access Oracle APEX and Enter a Workspace
+
+1. Open the Oracle Autonomous Database console
+2. Scroll down and click the **APEX instance** link for your database
+3. Click on Launch APEX
+
+    ![Navigate to Directory](./images/apex_launch.png " ")
+4. Sign in to an existing APEX workspace or create one if prompted
+
+    ![Navigate to Directory](./images/apex_user.png " ")
+
+    ![Navigate to Directory](./images/apex_create_user.png " ")
+
+5. From the workspace home page, click **App Builder**
+
+    ![Navigate to Directory](./images/apex_app_bld.png " ")
+
+## Task 2: Start Application Creation with the APEX Assistant
+
+The APEX Assistant uses existing tables and views to infer application structure
+
+1. In App Builder, click **Create**
+
+    ![Navigate to Directory](./images/apex_click_create.png " ")
+
+2. In the Create Application page, select **Create APP Using Generative AI**
+
+    ![Navigate to Directory](./images/apex_create_gen.png " ")
+
+3. Confirm that sample data is available in the workspace, if not select one to use.
+
+    ![Navigate to Directory](./images/apex_sample.png " ")
+
+    ![Navigate to Directory](./images/apex_sel_sample.png " ")
+
+## Task 3: Describe the Application Using Natural Language
+
+Use a short natural-language prompt to describe the application.
 
 1. Enter the following prompt:
 
    ```
-   Create an application to track project requests.
-   Each request has a title, description, priority, status, requestor, and submission date.
-   Users should be able to submit, review, and update requests.
+   Create a modern, visually appealing application to manage customer orders.
+   Include pages to browse customers, products, and orders.
+   Use interactive, charts, and filters to make the app easy to use.
    ```
 
-2. Click **Generate**.
+    ![Navigate to Directory](./images/apex_prompt.png " ")
 
-APEX automatically creates the data model, pages, navigation, and sample data.
+2. Review the proposed application blueprint and click **Create Application**
 
-## Task 4: Review the Generated Application
+    ![Navigate to Directory](./images/apex_create_app.png " ")
 
-The generated application follows standard APEX patterns and remains fully editable.
+## Task 4: Create and Run the Application
 
-1. Review the data model created by APEX.
-2. Inspect the generated forms, reports, and navigation.
-3. Open the application and review the sample data.
+The assistant generates a complete application based on the prompt and available data.
 
-## Task 5: Refine the Application Using AI Prompts
+1. On the Create Application page, locate the Dashboard page and click **Edit**
 
-You can iteratively refine the application using follow-up prompts.
+    ![Navigate to Directory](./images/apex_edit_dashboard.png " ")
 
-1. Enter one or more of the following prompts:
+2. In the Add Dashboard Page dialog, update the Page Name to Dashboard. Click Set Icon and select an icon of your choice.
 
-   ```
-   Add a dashboard showing requests by status.
-   Add validation so priority is required.
-   Rename the application to Project Tracker.
-   ```
+    ![Navigate to Directory](./images/apex_select_icon.png " ")
 
-2. Apply the suggested changes.
+3. Under **Advanced**, enable **Set as Home Page** and click **Save Changes**
 
-The application updates without requiring a rebuild or manual rework.
+    ![Navigate to Directory](./images/apex_change_icon.png " ")
+
+4. Update the application name to **Order Management** and click on the app icon to select an Icon and color of your choice.
+
+    ![Navigate to Directory](./images/apex_icon.png " ")
+
+5. Click **Create Application**
+
+    ![Navigate to Directory](./images/apex_create.png " ")
+
+6. When the application is created, click **Run Application**
+
+    ![Navigate to Directory](./images/apex_run_app.png " ")
+
+7. Sign in using your APEX workspace credentials.
+
+    ![Navigate to Directory](./images/apex_login_detail.png " ")
+
+8. Explore the different pages and play around with the application.
+
+    ![Navigate to Directory](./images/apex_dashboard.png " ")
+
 
 ## Signature Workshop
 
 Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
-👉 [Build AI-Powered Apps with Oracle APEX](https://livelabs.oracle.com)
+👉 Click here to [Start the Signature Workshop](https://livelabs.oracle.com/ords/r/dbpm/livelabs/run-workshop?p210_wid=4270&p210_wec=&session=112960780569583)
 
 ## Learn More
 
 * [Oracle APEX Documentation](https://docs.oracle.com/en/database/oracle/apex/)
-* [Oracle APEX AI Assistant Blog](https://blogs.oracle.com/apex/coding-with-the-ai-powered-apex-assistant-on-oracle-apex)
+* [Coding with the AI-Powered APEX Assistant](https://blogs.oracle.com/apex/coding-with-the-ai-powered-apex-assistant-on-oracle-apex)
 * [Oracle LiveLabs](https://livelabs.oracle.com)
 
 ## Acknowledgements
 
-* **Author** – Oracle Database Product Management
-* **Last Updated By/Date** – September 2026
-
+* **Author** – Ley Sylvester
+* **Last Updated By/Date** – January 2026
