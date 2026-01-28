@@ -4,11 +4,11 @@
    "tutorials":
    [
        {
-           "title": "FastLab 1: Discover and View your Data Assets from Autonomous AI Data Catalog",
+           "title": "FastLab 1: Discover Data Assets with the Autonomous AI Database Data Catalog",
            "filename":"discover-and-catalog.md"
        },
        {
-           "title": "FastLab 2: Build a Data Pipeline: Load & Transform Data",
+           "title": "FastLab 2: Build a Live Feed Data Pipeline",
            "filename":"load-transform.md"
        }
    ]

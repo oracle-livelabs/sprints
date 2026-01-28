@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Deploy Oracle AI Database Free Container",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Deploy Oracle AI Database Free Container with Podman",
+            "filename": "aidbfreecontainer.md"
+        }
+    ]
+}

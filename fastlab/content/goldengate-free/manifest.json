@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Deploy GoldenGate Free and Oracle AI Database Free",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Deploy GoldenGate Free and Oracle AI Database Free on OCI Compute",
+            "filename": "goldengate-free.md"
+        }
+    ]
+}

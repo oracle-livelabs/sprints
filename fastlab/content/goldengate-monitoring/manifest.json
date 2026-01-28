@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Transaction Monitoring with GoldenGate",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Transaction Monitoring with GoldenGate Free",
+            "filename": "goldengate-monitoring.md"
+        }
+    ]
+}
