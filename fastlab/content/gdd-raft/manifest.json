@@ -1,0 +1,15 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Use Raft Replication with Distributed Database for Resilient Never Down Apps",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+    {
+      "title": "FastLab - Introduction",
+      "description": "FastLab - Use Raft Replication with Distributed Database for Resilient Never Down Apps",
+      "filename": "../../intro/intro.md"
+    },
+    {
+        "title": "FastLab - Demo UI Application for Raft Replication",
+        "filename": "../../ui-app/raft-demo-ui-app.md"
+    }
+  ]
+}
