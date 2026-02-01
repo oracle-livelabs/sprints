@@ -232,4 +232,4 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Principal Product Manager, Database Product Management
-* **Last Updated By/Date** - Linda Foinding, December 2025
+* **Last Updated By/Date** - Linda Foinding, January 2026
