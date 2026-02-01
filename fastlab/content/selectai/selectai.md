@@ -244,6 +244,33 @@ You have successfully completed the Oracle AI Database Select AI FastLab.
 
 You can now ask natural language questions against a real Oracle database, see the SQL that Select AI generates, and start turning ad hoc questions into reusable SQL for your own projects.
 
+## Test Your Knowledge
+
+Test your knowledge of the SelectAI FastLab:
+```quiz
+    Q: What is the primary purpose of Select AI in the Oracle Autonomous AI Database?
+    * To interact with data using natural language
+    - To manually write complex SQL code 
+    - To manage physical database hardware
+    - To replace the database administrator
+    > Select AI allows users to interact with data using natural language instead of traditional SQL syntax.
+   
+    Q: Which specific technology does Select AI use to turn plain English into database queries?
+    - Synthetic Data Generation
+    * Natural Language to SQL (NL2SQL)
+    - Manual Data Entry
+    - Image Recognition
+    > The core technology focused on in the sources is Natural Language to SQL (NL2SQL), which translates plain text into database queries
+
+    Q: Which action allows you to see the generated SQL and understand how a query was constructed? 
+    - Summarize
+    - Narrate
+    * Explain (or showsql)
+    - Delete
+    > Users can use explain or showsql to see the generated SQL and receive a detailed breakdown of how the query was constructed
+    ```
+
+
 ## Next Steps
 
 You have now seen how Select AI turns natural language into SQL on a simple movie dataset. To build on this FastLab, consider:
