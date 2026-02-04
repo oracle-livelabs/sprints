@@ -26,7 +26,7 @@ Seer Group's fraud analysts work directly with SQL to investigate suspicious act
 
 1. In the ADB Console, click **Database Actions** and select **SQL**.
 
-    ![OCI](./images/sql.png " ")
+    ![OCI](./images/graph1.png " ")
 
 ## Task 2: Create Tables for Banking Data
 
@@ -227,9 +227,8 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 ## Learn More
 
-* [Oracle AI Database Graph Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spgdg/)
-* [Property Graph Queries in SQL](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/GRAPH-TABLE.html)
-* [Oracle Graph Analytics](https://www.oracle.com/database/technologies/graph-analytics.html)
+* [Oracle AI Database Graph Documentation](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/graph-autonomous-database.html)
+* [Property Graph Queries in SQL](https://docs.oracle.com/en/database/oracle/property-graph/23.2/spgdg/sql-property-graphs.html)
 * [Try Oracle Autonomous AI Database Free](https://www.oracle.com/autonomous-database/free-trial/)
 
 ## Acknowledgements
