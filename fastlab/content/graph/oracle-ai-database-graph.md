@@ -12,6 +12,8 @@ Seer Group is a conglomerate spanning multiple vertical industries including fin
 
 This workshop focuses on working with property graphs in Oracle AI Database. You will create a graph from two tables containing bank account and transaction data. You will then run graph pattern queries in SQL to find circular payment chains and multi-hop paths—the kind of hidden connections that reveal fraud rings.
 
+[JSON](videohub:1_tap06zvk)
+
 ### Prerequisites
 
 - An Oracle Autonomous AI Database
@@ -232,4 +234,4 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Principal Product Manager, Database Product Management
-* **Last Updated By/Date** - Linda Foinding, January 2026
+* **Last Updated By/Date** - Linda Foinding, February 2026
