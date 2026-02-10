@@ -21,7 +21,7 @@ Leverage Autonomous AI Lakehouse Data Studio Tools to Build a Live Feed Data Pip
 ### Prerequisites
 
   This lab assumes you have:
-  * **Completed Lab 1 --> Task 1 and 2** which creates the catalog connection to the public object storage bucket named **LOANAPP\_LAB\_FILES**
+  * **Completed Lab 1 --> Task 1 and 2** which **opens the** ***Database Actions tab*** and **creates a** ***catalog connection*** to the public object storage bucket named **LOANAPP\_LAB\_FILES**
 
 ## Task 1: Prepare to Build a Live Feed Data Pipeline: 
 
@@ -77,8 +77,10 @@ Leverage Autonomous AI Lakehouse Data Studio Tools to Build a Live Feed Data Pip
 
   1. ***Return to Database Actions Tab*** so that you download the **funding\_commitments1.json** and **funding\_commitments2.json** lab files from the **LOANAPP\_LAB\_FILES** bucket.
 
-    - If you stil have your tab open from Lab 1, then  **proceed to step 2**
-    - If you closed the tab, no worries: **Do the following to open Database Actions**
+    - ***If you stil have your tab open from Lab 1***, then  **proceed to step 2**
+    - ***If you closed the tab, no worries:*** **Follow instructions for Lab 1 --> Task 1 --> till step 6 to open Database Actions**
+
+     ![Database Actions Catalog Data Objects](./images/database-actions-catalog-data-objects.png "")
 
   2. Access the **funding\_commitments1.json** lab file from the **LOANAPP\_LAB\_FILES** bucket
 
