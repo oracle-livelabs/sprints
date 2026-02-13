@@ -1,0 +1,62 @@
+You are operating with filesystem access.
+
+Your task is to apply the gamification rules defined in gamification-rules.md to an entire
+Oracle LiveLabs repository in a safe, deterministic way.
+
+SOURCE OF TRUTH
+- gamification-rules.md is the single authoritative rules engine.
+- Do not invent or infer rules that are not explicitly defined there.
+
+SCOPE
+1. Recursively scan this repository.
+2. Identify all Markdown lab files.
+3. Classify each lab as one of:
+   - FastLab
+   - MegaLab
+   - Signature Lab
+4. Skip:
+   - README files
+   - index files
+   - rules.md itself
+   - non-lab documentation
+
+PROCESS (FOR EACH LAB)
+1. Read the original lab content fully.
+2. Preserve all existing instructional content verbatim.
+3. Apply gamification rules deterministically:
+   - Insert quizzes according to lab type.
+   - Use the required quiz Markdown syntax exactly.
+   - Apply badge logic only where permitted.
+4. Place quizzes only at valid boundaries:
+   - End of lab (Fast Labs)
+   - End of major sections (Mega Labs)
+5. Do not insert quizzes mid-task, mid-code, or before hands-on work.
+6. Do not introduce certification language.
+
+BADGE HANDLING
+- If badge files exist, reference them using relative paths.
+- If badge files do not exist, skip badge display without error.
+
+SOCIAL SHARING
+- Add optional LinkedIn sharing prompts only after successful completion.
+- Do not add social prompts to failure states.
+
+SAFETY RULES
+- Do not delete files.
+- Do not rename files.
+- Do not modify non-lab files.
+- Do not change headings, steps, or code blocks.
+- If a lab is ambiguous, default to:
+  - Fewer questions
+  - End-of-lab placement
+  - No badge tiering
+
+OUTPUT
+1. Rewrite lab files in place.
+2. After processing, produce a summary that includes:
+   - Total labs processed
+   - How many were classified as Fast vs Mega
+   - Where quizzes were added
+   - Any labs skipped and why
+
+BEGIN by asking me to confirm the repository root directory before making changes.

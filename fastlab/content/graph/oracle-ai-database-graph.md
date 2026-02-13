@@ -12,6 +12,8 @@ Seer Group is a conglomerate spanning multiple vertical industries including fin
 
 This workshop focuses on working with property graphs in Oracle AI Database. You will create a graph from two tables containing bank account and transaction data. You will then run graph pattern queries in SQL to find circular payment chains and multi-hop paths—the kind of hidden connections that reveal fraud rings.
 
+[JSON](videohub:1_tap06zvk)
+
 ### Prerequisites
 
 - An Oracle Autonomous AI Database
@@ -23,6 +25,8 @@ This workshop focuses on working with property graphs in Oracle AI Database. You
 Seer Group's fraud analysts work directly with SQL to investigate suspicious activity. Database Actions provides a browser-based SQL environment where you can run queries against your Autonomous Database without installing any tools.
 
 1. In the ADB Console, click **Database Actions** and select **SQL**.
+
+    ![OCI](./images/graph1.png " ")
 
 ## Task 2: Create Tables for Banking Data
 
@@ -41,6 +45,8 @@ Seer Group's finance division stores customer accounts and transaction history i
    </copy>
    ```
 
+  ![OCI](./images/graph2.png " ")
+
 2. Create the `bank_transfers` table to store transfer relationships.
 
    ```sql
@@ -58,6 +64,8 @@ Seer Group's finance division stores customer accounts and transaction history i
    </copy>
    ```
 
+   ![OCI](./images/graph3.png " ")
+
 ## Task 3: Insert Sample Data
 
 This sample data simulates a fraud investigation scenario. Russell Rivera is a person of interest, and the transfers create a chain of money movement: Russell → Alice → Bob → Charlie. Fraud analysts need to trace these indirect connections to understand how money flows through intermediaries.
@@ -74,6 +82,8 @@ This sample data simulates a fraud investigation scenario. Russell Rivera is a p
    </copy>
    ```
 
+  ![OCI](./images/graph4.png " ")
+
 2. Insert sample transfers to create connections (e.g., Russell -> Alice -> Bob -> Charlie).
 
    ```sql
@@ -86,6 +96,8 @@ This sample data simulates a fraud investigation scenario. Russell Rivera is a p
    </copy>
    ```
 
+  ![OCI](./images/graph5.png " ")
+
 3. Verify the data.
 
    ```sql
@@ -95,6 +107,8 @@ This sample data simulates a fraud investigation scenario. Russell Rivera is a p
    SELECT * FROM bank_transfers;
    </copy>
    ```
+
+![OCI](./images/graph6.png " ")
 
 ## Task 4: Create a Property Graph
 
@@ -121,6 +135,8 @@ Traditional SQL requires complex self-joins to trace multi-hop transfers—and p
    </copy>
    ```
 
+  ![OCI](./images/graph7.png " ")
+
 ## Task 5: Query the Graph to Uncover Connections
 
 Now for the payoff: finding hidden connections. Using `GRAPH_TABLE`, fraud analysts can ask questions like "Who received money from Russell Rivera within 3 transfers?" This type of query would require multiple self-joins in traditional SQL, but graph queries express it naturally and execute efficiently.
@@ -141,6 +157,8 @@ Now for the payoff: finding hidden connections. Using `GRAPH_TABLE`, fraud analy
    );
    </copy>
    ```
+  
+  ![OCI](./images/graph8.png " ")
 
 2. Advanced query: Find accounts connected to Russell Rivera within 1-3 hops (as in the use case).
 
@@ -159,7 +177,23 @@ Now for the payoff: finding hidden connections. Using `GRAPH_TABLE`, fraud analy
    </copy>
    ```
 
+  ![OCI](./images/graph9.png " ")
+
+
    This reveals indirect connections, such as paths through Alice or directly to Bob, in milliseconds—impossible with traditional SQL joins for deeper traversals.
+
+3. Clean-up tables and components created
+
+ ```sql
+  <copy>
+  -- Task 5: Drop all tables created
+  DROP property graph bank_graph;
+  DROP table bank_transfers cascade constraints;
+  DROP table bank_accounts cascade constraints;
+  <copy>
+  ```
+
+  ![OCI](./images/graph10.png " ")
 
 ## Summary
 
@@ -193,11 +227,10 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 ## Learn More
 
-* [Oracle AI Database Graph Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/23/spgdg/)
-* [Property Graph Queries in SQL](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/GRAPH-TABLE.html)
-* [Oracle Graph Analytics](https://www.oracle.com/database/technologies/graph-analytics.html)
+* [Oracle AI Database Graph Documentation](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/graph-autonomous-database.html)
+* [Property Graph Queries in SQL](https://docs.oracle.com/en/database/oracle/property-graph/23.2/spgdg/sql-property-graphs.html)
 * [Try Oracle Autonomous AI Database Free](https://www.oracle.com/autonomous-database/free-trial/)
 
 ## Acknowledgements
 * **Author** - Linda Foinding, Principal Product Manager, Database Product Management
-* **Last Updated By/Date** - Linda Foinding, December 2025
+* **Last Updated By/Date** - Linda Foinding, February 2026
