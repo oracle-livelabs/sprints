@@ -1,0 +1,15 @@
+{
+   "workshoptitle": "LiveLabs FastLab - Autonomous AI Lakehouse",
+   "help": "livelabs-help-database_us@oracle.com",
+   "tutorials":
+   [
+       {
+           "title": "FastLab 1: Create Thin Clone PDB on Exadata Exascale",
+           "filename":"create-thin-clone-pdb-on-exascale.md"
+       },
+       {
+           "title": "FastLab 2: Scale Exascale Storage Vault Resources",
+           "filename":"scale-exascale-storage-vault-resources-using-oci-console.md"
+       }
+   ]
+}
