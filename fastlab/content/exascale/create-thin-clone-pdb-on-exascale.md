@@ -1,29 +1,19 @@
-# Create Thin Clone of an Oracle Pluggable Database (PDB) leveraging Exadata Exascale Technology
-
-
-## Introduction
-
-This lab walks you through how to create a thin cloned Oracle Pluggable Database of a Pluggable Database that is created on Exadata Exascale Infrastructure.
- 
-  * For Pluggable Databases created on the Exadata Database Service on Exascale Infrastructure (**ExaDB-XS**), you can clone an Oracle Pluggable Database as a standard **clone** or as a **thin clone** (***unique to ExaDB-XS***). 
-  * A PDB **clone** is an independent and complete copy of the given database as it existed at the time of the cloning operation. 
-  * A PDB **thin clone** is a special type of the Local Clone, that leverages the Exascale redirect-on-write technology, that allows the thin clone PDB to share unchanged storage blocks with the parent PDB. This results in the fast creation of the thin cloned PDB with reduced space consumption.
-
- * ***The following types of clones are supported:*** 
-    * ***Local Clone***: A full copy of the PDB that is created within the same CDB. 
-    * ***Thin Clone***: A thin clone copy of the PDB that is created within the same CDB (***Option Only avaiable for Local Clones***). 
-    * ***Remote Clone***: A full copy of the PDB that is created in a different CDB. 
-    * ***Refreshable Clone***: A refreshable clone enables you to keep your remote clone updated with the source PDB. The only open mode you can have is read-only and refresh cannot be done while it is in read-only mode. 
-   
+# Create a Snapshot and Thin Clone of an Oracle Pluggable Database (PDB) leveraging Exadata Exascale Technology
 
 **Estimated Time:** ***10 minutes***
+
+## FastLab Introduction
+
+Users can create pluggable database (PDB) snapshots for Exadata Database Service on Exascale Infrastructure. When using Oracle AI Database 26ai on Exadata Database Service on Exascale Infrastructure, you can now create point-in-time snapshots at the PDB level for future use. The snapshots can later be used to efficiently facilitate dev and test environments or to efficiently provide a point-in-time view of PDB data. These PDB snapshots leverage Exascale redirect-on-write technology so that they are created quickly, consume little storage space upon initial creation, and can be created in practically unlimited numbers. This exciting feature is an important enhancement for dev and test environments and enhances operational agility and developer productivity.
+   
 
 Watch the video below for a quick walk-through of the lab.
   [Create a Thin Clone PDB on ExaDB-XS](youtube:"Place Holder")
 
 ### **Objectives**
 
--   After completing this lab, you should be able to navigate to your VM Cluster, locate your desired Container Database, and create a thin cloned Oracle Pluggable Database on the Exadata Database Service on Exascale Infrastructure using the OCI Console.
+- Create a pluggable database (PDB) snapshot in Oracle Exadata Database Service on Exascale Infrastructure.
+- Thin clone a PDB snapshot.
 
 
 ### **Prerequisites**
@@ -31,66 +21,76 @@ Watch the video below for a quick walk-through of the lab.
 This lab requires the completion of the following:
 
 * Successful creation of a VM Cluster on Exadata Database Service on Exascale Infrastructure.
-* Successful creation of Container Database on the VM Cluster, which will also includes the initial PDB.
+* Successful creation of Container Database on the VM Cluster, which will also includes the initial Pluggable Database.
 
-## Task 1: Create a Thin Clone PDB using OCI Console
+## Task 1: Create a Pluggable Database (PDB) Snapshot
 
-1. Navigate to the Exadata Database Service on Exascale Infrastructure using OCI Console
 
-    * Open the **navigation menu** and click ***Oracle Database***. 
-    * Under **Oracle Database**, click ***Oracle Database Service on Exascale Infrastructure***.
-  ![Navigate from OCI Console to ExaDB-XS](./images/console-to-exadb-xs.png " ") 
-    * **Note:** This will cause the **VM Clusters** page to be displayed.
+1. Open the navigation menu. Under **Oracle Database**, click **Exadata Database Service on Exascale Infrastructure**.
 
-2. Navigate to your Compartment and VM Cluster
+   ![Navigate to Exascale page using the console](./images/navigate-oci-console.png "Navigate to Exascale page using the console")
 
-    * On the left rail, ensure that **VM Clusters** is selected (default selection). 
-    * For the **List Scope**, select your assigned compartment named ***MyCompartmentXX***. 
-    * In the list of displayed VM clusters, click on the name of your **Assigned VM Cluster** named ***MyDemoVMClusterXX***.
-  ![Navigate to Compartment and VM Cluster](./images/select-compartment-and-mydemo-vm-cluster.png " ")
-    * **Note:** This will cause the **VM Cluster Details** page to be displayed.
+2. Select your **Region** and your **compartment** from the applied filter to navigate to your **Exascale VM Cluster**. Click the name of your  VM Cluster to open the **VM Cluster** page.
+   
+   ![Navigate to the VM Cluster page](./images/select-vm-cluster.png "Navigate to the VM Cluster page")
 
-3. Navigate from the VM Cluster to the Container Database (CDB)
+3. On the **VM Clusters** page, select the **Container Databases** tab, then click the Container Database (CDB) that contains the Pluggable Database (PDB) for which you want to create the snapshot. 
 
-    * On the left rail under the **Resources** section, click on ***Container Databases***, 
-    * In the list of Container Databases diplayed, click on the name of the Container Database whose PDB we will create a thin clone of. Click on ***MyDemoDB***. 
-  ![Navigate from VM Cluster to Container Database (CDB)](./images/mydemo-vm-cluster-details-page-to-cdb.png " ")
-    * **Note:** This will cause the **Container Database Details** page to be displayed.
+   ![Image showing create CDB](./images/select-cdb.png "Image showing create CDB")
 
-4. Navigate from CDB to Pluggable Database (PDB)
+   In the Database page, Navigate to the **Pluggable Databases** tab and select the Pluggable Database you want to create a snapshot of.
 
-    * On the left rail under the **Resources** section, click on ***Pluggable Databases***. 
-    * From the list of available Pluggable Databases displayed, click on the name of the Pluggable Database we will create a thin clone of. Click on ***MyPDB01***. 
-  ![Navigate from CDB to Pluggable Database (PDB)](./images/navigate-cdb-to-pdb.png " ")
-    * **Note:** This will cause the **Pluggable Database Details** page to be displayed.
+   ![Image showing PDB](./images/navigate-pdb.png "Image showing PDB")
 
-5. Initiate the **Clone** Pluggable Database action
 
-    * On the **Pluggable Database Details** page, initiate the Clone PDB action by clicking on the ***Clone*** action button.
-  ![Initiate Clone Pluggable Database Action](./images/pdb-details-clone-pdb.png " ")
-    * **Note:** This will cause the **Clone Pluggable Database** configuration page to be displayed.
+4. From the PDB main page, under the **Exascale PDB snapshot** tab, click **Create Exascale PDB Snapshot**.
 
-6. Configure Clone PDB options and check the box to **Enable Thin Clone**
+   ![Image showing to create Exascale PDB snapshot](./images/select-create-snapshot.png "Image showing to create Exascale PDB snapshot")
+   
 
-    * In the **Clone Pluggable Database** configuration page, select the PDB Clone type. Select ***Local Clone***.
-    * Provide the information to configure the new PDB. 
-        * For the **PDB Name** enter: ***ThinPDB1***
-        * For the **Database TDE wallet password** enter: ***Pass4OCW24Student-#***
-        * For this lab we will defer the initial PDB backup by ***unchecking the box*** to **Take a backup of the PDB immediately after cloning**
-        * Next, ensure to ***check the box*** to **Enable Thin Clone**
-        * Click on the ***Create Pluggable Database*** button to start the clone provisioning process.
-  ![Configure Clone options and check box to Enable Thin Clone](./images/configure-pdb-thin-clone.png " ")
-    * **Note:** that the thin PDB clone will be created and presented as a new PDB.
-  ![New Thin Clone PDB Details page](./images/available-pdb-thin-clone-details-page.png " ")
+5. Enter a name for the snapshot and click **Create**.
+   
+   ![Image showing to enter Exascale PDB snapshot name](./images/enter-snapshot-name.png "Image showing to enter Exascale PDB snapshot name")
 
-7. List all of the PDBs in the Container Database (CDB). 
 
-    * From the **Pluggable Database Details** page, select the ***Container Database Details*** link in the breadcrumb path at the top of the page.
-    * **Note:** that this will cause the **Container Database Details** page to be displayed.
-  ![List Thin Clone PDB from CDB](./images/list-pdb-thin-clone-from-cdb.png " ")
-    * On the left rail under the **Resources** section, click on ***Pluggable Databases***. 
-    * **Note:** that this will cause a list of available Pluggable Databases to be displayed and that the Thin Clone PDB is listed, as just another PDB.
-    
+6. As the snapshot is being created, it will appear itemized under the **Exascale PDB snapshot** tab on the parent PDB page.
+
+   ![Image showing to navigate to created exascale pdb snapshot](./images/navigate-snapshot-menu.png "Image showing to navigate to created exascale pdb snapshot")
+
+   > **Note**: Once the snapshot has been created, it serves as a point-in-time view of the data state that can be cloned in the future. Snapshots leverage Exascale redirect-on-write technology and consume very little storage upon initial creation. As data in the parent PDB continue to change, the snapshot will grow in size in order to keep track of the data changes so that the snapshot can maintain the former point in time accurately. Note that the snapshot itself cannot be directly used, instead, it simply maintains the state of the data from the point of time when it was created. To use the snapshot, you must clone it.
+   
+
+## Task 2: Thin Clone a PDB Snapshot
+
+Now that you have created a snapshot, you can use it to provision thin clones. Thin clones are space efficient because unchanged blocks are shared between the snapshot and the thin clone without being duplicated. Aside from the starting point, the user experience for creating a clone from a snapshot parallels the familiar user experience of directly cloning a PDB. PDB clones that originate from a snapshot behave the same as any other PDB and can be used normally.
+
+ 
+
+1. From the snapshot you created previously, click the three-dot icon **actions** menu and Select **Clone from snapshot**. 
+   
+   ![Image showing to clone from snapshot](./images/clone-from-snapshot.png "Image showing to clone from snapshot")
+   
+2. Configure clone PDB options and complete all the required fields for creating a new PDB in the **Clone from snapshot** page.
+   
+   In the **Clone Pluggable Database** configuration page, select ***Local Clone*** as PDB clone type.
+
+   ![Image showing to clone from snapshot](./images/clone-from-snapshot-option.png "Image showing to clone from snapshot")
+
+   Enter the information to configure the new PDB.
+
+      * Enter the **PDB Name**
+      * Enter the password for **Database TDE Wallet password**
+   
+   Select ***Enable Thin Clone***. Enable Thin Clone checkbox will be checked by default. Unchecking this box will create a thick clone instead of a thin clone of a pluggable database.
+
+   ![Image showing to clone from snapshot](./images/clone-from-snapshot-required-fields.png "Image showing to clone from snapshot")
+
+   
+3. Click **Clone** to start the clone provisioning process. Once provisioned, the new clone appears along with all other PDBs associated with the corresponding Container Database (CDB).
+   
+   ![Image showing list of PDB with the new clone](./images/thin-clone-itemized.png "Image showing list of PDB with the new clone")
+
+   The clone can then be given to a developer or a test team to use. The snapshot can be cloned multiple times in order to give the same data state to multiple individuals or teams to be used independently.    
     
 ***Congratulations!!!*** You may now **proceed to the next lab**. 
 
@@ -112,6 +112,6 @@ This workshop contains labs that dive deeper into working with Oracle Exadata Da
 
 ## Acknowledgements
 
-* **Author** - Eddie Ambler, Leo Alvarado, Product Management
+* **Author** - Leo Alvarado, Tammy Bednar Product Management
 
-* **Last Updated By** - Eddie Ambler, Product Management, July 2024.
+* **Last Updated By** - Leo Alvarado, Product Management, Feb 2026.
