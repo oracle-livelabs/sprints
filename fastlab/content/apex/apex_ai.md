@@ -10,7 +10,7 @@ Estimated Time: 10 minutes
 
 This workshop focuses on using the AI-powered assistant in Oracle APEX to generate an application from natural language. You will create an application foundation and iteratively refine it using conversational prompts.
 
-You will turn a plain-English description into a working APEX application while staying within standard APEX patterns and security.
+You will turn a natural-language description into a working APEX application while staying within standard APEX patterns and security.
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ You will turn a plain-English description into a working APEX application while 
 > *Note: If the APEX Assistant is not available, ensure Generative AI is configured for the workspace.*
 
 
-[JSON](videohub:1_ic97k4pb)
+[APEX AI](videohub:1_ic97k4pb)
 
 
 ## Task 1: Access Oracle APEX and Enter a Workspace
@@ -71,13 +71,13 @@ Use a short natural-language prompt to describe the application.
 
 1. Enter the following prompt:
 
-   ```
-   Create a modern, visually appealing application to manage customer orders.
-   Include pages to browse customers, products, and orders.
-   Use interactive, charts, and filters to make the app easy to use.
-   ```
+    ```
+    Create a modern, visually appealing application to manage customer orders.
+    Include pages to browse customers, products, and orders.
+    Use interactive, charts, and filters to make the app easy to use.
+    ```
 
-    ![Navigate to Directory](./images/apex_prompt.png " ")
+     ![Navigate to Directory](./images/apex_prompt.png " ")
 
 2. Review the proposed application blueprint and click **Create Application**
 
@@ -135,4 +135,4 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 ## Acknowledgements
 
 * **Author** – Ley Sylvester
-* **Last Updated By/Date** – January 2026
+* **Last Updated By/Date** – Ley Sylvester, February 2026
