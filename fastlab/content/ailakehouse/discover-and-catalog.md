@@ -11,7 +11,7 @@ The Autonomous AI Database Catalog allows you have a single view of your enterpr
 
 Estimated Time: 15 minutes
 
-[Walkthrough video](videohub:1_vl8obrud:medium)
+[FastLab Intro video](videohub:1_vl8obrud:medium)
 
 ### Objectives
 
@@ -26,6 +26,10 @@ Estimated Time: 15 minutes
 - An Oracle Autonomous AI Database
 
     - Check our [LiveLabs FastLab - Create an Autonomous AI Database. Fast!](https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4276)
+
+### Video Walkthrough
+
+[Create ADB](https://videohub.oracle.com/media/LiveLabs+FastLab+-+Autonomous+AI+Lakehouse/1_e8mdcokq)
 
 ## Task 1: Access Local Autonomous AI Database Catalog | Database Actions
 
