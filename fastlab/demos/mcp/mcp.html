@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oracle MCP Server for AI Database</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+    background:linear-gradient(to bottom right,#f8fafc,#e2e8f0);
+    min-height:100vh;color:#1f2937;
+  }
+  .header{background:linear-gradient(to right,#0f766e,#115e59);color:#fff;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,.1)}
+  .header-content{max-width:1400px;margin:0 auto}
+  .header-title{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .header-title h1{font-size:28px;font-weight:700}
+  .header-subtitle{color:#99f6e4;font-size:14px}
+  .problem-banner{background:#fff3cd;border:2px solid #ffc107;padding:12px;border-radius:8px;margin:16px auto;max-width:1400px;display:flex;align-items:center;gap:8px}
+  .problem-text{font-size:16px;color:#856404;font-weight:600}
+  .container{max-width:1400px;margin:0 auto;padding:20px}
+
+  .button-group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .btn{padding:10px 16px;border-radius:8px;border:2px solid transparent;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;min-height:42px;color:#fff;position:relative}
+  .btn:disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+  .btn:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .btn-teal{background:#0d9488}.btn-teal:hover{background:#0f766e}
+  .btn-purple{background:#9333ea}.btn-purple:hover{background:#7c3aed}
+  .btn-blue{background:#2563eb}.btn-blue:hover{background:#1d4ed8}
+  .btn-green{background:#16a34a}.btn-green:hover{background:#15803d}
+  .btn-gray{background:#e5e7eb;color:#374151}.btn-gray:hover{background:#d1d5db}
+  .btn.active-btn{border:2px solid #1f2937;box-shadow:0 0 0 2px rgba(13,148,136,.3)}
+  .btn.completed::before{content:'✓ '}
+  .btn.next-hint::after{content:'';position:absolute;inset:-4px;border-radius:10px;border:2px solid rgba(13,148,136,0);animation:btnPulse 1.6s cubic-bezier(0.45,0,0.55,1) infinite}
+  @keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(13,148,136,.45);border-color:rgba(13,148,136,.35)}70%{box-shadow:0 0 0 12px rgba(13,148,136,0);border-color:rgba(13,148,136,.1)}100%{box-shadow:0 0 0 0 rgba(13,148,136,0);border-color:rgba(13,148,136,0)}}
+
+  .main-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:20px}
+  @media(max-width:1100px){.main-grid{grid-template-columns:1fr}}
+  .panel{background:#fff;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,.1);overflow:hidden;display:flex;flex-direction:column}
+  .panel-header{background:#1f2937;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+  .panel-content{padding:16px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px}
+
+  .mode-indicator{display:none;background:#f0f9ff;border:2px solid #0284c7;padding:12px;border-radius:8px}
+  .mode-indicator.mode-problem{background:#ccfbf1;border-color:#0d9488}
+  .mode-indicator.mode-sqlcl{background:#f3e8ff;border-color:#9333ea}
+  .mode-indicator.mode-schema{background:#dbeafe;border-color:#2563eb}
+  .mode-indicator.mode-secure{background:#f0fdf4;border-color:#16a34a}
+  .mode-indicator.active{display:block}
+  .mode-title{font-size:16px;font-weight:700;margin-bottom:2px}
+  .mode-description{font-size:13px;color:#6b7280}
+
+  .explain{display:none;background:#ffffff;border:2px solid #e5e7eb;padding:14px;border-radius:10px}
+  .explain.active{display:block}
+  .explain h3{font-size:14px;margin-bottom:8px}
+  .explain p{font-size:13px;color:#374151;line-height:1.5}
+  .explain ul{margin-top:6px;padding-left:0;list-style:none}
+  .explain ul li{font-size:13px;color:#374151;padding:4px 0;line-height:1.4}
+  .explain ul li::before{content:'✓';color:#10b981;font-weight:700;margin-right:8px}
+  .explain small{display:block;margin-top:8px;color:#6b7280;font-size:12px}
+  .explain .tension{font-size:13px;color:#374151;background:#f1f5f9;border-left:3px solid #94a3b8;padding:8px 10px;border-radius:4px;margin-bottom:8px}
+  .explain .resolution{font-size:13px;color:#065f46;background:#ecfdf5;border-left:3px solid #10b981;padding:8px 10px;border-radius:4px}
+
+  .explain-confirm{display:none;margin-top:8px;font-size:13px;background:#ecfdf5;border-left:3px solid #10b981;padding:8px 10px;border-radius:6px;color:#065f46}
+  .explain-confirm.active{display:block}
+
+  /* ── Terminal ── */
+  .terminal{background:#1e1e2e;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.3);margin-bottom:12px;font-family:'Courier New',Courier,monospace}
+  .terminal-bar{background:#2d2d3f;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #3a3a4f}
+  .t-dot{width:10px;height:10px;border-radius:50%}
+  .t-red{background:#ff5f57}.t-yellow{background:#febc2e}.t-green{background:#28c840}
+  .terminal-label{color:#8b8ba8;font-size:11px;margin-left:6px;font-family:sans-serif}
+  .terminal-body{padding:14px;font-size:11px;line-height:1.75;color:#cdd6f4}
+  .t-comment{color:#6272a4}
+  .t-key{color:#89dceb}
+  .t-val{color:#a6e3a1}
+  .t-str{color:#f9e2af}
+  .t-fn{color:#cba6f7}
+  .t-dim{color:#6272a4}
+  .t-warn{color:#f38ba8}
+  .t-bright{color:#ffffff;font-weight:600}
+  .t-row{opacity:0;transform:translateY(4px);animation:rowIn .35s ease-out forwards}
+  @keyframes rowIn{to{opacity:1;transform:translateY(0)}}
+
+  /* ── Tool badge ── */
+  .tool-badge{display:inline-flex;align-items:center;gap:6px;background:#2d2d3f;border:1px solid #4a4a6a;border-radius:6px;padding:5px 10px;font-size:11px;font-family:sans-serif;color:#cba6f7;font-weight:600;margin-bottom:8px}
+
+  /* ── Info cards ── */
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .info-card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px}
+  .info-card-label{font-size:10px;color:#6b7280;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+  .info-card-value{font-size:16px;font-weight:700;color:#0d9488}
+  .info-card-sub{font-size:10px;color:#6b7280;margin-top:2px}
+
+  /* ── Schema table ── */
+  .schema-table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px}
+  .schema-table thead tr{background:#f3f4f6}
+  .schema-table th{padding:6px 8px;text-align:left;font-weight:600;color:#374151;border-bottom:2px solid #e5e7eb}
+  .schema-table td{padding:5px 8px;border-bottom:1px solid #f0f0f0;color:#374151}
+  .badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:9px;font-weight:700}
+  .badge-pk{background:#dbeafe;color:#1e40af}
+  .badge-fk{background:#f3e8ff;color:#7c3aed}
+  .badge-idx{background:#dcfce7;color:#166534}
+
+  /* ── SQL results ── */
+  .sql-result{width:100%;border-collapse:collapse;font-size:10px;margin-top:6px}
+  .sql-result th{background:#1e1e2e;color:#89dceb;padding:5px 8px;text-align:left;font-weight:600}
+  .sql-result td{background:#252535;color:#cdd6f4;padding:4px 8px;border-top:1px solid #3a3a4f}
+
+  /* ── Token stat callout (big) ── */
+  .token-stat{background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border-radius:8px;padding:16px;text-align:center;margin-bottom:12px}
+  .token-stat-number{font-size:36px;font-weight:800;line-height:1}
+  .token-stat-label{font-size:12px;opacity:.85;margin-top:4px}
+  .token-stat-sub{font-size:10px;opacity:.7;margin-top:4px}
+
+  /* ── Risk report ── */
+  .risk-block{border-radius:6px;padding:10px 12px;margin-bottom:8px}
+  .risk-critical{background:#fef2f2;border-left:3px solid #ef4444}
+  .risk-warning{background:#fff7ed;border-left:3px solid #f97316}
+  .risk-label{font-size:11px;font-weight:700;margin-bottom:5px}
+  .risk-item{font-size:10px;color:#374151;padding:2px 0}
+
+  /* ── Security flow ── */
+  .sec-row{display:flex;align-items:center;gap:0;border-radius:6px;overflow:hidden;margin-bottom:6px}
+  .sec-node{flex:1;padding:10px;font-size:10px;font-weight:600;text-align:center;line-height:1.5}
+  .sec-arrow{padding:0 6px;font-size:14px;color:#9ca3af;background:#f9fafb;align-self:stretch;display:flex;align-items:center}
+  .n-agent{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe}
+  .n-server{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
+  .n-db{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}
+
+  /* ── Story step (before/after) ── */
+  .story-before-after{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:8px;overflow:hidden;margin-bottom:14px;border:2px solid #e5e7eb}
+  .story-before{background:#f1f5f9;padding:14px;border-right:2px solid #e5e7eb}
+  .story-after{background:#f0fdf4;padding:14px}
+  .story-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .story-before .story-label{color:#475569}
+  .story-after  .story-label{color:#166534}
+  .story-item{font-size:11px;padding:3px 0;color:#374151;display:flex;align-items:flex-start;gap:6px}
+  .story-before .story-item::before{content:'–';color:#94a3b8;font-weight:700;flex-shrink:0}
+  .story-after  .story-item::before{content:'✓';color:#10b981;font-weight:700;flex-shrink:0}
+
+  /* ── Cognitive chain (scenario walkthrough) ── */
+  .chain-step{display:flex;align-items:flex-start;gap:10px;padding:10px;background:#f9fafb;border-radius:6px;margin-bottom:6px;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+  .chain-step.visible{opacity:1;transform:translateY(0)}
+  .chain-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:#fff}
+  .chain-body{flex:1}
+  .chain-title{font-size:11px;font-weight:700;margin-bottom:2px}
+  .chain-detail{font-size:10px;color:#6b7280;line-height:1.5}
+
+  /* ── Big resolution banner ── */
+  .resolution-banner{background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border-radius:8px;padding:14px;text-align:center;margin-top:10px}
+  .resolution-banner p{font-size:13px;opacity:.9;margin-top:4px}
+
+  .feature-list{list-style:none;margin-top:6px}
+  .feature-list li{padding:4px 0;font-size:13px;color:#374151;line-height:1.4}
+  .feature-list li::before{content:'✓';color:#10b981;font-weight:700;margin-right:8px}
+
+  #fsToggle{position:fixed;bottom:20px;right:20px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:20px;cursor:pointer;z-index:1000;transition:background .2s}
+  #fsToggle:hover{background:rgba(0,0,0,.7)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <div class="header-title">
+      <h1>🔌 Oracle MCP Server for AI Database</h1>
+    </div>
+    <div class="header-subtitle">Safely connect AI agents to Oracle AI Database using a standard protocol</div>
+  </div>
+</div>
+
+<div class="problem-banner">
+  <span class="problem-text">⚠️ Most AI tools today require custom database integration. Teams spend months on integration before AI can touch enterprise data.</span>
+</div>
+
+<div class="container">
+  <div class="button-group">
+    <button id="btnProblem" class="btn btn-teal">The Integration Problem</button>
+    <button id="btnSqlcl"   class="btn btn-purple" disabled>SQLcl: The Runtime</button>
+    <button id="btnSchema"  class="btn btn-blue"   disabled>Schema &amp; Efficiency</button>
+    <button id="btnSecure"  class="btn btn-green"  disabled>Security by Design</button>
+    <button id="btnReset"   class="btn btn-gray">Reset</button>
+  </div>
+
+  <div class="main-grid">
+
+    <!-- ════ LEFT PANEL ════ -->
+    <div class="panel">
+      <div class="panel-header">💡 Why It Matters</div>
+      <div class="panel-content">
+
+        <div id="modeIndicator" class="mode-indicator">
+          <div class="mode-title"       id="modeTitle"></div>
+          <div class="mode-description" id="modeDesc"></div>
+        </div>
+
+        <!-- Welcome -->
+        <div id="explainWelcome" class="explain active">
+          <h3>🔌 Integrate once. Any AI tool can now securely access Oracle.</h3>
+          <p>Before MCP, connecting any AI tool to Oracle required custom integration work — every tool, every database, every time. MCP changes that with a single standard protocol.</p>
+          <ul class="feature-list">
+            <li><strong>One protocol</strong> replaces every custom connector</li>
+            <li><strong>Built into SQLcl</strong> — no new server, no new product</li>
+            <li><strong>Any Oracle Database</strong> where SQLcl is supported</li>
+            <li><strong>Credentials stay encrypted</strong> — agent never sees them</li>
+          </ul>
+          <small>Click through each step to see the full story — from the problem to live proof.</small>
+        </div>
+
+        <!-- Step 1: The Problem -->
+        <div id="explainProblem" class="explain">
+          <h3>🔌 The shift MCP makes</h3>
+          <div class="tension">AI tools were stranded outside enterprise data. Every agent needed its own custom connector — built from scratch, every time.</div>
+          <div class="resolution">MCP opens the door — with Oracle already holding the key. One protocol. Any agent. Integrate once and you're done.</div>
+          <small>MCP = Model Context Protocol. Marketed as "USB-C for AI applications" — a singular interface that hides the complexity of the server implementation.</small>
+        </div>
+
+        <!-- Step 2: SQLcl -->
+        <div id="explainSqlcl" class="explain">
+          <h3>⚙️ No new server. SQLcl is the runtime.</h3>
+          <p>
+            • SQLcl 25.4 ships with an MCP Server built in<br>
+            • Runs locally on STDIO — no cloud dependency<br>
+            • Uses JSON-RPC 2.0 — standard, auditable protocol<br><br>
+          </p>
+          <small>Works with any Oracle Database where SQLcl is supported — including on-premises, Cloud, and containers. Editions from FREE upward. Always check compatibility for your specific version.</small>
+        </div>
+
+        <!-- Step 3: Schema -->
+        <div id="explainSchema" class="explain">
+          <h3>⚡ The efficiency gain is real</h3>
+          <p>
+            • Without schema-information: agent sends multiple queries just to understand the database structure<br>
+            • With schema-information: agent gets all tables, relationships, and indexes in <strong>one call</strong><br><br>
+          </p>
+          <small>Fewer queries to "figure stuff out." Faster responses. Fewer tokens consumed — which directly reduces AI inference cost.</small>
+        </div>
+
+        <!-- Step 4: Security -->
+        <div id="explainSecure" class="explain">
+          <h3>🛡️ Real customer. Real data. Real result.</h3>
+          <p><strong>An Oracle EBS customer asked one question in natural language. The AI agent ran 15 SQL queries through MCP and delivered a full supply chain risk report — in minutes.</strong></p>
+          <p style="margin-top:8px">
+            • Agent never accessed the database directly<br>
+            • Credentials never left Oracle wallet encryption<br>
+            • Least-privilege database users enforced per connection<br>
+            • Never enable auto-approve — always review agent actions<br>
+          </p>
+          <small>Security is not a constraint on MCP — it's how MCP was designed from the start.</small>
+        </div>
+
+        <div id="explainConfirm" class="explain-confirm"></div>
+      </div>
+    </div>
+
+    <!-- ════ RIGHT PANEL ════ -->
+    <div class="panel">
+      <div class="panel-header">⚙️ MCP in Action</div>
+      <div class="panel-content" id="artifactsPanel"></div>
+    </div>
+
+  </div>
+</div>
+
+<button id="fsToggle" title="Toggle Fullscreen (F)">⛶</button>
+
+<script>
+const $ = id => document.getElementById(id);
+function clearPanel(){ $('artifactsPanel').innerHTML = ''; }
+function setActiveBtn(id){ document.querySelectorAll('.btn').forEach(b=>b.classList.remove('active-btn')); $(id).classList.add('active-btn'); }
+function enable(id)   { $(id).disabled=false; }
+function disable(id)  { $(id).disabled=true; }
+function complete(id) { $(id).classList.add('completed'); $(id).classList.remove('next-hint'); }
+function hintNext(id) { $(id).classList.add('next-hint'); }
+
+function setMode(title,desc,mode){
+  const mi=$('modeIndicator');
+  mi.className='mode-indicator mode-'+mode+' active';
+  $('modeTitle').textContent=title;
+  $('modeDesc').textContent=desc;
+}
+function setExplain(state){
+  ['explainWelcome','explainProblem','explainSqlcl','explainSchema','explainSecure']
+    .forEach(id=>$(id).classList.remove('active'));
+  $('explain'+state.charAt(0).toUpperCase()+state.slice(1)).classList.add('active');
+}
+function setConfirm(msg){
+  const ec=$('explainConfirm');
+  if(msg){ec.textContent=msg;ec.classList.add('active');}
+  else ec.classList.remove('active');
+}
+
+function animateRows(containerId,rows,baseDelay=0,step=110){
+  const parent=document.getElementById(containerId);
+  if(!parent)return;
+  rows.forEach((html,i)=>{
+    const div=document.createElement('div');
+    div.className='t-row';
+    div.innerHTML=html;
+    div.style.animationDelay=(baseDelay+i*step)+'ms';
+    parent.appendChild(div);
+  });
+}
+
+/* ══════════════════════════════════
+   WELCOME
+══════════════════════════════════ */
+function loadWelcome(){
+  clearPanel();
+  $('artifactsPanel').innerHTML=`
+    <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:12px">🔌 The Integration Problem — Solved</div>
+
+    <div style="background:#1e1e2e;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)">
+      <div style="background:#2d2d3f;padding:12px 16px;border-bottom:1px solid #3a3a4f">
+        <div style="color:#cdd6f4;font-size:13px;font-weight:600">Oracle MCP Server</div>
+        <div style="color:#6272a4;font-size:10px;margin-top:2px">SQLcl 25.4 · JSON-RPC 2.0 · STDIO</div>
+      </div>
+      <div style="padding:18px">
+        <div style="background:#2d2d3f;border:1px solid #6272a460;border-radius:6px;padding:10px 12px;margin-bottom:10px">
+          <div style="color:#6272a4;font-size:10px;font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">The old way</div>
+          <div style="color:#6272a4;font-size:10px;line-height:1.6">Custom connector per AI tool. Two agents → two integrations. Ten agents → ten integrations. Months before AI touches data.</div>
+        </div>
+        <div style="background:#1a2e1a;border:2px solid #a6e3a160;border-radius:6px;padding:14px;margin-bottom:12px">
+          <div style="color:#a6e3a1;font-size:13px;font-weight:800;margin-bottom:6px">✓ Integrate once. Any AI tool can now securely access Oracle.</div>
+          <div style="color:#8b8ba8;font-size:10px;line-height:1.6">Oracle's MCP Server is already in SQLcl. Any MCP-compatible agent connects through one standard protocol. Done.</div>
+        </div>
+        <div style="background:#2d2d3f;padding:12px;border-radius:6px;border-left:3px solid #89b4fa;margin-bottom:10px">
+          <div style="color:#89b4fa;font-size:11px;font-weight:700;margin-bottom:4px">⚡ Six tools provided to every agent</div>
+          <div style="color:#8b8ba8;font-size:10px;line-height:1.5">list-connections · connect · run-sql · run-sqlcl · <strong style="color:#a6e3a1">schema-information</strong> · disconnect</div>
+        </div>
+        <div style="background:#2d2d3f;padding:12px;border-radius:6px;border-left:3px solid #cba6f7">
+          <div style="color:#cba6f7;font-size:11px;font-weight:700;margin-bottom:4px">🛡️ Security by design</div>
+          <div style="color:#8b8ba8;font-size:10px;line-height:1.5">Agent never accesses the database directly. Credentials encrypted in Oracle wallets — never shared with the agent.</div>
+        </div>
+      </div>
+      <div style="background:#2d2d3f;padding:10px 16px;border-top:1px solid #3a3a4f;text-align:center">
+        <div style="color:#585b70;font-size:11px">👆 Click a step above to walk through the story</div>
+      </div>
+    </div>
+  `;
+}
+
+/* ══════════════════════════════════
+   SCENE 1 — The Problem & MCP
+   Before/after: chaos vs. one protocol
+   Hub visual showing MCP as the connector
+══════════════════════════════════ */
+function loadProblemArtifacts(){
+  clearPanel();
+  $('artifactsPanel').innerHTML=`
+    <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:10px">🔌 The Problem MCP Solves</div>
+
+    <div class="story-before-after">
+      <div class="story-before">
+        <div class="story-label">Before MCP</div>
+        <div class="story-item">AI tool needs its own custom connector</div>
+        <div class="story-item">New agent means another integration</div>
+        <div class="story-item">Each tool reinvents auth and error handling</div>
+        <div class="story-item">No standard — every team solves it differently</div>
+        <div class="story-item">Months of work before AI sees data</div>
+      </div>
+      <div class="story-after">
+        <div class="story-label">With MCP</div>
+        <div class="story-item">One MCP Server in SQLcl</div>
+        <div class="story-item">Any MCP client connects immediately</div>
+        <div class="story-item">Standard protocol, standard tools</div>
+        <div class="story-item">Auth handled by Oracle wallet</div>
+        <div class="story-item">Integrate once. Any agent. Any time.</div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:8px">One protocol — three types of server capability:</div>
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-bottom:12px;align-items:start">
+
+      <div style="background:#f9fafb;border:2px solid #e5e7eb;border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:28px;margin-bottom:6px">🤖</div>
+        <div style="font-size:11px;font-weight:700;color:#1e40af">Any MCP Client</div>
+        <div style="font-size:9px;color:#6b7280;margin-top:4px">Any AI agent · any IDE · any automation tool</div>
+        <div style="margin-top:10px;font-size:18px;color:#0d9488;font-weight:700">⇄</div>
+        <div style="font-size:9px;color:#0d9488;font-weight:600;margin-top:2px">JSON-RPC 2.0</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="background:#f3e8ff;border:1px solid #9333ea;border-radius:6px;padding:9px 12px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:20px">🗄️</span>
+          <div><div style="font-size:11px;font-weight:700;color:#7c3aed">Oracle DB MCP Server</div>
+          <div style="font-size:9px;color:#6b7280">SQLcl 25.4+ · 6 tools</div></div>
+        </div>
+        <div style="background:#fff7ed;border:1px solid #ea580c;border-radius:6px;padding:9px 12px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:20px">📁</span>
+          <div><div style="font-size:11px;font-weight:700;color:#c2410c">Files MCP Server</div>
+          <div style="font-size:9px;color:#6b7280">Documents · Images</div></div>
+        </div>
+        <div style="background:#ecfdf5;border:1px solid #10b981;border-radius:6px;padding:9px 12px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:20px">⚙️</span>
+          <div><div style="font-size:11px;font-weight:700;color:#059669">Business Apps MCP Server</div>
+          <div style="font-size:9px;color:#6b7280">ERP · CRM · Dev tools</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resolution-banner">
+      <div style="font-size:16px;font-weight:800">Integrate once. Any AI tool can now securely access Oracle.</div>
+      <p>That's what MCP makes possible.</p>
+    </div>
+  `;
+}
+
+/* ══════════════════════════════════
+   SCENE 2 — SQLcl: The Runtime
+   Shows: actual SQLcl startup, cm list,
+   JSON-RPC handshake.
+   Key message: "No new server. SQLcl is the runtime."
+══════════════════════════════════ */
+function loadSqlclArtifacts(){
+  clearPanel();
+  $('artifactsPanel').innerHTML=`
+    <div style="font-size:14px;font-weight:700;color:#9333ea;margin-bottom:10px">⚙️ SQLcl: The Runtime — Already in Your Database</div>
+
+    <div style="background:#f3e8ff;border-left:3px solid #9333ea;padding:10px 14px;border-radius:6px;font-size:12px;color:#6b21a8;margin-bottom:12px">
+      <strong>No new server. SQLcl is the runtime.</strong> The MCP Server is a feature of SQLcl —
+      the existing Oracle command-line tool included with your database.
+    </div>
+
+    <div class="info-grid" style="margin-bottom:12px">
+      <div class="info-card">
+        <div class="info-card-label">Technology Stack</div>
+        <div class="info-card-value">SQLcl 25.4+</div>
+        <div class="info-card-sub">Existing proven product · included with DB</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Deployment</div>
+        <div class="info-card-value">Universal</div>
+        <div class="info-card-sub">On-prem · Cloud · Containers · local STDIO</div>
+      </div>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+        <span class="terminal-label">SQLcl 25.4 — MCP Server starts here</span>
+      </div>
+      <div class="terminal-body" id="termSqlcl"></div>
+    </div>
+
+    <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:6px">Agent connects — credentials resolved from wallet, never exposed:</div>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+        <span class="terminal-label">JSON-RPC 2.0 · Agent ↔ SQLcl MCP Server</span>
+      </div>
+      <div class="terminal-body" id="termRpc"></div>
+    </div>
+  `;
+
+  animateRows('termSqlcl',[
+    `<span class="t-dim">$</span> <span class="t-bright">sql /nolog</span>`,
+    `<span class="t-dim">SQLcl: Release 25.4 Production on Tue Jan 22 10:35:35 2026</span>`,
+    `<span class="t-dim">Copyright (c) 1982, 2025, Oracle.  All rights reserved.</span>`,
+    `<span class="t-dim">Connected to: Oracle Database 26ai Free — Version 23.26</span>`,
+    ``,
+    `<span class="t-key">SQL&gt;</span> <span class="t-bright">cm list</span>`,
+    `<span class="t-dim">.</span>`,
+    `<span class="t-dim">├── Cloud</span>`,
+    `<span class="t-val">│   └── 🅾️  Autonomous Reporting</span>`,
+    `<span class="t-dim">└── Local</span>`,
+    `<span class="t-val">    ├── EMS 💲</span>`,
+    `<span class="t-val">    └── ERP</span>`,
+    ``,
+    `<span class="t-key">SQL&gt;</span> <span class="t-bright">mcp start</span>`,
+    `<span class="t-val">✓ MCP Server listening on STDIO · JSON-RPC 2.0</span>`,
+  ],0,95);
+
+  animateRows('termRpc',[
+    `<span class="t-comment">// 1. Agent discovers available tools</span>`,
+    `<span class="t-dim">→</span> <span class="t-str">{"jsonrpc":"2.0","method":"tools/list","id":1}</span>`,
+    `<span class="t-dim">←</span> <span class="t-val">{"tools":["list-connections","connect","run-sql",</span>`,
+    `<span class="t-val">          "run-sqlcl","schema-information","disconnect"]}</span>`,
+    ``,
+    `<span class="t-comment">// 2. Agent connects — no credentials in transit</span>`,
+    `<span class="t-dim">→</span> <span class="t-str">{"method":"tools/call","params":{"name":"connect",</span>`,
+    `<span class="t-str">    "arguments":{"connection":"ERP"}}}</span>`,
+    `<span class="t-dim">←</span> <span class="t-val">{"result":"Connected to ERP"}</span>`,
+    ``,
+    `<span class="t-warn">✓ Passwords/Certificates encrypted in Oracle wallets</span>`,
+    `<span class="t-warn">✓ Agent never receives credentials</span>`,
+  ],1600,115);
+}
+
+/* ══════════════════════════════════
+   SCENE 3 — Schema Awareness & Efficiency
+   Visual: schema-information call → schema
+   → run-sql result. Token stat big.
+══════════════════════════════════ */
+function loadSchemaArtifacts(){
+  clearPanel();
+  $('artifactsPanel').innerHTML=`
+    <div style="font-size:14px;font-weight:700;color:#2563eb;margin-bottom:10px">⚡ Schema Awareness — Fewer Queries, Fewer Tokens</div>
+
+    <div class="tool-badge">🔧 tool call: <span style="color:#a6e3a1">schema-information</span></div>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+        <span class="terminal-label">Agent calls schema-information — one call, full context</span>
+      </div>
+      <div class="terminal-body" id="termSchema"></div>
+    </div>
+
+    <table class="schema-table" id="schemaTable" style="opacity:0;transition:opacity .6s">
+      <thead><tr><th>Table</th><th>Column</th><th>Type</th><th>Key</th></tr></thead>
+      <tbody>
+        <tr><td>INVENTORY</td><td>ITEM_ID</td><td>VARCHAR2(20)</td><td><span class="badge badge-pk">PK</span></td></tr>
+        <tr><td>INVENTORY</td><td>SUPPLIER_ID</td><td>NUMBER</td><td><span class="badge badge-fk">FK</span></td></tr>
+        <tr><td>INVENTORY</td><td>QTY_ON_HAND</td><td>NUMBER</td><td><span class="badge badge-idx">IDX</span></td></tr>
+        <tr><td>SUPPLIERS</td><td>SUPPLIER_ID</td><td>NUMBER</td><td><span class="badge badge-pk">PK</span></td></tr>
+        <tr><td>SUPPLIERS</td><td>SUPPLIER_NAME</td><td>VARCHAR2(100)</td><td></td></tr>
+        <tr><td>ORDERS</td><td>ITEM_ID</td><td>VARCHAR2(20)</td><td><span class="badge badge-fk">FK</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="tool-badge" id="runSqlBadge" style="display:none">🔧 tool call: <span style="color:#a6e3a1">run-sql</span></div>
+    <div class="terminal" id="termSqlWrap" style="display:none">
+      <div class="terminal-bar">
+        <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
+        <span class="terminal-label">Agent writes accurate SQL — first attempt, no guessing</span>
+      </div>
+      <div class="terminal-body" id="termSql"></div>
+    </div>
+
+  `;
+
+  animateRows('termSchema',[
+    `<span class="t-dim">→ Agent calls </span><span class="t-fn">schema-information</span><span class="t-dim">(connection: "ERP")</span>`,
+    `<span class="t-dim">← Server returns full schema in one response:</span>`,
+    `<span class="t-key">{</span>`,
+    `  <span class="t-key">"tables"</span><span class="t-dim">: </span><span class="t-str">["INVENTORY","SUPPLIERS","ORDERS","SHIPMENTS"]</span><span class="t-dim">,</span>`,
+    `  <span class="t-key">"relationships"</span><span class="t-dim">: </span><span class="t-str">["INVENTORY.SUPPLIER_ID → SUPPLIERS.SUPPLIER_ID"]</span><span class="t-dim">,</span>`,
+    `  <span class="t-key">"indexes"</span><span class="t-dim">: </span><span class="t-str">["IDX_INV_QTY","IDX_ORD_ITEM"]</span>`,
+    `<span class="t-key">}</span>`,
+    `<span class="t-val">✓ Agent has full context — writing SQL now</span>`,
+  ],0,110);
+
+  setTimeout(()=>{ const t=document.getElementById('schemaTable'); if(t)t.style.opacity='1'; },1200);
+
+  setTimeout(()=>{
+    const b=document.getElementById('runSqlBadge');
+    const w=document.getElementById('termSqlWrap');
+    if(b)b.style.display='inline-flex';
+    if(w)w.style.display='block';
+    animateRows('termSql',[
+      `<span class="t-dim">→ Agent calls </span><span class="t-fn">run-sql</span><span class="t-dim"> — first attempt, correct SQL:</span>`,
+      `  <span class="t-str">SELECT i.item_id, i.qty_on_hand, s.supplier_name</span>`,
+      `  <span class="t-str">FROM   inventory i JOIN suppliers s USING (supplier_id)</span>`,
+      `  <span class="t-str">WHERE  i.qty_on_hand = 0 OR s.is_sole_supplier = 1</span>`,
+      `  <span class="t-str">ORDER  BY i.qty_on_hand</span>`,
+      ``,
+      `<span class="t-dim">← Result:</span>`,
+    ],0,110);
+  },2000);
+
+  setTimeout(()=>{
+    const body=document.getElementById('termSql');
+    if(!body)return;
+    const wrap=document.createElement('div');
+    wrap.className='t-row';
+    wrap.style.animationDelay='0ms';
+    wrap.innerHTML=`
+      <table class="sql-result">
+        <thead><tr><th>ITEM_ID</th><th>QTY_ON_HAND</th><th>SUPPLIER_NAME</th></tr></thead>
+        <tbody>
+          <tr><td>IT987654</td><td style="color:#f38ba8;font-weight:700">0</td><td>Single-Source Ltd</td></tr>
+          <tr><td>IT546387</td><td style="color:#f38ba8;font-weight:700">0</td><td>OfficeGear Inc</td></tr>
+          <tr><td>TR1234</td><td style="color:#f9e2af">580</td><td>UniSupply (sole)</td></tr>
+          <tr><td>AZ12</td><td style="color:#f9e2af">52,583</td><td>AquaVend (sole)</td></tr>
+        </tbody>
+      </table>`;
+    body.appendChild(wrap);
+  },3800);
+
+  /* Token stat appears AFTER the SQL result lands — that's the payoff moment */
+  setTimeout(()=>{ const n=document.getElementById('tokenStat'); if(n)n.style.display='block'; },5000);
+}
+
+/* ══════════════════════════════════
+   SCENE 4 — Security & Live Proof
+   Cognitive chain: question → tool calls
+   → SQL → results → insight.
+   Then security layers.
+══════════════════════════════════ */
+function loadSecureArtifacts(){
+  clearPanel();
+  $('artifactsPanel').innerHTML=`
+    <div style="font-size:14px;font-weight:700;color:#16a34a;margin-bottom:10px">🛡️ Security by Design — Real Customer Scenario</div>
+
+    <div style="background:#fff7ed;border-left:3px solid #ea580c;padding:10px 14px;border-radius:6px;font-size:11px;color:#9a3412;margin-bottom:12px">
+      <strong>The question asked (actual Oracle EBS customer):</strong><br>
+      "Forecast what would happen if we suffered a 4-week procurement delay — what production halts would occur with supplier interruptions?"
+    </div>
+
+    <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px">Here is how MCP answered it — step by step:</div>
+
+    <div id="chain1"  class="chain-step"><div class="chain-num" style="background:#0d9488">1</div><div class="chain-body"><div class="chain-title">Natural language question received by AI agent</div><div class="chain-detail">"4-week supplier delay → which items hit zero stock → which lines halt?"</div></div></div>
+    <div id="chain2"  class="chain-step"><div class="chain-num" style="background:#9333ea">2</div><div class="chain-body"><div class="chain-title">Agent calls schema-information via MCP</div><div class="chain-detail">Gets INVENTORY, SUPPLIERS, ORDERS schema in one call — knows exactly what to query</div></div></div>
+    <div id="chain3"  class="chain-step"><div class="chain-num" style="background:#2563eb">3</div><div class="chain-body"><div class="chain-title">Agent generates and runs 15 SQL queries via run-sql</div><div class="chain-detail">Each query targets a specific risk dimension: zero stock, sole suppliers, lead times, reorder gaps</div></div></div>
+    <div id="chain4"  class="chain-step"><div class="chain-num" style="background:#ea580c">4</div><div class="chain-body"><div class="chain-title">Results returned through MCP — not directly from DB</div><div class="chain-detail">Agent never holds credentials. SQLcl executes with least-privilege user rights</div></div></div>
+    <div id="chain5"  class="chain-step"><div class="chain-num" style="background:#16a34a">5</div><div class="chain-body"><div class="chain-title" style="color:#166534">Business insight delivered in minutes</div><div class="chain-detail">Full risk report — what would have taken analysts hours</div></div></div>
+
+    <div id="riskReport" style="display:none">
+      <div class="info-grid" style="margin:10px 0 8px">
+        <div class="info-card"><div class="info-card-label">SQL Queries Run</div><div class="info-card-value">15</div><div class="info-card-sub">Via MCP run-sql tool</div></div>
+        <div class="info-card"><div class="info-card-label">Time to Insight</div><div class="info-card-value">Minutes</div><div class="info-card-sub">vs. hours manually</div></div>
+      </div>
+
+      <div class="risk-block risk-critical">
+        <div class="risk-label" style="color:#991b1b">🚨 IMMEDIATE PRODUCTION HALT — Zero Stock</div>
+        <div class="risk-item">• IT987654 (Lightning Inkjet Printer) — Organization E3</div>
+        <div class="risk-item">• IT546387 (Envoy Laptop Rugged) — Organization EB</div>
+      </div>
+      <div class="risk-block risk-warning">
+        <div class="risk-label" style="color:#9a3412">⚠️ CRITICAL 1-MONTH — Single-Source Suppliers</div>
+        <div class="risk-item">• TR1234 (Form FS12345) — 580 units, single supplier</div>
+        <div class="risk-item">• AZ12 (Water) — 52,583 units, single supplier</div>
+        <div class="risk-item">• 8888 (Fruit) — 1,518 units, single supplier</div>
+        <div class="risk-item">• AB10888 (10KT Gold Size 4) — 30 units, single supplier</div>
+      </div>
+
+      <div style="font-size:11px;font-weight:700;color:#374151;margin:10px 0 6px">How the agent accessed this securely:</div>
+      <div class="sec-row">
+        <div class="sec-node n-agent">🤖 AI Agent<br><span style="font-size:9px;font-weight:400">Natural language only</span></div>
+        <div class="sec-arrow">→</div>
+        <div class="sec-node n-server">🔑 SQLcl MCP Server<br><span style="font-size:9px;font-weight:400">Wallet auth · never shares credentials</span></div>
+        <div class="sec-arrow">→</div>
+        <div class="sec-node n-db">🗄️ Oracle EBS 12.2<br><span style="font-size:9px;font-weight:400">Least-privilege user · results returned</span></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px;font-size:9px;text-align:center">
+        <div style="background:#f0fdf4;border-radius:4px;padding:7px;color:#166534;line-height:1.5;border:1px solid #bbf7d0"><strong>✓ No direct DB access</strong><br>Requests via tools only</div>
+        <div style="background:#eff6ff;border-radius:4px;padding:7px;color:#1e40af;line-height:1.5;border:1px solid #bfdbfe"><strong>✓ No credential sharing</strong><br>Passwords stay in wallet</div>
+        <div style="background:#f0fdf4;border-radius:4px;padding:7px;color:#166534;line-height:1.5;border:1px solid #bbf7d0"><strong>✓ Least privilege enforced</strong><br>Always review agent actions</div>
+      </div>
+    </div>
+  `;
+
+  /* Animate the cognitive chain steps */
+  const delays=[0,600,1200,1900,2700];
+  ['chain1','chain2','chain3','chain4','chain5'].forEach((id,i)=>{
+    setTimeout(()=>{ const el=$(id); if(el)el.classList.add('visible'); },delays[i]);
+  });
+
+  /* Show risk report after chain completes */
+  setTimeout(()=>{
+    const r=document.getElementById('riskReport');
+    if(r)r.style.display='block';
+  },3400);
+}
+
+/* ─── Button wiring ─── */
+$('btnProblem').addEventListener('click',()=>{
+  setMode('The Integration Problem','Before MCP, every AI tool needed its own custom Oracle connector. MCP replaces all of that with one standard protocol — already built into SQLcl.','problem');
+  setExplain('problem');
+  setActiveBtn('btnProblem');
+  loadProblemArtifacts();
+  complete('btnProblem');
+  enable('btnSqlcl');
+  hintNext('btnSqlcl');
+  setConfirm('MCP = "USB-C for AI applications" — one protocol, any agent, zero custom connectors.');
+});
+
+$('btnSqlcl').addEventListener('click',()=>{
+  setMode('SQLcl: The Runtime','No new server to install. The MCP Server is a feature of SQLcl — the command-line tool already included with Oracle AI Database. It runs locally on STDIO using JSON-RPC 2.0.','sqlcl');
+  setExplain('sqlcl');
+  setActiveBtn('btnSqlcl');
+  loadSqlclArtifacts();
+  complete('btnSqlcl');
+  enable('btnSchema');
+  hintNext('btnSchema');
+  setConfirm('No new server. SQLcl is the runtime — already in your database installation.');
+});
+
+$('btnSchema').addEventListener('click',()=>{
+  setMode('Schema & Efficiency','The schema-information tool gives the agent complete schema context in one call — tables, relationships, indexes. The agent writes correct SQL immediately. Fewer queries. Fewer tokens. Lower cost.','schema');
+  setExplain('schema');
+  setActiveBtn('btnSchema');
+  loadSchemaArtifacts();
+  complete('btnSchema');
+  enable('btnSecure');
+  hintNext('btnSecure');
+  setConfirm('1 call → full schema context → accurate SQL on first attempt. Fewer tokens = lower AI cost.');
+});
+
+$('btnSecure').addEventListener('click',()=>{
+  setMode('Security by Design','MCP was built secure from the start — credentials stay in Oracle wallets, agents never touch the database directly, and least-privilege is enforced at every connection. Here is a real customer scenario that proves it.','secure');
+  setExplain('secure');
+  setActiveBtn('btnSecure');
+  loadSecureArtifacts();
+  complete('btnSecure');
+  setConfirm('Security is not a constraint on MCP — it is how MCP was designed from the start.');
+});
+
+$('btnReset').addEventListener('click',()=>{
+  $('modeIndicator').classList.remove('active');
+  loadWelcome();
+  document.querySelectorAll('.btn').forEach(b=>b.classList.remove('completed','active-btn','next-hint'));
+  ['btnSqlcl','btnSchema','btnSecure'].forEach(disable);
+  enable('btnProblem');
+  hintNext('btnProblem');
+  setExplain('welcome');
+  setConfirm('');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+function toggleFS(){
+  if(!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+  else document.exitFullscreen?.();
+}
+$('fsToggle').addEventListener('click',toggleFS);
+window.addEventListener('keydown',e=>{ if(e.key.toLowerCase()==='f') toggleFS(); });
+
+/* Init */
+['btnSqlcl','btnSchema','btnSecure'].forEach(disable);
+hintNext('btnProblem');
+setExplain('welcome');
+loadWelcome();
+</script>
+</body>
+</html>
