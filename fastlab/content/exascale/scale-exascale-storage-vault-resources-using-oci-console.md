@@ -4,9 +4,9 @@
 # Scale Exascale Storage Vault Resources
 
 
-## Introduction
+## FastLab Introduction
 
-This lab walks you through the steps to Scale the Exascale Storage Vault Resources using the OCI Console.
+This lab walks you through the steps to Scale the Exascale Storage Vault Resources using the OCI Console. Users can now configure **Storage Auto Scaling** for Exascale Database Storage Vault on Oracle Exadata Database Service on Exascale Infrastructure. This feature enhances agility by allowing the Exascale Database Storage Vault to automatically expand as usage grows. Manual capacity increases are no longer necessary when the vault approaches its limits. Instead, storage scales dynamically, ensuring that mission-critical workloads continue to run smoothly, efficiently, and without interruption.
 
 **Estimated Time:** ***10 minutes***
 
@@ -14,100 +14,45 @@ This lab walks you through the steps to Scale the Exascale Storage Vault Resourc
 ### Objectives
 
 -   After completing this lab, you should be able to scale the Exascale Storage Vault Resources using the OCI Console.
--   List Exascale Storage Vault configuration using **OCI CLI**
 
 
-### Prerequisites
+### **Prerequisites**
 
 This lab requires the completion of the following:
 
-* Completion of **Lab1**
+* Successful creation of a VM Cluster and Exascale Storage Vault on Exadata Database Service on Exascale Infrastructure.
+
 
 
 ## Task 1: Scale the Exascale Storage Vault Resources using the OCI Console
 
-1. Open the navigation menu. Under **Oracle Database**, Click **Oracle Exadata Database Service on Exascale Infrastructure**.
+
+1. Navigate to your Exascale VM Cluster page. In the **VM Cluster information** tab, under the **Exascale database storage** section, click on the **Exascale database storage:** for example, ***MyDemoStorageVault***.
    
-   ![navigate oci console](./images/navigateocimenu.png " ")
+   ![Image showing scale Exascale storage vault](./images/navigate-storage-vault.png "Image showing scale storage vault")
+     
+2. In the **Exascale Storage Vault details** page, click ***Scale Storage Vault***.
 
-2. On the left rail, click **Exascale Storage Vaults**. 
+   ![Image showing scale Exascale storage vault](./images/scale-storage-vault.png "Image showing scale storage vault")
+
+3. On the **Scale Storage Vault** page, enter a value for the desired storage capacity for databases. This number should be the value for the total storage that you want to have provisioned after the scaling operation completes.
    
-   Select the name of your Exascale Storage Vault that you want to scale. 
+   For this lab, enter the value of ***400*** for the ***Storage capacity for Databases (GB)***, and ***800*** for the ***Auto scaling limit (GB)*** as we will scale up the Exascale Database Storage Vault from **300 GB to 400 GB** and Auto scaling limit from **700 GB to 800 GB**.
 
-   ![Display Exascale Storage Vaults](./images/exascale-storage-vault-list.png "Display Exascale Storage Vaults")
-    
-3. The Exascale Storage Vault Details page displays information about the selected Vault. 
-   
-   Click on ***Scale storage vault***.
+   ![Image showing scale Exascale storage vault](./images/scale-storage-vault-page-before.png "Image showing scale storage vault")
 
-   ![Display Exascale Storage Vaults](./images/exascale-storage-vault-details-page.png "Display Exascale Storage Vaults")
+   Click ***Scale***.
 
-   On the Scale Storage Vault dialog, enter a number for the capacity for High Capacity storage. 
-      >**Note:** This number should be the value for the total storage that you want to have provisioned after the scaling operation completes.
-   
-   
+   The **Exascale Storage Vault details** page is now displayed. While the scale storage vault process is running, the lifecycle state of the Exascale storage vault shows ***UPDATING***.
 
-   For this lab, enter the value of ***400*** for the ***Storage capacity for Databases (GB)***, as we will scale up the Exascale Database Storage Vault from **300 GB to 400 GB**.
+   ![Image showing scale Exascale storage vault](./images/scale-vault-updating.png "Image showing scale storage vault")
 
-   ![Scale Exascale Database Storage Vault](./images/scale-up-storage-vault.png "Scale Exascale Database Storage Vault")
+   When the scale storage vault process completes, the state of the Exascale storage vault changes to ***AVAILABLE***.
 
-4. Click ***Save Changes***. Your Vault will be scaled automatically. 
-   
-      >**Note:** Once the scale up operation is complete, the Exascale Storage Vault status will change from ***Updating*** to ***Available***.
+   ![Image showing scale Exascale storage vault](./images/scale-vault-available.png "Image showing scale storage vault")
 
-   ![copy storage vault ocid](./images/scale-up-storage-vault-updating.png "copy storage vault ocid")
+   The **Exascale Storage Vault information** page displays information about the new allocated Exascale database storage.
 
-   In the Exascale Storage Vault Details page, Copy the Storage Vault OCID by clicking the ***copy*** button in the **OCID** field under the **General Information** section. 
-   Paste the copied ***Exascale Storage Vault OCID*** to a text editor.
-
-   ![copy storage vault ocid](./images/scale-up-storage-vault-available.png "copy storage vault ocid")
-
-## Task 2: List Exascale Storage Vault Configuration using CLI
-
-   >**Note:** To use **OCI CLI** for this lab, we will be using the ***OCI Cloud Shell tool***. 
-
-1. Click the **Developer tools** icon in the console header and select ***Cloud Shell*** from the drop-down menu. 
-   
-   ![navigate to oci cloudshell](./images/cloudshell.png "navigate to oci cloudshell")
-
-   This displays the Cloud Shell in a "drawer" at the bottom of the console:
-
-   ![oci cloudshell launch](./images/cloudshelllaunch.png "oci cloudshell launch")
-
-2. Run the OCI CLI Command to get the Exascale Storage Vault Configuration.
-
-      >**Note:** Replace ***{ExascaleVaultID}*** with the Exascale Storage Vault OCID copied from *(Task 1 Step 4)*
-
-    ```
-    <copy>
-
-      oci db exascale-db-storage-vault get --exascale-db-storage-vault-id {ExascaleVaultID}
-
-    </copy>
-    ```
-
-   **<u>Description:</u>** 
-
-   The OCI CLI command syntax is: **oci** ***db*** ***exascale-db-storage-vault*** ***get*** ***--exascale-db-storage-vault-id*** ***{ExascaleVaultID}***
-
-   **<u>Where:</u>**
-
-      * ***db*** is the **service type** for the Oracle Database Cloud Services.
-      * ***exascale-db-storage-vault*** is the **resource type** for the Exascale Storage Vault.
-      * ***get*** is the **action** to get information about the Exascale Storage Vault Configuration.
-      * ***--exascale-db-storage-vault-id*** is the **parameter** for the Exascale Storage Vault OCID.
-
-   After running the command, you will see similar output below.
-
-   ![show storage vault details](./images/get-storage-vault-details.png "show storage vault details")
-
-   The output of the command displays information about the configuration of the selected  ***Exascale Storage Vault***, such as:
-
-      * ***Storage Vault Display Name***
-      * ***Exascale Database Storage Capacity Available size in gbs***
-      * ***Exascale Database Storage Capacity Total size in gbs***
-      * ***Lifecycle state***
-      * ***Exascale Storage Vault Associated VM Cluster Count and OCID***
 
 ***Congratulations!!!*** You may now **proceed to the next lab**.
 
@@ -130,6 +75,6 @@ This workshop contains labs that dive deeper into working with Oracle Exadata Da
 
 ## Acknowledgements
 
-* **Author** - Eddie Ambler, Leo Alvarado, Product Management
+* **Author** - Leo Alvarado, Tammy Bednar Product Management
   
-* **Last Updated By** - Leo Alvarado, Product Management, March 2025.
+* **Last Updated By** - Leo Alvarado, Product Management, Feb 2026.
