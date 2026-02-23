@@ -19,7 +19,7 @@ Instead of writing SQL directly, you will:
 - Generate and approve SQL statements
 - Create relational tables and constraints
 - Insert and query data
-- Build analytical views
+- Generate and validate PL/SQL APIs
 - Inspect schema metadata
 
 This lab demonstrates how SQLcl MCP enables a controlled, tool-based workflow where every action is proposed, reviewed, and executed securely within Oracle AI Database.
@@ -33,10 +33,11 @@ Before starting, ensure you have:
 - Installed the **Cline Extension for VS Code**
 - Configured the **SQLcl MCP Server**
 - Configured a database connection (Autonomous or FreeSQL)
+- Click here for [Environment set-up guide](https://oracle-livelabs.github.io/developer/sqlcl-mcp-server-intro/workshops/freesql/?customTrackingParam=:ow:lp:cpo::::RC_WWMK211125P00013:llid=4285&lab=2-environment-set-up)
 
 
 
-[Video hosted on Oracle Video Hub](videohub:)
+[SQLcl MCP](videohub:1_pp62mvme)
 
 ## Task 1: Connect and Validate MCP
 
@@ -52,11 +53,9 @@ Before starting, ensure you have:
 3. Enable **Plan mode** and enter
 
     ```
-    First use the SQLcl list-connections tool to identify available connections.
-    Then connect to the [name of your FreeSQL connection] connection.
-    Then run:
-    select sysdate, user from dual;
-    Proceed with execution.
+    List my available database connections.
+    Connect to the [name of your FreeSQL connection] connection.
+    Summarize my current schema.
     ```
 
     ![Navigate to Directory](./images/prompt_1.png " ")
@@ -65,7 +64,7 @@ Before starting, ensure you have:
 
 5. Review the generated SQL carefully before approving execution
 
-6. Confirm that a valid result is returned
+6. Confirm that a valid result is returned, you may edit the prompt if needed.
 
 You are now connected through the SQLcl MCP Server.
 
@@ -75,14 +74,10 @@ Now create a small relational model.
 1. In Plan mode, enter:
 
     ```
-    Using the SQLcl run-sql tool, directly execute SQL statements in the currently connected schema to create two related tables:
-
-    - customers (customer_id, first_name, last_name, email)
-    - orders (order_id, customer_id, order_date, amount)
-
-    Define primary keys and a foreign key relationship between orders.customer_id and customers.customer_id.
-
-    Generate the SQL inline and wait for approval before executing.
+    Create two related tables with appropriate columns in my current database connection:
+    - customers
+    - orders
+    Define the appropriate constraints
     ```
 
     ![Navigate to Directory](./images/prompt_2.png " ")
@@ -98,7 +93,8 @@ Now create a small relational model.
     ```
     Insert realistic sample data into both tables.
     Include multiple customers and multiple orders per customer.
-    After inserting, display sample rows from each table.
+    After inserting the data, commit the transaction.
+    Then display data from each table.
     ```
 
     ![Navigate to Directory](./images/prompt_3.png " ")
@@ -112,41 +108,36 @@ Now create a small relational model.
 
 If needed, refine your prompt and re-run.
 
-## Task 4: Create Analytical Views
+## Task 4: Generate PL/SQL Table APIs
 
-1. Now generate business insights
+1. Now extend the schema with a reusable PL/SQL API.
 
     Enter the following prompt:
 
     ```
-    Using the SQLcl run-sql tool, directly create the following views in the currently connected schema:
-
-    1. total_orders_per_customer
-       - Join customers and orders
-       - Return customer_id, first_name, last_name, and total order count
-
-    2. total_revenue_per_customer
-       - Join customers and orders
-       - Return customer_id and SUM(amount)
-
-    3. average_order_value
-       - Return the overall average of amount from orders
-
-    4. recent_orders_last_30_days
-       - Return orders where order_date >= SYSDATE - 30
-
-    After creating the views, display sample results from each view.
-
-    Generate SQL inline and wait for approval before executing.
+    Create a PL/SQL procedure that:
+    - Calculates the total revenue for a given customer
+    - Returns the value
+    - Raises an exception if the customer does not exist
     ```
 
     ![Navigate to Directory](./images/prompt_4.png " ")
 
     Review and approve.
 
-2. Validate output
+2. Validate the procedure
+
+    Enter the following prompt:
+
+    ```
+    Generate an anonymous block that calls the procedure for a valid customer and prints the result.
+    Then test it with a non-existent customer to validate the exception.
+    ```
+
+    Review and approve
 
     ![Navigate to Directory](./images/review_4.png " ")
+
 
 ## Task 5: Explore Schema Metadata
 
@@ -155,7 +146,7 @@ If needed, refine your prompt and re-run.
     Enter the following prompt:
 
     ```
-    Use the sqlcl schema-information tool to summarize my schema objects.
+    Summarize the objects in my current schema.
     ```
 
     ![Navigate to Directory](./images/prompt_5.png " ")
@@ -166,21 +157,15 @@ If needed, refine your prompt and re-run.
 
 3. Observe how the Agent interprets tables, columns, and relationships.
 
-## Task 6: Disconnect
+## Task 6: Close the Connection
 
 1. Enter the following prompt:
 
     ```
-    Disconnect from the database and summarize what was created in this session.
+    Disconnect from the database
     ```
 
-    ![Navigate to Directory](./images/prompt_6.png " ")
-
     Approve the disconnect tool.
-
-    ![Navigate to Directory](./images/approve.png " ")
-
-    ![Navigate to Directory](./images/review.png " ")
 
 ## Signature Workshop
 
@@ -197,5 +182,6 @@ Ready to dive deeper? These workshops move you from demo to hands-on practice.
 
 ## Acknowledgements
 
-* **Author** – Ley Sylvester
+* **Author** – Ley Sylvester, Senior Principal Product Manager
+* **Contributors** - Jeff Smith, Chris Hoina
 * **Last Updated By/Date** – Ley Sylvester, February 2026

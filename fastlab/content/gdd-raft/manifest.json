@@ -3,7 +3,24 @@
   "help": "livelabs-help-database_us@oracle.com",
   "tutorials": [
     {
-      "title": "FastLab - Raft Replication Quick Tour",
+      "title": "Get Started",
+      "description": "Login to Oracle Cloud",
+      "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
+    },
+    {
+      "title": "Prepare Setup",
+      "description": "How to download your ORM stack and update security rules for an existing VCN",
+      "publisheddate": "09/28/2025",
+      "filename": "prepare-setup.md"
+    },
+    {
+      "title": "Environment Setup",
+      "description": "How to provision the workshop environment and connect to it",
+      "publisheddate": "06/30/2020",
+      "filename": "https://oracle-livelabs.github.io/common/labs/setup-compute-generic/setup-compute-novnc.md"
+    },
+    {
+      "title": "FastLab - Raft-based Replication Quick Tour",
       "filename": "gdd-raft23ai-fastlab.md"
     }
   ]
