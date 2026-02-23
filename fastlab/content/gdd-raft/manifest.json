@@ -3,8 +3,12 @@
   "help": "livelabs-help-database_us@oracle.com",
   "tutorials": [
     {
-      "title": "Get Started",
-      "description": "Login to Oracle Cloud",
+      "title": "FastLab - Raft-based Replication Quick Tour",
+      "filename": "gdd-raft23ai-fastlab.md"
+    },
+    {
+      "title": "Create Free Tier Account",
+      "description": "Get Oracle Cloud Free Tier Account",
       "filename": "https://oracle-livelabs.github.io/common/labs/cloud-login/pre-register-free-tier-account.md"
     },
     {
@@ -18,10 +22,6 @@
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "06/30/2020",
       "filename": "https://oracle-livelabs.github.io/common/labs/setup-compute-generic/setup-compute-novnc.md"
-    },
-    {
-      "title": "FastLab - Raft-based Replication Quick Tour",
-      "filename": "gdd-raft23ai-fastlab.md"
     }
   ]
 }

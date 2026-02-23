@@ -4,7 +4,7 @@ Welcome to this **LiveLabs FastLab** workshop.
 
 LiveLabs FastLab workshops give you clear, step-by-step instructions to help you quickly gain hands-on experience with the Oracle AI Database. You will go from beginner to confident user in a short time.
 
-Estimated Time: 30 minutes
+Estimated Time: 15 minutes
 
 ## Introduction
 
@@ -22,7 +22,7 @@ In this workshop, you will gain first-hand experience in utilizing the Raft-base
 ### Prerequisites
 This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
-- Provisioned a vm which will be used in Prerequisites Task1 to prepare this lab environment
+- Completed the steps in the Prepare Setup and Environment Setup prerequisite labs to configure a vm which will be used in this lab.
 
 ### Video Walkthrough
 
