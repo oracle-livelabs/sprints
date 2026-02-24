@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build Enterprise Apps Faster with Oracle APEX AI</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+    background:linear-gradient(to bottom right,#f8fafc,#e2e8f0);
+    min-height:100vh;color:#1f2937;
+  }
+  .header{background:linear-gradient(to right,#0f766e,#115e59);color:#fff;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,.1)}
+  .header-content{max-width:1400px;margin:0 auto}
+  .header-title{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .header-title h1{font-size:28px;font-weight:700}
+  .header-subtitle{color:#99f6e4;font-size:14px}
+  .problem-banner{background:#fff3cd;border:2px solid #ffc107;padding:12px;border-radius:8px;margin:16px auto;max-width:1400px;display:flex;align-items:center;gap:8px}
+  .problem-text{font-size:16px;color:#856404;font-weight:600}
+  .container{max-width:1400px;margin:0 auto;padding:20px}
+
+  .button-group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .btn{padding:10px 16px;border-radius:8px;border:2px solid transparent;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;min-height:42px;color:#fff;position:relative}
+  .btn:disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+  .btn:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .btn-blue{background:#0d9488}.btn-blue:hover{background:#0f766e}
+  .btn-teal{background:#0d9488}.btn-teal:hover{background:#0f766e}
+  .btn-orange{background:#ea580c}.btn-orange:hover{background:#c2410c}
+  .btn-danger{background:#ef4444}.btn-danger:hover{background:#dc2626}
+  .btn-purple{background:#9333ea}.btn-purple:hover{background:#7c3aed}
+  .btn-blue{background:#2563eb}.btn-blue:hover{background:#1d4ed8}
+  .btn-gray{background:#e5e7eb;color:#374151}.btn-gray:hover{background:#d1d5db}
+  .btn.active-btn{border:2px solid #1f2937;box-shadow:0 0 0 2px rgba(13,148,136,.3)}
+  .btn.completed::before{content:'✓ '}
+  .btn.next-hint::after{content:'';position:absolute;inset:-4px;border-radius:10px;border:2px solid rgba(13,148,136,.0);animation:btnPulse 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite}
+  
+  /* APEX Assistant chat animation */
+  .chat-message{opacity:0;transform:translateY(10px);animation:slideInMessage 0.5s ease-out forwards}
+  .chat-message:nth-child(1){animation-delay:0.2s}
+  .chat-message:nth-child(2){animation-delay:0.8s}
+  .chat-message:nth-child(3){animation-delay:2.0s}
+  .chat-message:nth-child(4){animation-delay:3.2s}
+  .chat-message:nth-child(5){animation-delay:4.0s}
+  
+  @keyframes slideInMessage{
+    to{opacity:1;transform:translateY(0)}
+  }
+  
+  /* Button icon animations */
+  .btn-icon{display:inline-block;margin-right:6px;transition:transform .3s ease}
+  #btnGenerate:not(:disabled):hover .btn-icon{animation:database-spin 1s ease-in-out infinite}
+  #btnBuild:not(:disabled):hover .btn-icon{animation:lightning-pulse .6s ease-in-out infinite}
+  
+  @keyframes database-spin{
+    0%, 100%{transform:rotateY(0deg) scale(1)}
+    50%{transform:rotateY(180deg) scale(1.1)}
+  }
+  @keyframes lightning-pulse{
+    0%, 100%{transform:scale(1) rotate(0deg)}
+    50%{transform:scale(1.2) rotate(-10deg)}
+  }
+  @keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(13,148,136,.45);border-color:rgba(13,148,136,.35)}70%{box-shadow:0 0 0 12px rgba(13,148,136,0);border-color:rgba(13,148,136,.1)}100%{box-shadow:0 0 0 0 rgba(13,148,136,0);border-color:rgba(13,148,136,.0)}}
+
+  .main-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:20px}
+  @media (max-width:1100px){.main-grid{grid-template-columns:1fr}}
+  .panel{background:#fff;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,.1);overflow:hidden;display:flex;flex-direction:column}
+  .panel-header{background:#1f2937;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+  .panel-content{padding:16px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px}
+
+  .mode-indicator{display:none;background:#f0f9ff;border:2px solid #0284c7;padding:12px;border-radius:8px}
+  .mode-indicator.mode-describe{background:#ccfbf1;border-color:#0d9488;}
+  .mode-indicator.mode-generate{background:#f3e8ff;border-color:#9333ea;}
+  .mode-indicator.mode-build{background:#dbeafe;border-color:#2563eb;}
+  .mode-indicator.mode-enhance{background:#ffedd5;border-color:#ea580c;}
+  .mode-indicator.active{display:block}
+  .mode-title{font-size:16px;font-weight:700;margin-bottom:2px}
+  .mode-description{font-size:13px;color:#6b7280}
+
+  .explain{display:none;background:#ffffff;border:2px solid #e5e7eb;padding:14px;border-radius:10px}
+  .explain.active{display:block}
+  .explain h3{font-size:14px;margin-bottom:6px;display:flex;gap:8px;align-items:center}
+  .explain p{font-size:13px;color:#374151;line-height:1.45}
+  .explain small{display:block;margin-top:6px;color:#6b7280}
+
+  .explain-confirm{display:none;margin-top:8px;font-size:13px;background:#ecfdf5;border-left:3px solid #10b981;padding:8px 10px;border-radius:6px;color:#065f46}
+  .explain-confirm.active{display:block}
+
+  .stack-top{order:0}
+  .stack-code{order:1}
+  .stack-output{order:98}
+
+  .code-display{font-family:'Courier New',monospace;font-size:12px;white-space:pre-wrap;background:#f9fafb;padding:12px;border-radius:6px;border:1px solid #e5e7eb;min-height:120px}
+  .output-display{display:none;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;font-size:13px}
+  .output-display.active{display:block}
+
+  .visual{background:#09736a;border-radius:8px;min-height:400px;position:relative;overflow:hidden;padding:20px;}
+  
+  .visual-element{position:absolute;background:#fff;border-radius:12px;border:2px solid rgba(0,0,0,.08);padding:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.15);transition:transform .3s ease}
+  .visual-element:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.2)}
+  
+  .idea-box{left:30px;top:30px;width:150px;background:linear-gradient(135deg,#eff6ff,#dbeafe)}
+  .idea-icon{font-size:32px;margin-bottom:6px}
+  .idea-title{font-size:12px;font-weight:700;color:#1e40af;margin-bottom:4px}
+  .idea-desc{font-size:9px;color:#6b7280}
+  
+  .data-model{left:30px;top:140px;width:150px;background:linear-gradient(135deg,#f3e8ff,#e9d5ff)}
+  .data-icon{font-size:32px;margin-bottom:6px}
+  .data-title{font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:4px}
+  .data-desc{font-size:9px;color:#6b7280}
+  
+  .code-gen{left:30px;top:250px;width:150px;background:linear-gradient(135deg,#ccfbf1,#99f6e4)}
+  .code-icon{font-size:32px;margin-bottom:6px}
+  .code-title{font-size:12px;font-weight:700;color:#0d9488;margin-bottom:4px}
+  .code-desc{font-size:9px;color:#6b7280}
+  
+  .apex-brain{position:absolute;left:calc(50% - 100px);top:80px;width:200px;height:200px;background:linear-gradient(135deg,#0d9488,#10b981);color:#fff;border-radius:50%;padding:20px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .brain-icon{font-size:48px;margin-bottom:8px;animation:float 3s ease-in-out infinite}
+  .brain-title{font-weight:800;font-size:16px;margin-bottom:4px}
+  .brain-sub{font-size:11px;opacity:.9}
+  .apex-brain.pulse{animation:brainPulse 2s ease-out 1}
+  
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes brainPulse{
+    0%{box-shadow:0 8px 32px rgba(0,0,0,.3);transform:scale(1)}
+    50%{box-shadow:0 0 40px rgba(16,185,129,.8);transform:scale(1.08)}
+    100%{box-shadow:0 8px 32px rgba(0,0,0,.3);transform:scale(1)}
+  }
+  
+  .app-card{right:30px;top:60px;width:160px;background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+  .app-header{background:linear-gradient(135deg,#0d9488,#10b981);color:#fff;padding:8px;border-radius:6px;margin-bottom:8px;font-size:10px;font-weight:700}
+  .app-feature{background:#f9fafb;padding:6px;margin:4px 0;border-radius:4px;font-size:9px;color:#374151;text-align:left}
+  .app-feature::before{content:'✓';color:#10b981;margin-right:4px;font-weight:700}
+  
+  .ai-assist{right:30px;top:240px;width:160px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .ai-icon{font-size:28px;margin-bottom:4px}
+  .ai-title{font-size:11px;font-weight:700;color:#92400e}
+  .ai-desc{font-size:9px;color:#78716c;margin-top:4px}
+
+  .flow-line {
+    position: absolute;
+    height: 3px;
+    border-radius: 9999px;
+    opacity: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.2) 0px,
+      rgba(255, 255, 255, 1) 8px,
+      rgba(255, 255, 255, 0.2) 16px
+    );
+    background-size: 24px 3px;
+  }
+
+  .flow-line.active {
+    opacity: 1;
+    animation: flowDash 1.2s linear infinite;
+  }
+
+  .flow-idea {
+    top: 80px;
+    left: 180px;
+    width: calc(50% - 280px);
+  }
+
+  .flow-data {
+    top: 180px;
+    left: 180px;
+    width: calc(50% - 280px);
+  }
+
+  .flow-code {
+    top: 300px;
+    left: 180px;
+    width: calc(50% - 280px);
+  }
+
+  .flow-out-top {
+    top: 130px;
+    left: calc(50% + 100px);
+    width: calc(50% - 290px);
+  }
+
+  .flow-out-bottom {
+    top: 290px;
+    left: calc(50% + 100px);
+    width: calc(50% - 290px);
+  }
+
+  .flow-connector {
+    position: absolute;
+    width: 3px;
+    border-radius: 9999px;
+    opacity: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2) 0px,
+      rgba(255, 255, 255, 1) 8px,
+      rgba(255, 255, 255, 0.2) 16px
+    );
+    background-size: 3px 24px;
+  }
+
+  .flow-connector.active {
+    opacity: 1;
+    animation: flowDashVertical 1.2s linear infinite;
+  }
+
+  .flow-vertical-1 {
+    left: calc(50% - 100px);
+    top: 80px;
+    height: 50px;
+  }
+
+  .flow-vertical-2 {
+    left: calc(50% - 100px);
+    top: 230px;
+    height: 70px;
+  }
+
+  .flow-vertical-out {
+    left: calc(50% + 100px);
+    top: 130px;
+    height: 160px;
+  }
+
+  @keyframes flowDash {
+    0% { background-position: 0 0; }
+    100% { background-position: 24px 0; }
+  }
+
+  @keyframes flowDashVertical {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 24px; }
+  }
+
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(16,185,129,.6); }
+    50% { box-shadow: 0 0 0 16px rgba(16,185,129,0); }
+    100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+  }
+
+  .packet {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  }
+
+  @keyframes moveIdeaToBrain {
+    0% { left: 180px; top: 80px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: calc(50% - 100px); top: 130px; opacity: 0; }
+  }
+
+  @keyframes moveDataToBrain {
+    0% { left: 180px; top: 180px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: calc(50% - 100px); top: 180px; opacity: 0; }
+  }
+
+  @keyframes moveCodeToBrain {
+    0% { left: 180px; top: 300px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: calc(50% - 100px); top: 230px; opacity: 0; }
+  }
+
+  @keyframes moveBrainToApp {
+    0% { left: calc(50% + 100px); top: 130px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { right: 190px; top: 130px; opacity: 0; }
+  }
+
+  @keyframes moveBrainToAI {
+    0% { left: calc(50% + 100px); top: 290px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { right: 190px; top: 290px; opacity: 0; }
+  }
+
+  .dest-glow {
+    animation: glowPulse 1.3s ease-out 1;
+  }
+
+  @keyframes glowPulse {
+    0% {
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 24px rgba(16,185,129,.6);
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+      transform: scale(1);
+    }
+  }
+
+  .feature-list{list-style:none;margin-top:8px}
+  .feature-list li{padding:6px 0;font-size:13px;color:#374151;line-height:1.4}
+  .feature-list li::before{content:'✓';color:#10b981;font-weight:700;margin-right:8px}
+
+  /* App Building Visualization */
+  .app-preview{display:none;background:#fff;border-radius:8px;padding:16px;margin-top:16px;box-shadow:0 4px 12px rgba(0,0,0,.15);min-height:400px}
+  .app-preview.active{display:block;animation:slideIn 0.5s ease-out}
+  
+  /* Stage-specific visualization containers */
+  .stage-visual{display:none;background:#f9fafb;border:2px solid #e5e7eb;border-radius:8px;padding:16px;margin-top:12px;min-height:300px}
+  .stage-visual.active{display:block;animation:slideIn 0.5s ease-out}
+  
+  /* Natural Language Input Visual */
+  .prompt-box{background:#fff;border:2px solid #0d9488;border-radius:8px;padding:12px;margin-bottom:12px;opacity:0}
+  .prompt-box.active{animation:fadeInElement 0.6s ease-out forwards}
+  .prompt-label{font-size:10px;color:#0d9488;font-weight:700;text-transform:uppercase;margin-bottom:6px}
+  .prompt-text{font-size:13px;color:#374151;font-style:italic;line-height:1.5}
+  
+  .ai-thinking{display:flex;align-items:center;gap:8px;padding:10px;background:#f0fdfa;border-radius:6px;margin-top:12px;opacity:0}
+  .ai-thinking.active{animation:fadeInElement 0.6s ease-out 0.8s forwards}
+  .ai-thinking-icon{font-size:20px;animation:spin 2s linear infinite}
+  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  
+  .entity-detection{margin-top:12px;opacity:0}
+  .entity-detection.active{animation:fadeInElement 0.6s ease-out 1.4s forwards}
+  .entity-tag{display:inline-block;background:#ccfbf1;color:#0d9488;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600;margin:4px 4px 4px 0}
+  
+  /* Data Model Visual */
+  .schema-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+  .table-schema{background:#fff;border:2px solid #9333ea;border-radius:8px;padding:10px;opacity:0}
+  .table-schema.active{animation:fadeInElement 0.6s ease-out forwards}
+  .table-schema:nth-child(1).active{animation-delay:0.3s}
+  .table-schema:nth-child(2).active{animation-delay:0.6s}
+  .table-schema:nth-child(3).active{animation-delay:0.9s}
+  .table-name{font-size:12px;font-weight:700;color:#9333ea;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .table-field{font-size:10px;color:#6b7280;padding:4px 6px;background:#f9fafb;border-radius:4px;margin-bottom:3px;display:flex;justify-content:space-between}
+  .field-name{font-weight:600}
+  .field-type{color:#9ca3af}
+  
+  /* APEX Page Builder Visual */
+  .page-builder{display:grid;grid-template-columns:200px 1fr;gap:12px;height:280px}
+  .page-tree{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:8px;overflow:auto;opacity:0}
+  .page-tree.active{animation:fadeInElement 0.6s ease-out 0.3s forwards}
+  .page-item{font-size:11px;padding:6px 8px;margin:2px 0;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .page-item:hover{background:#f3f4f6}
+  .page-item.selected{background:#dbeafe;color:#1e40af;font-weight:600}
+  .page-canvas{background:#fff;border:2px dashed #cbd5e1;border-radius:6px;padding:12px;opacity:0;position:relative}
+  .page-canvas.active{animation:fadeInElement 0.6s ease-out 0.6s forwards}
+  
+  .component{background:#f0f9ff;border:1px solid #93c5fd;border-radius:4px;padding:8px;margin:6px 0;font-size:10px;opacity:0}
+  .component.active{animation:fadeInElement 0.4s ease-out forwards}
+  .component:nth-child(1).active{animation-delay:1.0s}
+  .component:nth-child(2).active{animation-delay:1.2s}
+  .component:nth-child(3).active{animation-delay:1.4s}
+  .component:nth-child(4).active{animation-delay:1.6s}
+  .component-label{font-weight:700;color:#2563eb;margin-bottom:4px}
+  .component-desc{color:#64748b;font-size:9px}
+  
+  /* AI Features Visual */
+  .ai-features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+  .ai-feature-card{background:#fff;border:2px solid #ea580c;border-radius:8px;padding:12px;opacity:0}
+  .ai-feature-card.active{animation:fadeInElement 0.6s ease-out forwards}
+  .ai-feature-card:nth-child(1).active{animation-delay:0.3s}
+  .ai-feature-card:nth-child(2).active{animation-delay:0.6s}
+  .ai-feature-card:nth-child(3).active{animation-delay:0.9s}
+  .ai-feature-card:nth-child(4).active{animation-delay:1.2s}
+  .ai-feature-icon{font-size:24px;margin-bottom:6px}
+  .ai-feature-name{font-size:12px;font-weight:700;color:#ea580c;margin-bottom:4px}
+  .ai-feature-desc{font-size:10px;color:#6b7280;line-height:1.4}
+  
+  /* Deployment Visual */
+  .deploy-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+  .deploy-card{background:#fff;border:2px solid #16a34a;border-radius:8px;padding:12px;text-align:center;opacity:0}
+  .deploy-card.active{animation:fadeInElement 0.6s ease-out forwards}
+  .deploy-card:nth-child(1).active{animation-delay:0.3s}
+  .deploy-card:nth-child(2).active{animation-delay:0.6s}
+  .deploy-card:nth-child(3).active{animation-delay:0.9s}
+  .deploy-icon{font-size:32px;margin-bottom:8px}
+  .deploy-name{font-size:12px;font-weight:700;color:#16a34a;margin-bottom:4px}
+  .deploy-desc{font-size:10px;color:#6b7280}
+  
+  .iteration-flow{margin-top:16px;padding:12px;background:#ecfdf5;border-radius:6px;opacity:0}
+  .iteration-flow.active{animation:fadeInElement 0.6s ease-out 1.5s forwards}
+  .flow-step{display:flex;align-items:center;gap:8px;font-size:11px;color:#065f46;margin:6px 0}
+  .flow-step::before{content:'→';font-weight:700;color:#16a34a}
+  
+  @keyframes slideIn{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+
+  .app-preview-header{background:linear-gradient(135deg,#0d9488,#10b981);color:#fff;padding:12px 16px;border-radius:6px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;opacity:0}
+  .app-preview-header.active{animation:fadeInElement 0.6s ease-out forwards}
+  
+  .app-nav{background:#1f2937;padding:8px 0;border-radius:6px;margin-bottom:12px;opacity:0}
+  .app-nav.active{animation:fadeInElement 0.6s ease-out 0.3s forwards}
+  
+  .nav-item{display:inline-block;padding:6px 12px;margin:0 4px;color:#9ca3af;font-size:12px;border-radius:4px;transition:all .2s}
+  .nav-item.active-nav{background:#0d9488;color:#fff}
+  
+  .app-content{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  
+  .app-card-mini{background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px;opacity:0}
+  .app-card-mini.active{animation:fadeInElement 0.6s ease-out forwards}
+  .app-card-mini:nth-child(1).active{animation-delay:0.6s}
+  .app-card-mini:nth-child(2).active{animation-delay:0.8s}
+  .app-card-mini:nth-child(3).active{animation-delay:1.0s}
+  .app-card-mini:nth-child(4).active{animation-delay:1.2s}
+  
+  .card-label{font-size:10px;color:#6b7280;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+  .card-value{font-size:20px;font-weight:700;color:#0d9488}
+  .card-trend{font-size:10px;color:#10b981;margin-top:2px}
+  
+  .app-table{opacity:0}
+  .app-table.active{animation:fadeInElement 0.6s ease-out 1.4s forwards}
+  
+  .mini-table{width:100%;border-collapse:collapse;font-size:11px}
+  .mini-table thead{background:#f3f4f6}
+  .mini-table th{padding:6px 8px;text-align:left;font-weight:600;color:#374151;border-bottom:2px solid #e5e7eb}
+  .mini-table td{padding:6px 8px;border-bottom:1px solid #e5e7eb}
+  .mini-table tbody tr{opacity:0}
+  .mini-table tbody tr.active{animation:fadeInElement 0.4s ease-out forwards}
+  .mini-table tbody tr:nth-child(1).active{animation-delay:1.6s}
+  .mini-table tbody tr:nth-child(2).active{animation-delay:1.8s}
+  .mini-table tbody tr:nth-child(3).active{animation-delay:2.0s}
+  .mini-table tbody tr:nth-child(4).active{animation-delay:2.2s}
+  
+  @keyframes fadeInElement{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  
+  .status-badge{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600}
+  .status-active{background:#d1fae5;color:#065f46}
+  .status-pending{background:#fef3c7;color:#92400e}
+  .status-vip{background:#dbeafe;color:#1e40af}
+
+  #fsToggle{position:fixed;bottom:20px;right:20px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:20px;cursor:pointer;z-index:1000;transition:background .2s}
+  #fsToggle:hover{background:rgba(0,0,0,.7)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <div class="header-title">
+      <h1>🚀 Oracle APEX AI Application Generator</h1>
+    </div>
+    <div class="header-subtitle">Build AI-powered enterprise apps faster from idea to production in minutes, not months</div>
+  </div>
+</div>
+
+<div class="problem-banner">
+  <span class="problem-text">⚠️ Demand for applications outpaces delivery, creating growing backlogs across teams.</span>
+</div>
+
+<div class="container">
+  <div class="button-group">
+    <button id="btnDescribe" class="btn btn-teal">Describe Your Idea</button>
+    <button id="btnGenerate" class="btn btn-purple" disabled>
+      Generate Data Model
+    </button>
+    <button id="btnBuild" class="btn btn-blue" disabled>
+     Build Application
+    </button>
+    <button id="btnEnhance" class="btn btn-orange" disabled>AI Features</button>
+    <button id="btnReset" class="btn btn-gray">Reset</button>
+  </div>
+
+  <div class="main-grid">
+    <div class="panel">
+      <div class="panel-header">📋 Development Journey</div>
+      <div class="panel-content">
+        <div id="modeIndicator" class="mode-indicator">
+          <div class="mode-title" id="modeTitle">Welcome</div>
+          <div class="mode-description" id="modeDesc">Click "Describe Your Idea" to begin</div>
+        </div>
+
+        <div id="explainWelcome" class="explain active">
+          <h3>💡 Transform Ideas into Enterprise Apps</h3>
+          <p>APEX AI helps bridge the gap between ideas and real applications. Business users and developers can work together to build secure, scalable apps faster, without long development cycles or heavy manual coding.</p>
+          <ul class="feature-list">
+            <li><strong>Democratized Creation:</strong> Empowers both citizen developers and technical experts</li>
+            <li><strong>Accelerated Development:</strong> Turns weeks of work into minutes</li>
+            <li><strong>Automated Foundations:</strong> Reduces repetitive setup and design tasks</li>
+            <li><strong>Enterprise-Grade:</strong> Secure, scalable, and easy to maintain</li>
+          </ul>
+          <small>Click through the workflow to see how natural language becomes a production-ready application.</small>
+        </div>
+
+        <div id="explainDescribe" class="explain">
+          <h3>🗣️ Why this matters</h3>
+          <p>
+            • Aligns business intent with the application from the start<br>
+            • Reduces miscommunication and rework<br>
+            • Accelerates the path from idea to implementation<br><br>
+          </p>
+          <small>APEX AI interprets your requirements and prepares to generate the appropriate data structures.</small>
+        </div>
+
+        <div id="explainGenerate" class="explain">
+          <h3>🏗️ Why this matters</h3>
+          <p>
+            • Accelerates application design<br>
+            • Reduces errors in early data modeling<br>
+            • Creates a clear starting point teams can review and build on<br> <br>
+          </p>
+          <small>APEX AI assists in generating a complete database schema based on your description; tables, relationships, and constraints.</small>
+        </div>
+
+        <div id="explainBuild" class="explain">
+          <h3>⚡ Why this matters</h3>
+          <p>
+            • Delivers a working application immediately<br>
+            • Eliminates manual page and navigation setup<br>
+            • Allows teams to focus on refining functionality instead of starting from scratch<br> <br>
+          </p>
+          <small>The application is metadata-driven rather than built from generated code, making it easier to maintain and aligned with established APEX patterns.</small>
+        </div>
+
+        <div id="explainEnhance" class="explain">
+          <h3>🤖 AI Features</h3>
+          <p>APEX supports AI capabilities that can be integrated into applications, including conversational experiences, text generation, vector search, and retrieval-augmented generation (RAG).</p>
+          <small>These features are implemented using a combination of Shared Components, application logic, and Oracle AI Database and OCI AI services.</small>
+        </div>
+
+        <div id="explainConfirm" class="explain-confirm"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">💻 APEX Assistant Interface</div>
+      <div class="panel-content" id="artifactsPanel">
+        <!-- Welcome State - APEX Assistant Introduction -->
+        <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🤖 Oracle APEX AI Assistant</div>
+        
+        <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)">
+          <!-- Header -->
+          <div style="background:#2d2d2d;padding:12px 16px;border-bottom:1px solid #4a4a4a">
+            <div style="color:#fff;font-size:14px;font-weight:600">APEX Assistant</div>
+          </div>
+          
+          <!-- Content -->
+          <div style="padding:20px;color:#e0e0e0">
+            <div style="font-size:13px;line-height:1.6;margin-bottom:16px">
+              The APEX AI Assistant helps you build applications faster using natural language. You can use it to:
+            </div>
+            
+            <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #0d9488;margin-bottom:12px">
+              <div style="color:#0d9488;font-size:12px;font-weight:700;margin-bottom:8px">🗄️ Generate Data Models</div>
+              <div style="color:#ccc;font-size:11px;line-height:1.5">
+                Describe your data requirements at a high level, and the APEX Assistant can help generate database objects using Oracle best practices.
+              </div>
+            </div>
+            
+            <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #2563eb;margin-bottom:12px">
+              <div style="color:#2563eb;font-size:12px;font-weight:700;margin-bottom:8px">⚡ Build Applications</div>
+              <div style="color:#ccc;font-size:11px;line-height:1.5">
+                Describe the type of application you want to create, and the assistant helps generate application foundations based on existing data..
+              </div>
+            </div>
+            
+            <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #9333ea;margin-bottom:16px">
+              <div style="color:#9333ea;font-size:12px;font-weight:700;margin-bottom:8px">💬 Code Assistance</div>
+              <div style="color:#ccc;font-size:11px;line-height:1.5">
+                Assists developers with SQL and PL/SQL by suggesting patterns, explaining existing logic, and helping troubleshoot issues directly within the APEX development environment.
+              </div>
+            </div>
+            
+            <!--<div style="background:#1a1a1a;padding:12px;border-radius:6px;border:1px solid #4a4a4a">
+              <div style="color:#10b981;font-size:11px;font-weight:600;margin-bottom:6px">✓ Key Features</div>
+              <div style="color:#999;font-size:10px;line-height:1.6">
+                • Produces metadata-driven, maintainable applications<br>
+                • Works with your existing APEX workspace<br>
+                • Supports iterative refinement<br>
+                • Bring Your Own AI (BYOAI) compatible
+              </div>
+            </div>
+          </div> -->
+          
+          <!-- Footer -->
+          <div style="background:#2d2d2d;padding:12px 16px;border-top:1px solid #4a4a4a;text-align:center">
+            <div style="color:#999;font-size:11px">
+              👆 Click a workflow step above to see APEX AI in action
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="fsToggle" title="Toggle Fullscreen (F)">⛶</button>
+
+<script>
+  const $ = id => document.getElementById(id);
+  let currentStage = 0;
+  let animationInterval = null;
+
+  function clearArtifactsPanel() {
+    $('artifactsPanel').innerHTML = '';
+  }
+
+  function setActiveButton(btnId) {
+    // Remove active-btn class from all buttons
+    document.querySelectorAll('.btn').forEach(b => b.classList.remove('active-btn'));
+    // Add to clicked button
+    $(btnId).classList.add('active-btn');
+  }
+
+  function loadDescribeArtifacts() {
+    clearArtifactsPanel();
+    $('artifactsPanel').innerHTML = `
+      <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🗣️ Natural Language Input</div>
+
+      <!-- APEX Assistant Dialog -->
+      <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)">
+        <!-- Header -->
+        <div style="background:#2d2d2d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #4a4a4a">
+          <div style="color:#fff;font-size:14px;font-weight:600">APEX Assistant</div>
+          <div style="color:#999;font-size:18px;cursor:pointer">×</div>
+        </div>
+
+        <!-- Description -->
+        <div style="padding:16px;color:#ccc;font-size:12px;line-height:1.5;border-bottom:1px solid #4a4a4a">
+          Describe what you want to build in plain language. APEX AI interprets your requirements and identifies the data entities needed to get started.
+        </div>
+
+        <!-- Chat Area -->
+        <div style="padding:16px;background:#3a3a3a">
+
+          <!-- AI greeting -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5">
+                Hi! Tell me what kind of application you want to build. The more detail you give, the better I can structure your data model.
+              </div>
+            </div>
+          </div>
+
+          <!-- User prompt -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#0d9488;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0">👤</div>
+            <div style="flex:1">
+              <div style="background:#4a4a4a;color:#fff;padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.5">
+                I need a customer management system with contact details, purchase history, and support tickets. It should track customer interactions and generate reports on sales performance.
+              </div>
+            </div>
+          </div>
+
+          <!-- AI processing -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5;margin-bottom:8px">
+                Got it! I've analyzed your requirements. Here's what I found:
+              </div>
+              <div style="background:#2d2d2d;padding:10px;border-radius:6px;border-left:3px solid #0d9488">
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:8px">✓ Detected Entities</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px">
+                  <span style="background:#0d9488;color:#fff;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600">👥 Customers</span>
+                  <span style="background:#0d9488;color:#fff;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600">🛒 Purchases</span>
+                  <span style="background:#0d9488;color:#fff;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600">🎫 Support Tickets</span>
+                  <span style="background:#0d9488;color:#fff;padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600">📊 Reports</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI next step suggestion -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:0">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="background:#2d2d2d;padding:10px;border-radius:6px;border-left:3px solid #fff">
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:4px">✓ Ready to generate your data model</div>
+                <div style="color:#999;font-size:10px;line-height:1.5">I'll create the tables, relationships, and sample data for all detected entities. Click <strong style="color:#ccc">Generate Data Model</strong> to continue.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `;
+  }
+
+  function loadGenerateArtifacts() {
+    clearArtifactsPanel();
+    $('artifactsPanel').innerHTML = `
+      <div style="font-size:14px;font-weight:700;color:#9333ea;margin-bottom:16px">🏗️ Data Model Generation with APEX Assistant</div>
+      
+      <!-- APEX Assistant Dialog -->
+      <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3);margin-bottom:16px">
+        <!-- Header -->
+        <div style="background:#2d2d2d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #4a4a4a">
+          <div style="color:#fff;font-size:14px;font-weight:600">APEX Assistant</div>
+          <div style="color:#999;font-size:18px;cursor:pointer">×</div>
+        </div>
+        
+        <!-- Description -->
+        <div style="padding:16px;color:#ccc;font-size:12px;line-height:1.5;border-bottom:1px solid #4a4a4a">
+          This assistant lets you use natural language to generate a data model and sample data. Use it to jump-start the creation of a schema to build your application on.
+        </div>
+        
+        <!-- Chat Area -->
+        <div style="padding:16px;min-height:180px;max-height:400px;overflow-y:auto;background:#3a3a3a">
+          <!-- Assistant Initial Message -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5">
+                Let's create a data model together. Describe the kind of elements you want your data model to include.
+              </div>
+            </div>
+          </div>
+          
+          <!-- User Message 1: Create Data Model -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#0d9488;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0">👤</div>
+            <div style="flex:1">
+              <div style="background:#4a4a4a;color:#fff;padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.5">
+                Create a data model for a Customer Management App. The data model should include Customers, Purchases, and Support Tickets.
+              </div>
+            </div>
+          </div>
+          
+          <!-- Assistant Response: Tables Created -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5;margin-bottom:8px">
+                I've created your data model with the following tables:
+              </div>
+              <div style="background:#2d2d2d;padding:10px;border-radius:6px;border-left:3px solid #fff">
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:6px">✓ CUSTOMERS</div>
+                <div style="color:#999;font-size:10px;margin-bottom:4px">• customer_id, name, email, phone, status, created_date</div>
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:6px;margin-top:10px">✓ PURCHASES</div>
+                <div style="color:#999;font-size:10px;margin-bottom:4px">• purchase_id, customer_id (FK), product_name, amount, purchase_date</div>
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:6px;margin-top:10px">✓ SUPPORT_TICKETS</div>
+                <div style="color:#999;font-size:10px">• ticket_id, customer_id (FK), subject, status, priority, created_date</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- User Message 2: Generate Sample Data -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#0d9488;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0">👤</div>
+            <div style="flex:1">
+              <div style="background:#4a4a4a;color:#fff;padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.5">
+                Generate sample data for the tables
+              </div>
+            </div>
+          </div>
+          
+          <!-- Assistant Response: Sample Data Generated -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:0">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5;margin-bottom:8px">
+                Sample data has been generated for all tables:
+              </div>
+              <div style="background:#2d2d2d;padding:10px;border-radius:6px;border-left:3px solid #fff">
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:4px">✓ Sample Data Inserted</div>
+                <div style="color:#999;font-size:10px">• 50 customers</div>
+                <div style="color:#999;font-size:10px">• 125 purchases</div>
+                <div style="color:#999;font-size:10px">• 35 support tickets</div>
+              </div>
+              <div style="color:#ccc;font-size:11px;margin-top:8px">
+                Your database is now populated with realistic test data. You can proceed to build your application.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SQL Format Options -->
+        <div style="padding:12px 16px;background:#2d2d2d;border-top:1px solid #4a4a4a;display:flex;gap:8px">
+          <button style="background:#444;border:1px solid #666;color:#ccc;padding:6px 12px;border-radius:4px;font-size:11px">SQL Format</button>
+          <button style="background:#888;border:none;color:#fff;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600">Oracle SQL</button>
+          <button style="background:#444;border:1px solid #666;color:#ccc;padding:6px 12px;border-radius:4px;font-size:11px">Quick SQL</button>
+        </div>
+      </div>
+      
+      <div style="font-size:12px;font-weight:600;color:#374151;margin-bottom:10px">📝 Generated SQL DDL Scripts:</div>
+      
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-family:monospace;font-size:11px;line-height:1.5;overflow-x:auto;max-height:300px;overflow-y:auto">
+<span style="color:#9333ea;font-weight:700">-- Table: CUSTOMERS</span>
+<span style="color:#2563eb">CREATE TABLE</span> customers (
+    customer_id   <span style="color:#ea580c">NUMBER</span> <span style="color:#16a34a">PRIMARY KEY</span>,
+    name          <span style="color:#ea580c">VARCHAR2</span>(100),
+    email         <span style="color:#ea580c">VARCHAR2</span>(100),
+    phone         <span style="color:#ea580c">VARCHAR2</span>(20),
+    status        <span style="color:#ea580c">VARCHAR2</span>(20),
+    created_date  <span style="color:#ea580c">DATE</span>
+);
+
+<span style="color:#9333ea;font-weight:700">-- Table: PURCHASES</span>
+<span style="color:#2563eb">CREATE TABLE</span> purchases (
+    purchase_id   <span style="color:#ea580c">NUMBER</span> <span style="color:#16a34a">PRIMARY KEY</span>,
+    customer_id   <span style="color:#ea580c">NUMBER</span> <span style="color:#16a34a">REFERENCES</span> customers,
+    product_name  <span style="color:#ea580c">VARCHAR2</span>(200),
+    amount        <span style="color:#ea580c">NUMBER</span>(10,2),
+    purchase_date <span style="color:#ea580c">DATE</span>
+);
+
+<span style="color:#9333ea;font-weight:700">-- Table: SUPPORT_TICKETS</span>
+<span style="color:#2563eb">CREATE TABLE</span> support_tickets (
+    ticket_id     <span style="color:#ea580c">NUMBER</span> <span style="color:#16a34a">PRIMARY KEY</span>,
+    customer_id   <span style="color:#ea580c">NUMBER</span> <span style="color:#16a34a">REFERENCES</span> customers,
+    subject       <span style="color:#ea580c">VARCHAR2</span>(200),
+    status        <span style="color:#ea580c">VARCHAR2</span>(20),
+    priority      <span style="color:#ea580c">VARCHAR2</span>(20),
+    created_date  <span style="color:#ea580c">DATE</span>
+);
+
+<span style="color:#9333ea;font-weight:700">-- Sample Data Inserts</span>
+<span style="color:#2563eb">INSERT INTO</span> customers <span style="color:#2563eb">VALUES</span> (1, <span style="color:#16a34a">'Acme Corp'</span>, <span style="color:#16a34a">'contact@acme.com'</span>, <span style="color:#16a34a">'555-0100'</span>, <span style="color:#16a34a">'vip'</span>, SYSDATE);
+<span style="color:#2563eb">INSERT INTO</span> customers <span style="color:#2563eb">VALUES</span> (2, <span style="color:#16a34a">'TechStart Inc'</span>, <span style="color:#16a34a">'info@techstart.io'</span>, <span style="color:#16a34a">'555-0101'</span>, <span style="color:#16a34a">'active'</span>, SYSDATE);
+<span style="color:#9333ea;font-weight:700">-- ... (48 more customer records)</span>
+
+<span style="color:#2563eb">INSERT INTO</span> purchases <span style="color:#2563eb">VALUES</span> (1, 1, <span style="color:#16a34a">'Enterprise License'</span>, 45200.00, SYSDATE-10);
+<span style="color:#2563eb">INSERT INTO</span> purchases <span style="color:#2563eb">VALUES</span> (2, 2, <span style="color:#16a34a">'Pro Subscription'</span>, 12500.00, SYSDATE-5);
+<span style="color:#9333ea;font-weight:700">-- ... (123 more purchase records)</span>
+
+<span style="color:#2563eb">COMMIT</span>;
+      </div>
+    `;
+  }
+
+  function loadBuildArtifacts() {
+    clearArtifactsPanel();
+    $('artifactsPanel').innerHTML = `
+      <div style="font-size:14px;font-weight:700;color:#2563eb;margin-bottom:16px">⚡ Application Creation with APEX Assistant</div>
+      
+      <!-- APEX Assistant Dialog -->
+      <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3);margin-bottom:16px">
+        <!-- Header -->
+        <div style="background:#2d2d2d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #4a4a4a">
+          <div style="color:#fff;font-size:14px;font-weight:600">APEX Assistant</div>
+          <div style="color:#999;font-size:18px;cursor:pointer">×</div>
+        </div>
+        
+        <!-- Description -->
+        <div style="padding:16px;color:#ccc;font-size:12px;line-height:1.5;border-bottom:1px solid #4a4a4a">
+          This assistant helps you use natural language to create an application. Describe what kind of application you want to build.
+        </div>
+        
+        <!-- Chat Area -->
+        <div style="padding:16px;min-height:140px;max-height:300px;overflow-y:auto;background:#3a3a3a">
+          <!-- Assistant Initial Message -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5">
+                Let's create an application together. Describe what kind of app you want to build.
+              </div>
+            </div>
+          </div>
+          
+          <!-- User Message: Create Application -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:16px">
+            <div style="width:28px;height:28px;background:#0d9488;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0">👤</div>
+            <div style="flex:1">
+              <div style="background:#4a4a4a;color:#fff;padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.5">
+                Create an application with a dashboard showing customer metrics, interactive reports for customers and purchases, and forms for data entry and ticket management.
+              </div>
+            </div>
+          </div>
+          
+          <!-- Assistant Response: Application Created -->
+          <div class="chat-message" style="display:flex;gap:10px;margin-bottom:0">
+            <div style="width:28px;height:28px;background:#d32f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0">AI</div>
+            <div style="flex:1">
+              <div style="color:#e0e0e0;font-size:12px;line-height:1.5;margin-bottom:8px">
+                I've created your application with the following pages:
+              </div>
+              <div style="background:#2d2d2d;padding:10px;border-radius:6px;border-left:3px solid #fff">
+                <div style="color:#fff;font-size:11px;font-weight:700;margin-bottom:4px">✓ Customer Management System</div>
+                <div style="color:#999;font-size:10px">• Dashboard (Home page)</div>
+                <div style="color:#999;font-size:10px">• Customer List (Interactive Report)</div>
+                <div style="color:#999;font-size:10px">• Customer Form (Data Entry)</div>
+                <div style="color:#999;font-size:10px">• Purchases Report</div>
+                <div style="color:#999;font-size:10px">• Support Tickets (Interactive Grid)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding:12px 16px;background:#2d2d2d;border-top:1px solid #4a4a4a;display:flex;gap:8px">
+          <button style="background:#0d9488;border:none;color:#fff;padding:6px 16px;border-radius:4px;font-size:11px;font-weight:600">Create Application</button>
+        </div>
+      </div>
+      
+      <div style="font-size:12px;font-weight:600;color:#374151;margin-bottom:12px">📱 Generated Application:</div>
+      
+      <div id="generatedApp" style="background:#fff;border-radius:8px;border:2px solid #e5e7eb;overflow:hidden">
+        <!-- App will be built here -->
+      </div>
+    `;
+    
+    // Trigger the app building after chat animation completes (last message at 2.0s + 0.5s animation = 2.5s)
+    setTimeout(() => buildAppInPanel(), 3000);
+  }
+
+  function buildAppInPanel() {
+    const appContainer = $('generatedApp');
+    appContainer.innerHTML = `
+      <div style="background:linear-gradient(135deg,#0d9488,#10b981);color:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:15px;font-weight:700">Customer Management System</div>
+        </div>
+      </div>
+      
+      <div style="background:#1f2937;padding:10px">
+        <span style="display:inline-block;padding:6px 12px;margin:0 4px;color:#fff;background:#0d9488;font-size:11px;border-radius:4px">Dashboard</span>
+        <span style="display:inline-block;padding:6px 12px;margin:0 4px;color:#9ca3af;font-size:11px">Customers</span>
+        <span style="display:inline-block;padding:6px 12px;margin:0 4px;color:#9ca3af;font-size:11px">Purchases</span>
+        <span style="display:inline-block;padding:6px 12px;margin:0 4px;color:#9ca3af;font-size:11px">Tickets</span>
+        <span style="display:inline-block;padding:6px 12px;margin:0 4px;color:#9ca3af;font-size:11px">Reports</span>
+      </div>
+      
+      <div style="padding:16px">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px">
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px">
+            <div style="font-size:10px;color:#6b7280;text-transform:uppercase;font-weight:600;margin-bottom:4px">Total Customers</div>
+            <div style="font-size:22px;font-weight:700;color:#0d9488">1,284</div>
+            <div style="font-size:10px;color:#10b981;margin-top:2px">↑ 12% this month</div>
+          </div>
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px">
+            <div style="font-size:10px;color:#6b7280;text-transform:uppercase;font-weight:600;margin-bottom:4px">Active Orders</div>
+            <div style="font-size:22px;font-weight:700;color:#0d9488">347</div>
+            <div style="font-size:10px;color:#10b981;margin-top:2px">↑ 8% this week</div>
+          </div>
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px">
+            <div style="font-size:10px;color:#6b7280;text-transform:uppercase;font-weight:600;margin-bottom:4px">Open Tickets</div>
+            <div style="font-size:22px;font-weight:700;color:#0d9488">23</div>
+            <div style="font-size:10px;color:#10b981;margin-top:2px">↓ 15% improvement</div>
+          </div>
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px">
+            <div style="font-size:10px;color:#6b7280;text-transform:uppercase;font-weight:600;margin-bottom:4px">Revenue (YTD)</div>
+            <div style="font-size:22px;font-weight:700;color:#0d9488">$2.4M</div>
+            <div style="font-size:10px;color:#10b981;margin-top:2px">↑ 23% vs last year</div>
+          </div>
+        </div>
+        
+        <div style="font-size:12px;font-weight:600;margin-bottom:8px;color:#374151">Recent Customers</div>
+        <table style="width:100%;border-collapse:collapse;font-size:11px">
+          <thead>
+            <tr style="background:#f3f4f6">
+              <th style="padding:6px 8px;text-align:left;font-weight:600;border-bottom:2px solid #e5e7eb">Customer</th>
+              <th style="padding:6px 8px;text-align:left;font-weight:600;border-bottom:2px solid #e5e7eb">Email</th>
+              <th style="padding:6px 8px;text-align:left;font-weight:600;border-bottom:2px solid #e5e7eb">Status</th>
+              <th style="padding:6px 8px;text-align:left;font-weight:600;border-bottom:2px solid #e5e7eb">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb;font-weight:600">Acme Corp</td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb">contact@acme.com</td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb"><span style="background:#dbeafe;color:#1e40af;padding:3px 8px;border-radius:10px;font-size:10px;font-weight:600">VIP</span></td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb">$45,200</td>
+            </tr>
+            <tr>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb;font-weight:600">TechStart Inc</td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb">info@techstart.io</td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb"><span style="background:#d1fae5;color:#065f46;padding:3px 8px;border-radius:10px;font-size:10px;font-weight:600">Active</span></td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb">$12,500</td>
+            </tr>
+            <tr>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb;font-weight:600">Global Solutions</td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb">hello@global.com</td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb"><span style="background:#d1fae5;color:#065f46;padding:3px 8px;border-radius:10px;font-size:10px;font-weight:600">Active</span></td>
+              <td style="padding:6px 8px;border-bottom:1px solid #e5e7eb">$28,900</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function loadEnhanceArtifacts() {
+    clearArtifactsPanel();
+    $('artifactsPanel').innerHTML = `
+      <div style="font-size:14px;font-weight:700;color:#ea580c;margin-bottom:8px">🤖 Available AI Features</div>
+      
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px">
+
+        <!-- AI Assistant -->
+        <div style="background:#fff;border:2px solid #ea580c;border-radius:8px;padding:14px">
+          <div style="font-size:12px;font-weight:700;color:#ea580c;margin-bottom:6px"><span style="font-size:18px;margin-bottom:6px">💬 </span>AI Assistant</div>
+          <div style="font-size:10px;color:#6b7280;line-height:1.5;margin-bottom:10px">
+            Embed conversational AI experiences directly into your APEX applications to support guided workflows, recommendations, and contextual assistance.
+          </div>
+          <div style="background:#fff7ed;border-radius:4px;padding:8px">
+            <div style="font-size:10px;font-weight:700;color:#ea580c;margin-bottom:4px">🔧 How to access:</div>
+            <div style="font-size:10px;color:#78716c;line-height:1.5">Workspace Administration → AI Attributes → Configure AI Provider <br>
+Shared Components → AI Configurations → Define Prompts</div>
+          </div>
+        </div>
+
+        <!-- Text Generation -->
+        <div style="background:#fff;border:2px solid #ea580c;border-radius:8px;padding:14px">
+          <div style="font-size:12px;font-weight:700;color:#ea580c;margin-bottom:6px"><span style="font-size:18px;margin-bottom:6px">✨ </span>Text Generation</div>
+          <div style="font-size:10px;color:#6b7280;line-height:1.5;margin-bottom:10px">
+            Use generative AI to assist with emails, notifications, and user-facing content. Define prompt templates and optionally enrich responses with contextual data.
+          </div>
+          <div style="background:#fff7ed;border-radius:4px;padding:8px">
+            <div style="font-size:10px;font-weight:700;color:#ea580c;margin-bottom:4px">🔧 How to access:</div>
+            <div style="font-size:10px;color:#78716c;line-height:1.5">Shared Components → AI Configurations → Define Prompt</div>
+          </div>
+        </div>
+
+        <!-- Vector Search -->
+        <div style="background:#fff;border:2px solid #ea580c;border-radius:8px;padding:14px">
+          <div style="font-size:12px;font-weight:700;color:#ea580c;margin-bottom:6px"><span style="font-size:18px;margin-bottom:6px">🔍 </span>Vector Search</div>
+          <div style="font-size:10px;color:#6b7280;line-height:1.5;margin-bottom:10px">
+            Semantic search and similarity matching powered by Oracle AI Database vector capabilities for more intuitive data discovery.
+          </div>
+          <div style="background:#fff7ed;border-radius:4px;padding:8px">
+            <div style="font-size:10px;font-weight:700;color:#ea580c;margin-bottom:4px">🔧 How to access:</div>
+            <div style="font-size:10px;color:#78716c;line-height:1.5">Shared Components → Search Configurations → Create Vector Search</div>
+          </div>
+        </div>
+
+        <!-- RAG Architecture -->
+        <div style="background:#fff;border:2px solid #ea580c;border-radius:8px;padding:14px">
+          <div style="font-size:12px;font-weight:700;color:#ea580c;margin-bottom:6px"><span style="font-size:18px;margin-bottom:6px">📚 </span>RAG Architecture</div>
+          <div style="font-size:10px;color:#6b7280;line-height:1.5;margin-bottom:10px">
+            Context-aware responses that combine generative AI with enterprise data and documentation for more accurate results.
+          </div>
+          <div style="background:#fff7ed;border-radius:4px;padding:8px">
+            <div style="font-size:10px;font-weight:700;color:#ea580c;margin-bottom:4px">🔧 How to access:</div>
+            <div style="font-size:10px;color:#78716c;line-height:1.5">Shared Components → AI Configurations → Define RAG Sources</div>
+          </div>
+        </div>
+
+      </div>
+
+      
+    `;
+  }
+
+  function setMode(title, desc, mode) {
+    const mi = $('modeIndicator');
+    mi.className = 'mode-indicator mode-' + mode + ' active';
+    $('modeTitle').textContent = title;
+    $('modeDesc').textContent = desc;
+  }
+
+  function setExplainState(state) {
+    ['explainWelcome', 'explainDescribe', 'explainGenerate', 'explainBuild', 'explainEnhance'].forEach(id => {
+      $(id).classList.remove('active');
+    });
+    $('explain' + state.charAt(0).toUpperCase() + state.slice(1)).classList.add('active');
+  }
+
+  function setConfirm(msg) {
+    const ec = $('explainConfirm');
+    if (msg) {
+      ec.textContent = msg;
+      ec.classList.add('active');
+    } else {
+      ec.classList.remove('active');
+    }
+  }
+
+  function enable(btnId) { $(btnId).disabled = false; }
+  function disable(btnId) { $(btnId).disabled = true; }
+  function complete(btnId) { $(btnId).classList.add('completed'); $(btnId).classList.remove('next-hint'); }
+  function hintNext(btnId) { $(btnId).classList.add('next-hint'); }
+
+  $('btnDescribe').addEventListener('click', () => {
+    setMode('Define Requirements', 'Start by capturing what you want the application to achieve. Describe the outcome, the users, and the type of information the app should manage.', 'describe');
+    setExplainState('describe');
+    setActiveButton('btnDescribe');
+    loadDescribeArtifacts();
+    complete('btnDescribe');
+    enable('btnGenerate');
+  });
+
+  $('btnGenerate').addEventListener('click', () => {
+    setMode('Create Application Foundation', 'APEX AI assists in creating a structured data model from application requirements, including tables, relationships, and optional sample data.', 'generate');
+    setExplainState('generate');
+    setActiveButton('btnGenerate');
+    loadGenerateArtifacts();
+    complete('btnGenerate');
+    enable('btnBuild');
+  });
+
+  $('btnBuild').addEventListener('click', () => {
+    setMode('Application Creation', 'APEX AI creates a complete application with pages, forms, reports, and navigation based on your requirements.', 'build');
+    setExplainState('build');
+
+    setActiveButton('btnBuild');
+    loadBuildArtifacts();
+    complete('btnBuild');
+    enable('btnEnhance');
+  });
+
+  $('btnEnhance').addEventListener('click', () => {
+    setMode('AI Features', 'These AI capabilities can be integrated into APEX applications using a combination of Shared Components, application logic, and Oracle Database AI services. Shared Components help centralize configuration and reuse AI-related functionality across the application.', 'enhance');
+    setExplainState('enhance');
+
+    setActiveButton('btnEnhance');
+    loadEnhanceArtifacts();
+    complete('btnEnhance');
+  });
+
+  function loadWelcomeArtifacts() {
+    clearArtifactsPanel();
+    $('artifactsPanel').innerHTML = `
+      <!-- Welcome State - APEX Assistant Introduction -->
+      <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🤖 Oracle APEX AI Assistant</div>
+      
+      <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)">
+        <!-- Header -->
+        <div style="background:#2d2d2d;padding:12px 16px;border-bottom:1px solid #4a4a4a">
+          <div style="color:#fff;font-size:14px;font-weight:600">APEX Assistant</div>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding:20px;color:#e0e0e0">
+          <div style="font-size:13px;line-height:1.6;margin-bottom:16px">
+            The APEX AI Assistant helps you build applications faster using natural language. You can use it to:
+          </div>
+          
+          <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #0d9488;margin-bottom:12px">
+            <div style="color:#0d9488;font-size:12px;font-weight:700;margin-bottom:8px">🗄️ Generate Data Models</div>
+            <div style="color:#ccc;font-size:11px;line-height:1.5">
+              Describe your data requirements in natural language, and APEX AI will create tables, relationships, constraints, and sample data automatically.
+            </div>
+          </div>
+          
+          <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #2563eb;margin-bottom:12px">
+            <div style="color:#2563eb;font-size:12px;font-weight:700;margin-bottom:8px">⚡ Build Applications</div>
+            <div style="color:#ccc;font-size:11px;line-height:1.5">
+              Tell the assistant what kind of app you need, and it will generate pages, forms, reports, and navigation based on your data model.
+            </div>
+          </div>
+          
+          <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #9333ea;margin-bottom:16px">
+            <div style="color:#9333ea;font-size:12px;font-weight:700;margin-bottom:8px">💬 Code Assistance</div>
+            <div style="color:#ccc;font-size:11px;line-height:1.5">
+              Get help with SQL queries, PL/SQL code, debugging, and understanding existing code directly in the Code Editor.
+            </div>
+          </div>
+          
+          <div style="background:#1a1a1a;padding:12px;border-radius:6px;border:1px solid #4a4a4a">
+            <div style="color:#10b981;font-size:11px;font-weight:600;margin-bottom:6px">✓ Key Features</div>
+            <div style="color:#999;font-size:10px;line-height:1.6">
+              • Uses Oracle AI Database best practices<br>
+              • Generates production-ready code and metadata<br>
+              • Works with your existing APEX workspace<br>
+              • Supports iterative refinement<br>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background:#2d2d2d;padding:12px 16px;border-top:1px solid #4a4a4a;text-align:center">
+          <div style="color:#999;font-size:11px">
+            👆 Click a workflow step above to see APEX AI in action
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  $('btnReset').addEventListener('click', () => {
+    $('modeIndicator').classList.remove('active');
+    loadWelcomeArtifacts();
+    Array.from(document.querySelectorAll('.btn')).forEach(b => {
+      b.classList.remove('completed');
+      b.classList.remove('active-btn');
+    });
+    ['btnGenerate', 'btnBuild', 'btnEnhance'].forEach(disable);
+    enable('btnDescribe');
+    setExplainState('welcome');
+    setConfirm('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function toggleFS() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  }
+
+  $('fsToggle').addEventListener('click', toggleFS);
+  window.addEventListener('keydown', e => {
+    if (e.key.toLowerCase() === 'f') toggleFS();
+  });
+
+  // Initial state
+  ['btnGenerate', 'btnBuild', 'btnEnhance'].forEach(disable);
+  hintNext('btnDescribe');
+  setExplainState('welcome');
+  setConfirm('');
+
+</script>
+</body>
+</html>

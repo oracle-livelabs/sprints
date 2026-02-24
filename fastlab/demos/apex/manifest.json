@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick APEX AI Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle APEX AI capabilities.",
+      "filename": "apex.md"
+    }
+  ]
+}

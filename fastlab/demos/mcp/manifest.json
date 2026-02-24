@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick Oracle MCP Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle MCP.",
+      "filename": "mcp.md"
+    }
+  ]
+}
