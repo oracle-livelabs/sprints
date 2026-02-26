@@ -1,10 +1,10 @@
 # Introduction
 
-## About Oracle APEX AI Demo
+## About Oracle APEX Demo
 
-**Oracle APEX AI** accelerates application development by combining low-code design with AI-assisted capabilities built on Oracle AI Database and OCI AI services. It helps teams move from business requirements to production-ready applications faster, without sacrificing security, governance, or maintainability.
+**Oracle APEX** accelerates application development by combining low-code design with AI-assisted capabilities built on Oracle AI Database and OCI AI services. It helps teams move from business requirements to production-ready applications faster, without sacrificing security, governance, or maintainability.
 
-In this demo, you explore how APEX AI supports application creation by capturing business intent, assisting with data modeling, generating a runnable application, and enabling AI-powered features such as conversational experiences, text generation, and semantic search.
+In this demo, you explore how APEX supports application creation by capturing business intent, assisting with data modeling, generating a runnable application, and enabling AI-powered features such as conversational experiences, text generation, and semantic search.
 
 APEX applications are metadata-driven and run directly on Oracle AI Database, making them easy to maintain, secure by default, and ready to scale. AI assists the process while developers and teams remain in control of design, logic, and refinement.
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Build Enterprise Apps Faster with Oracle APEX AI</title>
+<title>Build Enterprise Apps Faster with Oracle APEX</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{
@@ -451,7 +451,7 @@
 <div class="header">
   <div class="header-content">
     <div class="header-title">
-      <h1>🚀 Oracle APEX AI Application Generator</h1>
+      <h1>🚀 Oracle APEX Application Generator</h1>
     </div>
     <div class="header-subtitle">Build AI-powered enterprise apps faster from idea to production in minutes, not months</div>
   </div>
@@ -485,7 +485,7 @@
 
         <div id="explainWelcome" class="explain active">
           <h3>💡 Transform Ideas into Enterprise Apps</h3>
-          <p>APEX AI helps bridge the gap between ideas and real applications. Business users and developers can work together to build secure, scalable apps faster, without long development cycles or heavy manual coding.</p>
+          <p>Oracle APEX helps bridge the gap between ideas and real applications. Business users and developers can work together to build secure, scalable apps faster, without long development cycles or heavy manual coding.</p>
           <ul class="feature-list">
             <li><strong>Democratized Creation:</strong> Empowers both citizen developers and technical experts</li>
             <li><strong>Accelerated Development:</strong> Turns weeks of work into minutes</li>
@@ -502,7 +502,7 @@
             • Reduces miscommunication and rework<br>
             • Accelerates the path from idea to implementation<br><br>
           </p>
-          <small>APEX AI interprets your requirements and prepares to generate the appropriate data structures.</small>
+          <small>APEX interprets your requirements and prepares to generate the appropriate data structures.</small>
         </div>
 
         <div id="explainGenerate" class="explain">
@@ -512,7 +512,7 @@
             • Reduces errors in early data modeling<br>
             • Creates a clear starting point teams can review and build on<br> <br>
           </p>
-          <small>APEX AI assists in generating a complete database schema based on your description; tables, relationships, and constraints.</small>
+          <small>APEX assists in generating a complete database schema based on your description; tables, relationships, and constraints.</small>
         </div>
 
         <div id="explainBuild" class="explain">
@@ -539,7 +539,7 @@
       <div class="panel-header">💻 APEX Assistant Interface</div>
       <div class="panel-content" id="artifactsPanel">
         <!-- Welcome State - APEX Assistant Introduction -->
-        <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🤖 Oracle APEX AI Assistant</div>
+        <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🤖 Oracle APEX Assistant</div>
         
         <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)">
           <!-- Header -->
@@ -550,7 +550,7 @@
           <!-- Content -->
           <div style="padding:20px;color:#e0e0e0">
             <div style="font-size:13px;line-height:1.6;margin-bottom:16px">
-              The APEX AI Assistant helps you build applications faster using natural language. You can use it to:
+              The APEX Assistant helps you build applications faster using natural language. You can use it to:
             </div>
             
             <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #0d9488;margin-bottom:12px">
@@ -588,7 +588,7 @@
           <!-- Footer -->
           <div style="background:#2d2d2d;padding:12px 16px;border-top:1px solid #4a4a4a;text-align:center">
             <div style="color:#999;font-size:11px">
-              👆 Click a workflow step above to see APEX AI in action
+              👆 Click a workflow step above to see APEX in action
             </div>
           </div>
         </div>
@@ -630,7 +630,7 @@
 
         <!-- Description -->
         <div style="padding:16px;color:#ccc;font-size:12px;line-height:1.5;border-bottom:1px solid #4a4a4a">
-          Describe what you want to build in plain language. APEX AI interprets your requirements and identifies the data entities needed to get started.
+          Describe what you want to build in plain language. APEX interprets your requirements and identifies the data entities needed to get started.
         </div>
 
         <!-- Chat Area -->
@@ -1087,7 +1087,7 @@ Shared Components → AI Configurations → Define Prompts</div>
   });
 
   $('btnGenerate').addEventListener('click', () => {
-    setMode('Create Application Foundation', 'APEX AI assists in creating a structured data model from application requirements, including tables, relationships, and optional sample data.', 'generate');
+    setMode('Create Application Foundation', 'APEX assists in creating a structured data model from application requirements, including tables, relationships, and optional sample data.', 'generate');
     setExplainState('generate');
     setActiveButton('btnGenerate');
     loadGenerateArtifacts();
@@ -1096,7 +1096,7 @@ Shared Components → AI Configurations → Define Prompts</div>
   });
 
   $('btnBuild').addEventListener('click', () => {
-    setMode('Application Creation', 'APEX AI creates a complete application with pages, forms, reports, and navigation based on your requirements.', 'build');
+    setMode('Application Creation', 'APEX creates a complete application with pages, forms, reports, and navigation based on your requirements.', 'build');
     setExplainState('build');
 
     setActiveButton('btnBuild');
@@ -1118,7 +1118,7 @@ Shared Components → AI Configurations → Define Prompts</div>
     clearArtifactsPanel();
     $('artifactsPanel').innerHTML = `
       <!-- Welcome State - APEX Assistant Introduction -->
-      <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🤖 Oracle APEX AI Assistant</div>
+      <div style="font-size:14px;font-weight:700;color:#0d9488;margin-bottom:16px">🤖 Oracle APEX Assistant</div>
       
       <div style="background:#3a3a3a;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)">
         <!-- Header -->
@@ -1129,13 +1129,13 @@ Shared Components → AI Configurations → Define Prompts</div>
         <!-- Content -->
         <div style="padding:20px;color:#e0e0e0">
           <div style="font-size:13px;line-height:1.6;margin-bottom:16px">
-            The APEX AI Assistant helps you build applications faster using natural language. You can use it to:
+            The APEX Assistant helps you build applications faster using natural language. You can use it to:
           </div>
           
           <div style="background:#2d2d2d;padding:14px;border-radius:6px;border-left:3px solid #0d9488;margin-bottom:12px">
             <div style="color:#0d9488;font-size:12px;font-weight:700;margin-bottom:8px">🗄️ Generate Data Models</div>
             <div style="color:#ccc;font-size:11px;line-height:1.5">
-              Describe your data requirements in natural language, and APEX AI will create tables, relationships, constraints, and sample data automatically.
+              Describe your data requirements in natural language, and APEX will create tables, relationships, constraints, and sample data automatically.
             </div>
           </div>
           
@@ -1167,7 +1167,7 @@ Shared Components → AI Configurations → Define Prompts</div>
         <!-- Footer -->
         <div style="background:#2d2d2d;padding:12px 16px;border-top:1px solid #4a4a4a;text-align:center">
           <div style="color:#999;font-size:11px">
-            👆 Click a workflow step above to see APEX AI in action
+            👆 Click a workflow step above to see APEX in action
           </div>
         </div>
       </div>

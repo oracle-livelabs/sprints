@@ -4,7 +4,7 @@
   "tutorials": [
     {
       "title": "Introduction",
-      "description": "Learn more about Oracle APEX AI capabilities.",
+      "description": "Learn more about Oracle APEX AI capabilities",
       "filename": "apex.md"
     }
   ]

@@ -10,6 +10,11 @@ Estimated Time: 15 minutes
 
 [Walkthrough video](videohub:1_zbwxixkw:medium)
 
+```quiz-config
+passing: 75
+badge: images/badge.png
+```
+
 ## FastLab Introduction
 
 **Select AI** in Oracle Autonomous AI Database lets you **interact with your data using natural language;** whether asking questions without SQL syntax or supplying text documents to improve your model’s responses. Select AI also supports chatting directly with your LLM, generating synthetic data, translating and summarizing text, and building AI agents. In this session, we focus on **natural language to SQL (NL2SQL)**.
@@ -243,6 +248,32 @@ Here are some ideas to get you started:
 You have successfully completed the Oracle AI Database Select AI FastLab. 
 
 You can now ask natural language questions against a real Oracle database, see the SQL that Select AI generates, and start turning ad hoc questions into reusable SQL for your own projects.
+
+## Check Your Understanding
+
+```quiz score
+Q: What is the main benefit of using Select AI for natural language queries?
+* It converts natural language prompts into SQL you can review and run.
+- It generates visualizations without writing any SQL.
+- It automatically builds AI profiles for new schemas.
+> Select AI translates your natural language prompts into SQL so you can validate and execute the queries.
+```
+
+```quiz score
+Q: When using the Ask Oracle chatbot with MovieStream data, what should you do before submitting a prompt?
+* Keep the database checkbox selected so prompts query MovieStream tables.
+- Uncheck the database checkbox to chat directly with the LLM.
+- Switch AI profiles after every question to refresh context.
+> The lab directs you to keep the database checkbox enabled to ensure prompts target the MovieStream dataset.
+```
+
+```quiz score
+Q: Which Select AI action reveals the SQL generated for your prompt?
+* showsql displays the SQL statement created by Select AI.
+- narrate produces a conversational explanation of the results.
+- runsql hides the SQL to provide only the final result.
+> The showsql action returns the generated SQL so you can examine the query before running it.
+```
 
 ## Next Steps
 
