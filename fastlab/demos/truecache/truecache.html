@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle True Cache – Accelerate Apps Without Stale Data</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+        }
+        .header { background: linear-gradient(to right, #0f766e, #115e59); color: #fff; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,.1) }
+        .header-content { max-width: 1400px; margin: 0 auto }
+        .header-title { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+        .header-title h1 { font-size: 28px; font-weight: 700 }
+        .header-subtitle { color: #99f6e4; font-size: 14px }
+        .problem-banner { background: #fff3cd; border: 2px solid #ffc107; padding: 16px; border-radius: 8px; margin: 20px auto; max-width: 1400px; display: flex; align-items: center; gap: 12px }
+        .problem-icon { font-size: 24px }
+        .problem-text { font-size: 18px; color: #856404; font-weight: 600 }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+        .button-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px }
+        .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px }
+        @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr } }
+        .btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; min-height: 42px; color: #fff }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none }
+        .btn.completed { background: #16a34a !important }
+        .btn.completed::before { content: '✓ '; font-weight: bold }
+        .btn-teal   { background: #0d9488 } .btn-teal:hover:not(:disabled)   { background: #0f766e }
+        .btn-blue   { background: #2563eb } .btn-blue:hover:not(:disabled)   { background: #1e40af }
+        .btn-purple { background: #9333ea } .btn-purple:hover:not(:disabled) { background: #7c3aed }
+        .btn-orange { background: #ea580c } .btn-orange:hover:not(:disabled) { background: #c2410c }
+        .btn-danger { background: #ef4444 } .btn-danger:hover:not(:disabled) { background: #dc2626 }
+        .btn-success{ background: #16a34a } .btn-success:hover:not(:disabled){ background: #15803d }
+        .panel { background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,.1); overflow: hidden; display: flex; flex-direction: column }
+        .panel-header { background: #1f2937; color: #fff; padding: 12px 16px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px }
+        .panel-content { padding: 16px; flex: 1; overflow-y: auto }
+        .explain { display: none; padding: 16px; background: #f9fafb; border-radius: 8px; border: 2px solid #e5e7eb }
+        .explain.active { display: block }
+        .explain h3 { font-size: 16px; margin-bottom: 10px; color: #0d9488; font-weight: 700 }
+        .explain p  { font-size: 13px; color: #374151; line-height: 1.6; margin-bottom: 10px }
+        .explain ul { margin-left: 20px; font-size: 13px; color: #374151; line-height: 1.7 }
+        .explain ul li { margin-bottom: 4px }
+        .explain strong { color: #0d9488 }
+        .value-card { background: linear-gradient(135deg, #f0fdfa, #ccfbf1); border: 2px solid #0d9488; padding: 16px; border-radius: 8px; margin-top: 12px }
+        .value-title { font-size: 14px; font-weight: 700; color: #115e59; margin-bottom: 8px }
+        .value-item { font-size: 12px; color: #374151; margin-bottom: 6px; padding-left: 16px; position: relative }
+        .value-item::before { content: '✓'; position: absolute; left: 0; color: #0d9488; font-weight: bold }
+        .visual-container { background: linear-gradient(135deg, #0f766e, #115e59); border-radius: 8px; padding: 16px; min-height: 520px; position: relative; overflow: hidden }
+        .stage { position: relative; width: 100%; height: 490px }
+        .node-card { position: absolute; border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 11px; transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1); opacity: 0; transform: scale(0.7); box-shadow: 0 6px 20px rgba(0,0,0,0.3); z-index: 10; user-select: none }
+        .node-card.visible { opacity: 1; transform: scale(1) }
+        .node-icon { font-size: 32px; margin-bottom: 4px; line-height: 1 }
+        .node-label { color: #fff; line-height: 1.3 }
+        .node-sub   { font-size: 9px; opacity: 0.85; margin-top: 2px }
+        .nc-app   { background: linear-gradient(135deg,#2563eb,#1e40af); border: 3px solid #93c5fd }
+        .nc-cache { background: linear-gradient(135deg,#0d9488,#065f46); border: 3px solid #5eead4 }
+        .nc-db    { background: linear-gradient(135deg,#7c3aed,#4c1d95); border: 3px solid #c4b5fd }
+        .nc-ext   { background: linear-gradient(135deg,#b45309,#78350f); border: 3px solid #fbbf24 }
+        .nc-geo   { background: linear-gradient(135deg,#0369a1,#0c4a6e); border: 3px solid #7dd3fc }
+        .conn-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5 }
+        .bullet { position: absolute; width: 12px; height: 12px; border-radius: 50%; pointer-events: none; z-index: 20; opacity: 0; box-shadow: 0 0 10px currentColor }
+        .stale-badge { position: absolute; background: #ef4444; color: #fff; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 20px; z-index: 30; opacity: 0; transition: opacity 0.4s; white-space: nowrap }
+        .fresh-badge { position: absolute; background: #16a34a; color: #fff; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 20px; z-index: 30; opacity: 0; transition: opacity 0.4s; white-space: nowrap }
+        .redo-ring { position: absolute; border: 3px dashed #fbbf24; border-radius: 50%; pointer-events: none; z-index: 8; opacity: 0; transition: opacity 0.5s }
+        .redo-ring.spinning { opacity: 1; animation: spinRing 3s linear infinite }
+        @keyframes spinRing { from { transform: translate(-50%,-50%) rotate(0deg) } to { transform: translate(-50%,-50%) rotate(360deg) } }
+        .latency-box { position: absolute; background: rgba(255,255,255,0.95); border-radius: 10px; padding: 10px 14px; font-size: 11px; font-weight: 700; box-shadow: 0 4px 16px rgba(0,0,0,0.25); z-index: 25; opacity: 0; transition: opacity 0.5s; min-width: 140px }
+        .lat-row { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 5px }
+        .lat-row:last-child { margin-bottom: 0 }
+        .lat-label { color: #6b7280 }
+        .lat-val   { color: #0d9488 }
+        .lat-val.slow { color: #ef4444 }
+        .lat-bar { height: 6px; border-radius: 3px; background: #e5e7eb; overflow: hidden; margin-top: 4px }
+        .lat-fill { height: 100%; border-radius: 3px; width: 0; transition: width 1s ease }
+        .lat-fill.fast { background: #0d9488 }
+        .lat-fill.slow { background: #ef4444 }
+        .benefit-pill { position: absolute; background: rgba(255,255,255,0.95); color: #0d9488; font-size: 10px; font-weight: 700; padding: 5px 12px; border-radius: 20px; z-index: 25; opacity: 0; transform: scale(0); transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 3px 12px rgba(0,0,0,0.2); white-space: nowrap }
+        .benefit-pill.pop { opacity: 1; transform: scale(1) }
+        .use-case-grid { position: absolute; top: 14px; left: 14px; right: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; opacity: 0; transition: opacity 0.5s; z-index: 20 }
+        .use-case-grid.visible { opacity: 1 }
+        .uc-card { background: rgba(255,255,255,0.95); border-radius: 10px; padding: 10px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transform: translateY(20px) scale(0.95); opacity: 0; transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1) }
+        .uc-card.pop { transform: translateY(0) scale(1); opacity: 1 }
+        .uc-icon { font-size: 20px; margin-bottom: 4px }
+        .uc-title { font-size: 11px; font-weight: 700; color: #115e59; margin-bottom: 3px }
+        .uc-desc  { font-size: 10px; color: #374151; line-height: 1.4 }
+        .fullscreen-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 9999; width: 46px; height: 46px; border: none; border-radius: 10px; background: #111827; color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.25); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform .15s ease, opacity .2s ease, background .2s ease; opacity: .9 }
+        .fullscreen-toggle:hover { transform: translateY(-1px); opacity: 1; background: #0b1220 }
+        .fullscreen-toggle svg { width: 22px; height: 22px; display: block; fill: currentColor }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <div class="header-title">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+            </svg>
+            <h1>&#9889; Oracle True Cache</h1>
+        </div>
+        <p class="header-subtitle">Accelerate applications without stale data or complex caching</p>
+    </div>
+</div>
+
+<div class="problem-banner">
+    <span class="problem-icon">&#129300;</span>
+    <span class="problem-text">"My application is too slow &mdash; but every caching solution I try either serves stale data or forces me to rewrite my app. How can I get lightning-fast reads without the risk?"</span>
+</div>
+
+<div class="container">
+    <div class="button-group">
+        <button class="btn btn-teal"   id="btn1" onclick="step1()">1. The Problem</button>
+        <button class="btn btn-danger" id="btn2" onclick="step2()" disabled>2. Cache Pitfalls</button>
+        <button class="btn btn-success"id="btn3" onclick="step3()" disabled>3. True Cache</button>
+        <button class="btn btn-blue"   id="btn4" onclick="step4()" disabled>4. Always Fresh</button>
+        <button class="btn btn-purple" id="btn5" onclick="step5()" disabled>5. Scale Out</button>
+        <button class="btn btn-orange" id="btn6" onclick="step6()" disabled>6. Go Closer</button>
+        <button class="btn btn-teal"   id="btn7" onclick="step7()" disabled>7. Business Value</button>
+        <button class="btn btn-danger" onclick="resetDemo()" style="margin-left:auto">&#128260; Reset</button>
+    </div>
+
+    <div class="main-grid">
+        <div class="panel">
+            <div class="panel-header"><span>&#128203;</span><span>Understanding True Cache</span></div>
+            <div class="panel-content">
+
+                <div class="explain active" id="exp1">
+                    <h3>&#128034; Why Is My App Slow?</h3>
+                    <p>Every read request your application makes travels all the way to the back-end database. For high-traffic workloads this creates a bottleneck:</p>
+                    <ul>
+                        <li><strong>Round-trip latency</strong> adds up: milliseconds per query &times; millions of queries = sluggish UX</li>
+                        <li><strong>Database CPU &amp; I/O</strong> are exhausted by repetitive reads of the same rows</li>
+                        <li>Popular, rarely-changing data is fetched over and over</li>
+                    </ul>
+                    <p>The natural instinct is to add a cache &mdash; but traditional caches introduce their own set of problems.</p>
+                    <div class="value-card">
+                        <div class="value-title">What we really need:</div>
+                        <div class="value-item">Fast reads &mdash; served from memory, not disk</div>
+                        <div class="value-item">No stale data &mdash; always consistent with the source</div>
+                        <div class="value-item">Zero app changes &mdash; transparent to existing SQL</div>
+                    </div>
+                </div>
+
+                <div class="explain" id="exp2">
+                    <h3>&#9888;&#65039; Mid-Tier Cache Pitfalls</h3>
+                    <p>High-end apps often bolt on Redis, Memcached, or custom object caches to offload the database. But these raise hard questions:</p>
+                    <ul>
+                        <li><strong>Is the data current?</strong> After a write, the cache may serve old values for seconds or minutes</li>
+                        <li><strong>Manual invalidation</strong> is fragile; developers must track every write path</li>
+                        <li><strong>What to cache?</strong> Choosing objects requires deep domain knowledge</li>
+                        <li><strong>Another skill set</strong> &mdash; ops teams must learn and operate a separate caching tier</li>
+                        <li><strong>Security gap</strong> &mdash; data outside Oracle DB loses Oracle security controls</li>
+                    </ul>
+                    <p>These challenges mean mid-tier caches deliver <strong>very limited positive results</strong> in practice &mdash; and carry real business risk from stale data.</p>
+                </div>
+
+                <div class="explain" id="exp3">
+                    <h3>&#128161; What Is Oracle True Cache?</h3>
+                    <p>True Cache is a <strong>built-in caching service</strong> that runs inside the Oracle AI Database, eliminating external cache systems entirely.</p>
+                    <ul>
+                        <li><strong>Automatic synchronisation:</strong> Keeps cached data transactionally consistent using Oracle redo technology</li>
+                        <li><strong>No app changes:</strong> Works transparently with existing SQL queries</li>
+                        <li><strong>Ultra-low latency:</strong> Microsecond response times served from memory</li>
+                        <li><strong>Writes still go to the primary</strong> database, ensuring full durability</li>
+                    </ul>
+                    <div class="value-card">
+                        <div class="value-title">The True Cache difference:</div>
+                        <div class="value-item">Cache is part of Oracle AI Database &mdash; same security model</div>
+                        <div class="value-item">No manual invalidation ever needed</div>
+                        <div class="value-item">Single cache for relational, JSON, columnar data</div>
+                        <div class="value-item">Offload reads to commodity hardware</div>
+                    </div>
+                </div>
+
+                <div class="explain" id="exp4">
+                    <h3>&#128260; The Most Important Requirement: Fresh Data</h3>
+                    <p>True Cache maintains consistency using Oracle AI Database <strong>redo technology</strong> &mdash; the same proven mechanism behind Data Guard.</p>
+                    <ul>
+                        <li><strong>Redo stream:</strong> Every commit on the primary instantly propagates changes to True Cache</li>
+                        <li><strong>Automatic refresh</strong> &mdash; no manual invalidation, no TTL tuning</li>
+                        <li><strong>Transactional consistency</strong> maintained across all cached objects</li>
+                        <li>Eliminates application-managed cache invalidation entirely</li>
+                    </ul>
+                    <p>Applications always read <strong>fresh, correct data</strong> &mdash; the same guarantee as the primary, but at memory speed.</p>
+                </div>
+
+                <div class="explain" id="exp5">
+                    <h3>&#128200; Scale Out with Multiple Instances</h3>
+                    <p>A single True Cache already offloads the primary. Deploy multiple instances for even greater throughput:</p>
+                    <ul>
+                        <li><strong>Higher availability:</strong> Requests distributed; one failure does not stop reads</li>
+                        <li><strong>Larger data sets:</strong> Aggregate memory across nodes to cache the full working set</li>
+                        <li><strong>Group isolation:</strong> HR, Sales, Finance each get a dedicated instance</li>
+                        <li><strong>Overflow to disk:</strong> When memory fills, True Cache spills to local disk &mdash; still faster than the primary</li>
+                    </ul>
+                    <div class="value-card">
+                        <div class="value-title">Cache as much as you need, when you need it!</div>
+                        <div class="value-item">All instances stay in sync via the primary's redo stream</div>
+                        <div class="value-item">App connects to the cluster; Oracle balances the load</div>
+                    </div>
+                </div>
+
+                <div class="explain" id="exp6">
+                    <h3>&#127757; Deploy Close to the User</h3>
+                    <p>For data residency, user proximity, or device proximity, apps are often deployed <strong>far from the central database</strong>.</p>
+                    <ul>
+                        <li>True Cache can be deployed <strong>near the application</strong> &mdash; same region, edge, or data centre</li>
+                        <li><strong>No data on disk by default</strong> &mdash; a pure in-memory tier that data residency regulations allow</li>
+                        <li>Reads served locally at microsecond speed; writes still travel to the authoritative primary</li>
+                        <li>On a cache miss, the instance fetches from the primary silently and warms up transparently</li>
+                    </ul>
+                    <p>True Cache turns a remote-read problem into a local-cache solution without violating compliance boundaries.</p>
+                </div>
+
+                <div class="explain" id="exp7">
+                    <h3>&#128188; How Your Business Benefits</h3>
+                    <p>True Cache delivers measurable value across every part of the organisation:</p>
+                    <ul>
+                        <li><strong>Cost savings:</strong> Offload reads to commodity hardware; right-size your primary</li>
+                        <li><strong>Zero rework:</strong> Improve performance without rewriting applications</li>
+                        <li><strong>No extra skills:</strong> No Redis/Memcached expertise required</li>
+                        <li><strong>Unified cache:</strong> One service handles relational, document, row, and columnar data</li>
+                        <li><strong>Enterprise security:</strong> Oracle AI Database security extends to the cache tier</li>
+                    </ul>
+                    <div class="value-card">
+                        <div class="value-title">Real customer workloads on True Cache today:</div>
+                        <div class="value-item">Stock Exchange: read-heavy ticker feeds</div>
+                        <div class="value-item">Financial Institution: fraud detection AI inferencing</div>
+                        <div class="value-item">Marketing: real-time campaign personalisation</div>
+                        <div class="value-item">Oracle Fusion Apps: business-object layer caching</div>
+                        <div class="value-item">Oracle Banking: core banking read offload</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header"><span>&#127908;</span><span>Visual Story</span></div>
+            <div class="panel-content" style="padding:8px">
+                <div class="visual-container">
+                    <div class="stage" id="stage">
+
+                        <svg class="conn-svg" id="connSvg"></svg>
+
+                        <div class="redo-ring" id="redoRing" style="width:130px;height:130px;left:50%;top:50%;transform:translate(-50%,-50%)"></div>
+
+                        <!-- APP -->
+                        <div class="node-card nc-app" id="nApp" style="width:100px;height:90px;left:20px;top:50%;margin-top:-45px">
+                            <div class="node-icon">&#128241;</div>
+                            <div class="node-label">Application</div>
+                        </div>
+
+                        <!-- External (bad) cache -->
+                        <div class="node-card nc-ext" id="nExt" style="width:108px;height:90px;left:50%;top:28%;margin-left:-54px;margin-top:-45px">
+                            <div class="node-icon">&#128436;&#65039;</div>
+                            <div class="node-label">External Cache</div>
+                            <div class="node-sub">Redis / Memcached</div>
+                        </div>
+
+                        <!-- True Cache (single) -->
+                        <div class="node-card nc-cache" id="nCache" style="width:112px;height:96px;left:50%;top:50%;margin-left:-56px;margin-top:-48px">
+                            <div class="node-icon">&#9889;</div>
+                            <div class="node-label">True Cache</div>
+                            <div class="node-sub">Oracle AI Database</div>
+                        </div>
+
+                        <!-- Primary DB -->
+                        <div class="node-card nc-db" id="nDb" style="width:112px;height:96px;right:20px;top:50%;margin-top:-48px">
+                            <div class="node-icon">&#128451;&#65039;</div>
+                            <div class="node-label">Primary DB</div>
+                            <div class="node-sub">Oracle AI Database</div>
+                        </div>
+
+                        <!-- Scale-out caches -->
+                        <div class="node-card nc-cache" id="nCacheHR" style="width:96px;height:84px;left:44%;top:22%;margin-left:-48px;margin-top:-42px">
+                            <div class="node-icon">&#9889;</div>
+                            <div class="node-label">True Cache<br>HR</div>
+                        </div>
+                        <div class="node-card nc-cache" id="nCacheSales" style="width:96px;height:84px;left:44%;top:78%;margin-left:-48px;margin-top:-42px">
+                            <div class="node-icon">&#9889;</div>
+                            <div class="node-label">True Cache<br>Sales</div>
+                        </div>
+
+                        <!-- Geo apps & caches -->
+                        <div class="node-card nc-geo" id="nGeoA" style="width:90px;height:80px;left:18px;top:22%;margin-top:-40px">
+                            <div class="node-icon">&#127758;</div>
+                            <div class="node-label">App Americas</div>
+                        </div>
+                        <div class="node-card nc-geo" id="nGeoE" style="width:90px;height:80px;left:18px;top:78%;margin-top:-40px">
+                            <div class="node-icon">&#127759;</div>
+                            <div class="node-label">App Europe</div>
+                        </div>
+                        <div class="node-card nc-cache" id="nTCA" style="width:90px;height:80px;left:38%;top:22%;margin-left:-45px;margin-top:-40px">
+                            <div class="node-icon">&#9889;</div>
+                            <div class="node-label">TC Americas</div>
+                        </div>
+                        <div class="node-card nc-cache" id="nTCE" style="width:90px;height:80px;left:38%;top:78%;margin-left:-45px;margin-top:-40px">
+                            <div class="node-icon">&#9889;</div>
+                            <div class="node-label">TC Europe</div>
+                        </div>
+
+                        <!-- Badges -->
+                        <div class="stale-badge" id="staleBadge" style="top:18px;left:50%;transform:translateX(-50%)">&#9888;&#65039; STALE DATA SERVED</div>
+                        <div class="fresh-badge" id="freshBadge" style="top:18px;left:50%;transform:translateX(-50%)">&#9989; ALWAYS FRESH DATA</div>
+
+                        <!-- Latency meter -->
+                        <div class="latency-box" id="latBox" style="bottom:14px;left:14px">
+                            <div class="lat-row">
+                                <span class="lat-label">Traditional cache</span>
+                                <span class="lat-val slow" id="latTrad">&mdash;</span>
+                            </div>
+                            <div class="lat-bar"><div class="lat-fill slow" id="barTrad"></div></div>
+                            <div class="lat-row" style="margin-top:8px">
+                                <span class="lat-label">True Cache</span>
+                                <span class="lat-val fast" id="latTC">&mdash;</span>
+                            </div>
+                            <div class="lat-bar"><div class="lat-fill fast" id="barTC"></div></div>
+                        </div>
+
+                        <!-- Benefit pills -->
+                        <div class="benefit-pill" id="pill1" style="top:14px;left:14px">&#128640; Microsecond Reads</div>
+                        <div class="benefit-pill" id="pill2" style="top:14px;right:14px">&#128274; Oracle Security</div>
+                        <div class="benefit-pill" id="pill3" style="bottom:14px;right:14px">&#128161; Zero App Changes</div>
+                        <div class="benefit-pill" id="pill4" style="bottom:52px;right:14px">&#128176; Cost Savings</div>
+
+                        <!-- Use-case grid (step 7) -->
+                        <div class="use-case-grid" id="ucGrid">
+                            <div class="uc-card" id="uc1"><div class="uc-icon">&#128200;</div><div class="uc-title">Stock Exchange</div><div class="uc-desc">Read-heavy ticker feeds offloaded to True Cache</div></div>
+                            <div class="uc-card" id="uc2"><div class="uc-icon">&#128269;</div><div class="uc-title">Fraud Detection</div><div class="uc-desc">AI inferencing served at memory speed</div></div>
+                            <div class="uc-card" id="uc3"><div class="uc-icon">&#128226;</div><div class="uc-title">Marketing</div><div class="uc-desc">Real-time campaigns with zero stale data</div></div>
+                            <div class="uc-card" id="uc4"><div class="uc-icon">&#127974;</div><div class="uc-title">Core Banking</div><div class="uc-desc">Read-intensive workloads offloaded safely</div></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="fsToggle" class="fullscreen-toggle" title="Full screen (F)">
+    <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>
+</button>
+
+<script>
+/* ═══ HELPERS ═══ */
+function getCenterPx(el) {
+    const stage = document.getElementById('stage').getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    return { x: r.left - stage.left + r.width/2, y: r.top - stage.top + r.height/2 };
+}
+function showNode(id, delay) {
+    setTimeout(function() { document.getElementById(id).classList.add('visible') }, delay || 0);
+}
+function hideNode(id) { document.getElementById(id).classList.remove('visible') }
+
+function drawLine(key, fromId, toId, color, dashed) {
+    color = color || 'rgba(255,255,255,0.35)';
+    var svg = document.getElementById('connSvg');
+    var line = document.getElementById('svgLine_'+key);
+    if (!line) {
+        line = document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.id = 'svgLine_'+key;
+        svg.appendChild(line);
+    }
+    var a = getCenterPx(document.getElementById(fromId));
+    var b = getCenterPx(document.getElementById(toId));
+    line.setAttribute('x1',a.x); line.setAttribute('y1',a.y);
+    line.setAttribute('x2',b.x); line.setAttribute('y2',b.y);
+    line.setAttribute('stroke',color);
+    line.setAttribute('stroke-width','2.5');
+    line.setAttribute('opacity','0');
+    if (dashed) line.setAttribute('stroke-dasharray','6 4');
+    line.style.transition = 'opacity 0.5s';
+    requestAnimationFrame(function() { line.setAttribute('opacity','0.85') });
+}
+function clearLines() {
+    document.getElementById('connSvg').innerHTML = '';
+}
+
+var repeatTimers = [];
+function fireBullet(fromId, toId, color, delay, onDone) {
+    setTimeout(function() {
+        var stage = document.getElementById('stage');
+        var a = getCenterPx(document.getElementById(fromId));
+        var b = getCenterPx(document.getElementById(toId));
+        var el = document.createElement('div');
+        el.className = 'bullet';
+        el.style.background = color || '#fbbf24';
+        el.style.left = (a.x-6)+'px';
+        el.style.top  = (a.y-6)+'px';
+        el.style.opacity = '1';
+        stage.appendChild(el);
+        var dx = b.x-a.x, dy = b.y-a.y;
+        var dur = 600 + Math.sqrt(dx*dx+dy*dy)*0.5;
+        var anim = el.animate([
+            {left:(a.x-6)+'px',top:(a.y-6)+'px',opacity:1},
+            {left:(b.x-6)+'px',top:(b.y-6)+'px',opacity:0.9}
+        ], {duration:dur, easing:'ease-in-out', fill:'forwards'});
+        anim.onfinish = function() { el.remove(); if(onDone) onDone() };
+    }, delay || 0);
+}
+function repeatBullets(fromId, toId, color, interval) {
+    interval = interval || 900;
+    function go() { fireBullet(fromId, toId, color) }
+    go();
+    var t = setInterval(go, interval);
+    repeatTimers.push(t);
+}
+function stopRepeat() { repeatTimers.forEach(clearInterval); repeatTimers = [] }
+
+function showEl(id, delay) {
+    setTimeout(function() { document.getElementById(id).style.opacity = '1' }, delay || 0);
+}
+function hideEl(id) { document.getElementById(id).style.opacity = '0' }
+
+function showExp(n) {
+    document.querySelectorAll('.explain').forEach(function(e) { e.classList.remove('active') });
+    document.getElementById('exp'+n).classList.add('active');
+}
+function popPill(id, delay) {
+    setTimeout(function() { document.getElementById(id).classList.add('pop') }, delay || 0);
+}
+
+/* ═══ CLEAR STAGE ═══ */
+function clearStage() {
+    stopRepeat();
+    clearLines();
+    ['nApp','nExt','nCache','nDb','nCacheHR','nCacheSales','nGeoA','nGeoE','nTCA','nTCE'].forEach(hideNode);
+    hideEl('staleBadge'); hideEl('freshBadge'); hideEl('latBox');
+    document.getElementById('redoRing').classList.remove('spinning');
+    ['pill1','pill2','pill3','pill4'].forEach(function(id) { document.getElementById(id).classList.remove('pop') });
+    document.getElementById('ucGrid').classList.remove('visible');
+    ['uc1','uc2','uc3','uc4'].forEach(function(id) { document.getElementById(id).classList.remove('pop') });
+    /* remove stray bullets */
+    document.querySelectorAll('.bullet').forEach(function(b){ b.remove() });
+}
+
+/* ═══ BUTTON PROGRESS ═══ */
+var reached = 0;
+function setBtn(n) {
+    if (n > reached) {
+        for (var i=1; i<n; i++) document.getElementById('btn'+i).classList.add('completed');
+        reached = n;
+    }
+    if (n < 7) document.getElementById('btn'+(n+1)).disabled = false;
+}
+
+/* ═══ STEP 1 — Slow DB reads ═══ */
+function step1() {
+    clearStage(); showExp(1); setBtn(1);
+    showNode('nApp', 0);
+    showNode('nDb', 400);
+    setTimeout(function() {
+        drawLine('appDb','nApp','nDb','#fbbf24');
+        function go() {
+            fireBullet('nApp','nDb','#ef4444',0, function() {
+                setTimeout(function(){ fireBullet('nDb','nApp','#6b7280') }, 350);
+            });
+        }
+        go();
+        var t = setInterval(go, 1600); repeatTimers.push(t);
+    }, 800);
+    setTimeout(function() {
+        document.getElementById('latBox').style.opacity = '1';
+        document.getElementById('latTrad').textContent = '~8 ms';
+        document.getElementById('barTrad').style.width = '80%';
+        document.getElementById('latTC').textContent = '--';
+        document.getElementById('barTC').style.width = '0%';
+    }, 1300);
+}
+
+/* ═══ STEP 2 — Cache pitfalls ═══ */
+function step2() {
+    clearStage(); showExp(2); setBtn(2);
+    showNode('nApp',  0);
+    showNode('nExt', 350);
+    showNode('nDb',  700);
+    setTimeout(function() {
+        drawLine('appExt','nApp','nExt','#fbbf24');
+        drawLine('extDb', 'nExt','nDb', 'rgba(255,255,255,0.2)', true);
+        repeatBullets('nApp','nExt','#fbbf24', 1100);
+        setTimeout(function() {
+            var t = setInterval(function(){ fireBullet('nApp','nDb','#ef4444') }, 2500);
+            repeatTimers.push(t);
+        }, 600);
+        setTimeout(function() {
+            showEl('staleBadge');
+            var on = true;
+            var t = setInterval(function() {
+                document.getElementById('staleBadge').style.opacity = on ? '1' : '0.15';
+                on = !on;
+            }, 850);
+            repeatTimers.push(t);
+        }, 1900);
+        document.getElementById('latBox').style.opacity = '1';
+        document.getElementById('latTrad').textContent = '~3 ms (stale!)';
+        document.getElementById('barTrad').style.width = '35%';
+        document.getElementById('latTC').textContent = '--';
+        document.getElementById('barTC').style.width = '0%';
+    }, 1000);
+}
+
+/* ═══ STEP 3 — True Cache ═══ */
+function step3() {
+    clearStage(); showExp(3); setBtn(3);
+    showNode('nApp',   0);
+    showNode('nCache', 350);
+    showNode('nDb',    700);
+    setTimeout(function() {
+        drawLine('appCache','nApp','nCache','#5eead4');
+        drawLine('cacheDb', 'nCache','nDb',  'rgba(196,181,253,0.6)');
+        repeatBullets('nApp','nCache','#5eead4', 1000);
+        setTimeout(function(){ repeatBullets('nApp','nDb','#c4b5fd', 1700) }, 400);
+        setTimeout(function() {
+            document.getElementById('latBox').style.opacity = '1';
+            document.getElementById('latTrad').textContent = '~8 ms (DB)';
+            document.getElementById('barTrad').style.width = '80%';
+            document.getElementById('latTC').textContent = '< 1 ms';
+            document.getElementById('barTC').style.width = '8%';
+        }, 1100);
+        popPill('pill1',1500); popPill('pill2',1900); popPill('pill3',2300);
+    }, 1000);
+}
+
+/* ═══ STEP 4 — Always fresh (redo sync) ═══ */
+function step4() {
+    clearStage(); showExp(4); setBtn(4);
+    showNode('nApp',   0);
+    showNode('nCache', 350);
+    showNode('nDb',    700);
+    setTimeout(function() {
+        drawLine('appCache','nApp','nCache','#5eead4');
+        drawLine('cacheDb', 'nCache','nDb',  'rgba(196,181,253,0.6)');
+        document.getElementById('redoRing').classList.add('spinning');
+        repeatBullets('nApp','nDb','#c4b5fd', 1500);
+        setTimeout(function(){ repeatBullets('nDb','nCache','#fbbf24', 1100) }, 600);
+        setTimeout(function(){ repeatBullets('nApp','nCache','#5eead4', 1000) }, 300);
+        setTimeout(function(){ showEl('freshBadge') }, 1900);
+        setTimeout(function() {
+            document.getElementById('latBox').style.opacity = '1';
+            document.getElementById('latTrad').textContent = '~8 ms (DB)';
+            document.getElementById('barTrad').style.width = '80%';
+            document.getElementById('latTC').textContent = '< 1 ms fresh';
+            document.getElementById('barTC').style.width = '8%';
+        }, 1000);
+    }, 1000);
+}
+
+/* ═══ STEP 5 — Scale out ═══ */
+function step5() {
+    clearStage(); showExp(5); setBtn(5);
+    showNode('nApp',        0);
+    showNode('nCacheHR',   350);
+    showNode('nCacheSales',550);
+    showNode('nDb',        750);
+    setTimeout(function() {
+        drawLine('dbHR',    'nDb','nCacheHR',   '#fbbf24', true);
+        drawLine('dbSales', 'nDb','nCacheSales', '#fbbf24', true);
+        drawLine('appHR',   'nApp','nCacheHR',   '#5eead4');
+        drawLine('appSales','nApp','nCacheSales', '#6ee7b7');
+        repeatBullets('nDb','nCacheHR',   '#fbbf24', 1050);
+        setTimeout(function(){ repeatBullets('nDb','nCacheSales','#fbbf24', 1100) }, 550);
+        setTimeout(function() {
+            repeatBullets('nApp','nCacheHR',   '#5eead4', 1300);
+            repeatBullets('nApp','nCacheSales','#6ee7b7', 1300);
+        }, 800);
+        document.getElementById('latBox').style.opacity = '1';
+        document.getElementById('latTrad').textContent = 'DB only: ~8 ms';
+        document.getElementById('barTrad').style.width = '80%';
+        document.getElementById('latTC').textContent = 'Cache x2: < 1 ms';
+        document.getElementById('barTC').style.width = '8%';
+    }, 1000);
+}
+
+/* ═══ STEP 6 — Geo proximity ═══ */
+function step6() {
+    clearStage(); showExp(6); setBtn(6);
+    showNode('nGeoA', 0);
+    showNode('nTCA',  300);
+    showNode('nGeoE', 500);
+    showNode('nTCE',  800);
+    showNode('nDb',   1050);
+    setTimeout(function() {
+        drawLine('aTCA','nGeoA','nTCA','#7dd3fc');
+        drawLine('eTCE','nGeoE','nTCE','#7dd3fc');
+        drawLine('tcaDb','nTCA','nDb', 'rgba(196,181,253,0.4)', true);
+        drawLine('tceDb','nTCE','nDb', 'rgba(196,181,253,0.4)', true);
+        repeatBullets('nGeoA','nTCA','#7dd3fc', 950);
+        setTimeout(function(){ repeatBullets('nGeoE','nTCE','#7dd3fc', 950) }, 450);
+        setTimeout(function() {
+            repeatBullets('nDb','nTCA','#fbbf24', 1250);
+            repeatBullets('nDb','nTCE','#fbbf24', 1250);
+        }, 600);
+    }, 1250);
+}
+
+/* ═══ STEP 7 — Business value ═══ */
+function step7() {
+    clearStage(); showExp(7); setBtn(7);
+    document.getElementById('ucGrid').classList.add('visible');
+    ['uc1','uc2','uc3','uc4'].forEach(function(id, i) {
+        setTimeout(function() { document.getElementById(id).classList.add('pop') }, 300 + i*190);
+    });
+    popPill('pill1',200); popPill('pill2',420); popPill('pill3',640); popPill('pill4',860);
+}
+
+/* ═══ RESET ═══ */
+function resetDemo() {
+    clearStage();
+    reached = 0;
+    document.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('completed'); b.disabled = false });
+    for (var i=2; i<=7; i++) document.getElementById('btn'+i).disabled = true;
+    showExp(1);
+    hideEl('latBox');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ═══ FULLSCREEN ═══ */
+var fsBtn = document.getElementById('fsToggle');
+function isFS() { return document.fullscreenElement||document.webkitFullscreenElement||document.msFullscreenElement }
+function enterFS() { var e=document.documentElement; if(e.requestFullscreen) return e.requestFullscreen(); if(e.webkitRequestFullscreen) return e.webkitRequestFullscreen() }
+function exitFS()  { if(document.exitFullscreen) return document.exitFullscreen(); if(document.webkitExitFullscreen) return document.webkitExitFullscreen() }
+function updateFsUI() {
+    fsBtn.innerHTML = isFS()
+        ? '<svg viewBox="0 0 24 24"><path d="M9 7H5v4H3V5a2 2 0 0 1 2-2h6v2H9zm6-2h6a2 2 0 0 1 2 2v6h-2V9h-4V7zM3 13h2v4h4v2H5a2 2 0 0 1-2-2v-4zm18 0v4a2 2 0 0 1-2 2h-4v-2h4v-4h2z"/></svg>'
+        : '<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>';
+}
+fsBtn.addEventListener('click', function() { try{ isFS() ? exitFS() : enterFS() }catch(e){} });
+document.addEventListener('fullscreenchange', updateFsUI);
+document.addEventListener('webkitfullscreenchange', updateFsUI);
+document.addEventListener('keydown', function(e) {
+    if (e.key.toLowerCase()==='f' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        if (e.target.tagName!=='INPUT' && e.target.tagName!=='TEXTAREA') fsBtn.click();
+    }
+});
+
+window.addEventListener('load', function() { setTimeout(step1, 300) });
+</script>
+</body>
+</html>

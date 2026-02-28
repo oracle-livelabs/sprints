@@ -33,7 +33,7 @@ Oracle MCP Server works wherever SQLcl is supported, including on-premises envir
 ### **Try the Interactive Demo**
 Note: You can minimize the menu by clicking '≡' to better interact with the demo.
 
-<iframe src="mcp.html" width="100%" height="1100px" frameborder="0"
+<iframe src="../mcp.html" width="100%" height="1100px" frameborder="0"
 style="min-width: 100%; min-height: 1000px; height: 1000px !important;"></iframe>
 
 ### 
