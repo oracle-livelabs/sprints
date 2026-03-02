@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle SQL Firewall - Monitoring to Enforcement</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+        }
+        .header { background: linear-gradient(to right, #0f766e, #115e59); color: #fff; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,.1) }
+        .header-content { max-width: 1400px; margin: 0 auto }
+        .header-title { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+        .header-title h1 { font-size: 28px; font-weight: 700 }
+        .header-subtitle { color: #99f6e4; font-size: 14px }
+        .problem-banner { 
+            background: #fff3cd; border: 2px solid #ffc107; padding: 16px; border-radius: 8px; 
+            margin: 20px auto; max-width: 1400px; display: flex; align-items: center; gap: 12px 
+        }
+        .problem-icon { font-size: 24px }
+        .problem-text { font-size: 18px; color: #856404; font-weight: 600 }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+        .button-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px }
+        .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px }
+        @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr } }
+        .btn { 
+            padding: 10px 20px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; 
+            cursor: pointer; transition: all .2s; min-height: 42px; color: #fff;
+        }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none }
+        .btn.completed { background: #16a34a !important }
+        .btn.completed::before { content: '✓ '; font-weight: bold }
+        .btn-teal { background: #0d9488 }
+        .btn-teal:hover { background: #0f766e }
+        .btn-blue { background: #2563eb }
+        .btn-blue:hover { background: #1e40af }
+        .btn-orange { background: #ea580c }
+        .btn-orange:hover { background: #c2410c }
+        .btn-purple { background: #9333ea }
+        .btn-purple:hover { background: #7c3aed }
+        .btn-danger { background: #ef4444 }
+        .btn-danger:hover { background: #dc2626 }
+        .panel { background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,.1); overflow: hidden; display: flex; flex-direction: column }
+        .panel-header { background: #1f2937; color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600 }
+        .panel-content { padding: 16px; flex: 1; overflow-y: auto }
+        .mode-indicator { background: #f0f9ff; border: 2px solid #0284c7; padding: 12px; border-radius: 6px; margin-bottom: 16px; display: none }
+        .mode-indicator.active { display: block }
+        .mode-indicator.mode-setup { background: #ccfbf1; border-color: #0d9488 }
+        .mode-indicator.mode-test { background: #dbeafe; border-color: #2563eb }
+        .mode-indicator.mode-enforce { background: #ffedd5; border-color: #ea580c }
+        .mode-indicator.mode-blocked { background: #fee2e2; border-color: #ef4444 }
+        .mode-indicator.mode-audit { background: #f3e8ff; border-color: #9333ea }
+        .mode-title { font-size: 16px; font-weight: 700; margin-bottom: 4px }
+        .mode-description { font-size: 13px; color: #6b7280 }
+        .sql-box {
+            font-family: 'Courier New', monospace; font-size: 12px; white-space: pre-wrap;
+            background: #f9fafb; padding: 16px; border-radius: 4px; border: 1px solid #e5e7eb; min-height: 100px; margin-bottom: 12px;
+        }
+        .result-box {
+            background: #f0fdf4; border: 2px solid #22c55e; padding: 12px; border-radius: 6px;
+            font-family: 'Courier New', monospace; font-size: 11px; margin-top: 12px; display: none;
+        }
+        .result-box.active { display: block }
+        .result-box.error { background: #fef2f2; border-color: #ef4444 }
+        .fullscreen-toggle {
+            position: fixed; right: 16px; bottom: 16px; z-index: 9999; width: 46px; height: 46px;
+            border: none; border-radius: 10px; background: #111827; color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.25);
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            transition: transform .15s ease, opacity .2s ease, background .2s ease; opacity: .9;
+        }
+        .fullscreen-toggle:hover { transform: translateY(-1px); opacity: 1; background: #0b1220 }
+        .fullscreen-toggle svg { width: 22px; height: 22px; display: block; fill: currentColor }
+        #animationCanvas { width: 100%; height: auto; aspect-ratio: 16/10; border: 1px solid #e5e7eb; border-radius: 8px; background: #1e293b }
+        .data-table { width: 100%; font-size: 11px; border-collapse: collapse; margin-top: 12px; display: none }
+        .data-table.active { display: table }
+        .data-table th { background: #f3f4f6; padding: 8px; text-align: left; font-weight: 600; color: #374151; border: 1px solid #e5e7eb }
+        .data-table td { padding: 8px; border: 1px solid #e5e7eb; color: #1f2937 }
+        .data-table tr:hover { background: #f9fafb }
+        .data-table .new-row { animation: highlightRow 2s ease-in-out }
+        @keyframes highlightRow { 0% { background: #fef08a; } 100% { background: transparent; } }
+        .stats-badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; margin: 4px }
+        .badge-captured { background: #dbeafe; color: #1e40af }
+        .badge-allowed { background: #dcfce7; color: #166534 }
+        .badge-blocked { background: #fee2e2; color: #991b1b }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header-content">
+        <div class="header-title">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+            </svg>
+            <h1>Oracle SQL Firewall</h1>
+        </div>
+        <p class="header-subtitle">From monitoring to enforcement - complete SQL Firewall workflow</p>
+    </div>
+</div>
+<div class="problem-banner">
+    <span class="problem-icon">⚠️</span>
+    <span class="problem-text">"How do I deploy SQL Firewall without breaking existing applications?"</span>
+</div>
+<div class="container">
+    <div class="button-group">
+        <button class="btn btn-teal" id="btnStep1" onclick="step1Setup()">✅ Setup Monitoring</button>
+        <button class="btn btn-blue" id="btnStep2" onclick="step2TestQuery()" disabled>🎯 Run SQL Query</button>
+        <button class="btn btn-orange" id="btnStep3" onclick="step3Enforce()" disabled>⚙️ Enforce Blocking</button>
+        <button class="btn btn-danger" id="btnStep4" onclick="step4RerunQuery()" disabled>🔁 Re-run Query</button>
+        <button class="btn btn-purple" id="btnStep5" onclick="step5ViewViolation()" disabled>👁️ View in Data Safe</button>
+        <button class="btn btn-danger" onclick="resetDemo()">🔄 Reset</button>
+    </div>
+    <div class="main-grid">
+        <div class="panel">
+            <div class="panel-header"><span>📝</span><span>SQL Commands & Results</span></div>
+            <div class="panel-content">
+                <div id="modeIndicator" class="mode-indicator">
+                    <div class="mode-title">Ready to Begin</div>
+                    <div class="mode-description">Start with Step 1: Setup Monitoring</div>
+                </div>
+                <div class="sql-box" id="sqlBox">-- Oracle SQL Firewall Workflow Demo
+-- Click "Setup Monitoring" to begin</div>
+                <div class="result-box" id="resultBox"></div>
+                <table class="data-table" id="dataTable">
+                    <thead><tr><th>USERNAME</th><th>SQL_TEXT</th><th>CLIENT_IP</th><th>VIOLATION_CAUSE</th><th>EVENT_TIME</th></tr></thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-header"><span>🎬</span><span>SQL Firewall Status</span></div>
+            <div class="panel-content"><canvas id="animationCanvas"></canvas></div>
+        </div>
+    </div>
+</div>
+<button id="fsToggle" class="fullscreen-toggle" title="Full screen (F)">
+    <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>
+</button>
+<script>
+const canvas=document.getElementById('animationCanvas'),ctx=canvas.getContext('2d');
+let currentStep=0,animationFrame=null,particles=[],sqlPackets=[],dataSafeAlerts=[],animationPhase=0,firewallMode='none',capturedPatterns=0,allowedQueries=0,blockedQueries=0;
+function resizeCanvas(){const r=canvas.parentElement.getBoundingClientRect();canvas.width=r.width;canvas.height=r.width*0.625}
+class SQLPacket{constructor(x,y,text,isBlocked,targetX){this.x=x;this.y=y;this.targetX=targetX;this.text=text;this.isBlocked=isBlocked;this.speed=3;this.alpha=1;this.reachedTarget=false;this.fadeOut=false}
+update(){if(!this.reachedTarget){const dx=this.targetX-this.x;if(Math.abs(dx)>this.speed){this.x+=Math.sign(dx)*this.speed}else{this.x=this.targetX;this.reachedTarget=true;this.fadeOut=true}}else if(this.fadeOut){this.alpha-=0.03;if(this.alpha<=0)this.alpha=0}}
+draw(){if(this.alpha<=0)return;ctx.save();ctx.globalAlpha=this.alpha;const w=100,h=35;ctx.fillStyle=this.isBlocked?'#ef4444':'#3b82f6';ctx.fillRect(this.x-w/2,this.y-h/2,w,h);ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.strokeRect(this.x-w/2,this.y-h/2,w,h);ctx.fillStyle='#fff';ctx.font='bold 10px monospace';ctx.textAlign='center';ctx.fillText(this.text,this.x,this.y+3);ctx.restore()}}
+class Particle{constructor(x,y,color){this.x=x;this.y=y;this.vx=(Math.random()-0.5)*4;this.vy=(Math.random()-0.5)*4;this.alpha=1;this.size=Math.random()*3+2;this.color=color}
+update(){this.x+=this.vx;this.y+=this.vy;this.alpha-=0.02;this.vy+=0.1}
+draw(){if(this.alpha<=0)return;ctx.save();ctx.globalAlpha=this.alpha;ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore()}}
+class DataSafeAlert{constructor(x,y,text){this.x=x;this.y=y;this.text=text;this.alpha=0;this.targetAlpha=1;this.scale=0.8;this.pulse=0}
+update(){if(Math.abs(this.alpha-this.targetAlpha)>0.01)this.alpha+=(this.targetAlpha-this.alpha)*0.1;if(this.scale<1)this.scale+=0.02;this.pulse+=0.05}
+draw(){if(this.alpha<=0.01)return;ctx.save();ctx.globalAlpha=this.alpha;const ps=1+Math.sin(this.pulse)*0.05,w=140,h=60;ctx.translate(this.x,this.y);ctx.scale(this.scale*ps,this.scale*ps);ctx.fillStyle='#9333ea';ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(-w/2,-h/2,w,h,8);ctx.fill();ctx.stroke();ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.fillText('🔔 Data Safe',0,-15);ctx.font='10px sans-serif';ctx.fillText('Violation',0,0);ctx.fillText('Logged',0,12);ctx.restore()}}
+function drawArchitecture(){ctx.clearRect(0,0,canvas.width,canvas.height);const w=canvas.width,h=canvas.height;ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;for(let x=0;x<w;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}for(let y=0;y<h;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}const cy=h/2,sp=w/4;drawComponent(sp*0.8,cy,'🖥️','Application','#3b82f6');const sc=firewallMode==='none'?'#6b7280':firewallMode==='monitoring'?'#3b82f6':'#22c55e',sg=firewallMode==='enforcing';drawFirewall(sp*1.8,cy,sc,sg);drawComponent(sp*2.8,cy,'🗄️','Database','#6366f1');if(currentStep>=5)drawDataSafePanel(sp*3.5,h*0.25);drawArrow(sp*0.8,cy,sp*1.8,cy,'#94a3b8');drawArrow(sp*1.8,cy,sp*2.8,cy,'#94a3b8');if(currentStep>=1)drawStatsBadge(sp*1.8,cy-80,capturedPatterns,'Patterns','#3b82f6');if(currentStep>=2)drawStatsBadge(sp*2.8,cy-80,allowedQueries,'Allowed','#22c55e');if(currentStep>=4)drawStatsBadge(sp*1.8,cy+80,blockedQueries,'Blocked','#ef4444');sqlPackets=sqlPackets.filter(p=>p.alpha>0);sqlPackets.forEach(p=>{p.update();p.draw()});particles=particles.filter(p=>p.alpha>0);particles.forEach(p=>{p.update();p.draw()});dataSafeAlerts.forEach(a=>{a.update();a.draw()})}
+function drawFirewall(x,y,color,glowing){ctx.save();if(glowing){const gs=50+Math.sin(animationPhase*0.05)*5,grad=ctx.createRadialGradient(x,y,0,x,y,gs);grad.addColorStop(0,'rgba(34,197,94,0.3)');grad.addColorStop(1,'rgba(34,197,94,0)');ctx.fillStyle=grad;ctx.fillRect(x-gs,y-gs,gs*2,gs*2)}const bs=90;ctx.fillStyle='rgba(255,255,255,0.05)';ctx.fillRect(x-bs/2,y-bs/2,bs,bs);ctx.strokeStyle=color;ctx.lineWidth=3;ctx.strokeRect(x-bs/2,y-bs/2,bs,bs);ctx.font='36px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('🛡️',x,y-10);ctx.fillStyle='#f1f5f9';ctx.font='bold 9px sans-serif';const mt=firewallMode==='none'?'OFF':firewallMode==='monitoring'?'MONITOR':'BLOCK';ctx.fillText(mt,x,y+bs/2+15);ctx.restore()}
+function drawComponent(x,y,icon,label,color){ctx.save();const bs=80;ctx.fillStyle='rgba(255,255,255,0.05)';ctx.fillRect(x-bs/2,y-bs/2,bs,bs);ctx.strokeStyle=color;ctx.lineWidth=3;ctx.strokeRect(x-bs/2,y-bs/2,bs,bs);ctx.font='32px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(icon,x,y-5);ctx.fillStyle='#f1f5f9';ctx.font='bold 10px sans-serif';ctx.fillText(label,x,y+bs/2+15);ctx.restore()}
+function drawDataSafePanel(x,y){ctx.save();const w=120,h=100,ps=Math.sin(animationPhase*0.05)*0.05+1;ctx.translate(x,y);ctx.scale(ps,ps);ctx.fillStyle='rgba(147,51,234,0.1)';ctx.strokeStyle='#9333ea';ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(-w/2,-h/2,w,h,8);ctx.fill();ctx.stroke();ctx.fillStyle='#f1f5f9';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.fillText('☁️ Data Safe',0,-30);ctx.font='9px sans-serif';ctx.fillText('Security Console',0,-15);ctx.fillStyle='#fca5a5';ctx.font='bold 16px sans-serif';ctx.fillText(`${blockedQueries}`,0,5);ctx.fillStyle='#f1f5f9';ctx.font='8px sans-serif';ctx.fillText('Violations',0,20);ctx.fillText('Detected',0,30);ctx.restore()}
+function drawStatsBadge(x,y,value,label,color){ctx.save();ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(x-35,y-12,70,24,12);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold 14px sans-serif';ctx.textAlign='center';ctx.fillText(`${value}`,x,y+5);ctx.font='8px sans-serif';ctx.fillText(label,x,y-5);ctx.restore()}
+function drawArrow(x1,y1,x2,y2,color){ctx.save();ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=2;const angle=Math.atan2(y2-y1,x2-x1),as=8;ctx.beginPath();ctx.moveTo(x1+45,y1);ctx.lineTo(x2-45,y2);ctx.stroke();ctx.beginPath();ctx.moveTo(x2-45,y2);ctx.lineTo(x2-45-as*Math.cos(angle-Math.PI/6),y2-as*Math.sin(angle-Math.PI/6));ctx.lineTo(x2-45-as*Math.cos(angle+Math.PI/6),y2-as*Math.sin(angle+Math.PI/6));ctx.closePath();ctx.fill();ctx.restore()}
+function animateLoop(){animationPhase++;if(firewallMode==='monitoring'&&animationPhase%90===0){const w=canvas.width,h=canvas.height,sp=w/4,p=new SQLPacket(sp*0.8,h/2,"SELECT",false,sp*2.8);sqlPackets.push(p);setTimeout(()=>{for(let i=0;i<20;i++)particles.push(new Particle(sp*2.8,h/2,'#22c55e'));capturedPatterns++},1000)}if(firewallMode==='enforcing'&&animationPhase%85===0){const w=canvas.width,h=canvas.height,sp=w/4,p=new SQLPacket(sp*0.8,h/2,"SELECT",false,sp*2.8);sqlPackets.push(p);setTimeout(()=>{for(let i=0;i<15;i++)particles.push(new Particle(sp*2.8,h/2,'#22c55e'));allowedQueries++},1000)}if(currentStep===4&&animationPhase%110===0){const w=canvas.width,h=canvas.height,sp=w/4,p=new SQLPacket(sp*0.8,h/2,"BLOCKED!",true,sp*1.8);sqlPackets.push(p);setTimeout(()=>{for(let i=0;i<40;i++)particles.push(new Particle(sp*1.8,h/2,'#ef4444'));blockedQueries++;const a=new DataSafeAlert(sp*3.5,h*0.25,'Violation');if(dataSafeAlerts.length===0)dataSafeAlerts.push(a)},900)}drawArchitecture();animationFrame=requestAnimationFrame(animateLoop)}
+function step1Setup(){currentStep=1;firewallMode='monitoring';capturedPatterns=0;animationPhase=0;document.getElementById('modeIndicator').className='mode-indicator mode-setup active';document.getElementById('modeIndicator').innerHTML='<div class="mode-title">ℹ️ SQL Firewall Monitoring Enabled</div><div class="mode-description">Firewall is now learning SQL patterns without blocking</div>';document.getElementById('sqlBox').textContent='-- Step 1: Setup SQL Firewall in OBSERVE mode\n\nGRANT SQL_FIREWALL_ADMIN TO security_admin;\nEXEC DBMS_SQL_FIREWALL.ENABLE;\n\n-- Create capture session\nEXEC DBMS_SQL_FIREWALL.CREATE_CAPTURE(\n    username => \'APPUSER\',\n    start_capture => TRUE\n);\n\n-- Status: Monitoring mode active\n-- Allow-list: Not yet enforced\n-- Action: Learning SQL patterns';document.getElementById('resultBox').className='result-box active';document.getElementById('resultBox').innerHTML='✓ SQL Firewall enabled in OBSERVE mode ✓ Capturing SQL patterns for APPUSER ✓ Ready to test queries';document.getElementById('btnStep1').classList.add('completed');document.getElementById('btnStep2').disabled=false}
+function step2TestQuery(){currentStep=2;allowedQueries=0;const w=canvas.width,h=canvas.height,sp=w/4,p=new SQLPacket(sp*0.8,h/2,"SELECT *",false,sp*2.8);sqlPackets.push(p);setTimeout(()=>{for(let i=0;i<30;i++)particles.push(new Particle(sp*2.8,h/2,'#22c55e'));capturedPatterns++},1000);document.getElementById('modeIndicator').className='mode-indicator mode-test active';document.getElementById('modeIndicator').innerHTML='<div class="mode-title">2️⃣ Test Query Executed Successfully</div><div class="mode-description">Query succeeds - SQL pattern captured in allow-list</div>';document.getElementById('sqlBox').textContent='-- Step 2: Run a test SQL query\n\nSELECT employee_id, first_name, last_name, salary\nFROM employees\nWHERE department_id = 50;\n\n-- Query executes normally\n-- SQL Firewall captures this pattern';document.getElementById('resultBox').className='result-box active';document.getElementById('resultBox').textContent='Query Result: 45 rows returned\n\nEMPLOYEE_ID  FIRST_NAME  LAST_NAME   SALARY\n120          Matthew     Weiss       8000\n121          Adam        Fripp       8200\n122          Payam       Kaufling    7900\n...\n\n✓ Query successful\n✓ SQL signature captured in allow-list';document.getElementById('btnStep2').classList.add('completed');document.getElementById('btnStep3').disabled=false}
+function step3Enforce(){currentStep=3;firewallMode='enforcing';animationPhase=0;document.getElementById('modeIndicator').className='mode-indicator mode-enforce active';document.getElementById('modeIndicator').innerHTML='<div class="mode-title">3️⃣ SQL Firewall Enforcement Active</div><div class="mode-description">Allow-list enforced - unauthorized SQL will be blocked</div>';document.getElementById('sqlBox').textContent='-- Step 3: Stop capture and enforce allow-list\n\nEXEC DBMS_SQL_FIREWALL.STOP_CAPTURE(\'APPUSER\');\nEXEC DBMS_SQL_FIREWALL.GENERATE_ALLOW_LIST(\'APPUSER\');\n\n-- Enable blocking mode\nEXEC DBMS_SQL_FIREWALL.ENABLE_ALLOW_LIST(\n    username => \'APPUSER\',\n    enforce => DBMS_SQL_FIREWALL.ENFORCE_SQL,\n    block => TRUE\n);\n\n-- Status: BLOCKING mode active\n-- Allow-list: 1 SQL pattern allowed\n-- Action: Will block unauthorized SQL';document.getElementById('resultBox').className='result-box active';document.getElementById('resultBox').textContent='✓ Capture stopped\n✓ Allow-list generated: 1 SQL signature\n✓ Enforcement mode: BLOCK\n✓ SQL Firewall protection ACTIVE';document.getElementById('btnStep3').classList.add('completed');document.getElementById('btnStep4').disabled=false}
+function step4RerunQuery(){currentStep=4;blockedQueries=0;animationPhase=0;dataSafeAlerts=[];const w=canvas.width,h=canvas.height,sp=w/4,p=new SQLPacket(sp*0.8,h/2,"BLOCKED!",true,sp*1.8);sqlPackets.push(p);setTimeout(()=>{for(let i=0;i<50;i++)particles.push(new Particle(sp*1.8,h/2,'#ef4444'));blockedQueries++;const a=new DataSafeAlert(sp*3.5,h*0.25,'Violation');dataSafeAlerts.push(a)},900);document.getElementById('modeIndicator').className='mode-indicator mode-blocked active';document.getElementById('modeIndicator').innerHTML='<div class="mode-title">4️⃣ Query Blocked by SQL Firewall</div><div class="mode-description">Modified SQL blocked - violations logged continuously</div>';document.getElementById('sqlBox').textContent='-- Step 4: Run a slightly different query\n\nSELECT employee_id, first_name, last_name, salary, email\nFROM employees\nWHERE department_id = 50;\n--                               ^^^^^^ Added column\n\n-- SQL Firewall blocks execution\n-- Continuous blocking of unauthorized queries';document.getElementById('resultBox').className='result-box error active';document.getElementById('resultBox').textContent='ERROR at line 1:\nORA-47605: SQL Firewall violation\n\nCause: SQL statement did not match allow-list\nAction: Statement blocked and violation logged\n\n✗ Query blocked\n✓ Violations logged continuously to audit trail';document.getElementById('btnStep4').classList.add('completed');document.getElementById('btnStep5').disabled=false}
+function step5ViewViolation(){currentStep=5;document.getElementById('modeIndicator').className='mode-indicator mode-audit active';document.getElementById('modeIndicator').innerHTML='<div class="mode-title">5️⃣ Violation Visible in Oracle Data Safe</div><div class="mode-description">Complete audit trail captured for security analysis</div>';document.getElementById('sqlBox').textContent='-- Step 5: Query violation log in Data Safe\n\nSELECT username, sql_text, client_ip, \n       violation_cause, event_time\nFROM DBA_SQL_FIREWALL_VIOLATIONS\nWHERE username = \'APPUSER\'\nORDER BY event_time DESC;\n\n-- Violations are also visible in:\n-- Oracle Data Safe > SQL Firewall > Violations';document.getElementById('resultBox').className='result-box active';document.getElementById('resultBox').textContent='Violations retrieved from Data Safe:\nMultiple rows returned\n\n✓ Full SQL text captured\n✓ Client IP and OS user logged\n✓ Timestamp recorded\n✓ Available for compliance reporting';document.getElementById('tableBody').innerHTML='<tr class="new-row"><td>APPUSER</td><td>SELECT employee_id, first_name, last_name, salary, email FROM...</td><td>192.168.1.100</td><td>SQL text mismatch</td><td>2026-01-30 '+new Date().toLocaleTimeString()+'</td></tr>';document.getElementById('dataTable').classList.add('active');document.getElementById('btnStep5').classList.add('completed')}
+function resetDemo(){currentStep=0;firewallMode='none';sqlPackets=[];particles=[];dataSafeAlerts=[];capturedPatterns=0;allowedQueries=0;blockedQueries=0;animationPhase=0;document.querySelectorAll('.btn').forEach(b=>b.classList.remove('completed'));document.getElementById('btnStep2').disabled=true;document.getElementById('btnStep3').disabled=true;document.getElementById('btnStep4').disabled=true;document.getElementById('btnStep5').disabled=true;document.getElementById('modeIndicator').className='mode-indicator';document.getElementById('modeIndicator').innerHTML='<div class="mode-title">Ready to Begin</div><div class="mode-description">Start with Step 1: Setup Monitoring</div>';document.getElementById('sqlBox').textContent='-- Oracle SQL Firewall Workflow Demo\n-- Click "Setup Monitoring" to begin';document.getElementById('resultBox').classList.remove('active','error');document.getElementById('dataTable').classList.remove('active');window.scrollTo({top:0,behavior:'smooth'})}
+const fsBtn=document.getElementById('fsToggle');
+function isFullscreen(){return document.fullscreenElement||document.webkitFullscreenElement||document.msFullscreenElement}
+async function enterFullscreen(){const e=document.documentElement;if(e.requestFullscreen)return e.requestFullscreen();if(e.webkitRequestFullscreen)return e.webkitRequestFullscreen();if(e.msRequestFullscreen)return e.msRequestFullscreen()}
+async function exitFullscreen(){if(document.exitFullscreen)return document.exitFullscreen();if(document.webkitExitFullscreen)return document.webkitExitFullscreen();if(document.msExitFullscreen)return document.msExitFullscreen()}
+function updateFsButtonUI(){const a=isFullscreen();fsBtn.innerHTML=a?'<svg viewBox="0 0 24 24"><path d="M9 7H5v4H3V5a2 2 0 0 1 2-2h6v2H9zm6-2h6a2 2 0 0 1 2 2v6h-2V9h-4V7zM3 13h2v4h4v2H5a2 2 0 0 1-2-2v-4zm18 0v4a2 2 0 0 1-2 2h-4v-2h4v-4h2z"/></svg>':'<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>'}
+fsBtn.addEventListener('click',async()=>{try{if(!isFullscreen())await enterFullscreen();else await exitFullscreen()}catch(e){console.warn('Fullscreen failed:',e)}});
+document.addEventListener('fullscreenchange',updateFsButtonUI);
+document.addEventListener('webkitfullscreenchange',updateFsButtonUI);
+document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='f'&&!e.ctrlKey&&!e.metaKey&&!e.altKey){const t=e.target;if(t.tagName!=='INPUT'&&t.tagName!=='TEXTAREA')fsBtn.click()}});
+window.addEventListener('load',()=>{resizeCanvas();updateFsButtonUI();animateLoop()});
+window.addEventListener('resize',()=>resizeCanvas());
+</script>
+</body>
+</html>
