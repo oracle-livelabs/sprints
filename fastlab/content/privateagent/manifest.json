@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Private Agent Factory",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Private Agent Factory",
+            "filename": "../../content/privateagent/privateagent.md"
+        }
+    ]
+}
