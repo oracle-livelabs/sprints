@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick Security Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle's Security feature's in Oracle AI Database",
+      "filename": "../security.md"
+    }
+  ]
+}

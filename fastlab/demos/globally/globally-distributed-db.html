@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle Globally Distributed Database</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+        .header { 
+            background: linear-gradient(to right, #0f766e, #115e59); 
+            color: #fff; 
+            padding: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,.1) 
+        }
+        .header-content { max-width: 1400px; margin: 0 auto }
+        .header-title { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+        .header-title h1 { font-size: 28px; font-weight: 700 }
+        .header-subtitle { color: #99f6e4; font-size: 14px }
+        
+        .problem-banner { 
+            background: #fff3cd; 
+            border: 2px solid #ffc107; 
+            padding: 16px; 
+            border-radius: 8px; 
+            margin: 20px auto; 
+            max-width: 1400px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px 
+        }
+        .problem-icon { font-size: 24px }
+        .problem-text { font-size: 16px; color: #856404; font-weight: 600 }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+        
+        .button-group { 
+            display: flex; 
+            gap: 8px; 
+            flex-wrap: wrap; 
+            margin-bottom: 20px 
+        }
+        
+        .btn { 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            border: none; 
+            font-size: 14px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all .2s; 
+            min-height: 42px; 
+            color: #fff;
+            position: relative;
+        }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none }
+        .btn.completed { background: #16a34a !important }
+        .btn.completed::before { content: '✓ '; font-weight: bold }
+        .btn-teal { background: #0d9488 }
+        .btn-teal:hover { background: #0f766e }
+        .btn-blue { background: #2563eb }
+        .btn-blue:hover { background: #1e40af }
+        .btn-orange { background: #ea580c }
+        .btn-orange:hover { background: #c2410c }
+        .btn-purple { background: #9333ea }
+        .btn-purple:hover { background: #7c3aed }
+        .btn-gray { background: #6b7280 }
+        .btn-gray:hover { background: #4b5563 }
+        
+        .main-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 20px 
+        }
+        @media (max-width: 1100px) { 
+            .main-grid { grid-template-columns: 1fr } 
+        }
+        
+        .panel { 
+            background: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,.1); 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column 
+        }
+        .panel-header { 
+            background: #1f2937; 
+            color: #fff; 
+            padding: 12px 16px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 14px; 
+            font-weight: 600 
+        }
+        .panel-content { 
+            padding: 16px; 
+            flex: 1; 
+            overflow-y: auto 
+        }
+        
+        .mode-indicator { 
+            background: #f0f9ff; 
+            border: 2px solid #0284c7; 
+            padding: 12px; 
+            border-radius: 6px; 
+            margin-bottom: 16px; 
+            display: none 
+        }
+        .mode-indicator.active { display: block }
+        .mode-indicator.mode-setup { background: #ccfbf1; border-color: #0d9488 }
+        .mode-indicator.mode-shard { background: #dbeafe; border-color: #2563eb }
+        .mode-indicator.mode-replicate { background: #f3e8ff; border-color: #9333ea }
+        .mode-indicator.mode-sovereign { background: #ffedd5; border-color: #ea580c }
+        .mode-indicator.mode-multicloud { background: #fef3c7; border-color: #f59e0b }
+        .mode-title { font-size: 16px; font-weight: 700; margin-bottom: 4px }
+        .mode-description { font-size: 13px; color: #6b7280 }
+        
+        .explain { 
+            background: #ffffff; 
+            border: 2px solid #e5e7eb; 
+            padding: 14px; 
+            border-radius: 10px;
+            display: none;
+        }
+        .explain.active { display: block }
+        .explain h3 { 
+            font-size: 14px; 
+            margin-bottom: 8px; 
+            display: flex; 
+            gap: 8px; 
+            align-items: center;
+            color: #0d9488;
+        }
+        .explain p { 
+            font-size: 13px; 
+            color: #374151; 
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .explain ul {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .explain small { 
+            display: block; 
+            margin-top: 8px; 
+            color: #6b7280;
+            font-size: 12px;
+        }
+        
+        /* Animation Canvas Styles */
+        .visual-container {
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .world-map {
+            position: relative;
+            width: 100%;
+            height: 450px;
+        }
+        
+        /* Globe/World representation */
+        .globe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Data Center nodes */
+        .dc-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        
+        .dc-node.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .dc-node.pulsing {
+            animation: dcPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes dcPulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                border-color: rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+                border-color: rgba(16, 185, 129, 0.8);
+            }
+        }
+        
+        .dc-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        
+        .dc-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Position data centers globally */
+        .dc-us-east { top: 30%; left: 20%; }
+        .dc-us-west { top: 35%; left: 8%; }
+        .dc-europe { top: 25%; left: 48%; }
+        .dc-asia { top: 45%; left: 75%; }
+        .dc-india { top: 50%; left: 65%; }
+        
+        /* Connection lines between data centers */
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                rgba(16, 185, 129, 0) 0%,
+                rgba(16, 185, 129, 0.6) 50%,
+                rgba(16, 185, 129, 0) 100%
+            );
+            transform-origin: left center;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .connection-line.active {
+            opacity: 1;
+            animation: flowData 2s ease-in-out infinite;
+        }
+        
+        @keyframes flowData {
+            0% { 
+                background-position: 0% 50%;
+                filter: brightness(1);
+            }
+            50% { 
+                background-position: 100% 50%;
+                filter: brightness(1.5);
+            }
+            100% { 
+                background-position: 200% 50%;
+                filter: brightness(1);
+            }
+        }
+        
+        /* Shard indicators */
+        .shard {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .shard.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .shard.writing {
+            animation: shardWrite 1s ease-in-out;
+        }
+        
+        @keyframes shardWrite {
+            0%, 100% { 
+                background: rgba(59, 130, 246, 0.9);
+                transform: scale(1);
+            }
+            50% { 
+                background: rgba(16, 185, 129, 1);
+                transform: scale(1.15);
+            }
+        }
+        
+        /* Application icon */
+        .app-icon {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+        }
+        
+        .app-icon.active {
+            opacity: 1;
+            animation: appEntrance 0.6s ease-out forwards;
+        }
+        
+        @keyframes appEntrance {
+            0% { transform: translateX(-50%) translateY(-20px) scale(0.8); opacity: 0; }
+            100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+        }
+        
+        .app-icon-text {
+            font-size: 24px;
+        }
+        
+        .app-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: #0d9488;
+            margin-top: 2px;
+        }
+        
+        /* Data packet animation */
+        .data-packet {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .data-packet.active {
+            opacity: 1;
+        }
+        
+        /* Cloud badges for multi-cloud */
+        .cloud-badge {
+            position: absolute;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .cloud-badge.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .cloud-badge.oci { color: #f80000; }
+        .cloud-badge.azure { color: #0078d4; }
+        .cloud-badge.gcp { color: #4285f4; }
+        .cloud-badge.aws { color: #ff9900; }
+        
+        /* Sovereignty region highlight */
+        .sovereignty-region {
+            position: absolute;
+            border: 3px dashed rgba(234, 88, 12, 0.6);
+            background: rgba(234, 88, 12, 0.1);
+            border-radius: 16px;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .sovereignty-region.active {
+            opacity: 1;
+            animation: sovereigntyPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes sovereigntyPulse {
+            0%, 100% { 
+                border-color: rgba(234, 88, 12, 0.6);
+                background: rgba(234, 88, 12, 0.1);
+            }
+            50% { 
+                border-color: rgba(234, 88, 12, 0.9);
+                background: rgba(234, 88, 12, 0.2);
+            }
+        }
+        
+        .region-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(234, 88, 12, 0.95);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Replica indicators */
+        .replica-indicator {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: rgba(147, 51, 234, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #fff;
+            font-weight: 700;
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        .replica-indicator.active {
+            opacity: 1;
+            transform: scale(1);
+            animation: replicaPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes replicaPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .legend.active {
+            opacity: 1;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        
+        .legend-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+        
+        .legend-color.dc { background: rgba(255, 255, 255, 0.5); border: 2px solid rgba(255, 255, 255, 0.8); }
+        .legend-color.shard { background: rgba(59, 130, 246, 0.9); }
+        .legend-color.replica { background: rgba(147, 51, 234, 0.9); }
+        .legend-color.flow { background: rgba(16, 185, 129, 0.6); }
+        
+        .stats-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .stats-overlay.active {
+            opacity: 1;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+        
+        .stat-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-weight: 600;
+        }
+        
+        .stat-value {
+            color: #0d9488;
+            font-weight: 700;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <h1>🌍 Oracle Globally Distributed Database</h1>
+            </div>
+            <div class="header-subtitle">High Availability & Scale Without Borders For AI Driven Applications</div>
+        </div>
+    </div>
+    
+    <div class="problem-banner">
+        <div class="problem-icon">⚠️</div>
+        <div class="problem-text">
+            Modern applications are global and demand "always-on" architecture. Users everywhere need fast data access, 
+            but outages affect everyone, vertical scaling is costly, and data residency compliance is complex.
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="button-group">
+            <button class="btn btn-teal" onclick="setupGlobalDB()">1. Setup Global DB</button>
+            <button class="btn btn-blue" onclick="distributeShards()" disabled id="btnShard">2. Distribute Shards</button>
+            <button class="btn btn-purple" onclick="showReplication()" disabled id="btnReplicate">3. Raft Replication</button>
+            <button class="btn btn-orange" onclick="showSovereignty()" disabled id="btnSovereign">4. Data Sovereignty</button>
+            <button class="btn btn-gray" onclick="showMultiCloud()" disabled id="btnMultiCloud">5. Multi-Cloud</button>
+            <button class="btn btn-teal" onclick="resetDemo()" style="margin-left: auto;">↻ Reset</button>
+        </div>
+        
+        <div class="main-grid">
+            <!-- Left Panel: Explanation -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>📋</span>
+                    <span>Concept Explanation</span>
+                </div>
+                <div class="panel-content">
+                    <div class="mode-indicator mode-setup" id="modeSetup">
+                        <div class="mode-title">🌍 Single Logical Database</div>
+                        <div class="mode-description">
+                            Oracle Globally Distributed Database is a single logical database that appears as one unified system 
+                            to your applications, but is physically distributed across multiple regions or countries.
+                        </div>
+                    </div>
+                    
+                    <div class="mode-indicator mode-shard" id="modeShard">
+                        <div class="mode-title">🔷 Horizontal Sharding</div>
+                        <div class="mode-description">
+                            Data is physically partitioned across multiple shards. Each shard processes requests concurrently, 
+                            enabling massive parallelization and linear scalability across machines, data centers, and countries.
+                        </div>
+                    </div>
+                    
+                    <div class="mode-indicator mode-replicate" id="modeReplicate">
+                        <div class="mode-title">🔄 Raft Replication</div>
+                        <div class="mode-description">
+                            Active-Active-Active architecture across 3 data centers with automatic 3-second failover and zero data loss. 
+                            Raft consensus ensures consistency with RPO=0 and RTO=3 seconds.
+                        </div>
+                    </div>
+                    
+                    <div class="mode-indicator mode-sovereign" id="modeSovereign">
+                        <div class="mode-title">🛡️ Data Sovereignty</div>
+                        <div class="mode-description">
+                            Built-in compliance controls automatically keep country-specific data within required regions. 
+                            India data stays in India, US data stays in the US - all while maintaining a single logical database.
+                        </div>
+                    </div>
+                    
+                    <div class="mode-indicator mode-multicloud" id="modeMultiCloud">
+                        <div class="mode-title">☁️ Multi-Cloud Freedom</div>
+                        <div class="mode-description">
+                            Deploy shards across OCI, Azure, GCP, AWS, and on-premises. Choose deployment options independently 
+                            for each shard. Move shards online between clouds without application changes.
+                        </div>
+                    </div>
+                    
+                    <div class="explain" id="explainSetup">
+                        <h3>🎯 What You're Seeing</h3>
+                        <p>
+                            A global application serving users worldwide. The application connects to what appears to be a single database, 
+                            but behind the scenes, Oracle's Globally Distributed Database technology manages data across multiple 
+                            geographic locations seamlessly.
+                        </p>
+                        <p><strong>Key Benefits:</strong></p>
+                        <ul>
+                            <li>Single logical database view for developers</li>
+                            <li>No application code changes required</li>
+                            <li>Built-in global distribution and replication</li>
+                            <li>Exascale infrastructure for AI workloads</li>
+                        </ul>
+                        <small>💡 Applications write to local shards with automatic global coordination for high-speed transactions</small>
+                    </div>
+                    
+                    <div class="explain" id="explainShard">
+                        <h3>🎯 How Sharding Works</h3>
+                        <p>
+                            Each shard is a complete, autonomous database that holds a subset of your total data. Shards are distributed 
+                            geographically to provide low-latency access for users in different regions.
+                        </p>
+                        <p><strong>Distribution Strategy:</strong></p>
+                        <ul>
+                            <li>US East: Financial transactions for Americas</li>
+                            <li>Europe: GDPR-compliant EU customer data</li>
+                            <li>Asia Pacific: High-frequency trading data</li>
+                            <li>India: Localized customer information</li>
+                        </ul>
+                        <p>
+                            All shards concurrently process requests, enabling <strong>massive write throughput</strong> and 
+                            <strong>near-instant consistency</strong> across the globe.
+                        </p>
+                        <small>💡 Queries can be parallelized both within and across shards for massively parallel analytics</small>
+                    </div>
+                    
+                    <div class="explain" id="explainReplicate">
+                        <h3>🎯 Raft Consensus Replication</h3>
+                        <p>
+                            Each shard is replicated across 3 data centers using Raft consensus protocol. This provides:
+                        </p>
+                        <ul>
+                            <li><strong>Zero Data Loss (RPO = 0):</strong> All writes are confirmed across replicas</li>
+                            <li><strong>3-Second Failover (RTO = 3s):</strong> Automatic leader election</li>
+                            <li><strong>Active-Active-Active:</strong> All replicas can serve reads</li>
+                            <li><strong>Disaster Recovery:</strong> Survives complete data center failures</li>
+                        </ul>
+                        <p>
+                            Unlike traditional replication, Raft provides <strong>linearizable consistency</strong> - the strongest 
+                            consistency guarantee in distributed systems.
+                        </p>
+                        <small>💡 This is not a "replication band-aid" - it's a fully distributed database architecture</small>
+                    </div>
+                    
+                    <div class="explain" id="explainSovereign">
+                        <h3>🎯 Automated Data Sovereignty</h3>
+                        <p>
+                            Integrated data residency compliance is built directly into the database architecture. You define sovereignty 
+                            rules, and the database automatically ensures compliance.
+                        </p>
+                        <p><strong>Example Banking Scenario:</strong></p>
+                        <ul>
+                            <li>India customer data <strong>must remain</strong> in India</li>
+                            <li>US customer data stored in US data centers</li>
+                            <li>EU data follows GDPR requirements in European DCs</li>
+                            <li>Cross-border queries coordinate without moving restricted data</li>
+                        </ul>
+                        <p>
+                            This eliminates the need for complex application-level data routing logic and prevents accidental 
+                            compliance violations.
+                        </p>
+                        <small>💡 Automatically keeps country-specific data within required regions - cost-effective compliance</small>
+                    </div>
+                    
+                    <div class="explain" id="explainMultiCloud">
+                        <h3>🎯 Multi-Cloud & Hybrid Deployment</h3>
+                        <p>
+                            True cloud freedom means choosing the best platform for each workload and avoiding vendor lock-in.
+                        </p>
+                        <p><strong>Deployment Flexibility:</strong></p>
+                        <ul>
+                            <li><strong>OCI:</strong> Exadata infrastructure for maximum performance</li>
+                            <li><strong>Azure:</strong> Integration with Microsoft ecosystem</li>
+                            <li><strong>GCP:</strong> ML/AI workload optimization</li>
+                            <li><strong>On-Premises:</strong> Existing investments and security requirements</li>
+                        </ul>
+                        <p>
+                            Each shard can use different infrastructure. Move shards online between clouds without application downtime 
+                            or code changes.
+                        </p>
+                        <small>💡 Size shard counts independently and define HA configuration per deployment location</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel: Visual Animation -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>🎬</span>
+                    <span>Global Distribution Visualization</span>
+                </div>
+                <div class="panel-content" style="padding: 8px;">
+                    <div class="visual-container">
+                        <div class="world-map" id="worldMap">
+                            <!-- Application Icon -->
+                            <div class="app-icon" id="appIcon">
+                                <div class="app-icon-text">📱</div>
+                                <div class="app-label">APP</div>
+                            </div>
+                            
+                            <!-- Data Center Nodes -->
+                            <div class="dc-node dc-us-east" id="dcUSEast">
+                                <div class="dc-icon">🏢</div>
+                                <div class="dc-label">US East</div>
+                            </div>
+                            
+                            <div class="dc-node dc-us-west" id="dcUSWest">
+                                <div class="dc-icon">🏢</div>
+                                <div class="dc-label">US West</div>
+                            </div>
+                            
+                            <div class="dc-node dc-europe" id="dcEurope">
+                                <div class="dc-icon">🏢</div>
+                                <div class="dc-label">Europe</div>
+                            </div>
+                            
+                            <div class="dc-node dc-asia" id="dcAsia">
+                                <div class="dc-icon">🏢</div>
+                                <div class="dc-label">Asia Pac</div>
+                            </div>
+                            
+                            <div class="dc-node dc-india" id="dcIndia">
+                                <div class="dc-icon">🏢</div>
+                                <div class="dc-label">India</div>
+                            </div>
+                            
+                            <!-- Connection Lines (will be created dynamically) -->
+                            <div id="connections"></div>
+                            
+                            <!-- Shards (will be positioned relative to DCs) -->
+                            <div id="shards"></div>
+                            
+                            <!-- Replicas (will be positioned relative to shards) -->
+                            <div id="replicas"></div>
+                            
+                            <!-- Sovereignty Region Highlights -->
+                            <div id="sovereigntyRegions"></div>
+                            
+                            <!-- Cloud Badges -->
+                            <div id="cloudBadges"></div>
+                            
+                            <!-- Data Packets for animation -->
+                            <div id="dataPackets"></div>
+                            
+                            <!-- Stats Overlay -->
+                            <div class="stats-overlay" id="statsOverlay">
+                                <div class="stat-row">
+                                    <span class="stat-label">Data Centers:</span>
+                                    <span class="stat-value" id="statDCs">0</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Active Shards:</span>
+                                    <span class="stat-value" id="statShards">0</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Replicas:</span>
+                                    <span class="stat-value" id="statReplicas">0</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Latency:</span>
+                                    <span class="stat-value" id="statLatency">-</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Legend -->
+                            <div class="legend" id="legend">
+                                <div class="legend-item">
+                                    <div class="legend-color dc"></div>
+                                    <span>Data Center</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color shard"></div>
+                                    <span>Shard</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color replica"></div>
+                                    <span>Replica</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color flow"></div>
+                                    <span>Data Flow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // State management
+        let currentStep = 0;
+        const steps = ['setup', 'shard', 'replicate', 'sovereign', 'multicloud'];
+        
+        // Button elements
+        const btnShard = document.getElementById('btnShard');
+        const btnReplicate = document.getElementById('btnReplicate');
+        const btnSovereign = document.getElementById('btnSovereign');
+        const btnMultiCloud = document.getElementById('btnMultiCloud');
+        
+        function hideAllModes() {
+            document.querySelectorAll('.mode-indicator, .explain').forEach(el => {
+                el.classList.remove('active');
+            });
+        }
+        
+        function updateStats(dcs, shards, replicas, latency) {
+            document.getElementById('statDCs').textContent = dcs;
+            document.getElementById('statShards').textContent = shards;
+            document.getElementById('statReplicas').textContent = replicas;
+            document.getElementById('statLatency').textContent = latency;
+        }
+        
+        function setupGlobalDB() {
+            console.log('Setup Global DB clicked');
+            hideAllModes();
+            document.getElementById('modeSetup').classList.add('active');
+            document.getElementById('explainSetup').classList.add('active');
+            
+            // Show app and data centers
+            document.getElementById('appIcon').classList.add('active');
+            
+            setTimeout(() => {
+                document.getElementById('dcUSEast').classList.add('active');
+            }, 200);
+            
+            setTimeout(() => {
+                document.getElementById('dcUSWest').classList.add('active');
+            }, 400);
+            
+            setTimeout(() => {
+                document.getElementById('dcEurope').classList.add('active');
+            }, 600);
+            
+            setTimeout(() => {
+                document.getElementById('dcAsia').classList.add('active');
+            }, 800);
+            
+            setTimeout(() => {
+                document.getElementById('dcIndia').classList.add('active');
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('statsOverlay').classList.add('active');
+                document.getElementById('legend').classList.add('active');
+                updateStats(5, 0, 0, '-');
+            }, 1200);
+            
+            // Mark complete and enable next
+            setTimeout(() => {
+                document.querySelector('.btn-teal').classList.add('completed');
+                btnShard.disabled = false;
+            }, 1400);
+            
+            currentStep = 0;
+        }
+        
+        function distributeShards() {
+            console.log('Distribute Shards clicked');
+            hideAllModes();
+            document.getElementById('modeShard').classList.add('active');
+            document.getElementById('explainShard').classList.add('active');
+            
+            // Clear previous shards
+            document.getElementById('shards').innerHTML = '';
+            
+            // Create shards at each data center
+            const shardConfigs = [
+                { dc: 'dcUSEast', label: 'S1', top: '32%', left: '22%' },
+                { dc: 'dcUSWest', label: 'S2', top: '37%', left: '10%' },
+                { dc: 'dcEurope', label: 'S3', top: '27%', left: '50%' },
+                { dc: 'dcAsia', label: 'S4', top: '47%', left: '77%' },
+                { dc: 'dcIndia', label: 'S5', top: '52%', left: '67%' }
+            ];
+            
+            const shardsContainer = document.getElementById('shards');
+            
+            shardConfigs.forEach((config, index) => {
+                setTimeout(() => {
+                    const shard = document.createElement('div');
+                    shard.className = 'shard';
+                    shard.textContent = config.label;
+                    shard.style.top = config.top;
+                    shard.style.left = config.left;
+                    shard.id = `shard${index}`;
+                    shardsContainer.appendChild(shard);
+                    
+                    setTimeout(() => {
+                        shard.classList.add('active');
+                        
+                        // Pulse the corresponding DC
+                        document.getElementById(config.dc).classList.add('pulsing');
+                        
+                        // Simulate write
+                        setTimeout(() => {
+                            shard.classList.add('writing');
+                            setTimeout(() => {
+                                shard.classList.remove('writing');
+                            }, 1000);
+                        }, 300);
+                    }, 50);
+                }, index * 400);
+            });
+            
+            // Create connections between shards
+            setTimeout(() => {
+                createConnections();
+            }, 2000);
+            
+            setTimeout(() => {
+                updateStats(5, 5, 0, '< 50ms');
+            }, 2200);
+            
+            // Mark complete and enable next
+            setTimeout(() => {
+                btnShard.classList.add('completed');
+                btnReplicate.disabled = false;
+            }, 2400);
+            
+            currentStep = 1;
+        }
+        
+        function createConnections() {
+            // Create connection lines between shards
+            const connectionsContainer = document.getElementById('connections');
+            connectionsContainer.innerHTML = '';
+            
+            const connections = [
+                { from: 'shard0', to: 'shard1' },
+                { from: 'shard1', to: 'shard2' },
+                { from: 'shard2', to: 'shard3' },
+                { from: 'shard3', to: 'shard4' },
+                { from: 'shard4', to: 'shard0' }
+            ];
+            
+            connections.forEach((conn, index) => {
+                setTimeout(() => {
+                    const fromEl = document.getElementById(conn.from);
+                    const toEl = document.getElementById(conn.to);
+                    
+                    if (fromEl && toEl) {
+                        const fromRect = fromEl.getBoundingClientRect();
+                        const toRect = toEl.getBoundingClientRect();
+                        const containerRect = document.getElementById('worldMap').getBoundingClientRect();
+                        
+                        const x1 = fromRect.left - containerRect.left + fromRect.width / 2;
+                        const y1 = fromRect.top - containerRect.top + fromRect.height / 2;
+                        const x2 = toRect.left - containerRect.left + toRect.width / 2;
+                        const y2 = toRect.top - containerRect.top + toRect.height / 2;
+                        
+                        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                        
+                        const line = document.createElement('div');
+                        line.className = 'connection-line';
+                        line.style.width = `${length}px`;
+                        line.style.left = `${x1}px`;
+                        line.style.top = `${y1}px`;
+                        line.style.transform = `rotate(${angle}deg)`;
+                        line.style.backgroundSize = '40px 2px';
+                        
+                        connectionsContainer.appendChild(line);
+                        
+                        setTimeout(() => {
+                            line.classList.add('active');
+                        }, 50);
+                    }
+                }, index * 200);
+            });
+        }
+        
+        function showReplication() {
+            console.log('Show Replication clicked');
+            hideAllModes();
+            document.getElementById('modeReplicate').classList.add('active');
+            document.getElementById('explainReplicate').classList.add('active');
+            
+            // Clear previous replicas
+            document.getElementById('replicas').innerHTML = '';
+            
+            // Add 2 replicas for each shard (3 total including primary)
+            const replicaConfigs = [
+                // US East Shard replicas
+                { shardId: 'shard0', label: 'R', offsetX: -15, offsetY: -15 },
+                { shardId: 'shard0', label: 'R', offsetX: 15, offsetY: 15 },
+                // US West Shard replicas
+                { shardId: 'shard1', label: 'R', offsetX: -15, offsetY: -15 },
+                { shardId: 'shard1', label: 'R', offsetX: 15, offsetY: 15 },
+                // Europe Shard replicas
+                { shardId: 'shard2', label: 'R', offsetX: -15, offsetY: -15 },
+                { shardId: 'shard2', label: 'R', offsetX: 15, offsetY: 15 },
+                // Asia Shard replicas
+                { shardId: 'shard3', label: 'R', offsetX: -15, offsetY: -15 },
+                { shardId: 'shard3', label: 'R', offsetX: 15, offsetY: 15 },
+                // India Shard replicas
+                { shardId: 'shard4', label: 'R', offsetX: -15, offsetY: -15 },
+                { shardId: 'shard4', label: 'R', offsetX: 15, offsetY: 15 }
+            ];
+            
+            const replicasContainer = document.getElementById('replicas');
+            
+            replicaConfigs.forEach((config, index) => {
+                setTimeout(() => {
+                    const shardEl = document.getElementById(config.shardId);
+                    if (shardEl) {
+                        const shardRect = shardEl.getBoundingClientRect();
+                        const containerRect = document.getElementById('worldMap').getBoundingClientRect();
+                        
+                        const replica = document.createElement('div');
+                        replica.className = 'replica-indicator';
+                        replica.textContent = config.label;
+                        
+                        const shardLeft = parseFloat(shardEl.style.left);
+                        const shardTop = parseFloat(shardEl.style.top);
+                        
+                        replica.style.left = `calc(${shardLeft}% + ${config.offsetX}px)`;
+                        replica.style.top = `calc(${shardTop}% + ${config.offsetY}px)`;
+                        
+                        replicasContainer.appendChild(replica);
+                        
+                        setTimeout(() => {
+                            replica.classList.add('active');
+                        }, 50);
+                    }
+                }, index * 150);
+            });
+            
+            setTimeout(() => {
+                updateStats(5, 5, 10, '< 3s');
+            }, 1600);
+            
+            // Mark complete and enable next
+            setTimeout(() => {
+                btnReplicate.classList.add('completed');
+                btnSovereign.disabled = false;
+            }, 1800);
+            
+            currentStep = 2;
+        }
+        
+        function showSovereignty() {
+            console.log('Show Sovereignty clicked');
+            hideAllModes();
+            document.getElementById('modeSovereign').classList.add('active');
+            document.getElementById('explainSovereign').classList.add('active');
+            
+            // Clear previous sovereignty regions
+            document.getElementById('sovereigntyRegions').innerHTML = '';
+            
+            // Highlight India region
+            const indiaRegion = document.createElement('div');
+            indiaRegion.className = 'sovereignty-region';
+            indiaRegion.style.top = '42%';
+            indiaRegion.style.left = '60%';
+            indiaRegion.style.width = '160px';
+            indiaRegion.style.height = '140px';
+            
+            const indiaLabel = document.createElement('div');
+            indiaLabel.className = 'region-label';
+            indiaLabel.textContent = '🇮🇳 India Data Boundary';
+            indiaRegion.appendChild(indiaLabel);
+            
+            document.getElementById('sovereigntyRegions').appendChild(indiaRegion);
+            
+            setTimeout(() => {
+                indiaRegion.classList.add('active');
+                
+                // Highlight India DC and shard
+                document.getElementById('dcIndia').style.borderColor = 'rgba(234, 88, 12, 0.9)';
+                document.getElementById('dcIndia').style.background = 'rgba(234, 88, 12, 0.3)';
+                document.getElementById('shard4').style.borderColor = 'rgba(234, 88, 12, 0.9)';
+                document.getElementById('shard4').style.background = 'rgba(234, 88, 12, 0.9)';
+            }, 300);
+            
+            // Highlight US region
+            setTimeout(() => {
+                const usRegion = document.createElement('div');
+                usRegion.className = 'sovereignty-region';
+                usRegion.style.top = '25%';
+                usRegion.style.left = '5%';
+                usRegion.style.width = '240px';
+                usRegion.style.height = '160px';
+                
+                const usLabel = document.createElement('div');
+                usLabel.className = 'region-label';
+                usLabel.textContent = '🇺🇸 US Data Boundary';
+                usRegion.appendChild(usLabel);
+                
+                document.getElementById('sovereigntyRegions').appendChild(usRegion);
+                
+                setTimeout(() => {
+                    usRegion.classList.add('active');
+                    
+                    // Highlight US DCs and shards
+                    document.getElementById('dcUSEast').style.borderColor = 'rgba(37, 99, 235, 0.9)';
+                    document.getElementById('dcUSEast').style.background = 'rgba(37, 99, 235, 0.2)';
+                    document.getElementById('dcUSWest').style.borderColor = 'rgba(37, 99, 235, 0.9)';
+                    document.getElementById('dcUSWest').style.background = 'rgba(37, 99, 235, 0.2)';
+                }, 100);
+            }, 800);
+            
+            setTimeout(() => {
+                updateStats(5, 5, 10, '< 50ms');
+            }, 1200);
+            
+            // Mark complete and enable next
+            setTimeout(() => {
+                btnSovereign.classList.add('completed');
+                btnMultiCloud.disabled = false;
+            }, 1400);
+            
+            currentStep = 3;
+        }
+        
+        function showMultiCloud() {
+            console.log('Show Multi-Cloud clicked');
+            hideAllModes();
+            document.getElementById('modeMultiCloud').classList.add('active');
+            document.getElementById('explainMultiCloud').classList.add('active');
+            
+            // Clear previous cloud badges
+            document.getElementById('cloudBadges').innerHTML = '';
+            
+            // Add cloud provider badges to each DC
+            const cloudConfigs = [
+                { dc: 'dcUSEast', cloud: 'OCI', class: 'oci', top: '23%', left: '20%' },
+                { dc: 'dcUSWest', cloud: 'AZURE', class: 'azure', top: '28%', left: '8%' },
+                { dc: 'dcEurope', cloud: 'GCP', class: 'gcp', top: '18%', left: '48%' },
+                { dc: 'dcAsia', cloud: 'AWS', class: 'aws', top: '38%', left: '75%' },
+                { dc: 'dcIndia', cloud: 'OCI', class: 'oci', top: '43%', left: '65%' }
+            ];
+            
+            const cloudBadgesContainer = document.getElementById('cloudBadges');
+            
+            cloudConfigs.forEach((config, index) => {
+                setTimeout(() => {
+                    const badge = document.createElement('div');
+                    badge.className = `cloud-badge ${config.class}`;
+                    badge.textContent = `☁️ ${config.cloud}`;
+                    badge.style.top = config.top;
+                    badge.style.left = config.left;
+                    
+                    cloudBadgesContainer.appendChild(badge);
+                    
+                    setTimeout(() => {
+                        badge.classList.add('active');
+                    }, 50);
+                }, index * 300);
+            });
+            
+            setTimeout(() => {
+                updateStats(5, 5, 10, '< 50ms');
+            }, 1600);
+            
+            // Mark complete
+            setTimeout(() => {
+                btnMultiCloud.classList.add('completed');
+            }, 1800);
+            
+            currentStep = 4;
+        }
+        
+        function resetDemo() {
+            console.log('Reset clicked');
+            // Reset all visual elements
+            document.querySelectorAll('.dc-node, .app-icon, .stats-overlay, .legend').forEach(el => {
+                el.classList.remove('active', 'pulsing');
+                el.style.borderColor = '';
+                el.style.background = '';
+            });
+            
+            document.getElementById('shards').innerHTML = '';
+            document.getElementById('replicas').innerHTML = '';
+            document.getElementById('connections').innerHTML = '';
+            document.getElementById('sovereigntyRegions').innerHTML = '';
+            document.getElementById('cloudBadges').innerHTML = '';
+            
+            // Reset buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.classList.remove('completed');
+            });
+            
+            btnShard.disabled = true;
+            btnReplicate.disabled = true;
+            btnSovereign.disabled = true;
+            btnMultiCloud.disabled = true;
+            
+            hideAllModes();
+            updateStats(0, 0, 0, '-');
+            
+            currentStep = 0;
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            console.log('Page loaded, starting demo');
+            // Auto-start the demo
+            setTimeout(() => {
+                setupGlobalDB();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
