@@ -116,5 +116,5 @@ The Oracle Autonomous AI Lakehouse enables organizations to:
 ## Acknowledgements
 
 - Author — Francis Regalado, Database Product Manager
-- Contributors — Mark Hornick
+- Contributors — 
 - Last Updated By/Date — Francis Regalado, January 2026
