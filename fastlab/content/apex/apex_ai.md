@@ -24,26 +24,39 @@ You will turn a natural-language description into a working APEX application whi
 - A configured Generative AI service in APEX  
   (OCI Generative AI or OpenAI)
 
+- Click here for [Configure a Generative AI Service guide](https://oracle-livelabs.github.io/apex/event-mangement/workshops/tenancy/index.html?customTrackingParam=:ow:lp:cpo::::RC_WWMK211125P00013:llid=4270&lab=0-configure-ai-keys)
+
+
 > *Note: If the APEX Assistant is not available, ensure Generative AI is configured for the workspace.*
 
 
-[APEX AI](videohub:1_ic97k4pb)
+[Oracle APEX](videohub:1_judi47gl)
 
 
 ## Task 1: Access Oracle APEX and Enter a Workspace
 
 1. Open the Oracle Autonomous Database console
 2. Scroll down and click the **APEX instance** link for your database
+
+    ![Navigate to Directory](./images/apex_link.png " ")
+
 3. Click on Launch APEX
 
     ![Navigate to Directory](./images/apex_launch.png " ")
+
 4. Sign in to an existing APEX workspace or create one if prompted
 
     ![Navigate to Directory](./images/apex_user.png " ")
 
     ![Navigate to Directory](./images/apex_create_user.png " ")
 
-5. From the workspace home page, click **App Builder**
+5. If you create a workspace, sign out from admin and sign in as the new user
+
+    ![Navigate to Directory](./images/signout.png " ")
+
+    ![Navigate to Directory](./images/signin.png " ")
+
+6. From the workspace home page, click **App Builder**
 
     ![Navigate to Directory](./images/apex_app_bld.png " ")
 
@@ -55,7 +68,7 @@ The APEX Assistant uses existing tables and views to infer application structure
 
     ![Navigate to Directory](./images/apex_click_create.png " ")
 
-2. In the Create Application page, select **Create APP Using Generative AI**
+2. In the Create Application page, select **Create App Using Generative AI**
 
     ![Navigate to Directory](./images/apex_create_gen.png " ")
 
@@ -97,9 +110,9 @@ The assistant generates a complete application based on the prompt and available
 
 3. Under **Advanced**, enable **Set as Home Page** and click **Save Changes**
 
-    ![Navigate to Directory](./images/apex_change_icon.png " ")
+4. Update the application name to **Order Management** and click on the app icon to select an Icon and color of your choice. Click on Save Icon
 
-4. Update the application name to **Order Management** and click on the app icon to select an Icon and color of your choice.
+    ![Navigate to Directory](./images/apex_change_icon.png " ")
 
     ![Navigate to Directory](./images/apex_icon.png " ")
 
