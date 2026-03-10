@@ -124,14 +124,15 @@ Both Oracle SQL Firewall (kernel-resident) and Oracle Audit Vault and Database F
 
 **Database Firewall (AVDF) Advantages**:
 - Supports non-Oracle databases (MySQL, MS-SQL, IBM DB2, SAP Sybase)
-- Protects Oracle Database versions 21c and below
+- Supports Oracle Database from 11.2 through 26ai (on Base Database Service and Exadata)
+- Centralized audit collection across heterogeneous database fleets
 - Zero performance overhead on database server (in monitoring mode)
 - Can be deployed without database changes
 
 **When to Use Each**:
 - Use SQL Firewall for Oracle Database 23ai and later when you want kernel-level protection with zero networking complexity
-- Use AVDF when protecting non-Oracle databases or Oracle versions before 23ai
-- Use both together for defense-in-depth, SQL Firewall provides kernel protection while AVDF monitors network traffic and provides a centralized view across your database fleet
+- Use AVDF when protecting non-Oracle databases, or when you need centralized monitoring and compliance reporting across a mixed fleet (including Oracle 26ai, 21c, 19c, and older)
+- Use both together for defense-in-depth: SQL Firewall provides kernel-level enforcement inside the database, while AVDF monitors network traffic and delivers a unified audit view across your entire database estate
 
 For comprehensive protection, both can be used together. SQL Firewall is included free with the AVDF license for Oracle databases.
 
@@ -158,4 +159,4 @@ For comprehensive protection, both can be used together. SQL Firewall is include
 
 - Author - Francis Regalado, Database Product Manager
 - Contributors - 
-- Last Updated By/Date - Francis Regalado, February 2026
+- Last Updated By/Date - Francis Regalado, March 2026
