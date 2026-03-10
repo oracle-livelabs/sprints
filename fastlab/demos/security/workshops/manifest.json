@@ -5,7 +5,7 @@
     {
       "title": "Introduction",
       "description": "Learn more about Oracle's Security feature's in Oracle AI Database",
-      "filename": "../security.md"
+      "filename": "../sql-firewall.md"
     }
   ]
 }
