@@ -242,11 +242,10 @@
           <p><strong>An Oracle EBS customer asked one question in natural language. The AI agent ran 15 SQL queries through MCP and delivered a full supply chain risk report — in minutes.</strong></p>
           <p style="margin-top:8px">
             • Agent never accessed the database directly<br>
-            • Credentials never left Oracle wallet encryption<br>
+            • Credentials are never exposed or shared with AI Agent<br>
             • Least-privilege database users enforced per connection<br>
             • Never enable auto-approve — always review agent actions<br>
           </p>
-          <small>Security is not a constraint on MCP — it's how MCP was designed from the start.</small>
         </div>
 
         <div id="explainConfirm" class="explain-confirm"></div>
@@ -459,7 +458,7 @@ function loadSqlclArtifacts(){
     `<span class="t-dim">Copyright (c) 1982, 2025, Oracle.  All rights reserved.</span>`,
     `<span class="t-dim">Connected to: Oracle Database 26ai Free — Version 23.26</span>`,
     ``,
-    `<span class="t-key">SQL&gt;</span> <span class="t-bright">cm list</span>`,
+    `<span class="t-key">SQL&gt;</span> <span class="t-bright">connmgr list</span>`,
     `<span class="t-dim">.</span>`,
     `<span class="t-dim">├── Cloud</span>`,
     `<span class="t-val">│   └── 🅾️  Autonomous Reporting</span>`,
@@ -522,7 +521,7 @@ function loadSchemaArtifacts(){
     <div class="terminal" id="termSqlWrap" style="display:none">
       <div class="terminal-bar">
         <div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green"></div>
-        <span class="terminal-label">Agent writes accurate SQL — first attempt, no guessing</span>
+        <span class="terminal-label">Agent writes SQL</span>
       </div>
       <div class="terminal-body" id="termSql"></div>
     </div>
@@ -605,12 +604,6 @@ function loadSecureArtifacts(){
     <div id="chain4"  class="chain-step"><div class="chain-num" style="background:#ea580c">4</div><div class="chain-body"><div class="chain-title">Results returned through MCP — not directly from DB</div><div class="chain-detail">Agent never holds credentials. SQLcl executes with least-privilege user rights</div></div></div>
     <div id="chain5"  class="chain-step"><div class="chain-num" style="background:#16a34a">5</div><div class="chain-body"><div class="chain-title" style="color:#166534">Business insight delivered in minutes</div><div class="chain-detail">Full risk report — what would have taken analysts hours</div></div></div>
 
-    <div id="riskReport" style="display:none">
-      <div class="info-grid" style="margin:10px 0 8px">
-        <div class="info-card"><div class="info-card-label">SQL Queries Run</div><div class="info-card-value">15</div><div class="info-card-sub">Via MCP run-sql tool</div></div>
-        <div class="info-card"><div class="info-card-label">Time to Insight</div><div class="info-card-value">Minutes</div><div class="info-card-sub">vs. hours manually</div></div>
-      </div>
-
       <div class="risk-block risk-critical">
         <div class="risk-label" style="color:#991b1b">🚨 IMMEDIATE PRODUCTION HALT — Zero Stock</div>
         <div class="risk-item">• IT987654 (Lightning Inkjet Printer) — Organization E3</div>
@@ -656,14 +649,14 @@ function loadSecureArtifacts(){
 
 /* ─── Button wiring ─── */
 $('btnProblem').addEventListener('click',()=>{
-  setMode('The Integration Problem','Before MCP, every AI tool needed its own custom Oracle connector. MCP replaces all of that with one standard protocol — already built into SQLcl.','problem');
+  setMode('The Integration Problem','Before MCP, every AI tool needed its own custom connector. MCP replaces all of that with one standard protocol — already built into SQLcl.','problem');
   setExplain('problem');
   setActiveBtn('btnProblem');
   loadProblemArtifacts();
   complete('btnProblem');
   enable('btnSqlcl');
   hintNext('btnSqlcl');
-  setConfirm('MCP = "USB-C for AI applications" — one protocol, any agent, zero custom connectors.');
+  setConfirm('MCP =  One protocol, any agent, zero custom connectors.');
 });
 
 $('btnSqlcl').addEventListener('click',()=>{
