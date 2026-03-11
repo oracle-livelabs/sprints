@@ -24,7 +24,7 @@ You will turn a natural-language description into a working APEX application whi
 - A configured Generative AI service in APEX  
   (OCI Generative AI or OpenAI)
 
-- Click here for [Configure a Generative AI Service guide](https://oracle-livelabs.github.io/apex/event-mangement/workshops/tenancy/index.html?customTrackingParam=:ow:lp:cpo::::RC_WWMK211125P00013:llid=4270&lab=0-configure-ai-keys)
+- Click here for [Configure a Generative AI Service guide](https://livelabs.oracle.com/ords/r/dbpm/livelabs/run-workshop?p210_wid=4270&p210_wec=&session=112960780569583)
 
 
 > *Note: If the APEX Assistant is not available, ensure Generative AI is configured for the workspace.*
