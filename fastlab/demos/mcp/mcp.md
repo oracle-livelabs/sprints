@@ -10,7 +10,6 @@ The MCP Server is built directly into SQLcl, the Oracle command-line tool alread
 In this demo, you explore how Oracle MCP Server:
 
 - Replaces custom AI-to-database integrations with one standard protocol
-- Uses SQLcl as the secure runtime
 - Provides structured tools such as `schema-information` and `run-sql`
 - Enables agents to generate accurate SQL with full schema awareness
 - Delivers real business insights while enforcing enterprise-grade security
@@ -20,11 +19,10 @@ In this demo, you explore how Oracle MCP Server:
 
 - Why AI tools traditionally require custom database connectors
 - How MCP standardizes AI-to-database communication
-- How SQLcl runs the MCP Server locally using JSON-RPC over STDIO
+- How SQLcl runs the MCP Server locally
 - How agents securely connect without receiving database credentials
 - How the `schema-information` tool improves accuracy and reduces token consumption
 - How AI agents can execute structured SQL queries and generate business reports
-- How Oracle wallet encryption and least-privilege users enforce security by design
 
 Oracle MCP Server works wherever SQLcl is supported, including on-premises environments, Oracle Cloud, and container deployments.
 
@@ -54,9 +52,9 @@ style="min-width: 100%; min-height: 1000px; height: 1000px !important;"></iframe
 * [Oracle MCP Servers](https://www.oracle.com/mcp/)
 * [Oracle SQLcl Documentation](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/)
 * [Introducing MCP Server for Oracle Database](https://blogs.oracle.com/database/introducing-mcp-server-for-oracle-database)
-* [Oracle LiveLabs](https://livelabs.oracle.com)
+* [Oracle LiveLabs Workshop](https://livelabs.oracle.com/ords/r/dbpm/livelabs/run-workshop?p210_wid=4285&p210_wec=&session=111104173253241)
 
 ## Acknowledgements
 
 * **Author** – Ley Sylvester
-* **Last Updated By/Date** – Ley Sylvester, February 2026
+* **Last Updated By/Date** – Ley Sylvester, March 2026
