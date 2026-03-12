@@ -33,7 +33,7 @@ Before starting, ensure you have:
 - Installed the **Cline Extension for VS Code**
 - Configured the **SQLcl MCP Server**
 - Configured a database connection (Autonomous or FreeSQL)
-- Click here for [Environment set-up guide](https://oracle-livelabs.github.io/developer/sqlcl-mcp-server-intro/workshops/freesql/?customTrackingParam=:ow:lp:cpo::::RC_WWMK211125P00013:llid=4285&lab=2-environment-set-up)
+- Click here for [Environment set-up guide](https://livelabs.oracle.com/ords/r/dbpm/livelabs/run-workshop?p210_wid=4285&p210_wec=&session=111104173253241)
 
 
 
