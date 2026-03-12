@@ -54,6 +54,7 @@
         .node-icon { font-size: 32px; margin-bottom: 4px; line-height: 1 }
         .node-label { color: #fff; line-height: 1.3 }
         .node-sub   { font-size: 9px; opacity: 0.85; margin-top: 2px }
+        #nCache .node-sub, #nDb .node-sub { color: #f8fafc; opacity: 1 }
         .nc-app   { background: linear-gradient(135deg,#2563eb,#1e40af); border: 3px solid #93c5fd }
         .nc-cache { background: linear-gradient(135deg,#0d9488,#065f46); border: 3px solid #5eead4 }
         .nc-db    { background: linear-gradient(135deg,#7c3aed,#4c1d95); border: 3px solid #c4b5fd }
@@ -107,7 +108,7 @@
 
 <div class="problem-banner">
     <span class="problem-icon">&#129300;</span>
-    <span class="problem-text">"My application is too slow &mdash; but every caching solution I try either serves stale data or forces me to rewrite my app. How can I get lightning-fast reads without the risk?"</span>
+    <span class="problem-text">"My application is too slow - but every caching solution I try either serves stale data or forces me to rewrite my app. How can I get lightning-fast reads without the risk?"</span>
 </div>
 
 <div class="container">
@@ -118,7 +119,6 @@
         <button class="btn btn-blue"   id="btn4" onclick="step4()" disabled>4. Always Fresh</button>
         <button class="btn btn-purple" id="btn5" onclick="step5()" disabled>5. Scale Out</button>
         <button class="btn btn-orange" id="btn6" onclick="step6()" disabled>6. Go Closer</button>
-        <button class="btn btn-teal"   id="btn7" onclick="step7()" disabled>7. Business Value</button>
         <button class="btn btn-danger" onclick="resetDemo()" style="margin-left:auto">&#128260; Reset</button>
     </div>
 
@@ -127,7 +127,12 @@
             <div class="panel-header"><span>&#128203;</span><span>Understanding True Cache</span></div>
             <div class="panel-content">
 
-                <div class="explain active" id="exp1">
+                <div class="explain active" id="expLanding">
+                    <h3>&#127760; Welcome to True Cache</h3>
+                    <p>Click "The Problem" above to begin the story. The Reset button returns you to this landing page.</p>
+                </div>
+
+                <div class="explain" id="exp1">
                     <h3>&#128034; Why Is My App Slow?</h3>
                     <p>Every read request your application makes travels all the way to the back-end database. For high-traffic workloads this creates a bottleneck:</p>
                     <ul>
@@ -135,12 +140,12 @@
                         <li><strong>Database CPU &amp; I/O</strong> are exhausted by repetitive reads of the same rows</li>
                         <li>Popular, rarely-changing data is fetched over and over</li>
                     </ul>
-                    <p>The natural instinct is to add a cache &mdash; but traditional caches introduce their own set of problems.</p>
+                    <p>The natural instinct is to add a cache - but traditional caches introduce their own set of problems.</p>
                     <div class="value-card">
                         <div class="value-title">What we really need:</div>
-                        <div class="value-item">Fast reads &mdash; served from memory, not disk</div>
-                        <div class="value-item">No stale data &mdash; always consistent with the source</div>
-                        <div class="value-item">Zero app changes &mdash; transparent to existing SQL</div>
+                        <div class="value-item">Fast reads - served from memory, not disk</div>
+                        <div class="value-item">No stale data - always consistent with the source</div>
+                        <div class="value-item">Zero app changes - transparent to existing SQL</div>
                     </div>
                 </div>
 
@@ -151,10 +156,10 @@
                         <li><strong>Is the data current?</strong> After a write, the cache may serve old values for seconds or minutes</li>
                         <li><strong>Manual invalidation</strong> is fragile; developers must track every write path</li>
                         <li><strong>What to cache?</strong> Choosing objects requires deep domain knowledge</li>
-                        <li><strong>Another skill set</strong> &mdash; ops teams must learn and operate a separate caching tier</li>
-                        <li><strong>Security gap</strong> &mdash; data outside Oracle DB loses Oracle security controls</li>
+                        <li><strong>Another skill set</strong> - ops teams must learn and operate a separate caching tier</li>
+                        <li><strong>Security gap</strong> - data outside Oracle DB loses Oracle security controls</li>
                     </ul>
-                    <p>These challenges mean mid-tier caches deliver <strong>very limited positive results</strong> in practice &mdash; and carry real business risk from stale data.</p>
+                    <p>These challenges mean mid-tier caches deliver <strong>very limited positive results</strong> in practice - and carry real business risk from stale data.</p>
                 </div>
 
                 <div class="explain" id="exp3">
@@ -168,7 +173,7 @@
                     </ul>
                     <div class="value-card">
                         <div class="value-title">The True Cache difference:</div>
-                        <div class="value-item">Cache is part of Oracle AI Database &mdash; same security model</div>
+                        <div class="value-item">Cache is part of Oracle AI Database - same security model</div>
                         <div class="value-item">No manual invalidation ever needed</div>
                         <div class="value-item">Single cache for relational, JSON, columnar data</div>
                         <div class="value-item">Offload reads to commodity hardware</div>
@@ -177,14 +182,14 @@
 
                 <div class="explain" id="exp4">
                     <h3>&#128260; The Most Important Requirement: Fresh Data</h3>
-                    <p>True Cache maintains consistency using Oracle AI Database <strong>redo technology</strong> &mdash; the same proven mechanism behind Data Guard.</p>
+                    <p>True Cache maintains consistency using Oracle AI Database <strong>redo technology</strong> - the same proven mechanism behind Data Guard.</p>
                     <ul>
                         <li><strong>Redo stream:</strong> Every commit on the primary instantly propagates changes to True Cache</li>
-                        <li><strong>Automatic refresh</strong> &mdash; no manual invalidation, no TTL tuning</li>
+                        <li><strong>Automatic refresh</strong> - no manual invalidation, no TTL tuning</li>
                         <li><strong>Transactional consistency</strong> maintained across all cached objects</li>
                         <li>Eliminates application-managed cache invalidation entirely</li>
                     </ul>
-                    <p>Applications always read <strong>fresh, correct data</strong> &mdash; the same guarantee as the primary, but at memory speed.</p>
+                    <p>Applications always read <strong>fresh, correct data</strong> - the same guarantee as the primary, but at memory speed.</p>
                 </div>
 
                 <div class="explain" id="exp5">
@@ -194,7 +199,7 @@
                         <li><strong>Higher availability:</strong> Requests distributed; one failure does not stop reads</li>
                         <li><strong>Larger data sets:</strong> Aggregate memory across nodes to cache the full working set</li>
                         <li><strong>Group isolation:</strong> HR, Sales, Finance each get a dedicated instance</li>
-                        <li><strong>Overflow to disk:</strong> When memory fills, True Cache spills to local disk &mdash; still faster than the primary</li>
+                        <li><strong>Overflow to disk:</strong> When memory fills, True Cache spills to local disk - still faster than the primary</li>
                     </ul>
                     <div class="value-card">
                         <div class="value-title">Cache as much as you need, when you need it!</div>
@@ -207,8 +212,8 @@
                     <h3>&#127757; Deploy Close to the User</h3>
                     <p>For data residency, user proximity, or device proximity, apps are often deployed <strong>far from the central database</strong>.</p>
                     <ul>
-                        <li>True Cache can be deployed <strong>near the application</strong> &mdash; same region, edge, or data centre</li>
-                        <li><strong>No data on disk by default</strong> &mdash; a pure in-memory tier that data residency regulations allow</li>
+                        <li>True Cache can be deployed <strong>near the application</strong> - same region, edge, or data centre</li>
+                        <li><strong>No data on disk by default</strong> - a pure in-memory tier that data residency regulations allow</li>
                         <li>Reads served locally at microsecond speed; writes still travel to the authoritative primary</li>
                         <li>On a cache miss, the instance fetches from the primary silently and warms up transparently</li>
                     </ul>
@@ -311,12 +316,12 @@
                         <div class="latency-box" id="latBox" style="bottom:14px;left:14px">
                             <div class="lat-row">
                                 <span class="lat-label">Traditional cache</span>
-                                <span class="lat-val slow" id="latTrad">&mdash;</span>
+                                <span class="lat-val slow" id="latTrad">--</span>
                             </div>
                             <div class="lat-bar"><div class="lat-fill slow" id="barTrad"></div></div>
                             <div class="lat-row" style="margin-top:8px">
                                 <span class="lat-label">True Cache</span>
-                                <span class="lat-val fast" id="latTC">&mdash;</span>
+                                <span class="lat-val fast" id="latTC">--</span>
                             </div>
                             <div class="lat-bar"><div class="lat-fill fast" id="barTC"></div></div>
                         </div>
@@ -422,6 +427,10 @@ function showExp(n) {
     document.querySelectorAll('.explain').forEach(function(e) { e.classList.remove('active') });
     document.getElementById('exp'+n).classList.add('active');
 }
+function showLanding() {
+    document.querySelectorAll('.explain').forEach(function(e) { e.classList.remove('active') });
+    document.getElementById('expLanding').classList.add('active');
+}
 function popPill(id, delay) {
     setTimeout(function() { document.getElementById(id).classList.add('pop') }, delay || 0);
 }
@@ -447,10 +456,11 @@ function setBtn(n) {
         for (var i=1; i<n; i++) document.getElementById('btn'+i).classList.add('completed');
         reached = n;
     }
-    if (n < 7) document.getElementById('btn'+(n+1)).disabled = false;
+    var nextBtn = document.getElementById('btn'+(n+1));
+    if (nextBtn) nextBtn.disabled = false;
 }
 
-/* ═══ STEP 1 — Slow DB reads ═══ */
+/* ═══ STEP 1 - Slow DB reads ═══ */
 function step1() {
     clearStage(); showExp(1); setBtn(1);
     showNode('nApp', 0);
@@ -474,7 +484,7 @@ function step1() {
     }, 1300);
 }
 
-/* ═══ STEP 2 — Cache pitfalls ═══ */
+/* ═══ STEP 2 - Cache pitfalls ═══ */
 function step2() {
     clearStage(); showExp(2); setBtn(2);
     showNode('nApp',  0);
@@ -505,7 +515,7 @@ function step2() {
     }, 1000);
 }
 
-/* ═══ STEP 3 — True Cache ═══ */
+/* ═══ STEP 3 - True Cache ═══ */
 function step3() {
     clearStage(); showExp(3); setBtn(3);
     showNode('nApp',   0);
@@ -527,7 +537,7 @@ function step3() {
     }, 1000);
 }
 
-/* ═══ STEP 4 — Always fresh (redo sync) ═══ */
+/* ═══ STEP 4 - Always fresh (redo sync) ═══ */
 function step4() {
     clearStage(); showExp(4); setBtn(4);
     showNode('nApp',   0);
@@ -551,7 +561,7 @@ function step4() {
     }, 1000);
 }
 
-/* ═══ STEP 5 — Scale out ═══ */
+/* ═══ STEP 5 - Scale out ═══ */
 function step5() {
     clearStage(); showExp(5); setBtn(5);
     showNode('nApp',        0);
@@ -577,7 +587,7 @@ function step5() {
     }, 1000);
 }
 
-/* ═══ STEP 6 — Geo proximity ═══ */
+/* ═══ STEP 6 - Geo proximity ═══ */
 function step6() {
     clearStage(); showExp(6); setBtn(6);
     showNode('nGeoA', 0);
@@ -599,7 +609,7 @@ function step6() {
     }, 1250);
 }
 
-/* ═══ STEP 7 — Business value ═══ */
+/* ═══ STEP 7 - Business value ═══ */
 function step7() {
     clearStage(); showExp(7); setBtn(7);
     document.getElementById('ucGrid').classList.add('visible');
@@ -614,9 +624,12 @@ function resetDemo() {
     clearStage();
     reached = 0;
     document.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('completed'); b.disabled = false });
-    for (var i=2; i<=7; i++) document.getElementById('btn'+i).disabled = true;
-    showExp(1);
-    hideEl('latBox');
+    for (var i=2; ; i++) {
+        var btn = document.getElementById('btn'+i);
+        if (!btn) break;
+        btn.disabled = true;
+    }
+    showLanding();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -639,7 +652,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-window.addEventListener('load', function() { setTimeout(step1, 300) });
+window.addEventListener('load', function() { showLanding() });
 </script>
 </body>
 </html>
