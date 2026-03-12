@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle AI Database – Private Agent Factory</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+        }
+
+        /* ─── Header ─────────────────────────────────────────────── */
+        .header {
+            background: linear-gradient(to right, #0f766e, #115e59);
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,.1);
+        }
+        .header-content { max-width: 1400px; margin: 0 auto }
+        .header-title { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+        .header-title h1 { font-size: 28px; font-weight: 700 }
+        .header-subtitle { color: #99f6e4; font-size: 14px }
+
+        /* ─── Problem Banner ─────────────────────────────────────── */
+        .problem-banner {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .problem-icon { font-size: 24px }
+        .problem-text { font-size: 18px; color: #856404; font-weight: 600 }
+
+        /* ─── Container / Grid ───────────────────────────────────── */
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+        .button-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px }
+        .main-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 20px }
+        @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr } }
+
+        /* ─── Panels ─────────────────────────────────────────────── */
+        .panel {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel-header {
+            background: #1f2937;
+            color: #fff;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .panel-content { padding: 16px; flex: 1; overflow-y: auto }
+
+        /* ─── Buttons ────────────────────────────────────────────── */
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            min-height: 42px;
+            color: #fff;
+        }
+        .btn:disabled { opacity: .4; cursor: not-allowed; pointer-events: none }
+        .btn.completed { background: #16a34a !important }
+        .btn.completed::before { content: '✓ '; font-weight: bold }
+        .btn-teal  { background: #0d9488 } .btn-teal:hover:not(:disabled)  { background: #0f766e }
+        .btn-blue  { background: #2563eb } .btn-blue:hover:not(:disabled)  { background: #1e40af }
+        .btn-purple{ background: #9333ea } .btn-purple:hover:not(:disabled){ background: #7c3aed }
+        .btn-orange{ background: #ea580c } .btn-orange:hover:not(:disabled){ background: #c2410c }
+        .btn-danger{ background: #ef4444 } .btn-danger:hover:not(:disabled){ background: #dc2626 }
+        .btn-indigo{ background: #4f46e5 } .btn-indigo:hover:not(:disabled){ background: #3730a3 }
+        .btn-gray  { background: #6b7280 } .btn-gray:hover:not(:disabled)  { background: #4b5563 }
+
+        /* ─── Mode Indicator ─────────────────────────────────────── */
+        .mode-indicator {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .mode-indicator.active { display: block }
+        .mode-title { font-size: 16px; font-weight: 700; margin-bottom: 4px }
+        .mode-desc  { font-size: 13px; color: #6b7280 }
+        .mode-indicator.m-build   { background: #ccfbf1; border-color: #0d9488 }
+        .mode-indicator.m-rag     { background: #f3e8ff; border-color: #9333ea }
+        .mode-indicator.m-data    { background: #dbeafe; border-color: #2563eb }
+        .mode-indicator.m-govern  { background: #ffedd5; border-color: #ea580c }
+        .mode-indicator.m-deploy  { background: #fee2e2; border-color: #4f46e5 }
+
+        /* ─── Intro card ─────────────────────────────────────────── */
+        .intro-card {
+            background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+            border: 2px solid #0d9488;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .intro-card h3 { font-size: 16px; font-weight: 700; color: #115e59; margin-bottom: 10px }
+        .intro-card p  { font-size: 13px; color: #374151; line-height: 1.6; margin-bottom: 10px }
+        .intro-feature { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px }
+        .intro-feature-icon { font-size: 18px; flex-shrink: 0 }
+        .intro-feature-text { font-size: 12px; color: #374151; line-height: 1.5 }
+        .intro-feature-text strong { color: #0d9488 }
+
+        /* ─── Step card (log-style) ──────────────────────────────── */
+        .step-log { min-height: 200px }
+        .step-entry {
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #1f2937;
+            border-left: 4px solid #e5e7eb;
+            background: #f9fafb;
+            animation: slideIn .45s ease;
+        }
+        .step-entry.teal   { border-color: #0d9488; background: #f0fdfa }
+        .step-entry.purple { border-color: #9333ea; background: #faf5ff }
+        .step-entry.blue   { border-color: #2563eb; background: #eff6ff }
+        .step-entry.orange { border-color: #ea580c; background: #fff7ed }
+        .step-entry.indigo { border-color: #4f46e5; background: #eef2ff }
+        .step-entry.green  { border-color: #16a34a; background: #f0fdf4 }
+        .step-entry .entry-head { font-weight: 700; margin-bottom: 3px }
+        @keyframes slideIn { from { opacity:0; transform: translateX(-12px) } to { opacity:1; transform: translateX(0) } }
+
+        /* ─── Value card ─────────────────────────────────────────── */
+        .value-card {
+            background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+            border: 2px solid #0d9488;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+        .value-title { font-size: 14px; font-weight: 700; color: #115e59; margin-bottom: 8px }
+        .value-item  { font-size: 12px; color: #374151; margin-bottom: 6px; padding-left: 16px; position: relative }
+        .value-item::before { content: '✓'; position: absolute; left: 0; color: #0d9488; font-weight: bold }
+
+        /* ─── Visualization container ────────────────────────────── */
+        .visual-container {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 540px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           STAGE 0 – IDLE / intro
+        ═══════════════════════════════════════════════════════════ */
+        .stage { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; pointer-events: none; padding: 20px }
+        .stage.visible { opacity: 1; pointer-events: all }
+
+        .idle-tagline {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255,255,255,.5);
+        }
+        .idle-tagline .big { font-size: 52px; margin-bottom: 12px }
+        .idle-tagline p    { font-size: 15px; line-height: 1.6 }
+
+        /* ═══════════════════════════════════════════════════════════
+           STAGE 1 – BUILD  (visual agent builder animation)
+        ═══════════════════════════════════════════════════════════ */
+        .builder-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .builder-title {
+            color: #99f6e4;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        /* Toolbar */
+        .builder-toolbar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .builder-chip {
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 11px;
+            color: #e2e8f0;
+            cursor: default;
+            transition: all .3s;
+        }
+        .builder-chip.drag { border-color: #0d9488; background: rgba(13,148,136,.25); color: #99f6e4 }
+
+        /* Canvas area */
+        .node-canvas {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background: rgba(255,255,255,.04);
+            border: 1px dashed rgba(255,255,255,.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* SVG connector lines */
+        .connector-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Agent nodes */
+        .anode {
+            position: absolute;
+            background: rgba(255,255,255,.9);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #1f2937;
+            box-shadow: 0 4px 12px rgba(0,0,0,.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+            transform: scale(.5);
+            transition: opacity .5s ease, transform .5s cubic-bezier(.34,1.56,.64,1);
+            white-space: nowrap;
+        }
+        .anode.in { opacity: 1; transform: scale(1) }
+        .anode.active-node { box-shadow: 0 0 0 3px #0d9488, 0 4px 12px rgba(0,0,0,.3) }
+        .anode-icon { font-size: 16px }
+        .anode-label { font-size: 10px; color: #6b7280; font-weight: 400 }
+
+        /* ═══════════════════════════════════════════════════════════
+           STAGE 2 – RAG  (Knowledge agent)
+        ═══════════════════════════════════════════════════════════ */
+        .rag-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .rag-col-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #a78bfa;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 8px;
+        }
+
+        /* Sources */
+        .doc-card {
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(167,139,250,.3);
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 11px;
+            color: #e2e8f0;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity .4s, transform .4s;
+        }
+        .doc-card.in { opacity: 1; transform: translateY(0) }
+        .doc-icon { font-size: 16px }
+
+        /* Vector search pulse */
+        .vector-ring-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .vector-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(167,139,250,.6) 0%, rgba(79,70,229,.1) 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .vector-ring::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid rgba(167,139,250,.5);
+            animation: ringPulse 2s ease-in-out infinite;
+        }
+        @keyframes ringPulse {
+            0%,100% { transform: scale(1); opacity:.6 }
+            50%      { transform: scale(1.15); opacity:1 }
+        }
+        .vector-label { font-size: 11px; color: #a78bfa; font-weight: 700; text-align: center }
+        .vector-sublabel { font-size: 10px; color: #6b7280; text-align: center; margin-top: 4px }
+
+        /* Answer bubble */
+        .answer-bubble {
+            background: rgba(167,139,250,.15);
+            border: 1px solid rgba(167,139,250,.4);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 11px;
+            color: #e2e8f0;
+            margin-top: 12px;
+            opacity: 0;
+            transition: opacity .6s;
+        }
+        .answer-bubble.in { opacity: 1 }
+        .answer-tag {
+            display: inline-block;
+            background: rgba(167,139,250,.3);
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-size: 9px;
+            font-weight: 700;
+            color: #a78bfa;
+            margin-left: 4px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           STAGE 3 – DATA ANALYSIS  
+        ═══════════════════════════════════════════════════════════ */
+        .chart-area {
+            width: 100%;
+        }
+        .chart-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #93c5fd;
+            margin-bottom: 10px;
+        }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .bar-label { font-size: 10px; color: #9ca3af; width: 90px; text-align: right; flex-shrink: 0 }
+        .bar-track { flex: 1; height: 20px; background: rgba(255,255,255,.07); border-radius: 4px; overflow: hidden }
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            width: 0%;
+            transition: width 1s cubic-bezier(.25,.46,.45,.94);
+            display: flex;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 9px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .bar-fill.b1 { background: linear-gradient(to right, #2563eb, #60a5fa) }
+        .bar-fill.b2 { background: linear-gradient(to right, #0d9488, #5eead4) }
+        .bar-fill.b3 { background: linear-gradient(to right, #9333ea, #c084fc) }
+        .bar-fill.b4 { background: linear-gradient(to right, #ea580c, #fb923c) }
+        .bar-fill.b5 { background: linear-gradient(to right, #16a34a, #4ade80) }
+
+        .insight-box {
+            background: rgba(37,99,235,.15);
+            border: 1px solid rgba(37,99,235,.4);
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 11px;
+            color: #93c5fd;
+            margin-top: 12px;
+            opacity: 0;
+            transition: opacity .6s;
+        }
+        .insight-box.in { opacity: 1 }
+        .insight-box strong { color: #bfdbfe }
+
+        /* ═══════════════════════════════════════════════════════════
+           STAGE 4 – GOVERNANCE (security wall)
+        ═══════════════════════════════════════════════════════════ */
+        .gov-layout {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .gov-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 10px;
+        }
+        .gov-box {
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 11px;
+            color: #e2e8f0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .5s, transform .5s;
+        }
+        .gov-box.in  { opacity: 1; transform: translateY(0) }
+        .gov-box .gicon { font-size: 22px; margin-bottom: 4px }
+        .gov-box .gtitle { font-weight: 700; font-size: 12px; color: #99f6e4; margin-bottom: 3px }
+        .gov-box .gdesc  { font-size: 10px; color: #9ca3af; line-height: 1.4 }
+
+        .gov-arrow {
+            font-size: 18px;
+            color: rgba(255,255,255,.3);
+            text-align: center;
+        }
+
+        .shield-central {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            background: linear-gradient(135deg, rgba(234,88,12,.2), rgba(239,68,68,.2));
+            border: 2px solid rgba(234,88,12,.5);
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        .shield-central.in { opacity: 1 }
+        .shield-icon-big { font-size: 36px; margin-bottom: 6px }
+        .shield-text { font-size: 11px; font-weight: 700; color: #fcd34d; text-align: center }
+        .shield-sub  { font-size: 10px; color: #9ca3af; text-align: center; margin-top: 3px }
+
+        /* ═══════════════════════════════════════════════════════════
+           STAGE 5 – DEPLOY  (architecture flow)
+        ═══════════════════════════════════════════════════════════ */
+        .deploy-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .deploy-title { color: #a5f3fc; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 14px }
+
+        .arch-node {
+            position: absolute;
+            background: rgba(255,255,255,.9);
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #1f2937;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,.3);
+            opacity: 0;
+            transition: opacity .5s, transform .5s cubic-bezier(.34,1.56,.64,1);
+            transform: scale(.6);
+            min-width: 80px;
+        }
+        .arch-node.in { opacity: 1; transform: scale(1) }
+        .arch-node .aicon { font-size: 20px; display: block; margin-bottom: 3px }
+        .arch-node.highlight { box-shadow: 0 0 0 3px #0d9488, 0 4px 12px rgba(0,0,0,.3) }
+
+        .flow-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Outcome banner */
+        .outcome-banner {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to right, rgba(13,148,136,.9), rgba(17,94,89,.9));
+            padding: 10px 16px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            transition: opacity .6s;
+            border-radius: 0 0 8px 8px;
+        }
+        .outcome-banner.in { opacity: 1 }
+        .outcome-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #f0fdfa;
+        }
+        .outcome-pill .icon { font-size: 14px }
+
+        /* ─── Fullscreen toggle ───────────────────────────────────── */
+        .fullscreen-toggle {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 9999;
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: #111827;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform .15s ease, opacity .2s ease, background .2s ease;
+            opacity: .9;
+        }
+        .fullscreen-toggle:hover { transform: translateY(-1px); opacity: 1; background: #0b1220 }
+        .fullscreen-toggle svg { width: 22px; height: 22px; display: block; fill: currentColor }
+
+        /* Animated progress dots on panel header */
+        .live-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+            animation: blink 1.4s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+        /* Connection pulse on SVG paths */
+        @keyframes dash { to { stroke-dashoffset: -40 } }
+        .flow-path { animation: dash 1.2s linear infinite }
+    </style>
+</head>
+<body>
+
+<!-- ─── Header ─────────────────────────────────────────────────────── -->
+<div class="header">
+    <div class="header-content">
+        <div class="header-title">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <h1>Oracle AI Database – Private Agent Factory</h1>
+        </div>
+        <p class="header-subtitle">No-code platform to build custom AI agents and workflow automation — securely, inside your enterprise</p>
+    </div>
+</div>
+
+<!-- ─── Problem Banner ─────────────────────────────────────────────── -->
+<div class="problem-banner">
+    <span class="problem-icon">🔒</span>
+    <span class="problem-text">"Enterprise data cannot be sent to public LLMs — but building secure, production-grade AI is slow, fragile, and expensive."</span>
+</div>
+
+<!-- ─── Main Layout ────────────────────────────────────────────────── -->
+<div class="container">
+
+    <!-- Button Group -->
+    <div class="button-group">
+        <button class="btn btn-teal"   id="btnBuild"  onclick="runStage(1)">🏗️ Build Agent</button>
+        <button class="btn btn-purple" id="btnRag"    onclick="runStage(2)" disabled>🧠 Knowledge RAG</button>
+        <button class="btn btn-blue"   id="btnData"   onclick="runStage(3)" disabled>📊 Analyze Data</button>
+        <button class="btn btn-orange" id="btnGovern" onclick="runStage(4)" disabled>🛡️ Govern &amp; Guard</button>
+        <button class="btn btn-indigo" id="btnDeploy" onclick="runStage(5)" disabled>🚀 Deploy Agent</button>
+        <button class="btn btn-danger" id="btnReset"  onclick="resetDemo()">🔄 Reset</button>
+    </div>
+
+    <!-- Two-panel grid -->
+    <div class="main-grid">
+
+        <!-- Left Panel: narrative / log -->
+        <div class="panel">
+            <div class="panel-header">
+                <span id="liveDotLeft" class="live-dot" style="display:none"></span>
+                <span id="panelLeftTitle">📋 Agent Factory — Story</span>
+            </div>
+            <div class="panel-content" id="leftContent">
+
+                <!-- Intro card (shown at start) -->
+                <div id="introCard" class="intro-card">
+                    <h3>What is the Private Agent Factory?</h3>
+                    <p>A complete, no-code platform that lets business users and engineers build, evaluate, and deploy intelligent AI agents — all running <strong>inside the Oracle security boundary</strong>. No public cloud. No data leakage.</p>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">🏗️</div>
+                        <div class="intro-feature-text"><strong>Build</strong> — Drag-and-drop Agent Builder, no coding required</div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">🧠</div>
+                        <div class="intro-feature-text"><strong>Knowledge RAG</strong> — Ground agents in SharePoint, files, databases</div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">📊</div>
+                        <div class="intro-feature-text"><strong>Data Analysis</strong> — Instant insights, auto-generated visualizations</div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">🛡️</div>
+                        <div class="intro-feature-text"><strong>Govern</strong> — Guardrails, safety evaluations, access controls</div>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="intro-feature-icon">🚀</div>
+                        <div class="intro-feature-text"><strong>Deploy</strong> — On-prem, any cloud, any LLM</div>
+                    </div>
+                </div>
+
+                <!-- Mode Indicator -->
+                <div id="modeIndicator" class="mode-indicator">
+                    <div class="mode-title" id="modeTitle"></div>
+                    <div class="mode-desc"  id="modeDesc"></div>
+                </div>
+
+                <!-- Step Log -->
+                <div id="stepLog" class="step-log"></div>
+
+            </div>
+        </div>
+
+        <!-- Right Panel: visualization -->
+        <div class="panel">
+            <div class="panel-header">
+                <span id="liveDotRight" class="live-dot" style="display:none"></span>
+                <span id="panelRightTitle">🎬 Live Visualization</span>
+            </div>
+            <div class="panel-content" style="padding:0">
+                <div class="visual-container">
+
+                    <!-- Stage 0: idle -->
+                    <div class="stage visible" id="stage0">
+                        <div class="idle-tagline">
+                            <div class="big">🤖</div>
+                            <p>Click <strong style="color:#99f6e4">Build Agent</strong> to start the<br>Private Agent Factory story</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 1: Visual Agent Builder -->
+                    <div class="stage" id="stage1">
+                        <div class="builder-canvas">
+                            <div class="builder-title">⚙️ Visual Agent Builder — Drag-and-Drop Canvas</div>
+                            <div class="builder-toolbar">
+                                <div class="builder-chip" id="chip-trigger">⚡ Trigger</div>
+                                <div class="builder-chip" id="chip-llm">🧠 LLM Node</div>
+                                <div class="builder-chip" id="chip-db">🗄️ DB Lookup</div>
+                                <div class="builder-chip" id="chip-tool">🔧 Tool Call</div>
+                                <div class="builder-chip" id="chip-out">📤 Output</div>
+                            </div>
+                            <div class="node-canvas" id="nodeCanvas">
+                                <svg class="connector-svg" id="connectorSvg"></svg>
+                                <!-- nodes injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2: Knowledge RAG -->
+                    <div class="stage" id="stage2" style="padding:16px">
+                        <div style="color:#a78bfa;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">🧠 Knowledge-Based AI Agent (RAG)</div>
+                        <div class="rag-layout" id="ragLayout">
+                            <div>
+                                <div class="rag-col-title">📂 Enterprise Sources</div>
+                                <div class="doc-card" id="dc1"><span class="doc-icon">📁</span><span>SharePoint — Policy Docs</span></div>
+                                <div class="doc-card" id="dc2"><span class="doc-icon">🌐</span><span>Internal Website Content</span></div>
+                                <div class="doc-card" id="dc3"><span class="doc-icon">📄</span><span>HR & Compliance PDFs</span></div>
+                                <div class="doc-card" id="dc4"><span class="doc-icon">🗄️</span><span>Oracle AI Database Tables</span></div>
+                            </div>
+                            <div>
+                                <div class="rag-col-title">🔍 Oracle AI Vector Search</div>
+                                <div class="vector-ring-wrap">
+                                    <div class="vector-ring">🔍</div>
+                                    <div class="vector-label">Semantic Similarity</div>
+                                    <div class="vector-sublabel">Grounded in enterprise data<br>No public LLM exposure</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer-bubble" id="answerBubble">
+                            💬 <em>"What is our data retention policy for financial records?"</em>
+                            <span class="answer-tag">Source: Policy-2024-Q4.pdf, Slide 12</span>
+                            <br><br>
+                            <strong style="color:#c4b5fd">Answer:</strong> Financial records must be retained for <strong>7 years</strong> per SOX compliance. Data stored exclusively within Oracle environment.
+                            <span class="answer-tag">Traceable</span><span class="answer-tag">Private</span>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3: Data Analysis -->
+                    <div class="stage" id="stage3" style="padding:16px">
+                        <div class="chart-area">
+                            <div class="chart-title">📊 Data Analysis Agent — Revenue Insights (Auto-Generated)</div>
+                            <div class="bar-row"><div class="bar-label">North America</div><div class="bar-track"><div class="bar-fill b1" id="bar1" data-w="82">$82M</div></div></div>
+                            <div class="bar-row"><div class="bar-label">EMEA</div><div class="bar-track"><div class="bar-fill b2" id="bar2" data-w="67">$67M</div></div></div>
+                            <div class="bar-row"><div class="bar-label">APAC</div><div class="bar-track"><div class="bar-fill b3" id="bar3" data-w="54">$54M</div></div></div>
+                            <div class="bar-row"><div class="bar-label">LATAM</div><div class="bar-track"><div class="bar-fill b4" id="bar4" data-w="38">$38M</div></div></div>
+                            <div class="bar-row"><div class="bar-label">Others</div><div class="bar-track"><div class="bar-fill b5" id="bar5" data-w="21">$21M</div></div></div>
+                        </div>
+                        <div class="insight-box" id="insightBox">
+                            🤖 <strong>Agent Insight:</strong> North America leads at $82M (+14% YoY). APAC growth rate (+31%) suggests re-allocation opportunity.
+                            Auto-generated visualization — no SQL required. All data processed <strong>inside Oracle AI Database</strong>.
+                        </div>
+                    </div>
+
+                    <!-- Stage 4: Governance -->
+                    <div class="stage" id="stage4" style="padding:16px">
+                        <div style="color:#fdba74;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px">🛡️ Enterprise Governance &amp; Safety</div>
+                        <div class="gov-layout">
+                            <div class="gov-row">
+                                <div class="gov-box" id="gb1">
+                                    <div class="gicon">🔐</div>
+                                    <div class="gtitle">SSO &amp; Auth</div>
+                                    <div class="gdesc">Role-based access, sharing controls</div>
+                                </div>
+                                <div class="gov-arrow">→</div>
+                                <div class="gov-box" id="gb2">
+                                    <div class="gicon">🔒</div>
+                                    <div class="gtitle">Private AI Container</div>
+                                    <div class="gdesc">Embeddings &amp; LLM inside perimeter</div>
+                                </div>
+                            </div>
+                            <div style="display:flex;justify-content:center">
+                                <div class="shield-central" id="shieldCentral" style="width:60%">
+                                    <div class="shield-icon-big">🛡️</div>
+                                    <div class="shield-text">Zero Data Leakage</div>
+                                    <div class="shield-sub">AI brought to data — not data to AI</div>
+                                </div>
+                            </div>
+                            <div class="gov-row">
+                                <div class="gov-box" id="gb3">
+                                    <div class="gicon">⚖️</div>
+                                    <div class="gtitle">Guardrails</div>
+                                    <div class="gdesc">Safety filters &amp; evaluation workflows</div>
+                                </div>
+                                <div class="gov-arrow">→</div>
+                                <div class="gov-box" id="gb4">
+                                    <div class="gicon">📋</div>
+                                    <div class="gtitle">Compliance</div>
+                                    <div class="gdesc">Audit trails, governance policies</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5: Deploy -->
+                    <div class="stage" id="stage5" style="padding:16px">
+                        <div class="deploy-canvas">
+                            <div class="deploy-title">🚀 Deploy Anywhere — Portability &amp; Scale</div>
+                            <!-- Architecture nodes positioned by JS -->
+                            <div style="position:relative;height:300px" id="deployNodes">
+                                <svg class="flow-svg" id="flowSvg"></svg>
+                                <div class="arch-node" id="an-user"   style="left:10px;top:90px">  <span class="aicon">👤</span>Business User</div>
+                                <div class="arch-node" id="an-build"  style="left:160px;top:30px"> <span class="aicon">🏗️</span>Agent Builder</div>
+                                <div class="arch-node" id="an-paf"    style="left:160px;top:130px"><span class="aicon">🤖</span>PAF Runtime</div>
+                                <div class="arch-node highlight" id="an-odb" style="left:310px;top:80px"><span class="aicon">🗄️</span>Oracle AI DB</div>
+                                <div class="arch-node" id="an-llm"    style="left:440px;top:30px"> <span class="aicon">🧠</span>Private LLM</div>
+                                <div class="arch-node" id="an-cloud"  style="left:440px;top:140px"><span class="aicon">☁️</span>Any Cloud / On-Prem</div>
+                            </div>
+                            <div class="outcome-banner" id="outcomeBanner">
+                                <div class="outcome-pill"><span class="icon">🔒</span>Data never leaves perimeter</div>
+                                <div class="outcome-pill"><span class="icon">⚡</span>Deploy in minutes</div>
+                                <div class="outcome-pill"><span class="icon">🔄</span>Broad LLM choice</div>
+                                <div class="outcome-pill"><span class="icon">📦</span>Export / import via Agent Spec</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- visual-container -->
+            </div>
+        </div>
+
+    </div><!-- main-grid -->
+</div><!-- container -->
+
+<!-- Fullscreen Toggle -->
+<button id="fsToggle" class="fullscreen-toggle" title="Full screen (F)">
+    <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>
+</button>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════════════════ */
+let currentStage = 0;
+const btns = {
+    1: 'btnBuild',
+    2: 'btnRag',
+    3: 'btnData',
+    4: 'btnGovern',
+    5: 'btnDeploy'
+};
+
+/* ══════════════════════════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════════════════════════ */
+function setStage(n) {
+    document.querySelectorAll('.stage').forEach(s => s.classList.remove('visible'));
+    document.getElementById('stage' + n).classList.add('visible');
+    currentStage = n;
+}
+
+function setMode(cls, title, desc) {
+    const el = document.getElementById('modeIndicator');
+    el.className = 'mode-indicator active ' + cls;
+    document.getElementById('modeTitle').textContent = title;
+    document.getElementById('modeDesc').textContent  = desc;
+}
+
+function addLog(type, head, body) {
+    const log = document.getElementById('stepLog');
+    const d = document.createElement('div');
+    d.className = 'step-entry ' + type;
+    d.innerHTML = `<div class="entry-head">${head}</div>${body}`;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+}
+
+function dot(show) {
+    ['liveDotLeft','liveDotRight'].forEach(id => {
+        document.getElementById(id).style.display = show ? '' : 'none';
+    });
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE ROUTER
+══════════════════════════════════════════════════════════════════ */
+async function runStage(n) {
+    // Disable all nav buttons while running
+    document.querySelectorAll('.btn').forEach(b => { if (b.id !== 'btnReset') b.disabled = true });
+    dot(true);
+
+    // Clear the step log and value card so content replaces, not accumulates
+    document.getElementById('stepLog').innerHTML = '';
+
+    switch(n) {
+        case 1: await stageOne();   break;
+        case 2: await stageTwo();   break;
+        case 3: await stageThree(); break;
+        case 4: await stageFour();  break;
+        case 5: await stageFive();  break;
+    }
+
+    // Mark current as completed
+    document.getElementById(btns[n]).classList.add('completed');
+
+    // Re-enable all previously completed stages + the current one + the next one
+    for (let i = 1; i <= 5; i++) {
+        const btnEl = document.getElementById(btns[i]);
+        if (i <= n) {
+            // Already visited or just completed — always re-enable
+            btnEl.disabled = false;
+        } else if (i === n + 1) {
+            // Unlock next stage
+            btnEl.disabled = false;
+        }
+        // Stages beyond n+1 stay disabled
+    }
+
+    dot(false);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE 1 — BUILD AGENT
+══════════════════════════════════════════════════════════════════ */
+async function stageOne() {
+    document.getElementById('introCard').style.display = 'none';
+    setMode('m-build', '🏗️ Step 1 — Visual Agent Builder', 'Designing an agent without a single line of code');
+    setStage(1);
+    document.getElementById('panelLeftTitle').textContent = '🏗️ Building the Agent';
+
+    addLog('teal', '⚙️ Agent Builder launched', 'Opening visual canvas…');
+    await delay(600);
+
+    const chips = ['chip-trigger','chip-llm','chip-db','chip-tool','chip-out'];
+    for (const id of chips) {
+        document.getElementById(id).classList.add('drag');
+        await delay(300);
+    }
+
+    addLog('teal', '🧩 Nodes available', 'Trigger → LLM → DB Lookup → Tool Call → Output');
+    await delay(500);
+
+    const nodeData = [
+        { id:'n0', icon:'⚡', label:'User Query', sub:'Trigger', x:15, y:110 },
+        { id:'n1', icon:'🧠', label:'LLM Reason', sub:'GPT / Llama', x:145, y:60 },
+        { id:'n2', icon:'🗄️', label:'DB Lookup', sub:'Oracle AI DB', x:145, y:175 },
+        { id:'n3', icon:'🔧', label:'Tool Call', sub:'SQL / REST', x:275, y:115 },
+        { id:'n4', icon:'📤', label:'Response', sub:'Output Node', x:375, y:115 },
+    ];
+
+    const canvas = document.getElementById('nodeCanvas');
+    for (const nd of nodeData) {
+        const el = document.createElement('div');
+        el.className = 'anode';
+        el.id = nd.id;
+        el.style.left = nd.x + 'px';
+        el.style.top  = nd.y + 'px';
+        el.innerHTML  = `<span class="anode-icon">${nd.icon}</span><div><div>${nd.label}</div><div class="anode-label">${nd.sub}</div></div>`;
+        canvas.appendChild(el);
+        await delay(100);
+        el.classList.add('in');
+        await delay(400);
+    }
+
+    addLog('teal', '🔗 Connecting nodes', 'Drawing execution flow between nodes…');
+    await delay(300);
+
+    const svg = document.getElementById('connectorSvg');
+    const paths = [
+        { from:[90,120], to:[145,85] },
+        { from:[90,120], to:[145,195] },
+        { from:[220,85], to:[275,135] },
+        { from:[220,195],to:[275,135] },
+        { from:[335,130],to:[375,130] },
+    ];
+    const colors = ['#0d9488','#9333ea','#2563eb','#ea580c','#16a34a'];
+
+    paths.forEach((p,i) => {
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        const d = `M${p.from[0]},${p.from[1]} C${(p.from[0]+p.to[0])/2},${p.from[1]} ${(p.from[0]+p.to[0])/2},${p.to[1]} ${p.to[0]},${p.to[1]}`;
+        path.setAttribute('d', d);
+        path.setAttribute('stroke', colors[i]);
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke-dasharray', '8 4');
+        path.classList.add('flow-path');
+        svg.appendChild(path);
+    });
+
+    await delay(1200);
+    document.getElementById('n3').classList.add('active-node');
+
+    addLog('green', '✅ Agent designed', 'Visual workflow ready — no code written. Drag-and-drop complete in under 2 minutes.');
+    await delay(800);
+    addLog('teal', '📋 Agent Spec exported', 'agent-spec-v1.yaml saved for portability & version control');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE 2 — KNOWLEDGE RAG
+══════════════════════════════════════════════════════════════════ */
+async function stageTwo() {
+    setMode('m-rag', '🧠 Step 2 — Knowledge-Based RAG Agent', 'Grounding the agent in private enterprise data');
+    setStage(2);
+    document.getElementById('panelLeftTitle').textContent = '🧠 RAG Agent in Action';
+
+    addLog('purple', '📂 Connecting enterprise sources', 'Scanning SharePoint, file systems, internal websites…');
+    await delay(700);
+
+    const cards = ['dc1','dc2','dc3','dc4'];
+    for (const id of cards) {
+        document.getElementById(id).classList.add('in');
+        await delay(450);
+    }
+
+    addLog('purple', '🔄 Ingesting & vectorising', 'Oracle AI Vector Search embedding documents privately…');
+    await delay(1000);
+
+    addLog('purple', '🔍 User query received', '"What is our data retention policy for financial records?"');
+    await delay(800);
+
+    addLog('purple', '🎯 Semantic search', 'Top-3 source chunks retrieved — similarity score > 0.88');
+    await delay(600);
+
+    document.getElementById('answerBubble').classList.add('in');
+
+    await delay(800);
+    addLog('green', '✅ Answer delivered', 'Source-linked, traceable, 100% inside Oracle security boundary. No data sent to public LLM.');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE 3 — DATA ANALYSIS
+══════════════════════════════════════════════════════════════════ */
+async function stageThree() {
+    setMode('m-data', '📊 Step 3 — Data Analysis Agent', 'Natural language → instant insights from Oracle AI Database');
+    setStage(3);
+    document.getElementById('panelLeftTitle').textContent = '📊 Data Analysis Agent';
+
+    addLog('blue', '🔗 Connected to Oracle AI Database', 'Agent auto-discovered 214 tables and views…');
+    await delay(700);
+
+    addLog('blue', '💬 Natural language prompt', '"Show me Q4 revenue breakdown by region and flag growth opportunities"');
+    await delay(800);
+
+    addLog('blue', '⚙️ SQL generated internally', 'SELECT region, SUM(revenue) FROM sales WHERE quarter=\'Q4\' GROUP BY region ORDER BY 2 DESC');
+    await delay(600);
+
+    const bars = [
+        {id:'bar1', w:'82%'},
+        {id:'bar2', w:'67%'},
+        {id:'bar3', w:'54%'},
+        {id:'bar4', w:'38%'},
+        {id:'bar5', w:'21%'},
+    ];
+    addLog('blue', '📈 Visualisation generating…', '');
+
+    for (const b of bars) {
+        document.getElementById(b.id).style.width = b.w;
+        await delay(200);
+    }
+
+    await delay(800);
+    document.getElementById('insightBox').classList.add('in');
+
+    await delay(600);
+    addLog('green', '✅ Insight delivered', 'Auto-generated chart + narrative. Business user needed zero SQL knowledge. All data stayed inside Oracle AI Database.');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE 4 — GOVERNANCE
+══════════════════════════════════════════════════════════════════ */
+async function stageFour() {
+    setMode('m-govern', '🛡️ Step 4 — Govern & Guard', 'Enterprise-grade safety, privacy, and compliance controls');
+    setStage(4);
+    document.getElementById('panelLeftTitle').textContent = '🛡️ Governance Layer';
+
+    addLog('orange', '🔐 Access control layer', 'SSO and role-based auth applied to all agent interactions…');
+    await delay(600);
+    document.getElementById('gb1').classList.add('in');
+
+    await delay(500);
+    addLog('orange', '🔒 Private AI Container activated', 'LLM and embeddings running inside Oracle perimeter — zero data egress…');
+    document.getElementById('gb2').classList.add('in');
+
+    await delay(700);
+    document.getElementById('shieldCentral').classList.add('in');
+    addLog('orange', '🛡️ Zero-leakage boundary confirmed', 'All AI inference stays inside enterprise. Public LLMs never see your data.');
+
+    await delay(600);
+    addLog('orange', '⚖️ Guardrails configured', 'Safety filters, topic restrictions, evaluation workflows enabled…');
+    document.getElementById('gb3').classList.add('in');
+
+    await delay(500);
+    addLog('orange', '📋 Compliance audit trail', 'Every agent call logged for governance and auditability…');
+    document.getElementById('gb4').classList.add('in');
+
+    await delay(700);
+    addLog('green', '✅ Governance active', 'SOX / GDPR / HIPAA-ready. All guardrails, SSO, audit logging operational.');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAGE 5 — DEPLOY
+══════════════════════════════════════════════════════════════════ */
+async function stageFive() {
+    setMode('m-deploy', '🚀 Step 5 — Deploy Anywhere', 'Production agent running on-prem, OCI, or any cloud');
+    setStage(5);
+    document.getElementById('panelLeftTitle').textContent = '🚀 Deploying to Production';
+
+    addLog('indigo', '📦 Agent Spec loaded', 'agent-spec-v1.yaml validated — portable across environments…');
+    await delay(600);
+
+    const anodes = ['an-user','an-build','an-paf','an-odb','an-llm','an-cloud'];
+    for (const id of anodes) {
+        document.getElementById(id).classList.add('in');
+        await delay(350);
+    }
+
+    addLog('indigo', '🔗 Architecture wired', 'User → Agent Builder → PAF Runtime → Oracle AI DB ↔ Private LLM');
+    await delay(500);
+
+    const flowSvg = document.getElementById('flowSvg');
+    const flowLines = [
+        { d:'M90,115 L160,60',  color:'#0d9488' },
+        { d:'M90,115 L160,155', color:'#9333ea' },
+        { d:'M230,60 L310,105', color:'#2563eb' },
+        { d:'M230,155 L310,115',color:'#ea580c' },
+        { d:'M385,95  L440,60', color:'#9333ea' },
+        { d:'M385,115 L440,160',color:'#0d9488' },
+    ];
+    flowLines.forEach(fl => {
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.setAttribute('d', fl.d);
+        path.setAttribute('stroke', fl.color);
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke-dasharray', '6 4');
+        path.classList.add('flow-path');
+        flowSvg.appendChild(path);
+    });
+
+    await delay(1000);
+    addLog('indigo', '✈️ Deployed to production', 'Agent running on Oracle AI Database on-prem. Same Spec can deploy to OCI, AWS, Azure…');
+
+    await delay(600);
+    document.getElementById('outcomeBanner').classList.add('in');
+
+    await delay(800);
+    addLog('green', '🎉 End-to-end complete!', 'From no-code design → grounded knowledge → data insights → governance → live production. Enterprise AI — private, secure, and at scale.');
+
+    const vc = document.createElement('div');
+    vc.className = 'value-card';
+    vc.innerHTML = `
+        <div class="value-title">🏆 Business Outcomes</div>
+        <div class="value-item">Sensitive data remains inside Oracle environment</div>
+        <div class="value-item">Faster access to trusted knowledge and insights</div>
+        <div class="value-item">Reduced operational complexity — no custom dev</div>
+        <div class="value-item">Production-ready AI with built-in governance</div>
+        <div class="value-item">Broad LLM choice with full portability</div>
+    `;
+    document.getElementById('stepLog').appendChild(vc);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESET
+══════════════════════════════════════════════════════════════════ */
+function resetDemo() {
+    document.getElementById('introCard').style.display = '';
+    document.getElementById('stepLog').innerHTML = '';
+    document.getElementById('modeIndicator').className = 'mode-indicator';
+
+    document.querySelectorAll('.btn').forEach(b => {
+        b.classList.remove('completed');
+        b.disabled = false;
+    });
+    document.getElementById('btnRag').disabled    = true;
+    document.getElementById('btnData').disabled   = true;
+    document.getElementById('btnGovern').disabled = true;
+    document.getElementById('btnDeploy').disabled = true;
+
+    document.getElementById('panelLeftTitle').textContent  = '📋 Agent Factory — Story';
+    document.getElementById('panelRightTitle').textContent = '🎬 Live Visualization';
+
+    setStage(0);
+    dot(false);
+
+    ['dc1','dc2','dc3','dc4'].forEach(id => document.getElementById(id).classList.remove('in'));
+    document.getElementById('answerBubble').classList.remove('in');
+
+    ['bar1','bar2','bar3','bar4','bar5'].forEach(id => document.getElementById(id).style.width = '0%');
+    document.getElementById('insightBox').classList.remove('in');
+
+    ['gb1','gb2','gb3','gb4','shieldCentral'].forEach(id => document.getElementById(id).classList.remove('in'));
+
+    ['an-user','an-build','an-paf','an-odb','an-llm','an-cloud'].forEach(id => document.getElementById(id).classList.remove('in'));
+    document.getElementById('outcomeBanner').classList.remove('in');
+
+    document.getElementById('connectorSvg').innerHTML = '';
+    document.getElementById('flowSvg').innerHTML = '';
+
+    const canvas = document.getElementById('nodeCanvas');
+    canvas.querySelectorAll('.anode').forEach(n => n.remove());
+
+    ['chip-trigger','chip-llm','chip-db','chip-tool','chip-out'].forEach(id =>
+        document.getElementById(id).classList.remove('drag'));
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FULLSCREEN
+══════════════════════════════════════════════════════════════════ */
+const fsBtn = document.getElementById('fsToggle');
+
+function isFS() { return document.fullscreenElement || document.webkitFullscreenElement }
+async function enterFS() {
+    const e = document.documentElement;
+    if (e.requestFullscreen) return e.requestFullscreen();
+    if (e.webkitRequestFullscreen) return e.webkitRequestFullscreen();
+}
+async function exitFS() {
+    if (document.exitFullscreen) return document.exitFullscreen();
+    if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+}
+function updateFsUI() {
+    fsBtn.innerHTML = isFS()
+        ? '<svg viewBox="0 0 24 24"><path d="M9 7H5v4H3V5a2 2 0 0 1 2-2h6v2H9zm6-2h6a2 2 0 0 1 2 2v6h-2V9h-4V7zM3 13h2v4h4v2H5a2 2 0 0 1-2-2v-4zm18 0v4a2 2 0 0 1-2 2h-4v-2h4v-4h2z"/></svg>'
+        : '<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>';
+}
+fsBtn.addEventListener('click', async () => {
+    try { if (!isFS()) await enterFS(); else await exitFS(); } catch(e) {}
+});
+document.addEventListener('fullscreenchange', updateFsUI);
+document.addEventListener('webkitfullscreenchange', updateFsUI);
+document.addEventListener('keydown', e => {
+    if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const t = e.target;
+        if (t.tagName !== 'INPUT' && t.tagName !== 'TEXTAREA') fsBtn.click();
+    }
+});
+</script>
+</body>
+</html>
