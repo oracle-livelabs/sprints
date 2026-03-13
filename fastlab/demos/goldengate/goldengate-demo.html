@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle GoldenGate 26ai Data Fabric</title>
+    <style>
+        /* =========================================
+           1. STANDARD PATTERNS (from demo_rules.md)
+           ========================================= */
+        * { margin: 0; padding: 0; box-sizing: border-box }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+        }
+
+        /* Standard Color Palette & Components */
+        .header { background: linear-gradient(to right, #0f766e, #115e59); color: #fff; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,.1) }
+        .header-content { max-width: 1400px; margin: 0 auto }
+        .header-title { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+        .header-title h1 { font-size: 28px; font-weight: 700 }
+        .header-subtitle { color: #99f6e4; font-size: 14px }
+
+        .problem-banner { 
+            background: #fff3cd; 
+            border: 2px solid #ffc107; 
+            padding: 16px; 
+            border-radius: 8px; 
+            margin: 20px auto; 
+            max-width: 1400px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+        }
+        .problem-icon { font-size: 24px }
+        .problem-text { font-size: 18px; color: #856404; font-weight: 600 }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+        .button-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px }
+        .main-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px } /* Adjusted ratio for whiteboard */
+        @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr } }
+
+        .panel { background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,.1); overflow: hidden; display: flex; flex-direction: column; min-height: 500px; }
+        .panel-header { background: #1f2937; color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600 }
+        .panel-content { padding: 16px; flex: 1; overflow-y: auto; position: relative; }
+
+        /* Button Styles */
+        .btn { 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            border: none; 
+            font-size: 14px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all .2s; 
+            min-height: 42px;
+            color: #fff;
+        }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .btn.completed { background: #16a34a !important }
+        .btn.completed::before { content: '✓ '; font-weight: bold }
+
+        .btn-teal { background: #0d9488; }
+        .btn-teal:hover { background: #0f766e; }
+        .btn-success { background: #16a34a; }
+        .btn-purple { background: #9333ea; }
+        .btn-purple:hover { background: #7c3aed; }
+        .btn-blue { background: #2563eb; }
+        .btn-blue:hover { background: #1e40af; }
+        .btn-orange { background: #ea580c; }
+        .btn-orange:hover { background: #c2410c; }
+        .btn-danger { background: #ef4444; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-gray { background: #e5e7eb; color: #374151; }
+
+        /* Mode Indicator */
+        .mode-indicator { 
+            background: #f0f9ff; 
+            border: 2px solid #0284c7; 
+            padding: 12px; 
+            border-radius: 6px; 
+            margin-bottom: 16px; 
+            display: none 
+        }
+        .mode-indicator.active { display: block }
+        .mode-indicator.replication { background: #ecfdf5; border-color: #0f766e; }
+        .mode-indicator.vector { background: #f5f3ff; border-color: #9333ea; }
+        .mode-indicator.airgap { background: #fff7ed; border-color: #f97316; }
+        .mode-title { font-size: 16px; font-weight: 700; margin-bottom: 4px }
+        .mode-description { font-size: 13px; color: #6b7280 }
+
+        /* Fullscreen Toggle */
+        .fullscreen-toggle {
+            position: fixed; right: 16px; bottom: 16px; z-index: 9999;
+            width: 46px; height: 46px; border: none; border-radius: 10px;
+            background: #111827; color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.25);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: .9; transition: all .2s;
+        }
+        .fullscreen-toggle:hover { opacity: 1; transform: translateY(-1px); }
+        .fullscreen-toggle svg { width: 22px; height: 22px; fill: currentColor }
+
+        /* Code/Log Display */
+        .log-box {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            background: #1e1e1e;
+            color: #10b981; /* Matrix green */
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #374151;
+            min-height: 200px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+        .log-entry { margin-bottom: 6px; border-bottom: 1px dashed #333; padding-bottom: 2px; }
+        .log-time { color: #6b7280; margin-right: 8px; }
+
+        /* =========================================
+           2. GOLDENGATE 26ai VISUALIZATION STYLES
+           ========================================= */
+        
+        /* The Architecture Canvas */
+        .architecture-canvas {
+            width: 100%;
+            height: 100%;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .architecture-canvas.replication { background-color: #f0fdfa; }
+        .architecture-canvas.vector { background-color: #f8f5ff; }
+        .architecture-canvas.airgap { background-color: #fff7ed; }
+
+        /* Flow Container */
+        .flow-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        /* Nodes (Databases & Services) */
+        .node-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .node {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .node-icon { font-size: 24px; margin-bottom: 4px; }
+        .node-label { font-size: 10px; font-weight: 700; text-align: center; color: #475569; }
+        .node-sub { font-size: 9px; color: #94a3b8; text-align: center; }
+
+        /* Specific Node Colors */
+        .node.db { border-color: #ef4444; background: #fef2f2; } /* Oracle Red */
+        .node.service { border-color: #f59e0b; background: #fffbeb; } /* GG Gold */
+        .node.ai { border-color: #9333ea; background: #faf5ff; border-style: dashed; } /* AI Purple */
+        .node.target { border-color: #3b82f6; background: #eff6ff; } /* Target Blue */
+
+        /* Connectors (Lines) */
+        .connector {
+            position: absolute;
+            height: 4px;
+            background: #e2e8f0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            width: 100%; /* Spans full width behind nodes */
+        }
+        
+        /* Active Flow Line Animation */
+        .connector-active {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: width 0.1s linear;
+            border-radius: 2px;
+            opacity: 0;
+        }
+        .connector-active.replication { background: linear-gradient(90deg, #0f766e, #14b8a6); }
+        .connector-active.vector { background: linear-gradient(90deg, #9333ea, #7c3aed); }
+        .connector-active.airgap { background: linear-gradient(90deg, #f97316, #dc2626); box-shadow: 0 0 10px rgba(249, 115, 22, 0.5); }
+
+        /* Data Packet Animation */
+        .packet {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #0f766e;
+            border-radius: 50%;
+            top: 50%;
+            left: 20px; /* Start at Source */
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(15, 118, 110, 0.5);
+            display: none; /* Hidden by default */
+        }
+        
+        .packet.vector {
+            background: #9333ea; /* Purple for Vector */
+            border-radius: 2px; /* Square for matrix/vector */
+            box-shadow: 0 0 12px rgba(147, 51, 234, 0.8);
+        }
+        .packet.airgap {
+            background: #ea580c;
+            box-shadow: 0 0 12px rgba(234, 88, 12, 0.8);
+        }
+
+        /* Architecture Labels */
+        .arch-zone {
+            position: absolute;
+            top: -30px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Pulse Animation for Active Nodes */
+        @keyframes pulseNode {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .node.active { animation: pulseNode 0.5s ease-in-out; border-color: #10b981; }
+        .node.dimmed { opacity: 0.3; filter: grayscale(0.4); }
+
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 10px;
+            display: flex;
+            gap: 12px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 4px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+        .airgap-notice {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px dashed #f97316;
+            color: #9a3412;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 6px 18px;
+            border-radius: 999px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+        }
+        .airgap-notice.visible { opacity: 1; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                </svg>
+                <h1>Oracle GoldenGate 26ai Data Fabric</h1>
+            </div>
+            <p class="header-subtitle">Next-generation real-time data mesh with embedded AI vectors</p>
+        </div>
+    </div>
+
+    <div class="problem-banner">
+        <span class="problem-icon">🤔</span>
+        <span class="problem-text">"Siloed data and stale AI models are slowing down innovation. How do we move data AND intelligence in real-time?"</span>
+    </div>
+
+    <div class="container">
+        <div class="button-group">
+            <button class="btn btn-teal" onclick="runScenario('replication')">⚡ Real-Time Replication</button>
+            <button class="btn btn-purple" onclick="runScenario('vector')">🧠 GenAI Vector Pipeline</button>
+            <button class="btn btn-blue" onclick="runScenario('airgap')">🛡️ Air-Gap Recovery</button>
+            <button class="btn btn-danger" onclick="resetDemo()">🔄 Reset Simulation</button>
+        </div>
+
+        <div id="modeIndicator" class="mode-indicator">
+            <div class="mode-title" id="modeTitle">Mode Title</div>
+            <div class="mode-description" id="modeDesc">Description</div>
+        </div>
+
+        <div class="main-grid">
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="icon">▶</span>
+                    <span>Microservices Console</span>
+                </div>
+                <div class="panel-content">
+                    <div id="explanationText">
+                        <h3 style="margin-bottom:8px;">Welcome to GoldenGate 26ai</h3>
+                        <p style="font-size:13px; color:#4b5563; line-height:1.5;">
+                            This virtual whiteboard demonstrates the new <strong>Microservices Architecture (MA)</strong>. 
+                            Unlike classic GoldenGate, 26ai uses REST-enabled services for a truly distributed data mesh.
+                        </p>
+                        <br>
+                        <p style="font-size:13px; color:#4b5563;">Select a scenario above to visualize:</p>
+                        <ul style="font-size:13px; color:#4b5563; margin-left:20px; margin-top:8px;">
+                            <li><strong>Replication:</strong> Standard high-speed CDC.</li>
+                            <li><strong>GenAI Pipeline:</strong> In-flight transformation of text to Vectors using the new <strong>AI Service</strong>.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="log-box" id="consoleLog">
+                        <div class="log-entry"><span class="log-time">SYS:</span>System ready. Waiting for input...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="icon">📐</span>
+                    <span>Architecture Whiteboard</span>
+                </div>
+                <div class="panel-content architecture-canvas" id="canvas">
+                    
+                    <div class="connector"></div>
+                    <div id="activeConnector" class="connector-active"></div>
+
+                    <div id="dataPacket" class="packet"></div>
+                    <div id="airgapNotice" class="airgap-notice">Air-Gap Buffering...</div>
+
+                    <div class="flow-container">
+                        
+                        <div class="node-group" id="groupSource">
+                            <div class="arch-zone">Source</div>
+                            <div class="node db" id="nodeSource">
+                                <div class="node-icon">🛢️</div>
+                                <div class="node-label">Oracle AI Database</div>
+                                <div class="node-sub">OLTP</div>
+                            </div>
+                        </div>
+
+                        <div class="node-group">
+                            <div class="node service" id="nodeExtract">
+                                <div class="node-icon">⚙️</div>
+                                <div class="node-label">Extract</div>
+                                <div class="node-sub">CDC Capture</div>
+                            </div>
+                        </div>
+
+                        <div class="node-group">
+                            <div class="node service" id="nodeDist">
+                                <div class="node-icon">📡</div>
+                                <div class="node-label">Distribution</div>
+                                <div class="node-sub">Path Service</div>
+                            </div>
+                        </div>
+
+                        <div class="node-group">
+                            <div class="arch-zone" style="background:#f3e8ff; color:#7e22ce;">26ai Specific</div>
+                            <div class="node ai" id="nodeAI">
+                                <div class="node-icon">🧠</div>
+                                <div class="node-label">AI Service</div>
+                                <div class="node-sub">Embeddings</div>
+                            </div>
+                        </div>
+
+                        <div class="node-group">
+                            <div class="node service" id="nodeRecv">
+                                <div class="node-icon">📥</div>
+                                <div class="node-label">Receiver</div>
+                                <div class="node-sub">Landing Pad</div>
+                            </div>
+                        </div>
+
+                        <div class="node-group">
+                            <div class="node service" id="nodeRep">
+                                <div class="node-icon">🚀</div>
+                                <div class="node-label">Replicat</div>
+                                <div class="node-sub">Apply SQL</div>
+                            </div>
+                        </div>
+
+                        <div class="node-group" id="groupTarget">
+                            <div class="arch-zone">Target</div>
+                            <div class="node db target" id="nodeTarget">
+                                <div class="node-icon">☁️</div>
+                                <div class="node-label">Vector DB</div>
+                                <div class="node-sub">OCI / Cloud</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="legend">
+                        <div class="legend-item"><div class="dot" style="background:#0f766e"></div>Standard Data</div>
+                        <div class="legend-item"><div class="dot" style="background:#9333ea; border-radius:2px;"></div>Vector Data</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="fsToggle" class="fullscreen-toggle" title="Full screen (F)">
+        <svg viewBox="0 0 24 24">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/>
+        </svg>
+    </button>
+
+    <script>
+        // --- UTILITIES ---
+        const logBox = document.getElementById('consoleLog');
+        const packet = document.getElementById('dataPacket');
+        const modeIndicator = document.getElementById('modeIndicator');
+        const modeTitle = document.getElementById('modeTitle');
+        const modeDesc = document.getElementById('modeDesc');
+        const activeConnector = document.getElementById('activeConnector');
+        const airgapNotice = document.getElementById('airgapNotice');
+        const canvas = document.querySelector('.architecture-canvas');
+        const nodes = Array.from(document.querySelectorAll('.node'));
+
+        function log(msg, type = 'INFO') {
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-time">${time} [${type}]:</span>${msg}`;
+            logBox.appendChild(entry);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function highlightNode(id) {
+            const node = document.getElementById(id);
+            if(node) {
+                node.classList.add('active');
+                setTimeout(() => node.classList.remove('active'), 600);
+            }
+        }
+
+        function dimNodes(activeIds = []) {
+            nodes.forEach(node => {
+                if(activeIds.includes(node.id)) node.classList.remove('dimmed');
+                else node.classList.add('dimmed');
+            });
+        }
+
+        function resetNodeStates() {
+            nodes.forEach(node => node.classList.remove('dimmed'));
+        }
+
+        function resetDemo() {
+            // Reset UI
+            logBox.innerHTML = '<div class="log-entry"><span class="log-time">SYS:</span>System reset. Ready.</div>';
+            modeIndicator.classList.remove('active');
+            packet.style.display = 'none';
+            packet.style.left = '0px';
+            packet.className = 'packet'; // remove vector class
+            activeConnector.style.width = '0%';
+            canvas.classList.remove('replication', 'vector', 'airgap');
+            modeIndicator.classList.remove('replication', 'vector', 'airgap');
+            activeConnector.classList.remove('replication', 'vector', 'airgap');
+            packet.classList.remove('airgap');
+            airgapNotice.classList.remove('visible');
+            resetNodeStates();
+            
+            // Reset buttons
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('completed'));
+            
+            // Clear highlights
+            document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+        }
+
+        // --- ANIMATION ENGINE ---
+        
+        async function animateFlow(pathArray, options = {}) {
+            const { isVector = false, connectorClass = 'replication', speed = 800 } = options;
+            // pathArray is array of Node IDs to visit in order
+            // We calculate position relative to the .flow-container
+            
+            packet.style.display = 'block';
+            packet.classList.toggle('vector', isVector);
+
+            activeConnector.classList.remove('replication', 'vector', 'airgap');
+            activeConnector.classList.add(connectorClass);
+
+            const containerRect = document.querySelector('.flow-container').getBoundingClientRect();
+            const canvasRect = document.querySelector('.architecture-canvas').getBoundingClientRect();
+
+            // Calculate Start Position (Source)
+            const startNode = document.getElementById(pathArray[0]);
+            const startRect = startNode.getBoundingClientRect();
+            
+            // Initial placement
+            let currentX = startRect.left - canvasRect.left + (startRect.width/2);
+            packet.style.left = `${currentX}px`;
+            
+            log(`Transaction started at ${pathArray[0]}...`);
+            highlightNode(pathArray[0]);
+
+            // Iterate through path
+            for (let i = 1; i < pathArray.length; i++) {
+                const targetId = pathArray[i];
+                const targetNode = document.getElementById(targetId);
+                const rect = targetNode.getBoundingClientRect();
+                
+                // Determine duration based on distance? Constant for now.
+                const duration = speed; // ms
+                
+                // Calculate target X relative to canvas
+                const targetX = rect.left - canvasRect.left + (rect.width/2);
+                
+                // Update connector line width (visual trail)
+                activeConnector.style.width = `${(targetX / canvasRect.width) * 100}%`;
+                activeConnector.style.opacity = 1;
+
+                // Animate Packet
+                const animation = packet.animate([
+                    { left: `${currentX}px` },
+                    { left: `${targetX}px` }
+                ], {
+                    duration: duration,
+                    easing: 'ease-in-out',
+                    fill: 'forwards'
+                });
+
+                await animation.finished;
+                
+                // Arrived at node
+                currentX = targetX; // update current position
+                highlightNode(targetId);
+                
+                // Specific logging logic
+                if(targetId === 'nodeExtract') log("EXTRACT: Capturing change from redo log...");
+                if(targetId === 'nodeDist') log("DISTRIBUTION: Routing via WSS to target...");
+                if(targetId === 'nodeAI') {
+                    log("AI SERVICE: Calling LLM embedding model...", "AI");
+                    packet.classList.add('vector'); // Transform to vector visually
+                    log("AI SERVICE: Text converted to 1024-dim Vector.", "AI");
+                }
+                if(targetId === 'nodeRecv') log("RECEIVER: Payload buffered in trail file.");
+                if(targetId === 'nodeRep') log(`REPLICAT: Generating SQL ${isVector ? 'INSERT INTO VECTORS' : 'MERGE statement'}...`);
+                if(targetId === 'nodeTarget') log("COMMIT: Transaction applied to Target DB.", "SUCCESS");
+
+                // Pause slightly at nodes for visual clarity
+                await new Promise(r => setTimeout(r, 200));
+            }
+            
+            // Fade out connector after success
+            setTimeout(() => {
+                activeConnector.style.opacity = 0;
+                activeConnector.style.width = '0%';
+            }, 1000);
+        }
+
+        // --- SCENARIOS ---
+
+        function setMode(title, desc, btnIndex, modeKey) {
+            modeIndicator.classList.add('active');
+            modeTitle.innerText = title;
+            modeDesc.innerText = desc;
+            modeIndicator.classList.remove('replication', 'vector', 'airgap');
+            if(modeKey) modeIndicator.classList.add(modeKey);
+            canvas.classList.remove('replication', 'vector', 'airgap');
+            if(modeKey) canvas.classList.add(modeKey);
+            
+            // Mark button
+            const btns = document.querySelectorAll('.button-group .btn');
+            btns.forEach(b => b.classList.remove('completed'));
+            if(btns[btnIndex]) btns[btnIndex].classList.add('completed');
+        }
+
+        function runScenario(type) {
+            // Reset position before starting
+            packet.style.display = 'none';
+            activeConnector.style.width = '0%';
+            airgapNotice.classList.remove('visible');
+            packet.classList.remove('airgap');
+            activeConnector.classList.remove('replication', 'vector', 'airgap');
+            canvas.classList.remove('replication', 'vector', 'airgap');
+            modeIndicator.classList.remove('replication', 'vector', 'airgap');
+            resetNodeStates();
+
+            if (type === 'replication') {
+                setMode('Real-Time Replication', 'Standard high-speed replication of transactional data. Low latency, ACID compliant.', 0, 'replication');
+                log('--- STARTING STANDARD REPLICATION ---');
+                // Path: Source -> Extract -> Dist -> Recv -> Rep -> Target
+                // Note: Skipping AI node
+                dimNodes(['nodeSource','nodeExtract','nodeDist','nodeRecv','nodeRep','nodeTarget']);
+                log('PATH: Source → Extract → Distribution → Receiver → Replicat → Target');
+                animateFlow(['nodeSource', 'nodeExtract', 'nodeDist', 'nodeRecv', 'nodeRep', 'nodeTarget'], { connectorClass: 'replication', speed: 650 });
+            }
+            
+            if (type === 'vector') {
+                setMode('GenAI Vector Pipeline', 'Data is captured, sent to AI Service for vector embedding generation, then replicated to Vector DB.', 1, 'vector');
+                log('--- STARTING AI VECTOR PIPELINE ---');
+                // Path: Source -> Extract -> Dist -> AI -> Dist -> Recv -> Rep -> Target
+                // We simplify visual path for the demo line, bouncing to AI
+                dimNodes(['nodeSource','nodeExtract','nodeDist','nodeAI','nodeRecv','nodeRep','nodeTarget']);
+                log('PATH: Source → Extract → Distribution → AI Service → Receiver → Replicat → Vector Target');
+                animateFlow(['nodeSource', 'nodeExtract', 'nodeDist', 'nodeAI', 'nodeRecv', 'nodeRep', 'nodeTarget'], { isVector: true, connectorClass: 'vector', speed: 750 });
+            }
+
+            if (type === 'airgap') {
+                setMode('Air-Gap Recovery', 'Simulating network disconnect. Receiver buffers data, then resumes automatically.', 2, 'airgap');
+                log('--- STARTING AIR-GAP SIMULATION ---');
+                log("NETWORK: Simulating Connection Failure...", "WARN");
+                dimNodes(['nodeSource','nodeExtract','nodeDist']);
+                packet.classList.add('airgap');
+                log('PATH: Source → Extract → Distribution (paused)');
+                
+                // Animate part way then stop
+                const partialPath = ['nodeSource', 'nodeExtract', 'nodeDist'];
+                
+                animateFlow(partialPath, { connectorClass: 'airgap', speed: 600 }).then(() => {
+                    log("ERROR: Target unreachable. Buffering to local trail...", "ERR");
+                    const distNode = document.getElementById('nodeDist');
+                    distNode.style.borderColor = 'red';
+                    airgapNotice.classList.add('visible');
+                    activeConnector.style.opacity = 0;
+                    
+                    setTimeout(() => {
+                        log("NETWORK: Connection Restored. Resuming...", "INFO");
+                        distNode.style.borderColor = '#f59e0b';
+                        airgapNotice.classList.remove('visible');
+                        dimNodes(['nodeDist','nodeRecv','nodeRep','nodeTarget']);
+                        // Resume remainder
+                        animateFlow(['nodeDist', 'nodeRecv', 'nodeRep', 'nodeTarget'], { connectorClass: 'airgap', speed: 900 });
+                    }, 2000);
+                });
+            }
+        }
+
+        // --- FULLSCREEN LOGIC (Standard Pattern 1.12) ---
+        const fsBtn = document.getElementById('fsToggle');
+        function isFullscreen() { return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement; }
+        async function enterFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) return elem.requestFullscreen();
+            if (elem.webkitRequestFullscreen) return elem.webkitRequestFullscreen();
+            if (elem.msRequestFullscreen) return elem.msRequestFullscreen();
+        }
+        async function exitFullscreen() {
+            if (document.exitFullscreen) return document.exitFullscreen();
+            if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+            if (document.msExitFullscreen) return document.msExitFullscreen();
+        }
+        fsBtn.addEventListener('click', async () => {
+            try { isFullscreen() ? await exitFullscreen() : await enterFullscreen(); } 
+            catch (e) { console.warn('Fullscreen failed:', e); }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey && !e.altKey && e.target.tagName !== 'INPUT') fsBtn.click();
+        });
+
+    </script>
+</body>
+</html>
