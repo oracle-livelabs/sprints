@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle Exascale - Production Database Journey</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+        }
+        .header { 
+            background: linear-gradient(to right, #0f766e, #115e59); 
+            color: #fff; 
+            padding: 20px; 
+        }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header-subtitle { color: #99f6e4; font-size: 14px; }
+        
+        .problem-banner { 
+            background: #fff3cd; 
+            border: 2px solid #ffc107; 
+            padding: 16px; 
+            margin: 20px auto; 
+            max-width: 1400px; 
+            font-size: 16px;
+            color: #856404;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .button-group { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        
+        .btn { 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            border: none; 
+            font-size: 14px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            color: #fff;
+            transition: all 0.2s;
+        }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn.completed { background: #16a34a !important; }
+        .btn.completed::before { content: '✓ '; }
+        .btn-teal { background: #0d9488; }
+        .btn-teal:hover:not(:disabled) { background: #0f766e; }
+        .btn-blue { background: #2563eb; }
+        .btn-blue:hover:not(:disabled) { background: #1e40af; }
+        .btn-purple { background: #9333ea; }
+        .btn-purple:hover:not(:disabled) { background: #7c3aed; }
+        .btn-orange { background: #ea580c; }
+        .btn-orange:hover:not(:disabled) { background: #c2410c; }
+        .btn-gray { background: #6b7280; }
+        .btn-gray:hover:not(:disabled) { background: #4b5563; }
+        
+        .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; }
+        @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr; } }
+        
+        .panel { 
+            background: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,.1); 
+            overflow: hidden;
+        }
+        .panel-header { 
+            background: #1f2937; 
+            color: #fff; 
+            padding: 12px 16px; 
+            font-size: 14px; 
+            font-weight: 600;
+        }
+        .panel-content { padding: 16px; }
+        
+        .visual-container {
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .arch-view { position: relative; width: 100%; height: 450px; }
+        
+        /* Production Database - Hero Element */
+        .prod-db {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: 4px solid #fff;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            width: 140px;
+            height: 140px;
+            opacity: 0;
+        }
+        .prod-db.active { opacity: 1; }
+        .prod-db.large { width: 200px; height: 200px; }
+        
+        .db-icon { font-size: 48px; transition: all 0.6s; }
+        .db-icon.large { font-size: 64px; }
+        .db-label { 
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #fff; 
+            text-align: center; 
+            margin-top: 8px;
+            line-height: 1.3;
+            transition: all 0.6s;
+        }
+        .db-label.large { font-size: 14px; }
+        
+        /* Resource rings around DB */
+        .resource-ring {
+            position: absolute;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.6s ease;
+        }
+        .resource-ring.active { opacity: 1; transform: scale(1); }
+        
+        /* Resource nodes */
+        .resource-node {
+            position: absolute;
+            background: rgba(34, 197, 94, 0.9);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .resource-node.active { opacity: 1; transform: scale(1); }
+        .resource-label {
+            font-size: 7px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 2px;
+        }
+        
+        /* Cloud pools with cloud-like shapes */
+        .cloud-pool {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.08);
+            border: 3px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            padding: 16px;
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        .cloud-pool.active { opacity: 1; }
+        .cloud-title { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: #fff; 
+            text-align: center; 
+            margin-bottom: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px;
+            border-radius: 8px;
+        }
+        
+        /* Data flow particles */
+        .data-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fbbf24;
+            border-radius: 50%;
+            opacity: 0;
+            box-shadow: 0 0 15px #fbbf24;
+        }
+        .data-particle.active {
+            opacity: 1;
+            animation: dataFlow 3s ease-in-out infinite;
+        }
+        @keyframes dataFlow {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            50% { transform: translateY(-60px) scale(1.2); opacity: 1; }
+            100% { transform: translateY(-120px) scale(0.8); opacity: 0; }
+        }
+        
+        /* RDMA connection - no line, just particles */
+        .rdma-path {
+            display: none;
+        }
+        
+        .rdma-label {
+            position: absolute;
+            background: rgba(251, 191, 36, 0.95);
+            color: #78350f;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .rdma-label.active { opacity: 1; }
+        
+        /* Storage visualization */
+        .storage-layer {
+            position: absolute;
+            background: rgba(147, 51, 234, 0.2);
+            border: 2px solid rgba(147, 51, 234, 0.6);
+            border-radius: 12px;
+            padding: 12px;
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+        .storage-layer.active { opacity: 1; }
+        .storage-icon { font-size: 32px; text-align: center; margin-bottom: 4px; }
+        .storage-label { 
+            font-size: 9px; 
+            font-weight: 700; 
+            color: #fff; 
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        /* Clone elements */
+        .clone-box {
+            position: absolute;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: 3px solid #fff;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            width: 90px;
+            height: 90px;
+        }
+        .clone-box.active { opacity: 1; transform: scale(1); }
+        .clone-icon { font-size: 28px; }
+        .clone-label { 
+            font-size: 9px; 
+            font-weight: 700; 
+            color: #fff; 
+            text-align: center; 
+            margin-top: 4px;
+        }
+        
+        .clone-arrow {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.8), rgba(16, 185, 129, 0.3));
+            opacity: 0;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+        .clone-arrow.active { 
+            opacity: 1; 
+            animation: arrowFlow 2s ease-in-out infinite;
+        }
+        @keyframes arrowFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        /* Metric badges */
+        .metric-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 16px;
+            border-radius: 24px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #0d9488;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+        .metric-badge.active { opacity: 1; transform: translateY(0); }
+        
+        /* Stats overlay */
+        .stats {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.6s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+        .stats.active { opacity: 1; }
+        .stat-row { 
+            display: flex; 
+            justify-content: space-between; 
+            gap: 20px; 
+            margin-bottom: 8px;
+        }
+        .stat-row:last-child { margin-bottom: 0; }
+        .stat-label { color: #6b7280; font-weight: 600; }
+        .stat-value { color: #0d9488; font-weight: 700; font-size: 14px; }
+        
+        .explain { 
+            display: none; 
+            padding: 16px; 
+            background: #f9fafb; 
+            border-radius: 8px; 
+            border: 2px solid #e5e7eb;
+        }
+        .explain.active { display: block; }
+        .explain h3 { font-size: 15px; margin-bottom: 10px; color: #0d9488; font-weight: 700; }
+        .explain p { font-size: 13px; color: #374151; line-height: 1.6; margin-bottom: 10px; }
+        .explain ul { margin-left: 20px; font-size: 13px; color: #374151; line-height: 1.7; }
+        .explain ul li { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚡ Oracle Exascale</h1>
+        <div class="header-subtitle">Follow Your Production Database Journey - Start Small, Scale Infinitely</div>
+    </div>
+    
+    <div class="problem-banner">
+        💡 Watch your production database evolve: Start with minimal resources → Scale elastically → Join multi-tenant pools → Connect via direct RDMA → Spawn instant clones
+    </div>
+    
+    <div class="container">
+        <div class="button-group">
+            <button class="btn btn-teal" onclick="showStart()">1. Start Small</button>
+            <button class="btn btn-blue" onclick="showScale()" disabled id="btn2">2. Scale Up</button>
+            <button class="btn btn-purple" onclick="showPools()" disabled id="btn3">3. In The Cloud</button>
+            <button class="btn btn-orange" onclick="showRDMA()" disabled id="btn4">4. Direct RDMA</button>
+            <button class="btn btn-gray" onclick="showClones()" disabled id="btn5">5. Instant Clones</button>
+            <button class="btn btn-teal" onclick="resetDemo()" style="margin-left: auto;">↻ Reset</button>
+        </div>
+        
+        <div class="main-grid">
+            <div class="panel">
+                <div class="panel-header">📋 What's Happening to Your Database</div>
+                <div class="panel-content">
+                    <div class="explain active" id="exp1">
+                        <h3>🚀 Starting Small</h3>
+                        <p>Your production database begins with minimal resources:</p>
+                        <ul>
+                            <li><strong>1 VM</strong> running Oracle Database 26ai</li>
+                            <li><strong>8 ECPUs</strong> for compute power</li>
+                            <li><strong>300 GB</strong> of Exascale storage</li>
+                            <li>Low entry cost with pay-per-use pricing</li>
+                        </ul>
+                        <p>This is all you need to get started with Exadata-level performance.</p>
+                    </div>
+                    <div class="explain" id="exp2">
+                        <h3>📈 Scaling Your Database</h3>
+                        <p>As your workload grows, your database gains more resources online:</p>
+                        <ul>
+                            <li><strong>More ECPUs</strong> added dynamically (up to 200 per VM)</li>
+                            <li><strong>More Storage</strong> allocated on-demand (up to 100 TB)</li>
+                            <li><strong>More VMs</strong> join the cluster (up to 10 total)</li>
+                            <li>No downtime during scaling</li>
+                            <li>You only pay for what you use</li>
+                        </ul>
+                        <p>Your database seamlessly grows with your business needs.</p>
+                    </div>
+                    <div class="explain" id="exp3">
+                        <h3>🏢 Your Database in Multi-Tenant Pools</h3>
+                        <p>Your production database sits within intelligent cloud pools:</p>
+                        <ul>
+                            <li><strong>Exascale Compute Cloud:</strong> Shared pool of powerful compute resources</li>
+                            <li><strong>Exascale Storage Cloud:</strong> Shared pool of intelligent storage</li>
+                            <li>Triple-mirrored redundancy for your data</li>
+                            <li>Oracle manages infrastructure, you manage your database</li>
+                            <li>Other databases share the same pools (efficient multi-tenancy)</li>
+                        </ul>
+                        <p>Your database benefits from massive shared infrastructure.</p>
+                    </div>
+                    <div class="explain" id="exp4">
+                        <h3>⚡ Direct RDMA Connection</h3>
+                        <p>Your database connects directly to storage with no intermediate tiers:</p>
+                        <ul>
+                            <li><strong>Direct IO path:</strong> Database → RDMA → Storage (no nodes in between)</li>
+                            <li><strong>Microseconds latency:</strong> Hardware RDMA implementation</li>
+                            <li><strong>Millions of IOPs/sec:</strong> Extreme throughput</li>
+                            <li><strong>100G RoCE Network:</strong> High-speed connectivity</li>
+                            <li>Data flows continuously between your DB and storage</li>
+                        </ul>
+                        <p>This is what makes Exascale uniquely fast.</p>
+                    </div>
+                    <div class="explain" id="exp5">
+                        <h3>🔄 Your Database Spawns Clones</h3>
+                        <p>Your production database can instantly create thousands of clones:</p>
+                        <ul>
+                            <li><strong>Redirect-on-write:</strong> Clones share blocks with parent</li>
+                            <li><strong>Instant creation:</strong> No waiting, no copying</li>
+                            <li><strong>Space-efficient:</strong> Minimal storage overhead</li>
+                            <li><strong>Full performance:</strong> Native Exadata speed on clones</li>
+                            <li>Empower every developer with their own database</li>
+                        </ul>
+                        <p>Dev/test environments become effortless and cost-effective.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">🎬 Your Production Database</div>
+                <div class="panel-content" style="padding: 8px;">
+                    <div class="visual-container">
+                        <div class="arch-view" id="archView">
+                            <!-- SVG for RDMA path -->
+                            <svg style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
+                                <path id="rdmaPath" class="rdma-path" d="" />
+                            </svg>
+                            
+                            <!-- Production Database - Always visible, transforms -->
+                            <div class="prod-db" id="prodDB">
+                                <div class="db-icon" id="dbIcon">🗄️</div>
+                                <div class="db-label" id="dbLabel">Production DB<br>1 VM, 8 ECPUs<br>300 GB</div>
+                            </div>
+                            
+                            <!-- Resource rings -->
+                            <div class="resource-ring" id="ring1" style="width: 280px; height: 280px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                            <div class="resource-ring" id="ring2" style="width: 360px; height: 360px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                            
+                            <!-- Resource nodes (ECPUs, Storage, VMs) -->
+                            <div id="resources"></div>
+                            
+                            <!-- Cloud pools -->
+                            <div class="cloud-pool" id="computePool" style="top: 5%; left: 5%; width: 42%; height: 38%;">
+                                <div class="cloud-title">☁️ Exascale Compute Cloud</div>
+                            </div>
+                            <div class="cloud-pool" id="storagePool" style="bottom: 5%; right: 5%; width: 42%; height: 38%;">
+                                <div class="cloud-title">💾 Exascale Storage Cloud</div>
+                            </div>
+                            
+                            <!-- Data flow particles -->
+                            <div id="dataParticles"></div>
+                            
+                            <!-- Storage layers -->
+                            <div id="storageLayers"></div>
+                            
+                            <!-- RDMA label -->
+                            <div class="rdma-label" id="rdmaLabel">⚡ Direct RDMA - No Intermediate Tiers</div>
+                            
+                            <!-- Clones -->
+                            <div class="clone-box" id="c1" style="top: 15%; left: 12%;">
+                                <div class="clone-icon">📋</div>
+                                <div class="clone-label">Dev Clone 1</div>
+                            </div>
+                            <div class="clone-box" id="c2" style="top: 15%; left: 30%;">
+                                <div class="clone-icon">📋</div>
+                                <div class="clone-label">Dev Clone 2</div>
+                            </div>
+                            <div class="clone-box" id="c3" style="top: 15%; right: 30%;">
+                                <div class="clone-icon">📋</div>
+                                <div class="clone-label">Test Clone 1</div>
+                            </div>
+                            <div class="clone-box" id="c4" style="top: 15%; right: 12%;">
+                                <div class="clone-icon">📋</div>
+                                <div class="clone-label">Test Clone 2</div>
+                            </div>
+                            <div class="clone-box" id="c5" style="bottom: 15%; left: 12%;">
+                                <div class="clone-icon">📋</div>
+                                <div class="clone-label">QA Clone</div>
+                            </div>
+                            <div class="clone-box" id="c6" style="bottom: 15%; right: 12%;">
+                                <div class="clone-icon">📋</div>
+                                <div class="clone-label">UAT Clone</div>
+                            </div>
+                            
+                            <div id="cloneArrows"></div>
+                            
+                            <!-- Metric badges -->
+                            <div class="metric-badge" id="m1" style="top: 10px; right: 10px;">💰 Low Entry Cost</div>
+                            <div class="metric-badge" id="m2" style="top: 50px; right: 10px;">📈 Hyper Elastic</div>
+                            <div class="metric-badge" id="m3" style="bottom: 10px; left: 10px;">⚡ Microseconds</div>
+                            <div class="metric-badge" id="m4" style="bottom: 10px; right: 10px;">🚀 Millions IOPs</div>
+                            
+                            <!-- Stats -->
+                            <div class="stats" id="stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">VMs:</span>
+                                    <span class="stat-value" id="sVMs">1</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">ECPUs:</span>
+                                    <span class="stat-value" id="sECPUs">8</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Storage:</span>
+                                    <span class="stat-value" id="sStorage">300 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showExp(n) {
+            document.querySelectorAll('.explain').forEach(e => e.classList.remove('active'));
+            document.getElementById('exp' + n).classList.add('active');
+        }
+        
+        function updateStats(v, e, s) {
+            document.getElementById('sVMs').textContent = v;
+            document.getElementById('sECPUs').textContent = e;
+            document.getElementById('sStorage').textContent = s;
+        }
+        
+        function updateDBLabel(text) {
+            document.getElementById('dbLabel').innerHTML = text;
+        }
+        
+        function showStart() {
+            showExp(1);
+            
+            // Show production database
+            setTimeout(() => {
+                document.getElementById('prodDB').classList.add('active');
+            }, 300);
+            
+            setTimeout(() => {
+                document.getElementById('m1').classList.add('active');
+            }, 800);
+            
+            setTimeout(() => {
+                document.getElementById('stats').classList.add('active');
+            }, 1200);
+            
+            setTimeout(() => {
+                document.querySelector('.btn-teal').classList.add('completed');
+                document.getElementById('btn2').disabled = false;
+            }, 1600);
+        }
+        
+        let scalingInterval = null;
+        
+        function showScale() {
+            showExp(2);
+            
+            // Grow the database
+            const db = document.getElementById('prodDB');
+            const icon = document.getElementById('dbIcon');
+            const label = document.getElementById('dbLabel');
+            
+            setTimeout(() => {
+                db.classList.add('large');
+                icon.classList.add('large');
+                label.classList.add('large');
+                updateDBLabel('Production DB<br>5 VMs, 200 ECPUs<br>20 TB');
+                updateStats(5, 200, '20 TB');
+            }, 200);
+            
+            // Show resource rings
+            setTimeout(() => {
+                document.getElementById('ring1').classList.add('active');
+            }, 500);
+            
+            setTimeout(() => {
+                document.getElementById('ring2').classList.add('active');
+            }, 700);
+            
+            // Add resource nodes around database
+            const resources = [
+                { icon: '⚡', label: 'ECPU', angle: 0, ring: 1 },
+                { icon: '⚡', label: 'ECPU', angle: 90, ring: 1 },
+                { icon: '💾', label: 'Storage', angle: 180, ring: 1 },
+                { icon: '⚡', label: 'ECPU', angle: 270, ring: 1 },
+                { icon: '🖥️', label: 'VM', angle: 45, ring: 2 },
+                { icon: '🖥️', label: 'VM', angle: 135, ring: 2 },
+                { icon: '🖥️', label: 'VM', angle: 225, ring: 2 },
+                { icon: '🖥️', label: 'VM', angle: 315, ring: 2 }
+            ];
+            
+            const resourcesContainer = document.getElementById('resources');
+            resources.forEach((r, i) => {
+                setTimeout(() => {
+                    const radius = r.ring === 1 ? 140 : 180;
+                    const angleRad = (r.angle - 90) * Math.PI / 180;
+                    const x = 50 + (radius * Math.cos(angleRad) / 4.5); // percentage
+                    const y = 50 + (radius * Math.sin(angleRad) / 4.5);
+                    
+                    const node = document.createElement('div');
+                    node.className = 'resource-node';
+                    node.style.left = x + '%';
+                    node.style.top = y + '%';
+                    node.style.transform = 'translate(-50%, -50%) scale(0)';
+                    node.innerHTML = `${r.icon}<div class="resource-label">${r.label}</div>`;
+                    resourcesContainer.appendChild(node);
+                    
+                    setTimeout(() => node.classList.add('active'), 100);
+                }, 900 + (i * 80));
+            });
+            
+            setTimeout(() => {
+                document.getElementById('m2').classList.add('active');
+            }, 1600);
+            
+            // Start continuous pulsing animation
+            setTimeout(() => {
+                const rings = [document.getElementById('ring1'), document.getElementById('ring2')];
+                let pulseUp = true;
+                
+                scalingInterval = setInterval(() => {
+                    if (pulseUp) {
+                        rings.forEach((ring, idx) => {
+                            ring.style.transform = 'translate(-50%, -50%) scale(1.08)';
+                            ring.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+                        });
+                        db.style.transform = 'translate(-50%, -50%) scale(1.05)';
+                        resourcesContainer.querySelectorAll('.resource-node').forEach(node => {
+                            node.style.transform = 'translate(-50%, -50%) scale(1.15)';
+                            node.style.boxShadow = '0 6px 20px rgba(34, 197, 94, 0.6)';
+                        });
+                    } else {
+                        rings.forEach(ring => {
+                            ring.style.transform = 'translate(-50%, -50%) scale(1)';
+                            ring.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                        });
+                        db.style.transform = 'translate(-50%, -50%) scale(1)';
+                        resourcesContainer.querySelectorAll('.resource-node').forEach(node => {
+                            node.style.transform = 'translate(-50%, -50%) scale(1)';
+                            node.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
+                        });
+                    }
+                    pulseUp = !pulseUp;
+                }, 1200);
+            }, 1800);
+            
+            setTimeout(() => {
+                document.getElementById('btn2').classList.add('completed');
+                document.getElementById('btn3').disabled = false;
+            }, 1800);
+        }
+        
+        function showPools() {
+            showExp(3);
+            
+            // Stop the scaling animation
+            if (scalingInterval) {
+                clearInterval(scalingInterval);
+                scalingInterval = null;
+            }
+            
+            // Move stats to bottom left to avoid cloud pools
+            const stats = document.getElementById('stats');
+            setTimeout(() => {
+                stats.style.top = 'auto';
+                stats.style.bottom = '12px';
+                stats.style.left = '12px';
+            }, 100);
+            
+            // Hide the badges
+            setTimeout(() => {
+                document.getElementById('m1').style.opacity = '0';
+                document.getElementById('m2').style.opacity = '0';
+            }, 100);
+            
+            // Fade resource rings and nodes
+            setTimeout(() => {
+                document.querySelectorAll('.resource-ring, .resource-node').forEach(e => {
+                    e.style.opacity = '0.2';
+                });
+            }, 200);
+            
+            // Show compute pool
+            setTimeout(() => {
+                document.getElementById('computePool').classList.add('active');
+            }, 600);
+            
+            // Show storage pool
+            setTimeout(() => {
+                document.getElementById('storagePool').classList.add('active');
+            }, 1200);
+            
+            // DB moves slightly up to make room
+            setTimeout(() => {
+                document.getElementById('prodDB').style.top = '45%';
+            }, 1800);
+            
+            setTimeout(() => {
+                document.getElementById('btn3').classList.add('completed');
+                document.getElementById('btn4').disabled = false;
+            }, 2400);
+        }
+        
+        function showRDMA() {
+            showExp(4);
+            
+            // Move stats to top right to avoid particles
+            const stats = document.getElementById('stats');
+            setTimeout(() => {
+                stats.style.bottom = 'auto';
+                stats.style.top = '12px';
+                stats.style.left = 'auto';
+                stats.style.right = '12px';
+            }, 100);
+            
+            // Create flowing data particles from DB to storage pool
+            setTimeout(() => {
+                const db = document.getElementById('prodDB').getBoundingClientRect();
+                const pool = document.getElementById('storagePool').getBoundingClientRect();
+                const container = document.getElementById('archView').getBoundingClientRect();
+                
+                const startX = ((db.left + db.right) / 2 - container.left) / container.width * 100;
+                const startY = (db.bottom - container.top) / container.height * 100;
+                
+                const particlesContainer = document.getElementById('dataParticles');
+                
+                // Create multiple streams of particles
+                for(let stream = 0; stream < 3; stream++) {
+                    for(let i = 0; i < 5; i++) {
+                        setTimeout(() => {
+                            const p = document.createElement('div');
+                            p.className = 'data-particle';
+                            p.style.left = (startX + (stream - 1) * 3) + '%';
+                            p.style.top = startY + '%';
+                            p.style.animationDelay = (i * 0.4) + 's';
+                            p.style.animationDuration = (2.5 + stream * 0.3) + 's';
+                            particlesContainer.appendChild(p);
+                            setTimeout(() => p.classList.add('active'), 50);
+                        }, stream * 200 + i * 150);
+                    }
+                }
+                
+                // Position RDMA label near the data flow
+                const label = document.getElementById('rdmaLabel');
+                label.style.left = (startX - 8) + '%';
+                label.style.top = (startY + 15) + '%';
+                label.classList.add('active');
+            }, 600);
+            
+            setTimeout(() => {
+                document.getElementById('m3').classList.add('active');
+                document.getElementById('m4').classList.add('active');
+            }, 1400);
+            
+            setTimeout(() => {
+                document.getElementById('btn4').classList.add('completed');
+                document.getElementById('btn5').disabled = false;
+            }, 2000);
+        }
+        
+        function showClones() {
+            showExp(5);
+            
+            // Fade out stats to avoid overlap with clones
+            setTimeout(() => {
+                document.getElementById('stats').style.opacity = '0';
+            }, 100);
+            
+            // Stop particles by removing them
+            setTimeout(() => {
+                document.getElementById('dataParticles').innerHTML = '';
+            }, 150);
+            
+            // Fade background elements
+            setTimeout(() => {
+                document.getElementById('computePool').style.opacity = '0.15';
+                document.getElementById('storagePool').style.opacity = '0.15';
+                document.getElementById('rdmaLabel').style.opacity = '0';
+            }, 200);
+            
+            // Move DB to better position for clones
+            setTimeout(() => {
+                const db = document.getElementById('prodDB');
+                db.style.left = '25%';
+                db.style.top = '50%';
+            }, 400);
+            
+            // Show clones
+            const cloneIds = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'];
+            cloneIds.forEach((id, i) => {
+                setTimeout(() => {
+                    document.getElementById(id).classList.add('active');
+                    
+                    // Create arrow from DB to clone
+                    const db = document.getElementById('prodDB').getBoundingClientRect();
+                    const clone = document.getElementById(id).getBoundingClientRect();
+                    const container = document.getElementById('archView').getBoundingClientRect();
+                    
+                    const sx = db.right - container.left;
+                    const sy = (db.top + db.bottom) / 2 - container.top;
+                    const ex = clone.left - container.left;
+                    const ey = (clone.top + clone.bottom) / 2 - container.top;
+                    
+                    const len = Math.sqrt((ex - sx) ** 2 + (ey - sy) ** 2);
+                    const ang = Math.atan2(ey - sy, ex - sx) * 180 / Math.PI;
+                    
+                    const arrow = document.createElement('div');
+                    arrow.className = 'clone-arrow';
+                    arrow.style.width = len + 'px';
+                    arrow.style.left = sx + 'px';
+                    arrow.style.top = sy + 'px';
+                    arrow.style.transformOrigin = 'left center';
+                    arrow.style.transform = `rotate(${ang}deg)`;
+                    arrow.style.backgroundSize = '40px 3px';
+                    document.getElementById('cloneArrows').appendChild(arrow);
+                    
+                    setTimeout(() => arrow.classList.add('active'), 100);
+                }, 800 + (i * 200));
+            });
+            
+            setTimeout(() => {
+                document.getElementById('btn5').classList.add('completed');
+            }, 2600);
+        }
+        
+        function resetDemo() {
+            // Reset explanations
+            showExp(1);
+            
+            // Stop any running animations
+            if (scalingInterval) {
+                clearInterval(scalingInterval);
+                scalingInterval = null;
+            }
+            
+            // Reset stats position
+            const stats = document.getElementById('stats');
+            stats.style.top = '12px';
+            stats.style.bottom = 'auto';
+            stats.style.left = '12px';
+            stats.style.right = 'auto';
+            stats.style.opacity = '';
+            
+            // Reset database
+            const db = document.getElementById('prodDB');
+            const icon = document.getElementById('dbIcon');
+            const label = document.getElementById('dbLabel');
+            db.classList.remove('active', 'large');
+            db.style.left = '50%';
+            db.style.top = '50%';
+            db.style.transform = 'translate(-50%, -50%)';
+            icon.classList.remove('large');
+            label.classList.remove('large');
+            updateDBLabel('Production DB<br>1 VM, 8 ECPUs<br>300 GB');
+            updateStats(1, 8, '300 GB');
+            
+            // Clear dynamic elements
+            document.getElementById('resources').innerHTML = '';
+            document.getElementById('dataParticles').innerHTML = '';
+            document.getElementById('storageLayers').innerHTML = '';
+            document.getElementById('cloneArrows').innerHTML = '';
+            
+            // Reset all other elements
+            document.querySelectorAll('.resource-ring, .cloud-pool, .rdma-path, .rdma-label, .metric-badge, .clone-box, .stats').forEach(e => {
+                e.classList.remove('active');
+                e.style.opacity = '';
+            });
+            
+            // Reset rings to normal scale
+            document.querySelectorAll('.resource-ring').forEach(ring => {
+                ring.style.transform = 'translate(-50%, -50%) scale(0)';
+                ring.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            });
+            
+            // Reset buttons
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('completed'));
+            document.getElementById('btn2').disabled = true;
+            document.getElementById('btn3').disabled = true;
+            document.getElementById('btn4').disabled = true;
+            document.getElementById('btn5').disabled = true;
+        }
+        
+        window.addEventListener('load', () => {
+            setTimeout(showStart, 500);
+        });
+    </script>
+</body>
+</html>
