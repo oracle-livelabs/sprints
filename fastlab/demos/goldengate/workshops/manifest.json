@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick GoldenGate 26ai Data Fabric Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn how GoldenGate 26ai streams transactional data and AI vectors in real time",
+      "filename": "../golden-gate.md"
+    }
+  ]
+}

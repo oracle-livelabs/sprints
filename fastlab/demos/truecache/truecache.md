@@ -44,6 +44,6 @@ Note: You can minimize the menu by clicking '≡' to better interact with the de
 
 ## Acknowledgements
 
-* Author — Francis Regalado, Database Product Manager
-* Contributors — 
-* Last Updated By/Date — Francis Regalado, February 2026
+* Author - Francis Regalado, Database Product Manager
+* Contributors - 
+* Last Updated By/Date - Francis Regalado, February 2026
