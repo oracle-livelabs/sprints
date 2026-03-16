@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick Oracle Exascale Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle Exascale.",
+      "filename": "../exascale.md"
+    }
+  ]
+}
