@@ -10,17 +10,16 @@ This sprint introduces the reader to the `java.security` file: what it is, how i
 1. Introduction  
 The `java.security` file is a vital component of Java's security framework. It contains important configuration data, and maintains security properties for the JDK environment. It is crucial to know that it's location can vary, depending on your operating system.
 
-
 2. File Locations  
 Understanding where to find the `java.security` file is key. For Linux, Solaris, macOS, and Windows, the location varies across different JDK versions. Here is how to find them:
 
     - Linux / Solaris / macOS
-        - JDK 11 and later: \[JDK_HOME\]/jdk-\[VERSION\]/conf/security/java.security
-        - JDK 7 and 8: \[JDK_HOME\]/jre/lib/security/java.security
+        - JDK 11 and later: `\[JDK_HOME\]/jdk-\[VERSION\]/conf/security/java.security`
+        - JDK 7 and 8: `\[JDK_HOME\]/jre/lib/security/java.security`
 
     - Windows
-        - JDK 11 and later: \[JDK_HOME\]\jdk-\[VERSION]\conf\security\java.security
-        - JDK 8: \[JDK_HOME\]\jre\lib\security\java.security
+        - JDK 11 and later: `\[JDK_HOME\]\jdk-\[VERSION]\conf\security\java.security`
+        - JDK 8: `\[JDK_HOME\]\jre\lib\security\java.security`
 
 
 3. Alternate Properties File  
