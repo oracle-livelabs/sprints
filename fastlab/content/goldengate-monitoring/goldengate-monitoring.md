@@ -47,6 +47,8 @@ Connect to Oracle AI Database Free and run the setup script.
     </copy>
     ```
 
+    ![Golden Gate SSH](images/ggm-ssh.png)
+
 2. Connect to the Oracle AI Database Free container as SYSDBA:
 
     ```bash
@@ -54,6 +56,7 @@ Connect to Oracle AI Database Free and run the setup script.
     sudo podman exec -it oracle-db sqlplus sys/Welcome1#GG23@FREEPDB1 as sysdba
     </copy>
     ```
+     ![Golden Gate Connect](images/ggm-connect.png)
 
 3. Run the following script to set up the complete demo environment. The script cleans up any existing objects so you can run it multiple times:
 
@@ -137,7 +140,11 @@ Connect to Oracle AI Database Free and run the setup script.
     </copy>
     ```
 
+    ![Golden Gate Script](images/ggm-script.png)
+
 4. Verify the output shows 3 source transactions and 0 target transactions.
+
+    ![Golden Gate Script](images/ggm-transactions.png)
 
 5. Exit SQL*Plus:
 
@@ -146,6 +153,8 @@ Connect to Oracle AI Database Free and run the setup script.
     EXIT;
     </copy>
     ```
+
+    ![Golden Gate Script](images/ggm-exit.png)
 
 ## Task 2: Get Database Container IP Address
 
@@ -161,6 +170,8 @@ Get the Oracle Database container's IP address for the GoldenGate connection.
     </copy>
     ```
 
+    ![Golden Gate Script](images/ggm-ip.png)
+
 2. Note this IP address (e.g., `10.88.0.2`) - you'll use it in the next task.
 
     > Note: This is the internal Podman network IP. Both containers (GoldenGate and Oracle Database) share this internal network, allowing them to communicate directly without using the host's public IP.
@@ -173,7 +184,11 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
 
 1. Open your GoldenGate console at `https://<compute-ip>` and log in as `oggadmin`.
 
+    ![Golden Gate Login](images/ggm-login.png)
+
 2. On the GoldenGate Free Home page, click **Create connection**.
+
+    ![Golden Gate Create Connection](images/ggm-createconnection.png)
 
 3. On the **General Information** page:
 
@@ -182,8 +197,9 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
     | Database name | DB_SOURCE |
     | Description | Seer Group Finance source database |
 
-
 4. Click **Next**.
+
+    ![Golden Gate General Information](images/ggm-geninfo.png)
 
 5. On the **Connection Details** page:
 
@@ -199,6 +215,8 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
 
 7. Enter the **Pluggable database service name (PDB)**: `FREEPDB1`
 
+    ![Golden Gate Connection Detail](images/ggm-conndetails.png)
+
 8. Check **SYSDBA privileges available**.
 
 9. In the Administrator Credentials dialog:
@@ -209,6 +227,8 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
     | Password for admin user | Welcome1#GG23 |
 
 10. Click **Next**.
+
+    ![Golden Gate SYSDBA](images/ggm-sysdba.png)
 
 11. On the **GoldenGate Admin User** page:
 
@@ -222,13 +242,18 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
 
 12. Click **Next**.
 
+    ![Golden Gate Admin User](images/ggm-adminuser.png)
+
 13. On the **Configuration** page, click **Run analysis** to review the required database settings.
 
     > **Important:** You need to scroll down to end the of the SQL statement so you can confirm that you have reviewed the statement.
 
 
+    ![Golden Gate Run Analysis](images/ggm-runanalysis.png)
+
 14. Click **Run SQL** to apply the configuration automatically.
 
+    ![Golden Gate Run SQL](images/ggm-runsql.png)
 
 15. Click **Next**, then click **Create** to finish.
 
@@ -240,12 +265,16 @@ Create a connection to the same database as the target.
 
 1. On the GoldenGate Free Home page, click **Create connection**.
 
+    ![Golden Gate Create Connection](images/ggm-createconnection.png)
+
 2. On the **General Information** page:
 
     | Field | Value |
     |-------|-------|
     | Database name | DB_TARGET |
     | Description | Seer Group monitoring target database |
+
+     ![Golden Gate Target Genereal Info](images/ggm-targetgeninfo.png)
 
 3. Click **Next**.
 
@@ -260,12 +289,16 @@ Create a connection to the same database as the target.
     | Database type | Pluggable database (PDB) in Oracle Database 21c or above |
     | Pluggable database service name | FREEPDB1 |
 
+     ![Golden Gate Target Connection Details](images/ggm-targetconndetails.png)
+
 5. Check **SYSDBA privileges available** and enter credentials:
 
     | Field | Value |
     |-------|-------|
     | User with admin privilege | sys |
     | Password for admin user | Welcome1#GG23 |
+
+     ![Golden Gate Target SYSDBA](images/ggm-targetsysdba.png)
 
 6. Click **Next**.
 
@@ -275,16 +308,32 @@ Create a connection to the same database as the target.
     |-------|-------|
     | GoldenGate password | Welcome1#GG23 |
 
+     ![Golden Gate Target Admin User](images/ggm-targetadminuser.png)
+
 8. Click **Next**, then **Validate**, then **Next**.
+
+    ![Golden Gate Target Validate](images/ggm-validatetarget.png)
 
 9. On the **Configuration** page, click **Run analysis**, then **Run SQL**.
 
+    ![GoldenGate Run SQL](images/ggm-runsqltarget.png)
+
+
+
     > **Important:** You need to scroll down to end the of the SQL statement so you can confirm that you have reviewed the statement.
+
+     > **Note:** Some users may see the entire Configuration step become grayed out/disabled after running Validate configuration.
+
 
 10. Click **Next**, then click **Create** to finish.
 
+![GoldenGate Create](images/ggm-createtarget.png)
+
+
 
 You should now see both **DB\_SOURCE** and **DB\_TARGET** connections on the GoldenGate Free Home page.
+
+![GoldenGate DB Connections](images/ggm-dbconn.png)
 
 ## Task 5: Create a Replication Pipeline
 
@@ -294,9 +343,13 @@ Create a pipeline to replicate transactions from source to target.
 
 1. On the GoldenGate Free Home page, click **Create pipeline**.
 
+    ![Golden Gate Create Pipeline](images/ggm-pipeline.png)
+
 2. On the **Recipe** page, select **One-way Database Replication** (transactions flow from source to target only - appropriate for monitoring scenarios where the target is read-only).
 
 3. Click **Next**.
+
+    ![Golden Gate One Way Database](images/ggm-oneway.png)
 
 4. On the **Overview** page:
 
@@ -307,6 +360,8 @@ Create a pipeline to replicate transactions from source to target.
 
 5. Click **Next**.
 
+    ![Golden Gate Overview](images/ggm-overview.png)
+
 6. On the **Connections** page:
 
     | Field | Value |
@@ -315,6 +370,8 @@ Create a pipeline to replicate transactions from source to target.
     | Target Database | DB_TARGET |
 
 7. Click **Save & Configure**.
+
+    ![Golden Gate Connections](images/ggm-connections.png)
 
 8. On the **Mapping** screen, configure the source-to-target mapping:
 
@@ -353,6 +410,7 @@ Insert a new transaction and verify it replicates instantly.
     sudo podman exec -it oracle-db sqlplus sys/Welcome1#GG23@FREEPDB1 as sysdba
     </copy>
     ```
+    ![Golden Gate Connect to DB](images/ggm-connectdb.png)
 
 2. Set up SQL*Plus formatting for better output:
 
@@ -368,6 +426,7 @@ Insert a new transaction and verify it replicates instantly.
     COLUMN transaction_ts FORMAT A25
     </copy>
     ```
+    ![Golden Gate SQLPlus](images/ggm-SQLplus.png)
 
 3. Insert a high-value transaction:
 
@@ -382,6 +441,9 @@ Insert a new transaction and verify it replicates instantly.
     </copy>
     ```
 
+    ![Golden Gate High Value Transaction](images/ggm-hvtransaction.png)
+
+
 4. Immediately query the monitoring table:
 
     ```sql
@@ -393,6 +455,8 @@ Insert a new transaction and verify it replicates instantly.
     ORDER BY transaction_ts DESC;
     </copy>
     ```
+
+    ![Golden Gate Monitoring](images/ggm-monitoring.png)
 
 5. The high-value transfer should appear in SEER_MONITOR within seconds. This real-time capture enables fraud detection systems to flag suspicious transactions instantly.
 
@@ -413,6 +477,8 @@ Insert a new transaction and verify it replicates instantly.
     </copy>
     ```
 
+    ![Golden Gate Insert](images/ggm-insert.png)
+
 You've successfully configured real-time transaction monitoring with GoldenGate Free. Every change in SEER\_FINANCE is now instantly captured and replicated to SEER\_MONITOR for compliance and fraud detection.
 
 ## Signature Workshop
@@ -430,4 +496,5 @@ Ready to dive deeper? This workshop covers advanced GoldenGate scenarios.
 
 ## Acknowledgements
 * **Author** - Oracle LiveLabs Team
+* **Contributors** - Zileyah Onafowora
 * **Last Updated By/Date** - Oracle LiveLabs, January 2026
