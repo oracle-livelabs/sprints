@@ -256,6 +256,8 @@ Create a connection to Oracle AI Database Free as the source in GoldenGate.
     ![Golden Gate Run SQL](images/ggm-runsql.png)
 
 15. Click **Next**, then click **Create** to finish.
+  ![Golden Gate Create](images/ggm-create.png)
+
 
 ## Task 4: Create Target Database Connection
 
