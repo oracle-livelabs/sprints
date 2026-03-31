@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick AI Lakehouse Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle's AI Lakehouse feature in Oracle AI Database",
+      "filename": "../lakehouse.md"
+    }
+  ]
+}

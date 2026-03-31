@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - MCP",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Explore SQLcl MCP Server and Build Database Objects Using AI Agents",
+            "filename": "mcp.md"
+        }
+    ]
+}

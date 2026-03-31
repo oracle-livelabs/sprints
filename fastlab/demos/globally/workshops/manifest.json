@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick Globally Distributed Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Oracle's Globablly Distributed feature in Oracle AI Database",
+      "filename": "../globally-distributed-db.md"
+    }
+  ]
+}

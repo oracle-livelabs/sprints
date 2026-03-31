@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Autonomous AI Lakehouse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(to right, #0f766e, #115e59);
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .header-title h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .header-title svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .header-subtitle {
+            color: #99f6e4;
+            font-size: 14px;
+        }
+
+        .problem-banner {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 16px auto;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .problem-text {
+            font-size: 15px;
+            color: #856404;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            min-height: 42px;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-red {
+            background: #ef4444;
+        }
+
+        .btn-red:hover {
+            background: #dc2626;
+        }
+
+        .btn-green {
+            background: #16a34a;
+        }
+
+        .btn-green:hover {
+            background: #15803d;
+        }
+
+        .btn-purple {
+            background: #9333ea;
+        }
+
+        .btn-purple:hover {
+            background: #7c3aed;
+        }
+
+        .btn-blue {
+            background: #2563eb;
+        }
+
+        .btn-blue:hover {
+            background: #1e40af;
+        }
+
+        .btn-orange {
+            background: #f59e0b;
+        }
+
+        .btn-orange:hover {
+            background: #d97706;
+        }
+
+        .btn-reset {
+            background: #6b7280;
+        }
+
+        .btn-reset:hover {
+            background: #4b5563;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+            min-height: 500px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+        }
+
+        .panel {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            background: #1f2937;
+            color: #fff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .panel-content {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intro-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #0284c7;
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intro-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .intro-subtitle {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .intro-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .intro-feature {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .intro-feature-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .intro-feature-desc {
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .intro-cta {
+            background: linear-gradient(135deg, #0d9488 0%, #115e59 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+
+        .value-card {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .value-card.active {
+            display: block;
+        }
+
+        .value-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 8px;
+        }
+
+        .value-list {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .value-item {
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .value-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+            font-weight: bold;
+        }
+
+        /* Mode Indicator */
+        .mode-indicator {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .mode-indicator.active {
+            display: block;
+        }
+
+        .mode-indicator.problem {
+            background: #fef2f2;
+            border-color: #ef4444;
+        }
+
+        .mode-indicator.catalog {
+            background: #f0fdf4;
+            border-color: #16a34a;
+        }
+
+        .mode-indicator.connect {
+            background: #f3e8ff;
+            border-color: #9333ea;
+        }
+
+        .mode-indicator.analyze {
+            background: #dbeafe;
+            border-color: #2563eb;
+        }
+
+        .mode-indicator.scale {
+            background: #fef3c7;
+            border-color: #f59e0b;
+        }
+
+        .mode-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .mode-description {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* Visual Demo Styles */
+        .stage-shell {
+            position: relative;
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.18);
+            background: #09736a;
+            box-shadow: 0 12px 30px rgba(15,23,42,.14);
+            aspect-ratio: 16 / 9;
+            min-height: 360px;
+        }
+
+        .stage {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 520ms ease, transform 520ms ease;
+            pointer-events: none;
+        }
+
+        .stage.on {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Road styling */
+        .road {
+            fill: none;
+            stroke: rgba(255,255,255,.35);
+            stroke-width: 16;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: .95;
+            filter: drop-shadow(0 12px 18px rgba(0,0,0,.20));
+        }
+
+        .road-inner {
+            fill: none;
+            stroke: rgba(0,0,0,.18);
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: .6;
+        }
+
+        .lane {
+            fill: none;
+            stroke: rgba(255,255,255,.55);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 10 12;
+            opacity: .55;
+            animation: dash 1100ms linear infinite;
+        }
+
+        @keyframes dash { 
+            to { stroke-dashoffset: -44; } 
+        }
+
+        /* Traffic color overlays */
+        .glow-red { stroke: rgba(239,68,68,.8) !important; opacity: .9 !important; }
+        .glow-gray { stroke: rgba(107,114,128,.8) !important; opacity: .9 !important; }
+        .glow-teal { stroke: rgba(16,185,129,.85) !important; opacity: .9 !important; }
+        .glow-blue { stroke: rgba(59,130,246,.85) !important; opacity: .9 !important; }
+        .glow-purple { stroke: rgba(168,85,247,.85) !important; opacity: .9 !important; }
+        .glow-orange { stroke: rgba(245,158,11,.85) !important; opacity: .9 !important; }
+
+        /* Nodes */
+        .node-box {
+            fill: #ffffff;
+            stroke: rgba(0,0,0,.08);
+            stroke-width: 2;
+            rx: 14;
+            ry: 14;
+            filter: drop-shadow(0 14px 28px rgba(0,0,0,.22));
+        }
+
+        .node-core {
+            fill: url(#coreGrad);
+            stroke: rgba(255,255,255,.22);
+            stroke-width: 2;
+        }
+
+        .node-text-title {
+            font-size: 14px;
+            font-weight: 900;
+            fill: #0f172a;
+        }
+
+        .node-text-sub {
+            font-size: 11px;
+            font-weight: 700;
+            fill: #475569;
+        }
+
+        .node-core-title { fill: #ffffff; }
+        .node-core-sub { fill: rgba(255,255,255,.92); }
+
+        /* Table layer overlay */
+        .table-layer {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        .table-layer.on { opacity: 1; }
+
+        .gridline {
+            stroke: rgba(255,255,255,.28);
+            stroke-width: 1;
+        }
+
+        .ice-badge {
+            opacity: 0;
+            transition: opacity 420ms ease, transform 620ms cubic-bezier(.2,.9,.2,1);
+            transform: translateY(-8px);
+        }
+
+        .ice-badge.on { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .badge {
+            fill: rgba(255,255,255,.14);
+            stroke: rgba(255,255,255,.22);
+            stroke-width: 1.2;
+            rx: 999;
+            ry: 999;
+        }
+
+        .badge-text {
+            fill: #fff;
+            font-weight: 900;
+            font-size: 12px;
+        }
+
+        /* Cloud badges */
+        .cloud-badge {
+            opacity: 0;
+            transition: opacity 420ms ease, transform 620ms cubic-bezier(.2,.9,.2,1);
+            transform: translateY(-8px);
+        }
+
+        .cloud-badge.on { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* AI light */
+        .ai-light {
+            opacity: .35;
+            transition: opacity 420ms ease, filter 420ms ease;
+        }
+
+        .ai-light.on {
+            opacity: 1;
+            filter: drop-shadow(0 0 14px rgba(16,185,129,.9));
+        }
+
+        /* Barrier & AI */
+        .barrier {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        .barrier.on { opacity: 1; }
+
+        .ai {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        .ai.on { opacity: 1; }
+
+        /* Catalog sign */
+        .catalog-sign {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        /* Real-time nodes */
+        #rtNodes {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        .spark {
+            opacity: 0;
+            transition: opacity 300ms ease;
+        }
+
+        .spark.on {
+            opacity: 1;
+            animation: sparkle 1200ms ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: .7; }
+        }
+
+        .agent {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        .agent.on { opacity: 1; }
+
+        /* Scale nodes */
+        #scaleNodes {
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        /* Cars */
+        .car {
+            transition: transform 20ms linear;
+        }
+
+        .car rect {
+            rx: 8;
+            ry: 8;
+            stroke: rgba(0,0,0,.22);
+            stroke-width: 1.5;
+            filter: drop-shadow(0 8px 14px rgba(0,0,0,.28));
+        }
+
+        .car text {
+            fill: #fff;
+            font-size: 10px;
+            font-weight: 900;
+            text-shadow: 0 1px 3px rgba(0,0,0,.4);
+        }
+
+        /* Fullscreen toggle button */
+        .fullscreen-toggle {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 9999;
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: #111827;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform .15s ease, opacity .2s ease, background .2s ease;
+            opacity: .9;
+        }
+
+        .fullscreen-toggle:hover {
+            transform: translateY(-1px);
+            opacity: 1;
+            background: #0b1220;
+        }
+
+        .fullscreen-toggle svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                </svg>
+                <h1>Oracle Autonomous AI Lakehouse</h1>
+            </div>
+            <p class="header-subtitle">Brings all your data together for trusted AI and analytics across clouds</p>
+        </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="problem-banner">
+        <span style="font-size: 24px">⚠️</span>
+        <span class="problem-text">"Our data is spread across multiple cloud platforms, making it difficult to access and analyze data consistently"</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="button-group">
+            <button id="btnProblem" class="btn btn-red" onclick="showProblem()">🚨 The Problem</button>
+            <button id="btnCatalog" class="btn btn-green" onclick="showCatalog()">🔍 Unified Metadata</button>
+            <button id="btnConnect" class="btn btn-purple" onclick="showConnect()">🔗 Open Data Access</button>
+            <button id="btnAnalyze" class="btn btn-blue" onclick="showAnalyze()">📊 In-Database AI</button>
+            <button id="btnScale" class="btn btn-orange" onclick="showScale()">🚀 Auto Scale</button>
+            <button id="btnReset" class="btn btn-reset" onclick="resetDemo()">🔄 Reset</button>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left Panel - Business Impact -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>💼</span>
+                    <span>Lakehouse Overview</span>
+                </div>
+                <div class="panel-content">
+                    <!-- Mode Indicator -->
+                    <div id="modeIndicator" class="mode-indicator">
+                        <div class="mode-title" id="modeTitle">Oracle Autonomous AI Lakehouse</div>
+                        <div class="mode-description" id="modeDescription">Click any button above to see how Oracle solves your data challenges</div>
+                    </div>
+
+                    <!-- Value Card -->
+                    <div id="valueCard" class="value-card">
+                        <div class="value-title" id="valueTitle">Business Benefits</div>
+                        <div class="value-list" id="valueList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Visual Demo -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>🎯</span>
+                    <span>Lakehouse in Action</span>
+                </div>
+                <div class="panel-content">
+                    <!-- Introduction Section - Shows on Load -->
+                    <div id="introSection" class="intro-section">
+                        <div class="intro-card">
+                            <div class="intro-title">
+                                Autonomous AI Lakehouse for Open Data and AI
+                            </div>
+                            <div class="intro-subtitle">
+                                Unified access to open data for SQL, analytics, and AI, with built in automation, security, and governance.
+                            </div>
+                            <div class="intro-features">
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Lakehouse powered by Autonomous Database</div>
+                                    <div class="intro-feature-desc">The Autonomous Database provides the execution engine for the lakehouse, handling SQL processing, optimization, metadata management, and AI with automatic scaling, tuning, and patching.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Access Iceberg data in-place</div>
+                                    <div class="intro-feature-desc">Query Apache Iceberg tables stored in cloud object storage across AWS, Azure, and Google Cloud without copying data. Iceberg provides the open table format while the lakehouse provides performance and intelligence.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Federated metadata catalog</div>
+                                    <div class="intro-feature-desc">The lakehouse connects to existing catalogs such as Databricks Unity, AWS Glue, and Snowflake Polaris, enabling discovery across platforms without replacing current systems.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">In-database AI and analytics</div>
+                                    <div class="intro-feature-desc">AI capabilities such as Select AI, Vector Search, and machine learning run inside the lakehouse engine using the same security and auditing controls as SQL.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Pay-as-you-go performance</div>
+                                    <div class="intro-feature-desc">The lakehouse scales performance dynamically for large data scans using Data Lake Accelerator, with transparent caching to improve repeated access.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Demo Area - Hidden Initially -->
+                    <div id="visualDemo" class="stage-shell" style="display: none;">
+                        <div class="stage on" id="stage">
+                            <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="coreGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#0d9488"/>
+                                        <stop offset="100%" stop-color="#0f766e"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Roads -->
+                                <path class="road" id="roadA" d="M 50,120 C 120,120 120,225 190,225" />
+                                <path class="road-inner" d="M 50,120 C 120,120 120,225 190,225" />
+                                <path class="lane" id="laneA" d="M 50,120 C 120,120 120,225 190,225" />
+
+                                <path class="road" id="roadB" d="M 50,225 L 190,225" />
+                                <path class="road-inner" d="M 50,225 L 190,225" />
+                                <path class="lane" id="laneB" d="M 50,225 L 190,225" />
+
+                                <path class="road" id="roadC" d="M 50,330 C 120,330 120,225 190,225" />
+                                <path class="road-inner" d="M 50,330 C 120,330 120,225 190,225" />
+                                <path class="lane" id="laneC" d="M 50,330 C 120,330 120,225 190,225" />
+
+                                <path class="road" id="roadHub" d="M 250,225 L 390,225" />
+                                <path class="road-inner" d="M 250,225 L 390,225" />
+                                <!-- hubLane removed - database is control plane, not a traffic lane -->
+
+                                <path class="road" id="roadToAI" d="M 450,225 L 590,225" />
+                                <path class="road-inner" d="M 450,225 L 590,225" />
+                                <path class="lane" id="laneAI" d="M 450,225 L 590,225" />
+
+                                <!-- Express lane (top) - only for Analyze/Scale scenes -->
+                                <g id="expressLaneGroup" style="opacity: 0; transition: opacity 420ms ease;">
+                                    <path class="road" id="roadExpress" d="M 450,140 L 590,140" />
+                                    <path class="road-inner" d="M 450,140 L 590,140" />
+                                    <path class="lane" id="laneExpress" d="M 450,140 L 590,140" />
+                                </g>
+
+                                <!-- Scale lanes (bottom) - only for Scale scene -->
+                                <g id="scaleLaneGroup" style="opacity: 0; transition: opacity 420ms ease;">
+                                    <path class="road" id="roadScale1" d="M 450,310 L 520,310" />
+                                    <path class="road-inner" d="M 450,310 L 520,310" />
+                                    <path class="lane" id="laneScale1" d="M 450,310 L 520,310" />
+
+                                    <path class="road" id="roadScale2" d="M 520,310 L 590,310" />
+                                    <path class="road-inner" d="M 520,310 L 590,310" />
+                                    <path class="lane" id="laneScale2" d="M 520,310 L 590,310" />
+
+                                    <path class="road" id="roadScaleBack" d="M 590,310 C 600,310 600,225 590,225" />
+                                    <path class="road-inner" d="M 590,310 C 600,310 600,225 590,225" />
+                                    <path class="lane" id="laneScaleBack" d="M 590,310 C 600,310 600,225 590,225" />
+                                </g>
+
+                                <!-- Barrier (scene 0 only) -->
+                                <g class="barrier" id="barrier">
+                                    <rect x="195" y="195" width="50" height="60" fill="#6b7280" stroke="#4b5563" stroke-width="2" rx="6"/>
+                                    <text x="220" y="220" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">DATA</text>
+                                    <text x="220" y="235" text-anchor="middle" font-size="11" font-weight="900" fill="rgba(255,255,255,.85)">SILOS</text>
+                                </g>
+
+                                <!-- Data sources (left) -->
+                                <g>
+                                    <rect class="node-box" x="10" y="95" width="80" height="50"/>
+                                    <text class="node-text-title" x="50" y="115" text-anchor="middle">AWS</text>
+                                    <text class="node-text-sub" x="50" y="130" text-anchor="middle">Data Lake</text>
+                                </g>
+
+                                <g>
+                                    <rect class="node-box" x="10" y="200" width="80" height="50"/>
+                                    <text class="node-text-title" x="50" y="220" text-anchor="middle">Azure</text>
+                                    <text class="node-text-sub" x="50" y="235" text-anchor="middle">Data Lake</text>
+                                </g>
+
+                                <g>
+                                    <rect class="node-box" x="10" y="305" width="80" height="50"/>
+                                    <text class="node-text-title" x="50" y="325" text-anchor="middle">GCP</text>
+                                    <text class="node-text-sub" x="50" y="340" text-anchor="middle">Data Lake</text>
+                                </g>
+
+                                <!-- Central HUB (Autonomous AI Database) -->
+                                <g>
+                                    <ellipse class="node-core" cx="320" cy="225" rx="65" ry="65"/>
+                                    <text class="node-core-title" x="320" y="215" text-anchor="middle" font-size="15" font-weight="950">Oracle</text>
+                                    <text class="node-core-title" x="320" y="230" text-anchor="middle" font-size="14" font-weight="900">Autonomous</text>
+                                    <text class="node-core-sub" x="320" y="243" text-anchor="middle" font-size="11" font-weight="800">AI Lakehouse</text>
+                                </g>
+
+                                <!-- Catalog sign (appears scene 1+) -->
+                                <g class="catalog-sign" id="catalogSign">
+                                    <rect x="240" y="100" width="160" height="55" fill="rgba(255,255,255,.95)" stroke="#16a34a" stroke-width="2.5" rx="10"/>
+                                    <text x="320" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">Catalog of catalogs</text>
+                                    <text x="320" y="138" text-anchor="middle" font-size="9" font-weight="600" fill="#6b7280">Unity • Glue • Polaris</text>
+                                </g>
+
+                                <!-- Table layer (Iceberg badges, scene 2+) -->
+                                <g class="table-layer" id="tableLayer">
+                                    <line class="gridline" x1="420" y1="180" x2="560" y2="180"/>
+                                    <line class="gridline" x1="420" y1="210" x2="560" y2="210"/>
+                                    <line class="gridline" x1="420" y1="240" x2="560" y2="240"/>
+                                    <line class="gridline" x1="420" y1="270" x2="560" y2="270"/>
+                                    <line class="gridline" x1="460" y1="160" x2="460" y2="290"/>
+                                    <line class="gridline" x1="520" y1="160" x2="520" y2="290"/>
+                                </g>
+
+                                <g class="ice-badge" id="iceBadge">
+                                    <ellipse class="badge" cx="490" cy="200" rx="45" ry="20"/>
+                                    <text class="badge-text" x="490" y="205" text-anchor="middle">Iceberg</text>
+                                </g>
+
+                                <!-- Cloud provider badges (multicloud emphasis) -->
+                                <g class="cloud-badge" id="cloudBadge">
+                                    <rect x="425" y="250" width="35" height="18" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1" rx="4"/>
+                                    <text x="442" y="262" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">OCI</text>
+                                    
+                                    <rect x="465" y="250" width="35" height="18" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1" rx="4"/>
+                                    <text x="482" y="262" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">AWS</text>
+                                    
+                                    <rect x="505" y="250" width="38" height="18" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1" rx="4"/>
+                                    <text x="524" y="262" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">Azure</text>
+
+                                    <rect x="425" y="270" width="35" height="18" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1" rx="4"/>
+                                    <text x="442" y="282" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">GCP</text>
+                                </g>
+
+                                <!-- AI analytics (right, appears scene 1+) -->
+                                <g class="ai" id="ai">
+                                    <ellipse class="ai-light" cx="650" cy="225" rx="55" ry="55" fill="url(#coreGrad)" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+                                    <text class="node-core-title" x="650" y="215" text-anchor="middle" font-size="13" font-weight="950">In-Database</text>
+                                    <text class="node-core-title" x="650" y="228" text-anchor="middle" font-size="13" font-weight="950">AI & Analytics</text>
+                                    <text class="node-core-sub" x="650" y="240" text-anchor="middle" font-size="9" font-weight="800">Governed & Audited</text>
+                                </g>
+
+                                <!-- Database icon (right side, for Scale scene) -->
+                                <g id="databaseIcon" style="opacity: 0; transition: opacity 420ms ease;">
+                                    
+
+                                </g>
+
+                                <!-- External Catalogs (for Catalog scene) -->
+                                <g id="externalCatalogs" style="opacity: 0; transition: opacity 420ms ease;">
+                                    <rect class="node-box" x="645" y="180" width="70" height="30"/>
+                                    <text class="node-text-title" x="680" y="197" text-anchor="middle" font-size="11">Unity</text>
+                                    <text class="node-text-sub" x="680" y="207" text-anchor="middle" font-size="8">Catalog</text>
+
+                                    <rect class="node-box" x="645" y="215" width="70" height="30"/>
+                                    <text class="node-text-title" x="680" y="232" text-anchor="middle" font-size="11">AWS Glue</text>
+                                    <text class="node-text-sub" x="680" y="242" text-anchor="middle" font-size="8">Catalog</text>
+
+                                    <rect class="node-box" x="645" y="250" width="70" height="30"/>
+                                    <text class="node-text-title" x="680" y="267" text-anchor="middle" font-size="11">Polaris</text>
+                                    <text class="node-text-sub" x="680" y="277" text-anchor="middle" font-size="8">Catalog</text>
+                                </g>
+
+                                <!-- Object Storage (for Connect scene) -->
+                                <g id="objectStorage" style="opacity: 0; transition: opacity 420ms ease;">
+                                    <rect x="645" y="195" width="70" height="65" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.25)" stroke-width="2" rx="8"/>
+                                    <text x="680" y="215" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Object</text>
+                                    <text x="680" y="228" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Storage</text>
+                                    <text x="680" y="243" text-anchor="middle" font-size="8" font-weight="700" fill="rgba(255,255,255,.7)">S3 • Blob • GCS</text>
+                                </g>
+
+                                <!-- Real-time nodes (scene 3) -->
+                                <g id="rtNodes">
+                                    <rect class="node-box" x="415" y="95" width="85" height="35"/>
+                                    <text class="node-text-title" x="457" y="113" text-anchor="middle" font-size="12">Select AI</text>
+                                    <text class="node-text-sub" x="457" y="124" text-anchor="middle" font-size="9">NL to SQL</text>
+
+                                    <rect class="node-box" x="510" y="95" width="75" height="35"/>
+                                    <text class="node-text-title" x="547" y="113" text-anchor="middle" font-size="12">Vector</text>
+                                    <text class="node-text-sub" x="547" y="124" text-anchor="middle" font-size="9">Search</text>
+                                </g>
+
+                                <!-- Agent spark (scene 3) -->
+                                <g class="spark" id="spark">
+                                    <circle cx="650" cy="180" r="8" fill="#fbbf24" opacity=".8"/>
+                                    <circle cx="650" cy="180" r="4" fill="#fff"/>
+                                </g>
+
+                                <g class="agent" id="agent">
+                                    <rect x="595" y="155" width="110" height="20" fill="rgba(251,191,36,.15)" stroke="#fbbf24" stroke-width="1.2" rx="10"/>
+                                    <text x="650" y="168" text-anchor="middle" font-size="10" font-weight="900" fill="#f59e0b">Unified Governance</text>
+                                </g>
+
+                                <!-- Scale nodes (scene 4) -->
+                                <g id="scaleNodes">
+                                    <rect class="node-box" x="445" y="325" width="70" height="35"/>
+                                    <text class="node-text-title" x="480" y="340" text-anchor="middle" font-size="11">Lake</text>
+                                    <text class="node-text-sub" x="480" y="352" text-anchor="middle" font-size="9">Accelerator</text>
+
+                                    <rect class="node-box" x="520" y="325" width="70" height="35"/>
+                                    <text class="node-text-title" x="555" y="340" text-anchor="middle" font-size="11">Ext Table</text>
+                                    <text class="node-text-sub" x="555" y="352" text-anchor="middle" font-size="9">Cache</text>
+                                </g>
+
+                                <!-- Cars layer -->
+                                <g id="carsLayer"></g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SVGNS = 'http://www.w3.org/2000/svg';
+        
+        let currentDemo = null;
+        let running = false;
+        let rafId = null;
+        let cars = [];
+
+        // DOM elements
+        const introSection = document.getElementById('introSection');
+        const visualDemo = document.getElementById('visualDemo');
+        const stage = document.getElementById('stage');
+        const modeIndicator = document.getElementById('modeIndicator');
+        const modeTitle = document.getElementById('modeTitle');
+        const modeDescription = document.getElementById('modeDescription');
+        const valueCard = document.getElementById('valueCard');
+        const valueTitle = document.getElementById('valueTitle');
+        const valueList = document.getElementById('valueList');
+
+        const barrier = document.getElementById('barrier');
+        const ai = document.getElementById('ai');
+        const catalogSign = document.getElementById('catalogSign');
+        const tableLayer = document.getElementById('tableLayer');
+        const iceBadge = document.getElementById('iceBadge');
+        const cloudBadge = document.getElementById('cloudBadge');
+        const rtNodes = document.getElementById('rtNodes');
+        const spark = document.getElementById('spark');
+        const agent = document.getElementById('agent');
+        const scaleNodes = document.getElementById('scaleNodes');
+
+        const laneA = document.getElementById('laneA');
+        const laneB = document.getElementById('laneB');
+        const laneC = document.getElementById('laneC');
+        const laneAI = document.getElementById('laneAI');
+        const laneExpress = document.getElementById('laneExpress');
+        const expressLaneGroup = document.getElementById('expressLaneGroup');
+        const laneScale1 = document.getElementById('laneScale1');
+        const laneScale2 = document.getElementById('laneScale2');
+        const laneScaleBack = document.getElementById('laneScaleBack');
+        const scaleLaneGroup = document.getElementById('scaleLaneGroup');
+        const databaseIcon = document.getElementById('databaseIcon');
+        const externalCatalogs = document.getElementById('externalCatalogs');
+        const objectStorage = document.getElementById('objectStorage');
+
+        const carsLayer = document.getElementById('carsLayer');
+        const svg = stage.querySelector('svg');
+
+        const paths = {
+            A: document.getElementById('roadA'),
+            B: document.getElementById('roadB'),
+            C: document.getElementById('roadC'),
+            HUB: document.getElementById('roadHub'),
+            TOAI: document.getElementById('roadToAI'),
+            EXPRESS: document.getElementById('roadExpress'),
+            SCALE1: document.getElementById('roadScale1'),
+            SCALE2: document.getElementById('roadScale2'),
+            SCALEBACK: document.getElementById('roadScaleBack')
+        };
+
+        // Helper functions
+        function hideIntro() {
+            introSection.style.display = 'none';
+            visualDemo.style.display = 'block';
+        }
+
+        function showIntro() {
+            introSection.style.display = 'flex';
+            visualDemo.style.display = 'none';
+        }
+
+        function setActiveButton(buttonId) {
+            document.querySelectorAll('.btn:not(.btn-reset)').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            if (buttonId) {
+                document.getElementById(buttonId).classList.add('active');
+            }
+        }
+
+        function updateValueCard(title, values) {
+            valueCard.classList.add('active');
+            valueTitle.textContent = title;
+            valueList.innerHTML = values.map(v => `<div class="value-item">${v}</div>`).join('');
+        }
+
+        function updateModeIndicator(mode, title, description) {
+            modeIndicator.className = `mode-indicator ${mode} active`;
+            modeTitle.textContent = title;
+            modeDescription.textContent = description;
+        }
+
+        function clearLaneGlow() {
+            [laneA, laneB, laneC, laneAI, laneExpress, laneScale1, laneScale2, laneScaleBack].forEach(l => {
+                l.classList.remove('glow-red', 'glow-gray', 'glow-teal', 'glow-blue', 'glow-purple', 'glow-orange');
+            });
+        }
+
+        function clearCars() {
+            cars.forEach(c => c.el.remove());
+            cars = [];
+        }
+
+        function stopAnim() {
+            running = false;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+
+        function ensureCarGradients() {
+            if (svg.querySelector('#carRed')) return;
+
+            const defs = svg.querySelector('defs') || (() => {
+                const d = document.createElementNS(SVGNS, 'defs');
+                svg.insertBefore(d, svg.firstChild);
+                return d;
+            })();
+
+            const addGrad = (id, c1, c2) => {
+                const lg = document.createElementNS(SVGNS, 'linearGradient');
+                lg.setAttribute('id', id);
+                lg.setAttribute('x1', '0');
+                lg.setAttribute('x2', '1');
+                lg.setAttribute('y1', '0');
+                lg.setAttribute('y2', '1');
+                const s1 = document.createElementNS(SVGNS, 'stop');
+                s1.setAttribute('offset', '0');
+                s1.setAttribute('stop-color', c1);
+                const s2 = document.createElementNS(SVGNS, 'stop');
+                s2.setAttribute('offset', '1');
+                s2.setAttribute('stop-color', c2);
+                lg.appendChild(s1);
+                lg.appendChild(s2);
+                defs.appendChild(lg);
+            };
+
+            addGrad('carRed', '#ef4444', '#dc2626');
+            addGrad('carGray', '#6b7280', '#4b5563');
+            addGrad('carTeal', '#10b981', '#059669');
+            addGrad('carBlue', '#3b82f6', '#2563eb');
+            addGrad('carPurple', '#a855f7', '#7c3aed');
+            addGrad('carOrange', '#f59e0b', '#d97706');
+        }
+
+        function makeCar(color, label) {
+            ensureCarGradients();
+
+            const g = document.createElementNS(SVGNS, 'g');
+            g.setAttribute('class', 'car');
+
+            const rect = document.createElementNS(SVGNS, 'rect');
+            rect.setAttribute('width', 64);
+            rect.setAttribute('height', 22);
+
+            const fillId =
+                color === 'red' ? 'carRed' :
+                color === 'gray' ? 'carGray' :
+                color === 'teal' ? 'carTeal' :
+                color === 'blue' ? 'carBlue' :
+                color === 'purple' ? 'carPurple' :
+                color === 'orange' ? 'carOrange' : 'carTeal';
+
+            rect.setAttribute('fill', `url(#${fillId})`);
+
+            const text = document.createElementNS(SVGNS, 'text');
+            text.setAttribute('x', 32);
+            text.setAttribute('y', 15);
+            text.setAttribute('text-anchor', 'middle');
+            text.textContent = label;
+
+            g.appendChild(rect);
+            g.appendChild(text);
+            carsLayer.appendChild(g);
+            return g;
+        }
+
+        function addCar(pathKey, color, label, speed, t0 = 0) {
+            const path = paths[pathKey];
+            const el = makeCar(color, label);
+            const len = path.getTotalLength();
+            cars.push({ el, path, len, t: t0, speed });
+        }
+
+        function tick() {
+            if (!running) return;
+            for (const c of cars) {
+                c.t += c.speed;
+                if (c.t > 1) c.t -= 1;
+                const p = c.path.getPointAtLength(c.t * c.len);
+                c.el.setAttribute('transform', `translate(${(p.x - 32).toFixed(2)},${(p.y - 11).toFixed(2)})`);
+            }
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function startAnim() {
+            if (running) return;
+            running = true;
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function hideAIRoad() {
+            document.getElementById("laneAI").style.display = "none";
+            document.getElementById("roadToAI").style.display = "none";
+            document.querySelectorAll(".road-inner").forEach(r => {
+                r.style.display = "none";
+            });
+        }
+
+        function showAIRoad() {
+            document.getElementById("laneAI").style.display = "";
+            document.getElementById("roadToAI").style.display = "";
+            document.querySelectorAll(".road-inner").forEach(r => {
+                r.style.display = "";
+            });
+        }
+
+
+        // Demo functions
+        function showProblem() {
+            hideIntro();
+            setActiveButton('btnProblem');
+            currentDemo = 'problem';
+
+            updateModeIndicator('problem', '🚨 Fragmented Data Access', 
+                'Data is spread across cloud object storage, data warehouses, and analytics systems. Each environment uses its own query engine, metadata, and security model, making it hard to work with data consistently.');
+
+            updateValueCard('Cost of Fragmented Architecture', [
+                'Multiple query engines: Different engines are used for databases, warehouses, and data lakes. This increases cost, duplicates infrastructure, and requires specialized skills.',
+                'Metadata silos: Catalogs such as Unity, Glue, or Polaris are disconnected. Data is harder to find, understand, and trust.',
+                'Governance duplication: Security and access policies are recreated in each system. This increases audit effort and the risk of misconfiguration.',
+                'Data movement overhead: ETL pipelines copy data between platforms. Costs increase, operations become complex, and data freshness suffers.'
+            ]);
+
+            // Reset all visuals
+            clearLaneGlow();
+            stopAnim();
+            clearCars();
+            hideAIRoad();
+
+            barrier.classList.add('on');
+            ai.classList.remove('on');
+            catalogSign.style.opacity = 0;
+            tableLayer.classList.remove('on');
+            iceBadge.classList.remove('on');
+            cloudBadge.classList.remove('on');
+            rtNodes.style.opacity = 0;
+            scaleNodes.style.opacity = 0;
+            expressLaneGroup.style.opacity = 0;
+            scaleLaneGroup.style.opacity = 0;
+            databaseIcon.style.opacity = 1;
+            externalCatalogs.style.opacity = 0;
+            objectStorage.style.opacity = 0;
+            agent.classList.remove('on');
+            spark.classList.remove('on');
+
+            [laneA, laneB, laneC].forEach(l => l.classList.add('glow-gray'));
+
+
+            startAnim();
+        }
+
+        function showCatalog() {
+            hideIntro();
+            setActiveButton('btnCatalog');
+            currentDemo = 'catalog';
+            hideAIRoad();
+
+            updateModeIndicator('catalog', '🔍 Autonomous AI Database Catalog', 
+                'Provides a unified view of metadata across platforms by connecting to existing catalogs such as Databricks Unity, AWS Glue, and Snowflake Polaris, without replacing them.');
+
+            updateValueCard('Federated Metadata Access', [
+                'Catalog of catalogs: Connects to existing catalogs while allowing them to remain the system of record.',
+                'Cross platform discovery: Search and explore metadata across platforms from a single interface.',
+                'Governance propagated: Consistent security and audit controls across platforms, without reimplementing policies in each system.',
+                'Metadata enrichment: Add business context and lineage information to improve understanding and trust in data.'
+            ]);
+
+            clearLaneGlow();
+            stopAnim();
+            clearCars();
+
+            barrier.classList.remove('on');
+            ai.classList.remove('on');
+            catalogSign.style.opacity = 1;  // Show catalog sign
+            tableLayer.classList.remove('on');
+            iceBadge.classList.remove('on');
+            cloudBadge.classList.remove('on');
+            rtNodes.style.opacity = 0;
+            scaleNodes.style.opacity = 0;
+            expressLaneGroup.style.opacity = 0;
+            scaleLaneGroup.style.opacity = 0;
+            databaseIcon.style.opacity = 0;
+            externalCatalogs.style.opacity = 0;
+            objectStorage.style.opacity = 0;
+            agent.classList.remove('on');
+            spark.classList.remove('on');
+
+            [laneA, laneB, laneC].forEach(l => l.classList.add('glow-teal'));
+
+            addCar('A', 'teal', 'Unity', 0.0034, 0.15);
+            addCar('B', 'teal', 'Glue', 0.0031, 0.55);
+            addCar('C', 'teal', 'Polaris', 0.0030, 0.85);
+            
+
+            startAnim();
+        }
+
+        function showConnect() {
+            hideIntro();
+            setActiveButton('btnConnect');
+            showAIRoad();
+            currentDemo = 'connect';
+
+            updateModeIndicator('connect', '🔗 Apache Iceberg Integration', 
+                'Access Iceberg tables in place across cloud object storage while using Autonomous Database for SQL, analytics, and AI.');
+
+            updateValueCard('Query Iceberg Tables Without Data Movement', [
+                'In-place access: Query Iceberg tables directly in object storage without copying data or building ETL pipelines.',
+                'Database intelligence applied: Autonomous Database applies optimization, caching, and query intelligence to Iceberg data, not just format compatibility.',
+                'Consistent multicloud access: Access Iceberg data across OCI, AWS, Azure, and Google Cloud from a single Autonomous Database instance.',
+                'Open interoperability: Iceberg provides an open table format, while Autonomous Database provides execution, performance, and governance.'
+            ]);
+
+            clearLaneGlow();
+            stopAnim();
+            clearCars();
+
+            barrier.classList.remove('on');
+            ai.classList.remove('on');
+            catalogSign.style.opacity = 0;  // HIDE catalog sign - not needed here
+            tableLayer.classList.add('on');
+            iceBadge.classList.add('on');
+            cloudBadge.classList.add('on');
+            rtNodes.style.opacity = 0;
+            scaleNodes.style.opacity = 0;
+            expressLaneGroup.style.opacity = 0;
+            scaleLaneGroup.style.opacity = 0;
+            databaseIcon.style.opacity = 0;
+            externalCatalogs.style.opacity = 0;
+            objectStorage.style.opacity = 1;
+            agent.classList.remove('on');
+            spark.classList.remove('on');
+
+            [laneA, laneB, laneC].forEach(l => l.classList.add('glow-teal'));
+
+            addCar('HUB', 'purple', 'Iceberg', 0.0046, 0.05);
+            addCar('HUB', 'purple', 'query', 0.0042, 0.55);
+
+            startAnim();
+        }
+
+        function showAnalyze() {
+            hideIntro();
+            setActiveButton('btnAnalyze');
+            showAIRoad();
+            currentDemo = 'analyze';
+
+            updateModeIndicator('analyze', '📊 AI Inside the Database', 
+                'AI capabilities run directly inside the database, keeping data, analytics, and AI under a single control plane.');
+
+            updateValueCard('AI and Analytics Inside the Database', [
+                'Select AI: Use natural language to query data with schema awareness, executed directly in the database.',
+                'AI Vector Search: Perform similarity and semantic search using vectors stored and indexed natively in the database.',
+                'In-database machine learning: Train and run machine learning models inside the database on internal and Iceberg tables without moving data.',
+                'Unified governance: All AI operations follow the same security, auditing, and access controls as database queries.'
+            ]);
+
+            clearLaneGlow();
+            stopAnim();
+            clearCars();
+
+            barrier.classList.remove('on');
+            ai.classList.add('on');
+            catalogSign.style.opacity = 0;  // HIDE catalog sign - not needed here
+            tableLayer.classList.add('on');
+            iceBadge.classList.add('on');
+            cloudBadge.classList.add('on');
+            rtNodes.style.opacity = 1;
+            scaleNodes.style.opacity = 0;
+            expressLaneGroup.style.opacity = 0;
+            scaleLaneGroup.style.opacity = 0;
+            databaseIcon.style.opacity = 0;
+            externalCatalogs.style.opacity = 0;
+            objectStorage.style.opacity = 0;
+            agent.classList.remove('on');
+            spark.classList.remove('on');
+
+            [laneA, laneB, laneC].forEach(l => l.classList.add('glow-teal'));
+
+            addCar('A', 'teal', 'data', 0.0034, 0.15);
+            addCar('B', 'teal', 'queries', 0.0031, 0.55);
+            addCar('C', 'teal', 'requests', 0.0030, 0.85);
+
+            startAnim();
+        }
+
+        function showScale() {
+            hideIntro();
+            setActiveButton('btnScale');
+            showAIRoad();
+            currentDemo = 'scale';
+
+            updateModeIndicator('scale', '🚀 Auto Scale: Data Lake Accelerator & Table Cache', 
+                'Automatically scale performance for large data lake queries while keeping costs predictable and operations simple.');
+
+            updateValueCard('Autonomous Performance Optimization', [
+                'Data Lake Accelerator: Automatically increases scan bandwidth during very large Iceberg queries. Scaling is on demand and billed only while queries run.',
+                'External table cache: Caches frequently accessed Iceberg data based on policy. Caching is transparent to applications and requires no query changes.',
+                'Auto tuning and indexing: The database automatically optimizes execution plans and creates indexes, including for queries over external Iceberg tables.',
+                'Built in Exadata performance: Auto scaling, auto patching, and continuous optimization are built into the underlying Exadata infrastructure.'
+            ]);
+
+            clearLaneGlow();
+            stopAnim();
+            clearCars();
+
+            barrier.classList.remove('on');
+            ai.classList.remove('on');
+            catalogSign.style.opacity = 0;  // HIDE catalog sign - not needed here
+            tableLayer.classList.add('on');
+            iceBadge.classList.add('on');
+            cloudBadge.classList.add('on');
+            rtNodes.style.opacity = 0;
+            scaleNodes.style.opacity = 1;
+            expressLaneGroup.style.opacity = 0;
+            scaleLaneGroup.style.opacity = 1;
+            databaseIcon.style.opacity = 0;
+            externalCatalogs.style.opacity = 0;
+            objectStorage.style.opacity = 0;
+            agent.classList.remove('on');
+            spark.classList.remove('on');
+
+            [laneScale2, laneScaleBack].forEach(l => l.classList.remove('glow-orange'));
+            [laneScale1].forEach(l => l.classList.remove('glow-blue'));
+            [laneA, laneB, laneC].forEach(l => l.classList.add('glow-teal'));
+
+            addCar('A', 'teal', 'query', 0.0034, 0.15);
+            addCar('B', 'teal', 'scan', 0.0031, 0.55);
+            addCar('C', 'teal', 'analyze', 0.0030, 0.85);
+
+            startAnim();
+        }
+
+        function resetDemo() {
+            currentDemo = null;
+            showIntro();
+            setActiveButton(null);
+            
+            // Show mode indicator on landing page
+            modeIndicator.className = 'mode-indicator active';
+            modeTitle.textContent = 'Oracle Autonomous AI Lakehouse';
+            modeDescription.textContent = 'A database driven lakehouse that brings performance, governance, and AI to open Iceberg data without copying it.';
+
+            // Show initial business value
+            valueCard.classList.add('active');
+            valueTitle.textContent = 'Database-Centric Lakehouse Architecture';
+            valueList.innerHTML = `
+                <div class="value-item">Autonomous Database as the execution engine for SQL, AI, optimization, and governance</div>
+                <div class="value-item">Query Iceberg tables in-place: Access open format data across OCI, AWS, Azure, GCP without movement</div>
+                <div class="value-item">Catalog of catalogs: Federate metadata from Unity, Glue, Polaris—discover without replacement</div>
+                <div class="value-item">In-database AI and analytics: Select AI, Vector Search, OML execute inside database—governed and audited</div>
+                <div class="value-item">Auto scaling and tuning: Data Lake Accelerator, External Table Cache, auto indexing—pay-as-you-go</div>
+            `;
+
+            clearLaneGlow();
+            stopAnim();
+            clearCars();
+
+            barrier.classList.remove('on');
+            ai.classList.remove('on');
+            catalogSign.style.opacity = 0;
+            tableLayer.classList.remove('on');
+            iceBadge.classList.remove('on');
+            cloudBadge.classList.remove('on');
+            rtNodes.style.opacity = 0;
+            scaleNodes.style.opacity = 0;
+            expressLaneGroup.style.opacity = 0;
+            scaleLaneGroup.style.opacity = 0;
+            databaseIcon.style.opacity = 0;
+            externalCatalogs.style.opacity = 0;
+            objectStorage.style.opacity = 0;
+            agent.classList.remove('on');
+            spark.classList.remove('on');
+        }
+
+        // Initialize
+        resetDemo();
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+
+    <!-- Fullscreen toggle button -->
+    <button class="fullscreen-toggle" onclick="toggleFullscreen()" aria-label="Toggle fullscreen">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+        </svg>
+    </button>
+</body>
+</html>

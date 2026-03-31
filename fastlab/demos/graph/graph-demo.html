@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oracle AI Database Graph - Fraud Detection Demo</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+        min-height: 100vh;
+    }
+
+    .header { background: linear-gradient(to right, #0f766e, #115e59); color: #fff; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,.1) }
+    .header-content { max-width: 1400px; margin: 0 auto }
+    .header-title { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
+    .header-title h1 { font-size: 28px; font-weight: 700 }
+    .header-subtitle { color: #99f6e4; font-size: 14px }
+
+    .problem-banner { 
+        background: #fff3cd; 
+        border: 2px solid #ffc107; 
+        padding: 16px; 
+        border-radius: 8px; 
+        margin: 20px auto; 
+        max-width: 1400px; 
+        display: flex; 
+        align-items: center; 
+        gap: 12px 
+    }
+    .problem-icon { font-size: 24px }
+    .problem-text { font-size: 18px; color: #856404; font-weight: 600 }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+    .button-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; align-items: center }
+
+    .btn { 
+        padding: 10px 20px; 
+        border-radius: 8px; 
+        border: none; 
+        font-size: 14px; 
+        font-weight: 600; 
+        cursor: pointer; 
+        transition: all .2s; 
+        min-height: 42px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none }
+    .btn.completed { background: #16a34a !important }
+    .btn.completed::before { content: '✓ '; font-weight: bold }
+
+    .btn-teal { background: #0d9488 }
+    .btn-teal:hover { background: #0f766e }
+    .btn-purple { background: #9333ea }
+    .btn-purple:hover { background: #7c3aed }
+    .btn-blue { background: #2563eb }
+    .btn-blue:hover { background: #1e40af }
+    .btn-orange { background: #ea580c }
+    .btn-orange:hover { background: #c2410c }
+    .btn-danger { background: #ef4444 }
+    .btn-danger:hover { background: #dc2626 }
+
+    .btn-mode { position: relative }
+    .btn-mode.without { background: #FF6F60 }
+    .btn-mode.without:hover { background: #FF5440 }
+    .btn-mode.with { background: #1B5E20 }
+    .btn-mode.with:hover { background: #145016 }
+    .btn-mode.active::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid currentColor;
+    }
+
+    .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px }
+    @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr } }
+
+    .panel { background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,.1); overflow: hidden; display: flex; flex-direction: column }
+    .panel-header { background: #1f2937; color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600 }
+    .panel-content { padding: 16px; flex: 1; overflow-y: auto }
+
+    .mode-indicator { 
+        background: #f0f9ff; 
+        border: 2px solid #0284c7; 
+        padding: 12px; 
+        border-radius: 6px; 
+        margin-bottom: 16px; 
+        display: none 
+    }
+    .mode-indicator.active { display: block }
+    .mode-indicator.without { background: #fef2f2; border-color: #dc2626 }
+    .mode-indicator.with { background: #f0fdf4; border-color: #16a34a }
+    .mode-indicator.analytics { background: #f3e8ff; border-color: #9333ea }
+    .mode-title { font-size: 16px; font-weight: 700; margin-bottom: 4px }
+    .mode-without { color: #dc2626 }
+    .mode-with { color: #16a34a }
+    .mode-analytics { color: #9333ea }
+    .mode-description { font-size: 13px; color: #6b7280 }
+
+    .sql-box {
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        white-space: pre-wrap;
+        background: #f9fafb;
+        padding: 16px;
+        border-radius: 4px;
+        border: 1px solid #e5e7eb;
+        min-height: 120px;
+        max-height: 220px;
+        overflow-y: auto;
+    }
+
+    .results-summary {
+        background: #dcfce7;
+        border: 2px solid #22c55e;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 12px 0;
+        display: none;
+    }
+    .results-summary.error { background: #fef2f2; border-color: #dc2626 }
+    .results-summary.success { background: #dcfce7; border-color: #22c55e }
+    .results-icon { font-size: 20px; margin-right: 8px; vertical-align: middle }
+    .results-text { font-size: 14px; font-weight: 600 }
+
+    .data-table-container { margin-top: 12px; border-top: 2px solid #e5e7eb; padding-top: 12px; overflow: auto }
+    .data-table { width: 100%; font-size: 11px; border-collapse: collapse; min-width: 500px }
+    .data-table th { background: #f3f4f6; padding: 8px; text-align: left; font-weight: 600; color: #374151; border: 1px solid #e5e7eb }
+    .data-table td { padding: 8px; border: 1px solid #e5e7eb; color: #1f2937 }
+    .data-table .highlight-row { background: #fef3c7 }
+    .data-table .fraud-row { background: #fee2e2; border: 2px solid #ef4444 }
+
+    #graphCanvas { 
+        width: 100%; 
+        height: auto; 
+        aspect-ratio: 16/10; 
+        border: 1px solid #e5e7eb; 
+        border-radius: 8px; 
+        background: #1e293b;
+    }
+
+    .visualization-explanation {
+        background: #f0f9ff;
+        border-left: 4px solid #0284c7;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 4px;
+    }
+    .viz-title { font-size: 14px; font-weight: 700; color: #0c4a6e; margin-bottom: 8px }
+    .viz-point { font-size: 12px; color: #475569; line-height: 1.6; margin-bottom: 4px; padding-left: 16px; position: relative }
+    .viz-point::before { content: '•'; position: absolute; left: 0; color: #0284c7; font-weight: bold }
+
+    .legend-section { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #374151 }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50% }
+    .legend-dot.person { background: #3b82f6 }
+    .legend-dot.account { background: #10b981 }
+    .legend-dot.suspicious { background: #ef4444 }
+    .legend-dot.flagged { background: #f59e0b }
+
+    .fullscreen-toggle {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 9999;
+        width: 46px;
+        height: 46px;
+        border: none;
+        border-radius: 10px;
+        background: #111827;
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(0,0,0,.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform .15s ease, opacity .2s ease, background .2s ease;
+        opacity: .9;
+    }
+    .fullscreen-toggle:hover { transform: translateY(-1px); opacity: 1; background: #0b1220 }
+    .fullscreen-toggle svg { width: 22px; height: 22px; display: block; fill: currentColor }
+
+    @keyframes pulseNode {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                </svg>
+                <h1>Oracle AI Database Graph</h1>
+            </div>
+            <p class="header-subtitle">Uncover insights from relationships within large datasets</p>
+        </div>
+    </div>
+
+    <!-- Problem Statement Banner -->
+    <div class="problem-banner">
+        <span class="problem-icon">🔍</span>
+        <span class="problem-text">"Find all accounts that received money from a suspicious person through 1 to 3 intermediaries"</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="button-group">
+            <button id="btnSetup" class="btn btn-teal" onclick="setupDemo()">⛁ Create Graph</button>
+            <button id="btnWithout" class="btn btn-mode without" onclick="queryWithoutGraph()">❌ Without Graph</button>
+            <button id="btnWith" class="btn btn-mode with" onclick="queryWithGraph()">✅ With Graph</button>
+            <button id="btnAnalytics" class="btn btn-purple" onclick="runAnalytics()">📊 Find Fraud Ring</button>
+            <button id="btnReset" class="btn btn-danger" onclick="resetDemo()">🔄 Reset</button>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left Panel - Query & Results -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>▶</span>
+                    <span>Bank Transactions Analysis</span>
+                </div>
+                <div class="panel-content">
+                    <!-- Mode Indicator -->
+                    <div id="modeIndicator" class="mode-indicator">
+                        <div class="mode-title"></div>
+                        <div class="mode-description"></div>
+                    </div>
+
+                    <!-- Results Summary -->
+                    <div id="resultsSummary" class="results-summary">
+                        <span class="results-icon"></span>
+                        <span class="results-text"></span>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div id="dataTableContainer" class="data-table-container" style="display: none;">
+                        <div style="font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 8px;">📊 Query Results</div>
+                        <div id="dataTable"></div>
+                    </div>
+
+                    <!-- SQL Display -->
+                    <div style="font-size: 12px; font-weight: 600; color: #374151; margin: 16px 0 8px;">💡 SQL Query</div>
+                    <div id="sqlLog" class="sql-box">-- Oracle AI Database Graph Demo
+-- Fraud Detection with Graph Queries
+-- Click "Create Graph" to begin</div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Graph Visualization -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span style="color: #fbbf24;">🔗</span>
+                    <span>Transaction Network Graph</span>
+                </div>
+                <div class="panel-content">
+                    <div class="visualization-explanation">
+                        <div class="viz-title">Why Graph for Fraud Detection?</div>
+                        <div class="viz-point"><strong>Traditional SQL:</strong> Requires complex JOINs for each hop - performance degrades exponentially</div>
+                        <div class="viz-point"><strong>Graph Query:</strong> Traverse any number of relationships in milliseconds</div>
+                        <div class="viz-point"><strong>Pattern Detection:</strong> Find fraud rings, money laundering paths, and suspicious clusters</div>
+                        
+                        <div class="legend-section">
+                            <div class="legend-item"><div class="legend-dot person"></div>Person</div>
+                            <div class="legend-item"><div class="legend-dot account"></div>Account</div>
+                            <div class="legend-item"><div class="legend-dot suspicious"></div>Suspicious</div>
+                            <div class="legend-item"><div class="legend-dot flagged"></div>Flagged</div>
+                        </div>
+                    </div>
+                    
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Toggle -->
+    <button id="fsToggle" class="fullscreen-toggle" title="Full screen (F)">
+        <svg viewBox="0 0 24 24">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/>
+        </svg>
+    </button>
+
+<script>
+/* ==============================
+   DATA - Bank Transaction Network
+   ============================== */
+const nodes = [
+    // People
+    { id: 'P1', type: 'person', name: 'Russell Rivera', x: 0.15, y: 0.3, suspicious: true },
+    { id: 'P2', type: 'person', name: 'Maria Chen', x: 0.85, y: 0.25, suspicious: false },
+    { id: 'P3', type: 'person', name: 'James Wilson', x: 0.5, y: 0.85, suspicious: false },
+    // Accounts
+    { id: 'A1', type: 'account', name: 'ACC-1001', x: 0.3, y: 0.2, suspicious: false },
+    { id: 'A2', type: 'account', name: 'ACC-2045', x: 0.35, y: 0.5, suspicious: false },
+    { id: 'A3', type: 'account', name: 'ACC-3892', x: 0.55, y: 0.35, suspicious: false },
+    { id: 'A4', type: 'account', name: 'ACC-4127', x: 0.7, y: 0.5, suspicious: false },
+    { id: 'A5', type: 'account', name: 'ACC-5563', x: 0.75, y: 0.7, suspicious: false },
+    { id: 'A6', type: 'account', name: 'ACC-6001', x: 0.25, y: 0.7, suspicious: false },
+    { id: 'A7', type: 'account', name: 'ACC-7234', x: 0.5, y: 0.6, suspicious: false },
+];
+
+const edges = [
+    // Russell Rivera's direct transfers
+    { from: 'P1', to: 'A1', label: 'owns', amount: null },
+    { from: 'A1', to: 'A2', label: 'transfer', amount: 15000 },
+    { from: 'A1', to: 'A3', label: 'transfer', amount: 8500 },
+    // Chain transfers (potential money laundering path)
+    { from: 'A2', to: 'A6', label: 'transfer', amount: 12000 },
+    { from: 'A2', to: 'A7', label: 'transfer', amount: 3000 },
+    { from: 'A3', to: 'A4', label: 'transfer', amount: 8000 },
+    { from: 'A4', to: 'A5', label: 'transfer', amount: 7500 },
+    { from: 'A7', to: 'A4', label: 'transfer', amount: 2500 },
+    // Person ownership
+    { from: 'P2', to: 'A5', label: 'owns', amount: null },
+    { from: 'P3', to: 'A6', label: 'owns', amount: null },
+    // Circular pattern (fraud ring indicator)
+    { from: 'A6', to: 'A7', label: 'transfer', amount: 5000 },
+    { from: 'A5', to: 'A3', label: 'transfer', amount: 4000 },
+];
+
+/* State */
+let hasGraph = false;
+let currentMode = null;
+let highlightedNodes = [];
+let highlightedEdges = [];
+let fraudRingNodes = [];
+
+/* ==============================
+   Canvas Rendering
+   ============================== */
+function resizeCanvas() {
+    const canvas = document.getElementById('graphCanvas');
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = canvas.clientWidth;
+    const cssHeight = canvas.clientHeight || (cssWidth * 10 / 16);
+    
+    canvas.style.height = cssHeight + 'px';
+    canvas.width = Math.floor(cssWidth * dpr);
+    canvas.height = Math.floor(cssHeight * dpr);
+    
+    drawGraph();
+}
+
+function drawGraph() {
+    const canvas = document.getElementById('graphCanvas');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = canvas.clientWidth;
+    const cssHeight = canvas.clientHeight;
+    
+    ctx.save();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+    
+    // Background
+    ctx.fillStyle = '#1e293b';
+    ctx.fillRect(0, 0, cssWidth, cssHeight);
+    
+    if (!hasGraph) {
+        ctx.fillStyle = '#64748b';
+        ctx.font = '16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Click "Create Graph" to visualize the transaction network', cssWidth / 2, cssHeight / 2);
+        ctx.font = '14px sans-serif';
+        ctx.fillText('Graph will be derived from existing relational tables', cssWidth / 2, cssHeight / 2 + 25);
+        ctx.restore();
+        return;
+    }
+    
+    // Draw edges
+    edges.forEach(edge => {
+        const fromNode = nodes.find(n => n.id === edge.from);
+        const toNode = nodes.find(n => n.id === edge.to);
+        if (!fromNode || !toNode) return;
+        
+        const x1 = fromNode.x * cssWidth;
+        const y1 = fromNode.y * cssHeight;
+        const x2 = toNode.x * cssWidth;
+        const y2 = toNode.y * cssHeight;
+        
+        const isHighlighted = highlightedEdges.some(e => e.from === edge.from && e.to === edge.to);
+        const isFraudRing = fraudRingNodes.length > 0 && 
+            fraudRingNodes.includes(edge.from) && fraudRingNodes.includes(edge.to);
+        
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        
+        if (isFraudRing) {
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 4;
+        } else if (isHighlighted) {
+            ctx.strokeStyle = '#22c55e';
+            ctx.lineWidth = 3;
+        } else {
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 1.5;
+        }
+        ctx.stroke();
+        
+        // Arrow head
+        const angle = Math.atan2(y2 - y1, x2 - x1);
+        const headLen = 10;
+        const midX = (x1 + x2) / 2 + (x2 - x1) * 0.15;
+        const midY = (y1 + y2) / 2 + (y2 - y1) * 0.15;
+        
+        ctx.beginPath();
+        ctx.moveTo(midX, midY);
+        ctx.lineTo(midX - headLen * Math.cos(angle - Math.PI / 6), midY - headLen * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(midX - headLen * Math.cos(angle + Math.PI / 6), midY - headLen * Math.sin(angle + Math.PI / 6));
+        ctx.closePath();
+        ctx.fillStyle = isHighlighted ? '#22c55e' : (isFraudRing ? '#f59e0b' : '#475569');
+        ctx.fill();
+        
+        // Edge label (amount)
+        if (edge.amount) {
+            const labelX = (x1 + x2) / 2;
+            const labelY = (y1 + y2) / 2 - 8;
+            ctx.font = '10px sans-serif';
+            ctx.fillStyle = isHighlighted ? '#86efac' : (isFraudRing ? '#fcd34d' : '#94a3b8');
+            ctx.textAlign = 'center';
+            ctx.fillText('$' + edge.amount.toLocaleString(), labelX, labelY);
+        }
+    });
+    
+    // Draw nodes
+    nodes.forEach(node => {
+        const x = node.x * cssWidth;
+        const y = node.y * cssHeight;
+        const radius = node.type === 'person' ? 22 : 18;
+        
+        const isHighlighted = highlightedNodes.includes(node.id);
+        const isFraudRing = fraudRingNodes.includes(node.id);
+        
+        // Glow effect for highlighted nodes
+        if (isHighlighted || isFraudRing) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius + 8, 0, Math.PI * 2);
+            ctx.fillStyle = isFraudRing ? 'rgba(245, 158, 11, 0.3)' : 'rgba(34, 197, 94, 0.3)';
+            ctx.fill();
+        }
+        
+        // Node circle
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        
+        if (node.suspicious) {
+            ctx.fillStyle = '#ef4444';
+        } else if (isFraudRing) {
+            ctx.fillStyle = '#f59e0b';
+        } else if (isHighlighted) {
+            ctx.fillStyle = '#22c55e';
+        } else if (node.type === 'person') {
+            ctx.fillStyle = '#3b82f6';
+        } else {
+            ctx.fillStyle = '#10b981';
+        }
+        ctx.fill();
+        
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Node icon
+        ctx.fillStyle = '#fff';
+        ctx.font = node.type === 'person' ? '14px sans-serif' : '12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(node.type === 'person' ? '👤' : '🏦', x, y);
+        
+        // Node label
+        ctx.font = 'bold 11px sans-serif';
+        ctx.fillStyle = '#f1f5f9';
+        ctx.textAlign = 'center';
+        ctx.fillText(node.name, x, y + radius + 14);
+    });
+    
+    ctx.restore();
+}
+
+/* ==============================
+   Demo Functions
+   ============================== */
+function setupDemo() {
+    hasGraph = true;
+    currentMode = 'setup';
+    highlightedNodes = [];
+    highlightedEdges = [];
+    fraudRingNodes = [];
+    
+    document.getElementById('modeIndicator').className = 'mode-indicator active';
+    document.getElementById('modeIndicator').querySelector('.mode-title').innerHTML = '⛁ Graph Created from Relational Tables';
+    document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 
+        'Graph view derived from ACCOUNTS and TRANSACTIONS tables - no data copy needed';
+    
+    document.getElementById('sqlLog').textContent = `-- Create Property Graph from existing relational tables
+-- No data duplication - just a new view of your data
+
+CREATE PROPERTY GRAPH bank_graph
+  VERTEX TABLES (
+    persons KEY (person_id)
+      LABEL person
+      PROPERTIES (name, risk_score),
+    accounts KEY (account_id)
+      LABEL account  
+      PROPERTIES (account_num, balance, status)
+  )
+  EDGE TABLES (
+    account_owners KEY (owner_id)
+      SOURCE KEY (person_id) REFERENCES persons
+      DESTINATION KEY (account_id) REFERENCES accounts
+      LABEL owns,
+    transactions KEY (txn_id)
+      SOURCE KEY (from_account) REFERENCES accounts
+      DESTINATION KEY (to_account) REFERENCES accounts
+      LABEL transfer
+      PROPERTIES (amount, txn_date)
+  );
+
+-- ✔ Graph created with ${nodes.length} nodes and ${edges.length} edges
+-- ✔ Includes: ${nodes.filter(n => n.type === 'person').length} persons, ${nodes.filter(n => n.type === 'account').length} accounts
+-- ✔ Ready for graph queries and analytics`;
+    
+    document.getElementById('resultsSummary').style.display = 'none';
+    document.getElementById('dataTableContainer').style.display = 'none';
+    
+    document.getElementById('btnSetup').classList.add('completed');
+    
+    drawGraph();
+}
+
+function queryWithoutGraph() {
+    if (!hasGraph) {
+        alert('Please create the graph first');
+        return;
+    }
+    
+    currentMode = 'without';
+    highlightedNodes = ['A2', 'A3'];  // Only direct transfers found
+    highlightedEdges = [
+        { from: 'A1', to: 'A2' },
+        { from: 'A1', to: 'A3' }
+    ];
+    fraudRingNodes = [];
+    
+    document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnWithout').classList.add('active');
+    
+    document.getElementById('modeIndicator').className = 'mode-indicator without active';
+    document.getElementById('modeIndicator').querySelector('.mode-title').innerHTML = 
+        '<span class="mode-without">❌ Traditional SQL Query</span>';
+    document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 
+        'Finding accounts 1-3 hops away requires nested JOINs - complex and slow';
+    
+    document.getElementById('sqlLog').textContent = `-- Traditional SQL: Find accounts receiving money from Russell Rivera
+-- via 1 to 3 intermediate accounts
+-- WARNING: This requires complex nested JOINs!
+
+SELECT DISTINCT a3.account_num AS receiving_account
+FROM accounts a1
+JOIN transactions t1 ON a1.account_id = t1.from_account
+JOIN accounts a2 ON t1.to_account = a2.account_id
+-- 1 hop found... but we need up to 3 hops!
+LEFT JOIN transactions t2 ON a2.account_id = t2.from_account
+LEFT JOIN accounts a3 ON t2.to_account = a3.account_id
+-- 2 hops... getting complex
+LEFT JOIN transactions t3 ON a3.account_id = t3.from_account
+LEFT JOIN accounts a4 ON t3.to_account = a4.account_id
+-- 3 hops... this is getting unwieldy
+WHERE a1.owner_name = 'Russell Rivera'
+  AND (a2.account_id IS NOT NULL 
+       OR a3.account_id IS NOT NULL 
+       OR a4.account_id IS NOT NULL);
+
+-- ⚠️ Problems with this approach:
+-- • Query complexity grows exponentially with hops
+-- • Performance degrades rapidly (O(n³) for 3 hops)
+-- • Hard to maintain and modify
+-- • Cannot easily detect circular patterns (fraud rings)
+-- • Easy to miss accounts — queries are hard to verify`;
+
+    document.getElementById('resultsSummary').className = 'results-summary error';
+    document.getElementById('resultsSummary').style.display = 'block';
+    document.getElementById('resultsSummary').innerHTML = `
+        <span class="results-icon">⚠️</span>
+        <span class="results-text">Requires complex JOINs and hard-to-verify queries — can miss accounts in the network</span>
+    `;
+    
+    // Show limited results table
+    document.getElementById('dataTableContainer').style.display = 'block';
+    document.getElementById('dataTable').innerHTML = `
+        <table class="data-table">
+            <thead>
+                <tr><th>Account</th><th>Hops from Source</th><th>Amount Received</th></tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row"><td>ACC-2045</td><td>1</td><td>$15,000</td></tr>
+                <tr class="highlight-row"><td>ACC-3892</td><td>1</td><td>$8,500</td></tr>
+                <tr><td colspan="3" style="color: #dc2626; font-style: italic; text-align: center;">
+                    ⚠️ Query too complex to find 2-3 hop accounts efficiently
+                </td></tr>
+            </tbody>
+        </table>
+    `;
+    
+    drawGraph();
+}
+
+function queryWithGraph() {
+    if (!hasGraph) {
+        alert('Please create the graph first');
+        return;
+    }
+    
+    currentMode = 'with';
+    // All accounts reachable within 1-3 hops
+    highlightedNodes = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'];
+    highlightedEdges = [
+        { from: 'P1', to: 'A1' },
+        { from: 'A1', to: 'A2' },
+        { from: 'A1', to: 'A3' },
+        { from: 'A2', to: 'A6' },
+        { from: 'A2', to: 'A7' },
+        { from: 'A3', to: 'A4' },
+        { from: 'A4', to: 'A5' },
+        { from: 'A7', to: 'A4' },
+    ];
+    fraudRingNodes = [];
+    
+    document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnWith').classList.add('active');
+    
+    document.getElementById('modeIndicator').className = 'mode-indicator with active';
+    document.getElementById('modeIndicator').querySelector('.mode-title').innerHTML = 
+        '<span class="mode-with">✅ Graph Query (SQL:2023)</span>';
+    document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 
+        'Simple pattern matching traverses any depth in milliseconds';
+    
+    document.getElementById('sqlLog').textContent = `-- Graph Query: Find ALL accounts receiving money from Russell Rivera
+-- via 1 to 3 intermediate transfers
+-- Using SQL:2023 standard GRAPH_TABLE syntax
+
+SELECT account_id, account_num, hops, total_amount
+FROM GRAPH_TABLE (bank_graph
+  MATCH (p:person WHERE p.name = 'Russell Rivera')
+        -[:owns]->(source:account)
+        -[:transfer]->{1,3}(dest:account)
+  COLUMNS (
+    dest.account_id,
+    dest.account_num,
+    LENGTH(path) AS hops,
+    SUM(transfer.amount) AS total_amount
+  )
+)
+ORDER BY hops, total_amount DESC;
+
+-- ✅ Advantages of Graph Query:
+-- • Simple, readable syntax
+-- • {1,3} = match 1 to 3 hops (any depth easily)
+-- • Executes in milliseconds regardless of depth
+-- • Found ALL 7 connected accounts instantly
+-- • Easy to modify for different patterns`;
+
+    document.getElementById('resultsSummary').className = 'results-summary success';
+    document.getElementById('resultsSummary').style.display = 'block';
+    document.getElementById('resultsSummary').innerHTML = `
+        <span class="results-icon">✅</span>
+        <span class="results-text">Found all 7 connected accounts in the money flow network!</span>
+    `;
+    
+    // Show complete results
+    document.getElementById('dataTableContainer').style.display = 'block';
+    document.getElementById('dataTable').innerHTML = `
+        <table class="data-table">
+            <thead>
+                <tr><th>Account</th><th>Hops</th><th>Path Amount</th><th>Risk Flag</th></tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row"><td>ACC-1001</td><td>0 (source)</td><td>-</td><td>🔴 Owner flagged</td></tr>
+                <tr class="highlight-row"><td>ACC-2045</td><td>1</td><td>$15,000</td><td>-</td></tr>
+                <tr class="highlight-row"><td>ACC-3892</td><td>1</td><td>$8,500</td><td>-</td></tr>
+                <tr class="highlight-row"><td>ACC-6001</td><td>2</td><td>$12,000</td><td>-</td></tr>
+                <tr class="highlight-row"><td>ACC-7234</td><td>2</td><td>$3,000</td><td>-</td></tr>
+                <tr class="highlight-row"><td>ACC-4127</td><td>2</td><td>$8,000</td><td>⚠️ Multiple paths</td></tr>
+                <tr class="highlight-row"><td>ACC-5563</td><td>3</td><td>$7,500</td><td>-</td></tr>
+            </tbody>
+        </table>
+    `;
+    
+    drawGraph();
+}
+
+function runAnalytics() {
+    if (!hasGraph) {
+        alert('Please create the graph first');
+        return;
+    }
+    
+    currentMode = 'analytics';
+    highlightedNodes = [];
+    highlightedEdges = [];
+    // Fraud ring: circular pattern A3 -> A4 -> A5 -> A3
+    fraudRingNodes = ['A3', 'A4', 'A5', 'A6', 'A7'];
+    
+    document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
+    
+    document.getElementById('modeIndicator').className = 'mode-indicator analytics active';
+    document.getElementById('modeIndicator').querySelector('.mode-title').innerHTML = 
+        '<span class="mode-analytics">📊 Graph Analytics: Fraud Ring Detection</span>';
+    document.getElementById('modeIndicator').querySelector('.mode-description').textContent = 
+        'Built-in algorithms detect cycles and suspicious patterns automatically';
+    
+    document.getElementById('sqlLog').textContent = `-- Graph Analytics: Detect circular money flow patterns (fraud rings)
+-- Using PGQL (Property Graph Query Language) for advanced pattern matching
+
+SELECT cycle_id, accounts_in_cycle, total_flow, risk_score
+FROM GRAPH_TABLE (bank_graph
+  MATCH (a:account)-[:transfer]->{3,}(a)
+  WHERE a.account_id = a.account_id  -- cycle back to same node
+  COLUMNS (
+    LISTAGG(a.account_num, ' → ') AS accounts_in_cycle,
+    SUM(e.amount) AS total_flow,
+    CASE 
+      WHEN SUM(e.amount) > 10000 THEN 'HIGH'
+      ELSE 'MEDIUM'
+    END AS risk_score
+  )
+);
+
+-- Additional analytics available:
+-- • PageRank: Find influential accounts
+-- • Community Detection: Identify clusters
+-- • Shortest Path: Trace money flow routes
+-- • Centrality: Find hub accounts
+
+-- 🚨 FRAUD RING DETECTED!
+-- Circular pattern found: ACC-3892 → ACC-4127 → ACC-5563 → ACC-3892
+-- Total flow in ring: $19,500
+-- Risk Level: HIGH`;
+
+    document.getElementById('resultsSummary').className = 'results-summary';
+    document.getElementById('resultsSummary').style.display = 'block';
+    document.getElementById('resultsSummary').style.background = '#fef3c7';
+    document.getElementById('resultsSummary').style.borderColor = '#f59e0b';
+    document.getElementById('resultsSummary').innerHTML = `
+        <span class="results-icon">🚨</span>
+        <span class="results-text" style="color: #92400e;">FRAUD RING DETECTED! Circular money flow pattern identified</span>
+    `;
+    
+    document.getElementById('dataTableContainer').style.display = 'block';
+    document.getElementById('dataTable').innerHTML = `
+        <table class="data-table">
+            <thead>
+                <tr><th>Pattern Type</th><th>Accounts Involved</th><th>Total Flow</th><th>Risk</th></tr>
+            </thead>
+            <tbody>
+                <tr class="fraud-row">
+                    <td>🔄 Circular Flow</td>
+                    <td>ACC-3892 → ACC-4127 → ACC-5563 → ACC-3892</td>
+                    <td>$19,500</td>
+                    <td style="color: #dc2626; font-weight: bold;">HIGH</td>
+                </tr>
+                <tr class="fraud-row">
+                    <td>🔄 Circular Flow</td>
+                    <td>ACC-6001 → ACC-7234 → ACC-4127 → ...</td>
+                    <td>$10,500</td>
+                    <td style="color: #f59e0b; font-weight: bold;">MEDIUM</td>
+                </tr>
+                <tr>
+                    <td>📊 Hub Account</td>
+                    <td>ACC-4127 (receives from multiple paths)</td>
+                    <td>$10,500</td>
+                    <td style="color: #f59e0b;">Review</td>
+                </tr>
+            </tbody>
+        </table>
+    `;
+    
+    document.getElementById('btnAnalytics').classList.add('completed');
+    
+    drawGraph();
+}
+
+function resetDemo() {
+    hasGraph = false;
+    currentMode = null;
+    highlightedNodes = [];
+    highlightedEdges = [];
+    fraudRingNodes = [];
+    
+    document.querySelectorAll('.btn').forEach(b => {
+        b.classList.remove('completed', 'active');
+    });
+    
+    document.getElementById('modeIndicator').classList.remove('active');
+    document.getElementById('resultsSummary').style.display = 'none';
+    document.getElementById('dataTableContainer').style.display = 'none';
+    
+    document.getElementById('sqlLog').textContent = `-- Oracle AI Database Graph Demo
+-- Fraud Detection with Graph Queries
+-- Click "Create Graph" to begin`;
+    
+    drawGraph();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ==============================
+   Fullscreen Toggle
+   ============================== */
+const fsBtn = document.getElementById('fsToggle');
+
+function isFullscreen() {
+    return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+}
+
+async function enterFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) return elem.requestFullscreen();
+    if (elem.webkitRequestFullscreen) return elem.webkitRequestFullscreen();
+    if (elem.msRequestFullscreen) return elem.msRequestFullscreen();
+}
+
+async function exitFullscreen() {
+    if (document.exitFullscreen) return document.exitFullscreen();
+    if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+    if (document.msExitFullscreen) return document.msExitFullscreen();
+}
+
+function updateFsButtonUI() {
+    const active = isFullscreen();
+    fsBtn.innerHTML = active
+        ? '<svg viewBox="0 0 24 24"><path d="M9 7H5v4H3V5a2 2 0 0 1 2-2h6v2H9zm6-2h6a2 2 0 0 1 2 2v6h-2V9h-4V7zM3 13h2v4h4v2H5a2 2 0 0 1-2-2v-4zm18 0v4a2 2 0 0 1-2 2h-4v-2h4v-4h2z"/></svg>'
+        : '<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>';
+}
+
+fsBtn.addEventListener('click', async () => {
+    try {
+        if (!isFullscreen()) await enterFullscreen();
+        else await exitFullscreen();
+    } catch (e) { console.warn('Fullscreen failed:', e); }
+});
+
+document.addEventListener('fullscreenchange', updateFsButtonUI);
+document.addEventListener('webkitfullscreenchange', updateFsButtonUI);
+
+document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const target = e.target;
+        if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA') {
+            fsBtn.click();
+        }
+    }
+});
+
+/* ==============================
+   Initialize
+   ============================== */
+let resizeTimeout;
+window.addEventListener('load', () => {
+    resizeCanvas();
+    updateFsButtonUI();
+});
+
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeCanvas, 100);
+});
+</script>
+</body>
+</html>
