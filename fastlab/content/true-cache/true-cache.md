@@ -68,6 +68,8 @@ In a production environment, Seer Retail would deploy True Cache on dedicated se
 
     ![True Cache IP](images/truecache-ip.png)
 
+    
+
 7. SSH into your compute instance:
 
     ```bash
@@ -76,6 +78,10 @@ In a production environment, Seer Retail would deploy True Cache on dedicated se
     </copy>
     ```
     ![True Cache SSH](images/truecache-ssh.png)
+
+    > **Tip:** You can use OCI Cloud Shell (accessible from the top-right corner of the OCI Console). This opens a browser-based terminal with your credentials already configured, so you don’t need to SSH from your local machine.
+
+    ![True Cache Cloudshell](images/truecache-cloudshell.png)
 
 8. Update system packages and install required tools:
 
@@ -615,7 +621,7 @@ If you created an OCI Compute instance for this lab and no longer need it:
 ![True Cache Compute](images/truecache-compute.png)
 2. Click on your **true-cache-demo** instance.
 ![True Cache Instance](images/truecache-truecacheinstance.png)
-3. Click **More Actions > Terminate**.
+3. Click **Actions > Terminate**.
 ![True Cache Actions](images/truecache-actions.png)
 4. Check **Permanently delete the attached boot volume** if you don't need to preserve the data.
 5. Click **Terminate Instance**.

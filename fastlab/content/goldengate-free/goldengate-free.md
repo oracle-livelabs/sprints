@@ -57,7 +57,7 @@ GoldenGate deployments require a host environment where both the replication eng
 5. Click **Create** and wait for the instance to reach **Running** state.
 ![GoldenGate Running](./images/gg-running.png " ")
 6. Note the **Public IP Address** from the instance details page.
-
+![GoldenGate Insance IP](./images/gg-instanceIP.png " ")
 ## Task 2: Connect and Install Podman
 
 Containers provide a fast, repeatable way to deploy Oracle software without complex installation procedures. Podman is Oracle Linux's preferred container runtime—it's daemonless, rootless-capable, and fully compatible with Docker images. By using containers, you can have GoldenGate and Oracle Database running in minutes rather than hours.
