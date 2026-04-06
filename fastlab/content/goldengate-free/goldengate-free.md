@@ -73,6 +73,10 @@ Connect to your instance and install Podman.
     ```
     ![GoldenGate SSH](./images/gg-ssh.png " ")
 
+     > **Tip:** You can use OCI Cloud Shell (accessible from the top-right corner of the OCI Console). This opens a browser-based terminal with your credentials already configured, so you don’t need to SSH from your local machine.
+
+     ![GoldenGate SSH](./images/gg-cloudshell.png " ")
+
 2. Update the system packages:
 
     ```bash
