@@ -31,6 +31,8 @@ GoldenGate deployments require a host environment where both the replication eng
 **For OCI Compute:** Create a Linux compute instance to host the GoldenGate Free and Oracle AI Database Free containers.
 
 1. In the OCI Console, navigate to **Compute > Instances** and click **Create Instance**.
+![GoldenGate SSH](./images/gg-compute.png " ")
+![GoldenGate SSH](./images/gg-createinstance.png " ")
 
 2. Configure the instance:
 
@@ -43,14 +45,19 @@ GoldenGate deployments require a host environment where both the replication eng
 
     > Note: 16 GB RAM is recommended to run both database and GoldenGate containers.
 
+    ![GoldenGate Instance](./images/gg-instance.png " ")
+    ![GoldenGate Image/Shape](./images/gg-image_shape.png " ")
+
 3. Under **Networking**, select a public subnet.
+![GoldenGate Networking](./images/gg-networking.png " ")
 
 4. Under **Add SSH keys**, upload your public SSH key or generate a new key pair. Download the private key if generated.
+![GoldenGate SSH Keys](./images/gg-sshkey.png " ")
 
 5. Click **Create** and wait for the instance to reach **Running** state.
-
+![GoldenGate Running](./images/gg-running.png " ")
 6. Note the **Public IP Address** from the instance details page.
-
+![GoldenGate Insance IP](./images/gg-instanceIP.png " ")
 ## Task 2: Connect and Install Podman
 
 Containers provide a fast, repeatable way to deploy Oracle software without complex installation procedures. Podman is Oracle Linux's preferred container runtime—it's daemonless, rootless-capable, and fully compatible with Docker images. By using containers, you can have GoldenGate and Oracle Database running in minutes rather than hours.
@@ -64,6 +71,11 @@ Connect to your instance and install Podman.
     ssh -i <your-private-key> opc@<public-ip-address>
     </copy>
     ```
+    ![GoldenGate SSH](./images/gg-ssh.png " ")
+
+     > **Tip:** You can use OCI Cloud Shell (accessible from the top-right corner of the OCI Console). This opens a browser-based terminal with your credentials already configured, so you don’t need to SSH from your local machine.
+
+     ![GoldenGate SSH](./images/gg-cloudshell.png " ")
 
 2. Update the system packages:
 
@@ -73,6 +85,8 @@ Connect to your instance and install Podman.
     </copy>
     ```
 
+    ![GoldenGate Packages](./images/gg-packages.png " ")
+
 3. Install Podman:
 
     ```bash
@@ -80,6 +94,7 @@ Connect to your instance and install Podman.
     sudo dnf install -y podman
     </copy>
     ```
+    ![GoldenGate Podman](./images/gg-podman.png " ")
 
 4. Verify Podman is installed:
 
@@ -90,6 +105,8 @@ Connect to your instance and install Podman.
     ```
 
     You should see output like `podman version 5.x.x`.
+
+    ![GoldenGate Verify](./images/gg-verify.png " ")
 
 ## Task 3: Deploy Oracle AI Database Free Container
 
@@ -104,6 +121,7 @@ Pull and run the Oracle AI Database Free container.
     sudo podman pull container-registry.oracle.com/database/free:latest
     </copy>
     ```
+    ![GoldenGate Pull](./images/gg-pull.png " ")
 
 2. Run the Oracle AI Database Free container:
 
@@ -115,6 +133,7 @@ Pull and run the Oracle AI Database Free container.
       container-registry.oracle.com/database/free:latest
     </copy>
     ```
+    ![GoldenGate Run](./images/gg-runcontainer.png " ")
 
 3. Wait for the database to be ready (this takes 2-5 minutes). Check the logs:
 
@@ -125,6 +144,8 @@ Pull and run the Oracle AI Database Free container.
     ```
 
     Wait until you see `DATABASE IS READY TO USE!` then press `Ctrl+C` to exit the logs.
+
+    ![GoldenGate Log](./images/gg-logs.png " ")
 
 4. Get the container's IP address for GoldenGate to connect:
 
@@ -137,6 +158,8 @@ Pull and run the Oracle AI Database Free container.
     Note this IP address (e.g., `10.88.0.x`) - you'll need it for the GoldenGate connection.
 
     > Note: Both containers run on Podman's internal bridge network. GoldenGate connects to the database using this internal network IP, not the host's public IP. This allows container-to-container communication without exposing the database externally.
+
+    ![GoldenGate IP](./images/gg-IP.png " ")
 
 ## Task 4: Deploy GoldenGate Free Container
 
@@ -151,6 +174,8 @@ Pull and run the GoldenGate Free container.
     sudo podman pull container-registry.oracle.com/goldengate/goldengate-free:latest
     </copy>
     ```
+    ![GoldenGate Pull Container](./images/gg-pullcontainer.png " ")
+
 
 2. Run the GoldenGate Free container:
 
@@ -165,6 +190,7 @@ Pull and run the GoldenGate Free container.
       container-registry.oracle.com/goldengate/goldengate-free:latest
     </copy>
     ```
+    ![GoldenGate Free Container](./images/gg-freecontainer.png " ")
 
 3. Verify the container is running:
 
@@ -176,6 +202,8 @@ Pull and run the GoldenGate Free container.
 
     You should see both `oracle-db` and `goldengate-free` containers in the list.
 
+    ![GoldenGate Verify](./images/gg-verify2.png " ")
+
 4. Wait approximately 2 minutes for GoldenGate services to fully start. Check the logs:
 
     ```bash
@@ -185,6 +213,8 @@ Pull and run the GoldenGate Free container.
     ```
 
     Look for the "The deployment is READY" message.
+
+    ![GoldenGate GoldenGate Logs](./images/gg-gglogs.png " ")
 
 ## Task 5: Configure Network Access
 
@@ -208,11 +238,19 @@ Open ports 80 and 443 on both the compute instance firewall and OCI Security Lis
 
     > Note: Port 1521 allows you to connect to the database using desktop tools like SQL Developer.
 
+    ![GoldenGate Ports](./images/gg-ports.png " ")
+
 2. In the OCI Console, navigate to **Networking > Virtual Cloud Networks**.
+
+    ![GoldenGate VCN](./images/gg-vcn.png " ")
 
 3. Click on your VCN, then click on your **Public Subnet**.
 
+    ![GoldenGate Subnet](./images/gg-subnet.png " ")
+
 4. Click on the **Security List** attached to the subnet.
+
+    ![GoldenGate Security List](./images/gg-securitylist.png " ")
 
 5. Click **Add Ingress Rules** and add:
 
@@ -223,6 +261,8 @@ Open ports 80 and 443 on both the compute instance firewall and OCI Security Lis
     | Description | GoldenGate Console and Database |
 
 6. Click **Add Ingress Rules**.
+
+    ![GoldenGate Ingress](./images/gg-ingress.png " ")
 
 ## Task 6: Access GoldenGate Console
 
@@ -244,6 +284,8 @@ Verify you can access the GoldenGate web console.
     |-------|-------|
     | Username | oggadmin |
     | Password | Welcome1#GG23 |
+
+    ![GoldenGate Login](./images/gg-login.png " ")
 
 4. You should see the GoldenGate Free console.
 
@@ -308,6 +350,8 @@ When you're finished with the lab, follow these steps to stop and remove the con
 sudo podman stop goldengate-free oracle-db
 </copy>
 ```
+![GoldenGate Stop Containers](./images/gg-stopcontainers.png " ")
+
 
 **Step 2: Remove the containers**
 
@@ -316,6 +360,7 @@ sudo podman stop goldengate-free oracle-db
 sudo podman rm goldengate-free oracle-db
 </copy>
 ```
+![GoldenGate Remove Containers](./images/gg-removecontainers.png " ")
 
 **Step 3: (Optional) Remove the container images**
 
@@ -327,17 +372,21 @@ sudo podman rmi container-registry.oracle.com/goldengate/goldengate-free:latest
 sudo podman rmi container-registry.oracle.com/database/free:latest
 </copy>
 ```
+![GoldenGate Remove Images](./images/gg-removeimages.png " ")
 
 **Step 4: (OCI Compute only) Terminate the compute instance**
 
 If you created an OCI Compute instance for this lab and no longer need it:
 
 1. In the OCI Console, navigate to **Compute > Instances**.
+![GoldenGate Compute ](./images/gg-compute.png " ")
 2. Click on your **goldengate-free** instance.
-3. Click **More Actions > Terminate**.
+![GoldenGate Instace ](./images/gg-gginstance.png " ")
+3. Click **Actions > Terminate**.
+![GoldenGate Actions ](./images/gg-actions.png " ")
 4. Check **Permanently delete the attached boot volume** if you don't need to preserve the data.
 5. Click **Terminate Instance**.
-
+![GoldenGate Remove Terminate](./images/gg-terminate.png " ")
 ## Signature Workshop
 
 Ready to dive deeper? This workshop provides comprehensive GoldenGate training.
@@ -353,4 +402,5 @@ Ready to dive deeper? This workshop provides comprehensive GoldenGate training.
 
 ## Acknowledgements
 * **Author** - Oracle LiveLabs Team
+* **Contributors** - Zileyah Onafowora
 * **Last Updated By/Date** - Oracle LiveLabs, January 2026

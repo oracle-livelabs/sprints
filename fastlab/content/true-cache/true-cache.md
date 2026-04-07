@@ -34,6 +34,11 @@ In a production environment, Seer Retail would deploy True Cache on dedicated se
 
 1. In the OCI Console, navigate to **Compute > Instances** and click **Create Instance**.
 
+    ![True Cache compute](images/truecache-compute.png)
+    ![True Cache Create Instance](images/truecache-createinstance.png)
+
+
+
 2. Configure the instance:
 
     | Setting | Value |
@@ -43,13 +48,27 @@ In a production environment, Seer Retail would deploy True Cache on dedicated se
     | Image | Oracle Linux 9 |
     | Shape | VM.Standard.E5.Flex (1 OCPU, 12 GB RAM) |
 
+    ![True CacheName](images/truecache-name.png)
+    ![True Cache Image/Shape](images/truecache-image_shape.png)
+
 3. Under **Networking**, select a public subnet.
+
+    ![True Cache Subnet](images/truecache-subnet.png)
 
 4. Under **Add SSH keys**, upload your public SSH key or generate a new key pair. Download the private key if generated.
 
+    ![True Cache SSH Key](images/truecache-key.png)
+
 5. Click **Create** and wait for the instance to reach **Running** state.
 
+    ![True Cache create](images/truecache-create.png)
+    ![True Cache Running](images/truecache-running.png)
+
 6. Note the **Public IP Address** from the instance details page.
+
+    ![True Cache IP](images/truecache-ip.png)
+
+    
 
 7. SSH into your compute instance:
 
@@ -58,6 +77,11 @@ In a production environment, Seer Retail would deploy True Cache on dedicated se
     ssh -i <your-private-key> opc@<public-ip-address>
     </copy>
     ```
+    ![True Cache SSH](images/truecache-ssh.png)
+
+    > **Tip:** You can use OCI Cloud Shell (accessible from the top-right corner of the OCI Console). This opens a browser-based terminal with your credentials already configured, so you don’t need to SSH from your local machine.
+
+    ![True Cache Cloudshell](images/truecache-cloudshell.png)
 
 8. Update system packages and install required tools:
 
@@ -67,8 +91,9 @@ In a production environment, Seer Retail would deploy True Cache on dedicated se
     sudo dnf install -y podman jq openssl
     </copy>
     ```
+    ![True Cache Packages](images/truecache-packages.png)
 
-## Task 2: Configure Podman Network
+## Task 2: Configure Podman Network'=-
 
 True Cache requires network connectivity to the primary database to receive redo logs and stay synchronized. In containerized deployments, both containers must share a network so True Cache can continuously apply changes from the primary. You'll also configure encrypted secrets for database passwords—a security best practice that Seer Retail's compliance team requires for all database deployments.
 
@@ -84,6 +109,8 @@ True Cache requires network connectivity to the primary database to receive redo
     export DB_PWD="Welcome1#TC23"
     </copy>
     ```
+    ![True Cache Enviorment Variable](images/truecache-envvaribles.png)
+    
 
 2. Create the Podman network and storage volumes:
 
@@ -105,6 +132,8 @@ True Cache requires network connectivity to the primary database to receive redo
 
     > **Note:** On **Linux** and **Windows (WSL2)**, uncomment and run `sudo chown -R 54321:54321 "${TC_DATA_DIR}"` to set Oracle user ownership. On **macOS**, skip this command—Podman's VM handles permissions automatically.
 
+    ![True Cache Podman](images/truecache-podman.png)
+
 3. Extract IP addresses from the network for container configuration:
 
     ```bash
@@ -117,6 +146,7 @@ True Cache requires network connectivity to the primary database to receive redo
     echo "True Cache IP: ${TC_IP}"
     </copy>
     ```
+    ![True Cache Container IP](images/truecache-containerip.png)
 
 4. Create encrypted secrets for database password (required by Oracle containers):
 
@@ -138,6 +168,7 @@ True Cache requires network connectivity to the primary database to receive redo
     rm -f pwdfile.txt key.pem key.pub pwdfile.enc
     </copy>
     ```
+    ![True Cache RSA Key](images/truecache-rsakey.png)
 
 ## Task 3: Deploy Primary Database Container
 
@@ -152,6 +183,7 @@ Deploy the Oracle Database Free container that will serve as the primary databas
     sudo podman pull container-registry.oracle.com/database/free:latest
     </copy>
     ```
+    ![True Cache Pull](images/truecache-pull.png)
 
 2. Start the primary database container with archive logging enabled:
 
@@ -172,6 +204,8 @@ Deploy the Oracle Database Free container that will serve as the primary databas
     </copy>
     ```
 
+    ![True Cache Start](images/truecache-startcontainerpri.png)
+
 3. Monitor the database startup (takes 3-5 minutes):
 
     ```bash
@@ -182,6 +216,8 @@ Deploy the Oracle Database Free container that will serve as the primary databas
 
     Wait until you see `DATABASE IS READY TO USE!` then press `Ctrl+C` to exit the logs.
 
+    ![True Cache Monitor](images/truecache-monitor.png)
+
 4. Connect to the database and create Seer Retail's product catalog schema:
 
     ```bash
@@ -189,6 +225,7 @@ Deploy the Oracle Database Free container that will serve as the primary databas
     sudo podman exec -it pri-db-free sqlplus sys/${DB_PWD}@FREEPDB1 as sysdba
     </copy>
     ```
+    ![True Cache Connect](images/truecache-connect.png)
 
 5. Run the following script to create the product catalog:
 
@@ -248,6 +285,7 @@ Deploy the Oracle Database Free container that will serve as the primary databas
     SELECT product_id, sku, name, category, price FROM seer_retail.products;
     </copy>
     ```
+    ![True Cache Product Catalog](images/truecache-productcatalog.png)
 
 6. Exit SQL*Plus:
 
@@ -256,6 +294,8 @@ Deploy the Oracle Database Free container that will serve as the primary databas
     EXIT;
     </copy>
     ```
+
+    ![True Cache Exit](images/truecache-exit.png)
 
 ## Task 4: Deploy True Cache Container
 
@@ -283,6 +323,8 @@ Deploy the True Cache container that will handle read queries for Seer Retail's 
     </copy>
     ```
 
+    ![True Cache Start Container](images/truecache-startcontainertru.png)
+
     > **Note:** The `PDB_TC_SVCS` variable maps the primary service (SEER\_CATALOG) to a True Cache service (SEER\_CATALOG\_TC). Port 1522 is used to avoid conflict with the primary.
 
 2. Monitor the True Cache startup (takes 3-5 minutes):
@@ -295,6 +337,8 @@ Deploy the True Cache container that will handle read queries for Seer Retail's 
 
     Wait until you see messages indicating True Cache is ready, then press `Ctrl+C`.
 
+    ![True Cache Monitor Log](images/truecache-monitorlog.png)
+
 3. Verify both containers are running:
 
     ```bash
@@ -304,6 +348,8 @@ Deploy the True Cache container that will handle read queries for Seer Retail's 
     ```
 
     You should see both `pri-db-free` and `tru-cc-free` containers running.
+
+    ![True Cache Verify](images/truecache-verify.png)
 
 ## Task 5: Verify True Cache and Test Read Performance
 
@@ -318,6 +364,7 @@ Verify the True Cache configuration and demonstrate read acceleration.
     sudo podman exec -it tru-cc-free sqlplus sys/${DB_PWD}@FREEPDB1 as sysdba
     </copy>
     ```
+    ![True Cache Connect](images/truecache-connecttrue.png)
 
 2. Check the database role - it should show TRUE CACHE:
 
@@ -335,6 +382,7 @@ Verify the True Cache configuration and demonstrate read acceleration.
     --------- ---------------------- ---------------- -----------------
     FREE      READ ONLY WITH APPLY   TRUE CACHE       TRUE CACHE
     ```
+    ![True Cache Check DB Role](images/truecache-checkDBrole.png)
 
 3. Check True Cache synchronization status:
 
@@ -347,6 +395,8 @@ Verify the True Cache configuration and demonstrate read acceleration.
     ```
 
     The status should show `HEALTHY`.
+
+    ![True Cache Healthy](images/truecache-Healthy.png)
 
 4. Query the product catalog through True Cache:
 
@@ -362,6 +412,7 @@ Verify the True Cache configuration and demonstrate read acceleration.
     ORDER BY category, name;
     </copy>
     ```
+    ![True Cache Query Product](images/truecache-queryproduct.png)
 
 5. Exit True Cache SQL*Plus:
 
@@ -370,6 +421,7 @@ Verify the True Cache configuration and demonstrate read acceleration.
     EXIT;
     </copy>
     ```
+    ![True Cache Exit](images/truecache-exit2.png)
 
 6. Now add a new product on the primary and see it replicate to True Cache:
 
@@ -385,6 +437,7 @@ Verify the True Cache configuration and demonstrate read acceleration.
     EOF
     </copy>
     ```
+    ![True Cache New Product](images/truecache-newproduct.png)
 
 7. Immediately query True Cache to see the replicated data:
 
@@ -397,6 +450,8 @@ Verify the True Cache configuration and demonstrate read acceleration.
     EOF
     </copy>
     ```
+
+    ![True Cache Query](images/truecache-querytrue.png)
 
     The new product should appear in True Cache within seconds, demonstrating automatic data synchronization.
 
@@ -521,6 +576,7 @@ When you're finished with the lab, follow these steps to stop and remove the con
 sudo podman stop tru-cc-free pri-db-free
 </copy>
 ```
+![True Cache Stop Containers](images/truecache-stopcontainers.png)
 
 **Step 2: Remove the containers**
 
@@ -531,6 +587,7 @@ The containers were started with `--rm`, so they are automatically removed when 
 sudo podman rm tru-cc-free pri-db-free
 </copy>
 ```
+![True Cache Remove Containers](images/truecache-removecontainers.png)
 
 **Step 3: Remove the network, volume, and secrets**
 
@@ -543,6 +600,8 @@ rm -rf "${HOME}/truecache-data"
 </copy>
 ```
 
+![True Cache Remove Network](images/truecache-removenetwork.png)
+
 **Step 4: (Optional) Remove the container image**
 
 If you want to free up disk space, remove the downloaded image:
@@ -552,16 +611,21 @@ If you want to free up disk space, remove the downloaded image:
 sudo podman rmi container-registry.oracle.com/database/free:latest
 </copy>
 ```
+![True Cache Remove Container Image](images/truecache-removeimage.png)
 
 **Step 5: (OCI Compute only) Terminate the compute instance**
 
 If you created an OCI Compute instance for this lab and no longer need it:
 
 1. In the OCI Console, navigate to **Compute > Instances**.
+![True Cache Compute](images/truecache-compute.png)
 2. Click on your **true-cache-demo** instance.
-3. Click **More Actions > Terminate**.
+![True Cache Instance](images/truecache-truecacheinstance.png)
+3. Click **Actions > Terminate**.
+![True Cache Actions](images/truecache-actions.png)
 4. Check **Permanently delete the attached boot volume** if you don't need to preserve the data.
 5. Click **Terminate Instance**.
+![True Cache Terminate](images/truecache-terminate.png)
 
 ## Signature Workshop
 
@@ -578,4 +642,5 @@ Ready to dive deeper? This workshop provides comprehensive True Cache training.
 
 ## Acknowledgements
 * **Author** - Oracle LiveLabs Team
+* **Contributors** - Zileyah Onafowora
 * **Last Updated By/Date** - Oracle LiveLabs, January 2026
