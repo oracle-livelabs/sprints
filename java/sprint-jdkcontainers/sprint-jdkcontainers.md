@@ -13,4 +13,4 @@ For a detailed explanation of what happens when a new LTS supercedes an older on
 Jason Begy, Principal User Assistance Developer, Java Platform Group  
 Balchandra Vaidya, Software Development Senior Manager, Java Platform Group  
 
-**Last Updated By/Date** - Jason Begy, March 2026
+**Last Updated By/Date** - Jason Begy, April 2026

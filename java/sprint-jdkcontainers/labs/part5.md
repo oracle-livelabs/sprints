@@ -1,4 +1,4 @@
-# Part 5: Building a JDK Container Image Using the Official Oracle JDK Container Image
+# Build a JDK Container Image Using the Official Oracle JDK Container Image
 
 Duration: 8 minutes
 
@@ -9,6 +9,7 @@ Duration: 8 minutes
 This tutorial covers process of building a JDK container image using the official Oracle JDK container image.
 
 The first section demonstrates creating a Dockerfile that:
+
 - Pulls the Oracle JDK container image and uses it as the builder stage
 - Customizes the JDK in the builder environment to produce a minimal runtime
 - Switches to a smaller Oracle Linux slim base for production
@@ -17,7 +18,7 @@ The first section demonstrates creating a Dockerfile that:
 
 The second section shows how to include a demo application in an container image.
 
-## Build the JDK Docker Image Using the Official Image
+## Task 1: Build the JDK Docker Image Using the Official Image
 
 Copy this Dockerfile and save it as `myDockerfile.ocr`:
 
@@ -41,6 +42,7 @@ ENV PATH="$JAVA_HOME/bin:$PATH"
 `FROM container-registry.oracle.com/java/jdk-no-fee-term:latest as builder` uses the latest JDK available under NFTC as the build environment. It contains the full JDK and tools like `jlink` that we need to create a custom runtime
 
 Next, build the JDK Docker image:
+
 ```
 <copy>
 docker build -f myDockerfile.ocr -t java/jdk:25-ol10-ocr .
@@ -53,17 +55,20 @@ docker build -f myDockerfile.ocr -t java/jdk:25-ol10-ocr .
 | `-t java/jdk:25-ol10-ocr` | Tags the image |
 | `.` | Use the current directory as the build context |
 
-
 When the build has finished, confirm the image:
+
 ```
 <copy>
 docker image ls |grep jdk
 </copy>
 ```
+
 Example output:
+
 ```
 java/jdk        25-ol10-ocr     2e91b032df29        37 Seconds ago      150MB
 ```
+
 Output explanation:
 
 | Output String | Explanation |
@@ -75,12 +80,15 @@ Output explanation:
 | `150MB` | Image size |
 
 Run the container and confirm the Java version:
+
 ```
 <copy>
 docker run java/jdk:25-ol10-ocr java -version
 </copy>
 ```
+
 Example output:
+
 ```
 java version "25.0.1" 2025-10-21 LTS
 Java(TM) SE Runtime Environment (build 25.0.1+8-LTS-27)
@@ -88,17 +96,20 @@ Java HotSpot (TM) 64-Bit Server VM (build 25.0.1+8-LTS-27, mixed mode)
 ```
 
 To list available modules:
+
 ```
 <copy>
 docker run java/jdk:25-ol10-ocr java --list-modules
 </copy>
 ```
+
 Example output:
+
 ```
 java.base@25.0.1
 ```
 
-## Including a Java Application in a JDK Container Image
+## Task 2: Include a Java Application in the JDK Container Image
 
 This section covers how to include a Java application in a JDK container,  using a sample application that prints a greeting and today's date. Copy the sample application below and save it as `Demo.java`:
 
@@ -117,6 +128,7 @@ public class Demo {
 ```
 
 Also create a new Dockerfile, `myDockerfile.reuse`:
+
 ```
 <copy>
 FROM container-registry.oracle.com/java/jdk-no-fee-term:latest
@@ -127,18 +139,23 @@ COPY ./Demo.class /home
 ```
 
 Build the JDK Docker image:
+
 ```
 <copy>
 docker build -f myDockerfile.reuse -t java/jdk:25-ol10-reuse .
 </copy>
 ```
+
 Confirm the image:
+
 ```
 <copy>
 docker image ls |grep jdk
 </copy>
 ```
+
 Example output:
+
 ```
 java/jdk        25-ol10-reuse     9c101186faa9        27 Seconds ago      850MB
 ```
@@ -154,12 +171,15 @@ Output explanation:
 | `850MB` | Image size |
 
 Now run `Demo.java` from the container:
+
 ```
 <copy>
 docker run java/jdk:25-10-ol-reuse java -cp "./home" Demo Balchandra
 </copy>
 ```
+
 Example output:
+
 ```
 Hello, Balchandra!
 Today is: Sunday, Dec 28, 2025

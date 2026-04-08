@@ -3,33 +3,33 @@
    "help": "livelabs-help-sprints_us@oracle.com",
    "tutorials": [
       {
-         "title": "Introduction and Licensing",
+         "title": "Introduction",
          "description": "Information about the workshop and the NFTC license.",
          "filename": "./sprint-jdkcontainers.md"
       },
             {
-         "title": "Oracle JDK Container Images",
+         "title": "Lab 1: Download an Oracle JDK Container Image",
          "description": "Learn how to download an Oracle JDK container image from Oracle Container Registry.",
          "filename": "./labs/part1.md"
       },
       {
-         "title": "Creating a JDK Container Image",
+         "title": "Lab 2: Create a JDK Container Image",
          "description": "Download Oracle Linux and then Oracle JDK to create a container image.",
          "filename": "./labs/part2.md"
       },
       {
-         "title": "Building a Compact JDK Container Image",
+         "title": "Lab 3: Build a Compact JDK Container Image",
          "description": "Use jlink to create a JDK container image that includes only the base Java modules.",
          "filename": "./labs/part3.md"
       },
       {
-         "title": "Building a Minimal JDK Runtime with Multi-Stage Docker",
+         "title": "Lab 4: Build a Minimal JDK Runtime with Multi-Stage Docker",
          "description": "Create a minimal Java runtime, then copy it into a tiny final image.",
          "filename": "./labs/part4.md"
 
       },
       {
-         "title": "Building a JDK Container Image Using Official Oracle JDK Container Image",
+         "title": "Lab 5: Build a JDK Container Image Using Official Oracle JDK Container Image",
          "description": "Include a Java application in an official Oracle JDK container image.",
          "filename": "./labs/part5.md"
 
