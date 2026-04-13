@@ -1,6 +1,6 @@
 # Create a JDK Container Image
 
-Duration: 7 minutes
+Estimated Time: 7 minutes
 
 [Creating a JDK Container Image](videohub:1_tznm8ga3:medium)
 

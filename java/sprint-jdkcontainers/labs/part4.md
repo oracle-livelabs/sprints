@@ -1,6 +1,6 @@
 # Build a Minimal JDK Runtime with Multi-Stage Docker
 
-Duration: 7 minutes
+Estimated Time: 7 minutes
 
 [Building a Minimal JDK Runtime with Multi-Stage Docker](videohub:1_xvf8prnw:medium)
 

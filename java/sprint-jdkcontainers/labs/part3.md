@@ -1,6 +1,6 @@
 # Build a Compact JDK Container Image
 
-Duration: 7 minutes
+Estimated Time: 7 minutes
 
 [Building a Compact JDK Container Image](videohub:1_o6b2hqem:medium)
 

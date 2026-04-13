@@ -1,6 +1,6 @@
 # Download an Oracle JDK Container Image
 
-Duration: 6 minutes
+Estimated Time: 6 minutes
 
 [Introduction to Oracle JDK Container Images ](videohub:1_7d20kpln:medium)
 

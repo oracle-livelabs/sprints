@@ -1,6 +1,6 @@
 # Build a JDK Container Image With a Custom Java Application Using the Official Oracle JDK Container Image
 
-Duration: 8 minutes
+Estimated Time: 8 minutes
 
 [Building a Minimal JDK Runtime with Multi-Stage Docker](videohub:1_j22okrul:medium)
 
