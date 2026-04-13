@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Select AI - Natural Language to Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+            min-height: 100vh
+        }
+
+        .header {
+            background: linear-gradient(to right, #0f766e, #115e59);
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1)
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px
+        }
+
+        .header-title h1 {
+            font-size: 28px;
+            font-weight: 700
+        }
+
+        .header-subtitle {
+            color: #99f6e4;
+            font-size: 14px
+        }
+
+        .problem-banner {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1400px;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .problem-text {
+            font-size: 18px;
+            color: #856404;
+            font-weight: 600
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            min-height: 42px
+        }
+
+        .btn.completed {
+
+            /* no background / color override */
+        }
+
+        .btn.completed::before {
+            content: '✓ ';
+            font-weight: bold;
+        }
+
+        .btn-active-step {
+            position: relative;
+            box-shadow: 0 0 0 3px #ec4899, 0 8px 15px rgba(15, 23, 42, 0.25);
+            transform: translateY(-1px);
+            z-index: 1;
+        }
+
+        /* Little pill label above the active button */
+        .btn-active-step::after {
+            content: 'Current step';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ec4899;
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+            white-space: nowrap;
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-teal {
+            background: #0d9488;
+            color: #fff
+        }
+
+        .btn-teal:hover {
+            background: #0f766e
+        }
+
+        .btn-success {
+            background: #16a34a;
+            color: #fff
+        }
+
+        .btn-success:hover {
+            background: #15803d
+        }
+
+        .btn-purple {
+            background: #9333ea;
+            color: #fff
+        }
+
+        .btn-purple:hover {
+            background: #7c3aed
+        }
+
+        .btn-yellow {
+            background: #f59e0b;
+            color: #fff
+        }
+
+        .btn-yellow:hover {
+            background: #d97706
+        }
+
+        .btn-blue {
+            background: #2563eb;
+            color: #fff
+        }
+
+        .btn-blue:hover {
+            background: #1e40af
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: #fff
+        }
+
+        .btn-danger:hover {
+            background: #dc2626
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 20px;
+            min-height: 500px
+        }
+
+        @media (max-width: 1100px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                min-height: auto
+            }
+        }
+
+        /*landing / start over state: hide left panel and center chatbot */
+        body.landing #leftPanel {
+            display:none;
+        }
+        body.landing #mainGrid {
+            grid-template-columns: 1fr; /* single column*/
+            justify-items: center; /* center the remaining panel*/
+        }
+        
+        body.landing #rightPanel{
+            width: 100%;
+            max-width: 760px; /* optional makes it look centered*/
+        }
+
+        .panel {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+
+        .panel-header {
+            background: #1f2937;
+            color: #fff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        .panel-content {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column
+        }
+
+        .mode-indicator {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none
+        }
+
+        .mode-indicator.active {
+            display: block
+        }
+
+        .mode-indicator.nl2sql {
+            background: #f0fdf4;
+            border-color: #16a34a
+        }
+
+        .mode-indicator.rag {
+            background: #f3e8ff;
+            border-color: #9333ea
+        }
+
+        .mode-indicator.chat {
+            background: #fef3c7;
+            border-color: #f59e0b
+        }
+
+        .mode-indicator.agent {
+            background: #dbeafe;
+            border-color: #2563eb
+        }
+
+        .mode-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .mode-description {
+            font-size: 13px;
+            color: #6b7280
+        }
+
+        .query-box {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            margin: 12px 0;
+            white-space: pre-wrap;
+            min-height: 100px
+        }
+
+        .results-summary {
+            background: #dcfce7;
+            border: 2px solid #22c55e;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 12px 0;
+            display: none;
+            align-items: center;
+            gap: 8px
+        }
+
+        .results-summary.active {
+            display: flex
+        }
+
+        .results-text {
+            font-size: 14px;
+            font-weight: 600;
+            flex: 1
+        }
+
+        .phone-container {
+            background: #111827;
+            border-radius: 20px;
+            padding: 12px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 600px
+        }
+
+        .phone-screen {
+            background: #fff;
+            border-radius: 12px;
+            flex: 1;
+            overflow: hidden;
+            position: relative
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, #0f766e, #115e59);
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px
+        }
+
+        .chat-title {
+            flex: 1
+        }
+
+        .chat-name {
+            font-weight: 600;
+            font-size: 16px
+        }
+
+        .chat-status {
+            font-size: 12px;
+            opacity: 0.9
+        }
+
+        .chat-messages {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            background: #f9fafb
+        }
+        
+        /*hide by default*/
+        #chatIntroCta{
+            display:none;
+            margin-bottom:14px; /* spacing above the phone UI*/
+        }
+
+        body.landing #chatIntroCta {
+            display: block;
+        }
+
+        .chatbot-cta{
+            margin-top: 14px;
+            padding: 12px 14px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0c4a6e;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #0284c7;
+            border-radius: 12px;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: messageAppear 0.5s forwards
+        }
+
+        @keyframes messageAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .message.user {
+            text-align: right
+        }
+
+        .message.ai {
+            text-align: left
+        }
+
+        .message-bubble {
+            display: inline-block;
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .user .message-bubble {
+            background: #0d9488;
+            color: white;
+            border-bottom-right-radius: 4px;
+            text-align: left;
+        }
+
+        .ai .message-bubble {
+            background: white;
+            color: #1f2937;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+        }
+
+        .message-time {
+            font-size: 10px;
+            color: #9ca3af;
+            margin-top: 4px
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 14px;
+            background: white;
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            display: inline-flex;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+        }
+
+        .typing-indicator.active {
+            display: inline-flex
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #9ca3af;
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s
+        }
+
+        @keyframes typingDot {
+            0%, 60%, 100% {
+                transform: translateY(0)
+            }
+            30% {
+                transform: translateY(-10px)
+            }
+        }
+
+        .chat-input {
+            padding: 16px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .chat-input-field {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            font-size: 14px;
+            outline: none
+        }
+
+        .chat-input-field:focus {
+            border-color: #0d9488
+        }
+
+        .chat-send {
+            width: 36px;
+            height: 36px;
+            background: #0d9488;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s
+        }
+
+        .chat-send:hover {
+            background: #0f766e
+        }
+
+        .data-table {
+            width: 100%;
+            font-size: 11px;
+            border-collapse: collapse;
+            margin-top: 12px
+        }
+
+        .data-table th {
+            background: #f3f4f6;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            border: 1px solid #e5e7eb
+        }
+
+        .data-table td {
+            padding: 8px;
+            border: 1px solid #e5e7eb;
+            color: #1f2937
+        }
+
+        .data-table tr:hover {
+            background: #f9fafb
+        }
+
+        .fullscreen-toggle {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 9999;
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: #111827;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform .15s ease, opacity .2s ease, background .2s ease;
+            opacity: .9
+        }
+
+        .fullscreen-toggle:hover {
+            transform: translateY(-1px);
+            opacity: 1;
+            background: #0b1220
+        }
+
+        .fullscreen-toggle svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+            fill: currentColor
+        }
+
+        .value-card {
+            background: #f0f9ff;
+            border: 2px solid #0284c7;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px
+        }
+
+        .value-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 8px
+        }
+
+        .value-list {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.6
+        }
+
+        .value-item {
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative
+        }
+
+        .value-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+            font-weight: bold
+        }
+
+        .intro-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #0284c7;
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intro-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .intro-subtitle {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .intro-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .intro-feature {
+            background: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #0d9488;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .intro-feature:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-feature-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .intro-feature-desc {
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .intro-stat {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .intro-stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0d9488;
+        }
+
+        .intro-stat-label {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        .intro-cta {
+            background: linear-gradient(135deg, #0d9488 0%, #115e59 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <h1>Oracle Select AI</h1>
+            </div>
+            <p class="header-subtitle">Natural Language to Insights, reducing the distance between business users and their data</p>
+        </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="problem-banner">
+        <span style="font-size: 24px">💭</span>
+        <span class="problem-text">"I want to ask questions about my data in natural language, without writing complex SQL queries"</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="button-group">
+            <button id="btnNL2SQL" class="btn btn-success" onclick="demoNL2SQL()">🔍 Ask About Sales Data</button>
+            <button id="btnRAG" class="btn btn-purple" onclick="demoRAG()">📚 Search Company Docs</button>
+            <button id="btnChat" class="btn btn-yellow" onclick="demoChat()">💬 AI Chat</button>
+            <button id="btnAgent" class="btn btn-blue" onclick="demoAgent()">🤖 Automate Analysis</button>
+            <button id="btnReset" class="btn btn-danger" onclick="resetDemo()">🔄 Start Over</button>
+        </div>
+
+        <div id="mainGrid" class="main-grid">
+            <!-- Left Panel - Select AI Operations -->
+            <div id="leftPanel" class="panel">
+                <div class="panel-header">
+                    <span>⚙️</span>
+                    <span>Select AI Operations & Results</span>
+                </div>
+                <div class="panel-content">
+                    <!-- Introduction Section - Shows on Load -->
+                    <div id="introSection" class="intro-section">
+                        <div class="intro-card">
+                            <div class="intro-title">
+                                Turn everyday questions into confident decisions
+                            </div>
+                            <div class="intro-subtitle">
+                                Empower teams to get answers in natural language so your business can move faster with the data you already trust.
+                            </div>
+                            <div class="intro-features">
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Put insights in everyone's hands</div>
+                                    <div class="intro-feature-desc">Give every employee self-serve access to the data they need, without specialist skills.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Speed decision-making</div>
+                                    <div class="intro-feature-desc">Go from question to answer in moments, so leaders can act sooner and teams stay aligned.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Protect what matters</div>
+                                    <div class="intro-feature-desc">Keep data governed under your existing security policies and controls, reducing risk and compliance effort.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Do more with what you have</div>
+                                    <div class="intro-feature-desc">Unlock new value from your current Oracle investment.</div>
+                                </div>
+                                <div class="intro-feature">
+                                    <div class="intro-feature-title">Lower costs, raise productivity</div>
+                                    <div class="intro-feature-desc">Fewer manual reports and handoffs mean leaner operations and more time for high-value work.</div>
+                                </div>
+                            </div>
+                            <div class="intro-cta" style="margin-top: 16px; font-size: 13px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); color: #0c4a6e; border: 2px solid #0284c7;">
+                                Oracle Select AI helps you turn your database into a business answer engine - safe, simple, and cost-effective.
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Mode Indicator -->
+                    <div id="modeIndicator" class="mode-indicator">
+                        <div class="mode-title"></div>
+                        <div class="mode-description"></div>
+                    </div>
+
+                    <!-- Business Value Card -->
+                    <div id="valueCard" class="value-card" style="display: none">
+                        <div class="value-title">Business Value</div>
+                        <div class="value-list" id="valueList"></div>
+                    </div>
+
+                    <!-- Results Summary -->
+                    <div id="resultsSummary" class="results-summary">
+                        <span style="font-size: 20px">✅</span>
+                        <span class="results-text"></span>
+                    </div>
+
+                    <!-- Query Display - Now below the table -->
+                    <div id="querySection" style="display: none">
+                        <div style="font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 8px; margin-top: 16px">Select AI Query:</div>
+                        <div id="queryBox" class="query-box"></div>
+                    </div>
+
+                    <!-- Response Display (text output) -->
+                    <div id="responseSection" style="display: none">
+                        <div style="font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 8px; margin-top: 16px">
+                            Select AI Response:
+                        </div>
+                        <div id="responseBox" class="query-box" style="background:#ffffff;"></div>
+                    </div>
+
+
+                    <!-- Data Table -->
+                    <div id="dataTableContainer" style="display: none">
+                        <div style="font-size: 12px; font-weight: 600; color: #374151; margin: 16px 0 8px">Query Results:</div>
+                        <table id="dataTable" class="data-table"></table>
+                    </div>
+                    
+                    <!-- ✅ Python Display (below response/table) -->
+                    <div id="pythonSection" style="display: none"></div>
+                        <div style="font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 8px; margin-top: 16px">Python API:</div>
+                        <div id="pythonBox" class="query-box"></div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Phone Interface -->
+            <div id="rightPanel" class="panel">
+                <div class="panel-header">
+                    <span>📱</span>
+                    <span>Example Chatbot Interface</span>
+                </div>
+                <div class="panel-content" style="padding: 20px">
+                    <!-- Landing-only CTA (shows on load + Start Over) -->
+                    <div id="chatIntroCta" class="intro-cta">
+                        👆 Click any demo button above to see Select AI in action!
+                    </div>
+                    <div class="phone-container">
+                        <div class="phone-screen">
+                            <div class="chat-header">
+                                <div class="chat-avatar">🤖</div>
+                                <div class="chat-title">
+                                    <div class="chat-name">Example AI Assistant</div>
+                                    <div class="chat-status">Powered by Select AI</div>
+                                </div>
+                            </div>
+                            <div id="chatMessages" class="chat-messages">
+                                <div class="message ai">
+                                    <div class="message-bubble">
+                                        Hello! I'm your AI Assistant. I can help you query your database using natural language, find information in documents, and much more. Try clicking one of the demo buttons to see what I can do!
+                                    </div>
+                                    <div class="message-time">Just now</div>
+                                </div>
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" class="chat-input-field" placeholder="Click any button above to see Select AI in action!" disabled>
+                                <button class="chat-send" disabled>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Toggle -->
+    <button id="fsToggle" class="fullscreen-toggle">
+        <svg viewBox="0 0 24 24">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/>
+        </svg>
+    </button>
+
+    <script>
+        let currentDemo = null;
+
+        function setActiveStep(buttonId) {
+            // Remove active highlight from all buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.classList.remove('btn-active-step');
+            });
+            // Add it to the requested button
+            const active = document.getElementById(buttonId);
+            if (active) {
+                active.classList.add('btn-active-step');
+            }
+        }
+
+        function setLandingMode(isLanding) {
+            document.body.classList.toggle('landing', !!isLanding);
+        }
+
+        function addMessage(text, isUser = false) {
+            // Remove indentation after newlines so wrapped lines start at the left
+            text = text.replace(/\n[ \t]+/g, '\n');
+
+            const chatMessages = document.getElementById('chatMessages');
+            const message = document.createElement('div');
+            message.className = `message ${isUser ? 'user' : 'ai'}`;
+            message.style.animationDelay = '0.1s';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'message-bubble';
+            bubble.innerHTML = text;
+            
+            const time = document.createElement('div');
+            time.className = 'message-time';
+            const now = new Date();
+            time.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+            
+            message.appendChild(bubble);
+            message.appendChild(time);
+            chatMessages.appendChild(message);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+
+        function showTyping() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typing = document.createElement('div');
+            typing.className = 'message ai';
+            typing.id = 'typingMessage';
+            typing.innerHTML = `
+                <div class="typing-indicator active">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            chatMessages.appendChild(typing);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typingMessage');
+            if (typing) typing.remove();
+        }
+
+        function updateModeIndicator(mode, title, description) {
+            const indicator = document.getElementById('modeIndicator');
+            indicator.className = `mode-indicator ${mode} active`;
+            indicator.querySelector('.mode-title').textContent = title;
+            indicator.querySelector('.mode-description').textContent = description;
+        }
+
+        function updateValueCard(values) {
+            const card = document.getElementById('valueCard');
+            const list = document.getElementById('valueList');
+            card.style.display = 'block';
+            list.innerHTML = values.map(v => `<div class="value-item">${v}</div>`).join('');
+        }
+
+        function showResults(message) {
+            const summary = document.getElementById('resultsSummary');
+            summary.className = 'results-summary active';
+            summary.querySelector('.results-text').textContent = message;
+        }
+
+        function showQuery(selectAiText) {
+            document.getElementById('querySection').style.display = 'block';
+            document.getElementById('queryBox').textContent = selectAiText;
+        }
+
+        function showPython(pythonCode){
+            document.getElementById('pythonSection').style.display = 'block';
+            document.getElementById('pythonBox').textContent = pythonCode;
+        }
+
+        function showResponse(html) {
+            document.getElementById('responseSection').style.display = 'block';
+            document.getElementById('responseBox').innerHTML = html;
+        }
+
+        function showDataTable(headers, rows) {
+            const container = document.getElementById('dataTableContainer');
+            const table = document.getElementById('dataTable');
+            container.style.display = 'block';
+            
+            let html = '<thead><tr>';
+            headers.forEach(h => html += `<th>${h}</th>`);
+            html += '</tr></thead><tbody>';
+            rows.forEach(row => {
+                html += '<tr>';
+                row.forEach(cell => html += `<td>${cell}</td>`);
+                html += '</tr>';
+            });
+            html += '</tbody>';
+            table.innerHTML = html;
+        }
+
+        function hideIntro() {
+            const intro = document.getElementById('introSection');
+            if (intro) intro.style.display = 'none';
+        }
+
+        function showIntro() {
+            const intro = document.getElementById('introSection');
+            if (intro) intro.style.display = 'flex';
+        }
+
+        function demoNL2SQL() {
+            resetDemo();
+            hideIntro();
+            setLandingMode(false);
+            currentDemo = 'nl2sql';
+            document.getElementById('btnNL2SQL').classList.add('completed');
+            setActiveStep('btnNL2SQL');
+            
+            updateModeIndicator('nl2sql', '🔍 Natural Language to SQL', 
+                'Select AI translates natural language into SQL for your schema—no SQL required for business users. Developers can also run the same prompt via SQL, PL/SQL or Python APIs to embed this into applications.');
+            
+            updateValueCard([
+                'Empowers business users to access data insights',
+                'Reduces dependency on technical teams',
+                'Accelerates decision-making process',
+                'Works with your existing database schema'
+            ]);
+            
+            setTimeout(() => {
+                addMessage("Show me our top 3 customers by revenue this year", true);
+                showTyping();
+                
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    const selectAiQuery = `SELECT AI Show me our top 3 customers by revenue this year.`;
+                    const pythonCode = `import select_ai
+profile = select_ai.Profile(profile_name="my_oci_ai_profile")
+df = profile.run_sql(prompt="Show me our top 3 customers by revenue this year.")`;
+
+                    
+                    showQuery(selectAiQuery);
+                    showPython(pythonCode);
+
+
+                    addMessage(
+                        "I've found your top 3 customers by revenue for 2025. Here are the results:<br><br>" +
+                        "<ol style='margin:0; padding-left:1.25rem;'>" +
+                        "<li>Acme Corporation (Enterprise) - $2,847,392</li>" +
+                        "<li>Global Tech Inc (Enterprise) - $2,341,893</li>" +
+                        "<li>Innovation Labs (Mid-Market) - $1,923,482</li>" +
+                        "</ol>"
+                    );
+
+                    //showResults('Successfully generated and executed SQL query from natural language');
+
+                    showDataTable(
+                        ['Customer Name', 'Segment', 'Total Revenue'],
+                        [
+                            ['Acme Corporation', 'Enterprise', '$2,847,392'],
+                            ['Global Tech Inc', 'Enterprise', '$2,341,893'],
+                            ['Innovation Labs', 'Mid-Market', '$1,923,482'],
+                        ]
+                    );
+
+                    setTimeout(() => {
+                        addMessage("As you can see, Acme Corporation leads with $2.8M in revenue, followed by Global Tech. The Enterprise segment dominates our top 3 customers.");
+                    }, 1000);
+                }, 2000);
+            }, 500);
+        }
+
+        function demoRAG() {
+            resetDemo();
+            hideIntro();
+            setLandingMode(false);
+            currentDemo = 'rag';
+            document.getElementById('btnRAG').classList.add('completed');
+            setActiveStep('btnRAG');
+            
+            updateModeIndicator('rag', '📚 RAG with Documents', 
+                'Select AI supports Retrieval-Augmented Generation (RAG) to provide more accurate responses by combining your trusted documents with AI capabilities. Get contextual responses from your knowledge base.');
+            
+            updateValueCard([
+                'Leverages your trusted documents',
+                'Can provide more accurate, context-aware answers',
+                'Leverages database security mechanisms',
+                'Reduces hallucinations with factual grounding',
+                'Scales institutional knowledge sharing'
+            ]);
+            
+            setTimeout(() => {
+                addMessage("What are our company's data retention policies according to the compliance manual?", true);
+                showTyping();
+                
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    const selectAiQuery = `SELECT AI NARRATE What is our company data retention policy according to the compliance manual`;
+                    const pythonCode =`import select_ai
+profile = select_ai.Profile(profile_name="my_oci_ai_profile")
+df = profile.run_sql(prompt="What is our company data retention policy according to the compliance manual?") `;
+                    
+                    showQuery(selectAiQuery);
+                    showPython(pythonCode);
+                    
+                    
+                    addMessage("Based on your compliance documentation, here are the key data retention policies:");
+                    
+                    //showResults('Successfully retrieved and summarized relevant documents using Vector Search');
+                    
+                    setTimeout(() => {
+                        const ragResponse =
+                            "📋 <strong>Data Retention Policies:</strong><br><br>" +
+                            "<ul style='margin:0; padding-left:1.25rem;'>" +
+                                "<li>Customer data: 7 years minimum</li>" +
+                                "<li>Financial records: 10 years</li>" +
+                                "<li>Employee records: 5 years post-employment</li>" +
+                                "<li>Email communications: 3 years</li>" +
+                                "<li>Security logs: 2 years</li>" +
+                            "</ul><br>" +
+                            "These policies comply with SOX, GDPR, and industry regulations. " +
+                            "The manual recommends quarterly reviews to ensure compliance."
+                        addMessage(ragResponse);
+                        showResponse(ragResponse);
+                    }, 1000);
+                }, 2000);
+            }, 500);
+        }
+
+        function demoChat() {
+            resetDemo();
+            hideIntro();
+            setLandingMode(false);
+            currentDemo = 'chat';
+            document.getElementById('btnChat').classList.add('completed');
+            setActiveStep('btnChat');
+            
+            updateModeIndicator('chat', '💬 AI Chat', 
+                'Select AI provides general AI chat capabilities to your chosen LLM directly from your database, enabling intelligent conversations that maintain context about your data and business.');
+            
+            updateValueCard([
+                'Provides immediate AI assistance to users',
+                'Maintains conversation context',
+                'Supports multiple LLM providers'
+            ]);
+            
+            setTimeout(() => {
+                addMessage("Can you help me write an email to notify customers about our new pricing plans?", true);
+                showTyping();
+                
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    const selectAiQuery = `SELECT AI CHAT Write a professional customer email announcing our new pricing plans.
+Include
+- clear subject line
+- effective date: March 1, 2025
+- summary of tier changes and volume discounts
+- reassurance existing customers keep current rate for 12 months
+- link placeholder to pricing page
+- contact/account manager CTA
+- friendly, concise tone`;
+                    const pythonCode = `response = profile.chat(prompt =
+"""SELECT AI CHAT Write a professional customer email announcing our new pricing plans.
+    Include:
+    - clear subject line
+    - effective date: March 1, 2025
+    - summary of tier changes and volume discounts
+    - reassurance: existing customers keep current rate for 12 months
+    - link placeholder to pricing page
+    - contact/account manager CTA
+    - friendly, concise tone""")
+print(response)`;
+                    
+                    showQuery(selectAiQuery);
+                    showPython(pythonCode);
+                    
+                    addMessage("I'll help you draft a professional email for your pricing announcement:");
+                    
+                    //showResults('Generated professional content using AI chat capabilities');
+                    
+                    setTimeout(() => {
+                        const emailResponse =
+                            "<b>Subject: Important Updates to Our Pricing Plans</b><p></br>Dear Valued Customer,</br>We're excited to share updates to our pricing structure that better align with the value we deliver.</br>Key changes include a simplified tier structure, added features in our base plans, and new volume discounts for customers with higher usage. To support continuity, existing customers will continue with their current rate for the next 12 months.</br>Please visit our pricing page or contact your account manager with questions.</br></br>Best regards,</br>Your Success Team";
+                        addMessage(emailResponse);
+                        showResponse(emailResponse);
+                    }, 1000);
+                }, 2000);
+            }, 500);
+        }
+
+        function demoAgent() {
+            resetDemo();
+            hideIntro();
+            setLandingMode(false);
+            currentDemo = 'agent';
+            document.getElementById('btnAgent').classList.add('completed');
+            setActiveStep('btnAgent');
+            
+            updateModeIndicator('agent', '🤖 AI Agent', 
+                'Select AI Agents can autonomously perform complex tasks by combining multiple capabilities such as querying data, analyzing results, and taking actions based on your business rules. Developers have to define and create the AI agents that will be used. Developers can invoke the agent workflows via SQL, PL/SQL or Python APIs.');
+            
+            updateValueCard([
+                'Automates complex multi-step workflows',
+                'Makes intelligent decisions based on data',
+                'Reduces manual intervention',
+                'Scales operational efficiency',
+                'Ensures consistent business logic application'
+            ]);
+            
+            setTimeout(() => {
+                addMessage("Analyze our customer churn risk and create a retention campaign for high-risk accounts", true);
+                showTyping();
+                
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    // Show the SQL for the agent workflow
+                    const selectAiQuery = `-- AI Agent Workflow: Churn Risk Analysis & Retention Campaign
+BEGIN
+    -- Set the agent team that will handle this workflow
+    DBMS_CLOUD_AI_AGENT.SET_TEAM(
+        team_name => 'RETENTION_TEAM'
+    );
+END;
+/
+
+-- Ask the agent team to analyze churn and build the campaign
+SELECT AI AGENT Analyze our customer churn risk and create a retention campaign for high-risk accounts.`;
+
+                    const pythonCode = `team = Team.fetch(tool_name="RETENTION_TEAM")
+res=team.run(prompt="Analyze our customer churn risk and create a retention campaign for high-risk accounts.")
+print(res)`;
+    
+                    showQuery(selectAiQuery);
+                    showPython(pythonCode);
+                    
+                    addMessage("I'll analyze customer churn risk and create a retention campaign. Let me work through this step by step:");
+                    
+                    setTimeout(() => {
+                        addMessage("**Step 1:** Identifying high-risk customers...\n✓ Found 47 customers with churn risk > 70%");
+                    }, 1000);
+                    
+                    setTimeout(() => {
+                        addMessage("**Step 2:** Analyzing churn patterns...\n✓ Main factors: Low engagement (65%), Support tickets (23%), Payment delays (12%)");
+                    }, 2000);
+                    
+                    setTimeout(() => {
+                        addMessage("**Step 3:** Creating retention campaign...\n✓ Personalized offers generated\n✓ Email templates created\n✓ Account manager alerts scheduled");
+                        
+                        //showResults('AI Agent successfully completed multi-step churn analysis and retention campaign creation');
+                        
+                        showDataTable(
+                            ['Customer', 'Risk Score', 'Action', 'Offer'],
+                            [
+                                ['TechStart Inc', '92%', 'Immediate Outreach', '25% discount + Success Manager'],
+                                ['DataFlow Systems', '87%', 'Priority Support', '3 months free premium support'],
+                                ['CloudFirst Ltd', '81%', 'Engagement Program', 'Free training + 20% discount'],
+                                ['Digital Dynamics', '78%', 'Account Review', 'Custom package proposal'],
+                                ['NetSolutions Co', '75%', 'Loyalty Reward', '15% renewal discount']
+                            ]
+                        );
+                    }, 3000);
+                    
+                    setTimeout(() => {
+                        addMessage("**Campaign Ready!** I've identified 47 at-risk accounts and created personalized retention strategies. The campaign is ready to launch with automated follow-ups scheduled. Expected retention improvement: 35-40%.");
+                    }, 4500);
+                }, 2000);
+            }, 500);
+        }
+
+        function resetDemo() {
+            currentDemo = null;
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.classList.remove('completed');
+                btn.classList.remove('btn-active-step');
+            });
+            document.getElementById('modeIndicator').classList.remove('active');
+            document.getElementById('valueCard').style.display = 'none';
+            document.getElementById('querySection').style.display = 'none';
+            document.getElementById('resultsSummary').classList.remove('active');
+            document.getElementById('dataTableContainer').style.display = 'none';
+            document.getElementById('responseSection').style.display = 'none';
+            document.getElementById('responseBox').innerHTML = '';
+            document.getElementById('pythonSection').style.display = 'none';
+            document.getElementById('pythonBox').textContent = '';
+
+
+            
+            // Show intro section again
+            showIntro();
+
+            // landing mode : hide left panel , center chatbot
+            setLandingMode(true);
+            
+            // Clear chat except initial message
+            const chatMessages = document.getElementById('chatMessages');
+            while (chatMessages.children.length > 1) {
+                chatMessages.removeChild(chatMessages.lastChild);
+            }
+        }
+
+        // Fullscreen functionality
+        const fsBtn = document.getElementById('fsToggle');
+        
+        function isFullscreen() {
+            return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+        }
+        
+        async function enterFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                return elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                return elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                return elem.msRequestFullscreen();
+            }
+        }
+        
+        async function exitFullscreen() {
+            if (document.exitFullscreen) {
+                return document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                return document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                return document.msExitFullscreen();
+            }
+        }
+        
+        function updateFsButtonUI() {
+            const active = isFullscreen();
+            fsBtn.innerHTML = active ? 
+                '<svg viewBox="0 0 24 24"><path d="M9 7H5v4H3V5a2 2 0 0 1 2-2h6v2H9zm6-2h6a2 2 0 0 1 2 2v6h-2V9h-4V7zM3 13h2v4h4v2H5a2 2 0 0 1-2-2v-4zm18 0v4a2 2 0 0 1-2 2h-4v-2h4v-4h2z"/></svg>' :
+                '<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4h2V5h4V3zm6 0v2h4v4h2V5a2 2 0 0 0-2-2h-4zM3 15v4a2 2 0 0 0 2 2h4v-2H5v-4H3zm18 0h-2v4h-4v2h4a2 2 0 0 0 2-2v-4z"/></svg>';
+        }
+        
+        fsBtn.addEventListener('click', async () => {
+            try {
+                if (!isFullscreen()) {
+                    await enterFullscreen();
+                } else {
+                    await exitFullscreen();
+                }
+            } catch (e) {
+                console.warn('Fullscreen failed:', e);
+            }
+        });
+        
+        document.addEventListener('fullscreenchange', updateFsButtonUI);
+        document.addEventListener('webkitfullscreenchange', updateFsButtonUI);
+        document.addEventListener('msfullscreenchange', updateFsButtonUI);
+        
+        // Keyboard shortcut for fullscreen
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                const target = e.target;
+                if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA') {
+                    fsBtn.click();
+                }
+            }
+        });
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            updateFsButtonUI();
+            setLandingMode(true);
+        });
+    </script>
+</body>
+</html>

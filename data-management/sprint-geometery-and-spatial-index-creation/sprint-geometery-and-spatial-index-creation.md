@@ -1,10 +1,10 @@
-# How do I use simplified geometry and spatial index creation in Oracle Database 23ai?
+# How do I use simplified geometry and spatial index creation in Oracle AI Database 26ai?
 
 Duration: 5 minutes
 
-## Use constants to simplify geometry and spatial index creation in Oracle Database 23ai
+## Use constants to simplify geometry and spatial index creation in Oracle AI Database 26ai
 
-* Creating geometries is simplified with constants listed in section 2.2.1.1 SDO\_GTYPE Constants and 2.2.2.1 SDO\_SRID Constants in the [Spatial Developer's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-datatypes-metadata.html).
+* Creating geometries is simplified with constants listed in section 2.2.1.1 SDO\_GTYPE Constants and 2.2.2.1 SDO\_SRID Constants in the [Spatial Developer's Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/spatl/spatial-data-types-and-metadata.html).
 * Creating longitude/latitude point geometries is simplified by requiring only coordinates in the constructor.
 * Creating spatial indexes is simplified by automatically creating required spatial metadata.
 
@@ -52,10 +52,10 @@ Duration: 5 minutes
 
 ## Learn More
 
-* [Spatial Data Types and Metadata](https://docs.oracle.com/en/database/oracle/oracle-database/23/spatl/spatial-datatypes-metadata.html.)
+* [Spatial Data Types and Metadata](https://docs.oracle.com/en/database/oracle/oracle-database/26/spatl/spatial-data-types-and-metadata.html)
 
 ## Acknowledgements
 
 * **Author** - Denise Myrick, Senior Product Manager, Oracle Spatial and Graph
 * **Contributors** -  David Lapp and Ramu Murakami Gutierrez, Oracle Spatial and Graph
-* **Last Updated By/Date** - Denise Myrick,  May 2024
+* **Last Updated By/Date** - Renée Wikestad, Database Product Management, December 2025

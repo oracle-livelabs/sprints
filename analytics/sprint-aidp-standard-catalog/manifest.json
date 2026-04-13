@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How to Work with the Standard Catalog in Oracle AIDP Workbench",
+         "description": "This guide provides step-by-step instructions on creating and managing standard catalogs, schemas, tables, and volumes within the Oracle AI Data Platform (AIDP) Workbench",
+         "filename": "sprint-aidp-standard-catalog.md"
+      },
+      {
+         "title": "How to create an instance of AIDP Workbench",
+         "description": "This LiveLabs Sprint walks you through the steps to create a new Oracle AI Data Platform Workbench instance",
+         "filename": "../sprint-aidp-create-instance/sprint-aidp-create-instance.md"
+      },
+      {
+         "title": "How to Set Up Identity and Access Management (IAM) Policies for AIDP Workbench",
+         "description": "This sprint teaches you how to configure Identity and Access Management (IAM) policies to securely manage your Oracle AI Data Platform (AIDP) Workbench instance",
+         "filename": "../sprint-aidp-setup-policies/sprint-aidp-setup-policies.md"
+      },
+      {
+         "title": "How to Create an External Catalog in Oracle AI Data Platform Workbench",
+         "description": "This LiveLabs Sprint walks you through the steps to create an external catalog in Oracle AI Data Platform Workbench",
+         "filename": "../sprint-aidp-external-catalog/sprint-aidp-external-catalog.md"
+      }
+   ],
+   "task_type": "Sections"
+}

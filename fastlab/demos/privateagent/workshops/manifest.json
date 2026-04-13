@@ -1,0 +1,11 @@
+{
+  "workshoptitle": "Try a Quick Private Agent Factory Demo",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Learn more about Private Agent Factory in Oracle AI Database.",
+      "filename": "../privateagent.md"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Oracle True Cache",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - Accelerate Read-Heavy Workloads with Oracle True Cache",
+            "filename": "true-cache.md"
+        }
+    ]
+}

@@ -8,10 +8,8 @@ JSON Collections are part of a converged Oracle AI Database that supports many d
 
 Behind the scenes, you still get enterprise-grade capabilities: transactions, governance, security, and performance that is now applied directly to your JSON documents.
 
-You may add an optional video, using this format: [](youtube:YouTube video id)
 
-[](youtube:REPLACE_WITH_VIDEO_ID)
-
+[Video hosted on Oracle Video Hub](videohub:1_bgtvmaze)
 
 ### **Try the Interactive Demo**
 Note: You can minimze the menu by clicking '≡' to better interactive with the demo.
@@ -27,7 +25,7 @@ Note: You can minimze the menu by clicking '≡' to better interactive with the 
 - **Insert JSON Documents**: Add documents with slightly different shapes. Some documents with type, some with email, others with nested arrays and properties. The collection accepts them all without schema redesign, while staying immediately available to SQL.
 - **Generate a Report**: Run a query to report on JSON documents directly in the collection, no data movement, no separate analytics systems.
 - **Modify Documents in Place**: Flip data, or update fields in a JSON document. Oracle applies changes transactionally, so both JSON APIs and SQl queries read the same, up-to-date values.
--**Delete Documents Cleanly**: Remove a JSON document from the collection. The demo shows how that delete is applied across views, so apps, reports and analytics no longer see outdated data.  
+- **Delete Documents Cleanly**: Remove a JSON document from the collection. The demo shows how that delete is applied across views, so apps, reports and analytics no longer see outdated data.  
 
 
 ### Key Benefits:
@@ -46,4 +44,4 @@ Note: You can minimze the menu by clicking '≡' to better interactive with the 
 ## Acknowledgements
 - Author — Francis Regalado Database Product Manager
 - Contributors — David Start, William Masdon, Ley Sylvester 
-- Last Updated By/Date — Francis Regalado, November 2025
+- Last Updated By/Date — Francis Regalado, December 2025

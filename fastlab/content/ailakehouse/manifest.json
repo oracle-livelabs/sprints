@@ -1,0 +1,15 @@
+{
+   "workshoptitle": "LiveLabs FastLab - Autonomous AI Lakehouse",
+   "help": "livelabs-help-database_us@oracle.com",
+   "tutorials":
+   [
+       {
+           "title": "FastLab 1: Discover Data Assets with the Autonomous AI Database Data Catalog",
+           "filename":"discover-and-catalog.md"
+       },
+       {
+           "title": "FastLab 2: Build a Live Feed Data Pipeline",
+           "filename":"load-transform.md"
+       }
+   ]
+}
