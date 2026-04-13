@@ -10,28 +10,28 @@
             {
          "title": "Lab 1: Download an Oracle JDK Container Image",
          "description": "Learn how to download an Oracle JDK container image from Oracle Container Registry.",
-         "filename": "./labs/part1.md"
+         "filename": "./labs/1downloadimage.md"
       },
       {
          "title": "Lab 2: Create a JDK Container Image",
          "description": "Download Oracle Linux and then Oracle JDK to create a container image.",
-         "filename": "./labs/part2.md"
+         "filename": "./labs/2createimage.md"
       },
       {
          "title": "Lab 3: Build a Compact JDK Container Image",
          "description": "Use jlink to create a JDK container image that includes only the base Java modules.",
-         "filename": "./labs/part3.md"
+         "filename": "./labs/3compactimage.md"
       },
       {
          "title": "Lab 4: Build a Minimal JDK Runtime with Multi-Stage Docker",
          "description": "Create a minimal Java runtime, then copy it into a tiny final image.",
-         "filename": "./labs/part4.md"
+         "filename": "./labs/4minimalruntime.md"
 
       },
       {
          "title": "Lab 5: Build a JDK Container Image Using Official Oracle JDK Container Image",
          "description": "Include a Java application in an official Oracle JDK container image.",
-         "filename": "./labs/part5.md"
+         "filename": "./labs/5customapp.md"
 
       }
    ],
