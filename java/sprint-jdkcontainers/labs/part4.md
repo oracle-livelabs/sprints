@@ -10,6 +10,13 @@ This tutorial covers how to build a minimal Java runtime (only the modules you n
 
 This tutorial uses the Oracle Linux 10 container images available from [Oracle Container Registry](https://container-registry.oracle.com).
 
+### Objectives
+
+In this lab, you will:
+
+- Create a Dockerfile to automate creation of a minimal JDK
+- Build the container image
+
 ## Task 1: Create the Dockerfile
 
 The process of pulling the Linux base image, downloading and extracting the JDK bundle, and reducing the JDK's size with `jlink` can be automated with a Dockerfile. This is a two-stage process. The first is to setup the builder image and do the heavy work, and the second is to build the final runtime image.

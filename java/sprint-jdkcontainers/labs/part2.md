@@ -1,4 +1,4 @@
-# Lab 2: Create a JDK Container Image
+# Create a JDK Container Image
 
 Duration: 7 minutes
 
@@ -7,6 +7,15 @@ Duration: 7 minutes
 ## Introduction
 
 This tutorial covers downloading Oracle Linux and Oracle JDK, and then using them to create a JDK container image.
+
+### Objectives
+
+In this lab, you will:
+
+- Download Oracle Linux from Oracle Container Registry
+- Download the Oracle JDK
+- Create a Docker file
+- Build a JDK Docker image
 
 ## Task 1: Download Oracle Linux
 

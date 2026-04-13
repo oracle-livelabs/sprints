@@ -8,6 +8,13 @@ Duration: 7 minutes
 
 This tutorial covers building a compact JDK container image using `jlink`. The examples below are for JDK 25.
 
+### Objectives
+
+In this lab, you will:
+
+- Create a custom compact JDK
+- Create a containerimage using the custom JDK
+
 ## Task 1: Create a Custom Compact JDK Using jlink
 
 The `jlink` tool lets you create a custom JDK runtime that includes only the modules your application needs, which can significantly shrink your image. The `jlink` tool is included in the JDK `bin` directory by default.

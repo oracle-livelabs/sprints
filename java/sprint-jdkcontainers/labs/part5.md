@@ -1,4 +1,4 @@
-# Build a JDK Container Image Using the Official Oracle JDK Container Image
+# Build a JDK Container Image With a Custom Java Application Using the Official Oracle JDK Container Image
 
 Duration: 8 minutes
 
@@ -17,6 +17,13 @@ The first section demonstrates creating a Dockerfile that:
 - Builds the final container image
 
 The second section shows how to include a demo application in an container image.
+
+### Objectives
+
+In this lab, you will:
+
+- Build a JDK docker image using the official Oracle image
+- Include a custom Java application in the container
 
 ## Task 1: Build the JDK Docker Image Using the Official Image
 
@@ -111,7 +118,7 @@ java.base@25.0.1
 
 ## Task 2: Include a Java Application in the JDK Container Image
 
-This section covers how to include a Java application in a JDK container,  using a sample application that prints a greeting and today's date. Copy the sample application below and save it as `Demo.java`:
+This section covers how to include a Java application in a JDK container, using a sample application that prints a greeting and today's date. Copy the sample application below and save it as `Demo.java`:
 
 ```java
 import java.time.LocalDate;

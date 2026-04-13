@@ -14,7 +14,14 @@ Each repository provides installation instructions, supported JDK versions, avai
 
 It is recommended to review these resources before creating your own image.
 
-## Task 1: Get Set Up
+### Objectives
+
+In this lab, you will:
+
+- Get access to Oracle Container Registry
+- Download an Oracle JDK Container Image
+
+## Task 1: Getting Started
 
 Sign into [Oracle Container Registry](https://container-registry.oracle.com) with your Oracle account.
 
