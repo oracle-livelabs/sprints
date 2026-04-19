@@ -6,7 +6,7 @@ Welcome to this **Oracle Deep Data Security LiveLabs FastLab** workshop.
 
 This FastLab walks you through the key concepts behind Oracle Deep Data Security — why it is critical to securing agentic AI workloads, and how enterprise identity integrates end-to-end with Oracle Database to enforce per-user data access.
 
-![Architecture diagram placeholder](./images/architecture.png "Architecture diagram showing Emma connecting through an AI agent to Oracle Database with a data grant enforcing per-user access.")
+![Architecture diagram placeholder](./images/deepsec-direct-access-architecture.png "Architecture diagram showing Emma connecting through an AI agent to Oracle Database with a data grant enforcing per-user access.")
 
 In this lab, you will create and use new users, roles, and grants only available in Oracle AI Database 26ai and higher. With these new capabilities, you will learn how you can secure sensitive data in the Oracle Database regardless of the use case. 
 
@@ -38,7 +38,7 @@ Compared to traditional schema-level or object-level grants that give access to 
 
 A data grant (`CREATE DATA GRANT`) defines two things: which columns an end user can SELECT or UPDATE, and which rows — through a predicate (a SQL WHERE condition) evaluated at query time.
 
-The predicate can use `ora_end_user_context.USERNAME`, a built-in function that resolves to the authenticated end user's identity. The same grant works for every employee — no hardcoded names, no per-user logic.
+The predicate can use `ORA_END_USER_CONTEXT.username`, a built-in function that resolves to the authenticated end user's identity. The same grant works for every employee — no hardcoded names, no per-user logic.
 
 At runtime, Oracle Database rewrites every query to add the data grant condition — the result is automatically limited to the rows and columns the user is authorized to see, regardless of how the query was written.
 
@@ -58,9 +58,9 @@ This lab is a walk-through of the technology. If you wish to follow along, you s
 
 ## Task 0 (Optional): Create a Deep Data Security Administrator
 
-To enforce a least-privilege model, you can create a dedicated `DEEPSEC_ADMIN` user with only the privileges required to complete this lab. Run the following as `SYS`, `ADMIN` on ADB, or DBA-like user with the appropriate privileges. 
+To enforce a least-privilege model, you can create a dedicated `DEEPSEC_ADMIN` user with only the privileges required to complete this lab. Run the following as a database user with the appropriate privileges. 
 
-```sql
+```
 <copy>
 CREATE USER deepsec_admin IDENTIFIED BY Oracle123;
 
@@ -77,7 +77,7 @@ GRANT CREATE ROLE TO deepsec_admin;
 GRANT DROP ANY ROLE TO deepsec_admin;
 GRANT GRANT ANY ROLE TO deepsec_admin;
 GRANT GRANT ANY PRIVILEGE TO deepsec_admin;
-GRANT SELECT ANY DICTIONARY TO deepsec_admin;
+GRANT SELECT_CATALOG_ROLE TO deepsec_admin;
 
 -- Deep Data Security privileges (26ai)
 GRANT CREATE END USER TO deepsec_admin;
@@ -284,12 +284,12 @@ Next, you will ensure that Emma and Marvin can see all of their own data and upd
       CREATE OR REPLACE DATA GRANT hr.HRAPP_EMPLOYEE_ACCESS
         AS SELECT, UPDATE(phone_number)
         ON hr.employees
-        WHERE upper(user_name) = upper(ora_end_user_context.USERNAME)
+        WHERE upper(user_name) = upper(ORA_END_USER_CONTEXT.username)
         TO HRAPP_EMPLOYEES;
       </copy>
       ```
 
-    The predicate (`WHERE user_name = ora_end_user_context.USERNAME`) is evaluated at query time. A built-in SQL function (`ora_end_user_context.USERNAME`) resolves the identity of the authenticated end user — no setup, no configuration required. When Emma runs any query on `hr.employees`, Oracle Database silently rewrites it to add this predicate.
+    The predicate (`WHERE user_name = ORA_END_USER_CONTEXT.username`) is evaluated at query time. A built-in SQL function (`ORA_END_USER_CONTEXT.username`) resolves the identity of the authenticated end user — no setup, no configuration required. When Emma runs any query on `hr.employees`, Oracle Database silently rewrites it to add this predicate.
 
 2. Create a data grant that identifies the manager of each employee. This data grant should have a limited number of columns a manager can SELECT as well as a limited number of columns they can UPDATE.
 
@@ -300,7 +300,7 @@ Next, you will ensure that Emma and Marvin can see all of their own data and upd
       ON hr.employees
       WHERE manager_id IN (SELECT m.manager_id
                              FROM hr.managers m
-                            WHERE upper(m.mgr_user_name) = upper(ora_end_user_context.username))
+                            WHERE upper(m.mgr_user_name) = upper(ORA_END_USER_CONTEXT.username))
       TO hrapp_managers;
       </copy>
       ```
@@ -345,8 +345,8 @@ Next, you will ensure that Emma and Marvin can see all of their own data and upd
 
       | GRANT\_NAME | PREDICATE |
       |---|---|
-      | HRAPP\_EMPLOYEE\_ACCESS | `upper(user_name) = upper(ora_end_user_context.USERNAME)` |
-      | HRAPP\_MANAGER\_ACCESS | `manager_id IN (SELECT m.manager_id FROM hr.managers m WHERE upper(m.mgr_user_name) = upper(ora_end_user_context.username))` |
+      | HRAPP\_EMPLOYEE\_ACCESS | `upper(user_name) = upper(ORA_END_USER_CONTEXT.username)` |
+      | HRAPP\_MANAGER\_ACCESS | `manager_id IN (SELECT m.manager_id FROM hr.managers m WHERE upper(m.mgr_user_name) = upper(ORA_END_USER_CONTEXT.username))` |
       {: title="Data grant predicates"}
 
       The employee predicate is a direct identity match — the row is visible only when `user_name` equals the authenticated user. The manager predicate looks up the authenticated user in `hr.managers` to find their `manager_id`, then returns all employees who report to them. Both predicates are evaluated at query time by Oracle Database — no application code required.
@@ -363,11 +363,11 @@ Next, you will ensure that Emma and Marvin can see all of their own data and upd
     </copy>
     ```
 
-2. Next, query `ora_end_user_context.username` to ensure it resolves to Emma's identity. This is the exact value the data grant predicate evaluates at query time — it must match the `user_name` column in `hr.employees`.
+2. Next, query `ORA_END_USER_CONTEXT.username` to ensure it resolves to Emma's identity. This is the exact value the data grant predicate evaluates at query time — it must match the `user_name` column in `hr.employees`.
 
       ```sql
       <copy>
-      SELECT ora_end_user_context.username FROM DUAL;
+      SELECT ORA_END_USER_CONTEXT.username FROM DUAL;
       </copy>
       ```
 
@@ -491,11 +491,11 @@ As you have experienced, Emma has only the privileges necessary to query, update
     </copy>
     ```
 
-2. Next, query `ora_end_user_context.username` to ensure it resolves to Marvin's identity. This is the exact value the data grant predicate evaluates at query time — it must match the `user_name` column in `hr.employees`.
+2. Next, query `ORA_END_USER_CONTEXT.username` to ensure it resolves to Marvin's identity. This is the exact value the data grant predicate evaluates at query time — it must match the `user_name` column in `hr.employees`.
 
       ```sql
       <copy>
-      SELECT ora_end_user_context.username FROM DUAL;
+      SELECT ORA_END_USER_CONTEXT.username FROM DUAL;
       </copy>
       ```
 
@@ -679,15 +679,17 @@ You configured database-level security for an AI copilot so that each user can o
 |---|---|
 | **END USER** | `emma` and `marvin` — Oracle Database end users authenticated by database password or using OCI IAM or Microsoft Entra ID |
 | **DATA ROLE** | `HRAPP_EMPLOYEES` and `HRAPP_MANAGERS` — named policy holders; data grants attach to the role, the role grants to many users |
-| **DATA GRANT — Task 4** | `HRAPP_EMPLOYEE_ACCESS` — employees see all of their own columns and can update their phone number |
-| **DATA GRANT — Task 4** | `HRAPP_MANAGER_ACCESS` — managers see their direct reports (SSN excluded) and can update salary and department |
-| **`ora_end_user_context.username`** | Built-in function that resolves to the authenticated user's identity at query time — the key to the row-filter predicate |
+| **DATA GRANT** | `HRAPP_EMPLOYEE_ACCESS` — employees see all of their own columns and can update their phone number |
+| **DATA GRANT** | `HRAPP_MANAGER_ACCESS` — managers see their direct reports (SSN excluded) and can update salary and department |
+| **`ORA_END_USER_CONTEXT.username`** | Built-in function that resolves to the authenticated user's identity at query time — the key to the row-filter predicate |
 | **`DIRECT_LOGON_ROLE`** | Database role granting `CREATE SESSION`, required for direct SQL*Plus connections |
 {: title="Lab components"}
 
 Oracle Database restricted Emma's access to only authorized data — regardless of the SQL the agent sent. No proxy, no OS agent, nothing bolted on to the database.
 
 The Trust Chain: **End user authentication → `DATA ROLE` → `DATA GRANT` enforcement.** The database enforces the boundary, not the application and not the agent.
+
+<!--
 
 ## Next Steps
 
@@ -696,10 +698,12 @@ This lab used password-based authentication to focus on the Deep Data Security m
 To see this in action with Microsoft Entra ID, try the next FastLab:
 
 * [Oracle Deep Data Security with Microsoft Entra ID](../data-grants/index.html)
+ -->
 
 ## Learn More
 
 * [Oracle AI Database 26ai Documentation](https://docs.oracle.com/en/database/)
+* [Oracle Deep Data Security Configuration Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/ddscg/index.html)
 
 ## Acknowledgements
 * **Author** - Roger Wigenstam, Oracle Database Security Product Management
