@@ -700,6 +700,7 @@ To see this in action with Microsoft Entra ID, try the next FastLab:
 ## Learn More
 
 * [Oracle AI Database 26ai Documentation](https://docs.oracle.com/en/database/)
+* [Oracle Deep Data Security Configuration Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/ddscg/index.html)
 
 ## Acknowledgements
 * **Author** - Roger Wigenstam, Oracle Database Security Product Management
