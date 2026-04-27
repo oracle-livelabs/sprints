@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab: Oracle Deep Data Security and Microsoft Entra ID",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab: Oracle Deep Data Security",
+            "filename": "data-grants.md"
+        }
+    ]
+}
