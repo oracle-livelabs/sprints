@@ -680,7 +680,6 @@ The data grants in this lab are identical to the ones in the companion FastLab. 
 | Data grants | Identical | Identical |
 {: title="Entra ID vs. password authentication"}
 
-<!--
 ## Next Steps
 
 This lab used Microsoft Entra ID as the identity provider. The same Deep Data Security concepts — data grants, data roles, and per-user predicates — work with any OAuth2-compatible IdP, including Oracle Cloud IAM.
@@ -688,12 +687,12 @@ This lab used Microsoft Entra ID as the identity provider. The same Deep Data Se
 To explore the foundational concepts without an external identity provider — including password-based end-user authentication and a step-by-step introduction to data roles — see the companion FastLab:
 
 * [Getting Started with Oracle Deep Data Security](../end-user-data-grants/index.html)
- -->
- 
+
 ## Learn More
 
 * [Oracle AI Database 26ai Documentation](https://docs.oracle.com/en/database/)
 * [Oracle Deep Data Security Configuration Guide](https://docs.oracle.com/en/database/oracle/oracle-database/26/ddscg/index.html)
+* [FastLab: Getting Started with Oracle Deep Data Security](../end-user-data-grants/index.html)
 
 ## Acknowledgements
 * **Author** - Roger Wigenstam, Oracle Database Security Product Management, March 2026
