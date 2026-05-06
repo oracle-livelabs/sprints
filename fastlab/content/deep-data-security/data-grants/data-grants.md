@@ -265,7 +265,7 @@ For the Oracle Deep Data Security data grants, you will continue to use the same
       ```sql
       <copy>
       CREATE OR REPLACE DATA GRANT hr.HRAPP_EMPLOYEES_ACCESS
-        AS SELECT, UPDATE(phone_number)
+        AS SELECT, UPDATE(phone_number, first_name)
         ON hr.employees
         WHERE upper(user_name) = upper(ORA_END_USER_CONTEXT.username)
         TO HRAPP_EMPLOYEES;
@@ -696,4 +696,4 @@ To explore the foundational concepts without an external identity provider — i
 
 ## Acknowledgements
 * **Author** - Roger Wigenstam, Oracle Database Security Product Management, March 2026
-* **Last Updated By/Date** - Richard C. Evans, Oracle Database Security Product Management, April 2026
+* **Last Updated By/Date** - Richard C. Evans, Oracle Database Security Product Management, May 2026

@@ -281,7 +281,7 @@ Next, you will ensure that Emma and Marvin can see all of their own data and upd
       ```sql
       <copy>
       CREATE OR REPLACE DATA GRANT hr.HRAPP_EMPLOYEE_ACCESS
-        AS SELECT, UPDATE(phone_number)
+        AS SELECT, UPDATE(phone_number, first_name)
         ON hr.employees
         WHERE upper(user_name) = upper(ORA_END_USER_CONTEXT.username)
         TO HRAPP_EMPLOYEES;
@@ -704,4 +704,4 @@ To see this in action with Microsoft Entra ID, try the next FastLab:
 
 ## Acknowledgements
 * **Author** - Roger Wigenstam, Oracle Database Security Product Management
-* **Last Updated By/Date:** Richard C. Evans - April 2026
+* **Last Updated By/Date** - Richard C. Evans, Oracle Database Security Product Management, May 2026
