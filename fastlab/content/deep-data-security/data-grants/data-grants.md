@@ -279,7 +279,7 @@ For the Oracle Deep Data Security data grants, you will continue to use the same
       ```sql
       <copy>
       CREATE OR REPLACE DATA GRANT hr.HRAPP_MANAGER_ACCESS
-        AS SELECT (ALL COLUMNS EXCEPT ssn), UPDATE (salary, department_id)
+        AS SELECT (ALL COLUMNS EXCEPT ssn), UPDATE (salary, department_id, first_name)
         ON hr.employees
         WHERE manager_id = ORA_END_USER_CONTEXT.HR.EMP_CTX.ID
         TO HRAPP_MANAGERS;

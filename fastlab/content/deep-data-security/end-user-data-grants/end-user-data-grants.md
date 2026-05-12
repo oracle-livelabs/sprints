@@ -295,7 +295,7 @@ Next, you will ensure that Emma and Marvin can see all of their own data and upd
       ```sql
       <copy>
       CREATE OR REPLACE DATA GRANT hr.HRAPP_MANAGER_ACCESS
-      AS SELECT (ALL COLUMNS EXCEPT ssn), UPDATE (salary, department_id)
+      AS SELECT (ALL COLUMNS EXCEPT ssn), UPDATE (salary, department_id, first_name)
       ON hr.employees
       WHERE manager_id IN (SELECT m.manager_id
                              FROM hr.managers m
