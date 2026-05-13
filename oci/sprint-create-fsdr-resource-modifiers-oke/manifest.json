@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-dbmaa_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create OCI Full Stack DR resource modifiers for OKE?",
+         "description": "Learn how to create and map Kubernetes resource modifiers for OKE clusters in OCI Full Stack Disaster Recovery plans.",
+         "filename": "sprint-create-fsdr-resource-modifiers-oke.md"
+      }
+   ],
+   "task_type": "Sections",
+    "hide_button": "true"
+}
