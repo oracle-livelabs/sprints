@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .title { font: 700 24px Arial, sans-serif; fill: #1f2937; }
+      .label { font: 600 15px Arial, sans-serif; fill: #111827; }
+      .text { font: 14px Arial, sans-serif; fill: #374151; }
+      .box { fill: #f8fafc; stroke: #2563eb; stroke-width: 2; rx: 14; ry: 14; }
+      .arrow { stroke: #2563eb; stroke-width: 3; fill: none; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="44" class="title">OCI Full Stack DR OKE Resource Modifier Flow</text>
+
+  <rect x="40" y="90" width="250" height="130" class="box"/>
+  <text x="58" y="126" class="label">1. Create Modifier ConfigMaps (Primary)</text>
+  <text x="58" y="152" class="text">Namespace: dr-system</text>
+  <text x="58" y="175" class="text">Example: modifier-ingress</text>
+  <text x="58" y="198" class="text">Example: modifier-frontend-image</text>
+
+  <rect x="340" y="90" width="250" height="130" class="box"/>
+  <text x="358" y="126" class="label">2. Map in OKE Member</text>
+  <text x="358" y="152" class="text">DRPG Members -&gt; OKE Cluster</text>
+  <text x="358" y="175" class="text">Set namespace + configMap</text>
+  <text x="358" y="198" class="text">Publish DRPG changes</text>
+
+  <rect x="640" y="90" width="250" height="130" class="box"/>
+  <text x="658" y="126" class="label">3. Refresh DR Plans</text>
+  <text x="658" y="152" class="text">Refresh + Verify plans</text>
+  <text x="658" y="175" class="text">Run prechecks</text>
+  <text x="658" y="198" class="text">Confirm plan readiness</text>
+
+  <rect x="940" y="90" width="220" height="130" class="box"/>
+  <text x="958" y="126" class="label">4. Execute Plan</text>
+  <text x="958" y="152" class="text">Start Drill or Switchover</text>
+  <text x="958" y="175" class="text">Restore applies modifiers</text>
+
+  <rect x="340" y="290" width="520" height="170" class="box"/>
+  <text x="360" y="324" class="label">Validation on Target OKE Cluster</text>
+  <text x="360" y="352" class="text">frontend replicas: 4 -&gt; 2</text>
+  <text x="360" y="378" class="text">frontend image: nginx:1.27 -&gt; nginx:1.28</text>
+  <text x="360" y="404" class="text">Ingress host: primary -&gt; standby URL</text>
+  <text x="360" y="430" class="text">api nodeSelector removed</text>
+
+  <path d="M290 155 L340 155" class="arrow"/>
+  <path d="M590 155 L640 155" class="arrow"/>
+  <path d="M890 155 L940 155" class="arrow"/>
+  <path d="M1050 220 L1050 255 L600 255 L600 290" class="arrow"/>
+</svg>

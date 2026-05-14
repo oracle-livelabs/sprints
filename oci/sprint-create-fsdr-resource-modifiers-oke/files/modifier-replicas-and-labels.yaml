@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: modifier-replicas-and-labels
+  namespace: dr-system
+data:
+  config.yaml: |
+    version: v1
+    resourceModifierRules:
+    - conditions:
+        groupResource: deployment
+        resourceNameRegex: "^frontend$"
+        namespaces:
+        - web
+      patches:
+      - operation: replace
+        path: "/spec/replicas"
+        value: 2
+      - operation: add
+        path: "/metadata/labels/dr-mode"
+        value: "standby"

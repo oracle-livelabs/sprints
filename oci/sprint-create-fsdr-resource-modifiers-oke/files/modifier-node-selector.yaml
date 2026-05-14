@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: modifier-node-selector
+  namespace: dr-system
+data:
+  config.yaml: |
+    version: v1
+    resourceModifierRules:
+    - conditions:
+        groupResource: deployment
+        resourceNameRegex: "^api$"
+        namespaces:
+        - web
+      patches:
+      - operation: remove
+        path: "/spec/template/spec/nodeSelector"
