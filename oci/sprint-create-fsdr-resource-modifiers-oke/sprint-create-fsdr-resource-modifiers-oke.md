@@ -16,7 +16,7 @@ Typical use cases include:
 * Adding DR labels/annotations for operational visibility.
 * Removing or adjusting settings that are not valid in the target environment.
 
-![Resource modifier workflow diagram](./images/oke-resource-modifier-flow.svg "image")
+![Resource modifier workflow diagram](./images/oke-resource-modifier-flow.png "image")
 <br>**Figure 1:** End-to-end flow for OKE resource modifiers in OCI Full Stack DR.
 
 > **Note:** This tutorial was validated against Oracle documentation available on **April 18, 2026**.
@@ -49,7 +49,7 @@ For IAM guidance, see:
 
 Deploy a sample application stack first so all modifier examples can be tested against real resources.
 
-1. Apply the sample manifests from the tutorial `files` folder.
+1. Apply the sample manifests from the tutorial [files](https://github.com/oracle-livelabs/sprints/tree/main/oci/sprint-create-fsdr-resource-modifiers-oke/files) folder.
 
     ```bash
     kubectl apply -f ./files/example-web-app-manifests.yaml
@@ -98,10 +98,10 @@ These ConfigMaps are later mapped in the OKE member configuration.
     ```
 
 > **Tip:** Start with one or two small modifier files and expand once validated in a drill.
-
-    ![Resource modifier ConfigMaps created in the primary cluster.](./images/task2-configmaps-primary.png "image")
+>
+>   ![Resource modifier ConfigMaps created in the primary cluster.](./images/task2-configmaps-primary.png "image")
     <br>**Figure:** `dr-system` namespace and resource modifier ConfigMaps created in the primary cluster.
-
+  
 ## Task 3: Add OKE Cluster Member with Resource Modifier Mappings
 
 1. In OCI Console, open **Migration & Disaster Recovery**, then **DR protection groups**.
