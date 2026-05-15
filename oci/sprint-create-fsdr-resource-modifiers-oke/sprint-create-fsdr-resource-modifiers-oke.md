@@ -49,7 +49,7 @@ For IAM guidance, see:
 
 Deploy a sample application stack first so all modifier examples can be tested against real resources.
 
-1. Apply the sample manifests from the tutorial [files](https://github.com/oracle-livelabs/sprints/tree/main/oci/sprint-create-fsdr-resource-modifiers-oke/files) folder.
+1. Apply the sample manifests from the tutorial [files](./files.zip) folder.
 
     ```bash
     kubectl apply -f ./files/example-web-app-manifests.yaml
