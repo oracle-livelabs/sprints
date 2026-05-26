@@ -189,7 +189,7 @@ Modifier mapping reference:
     | `copy` | Duplicate an existing value from one path to another path. | `from`, `path` | Copy a container, environment variable, or template value before applying a later adjustment. |
     | `move` | Move a value from one path to another and remove it from the original path. | `from`, `path` | Use only for advanced manifest reshaping when a value must be relocated. |
     | `test` | Check that a value matches before applying later patches. | `path`, `value` | Guard a risky change so a plan does not silently modify an unexpected resource state. |
-    | `ignore` | Skip the matching resource | None | Guard a risky change so a plan does not silently modify an unexpected resource state. |
+    | `ignore` | Skip the matching resource | None | None |
 
     > **Tip:** Prefer `replace`, `add`, and `remove` for most DR-specific changes. Use `test` when you want the modifier to apply only if the source resource is in the expected state. Use `copy` and `move` sparingly, because they make the restored manifest harder to reason about.
 
