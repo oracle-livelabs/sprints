@@ -65,7 +65,7 @@ To enforce a least-privilege model, you can create a dedicated `DEEPSEC_ADMIN` u
 CREATE USER deepsec_admin IDENTIFIED BY Oracle123;
 
 -- Standard Oracle privileges
-GRANT CREATE SESSION TO deepsec_admin;
+GRANT CREATE SESSION TO deepsec_admin WITH ADMIN OPTION;
 GRANT CREATE USER TO deepsec_admin;
 GRANT ALTER USER TO deepsec_admin;
 GRANT DROP USER TO deepsec_admin;
