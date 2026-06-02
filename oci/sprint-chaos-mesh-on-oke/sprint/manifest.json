@@ -6,7 +6,7 @@
          "title": "Deploy Chaos Mesh on OKE using Oracle Resource Manager",
          "description": "",
          "filename": "sprint-chaos-mesh-on-oke.md"
-      },
+      }
       
    ],
    "task_type": "Sections"
