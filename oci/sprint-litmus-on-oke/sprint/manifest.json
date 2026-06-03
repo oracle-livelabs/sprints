@@ -1,12 +1,12 @@
 {
    "workshoptitle": "LiveLabs Sprints",
-   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "help": "livelabs-help-oci_us@oracle.com",
    "tutorials": [
       {
          "title": "Deploy Litmus Chaos on OKE using Oracle Resource Manager",
          "description": "",
          "filename": "sprint-litmus-on-oke.md"
-      },
+      }
       
    ],
    "task_type": "Sections"
