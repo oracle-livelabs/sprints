@@ -204,11 +204,11 @@ The example uses the Kubernetes manifests included in **chaos-mesh-on-oke-sample
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
 
 * [Chaos MEsh docs](https://chaos-mesh.org/docs/)
 * [OKE docs](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm)
 
 ## Acknowledgements
-* **Author** - <Daniel Dinu, Principal Cloud Architect>
-* **Last Updated By/Date** - <Daniel Dinu,  June 2026>
+
+* **Author** - Daniel Dinu, Principal Cloud Architect
+* **Last Updated By/Date** - Daniel Dinu,  June 2026

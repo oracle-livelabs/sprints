@@ -182,11 +182,11 @@ The following example deploys an `nginx` workload and runs a pod-delete chaos ex
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
 
 * [Litmus tutorial](https://docs.litmuschaos.io/docs/introduction/what-is-litmus)
 * [OKE docs](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm)
 
 ## Acknowledgements
-* **Author** - <Daniel Dinu, Principal Cloud Architect>
-* **Last Updated By/Date** - <Daniel Dinu,  June 2026>
+
+* **Author** - Daniel Dinu, Principal Cloud Architect
+* **Last Updated By/Date** - Daniel Dinu,  June 2026
