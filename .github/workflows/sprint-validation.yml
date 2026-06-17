@@ -1,0 +1,91 @@
+name: LiveLabs Sprint Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: Sprint file or folder to validate. Leave blank to validate latest commit changes.
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  sprint-validation:
+    name: Validate Sprint Content
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run sprint validator
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          MANUAL_PATH: ${{ inputs.path }}
+        run: |
+          set -euo pipefail
+
+          zero_sha="0000000000000000000000000000000000000000"
+
+          collect_changed_files() {
+            local base_sha="$1"
+            local head_sha="$2"
+
+            mapfile -t validation_files < <(
+              git diff --name-only --diff-filter=AM "$base_sha" "$head_sha" |
+                grep -E '\.md$|(^|/)(index\.html|manifest\.json)$' |
+                grep -v '^\.github/' |
+                grep -v '^node_modules/' || true
+            )
+          }
+
+          validation_files=()
+
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            if [[ -n "${MANUAL_PATH:-}" ]]; then
+              validation_files=("$MANUAL_PATH")
+            elif git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+              collect_changed_files "HEAD^" "HEAD"
+            else
+              validation_files=(".")
+            fi
+          elif [[ "$EVENT_NAME" == "pull_request" ]]; then
+            git fetch --no-tags --prune origin "$PR_BASE_SHA:$PR_BASE_SHA" || true
+            collect_changed_files "$PR_BASE_SHA" "$CURRENT_SHA"
+          elif [[ "$EVENT_NAME" == "push" ]]; then
+            if [[ -z "${BEFORE_SHA:-}" || "$BEFORE_SHA" == "$zero_sha" ]]; then
+              if git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+                collect_changed_files "HEAD^" "HEAD"
+              else
+                validation_files=(".")
+              fi
+            else
+              git fetch --no-tags --prune origin "$BEFORE_SHA:$BEFORE_SHA" || true
+              collect_changed_files "$BEFORE_SHA" "$CURRENT_SHA"
+            fi
+          fi
+
+          if [[ "${#validation_files[@]}" -eq 0 ]]; then
+            echo "No sprint validation files changed."
+            exit 0
+          fi
+
+          echo "Changed sprint validation files:"
+          printf ' - %s\n' "${validation_files[@]}"
+
+          curl -sSfL \
+            https://raw.githubusercontent.com/oracle-livelabs/common/refs/heads/main/.github/scripts/validate-livelabs-sprint.py \
+            -o /tmp/validate-livelabs-sprint.py
+
+          python3 /tmp/validate-livelabs-sprint.py "${validation_files[@]}"

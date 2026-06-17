@@ -1,0 +1,133 @@
+name: LiveLabs Image Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: Image file or folder to validate. Leave blank to validate latest commit changes.
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  check-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Detect oversized images (>1280px)
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          MANUAL_PATH: ${{ inputs.path }}
+        run: |
+          set -euo pipefail
+          MAX=1280
+          zero_sha="0000000000000000000000000000000000000000"
+
+          collect_changed_images() {
+            local base_ref="$1"
+            local head_ref="$2"
+
+            if [[ -n "$head_ref" ]]; then
+              mapfile -d '' files < <(
+                git diff --name-only --diff-filter=AM -z "$base_ref" "$head_ref" -- \
+                  '*.png' '*.jpg' '*.jpeg' '*.PNG' '*.JPG' '*.JPEG' || true
+              )
+            else
+              mapfile -d '' files < <(
+                git diff --name-only --diff-filter=AM -z "$base_ref" -- \
+                  '*.png' '*.jpg' '*.jpeg' '*.PNG' '*.JPG' '*.JPEG' || true
+              )
+            fi
+          }
+
+          collect_images_under_path() {
+            local target_path="$1"
+
+            if [[ -d "$target_path" ]]; then
+              mapfile -d '' files < <(
+                find "$target_path" -type f \( \
+                  -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \
+                \) -print0
+              )
+            elif [[ -f "$target_path" ]]; then
+              files=("$target_path")
+            else
+              echo "::error::Manual path does not exist: $target_path"
+              exit 1
+            fi
+          }
+
+          files=()
+
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            if [[ -n "${MANUAL_PATH:-}" ]]; then
+              collect_images_under_path "$MANUAL_PATH"
+            elif git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+              collect_changed_images "HEAD^" "HEAD"
+            else
+              collect_images_under_path "."
+            fi
+          elif [[ "$EVENT_NAME" == "pull_request" ]]; then
+            git fetch --no-tags --prune origin "$PR_BASE_SHA:$PR_BASE_SHA" || true
+            collect_changed_images "$PR_BASE_SHA" "$CURRENT_SHA"
+          elif [[ "$EVENT_NAME" == "push" ]]; then
+            if [[ -z "${BEFORE_SHA:-}" || "$BEFORE_SHA" == "$zero_sha" ]]; then
+              if git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+                collect_changed_images "HEAD^" "HEAD"
+              else
+                collect_images_under_path "."
+              fi
+            else
+              git fetch --no-tags --prune origin "$BEFORE_SHA:$BEFORE_SHA" || true
+              collect_changed_images "$BEFORE_SHA" "$CURRENT_SHA"
+            fi
+          fi
+
+          bad=0
+          for f in "${files[@]}"; do
+            [[ -f "$f" ]] || continue
+
+            dims="$(ffprobe -v error -select_streams v:0 \
+              -show_entries stream=width,height \
+              -of csv=p=0:s=x "$f" || true)"
+
+            if [[ -z "$dims" ]]; then
+              echo "Skipping unreadable image: $f"
+              continue
+            fi
+
+            w="${dims%x*}"
+            h="${dims#*x}"
+
+            if [[ "$w" -gt "$MAX" || "$h" -gt "$MAX" ]]; then
+              echo "::error file=$f::${f} is ${w}x${h}. Max allowed is ${MAX}px (either dimension)."
+              bad=1
+            fi
+          done
+
+          if [[ "$bad" -eq 1 ]]; then
+            echo ""
+            echo "One or more images exceed ${MAX}px."
+            echo "Please fix this locally in your fork."
+            echo ""
+            echo "Please check documentation for more information..."
+            exit 1
+          fi
