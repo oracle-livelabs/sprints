@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Test Missing Duration",
+   "help": "livelabs-help-test_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I test missing duration?",
+         "description": "Disposable sprint used to test duration validation.",
+         "filename": "test-missing-duration.md"
+      }
+   ],
+   "task_type": "Sections"
+}

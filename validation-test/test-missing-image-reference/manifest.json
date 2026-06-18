@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Test Missing Image Reference",
+   "help": "livelabs-help-test_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I test missing image references?",
+         "description": "Disposable sprint used to test image reference validation.",
+         "filename": "test-missing-image-reference.md"
+      }
+   ],
+   "task_type": "Sections"
+}

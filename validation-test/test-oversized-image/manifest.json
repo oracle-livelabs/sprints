@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Test Oversized Image",
+   "help": "livelabs-help-test_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I test oversized image validation?",
+         "description": "Disposable sprint used to test image dimension validation.",
+         "filename": "test-oversized-image.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "Test Missing H1",
+   "help": "livelabs-help-test_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I test a missing H1?",
+         "description": "Disposable sprint used to test H1 validation.",
+         "filename": "test-missing-h1.md"
+      }
+   ],
+   "task_type": "Sections"
+}
