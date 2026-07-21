@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab: Cross-table Data Grants with Oracle Deep Data Security",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab: Cross-table Data Grants",
+            "filename": "cross-table-data-grants.md"
+        }
+    ]
+}
