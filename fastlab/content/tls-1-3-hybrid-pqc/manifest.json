@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - How do you configure TLS 1.2 and TLS 1.3 with hybrid post-quantum key exchange?",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "FastLab - How do you configure TLS 1.2 and TLS 1.3 with hybrid key exchange?",
+            "filename": "tls-1-3-hybrid-pqc.md"
+        }
+    ]
+}
