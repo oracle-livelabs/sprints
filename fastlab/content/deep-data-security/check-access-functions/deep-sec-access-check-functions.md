@@ -1,4 +1,4 @@
-# How Can Access-Check Functions Build Authorization-Aware Application Results?
+# How Can Deep Data Security Functions Help You Build Authorization-Aware Application Results?
 
 ## What You Will Learn
 
@@ -639,6 +639,8 @@ Combine both functions into the result an HR dashboard, API, or AI-copilot backe
 ## Optional Variation: Use SQL Macros for the Same Grants
 
 If a predicate will be reused across data grants, replace it with a SQL Macro.
+
+SQL Macros in data grant predicates are an October 2026 Release Update (RU) feature. For a complete walkthrough, see [How Can SQL Macros Simplify Deep Data Security Data Grants?](../sql-macros/index.html).
 
 This changes only the data-grant definitions. Tasks 5 through 8 remain unchanged.
 

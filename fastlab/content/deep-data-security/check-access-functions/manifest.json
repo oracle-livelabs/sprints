@@ -1,9 +1,9 @@
 {
-    "workshoptitle": "LiveLabs FastLab: How Can Access-Check Functions Build Authorization-Aware Application Results?",
+    "workshoptitle": "LiveLabs FastLab: How Can Deep Data Security Functions Help You Build Authorization-Aware Application Results?",
     "help": "livelabs-help-database_us@oracle.com",
     "tutorials": [
         {
-            "title": "How Can Access-Check Functions Build Authorization-Aware Application Results?",
+            "title": "How Can Deep Data Security Functions Help You Build Authorization-Aware Application Results?",
             "filename": "deep-sec-access-check-functions.md"
         }
     ]
