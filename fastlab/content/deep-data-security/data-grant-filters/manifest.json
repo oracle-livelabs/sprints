@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs FastLab - Go Beyond the Data Grant with Deep Data Security Filters",
+    "help": "livelabs-help-database_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Go Beyond the Data Grant with Deep Data Security Filters",
+            "filename": "data-grant-filters.md"
+        }
+    ]
+}
