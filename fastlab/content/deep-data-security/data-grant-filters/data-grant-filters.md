@@ -43,10 +43,10 @@ Ordinary data grants are additive by default: their allowed data is combined wit
 
 ### Prerequisites
 
-- **Oracle AI Database 26ai with the October Release Update**.
-- A lab DBA account with the privileges required to create schemas, tables, end users, data roles, data grants, and filters.
-- SQL*Plus or SQLcl and a working database connection alias. Replace `hrdb` in the examples with your connection alias.
-- A disposable lab environment. The standalone setup creates an HR schema and uses sample passwords and fictitious employee data.
+- **Oracle AI Database 26ai** with the October Release Update (DBRU 23.26.4) with COMPATIBLE initialization parameter to 20.0 or greater
+- A lab DBA account with the privileges required to create schemas, tables, end users, data roles, data grants, and filters
+- SQL*Plus or SQLcl and a working database connection alias. Replace `hrdb` in the examples with your connection alias
+- A disposable lab environment. The standalone setup creates an HR schema and uses sample passwords and fictitious employee data
 
 Keep an administrator session open for policy changes. Use separate Emma and Marvin sessions for queries, and reconnect those end-user sessions after each policy change before checking results.
 
