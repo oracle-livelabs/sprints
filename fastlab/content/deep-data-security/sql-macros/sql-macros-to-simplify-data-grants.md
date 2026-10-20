@@ -62,10 +62,10 @@ Before starting this FastLab, complete the foundational **Getting Started with O
 
 You also need:
 
-- An **Oracle AI Database 26ai** instance
+- **Oracle AI Database 26ai** with the October Release Update (DBRU 23.26.4) with COMPATIBLE initialization parameter to 20.0 or greater
 - A DBA account or the `DEEPSEC_ADMIN` account from the foundational lab
 - Permission to create SQL macros and administer data grants
-- The account that creates the macros must be authorized to create them in the `HR` schema. Confirm this separately if you use the least-privilege administrator from the foundational lab.
+- The account that creates the macros must be authorized to create them in the `HR` schema. Confirm this separately if you use the least-privilege administrator from the foundational lab
 
 The examples in this FastLab use the same HR data as the foundational lab. Run administrative tasks as your Deep Data Security administrator unless otherwise noted.
 
@@ -458,14 +458,6 @@ In this FastLab, you:
 - Reviewed the privilege, binding, and runtime dependency rules for SQL macros.
 
 The important result is that the authorization behavior did not change. SQL macros moved the predicate logic into reusable definitions, making future data grant administration simpler and more consistent.
-
-## Next Steps
-
-Continue with the following Deep Data Security topics:
-
-- Use `ORA_IS_COLUMN_AUTHORIZED` to distinguish an unauthorized `NULL` from a genuine `NULL` value.
-- Use `ORA_CHECK_DATA_PRIVILEGE` to determine whether a user can perform a specific row or column operation.
-- Review data grant behavior when users, roles, tables, views, or columns are dropped or changed.
 
 ## Learn More
 
